@@ -48,4 +48,5 @@
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件          |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | 用于镜像服的 region 文件更新 |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
-
+| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
+| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
