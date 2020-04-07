@@ -30,9 +30,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ## Server Control
 
-| Name       | Maintainer | Function |
-| ---------- | ---------- | -------- |
-| [PCRC-MCDR |            |          |
+| Name | Maintainer | Function |
+| ---- | ---------- | -------- |
+|      |            |          |
 
 ## Command Helper
 
