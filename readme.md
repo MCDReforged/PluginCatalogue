@@ -22,17 +22,17 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ### Outside
 
-| Name                                                 | Maintainer                                        | Function                                                     |
-| ---------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------ |
-| [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)   | [Fallen_Breath](https://github.com/Fallen-Breath) | a PCRC plugin                                                |
-| [ChatBridge](https://github.com/TISUnion/ChatBridge) | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server     |
-| [mcd-bot](https://github.com/TISUnion/mcd-bot)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
+| Name                                                        | Maintainer                                        | Function                                                     |
+| ----------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | a PCRC plugin                                                |
+| [ChatBridge](https://github.com/TISUnion/ChatBridge)        | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server     |
+| [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
 
 ## Server Control
 
-| Name       | Maintainer | Function |
-| ---------- | ---------- | -------- |
-| [PCRC-MCDR |            |          |
+| Name                                                        | Maintainer                                        | Function                                            |
+| ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server |
 
 ## Command Helper
 

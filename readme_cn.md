@@ -23,17 +23,17 @@
 
 ### 游戏外
 
-| 名称                                                 | 维护者                                            | 功能                                                         |
-| ---------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------ |
-| [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)   | [Fallen_Breath](https://github.com/Fallen-Breath) | 内嵌 PCRC 的插件                                             |
-| [ChatBridge](https://github.com/TISUnion/ChatBridge) | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天                                                     |
-| [mcd-bot](https://github.com/TISUnion/mcd-bot)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
+| 名称                                                        | 维护者                                            | 功能                                                         |
+| ----------------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | 内嵌 PCRC 的插件                                             |
+| [ChatBridge](https://github.com/TISUnion/ChatBridge)        | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天                                                     |
+| [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
 
 ## 服务器控制
 
-| 名称 | 维护者 | 功能 |
-| ---- | ------ | ---- |
-|      |        |      |
+| 名称                                                        | 维护者                                            | 功能                                            |
+| ----------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------- |
+| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器 |
 
 ## 指令助手
 
