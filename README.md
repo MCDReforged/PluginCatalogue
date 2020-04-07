@@ -1,7 +1,7 @@
 # PluginCatalogue
 [中文](https://github.com/MCDReforged-Plugins/PluginCatalogue/blob/master/readme_cn.md)
 
-A repository for listing plugins
+A repository for listing [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugins
 
 Only include plugins compatible with MCDReforged
 
