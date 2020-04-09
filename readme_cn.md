@@ -20,6 +20,7 @@
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表 |
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` 获得开服至今的天数               |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器                             |
+| [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress       |
 
 ### 游戏外
 
@@ -46,6 +47,7 @@
 | 名称                                                         | 维护者                                            | 功能                                 |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
+| [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | A library for better text display |
 
 ## 文件管理
 
