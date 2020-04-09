@@ -41,6 +41,12 @@
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 
+## API
+
+| 名称                                                         | 维护者                                            | 功能                                 |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
+
 ## 文件管理
 
 | 名称                                                         | 维护者                                            | 功能                         |

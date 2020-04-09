@@ -40,6 +40,12 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
 
+## API
+
+| Name                                                         | Maintainer                                            | Function                                 |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
+
 ## File Management
 
 | Name                                                         | Maintainer                                        | Function                                     |
