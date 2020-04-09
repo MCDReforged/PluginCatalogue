@@ -13,13 +13,15 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ### In Game
 
-| Name                                                 | Maintainer                                        | Function                                         |
-| ---------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
-| [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself  |
-| [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
-| [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed        |
-| [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                               |
-| [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress               |
+| Name                                                 | Maintainer                                        | Function                                            |
+| ---------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself     |
+| [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined    |
+| [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed           |
+| [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                                  |
+| [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress                  |
+| [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                    |
+| [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@` |
 
 ### Outside
 
@@ -50,10 +52,11 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ## File Management
 
-| Name                                                         | Maintainer                                        | Function                                     |
-| ------------------------------------------------------------ | ------------------------------------------------- | -------------------------------------------- |
-| [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Backup/Restore plugin, with muti backup slot |
-| [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | Update region files for mirror server        |
-| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Statistic query and scoardboard maker        |
-| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux)|
-| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
+| Name                                                         | Maintainer                                            | Function                                             |
+| ------------------------------------------------------------ | ----------------------------------------------------- | ---------------------------------------------------- |
+| [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath)     | Backup/Restore plugin, with muti backup slot         |
+| [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Update region files for mirror server                |
+| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)     | Statistic query and scoardboard maker                |
+| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux)       |
+| [MCDP](https://github.com/Dark-Night-Base/MCDP)              | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                             |
+| [StructureManager](https://github.com/TISUnion/StructureManager/tree/MCDR) | [LucunJi](https://github.com/LucunJi)                 | Download a structure to server and manage structures |
