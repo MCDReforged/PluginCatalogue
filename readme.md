@@ -19,6 +19,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed        |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                               |
+| [Task](https://github.com/TISUnion/Task/tree/MCDR)   |                                                   | Shows tasks of project in progress               |
 
 ### Outside
 
@@ -42,9 +43,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ## API
 
-| Name                                                         | Maintainer                                            | Function                                 |
-| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
+| Name                                                       | Maintainer                                        | Function                                            |
+| ---------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
+| [stext](https://github.com/TISUnion/stext)                 | [Pandaria98](https://github.com/Pandaria98)       | A library for better text display                   |
 
 ## File Management
 
