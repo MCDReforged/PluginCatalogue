@@ -19,7 +19,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed        |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                               |
-| [Task](https://github.com/TISUnion/Task/tree/MCDR)   |                                                   | Shows tasks of project in progress               |
+| [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress               |
 
 ### Outside
 
