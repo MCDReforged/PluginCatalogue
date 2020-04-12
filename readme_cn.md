@@ -23,6 +23,7 @@
 | [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                         |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人                  |
+| [Warp](https://github.com/2068915465/MCDR-warp-plugin)             | [Da_Dog](https://github.com/2068915465)             | 坐标点记录插件|
 
 ### 游戏外
 
