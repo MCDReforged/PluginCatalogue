@@ -13,18 +13,16 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ### In Game
 
-| Name                                                   | Maintainer                                        | Function                                             |
-| ------------------------------------------------------ | ------------------------------------------------- | ---------------------------------------------------- |
-| [Here](https://github.com/TISUnion/Here)               | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself      |
-| [joinMOTD](https://github.com/TISUnion/joinMOTD)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined     |
-| [daycount](https://github.com/TISUnion/daycount)       | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed            |
-| [Calculator](https://github.com/TISUnion/Calculator)   | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                                   |
-| [Task](https://github.com/TISUnion/Task/tree/MCDR)     | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress                   |
-| [Seen](https://github.com/TISUnion/Seen/tree/MCDR)     | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                     |
-| [Beep](https://github.com/TISUnion/Beep)               | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`  |
-| [Warp](https://github.com/2068915465/MCDR-warp-plugin) | [Da_Dog](https://github.com/2068915465)           | Record every point you mark                          |
-| [Welcomer](https://github.com/hanbings/Welcomer)       | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game |
-| [MCDRClear](https://github.com/hanbings/MCDRClear)     | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                        |
+| Name                                                 | Maintainer                                        | Function                                            |
+| ---------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself     |
+| [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined    |
+| [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed           |
+| [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                                  |
+| [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress                  |
+| [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                    |
+| [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@` |
+| [Warp](https://github.com/2068915465/MCDR-warp-plugin)| [Da_Dog](https://github.com/2068915465)          | Record every point you mark                           |
 ### Outside
 
 | Name                                                        | Maintainer                                        | Function                                                     |
@@ -52,7 +50,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | ---------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
 | [stext](https://github.com/TISUnion/stext)                 | [Pandaria98](https://github.com/Pandaria98)       | A library for better text display                   |
-| [TitleAPI](https://github.com/hanbings/TitleAPI)           | [hanbings](https://github.com/hanbings)           | A library for title command                         |
 
 ## File Management
 
