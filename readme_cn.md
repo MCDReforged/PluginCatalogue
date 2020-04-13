@@ -35,9 +35,10 @@
 
 ## 服务器控制
 
-| 名称                                                        | 维护者                                            | 功能                                            |
-| ----------------------------------------------------------- | ------------------------------------------------- | ----------------------------------------------- |
-| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器 |
+| 名称                                                         | 维护者                                            | 功能                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
+| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
+| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟         |
 
 ## 指令助手
 
