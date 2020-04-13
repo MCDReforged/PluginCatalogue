@@ -33,9 +33,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ## Server Control
 
-| Name                                                        | Maintainer                                        | Function                                            |
-| ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
-| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server |
+| Name                                                         | Maintainer                                        | Function                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
+| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server. For CMP server |
+| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server              |
 
 ## Command Helper
 
