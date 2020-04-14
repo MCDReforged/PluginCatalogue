@@ -25,6 +25,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Warp](https://github.com/2068915465/MCDR-warp-plugin) | [Da_Dog](https://github.com/2068915465)           | Record every point you mark                          |
 | [Welcomer](https://github.com/hanbings/Welcomer)       | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game |
 | [MCDRClear](https://github.com/hanbings/MCDRClear)     | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                        |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
 ### Outside
 
 | Name                                                        | Maintainer                                        | Function                                                     |
@@ -54,6 +55,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [stext](https://github.com/TISUnion/stext)                 | [Pandaria98](https://github.com/Pandaria98)       | A library for better text display                   |
 | [TitleAPI](https://github.com/hanbings/TitleAPI)           | [hanbings](https://github.com/hanbings)           | A library for title command                         |
 | [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
+| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
 
 ## File Management
 
