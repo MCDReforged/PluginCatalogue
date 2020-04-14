@@ -52,9 +52,10 @@
 
 | 名称                                                         | 维护者                                            | 功能                                 |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
-| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
-| [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | 字体显示库 |
-| [TitleAPI](https://github.com/hanbings/TitleAPI) | [hanbings](https://github.com/hanbings) | 封装Title指令 |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
+| [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)       | 字体显示库                           |
+| [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
+| [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 
 ## 文件管理
 
