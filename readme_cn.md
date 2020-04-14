@@ -1,4 +1,4 @@
-# PluginCatalogue
+# MCDR插件仓库
 
 [English](https://github.com/MCDReforged-Plugins/PluginCatalogue/blob/master/readme.md)
 
