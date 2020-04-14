@@ -53,6 +53,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
 | [stext](https://github.com/TISUnion/stext)                 | [Pandaria98](https://github.com/Pandaria98)       | A library for better text display                   |
 | [TitleAPI](https://github.com/hanbings/TitleAPI)           | [hanbings](https://github.com/hanbings)           | A library for title command                         |
+| [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
 
 ## File Management
 
