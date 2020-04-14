@@ -26,6 +26,7 @@
 | [Warp](https://github.com/2068915465/MCDR-warp-plugin)             | [Da_Dog](https://github.com/2068915465)             | 坐标点记录插件|
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
 
 ### 游戏外
 
@@ -56,6 +57,7 @@
 | [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)       | 字体显示库                           |
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
+| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库
 
 ## 文件管理
 
