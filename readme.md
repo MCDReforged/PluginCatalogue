@@ -1,4 +1,5 @@
 # PluginCatalogue
+
 [中文](https://github.com/MCDReforged-Plugins/PluginCatalogue/blob/master/readme_cn.md)
 
 A repository for listing [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugins
@@ -28,6 +29,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Welcomer](https://github.com/hanbings/Welcomer)             | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game |
 | [MCDRClear](https://github.com/hanbings/MCDRClear)           | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                        |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)   | A sweeping robot that can add whitelist              |
+| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | A MCDR plugin for post/teleport items              |
 
 ### Outside
 

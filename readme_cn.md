@@ -29,6 +29,7 @@
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
+| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | 一个用于邮寄/传送物品的MCDR插件              |
 
 ### 游戏外
 
