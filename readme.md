@@ -23,7 +23,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)     | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                     |
 | [Beep](https://github.com/TISUnion/Beep)               | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`  |
 | [Warp](https://github.com/2068915465/MCDR-warp-plugin) | [Da_Dog](https://github.com/2068915465)           | Record every point you mark                          |
-| [Timer](https://github.com/2068915465/MCDR_Timer) | [Da_Dog](https://github.com/2068915465) | A count down timer |
+| [Timer](https://github.com/2068915465/MCDR_Timer) | [Da_Dog](https://github.com/2068915465) | A count down timer and stopwatch |
 | [Welcomer](https://github.com/hanbings/Welcomer)       | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game |
 | [MCDRClear](https://github.com/hanbings/MCDRClear)     | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                        |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
