@@ -14,22 +14,23 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ### In Game
 
-| Name                                                         | Maintainer                                        | Function                                             |
-| ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------------------------------- |
-| [Here](https://github.com/TISUnion/Here)                     | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself      |
-| [joinMOTD](https://github.com/TISUnion/joinMOTD)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined     |
-| [daycount](https://github.com/TISUnion/daycount)             | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed            |
-| [Calculator](https://github.com/TISUnion/Calculator)         | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                                   |
-| [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death                          |
-| [Task](https://github.com/TISUnion/Task/tree/MCDR)           | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress                   |
-| [Seen](https://github.com/TISUnion/Seen/tree/MCDR)           | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                     |
-| [Beep](https://github.com/TISUnion/Beep)                     | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`  |
-| [Warp](https://github.com/2068915465/MCDR-warp-plugin)       | [Da_Dog](https://github.com/2068915465)           | Record every point you mark                          |
-| [Timer](https://github.com/2068915465/MCDR_Timer)            | [Da_Dog](https://github.com/2068915465)           | A count down timer and stopwatch                     |
-| [Welcomer](https://github.com/hanbings/Welcomer)             | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game |
-| [MCDRClear](https://github.com/hanbings/MCDRClear)           | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                        |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)   | A sweeping robot that can add whitelist              |
-| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | A MCDR plugin for post/teleport items              |
+| Name                                                         | Maintainer                                        | Function                                                     |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
+| [Here](https://github.com/TISUnion/Here)                     | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself              |
+| [joinMOTD](https://github.com/TISUnion/joinMOTD)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined             |
+| [daycount](https://github.com/TISUnion/daycount)             | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed                    |
+| [Calculator](https://github.com/TISUnion/Calculator)         | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                                           |
+| [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death                                  |
+| [Task](https://github.com/TISUnion/Task/tree/MCDR)           | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress                           |
+| [Seen](https://github.com/TISUnion/Seen/tree/MCDR)           | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                             |
+| [Beep](https://github.com/TISUnion/Beep)                     | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`          |
+| [Warp](https://github.com/2068915465/MCDR-warp-plugin)       | [Da_Dog](https://github.com/2068915465)           | Record every point you mark                                  |
+| [Timer](https://github.com/2068915465/MCDR_Timer)            | [Da_Dog](https://github.com/2068915465)           | A count down timer and stopwatch                             |
+| [Welcomer](https://github.com/hanbings/Welcomer)             | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game         |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)           | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                                |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)   | A sweeping robot that can add whitelist                      |
+| [MCDRpost](https://github.com/Flyky/MCDRpost)                | [Flyky](https://github.com/Flyky)                 | A MCDR plugin for post/teleport items                        |
+| [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click |
 
 ### Outside
 
@@ -64,11 +65,12 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ## File Management
 
-| Name                                                         | Maintainer                                            | Function                                             |
-| ------------------------------------------------------------ | ----------------------------------------------------- | ---------------------------------------------------- |
-| [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath)     | Backup/Restore plugin, with muti backup slot         |
-| [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Update region files for mirror server                |
-| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)     | Statistic query and scoardboard maker                |
-| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux)       |
-| [MCDP](https://github.com/Dark-Night-Base/MCDP)              | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                             |
-| [StructureManager](https://github.com/TISUnion/StructureManager/tree/MCDR) | [LucunJi](https://github.com/LucunJi)                 | Download a structure to server and manage structures |
+| Name                                                         | Maintainer                                            | Function                                                     |
+| ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------ |
+| [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath)     | Backup/Restore plugin, with muti backup slot                 |
+| [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Update region files for mirror server                        |
+| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)     | Statistic query and scoardboard maker                        |
+| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux)               |
+| [MCDP](https://github.com/Dark-Night-Base/MCDP)              | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                                     |
+| [StructureManager](https://github.com/TISUnion/StructureManager/tree/MCDR) | [LucunJi](https://github.com/LucunJi)                 | Download a structure to server and manage structures         |
+| [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)       | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
