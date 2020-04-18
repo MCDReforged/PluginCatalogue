@@ -30,7 +30,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDRClear](https://github.com/hanbings/MCDRClear)           | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                                |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)   | A sweeping robot that can add whitelist                      |
 | [MCDRpost](https://github.com/Flyky/MCDRpost)                | [Flyky](https://github.com/Flyky)                 | A MCDR plugin for post/teleport items                        |
-| [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click |
+| [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click |
 
 ### Outside
 
