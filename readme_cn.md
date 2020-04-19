@@ -74,3 +74,4 @@
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
