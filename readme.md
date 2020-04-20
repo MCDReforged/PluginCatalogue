@@ -33,6 +33,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click |
 | [DeathPos](https://github.com/2068915465/MCDR_DeathPos)            | [Da_Dog](https://github.com/2068915465)           | Auto Record Death Position                             |
 | [LockChest](https://github.com/2068915465/MCDR_Lockchest)            | [Da_Dog](https://github.com/2068915465)           | A plugin that can Lock the Chest                             |
+| [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) |A plugin to show carpet bot |
 
 ### Outside
 
