@@ -33,6 +33,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click |
 | [DeathPos](https://github.com/1936136988/MCDR_DeathPos)            | [Da_Dog](https://github.com/1936136988)           | Auto Record Death Position                             |
 | [LockChest](https://github.com/1936136988/MCDR_Lockchest)            | [Da_Dog](https://github.com/1936136988)           | A plugin that can Lock the Chest                             |
+| [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) |A plugin to show carpet bot |
 
 ### Outside
 
@@ -77,3 +78,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)              | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                                     |
 | [StructureManager](https://github.com/TISUnion/StructureManager/tree/MCDR) | [LucunJi](https://github.com/LucunJi)                 | Download a structure to server and manage structures         |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)       | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
