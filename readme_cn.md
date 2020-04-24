@@ -34,6 +34,7 @@
 | [DeathPos](https://github.com/1936136988/MCDR_DeathPos)             | [Da_Dog](https://github.com/1936136988)             | 死亡坐标记录插件 |
 | [LockChest](https://github.com/1936136988/MCDR_Lockchest)             | [Da_Dog](https://github.com/1936136988)             | 锁箱子插件 |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
+| [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)           | 查看服务器TPS                       |
 
 ### 游戏外
 
