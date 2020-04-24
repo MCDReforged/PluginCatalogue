@@ -24,16 +24,17 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Task](https://github.com/TISUnion/Task/tree/MCDR)           | [Pandaria98](https://github.com/Pandaria98)       | Shows tasks of project in progress                           |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)           | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                                             |
 | [Beep](https://github.com/TISUnion/Beep)                     | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`          |
-| [Warp](https://github.com/1936136988/MCDR-warp-plugin)       | [Da_Dog](https://github.com/1936136988)           | Record every point you mark                                  |
-| [Timer](https://github.com/1936136988/MCDR_Timer)            | [Da_Dog](https://github.com/1936136988)           | A count down timer and stopwatch                             |
+| [Warp](https://github.com/Da-Dog/MCDR-warp-plugin)       | [Da_Dog](https://github.com/Da-Dog)           | Record every point you mark                                  |
+| [Timer](https://github.com/Da-Dog/MCDR_Timer)            | [Da_Dog](https://github.com/Da-Dog)           | A count down timer and stopwatch                             |
 | [Welcomer](https://github.com/hanbings/Welcomer)             | [hanbings](https://github.com/hanbings)           | Send a sentence to the player after joining the game         |
 | [MCDRClear](https://github.com/hanbings/MCDRClear)           | [hanbings](https://github.com/hanbings)           | Auto and can be delayed clean                                |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)   | A sweeping robot that can add whitelist                      |
 | [MCDRpost](https://github.com/Flyky/MCDRpost)                | [Flyky](https://github.com/Flyky)                 | A MCDR plugin for post/teleport items                        |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you search Minecraft Wiki in game and get the result on one click |
-| [DeathPos](https://github.com/1936136988/MCDR_DeathPos)            | [Da_Dog](https://github.com/1936136988)           | Auto Record Death Position                             |
-| [LockChest](https://github.com/1936136988/MCDR_Lockchest)            | [Da_Dog](https://github.com/1936136988)           | A plugin that can Lock the Chest                             |
+| [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)            | [Da_Dog](https://github.com/Da-Dog)           | Auto Record Death Position                             |
+| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)            | [Da_Dog](https://github.com/Da-Dog)           | A plugin that can Lock the Chest                             |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) |A plugin to show carpet bot |
+| [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)           | Check for server TPS                             |
 
 ### Outside
 
@@ -65,7 +66,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TitleAPI](https://github.com/hanbings/TitleAPI)           | [hanbings](https://github.com/hanbings)           | A library for title command                         |
 | [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
-| [ServerOccupancyAPI](https://github.com/1936136988/ServerOccupancyAPI) | [Da_Dog](https://github.com/1936136988) | Server monitor API |
+| [ServerOccupancyAPI](https://github.com/Da-Dog/ServerOccupancyAPI) | [Da_Dog](https://github.com/Da-Dog) | Server monitor API |
 
 ## File Management
 
