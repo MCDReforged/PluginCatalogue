@@ -35,6 +35,7 @@
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)             | [Da_Dog](https://github.com/Da-Dog)             | 锁箱子插件 |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)           | 查看服务器TPS                       |
+| [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | 生成，批量生成地毯BOT(BOT组)    |
 
 ### 游戏外
 
