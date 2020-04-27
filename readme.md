@@ -35,7 +35,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)            | [Da_Dog](https://github.com/Da-Dog)           | A plugin that can Lock the Chest                             |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) |A plugin to show carpet bot |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)           | Check for server TPS                             |
-
+| [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | A plugin to spawn carpet BOT/BOTS  |
 ### Outside
 
 | Name                                                        | Maintainer                                        | Function                                                     |
