@@ -75,8 +75,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath)     | Backup/Restore plugin, with muti backup slot                 |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Update region files for mirror server                        |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)     | Statistic query and scoardboard maker                        |
+| [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Create permanent zipped world backup                         |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux)               |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)              | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                                     |
 | [StructureManager](https://github.com/TISUnion/StructureManager/tree/MCDR) | [LucunJi](https://github.com/LucunJi)                 | Download a structure to server and manage structures         |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)       | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
-| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite)           | A display infomation friendly plugins for helps you download or update other plugins |
