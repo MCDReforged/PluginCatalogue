@@ -35,6 +35,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)            | [Da_Dog](https://github.com/Da-Dog)           | A plugin that can Lock the Chest                             |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) |A plugin to show carpet bot |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)           | Check for server TPS                             |
+| [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | A plugin to spawn carpet BOT/BOTS  |
+| [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival    |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean).    |
+| [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | Send player death position to the position owner    |
 
 ### Outside
 
@@ -75,8 +79,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath)     | Backup/Restore plugin, with muti backup slot                 |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Update region files for mirror server                        |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)     | Statistic query and scoardboard maker                        |
+| [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath)     | Create permanent zipped world backup                         |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux)               |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)              | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*                                     |
 | [StructureManager](https://github.com/TISUnion/StructureManager/tree/MCDR) | [LucunJi](https://github.com/LucunJi)                 | Download a structure to server and manage structures         |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)       | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
-| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite)           | A display infomation friendly plugins for helps you download or update other plugins |
