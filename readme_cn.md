@@ -39,7 +39,7 @@
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 玩家死亡私发死亡坐标    |
-| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)
+| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)|使用Websocket的bilibili弹幕姬
 ### 游戏外
 
 | 名称                                                        | 维护者                                            | 功能                                                         |
