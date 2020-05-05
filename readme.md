@@ -39,6 +39,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival    |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean).    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | Send player death position to the position owner    |
+| [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | Move a pet between different players    |
 
 ### Outside
 
