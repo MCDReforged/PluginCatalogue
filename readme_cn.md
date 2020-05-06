@@ -24,7 +24,6 @@
 | [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                         |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人                  |
-| [Warp](https://github.com/Da-Dog/MCDR-warp-plugin)             | [Da_Dog](https://github.com/Da-Dog)             | 坐标点记录插件|
 | [Timer](https://github.com/Da-Dog/MCDR_Timer)             | [Da_Dog](https://github.com/Da-Dog)             | 游戏内倒计时及秒表 |
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
