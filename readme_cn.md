@@ -72,7 +72,6 @@
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
-| [ServerOccupancyAPI](https://github.com/Da-Dog/ServerOccupancyAPI) | [Da_Dog](https://github.com/Da-Dog) | 服务器监控 |
 
 ## 文件管理
 
