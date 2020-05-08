@@ -24,7 +24,6 @@
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                         |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人                  |
-| [Warp](https://github.com/Da-Dog/MCDR-warp-plugin)             | [Da_Dog](https://github.com/Da-Dog)             | 坐标点记录插件|
 | [Timer](https://github.com/Da-Dog/MCDR_Timer)             | [Da_Dog](https://github.com/Da-Dog)             | 游戏内倒计时及秒表 |
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
@@ -40,6 +39,9 @@
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 玩家死亡私发死亡坐标    |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)|使用Websocket的bilibili弹幕姬
+| [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | 定时公告                             |
+| [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | 游戏内投票插件                             |
+| [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                             |
 ### 游戏外
 
 | 名称                                                        | 维护者                                            | 功能                                                         |
@@ -70,7 +72,6 @@
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
-| [ServerOccupancyAPI](https://github.com/Da-Dog/ServerOccupancyAPI) | [Da_Dog](https://github.com/Da-Dog) | 服务器监控 |
 
 ## 文件管理
 

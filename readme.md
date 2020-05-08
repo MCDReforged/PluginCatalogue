@@ -13,7 +13,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 ## Tool
 
 ### In Game
-
 | Name                                                         | Maintainer                                            | Function                                                     |
 | ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------------------ |
 | [Here](https://github.com/TISUnion/Here)                     | [Fallen_Breath](https://github.com/Fallen-Breath)     | Boardcast your position and high light yourself              |
@@ -39,7 +38,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)  | [57767598](https://github.com/Squaregentleman/)       | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/)       | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean). |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)    | [57767598](https://github.com/Squaregentleman/)       | Send player death position to the position owner             |
-|[WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura)|A BLHClient: using websocket to get bilibili bullet chat
+|[WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura)|A BLHClient: using websocket to get bilibili bullet chat |
+| [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | Timed announcement                             |
+| [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin                             |
+| [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game                             |
 
 ### Outside
 
@@ -71,7 +73,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TitleAPI](https://github.com/hanbings/TitleAPI)           | [hanbings](https://github.com/hanbings)           | A library for title command                         |
 | [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
-| [ServerOccupancyAPI](https://github.com/Da-Dog/ServerOccupancyAPI) | [Da_Dog](https://github.com/Da-Dog) | Server monitor API |
 
 ## File Management
 
