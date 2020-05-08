@@ -42,6 +42,8 @@
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | 定时公告                             |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | 游戏内投票插件                             |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                             |
+| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)            | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库                             |
+
 ### 游戏外
 
 | 名称                                                        | 维护者                                            | 功能                                                         |
