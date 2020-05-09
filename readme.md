@@ -42,6 +42,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | Timed announcement                             |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin                             |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game                             |
+| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)            | [57767598](https://github.com/Squaregentleman/)           | The plugin library of MCDR                             |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | Move a pet between different players    |
 
 ### Outside
