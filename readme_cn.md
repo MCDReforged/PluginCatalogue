@@ -75,6 +75,8 @@
 
 | [Economy](https://github.com/zhang-anzhi/Economy) | [zhang-anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件|
 
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | CoolQ bot http bridge                               |
+
 
 ## 文件管理
 
