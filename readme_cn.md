@@ -75,7 +75,7 @@
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
-| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang-anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
+| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
 
 
