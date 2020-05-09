@@ -43,6 +43,7 @@
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | 游戏内投票插件                             |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                             |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)            | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库                             |
+| [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | 玩家间转移动物（如猫/狗等）的所有权    |
 
 ### 游戏外
 
@@ -74,6 +75,11 @@
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
+
+| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang-anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
+
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
+
 
 ## 文件管理
 
