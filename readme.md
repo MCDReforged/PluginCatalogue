@@ -76,6 +76,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
 | [Economy](https://github.com/zhang-anzhi/Economy) | [zhang-anzhi](https://github.com/zhang-anzhi) | Basic economic plugin |
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | CoolQ bot http bridge                               |
 
 ## File Management
 
