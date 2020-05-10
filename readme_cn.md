@@ -21,10 +21,9 @@
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` 获得开服至今的天数               |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器                             |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
-| [Task](https://github.com/TISUnion/Task/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                         |
+| [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                         |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人                  |
-| [Warp](https://github.com/Da-Dog/MCDR-warp-plugin)             | [Da_Dog](https://github.com/Da-Dog)             | 坐标点记录插件|
 | [Timer](https://github.com/Da-Dog/MCDR_Timer)             | [Da_Dog](https://github.com/Da-Dog)             | 游戏内倒计时及秒表 |
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
@@ -39,6 +38,13 @@
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 玩家死亡私发死亡坐标    |
+| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)|使用Websocket的bilibili弹幕姬
+| [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | 定时公告                             |
+| [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | 游戏内投票插件                             |
+| [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                             |
+| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)            | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库                             |
+| [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | 玩家间转移动物（如猫/狗等）的所有权    |
+
 ### 游戏外
 
 | 名称                                                        | 维护者                                            | 功能                                                         |
@@ -69,7 +75,9 @@
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
-| [ServerOccupancyAPI](https://github.com/Da-Dog/ServerOccupancyAPI) | [Da_Dog](https://github.com/Da-Dog) | 服务器监控 |
+| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
+
 
 ## 文件管理
 
