@@ -44,8 +44,8 @@
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                             |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)            | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库                             |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | 玩家间转移动物（如猫/狗等）的所有权    |
-| [FastPost](https://github.com/HackerRouter/MCDReforgedUselessPlugins/releases/tag/v0.1-FastPost)            |[HackerRouter](https://github.com/HackerRouter/)|向一名离线玩家发送信息
-| [FastSearch](https://github.com/HackerRouter/MCDReforgedUselessPlugins/releases/tag/v1.001)            |[HackerRouter](https://github.com/HackerRouter/)|在游戏中搜索任意内容
+| [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)            |[HackerRouter](https://github.com/HackerRouter/)|向一名离线玩家发送信息
+| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)            |[HackerRouter](https://github.com/HackerRouter/)|在游戏中搜索任意内容
 
 ### 游戏外
 
