@@ -44,6 +44,7 @@
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                             |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)            | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库                             |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | 玩家间转移动物（如猫/狗等）的所有权    |
+| [currency](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)           | 基于计分板的多货币经济与商店插件，其中商店部分动态价格基于Gamma函数    |
 
 ### 游戏外
 
