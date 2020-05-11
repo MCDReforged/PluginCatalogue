@@ -35,6 +35,7 @@
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | 死亡坐标记录插件    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | 玩家死亡私发死亡坐标    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件                     |
+| [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | 标记你为引领者，引领新人和观光团                     |
 
 
 
