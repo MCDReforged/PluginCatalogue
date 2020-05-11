@@ -51,6 +51,7 @@
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 玩家间转移动物（如猫/狗等）的所有权    |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件                                             |
 | [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | 标记你为引领者，引领新人和观光团                     |
+| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
 
 ### 假人
 | 名称                                                  | 维护者                                            | 功能                                     |
@@ -100,7 +101,6 @@
 | ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------- |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件          |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | 用于镜像服的 region 文件更新 |
-| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
 | [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
 

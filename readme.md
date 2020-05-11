@@ -51,6 +51,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | Move a pet between different players    |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin                               |
 | [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | Mark you to a leader,and leads people                     |
+| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Statistic query and scoardboard maker   |
 
 ### Bot
 | Name                                                  | Maintainer                                            | Function                                     |
@@ -100,7 +101,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------- |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Backup/Restore plugin, with muti backup slot      |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | Update region files for mirror server |
-| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Statistic query and scoardboard maker   |
 | [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | Create permanent zipped world backup |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
 
