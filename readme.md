@@ -78,24 +78,24 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`                  |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin            |
 
-### 物品管理
+### Item Management
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | A MCDR plugin for post/teleport items        |
 
 
+# 以下还未翻译，别急着PR
 
+## Server Control
 
-## 服务器管理
-
-### 公告/通知
+### Announcement
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表 |
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家            |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | 定时公告                             |
 
-### 文件管理
+### File Management
 | Name                                                         | Maintainer                                            | Function                         |
 | ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------- |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件          |
@@ -104,7 +104,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
 
-### 插件管理
+### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
@@ -112,14 +112,14 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)        | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库           |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)   | 游戏内下载插件工具        |
 
-### 扫地大妈
+### Item Clear
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 
-###  服务器控制
+###  Server Control
 | Name                                                         | Maintainer                                            | Function                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
 | [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
@@ -142,7 +142,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 
 
-## 水桶革命
+## Spigot Revolution
 | Name                                                         | Maintainer                                            | Function                                 |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
