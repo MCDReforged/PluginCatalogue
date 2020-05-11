@@ -50,6 +50,7 @@
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 玩家间转移动物（如猫/狗等）的所有权    |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件                                             |
+| [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | 标记你为引领者，引领新人和观光团                     |
 
 ### 假人
 | 名称                                                  | 维护者                                            | 功能                                     |
