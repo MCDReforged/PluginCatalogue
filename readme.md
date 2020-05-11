@@ -148,3 +148,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | ------------------------------------------------------------ | ---------------------------------------------- | ------------------------------------ |
 | [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)      | Basic economic plugin |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)             | [Da_Dog](https://github.com/Da-Dog)        | A plugin that can Lock the Chest   |
+| [EssentialsR](https://github.com/Da-Dog/EssentialsR)             | [Da_Dog](https://github.com/Da-Dog)        | A plugin that trying to remake spigot ESS   |
