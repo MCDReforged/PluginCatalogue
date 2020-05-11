@@ -148,3 +148,4 @@
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)             | [Da_Dog](https://github.com/Da-Dog)             | 锁箱子插件    |
+| [EssentialsR](https://github.com/Da-Dog/EssentialsR)             | [Da_Dog](https://github.com/Da-Dog)        | MCDR版ESS, 仿水龙头基础插件   |
