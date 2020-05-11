@@ -32,7 +32,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself                       |
-| [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | 死 Auto Record Death Position    |
+| [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | Auto Record Death Position    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | Send player death position to the position owner    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game                     |
 
@@ -57,7 +57,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | A plugin to show carpet bot |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | A plugin to spawn carpet BOT/BOTS    |
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
-
 
 ### Command Helper
 | Name                                                         | Maintainer                                            | Function                                 |
@@ -84,66 +83,66 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | A MCDR plugin for post/teleport items        |
 
 
-# 以下还未翻译，别急着PR
 
-## Server Control
+
+## Server Management
 
 ### Announcement
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表 |
-| [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家            |
-| [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | 定时公告                             |
+| [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
+| [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game       |
+| [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | Timed announcement        |
 
 ### File Management
 | Name                                                         | Maintainer                                            | Function                         |
 | ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------- |
-| [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件          |
-| [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | 用于镜像服的 region 文件更新 |
-| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
-| [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 |
-| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
+| [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Backup/Restore plugin, with muti backup slot      |
+| [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | Update region files for mirror server |
+| [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Statistic query and scoardboard maker   |
+| [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | Create permanent zipped world backup |
+| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
 
 ### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
-| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
-| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)        | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库           |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)   | 游戏内下载插件工具        |
+| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
+| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)        | [57767598](https://github.com/Squaregentleman/)           | The plugin library of MCDR      |
+| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)   | Download plugin in game        |
 
 ### Item Clear
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
+| [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | Auto and can be delayed clean |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
 
 ###  Server Control
 | Name                                                         | Maintainer                                            | Function                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
-| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
-| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟         |
-| [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
+| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server. For CMP server |
+| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server         |
+| [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
 
 
 
 
 ## API
-| Name                                                         | Maintainer                                            | Function                                 |
-| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
-| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
-| [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)       | 字体显示库                           |
-| [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
-| [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
-| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
-| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
+| Name                                                       | Maintainer                                        | Function                                            |
+| ---------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
+| [stext](https://github.com/TISUnion/stext)                 | [Pandaria98](https://github.com/Pandaria98)       | A library for better text display                   |
+| [TitleAPI](https://github.com/hanbings/TitleAPI)           | [hanbings](https://github.com/hanbings)           | A library for title command                         |
+| [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
+| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library   |
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | HTTP interface for cool Q robot    |
 
 
 
 
 ## Spigot Revolution
-| Name                                                         | Maintainer                                            | Function                                 |
-| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
-| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | 基本经济插件 |
-| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)             | [Da_Dog](https://github.com/Da-Dog)             | 锁箱子插件    |
+| Name                                                         | Maintainer                                     | Function                              |
+| ------------------------------------------------------------ | ---------------------------------------------- | ------------------------------------ |
+| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)      | Basic economic plugin |
+| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)             | [Da_Dog](https://github.com/Da-Dog)        | A plugin that can Lock the Chest   |
