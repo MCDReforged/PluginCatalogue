@@ -50,6 +50,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)  | [57767598](https://github.com/Squaregentleman/)  | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival    |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | Move a pet between different players    |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin                               |
+| [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | Mark you to a leader,and leads people                     |
 
 ### Bot
 | Name                                                  | Maintainer                                            | Function                                     |
