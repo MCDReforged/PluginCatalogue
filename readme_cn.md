@@ -46,7 +46,6 @@
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器                             |
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                               |
-| [Timer](https://github.com/Da-Dog/MCDR_Timer)             | [Da_Dog](https://github.com/Da-Dog)             | 游戏内倒计时及秒表           |
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 玩家间转移动物（如猫/狗等）的所有权    |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件                                             |
