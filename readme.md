@@ -143,9 +143,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 
 
-## Spigot Revolution
-| Name                                                         | Maintainer                                     | Function                              |
-| ------------------------------------------------------------ | ---------------------------------------------- | ------------------------------------ |
-| [Economy](https://github.com/zhang-anzhi/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)      | Basic economic plugin |
-| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)             | [Da_Dog](https://github.com/Da-Dog)        | A plugin that can Lock the Chest   |
-| [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | A currency plugin with a dynamic-price shop    |
+## Bucket Revolution
+| Name                                                         | Maintainer                                       | Function                               |
+| ------------------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
+| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic Preposition                   |
+| [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic plugin                        |
+| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | A plugin that can Lock the Chest       |
+| [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)       | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | A currency plugin with a dynamic-price shop    |
