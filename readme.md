@@ -143,7 +143,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 
 
-## Bucket Revolution
+## Bukkit Revolution
 | Name                                                         | Maintainer                                       | Function                               |
 | ------------------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic Preposition                   |
