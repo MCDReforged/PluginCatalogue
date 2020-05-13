@@ -103,6 +103,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | Update region files for mirror server |
 | [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | Create permanent zipped world backup |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
+| [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM      |
 
 ### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |
