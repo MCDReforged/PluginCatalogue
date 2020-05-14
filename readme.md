@@ -55,7 +55,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CConverter](https://github.com/Da-Dog/MCDR-CConverter)             | [Da_Dog](https://github.com/Da-Dog)             | Overworld Nether coordinate converter           |
 | [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | Change server in BC server        |
 
-
 ### Bot
 | Name                                                  | Maintainer                                            | Function                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
@@ -74,7 +73,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)| A BLHClient: using websocket to get bilibili bullet chat  |
-
 
 ### Player Communicate
 | Name                                                           | Maintainer                                             | Function                         |
