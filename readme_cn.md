@@ -21,6 +21,7 @@
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` 获得开服至今的天数               |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | 查看服务器TPS                       |
+| [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间     |
 
 ### 搜索
 | 名称                                                           | 维护者                                             | 功能                         |
@@ -70,6 +71,7 @@
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
+| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| 将主手上的东西戴在头上 |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)|使用Websocket的bilibili弹幕姬   |
 
 ### 玩家交流
