@@ -21,6 +21,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed               |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                             |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | Check for server TPS                       |
+| [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time     |
 
 ### Serch
 | Name                                                           | Maintainer                                             | Function                         |
@@ -54,6 +55,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CConverter](https://github.com/Da-Dog/MCDR-CConverter)             | [Da_Dog](https://github.com/Da-Dog)             | Overworld Nether coordinate converter           |
 | [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | Change server in BC server        |
 
+
 ### Bot
 | Name                                                  | Maintainer                                            | Function                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
@@ -70,7 +72,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
+| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)| A BLHClient: using websocket to get bilibili bullet chat  |
+
 
 ### Player Communicate
 | Name                                                           | Maintainer                                             | Function                         |
