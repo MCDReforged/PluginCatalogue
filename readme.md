@@ -52,6 +52,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | Mark you to a leader,and leads people                     |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Statistic query and scoardboard maker   |
 | [CConverter](https://github.com/Da-Dog/MCDR-CConverter)             | [Da_Dog](https://github.com/Da-Dog)             | Overworld Nether coordinate converter           |
+| [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | Change server in BC server        |
 
 ### Bot
 | Name                                                  | Maintainer                                            | Function                                     |
