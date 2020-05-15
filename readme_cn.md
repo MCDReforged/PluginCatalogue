@@ -154,3 +154,4 @@
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济插件                                 |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | 锁箱子插件                               |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 多货币动态价格经济/商店系统    |
+| [Show](https://github.com/Da-Dog/MCDR-Show)        | [Da_Dog](https://github.com/Da-Dog)              | 展示手中物品       |
