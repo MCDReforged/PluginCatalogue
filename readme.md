@@ -23,7 +23,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | Check for server TPS                       |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time     |
 
-### Serch
+### Search
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click |
@@ -73,6 +73,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)| A BLHClient: using websocket to get bilibili bullet chat  |
+| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)            | [Da_Dog](https://github.com/Da-Dog)           | In-Game BlackJack|
 
 ### Player Communicate
 | Name                                                           | Maintainer                                             | Function                         |
