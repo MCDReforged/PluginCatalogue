@@ -73,6 +73,7 @@
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| 将主手上的东西戴在头上 |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)|使用Websocket的bilibili弹幕姬   |
+| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)            | [Da_Dog](https://github.com/Da-Dog)           | 21点 扑克小游戏       |
 
 ### 玩家交流
 | 名称                                                           | 维护者                                             | 功能                         |
