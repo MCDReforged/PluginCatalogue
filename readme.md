@@ -154,3 +154,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic plugin                        |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | A plugin that can Lock the Chest       |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)       | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | A currency plugin with a dynamic-price shop    |
+| [Show](https://github.com/Da-Dog/MCDR-Show)        | [Da_Dog](https://github.com/Da-Dog)              | Show item in chat       |
