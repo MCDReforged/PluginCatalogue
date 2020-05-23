@@ -66,6 +66,7 @@
 | 名称                                                         | 维护者                                            | 功能                                 |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
+| [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | 聊天栏菜单      |
 
 ### 娱乐
 | 名称                                                           | 维护者                                             | 功能                         |
