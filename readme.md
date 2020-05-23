@@ -66,6 +66,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name                                                         | Maintainer                                            | Function                                 |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
+| [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | Chat Menu      |
 
 ### Recreation
 | Name                                                           | Maintainer                                             | Function                         |
@@ -157,3 +158,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog)              | Show item in chat       |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)        | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin       |
+
