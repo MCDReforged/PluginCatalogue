@@ -22,6 +22,7 @@
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | 查看服务器TPS                       |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间     |
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息
 
 ### 搜索
 | 名称                                                           | 维护者                                             | 功能                         |
