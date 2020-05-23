@@ -22,7 +22,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | Laziness ranking                             |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | Check for server TPS                       |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time     |
-
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information |
 ### Search
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
