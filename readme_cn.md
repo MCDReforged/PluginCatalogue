@@ -150,12 +150,12 @@
 
 
 ## 水桶革命
-| Name                                                         | Maintainer                                       | Function                             |
+| 名称                                                          | 维护者                                            | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------ |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                              |
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济插件                              |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | 锁箱子插件                            |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 多货币动态价格经济/商店系统    |
-| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog)              | 展示手中物品       |
+| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)            | 展示手中物品       |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题     |
-| [TPA](https://github.com/Da-Dog/MCDR-tpa)        | [Da_Dog](https://github.com/Da-Dog)              | 传送请求       |
+| [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求       |
