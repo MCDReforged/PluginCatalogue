@@ -55,6 +55,7 @@
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
 | [CConverter](https://github.com/Da-Dog/MCDR-CConverter)             | [Da_Dog](https://github.com/Da-Dog)             | 主世界，地狱坐标转换           |
 | [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | BC服切换服务器        |
+| [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | 定时自动切换计分板        |
 
 ### 假人
 | 名称                                                  | 维护者                                            | 功能                                     |
