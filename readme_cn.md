@@ -134,7 +134,7 @@
 | [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
 | [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟         |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
-| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist)        | [Da_Dog](https://github.com/Da-Dog)              | 高级白名单，可以自定义白名单踢出消息|
+| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist)        | [Da_Dog](https://github.com/Da-Dog)              | 高级白名单，可以自定义白名单踢出消息及IP白名单|
 
 
 ## API
