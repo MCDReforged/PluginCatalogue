@@ -146,17 +146,16 @@
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
-
-
+| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                              |
 
 
 ## 水桶革命
 | 名称                                                          | 维护者                                            | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------ |
-| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                              |
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济插件                              |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | 锁箱子插件                            |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 多货币动态价格经济/商店系统    |
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)            | 展示手中物品       |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题     |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求       |
+| [Team Account](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号       |
