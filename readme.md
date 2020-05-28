@@ -158,4 +158,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)              | Show item in chat       |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)        | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin       |
-| [Team Account](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account       |
+| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account       |

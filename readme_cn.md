@@ -158,4 +158,4 @@
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)            | 展示手中物品       |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题     |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求       |
-| [Team Account](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号       |
+| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号       |
