@@ -113,7 +113,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM      |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)        | [Da_Dog](https://github.com/Da-Dog)              | Snapshot server auto update plugin       |
-| [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin       |
+| [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
 
 ### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |

@@ -113,7 +113,7 @@
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一个支持多槽位的自动快速备份＆回档插件，由QuickBackupM改编而来          |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)        | [Da_Dog](https://github.com/Da-Dog)              | 快照服自动更新核心       |
-
+| [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件       |
 ### 插件管理
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
