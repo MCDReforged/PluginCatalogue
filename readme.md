@@ -23,6 +23,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | Check for server TPS                       |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time     |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information |
+| [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
 
 ### Search
 | Name                                                           | Maintainer                                             | Function                         |
