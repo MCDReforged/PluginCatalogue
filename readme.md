@@ -71,6 +71,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
 | [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | Chat Menu      |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server |
+| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
 
 ### Recreation
 | Name                                                           | Maintainer                                             | Function                         |
