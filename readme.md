@@ -62,7 +62,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | A plugin to show carpet bot |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | A plugin to spawn carpet BOT/BOTS    |
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
-| [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 
 ### Command Helper
 | Name                                                         | Maintainer                                            | Function                                 |
@@ -77,6 +76,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)| A BLHClient: using websocket to get bilibili bullet chat  |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)            | [Da_Dog](https://github.com/Da-Dog)           | In-Game BlackJack|
+| [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 
 ### Player Communicate
 | Name                                                           | Maintainer                                             | Function                         |
