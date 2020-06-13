@@ -72,20 +72,21 @@
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
 
 ### 娱乐
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
-| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| 将主手上的东西戴在头上 |
-| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)|使用Websocket的bilibili弹幕姬   |
-| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)            | [Da_Dog](https://github.com/Da-Dog)           | 21点 扑克小游戏       |
+| 名称                                                                 | 维护者                                             | 功能                         |
+| ------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------- |
+| [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅       |
+| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)                  | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| 将主手上的东西戴在头上       |
+| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)      | [ixiaohei](https://github.com/ixiaohei-sakura/)   |使用Websocket的bilibili弹幕姬   |
+| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)               | [Da_Dog](https://github.com/Da-Dog)               | 21点 扑克小游戏                |
+| [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 24点经典数学游戏               |
 
 ### 玩家交流
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [ChatBridge](https://github.com/TISUnion/ChatBridge)        | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天                        |
-| [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)            |[HackerRouter](https://github.com/HackerRouter/)| 向一名离线玩家发送信息    |
-| [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人                  |
-| [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | 游戏内投票插件                             |
+| 名称                                                             | 维护者                                             | 功能                          |
+| --------------------------------------------------------------- | ------------------------------------------------- | ---------------------------- |
+| [ChatBridge](https://github.com/TISUnion/ChatBridge)            | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天                       |
+| [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)      |[HackerRouter](https://github.com/HackerRouter/)   | 向一名离线玩家发送信息           |
+| [Beep](https://github.com/TISUnion/Beep)                        | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人         |
+| [Vote](https://github.com/Da-Dog/MCDR_Vote)                     | [Da_Dog](https://github.com/Da-Dog)               | 游戏内投票插件                  |
 
 ### 物品管理
 | 名称                                                           | 维护者                                             | 功能                         |
@@ -117,7 +118,7 @@
 ### 插件管理
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
+| [MCDP](https://github.com/Dark-Night-Base/MCDP)               | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
 | [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)        | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库           |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 游戏内下载插件工具        |
@@ -125,9 +126,9 @@
 ### 扫地大妈
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)               | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)      | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 
 ###  服务器控制
 | 名称                                                         | 维护者                                            | 功能                                                         |
@@ -159,4 +160,4 @@
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)            | 展示手中物品       |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题     |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求       |
-| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号       |
+| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号       |
