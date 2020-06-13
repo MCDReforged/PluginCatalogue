@@ -73,24 +73,25 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ### Recreation
 | Name                                                           | Maintainer                                             | Function                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
+| -------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
-| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)|[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| Put something on your head |
-| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)|[ixiaohei](https://github.com/ixiaohei-sakura/)| A BLHClient: using websocket to get bilibili bullet chat  |
-| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)            | [Da_Dog](https://github.com/Da-Dog)           | In-Game BlackJack|
+| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)             |[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)  | Put something on your head       |
+| [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) |[ixiaohei](https://github.com/ixiaohei-sakura/)         | A BLHClient: using websocket to get bilibili bullet chat  |
+| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)          | [Da_Dog](https://github.com/Da-Dog)                    | In-Game BlackJack                |
+| [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Classic math game twenty four points |
 
 ### Player Communicate
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [ChatBridge](https://github.com/TISUnion/ChatBridge)        | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server          |
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)            |[HackerRouter](https://github.com/HackerRouter/)| Send a message to an offline player    |
-| [Beep](https://github.com/TISUnion/Beep)             | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`                  |
+| [Beep](https://github.com/TISUnion/Beep)               | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`                  |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin            |
 
 ### Item Management
-| Name                                                           | Maintainer                                             | Function                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | A MCDR plugin for post/teleport items        |
+| Name                                                  | Maintainer                                | Function                              |
+| ----------------------------------------------------- | ----------------------------------------- | ------------------------------------- |
+| [MCDRpost](https://github.com/Flyky/MCDRpost)         | [Flyky](https://github.com/Flyky)         | A MCDR plugin for post/teleport items |
 
 
 
@@ -101,7 +102,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
-| [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game       |
+| [Welcomer](https://github.com/hanbings/Welcomer)     | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game       |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | Timed announcement        |
 
 ### File Management
@@ -110,9 +111,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Backup/Restore plugin, with muti backup slot      |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | Update region files for mirror server |
 | [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | Create permanent zipped world backup |
-| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
+| [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM      |
-| [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)        | [Da_Dog](https://github.com/Da-Dog)              | Server auto update       |
+| [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)      | [Da_Dog](https://github.com/Da-Dog)              | Server auto update       |
 
 ### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |
@@ -147,7 +148,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ChatColor](https://github.com/dogdie233/ChatColor)        | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library   |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | HTTP interface for cool Q robot    |
-| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic Preposition                   |
+| [vault](https://github.com/zhang-anzhi/vault)              | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Economic Preposition                   |
 
 
 ## Bukkit Revolution
