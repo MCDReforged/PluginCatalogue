@@ -149,7 +149,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library   |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | HTTP interface for cool Q robot    |
 | [vault](https://github.com/zhang-anzhi/vault)              | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Economic Preposition                   |
-
+| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | A library for`bossbar`command                      |
 
 ## Bukkit Revolution
 | Name                                                         | Maintainer                                       | Function                               |
