@@ -22,14 +22,14 @@
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR)   | [Pandaria98](https://github.com/Pandaria98)       | 摸鱼时长排名                             |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS)            | [Da_Dog](https://github.com/Da-Dog)               | 查看服务器TPS                       |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间     |
-| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息
-| [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
+| [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 
 ### 搜索
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 |
-| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)            |[HackerRouter](https://github.com/HackerRouter/)|在游戏中搜索任意内容
+| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)            |[HackerRouter](https://github.com/HackerRouter/)|在游戏中搜索任意内容|
 
 ### 坐标查看
 | 名称                                                           | 维护者                                             | 功能                         |
@@ -149,6 +149,7 @@
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                              |
+| [ConfigAPI](https://github.com/hanbings/ConfigAPI) | [hanbings](https://github.com/hanbings) | 快速创建配置文件 |
 
 
 ## 水桶革命
