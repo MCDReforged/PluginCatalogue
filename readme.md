@@ -104,6 +104,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
 | [Welcomer](https://github.com/hanbings/Welcomer)     | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game       |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | Timed announcement        |
+| [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 
 ### File Management
 | Name                                                         | Maintainer                                            | Function                         |
