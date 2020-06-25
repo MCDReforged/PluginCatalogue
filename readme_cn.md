@@ -72,6 +72,7 @@
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 | [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | 聊天栏菜单      |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
+| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
 
 ### 娱乐
 | 名称                                                                 | 维护者                                             | 功能                         |
@@ -81,6 +82,7 @@
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)      | [ixiaohei](https://github.com/ixiaohei-sakura/)   |使用Websocket的bilibili弹幕姬   |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)               | [Da_Dog](https://github.com/Da-Dog)               | 21点 扑克小游戏                |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 24点经典数学游戏               |
+| [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 
 ### 玩家交流
 | 名称                                                             | 维护者                                             | 功能                          |
@@ -117,6 +119,7 @@
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一个支持多槽位的自动快速备份＆回档插件，由QuickBackupM改编而来          |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)        | [Da_Dog](https://github.com/Da-Dog)              | 自动更新服务器核心       |
+| [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件       |
 
 ### 插件管理
 | 名称                                                           | 维护者                                             | 功能                         |
@@ -153,7 +156,7 @@
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                              |
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI) | [hanbings](https://github.com/hanbings) | 快速创建配置文件 |
-
+| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | 封装`bossbar`指令                      |
 
 ## 水桶革命
 | 名称                                                          | 维护者                                            | 功能                                  |
