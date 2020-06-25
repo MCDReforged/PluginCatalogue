@@ -49,13 +49,15 @@
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器                             |
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98)       | 工程任务进度管理                               |
-| [GameMode](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
+| [GameMode](https://github.com/Squaregentleman/MCDR-plugins)        | [57767598](https://github.com/Squaregentleman/)           | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 玩家间转移动物（如猫/狗等）的所有权    |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件                                             |
 | [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | 标记你为引领者，引领新人和观光团                     |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
 | [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | BC服切换服务器        |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | 定时自动切换计分板        |
+| [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
+
 
 ### 假人
 | 名称                                                  | 维护者                                            | 功能                                     |

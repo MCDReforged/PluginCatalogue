@@ -56,6 +56,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | Statistic query and scoardboard maker   |
 | [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | Change server in BC server        |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | Change scoreboards automatically       |
+| [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival    |
+
 
 ### Bot
 | Name                                                  | Maintainer                                            | Function                                     |
