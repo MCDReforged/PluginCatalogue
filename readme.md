@@ -72,6 +72,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
 | [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | Chat Menu      |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server |
+| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
 
 ### Recreation
 | Name                                                           | Maintainer                                             | Function                         |
@@ -81,6 +82,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) |[ixiaohei](https://github.com/ixiaohei-sakura/)         | A BLHClient: using websocket to get bilibili bullet chat  |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)          | [Da_Dog](https://github.com/Da-Dog)                    | In-Game BlackJack                |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Classic math game twenty four points |
+| [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 
 ### Player Communicate
 | Name                                                           | Maintainer                                             | Function                         |
@@ -117,6 +119,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup)  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM      |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)      | [Da_Dog](https://github.com/Da-Dog)              | Server auto update       |
+| [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
+
 
 ### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |
@@ -153,7 +157,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | HTTP interface for cool Q robot                     |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Economic Preposition                                |
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)           | Fast create config file                             |
-
+| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | A library for`bossbar`command                      |
 
 ## Bukkit Revolution
 | Name                                                         | Maintainer                                       | Function                               |
