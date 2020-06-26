@@ -24,6 +24,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time     |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
+| [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | Highly customized rolling scoreboard plug-in |
 
 ### Search
 | Name                                                           | Maintainer                                             | Function                         |
