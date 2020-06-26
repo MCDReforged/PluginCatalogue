@@ -24,6 +24,7 @@
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime)             | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间     |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
+| [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | 高度自定义的滚动计分板（自动换榜）插件 |
 
 ### 搜索
 | 名称                                                           | 维护者                                             | 功能                         |
