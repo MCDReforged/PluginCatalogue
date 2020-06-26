@@ -147,17 +147,18 @@
 
 
 ## API
-| 名称                                                         | 维护者                                            | 功能                                 |
-| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
+| 名称                                                          | 维护者                                             | 功能                                 |
+| ------------------------------------------------------------ | ------------------------------------------------- | ----------------------------------- |
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
-| [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)       | 字体显示库                           |
-| [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                        |
-| [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                 |
-| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库|
+| [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)       | 字体显示库                            |
+| [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | 封装Title指令                         |
+| [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                    |
+| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库                      |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
-| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                              |
-| [ConfigAPI](https://github.com/hanbings/ConfigAPI) | [hanbings](https://github.com/hanbings) | 快速创建配置文件 |
+| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                               |
+| [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)          | 快速创建配置文件                         |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | 封装`bossbar`指令                      |
+| [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
 
 ## 水桶革命
 | 名称                                                          | 维护者                                            | 功能                                  |
