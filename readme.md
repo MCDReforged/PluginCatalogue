@@ -145,7 +145,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server              |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)               | AdvancedWhitelist with custom kick message and IP whitelist  |
-| [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | MCDR web console                                             |
+| [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | mcdr web console                                             |
 
 
 ## API
