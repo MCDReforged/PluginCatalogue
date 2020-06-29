@@ -122,7 +122,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)      | [Da_Dog](https://github.com/Da-Dog)              | Server auto update       |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
 
-
 ### Plugins Management
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
