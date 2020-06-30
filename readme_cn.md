@@ -27,10 +27,11 @@
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | 高度自定义的滚动计分板（自动换榜）插件 |
 
 ### 搜索
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
+| 名称                                                              | 维护者                                            | 功能                          |
+| ----------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 |
-| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)            |[HackerRouter](https://github.com/HackerRouter/)|在游戏中搜索任意内容|
+| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)    | [HackerRouter](https://github.com/HackerRouter/) |在游戏中搜索任意内容              |
+| [BilibiliParser](https://github.com/dogdie233/BilibiliParser)     | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上     |
 
 ### 坐标查看
 | 名称                                                           | 维护者                                             | 功能                         |
@@ -68,11 +69,10 @@
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
 
 ### 指令助手
-| 名称                                                         | 维护者                                            | 功能                                 |
+| 名称                                                         | 维护者                                             | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
-| [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | 聊天栏菜单      |
-| [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
+| [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)              | [Da_Dog](https://github.com/Da-Dog)                         | 聊天栏菜单                   |
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
 
 ### 娱乐

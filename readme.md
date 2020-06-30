@@ -27,10 +27,11 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | Highly customized rolling scoreboard plugin |
 
 ### Search
-| Name                                                           | Maintainer                                             | Function                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
+| Name                                                            | Maintainer                                             | Function                         |
+| --------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click |
-| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)            |[HackerRouter](https://github.com/HackerRouter/)|Search something in game |
+| [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)  | [HackerRouter](https://github.com/HackerRouter/)       |Search something in game          |
+| [BilibiliParser](https://github.com/dogdie233/BilibiliParser)   | [dogdie233](https://github.com/dogdie233)              | Parse and print Bilibili information on server |
 
 ### Position
 | Name                                                           | Maintainer                                             | Function                         |
@@ -68,11 +69,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
 
 ### Command Helper
-| Name                                                         | Maintainer                                            | Function                                 |
-| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
+| Name                                                         | Maintainer                                            | Function                             |
+| ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
-| [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)        | [Da_Dog](https://github.com/Da-Dog)              | Chat Menu      |
-| [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server |
+| [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)              | [Da_Dog](https://github.com/Da-Dog)                   | Chat Menu                            |
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
 
 ### Recreation
