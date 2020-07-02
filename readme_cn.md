@@ -59,6 +59,7 @@
 | [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | BC服切换服务器        |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | 定时自动切换计分板        |
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
+| [RepairManager](https://github.com/wyf0762/RepairManager)    | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 
 
 ### 假人

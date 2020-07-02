@@ -40,6 +40,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | Auto Record Death Position    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | Send player death position to the position owner    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game, warp teleport[Optional]                     |
+| [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 
 
 
