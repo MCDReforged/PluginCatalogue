@@ -146,6 +146,12 @@
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | 高级白名单，可以自定义白名单踢出消息及IP白名单                 |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | 即插即用的MCDR网页控制台                                          |
 
+### 玩家管理
+| 名称                                                              | 维护者                                                | 功能                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
+| [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | 高级Ban人插件, 可定时            |
+
+
 
 ## API
 | 名称                                                          | 维护者                                             | 功能                                 |
