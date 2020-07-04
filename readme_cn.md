@@ -62,14 +62,14 @@
 
 
 ### 假人
-| 名称                                                  | 维护者                                            | 功能                                     |
+| 名称                                                   | 维护者                                            | 功能                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | 生成，批量生成地毯BOT(BOT组)    |
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
 
 ### 指令助手
-| 名称                                                         | 维护者                                             | 功能                                  |
+| 名称                                                          | 维护者                                             | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 | [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)              | [Da_Dog](https://github.com/Da-Dog)                         | 聊天栏菜单                   |
@@ -83,7 +83,7 @@
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)      | [ixiaohei](https://github.com/ixiaohei-sakura/)   |使用Websocket的bilibili弹幕姬   |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)               | [Da_Dog](https://github.com/Da-Dog)               | 21点 扑克小游戏                |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 24点经典数学游戏               |
-| [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | 一个多功能聊天机器人.(比如切换地毯端选项等) |
+| [Meow](https://github.com/HackerRouter/MCDR-Meow)                   | [HackerRouter](https://github.com/HackerRouter)   | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 
 ### 玩家交流
 | 名称                                                             | 维护者                                             | 功能                          |
@@ -94,9 +94,9 @@
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)                     | [Da_Dog](https://github.com/Da-Dog)               | 游戏内投票插件                  |
 
 ### 物品管理
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky)   | 一个用于邮寄/传送物品的MCDR插件                  |
+| 名称                                                    | 维护者                                             | 功能                                  |
+| ------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
+| [MCDRpost](https://github.com/Flyky/MCDRpost)          | [Flyky](https://github.com/Flyky)                 | 一个用于邮寄/传送物品的MCDR插件           |
 
 
 
@@ -104,12 +104,12 @@
 ## 服务器管理
 
 ### 公告/通知
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [joinMOTD](https://github.com/TISUnion/joinMOTD)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表 |
-| [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家            |
-| [ANN](https://github.com/Da-Dog/MCDR_ANN)            | [Da_Dog](https://github.com/Da-Dog)           | 定时公告                             |
-| [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | 使用命令来修改服务器的MOTD（支持颜色代码） |
+| 名称                                                             | 维护者                                             | 功能                                 |
+| --------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
+| [joinMOTD](https://github.com/TISUnion/joinMOTD)                | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表    |
+| [Welcomer](https://github.com/hanbings/Welcomer)                | [hanbings](https://github.com/hanbings)           | 进入游戏以Title形式发送一句随机的话给玩家   |
+| [ANN](https://github.com/Da-Dog/MCDR_ANN)                       | [Da_Dog](https://github.com/Da-Dog)               | 定时公告                              |
+| [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD)        | [GamerNoTitle](https://github.com/GamerNoTitle)   | 使用命令来修改服务器的MOTD（支持颜色代码）  |
 
 ### 文件管理
 | 名称                                                         | 维护者                                            | 功能                         |
@@ -123,28 +123,28 @@
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件       |
 
 ### 插件管理
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDP](https://github.com/Dark-Night-Base/MCDP)               | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
-| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
-| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)        | [57767598](https://github.com/Squaregentleman/)           | mcdr的插件库           |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 游戏内下载插件工具        |
+| 名称                                                              | 维护者                                                 | 功能                           |
+| ---------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------- |
+| [MCDP](https://github.com/Dark-Night-Base/MCDP)                  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具     |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure)    | [TiyaAnlite](https://github.com/TiyaAnlite)           | 显示友好的游戏内插件下载/更新工具   |
+| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)          | [57767598](https://github.com/Squaregentleman/)       | mcdr的插件库                   |
+| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/)        | 游戏内下载插件工具               |
 
 ### 扫地大妈
-| 名称                                                           | 维护者                                             | 功能                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDRClear](https://github.com/hanbings/MCDRClear)               | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)      | [57767598](https://github.com/Squaregentleman/)           | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
+| 名称                                                              | 维护者                                                | 功能                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)               | [hanbings](https://github.com/hanbings)              | 可延迟清理的定时清理掉落物         |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)  | 又一个MCDR的扫地姬（可自定义方块白名单） |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)     | [57767598](https://github.com/Squaregentleman/)      | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 
 ###  服务器控制
-| 名称                                                         | 维护者                                            | 功能                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
-| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
-| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟         |
+| 名称                                                          | 维护者                                             | 功能                                                           |
+| ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------- |
+| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服        |
+| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟      |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
-| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)               | 高级白名单，可以自定义白名单踢出消息及IP白名单               |
-| [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | 即插即用的MCDR网页控制台                                     |
+| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | 高级白名单，可以自定义白名单踢出消息及IP白名单                 |
+| [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | 即插即用的MCDR网页控制台                                          |
 
 
 ## API
@@ -160,14 +160,15 @@
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)          | 快速创建配置文件                         |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | 封装`bossbar`指令                      |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
+| [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 酷Q和MCDR的插件开发API                   |
 
 ## 水桶革命
 | 名称                                                          | 维护者                                            | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------ |
-| [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济插件                              |
-| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | 锁箱子插件                            |
+| [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济插件                               |
+| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | 锁箱子插件                             |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 多货币动态价格经济/商店系统    |
-| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)            | 展示手中物品       |
-| [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题     |
-| [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求       |
-| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号       |
+| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog)              | 展示手中物品                            |
+| [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题                      |
+| [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求                               |
+| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号                               |

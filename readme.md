@@ -123,19 +123,19 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
 
 ### Plugins Management
-| Name                                                           | Maintainer                                             | Function                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
-| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
-| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)        | [57767598](https://github.com/Squaregentleman/)           | The plugin library of MCDR      |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/Economy)   | Download plugin in game        |
+| Name                                                          | Maintainer                                            | Function                          |
+| ------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------- |
+| [MCDP](https://github.com/Dark-Night-Base/MCDP)               | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*          |
+| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite)           | A display infomation friendly plugins for helps you download or update other plugins |
+| [MCDR-get](https://github.com/Squaregentleman/MCDR-get)       | [57767598](https://github.com/Squaregentleman/)       | The plugin library of MCDR        |
+| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | Download plugin in game           |
 
 ### Item Clear
-| Name                                                           | Maintainer                                             | Function                         |
-| --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
-| [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | Auto and can be delayed clean |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)           |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
+| Name                                                                 | Maintainer                                         | Function                             |
+| -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)                   | [hanbings](https://github.com/hanbings)            | Auto and can be delayed clean        |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)    | A sweeping robot that can add whitelist |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)         | [57767598](https://github.com/Squaregentleman/)    |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
 
 ###  Server Control
 | Name                                                         | Maintainer                                        | Function                                                     |
@@ -155,11 +155,12 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | A library for title command                         |
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream)   | Minecraft Blocks ID Library                 |
-| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | HTTP interface for cool Q robot                 |
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)       | HTTP interface for cool Q robot                     |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Economic Preposition                                |
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)           | Fast create config file                             |
-| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | A library for`bossbar`command                        |
+| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)     | A library for`bossbar`command                       |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
+| [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Cool QQ and MCDR connect plugin develop API         |
 
 ## Bukkit Revolution
 | Name                                                         | Maintainer                                       | Function                               |
@@ -167,7 +168,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic plugin                        |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | A plugin that can Lock the Chest       |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)       | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | A currency plugin with a dynamic-price shop    |
-| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog), [zhang_anzhi](https://github.com/zhang-anzhi/)              | Show item in chat       |
+| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog)              | Show item in chat                      |
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
-| [TPA](https://github.com/Da-Dog/MCDR-tpa)        | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin       |
-| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)   | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account       |
+| [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin                      |
+| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account                           |
