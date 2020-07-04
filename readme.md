@@ -146,6 +146,12 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)               | AdvancedWhitelist with custom kick message and IP whitelist  |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | mcdr web console                                             |
 
+### 玩家管理
+| Name                                                             | Maintainer                                           | Function                      |
+| ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
+| [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
+
+
 
 ## API
 | Name                                                         | Maintainer                                        | Function                                            |
