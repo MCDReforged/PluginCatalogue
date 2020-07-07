@@ -106,6 +106,7 @@
 ### 公告/通知
 | 名称                                                             | 维护者                                             | 功能                                 |
 | --------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
+| [joinMOTD++](https://github.com/eagle3236/joinMOTD-plus-plus)   | [Alex3236](https://github.com/eagle3236/)         | 一个增强版的joinMOTD。功能丰富，推荐使用    |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)                | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表    |
 | [Welcomer](https://github.com/hanbings/Welcomer)                | [hanbings](https://github.com/hanbings)           | 进入游戏以Title形式发送一句随机的话给玩家   |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)                       | [Da_Dog](https://github.com/Da-Dog)               | 定时公告                              |
