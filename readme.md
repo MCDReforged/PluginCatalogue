@@ -169,6 +169,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)     | A library for`bossbar`command                       |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
 | [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Cool QQ and MCDR connect plugin develop API         |
+| [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
 
 ## Bukkit Revolution
 | Name                                                         | Maintainer                                       | Function                               |
