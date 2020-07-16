@@ -148,6 +148,7 @@
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | 高级白名单，可以自定义白名单踢出消息及IP白名单                 |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | 即插即用的MCDR网页控制台                                          |
+|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)|[ricky](https://github.com/rickyhoho)|一个用于控制多服务器白名单的插件|
 
 ### 玩家管理
 | 名称                                                              | 维护者                                                | 功能                          |
