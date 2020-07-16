@@ -133,29 +133,21 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)       | [57767598](https://github.com/Squaregentleman/)       | The plugin library of MCDR        |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | Download plugin in game           |
 
-### Item Clear
-| Name                                                                 | Maintainer                                         | Function                             |
-| -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ |
-| [MCDRClear](https://github.com/hanbings/MCDRClear)                   | [hanbings](https://github.com/hanbings)            | Auto and can be delayed clean        |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)    | A sweeping robot that can add whitelist |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)         | [57767598](https://github.com/Squaregentleman/)    |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
-
 ###  Server Control
 | Name                                                         | Maintainer                                        | Function                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
 | [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server. For CMP server |
 | [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server              |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
-| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)               | AdvancedWhitelist with custom kick message and IP whitelist  |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | mcdr web console                                             |
-|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)|[ricky](https://github.com/rickyhoho)|A plugin for control whitelist in multi servers|
+| [simple_test](https://github.com/rickyhoho/simple_test)      |[ricky](https://github.com/rickyhoho)              |一个MCDReforged的自检插件|
 
 ### Player management
 | Name                                                             | Maintainer                                           | Function                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
 | [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
-
-
+| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | AdvancedWhitelist with custom kick message and IP whitelist  |
+|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)   |[ricky](https://github.com/rickyhoho)                 |A plugin for control whitelist in multi servers|
 
 ## API
 | Name                                                         | Maintainer                                        | Function                                            |
@@ -172,6 +164,13 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
 | [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Cool QQ and MCDR connect plugin develop API         |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
+
+### Item Clear
+| Name                                                                 | Maintainer                                         | Function                             |
+| -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)                   | [hanbings](https://github.com/hanbings)            | Auto and can be delayed clean        |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)    | A sweeping robot that can add whitelist |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)         | [57767598](https://github.com/Squaregentleman/)    |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
 
 ## Bukkit Revolution
 | Name                                                         | Maintainer                                       | Function                               |
