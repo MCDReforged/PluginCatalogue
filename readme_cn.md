@@ -10,12 +10,10 @@
 
 --------
 
-
-
-
 ## 信息获取
 
 ### 游戏信息
+
 | 名称                                                  | 维护者                                            | 功能                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` 获得开服至今的天数               |
@@ -27,6 +25,7 @@
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | 高度自定义的滚动计分板（自动换榜）插件 |
 
 ### 搜索
+
 | 名称                                                              | 维护者                                            | 功能                          |
 | ----------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 |
@@ -34,6 +33,7 @@
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser)     | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上     |
 
 ### 坐标查看
+
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | 显示坐标并高亮玩家                       |
@@ -41,12 +41,10 @@
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | 玩家死亡私发死亡坐标    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件, 坐标点传送[可选]                     |
 
-
-
-
 ## 游戏辅助
 
 ### 实用工具
+
 | 名称                                                  | 维护者                                            | 功能                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器                             |
@@ -62,8 +60,8 @@
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [RepairManager](https://github.com/wyf0762/RepairManager)    | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 
-
 ### 假人
+
 | 名称                                                   | 维护者                                            | 功能                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
@@ -71,6 +69,7 @@
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
 
 ### 指令助手
+
 | 名称                                                          | 维护者                                             | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
@@ -78,6 +77,7 @@
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
 
 ### 娱乐
+
 | 名称                                                                 | 维护者                                             | 功能                         |
 | ------------------------------------------------------------------- | ------------------------------------------------- | ---------------------------- |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅       |
@@ -88,6 +88,7 @@
 | [Meow](https://github.com/HackerRouter/MCDR-Meow)                   | [HackerRouter](https://github.com/HackerRouter)   | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 
 ### 玩家交流
+
 | 名称                                                             | 维护者                                             | 功能                          |
 | --------------------------------------------------------------- | ------------------------------------------------- | ---------------------------- |
 | [ChatBridge](https://github.com/TISUnion/ChatBridge)            | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天                       |
@@ -96,16 +97,15 @@
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)                     | [Da_Dog](https://github.com/Da-Dog)               | 游戏内投票插件                  |
 
 ### 物品管理
+
 | 名称                                                    | 维护者                                             | 功能                                  |
 | ------------------------------------------------------ | ------------------------------------------------- | ------------------------------------ |
 | [MCDRpost](https://github.com/Flyky/MCDRpost)          | [Flyky](https://github.com/Flyky)                 | 一个用于邮寄/传送物品的MCDR插件           |
 
-
-
-
 ## 服务器管理
 
 ### 公告/通知
+
 | 名称                                                             | 维护者                                             | 功能                                 |
 | --------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
 | [joinMOTD++](https://github.com/eagle3236/joinMOTD-plus-plus)   | [Alex3236](https://github.com/eagle3236/)         | 一个增强版的joinMOTD。功能丰富，推荐使用    |
@@ -115,6 +115,7 @@
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD)        | [GamerNoTitle](https://github.com/GamerNoTitle)   | 使用命令来修改服务器的MOTD（支持颜色代码）  |
 
 ### 文件管理
+
 | 名称                                                         | 维护者                                            | 功能                         |
 | ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------- |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件          |
@@ -126,6 +127,7 @@
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件       |
 
 ### 插件管理
+
 | 名称                                                              | 维护者                                                 | 功能                           |
 | ---------------------------------------------------------------- | ----------------------------------------------------- | ----------------------------- |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)                  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具     |
@@ -134,13 +136,15 @@
 | [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/)        | 游戏内下载插件工具               |
 
 ### 扫地大妈
+
 | 名称                                                              | 维护者                                                | 功能                          |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
 | [MCDRClear](https://github.com/hanbings/MCDRClear)               | [hanbings](https://github.com/hanbings)              | 可延迟清理的定时清理掉落物         |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)  | 又一个MCDR的扫地姬（可自定义方块白名单） |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)     | [57767598](https://github.com/Squaregentleman/)      | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 
-###  服务器控制
+### 服务器控制
+
 | 名称                                                          | 维护者                                             | 功能                                                           |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------- |
 | [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服        |
@@ -151,13 +155,13 @@
 |[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)|[ricky](https://github.com/rickyhoho)|一个用于控制多服务器白名单的插件|
 
 ### 玩家管理
+
 | 名称                                                              | 维护者                                                | 功能                          |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
 | [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | 高级Ban人插件, 可定时            |
 
-
-
 ## API
+
 | 名称                                                          | 维护者                                             | 功能                                 |
 | ------------------------------------------------------------ | ------------------------------------------------- | ----------------------------------- |
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
@@ -174,6 +178,7 @@
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | 一个仿造Bukkit物品API的API
 
 ## 水桶革命
+
 | 名称                                                          | 维护者                                            | 功能                                  |
 | ------------------------------------------------------------ | ------------------------------------------------ | ------------------------------------ |
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济插件                               |
