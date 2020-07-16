@@ -148,7 +148,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)               | AdvancedWhitelist with custom kick message and IP whitelist  |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | mcdr web console                                             |
-|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)|[ricky](https://github.com/rickyhoho)|A plugin for MCDReforged which can control whitelist in multi servers|
+|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)|[ricky](https://github.com/rickyhoho)|A plugin for control whitelist in multi servers|
 
 ### Player management
 | Name                                                             | Maintainer                                           | Function                      |
