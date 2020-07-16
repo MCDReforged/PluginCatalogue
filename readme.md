@@ -10,12 +10,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 --------
 
-
-
-
 ## Information
 
 ### Game Information
+
 | Name                                                  | Maintainer                                            | Function                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [daycount](https://github.com/TISUnion/daycount)     | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed               |
@@ -27,6 +25,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | Highly customized rolling scoreboard plugin |
 
 ### Search
+
 | Name                                                            | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click |
@@ -34,6 +33,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser)   | [dogdie233](https://github.com/dogdie233)              | Parse and print Bilibili information on server |
 
 ### Position
+
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself                       |
@@ -42,12 +42,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game, warp teleport[Optional]                     |
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 
-
-
-
 ## Game Helper
 
 ### Tools
+
 | Name                                                  | Maintainer                                            | Function                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator                             |
@@ -62,8 +60,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | Change scoreboards automatically       |
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival    |
 
-
 ### Bot
+
 | Name                                                  | Maintainer                                            | Function                                     |
 | ----------------------------------------------------- | ------------------------------------------------- | ---------------------------------------- |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | A plugin to show carpet bot |
@@ -71,6 +69,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
 
 ### Command Helper
+
 | Name                                                         | Maintainer                                            | Function                             |
 | ------------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------ |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
@@ -78,6 +77,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
 
 ### Recreation
+
 | Name                                                           | Maintainer                                             | Function                         |
 | -------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
@@ -88,6 +88,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 
 ### Player Communicate
+
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [ChatBridge](https://github.com/TISUnion/ChatBridge)        | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server          |
@@ -96,16 +97,15 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin            |
 
 ### Item Management
+
 | Name                                                  | Maintainer                                | Function                              |
 | ----------------------------------------------------- | ----------------------------------------- | ------------------------------------- |
 | [MCDRpost](https://github.com/Flyky/MCDRpost)         | [Flyky](https://github.com/Flyky)         | A MCDR plugin for post/teleport items |
 
-
-
-
 ## Server Management
 
 ### Announcement
+
 | Name                                                           | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)                | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
@@ -115,6 +115,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 
 ### File Management
+
 | Name                                                         | Maintainer                                            | Function                         |
 | ------------------------------------------------------------ | ------------------------------------------------- | ---------------------------- |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM)     | [Fallen_Breath](https://github.com/Fallen-Breath) | Backup/Restore plugin, with muti backup slot      |
@@ -126,6 +127,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
 
 ### Plugins Management
+
 | Name                                                          | Maintainer                                            | Function                          |
 | ------------------------------------------------------------- | ----------------------------------------------------- | --------------------------------- |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)               | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*          |
@@ -134,13 +136,15 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | Download plugin in game           |
 
 ### Item Clear
+
 | Name                                                                 | Maintainer                                         | Function                             |
 | -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ |
 | [MCDRClear](https://github.com/hanbings/MCDRClear)                   | [hanbings](https://github.com/hanbings)            | Auto and can be delayed clean        |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)    | A sweeping robot that can add whitelist |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)         | [57767598](https://github.com/Squaregentleman/)    |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
 
-###  Server Control
+### Server Control
+
 | Name                                                         | Maintainer                                        | Function                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------ |
 | [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP)  | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server. For CMP server |
@@ -151,13 +155,13 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 |[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)|[ricky](https://github.com/rickyhoho)|A plugin for control whitelist in multi servers|
 
 ### Player management
+
 | Name                                                             | Maintainer                                           | Function                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
 | [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
 
-
-
 ## API
+
 | Name                                                         | Maintainer                                        | Function                                            |
 | ------------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------- |
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
@@ -174,6 +178,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
 
 ## Bukkit Revolution
+
 | Name                                                         | Maintainer                                       | Function                               |
 | ------------------------------------------------------------ | ------------------------------------------------ | -------------------------------------- |
 | [Economy](https://github.com/zhang-anzhi/Economy)            | [zhang_anzhi](https://github.com/zhang-anzhi/)   | Economic plugin                        |
