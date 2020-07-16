@@ -140,14 +140,14 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server              |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | mcdr web console                                             |
-| [simple_test](https://github.com/rickyhoho/simple_test)      |[ricky](https://github.com/rickyhoho)              |一个MCDReforged的自检插件|
+| [simple_test](https://github.com/rickyhoho/simple_test)      |[Ricky](https://github.com/rickyhoho)              |一个MCDReforged的自检插件|
 
 ### Player management
 | Name                                                             | Maintainer                                           | Function                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
 | [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | AdvancedWhitelist with custom kick message and IP whitelist  |
-|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)   |[ricky](https://github.com/rickyhoho)                 |A plugin for control whitelist in multi servers|
+|[multi_whitelist](https://github.com/rickyhoho/multi_whitelist)   |[Ricky](https://github.com/rickyhoho)                 |A plugin for control whitelist in multi servers|
 
 ## API
 | Name                                                         | Maintainer                                        | Function                                            |
