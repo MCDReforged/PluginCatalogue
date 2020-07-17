@@ -145,6 +145,14 @@
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | 即插即用的MCDR网页控制台                                    |
 | [simple_test](https://github.com/rickyhoho/simple_test)      | [Ricky](https://github.com/rickyhoho/simple_test) | 一个MCDR的自检插件                                          |
 
+### 扫地大妈
+
+| 名称                                                              | 维护者                                                | 功能                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)               | [hanbings](https://github.com/hanbings)              | 可延迟清理的定时清理掉落物         |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)  | 又一个MCDR的扫地姬（可自定义方块白名单） |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)     | [57767598](https://github.com/Squaregentleman/)      | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
+
 ### 玩家管理
 
 | 名称                                                              | 维护者                                                | 功能                          |
@@ -169,14 +177,6 @@
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
 | [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 酷Q和MCDR的插件开发API                   |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | 一个仿造Bukkit物品API的API
-
-### 扫地大妈
-
-| 名称                                                              | 维护者                                                | 功能                          |
-| ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
-| [MCDRClear](https://github.com/hanbings/MCDRClear)               | [hanbings](https://github.com/hanbings)              | 可延迟清理的定时清理掉落物         |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)  | 又一个MCDR的扫地姬（可自定义方块白名单） |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)     | [57767598](https://github.com/Squaregentleman/)      | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地)    |
 
 ## 水桶革命
 
