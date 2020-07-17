@@ -151,7 +151,7 @@
 | [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟      |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle)   | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | 即插即用的MCDR网页控制台                                    |
-| [simple_test](https://github.com/rickyhoho/simple_test)      | [Ricky](https://github.com/rickyhoho)             |A plugin for checking simple problem of MCDR               |
+| [simple_test](https://github.com/rickyhoho/simple_test)      | [Ricky](https://github.com/rickyhoho)             |一个MCDR的自检插件                                           |
 
 ### 玩家管理
 
