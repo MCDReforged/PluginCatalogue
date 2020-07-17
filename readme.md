@@ -145,6 +145,14 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole)    | [ixiaohei](https://github.com/ixiaohei-sakura)    | mcdr web console                                           |
 | [simple_test](https://github.com/rickyhoho/simple_test)      | [Ricky](https://github.com/rickyhoho)             |A plugin for checking simple problem of MCDR                |
 
+### Item Clear
+
+| Name                                                                 | Maintainer                                         | Function                             |
+| -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ |
+| [MCDRClear](https://github.com/hanbings/MCDRClear)                   | [hanbings](https://github.com/hanbings)            | Auto and can be delayed clean        |
+| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)    | A sweeping robot that can add whitelist |
+| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)         | [57767598](https://github.com/Squaregentleman/)    |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
+
 ### Player management
 
 | Name                                                             | Maintainer                                           | Function                      |
@@ -169,14 +177,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
 | [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Cool QQ and MCDR connect plugin develop API         |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
-
-### Item Clear
-
-| Name                                                                 | Maintainer                                         | Function                             |
-| -------------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------ |
-| [MCDRClear](https://github.com/hanbings/MCDRClear)                   | [hanbings](https://github.com/hanbings)            | Auto and can be delayed clean        |
-| [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream)    | A sweeping robot that can add whitelist |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins)         | [57767598](https://github.com/Squaregentleman/)    |  Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info:  the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean)  |
 
 ## Bukkit Revolution
 
