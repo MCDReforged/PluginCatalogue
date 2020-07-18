@@ -23,6 +23,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | Highly customized rolling scoreboard plugin |
+| [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | A plugin for synchronizing stats data to fz-s datapack scoreboard |
 
 ### Search
 
