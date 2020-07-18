@@ -23,6 +23,7 @@
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | 高度自定义的滚动计分板（自动换榜）插件 |
+| [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | 一个用于将stats数据同步到Fz-sDatapack记分版的插件 |
 
 ### 搜索
 
