@@ -30,6 +30,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name                                                            | Maintainer                                             | Function                         |
 | --------------------------------------------------------------- | ------------------------------------------------------ | -------------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click |
+| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)  | [HackerRouter](https://github.com/HackerRouter/)       |Search something in game          |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser)   | [dogdie233](https://github.com/dogdie233)              | Parse and print Bilibili information on server |
 
