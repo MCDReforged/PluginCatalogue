@@ -60,6 +60,7 @@
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | 定时自动切换计分板        |
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [RepairManager](https://github.com/wyf0762/RepairManager)    | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
+| [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
 
 ### 假人
 
@@ -76,6 +77,7 @@
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 | [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)              | [Da_Dog](https://github.com/Da-Dog)                         | 聊天栏菜单                   |
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
+| | | |
 
 ### 娱乐
 
