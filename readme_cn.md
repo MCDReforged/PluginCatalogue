@@ -128,6 +128,7 @@
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一个支持多槽位的自动快速备份＆回档插件，由QuickBackupM改编而来          |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)        | [Da_Dog](https://github.com/Da-Dog)              | 自动更新服务器核心       |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件       |
+|[MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync)|[wyf0762](https://github.com/wyf0762)|同步生存服存档至镜像服|
 
 ### 插件管理
 

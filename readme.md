@@ -41,7 +41,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | Auto Record Death Position    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | Send player death position to the position owner    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game, warp teleport[Optional]                     |
-| [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 
 ## Game Helper
 
@@ -61,6 +60,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/)             | Change scoreboards automatically                             |
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)                | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints)  | [GamerNoTitle](https://github.com/GamerNoTitle)              | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
+| [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 
 ### Bot
 
@@ -127,6 +127,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM      |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)      | [Da_Dog](https://github.com/Da-Dog)              | Server auto update       |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
+|[MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync)|[wyf0762](https://github.com/wyf0762)|Sync survival server world to mirror server|
 
 ### Plugins Management
 
