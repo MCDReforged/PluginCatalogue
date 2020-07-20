@@ -55,12 +55,10 @@
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)          | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件                                             |
 | [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | 标记你为引领者，引领新人和观光团                     |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
-| [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat)       | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播   |
-| [server_change](https://github.com/zhang-anzhi/server_change)        | [zhang_anzhi](https://github.com/zhang-anzhi)        | BC服切换服务器        |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | 定时自动切换计分板        |
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
-| [RepairManager](https://github.com/wyf0762/RepairManager)    | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
+| [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat)       | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播   |
 
 ### 假人
 
@@ -77,7 +75,6 @@
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 | [SnapUI](https://github.com/Da-Dog/MCDR_SnapUI)              | [Da_Dog](https://github.com/Da-Dog)                         | 聊天栏菜单                   |
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) |  提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
-| | | |
 
 ### 娱乐
 
@@ -111,8 +108,8 @@
 
 | 名称                                                             | 维护者                                             | 功能                                 |
 | --------------------------------------------------------------- | ------------------------------------------------- | ----------------------------------- |
-| [joinMOTD++](https://github.com/eagle3236/joinMOTD-plus-plus)   | [Alex3236](https://github.com/eagle3236/)         | 一个增强版的joinMOTD。功能丰富，推荐使用    |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD)                | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表    |
+| [joinMOTD++](https://github.com/eagle3236/joinMOTD-plus-plus)   | [Alex3236](https://github.com/eagle3236/)         | 一个增强版的joinMOTD。功能丰富，推荐使用    |
 | [Welcomer](https://github.com/hanbings/Welcomer)                | [hanbings](https://github.com/hanbings)           | 进入游戏以Title形式发送一句随机的话给玩家   |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN)                       | [Da_Dog](https://github.com/Da-Dog)               | 定时公告                              |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD)        | [GamerNoTitle](https://github.com/GamerNoTitle)   | 使用命令来修改服务器的MOTD（支持颜色代码）  |
@@ -163,6 +160,7 @@
 | [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | 高级Ban人插件, 可定时            |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | 高级白名单，可以自定义白名单踢出消息及IP白名单          |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist)  |[Ricky](https://github.com/rickyhoho)                 | 一个用于控制多服务器白名单的插件  |
+| [RepairManager](https://github.com/wyf0762/RepairManager)    | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 
 ## API
 
