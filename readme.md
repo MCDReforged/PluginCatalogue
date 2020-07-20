@@ -125,6 +125,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup)     | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM      |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate)      | [Da_Dog](https://github.com/Da-Dog)              | Server auto update       |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup)        | [TANGhz17](https://github.com/TANGhz17)              | A regular backup plugin(use 7zip)       |
+|[MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync)|[wyf0762](https://github.com/wyf0762)|Sync survival server world to mirror server|
 
 ### Plugins Management
 
