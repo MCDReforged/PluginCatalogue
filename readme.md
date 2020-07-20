@@ -193,3 +193,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin                      |
 | [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account                           |
+|[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|Set a home and telepot to home at any time|

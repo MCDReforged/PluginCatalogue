@@ -192,3 +192,4 @@
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题                      |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求                               |
 | [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号                               |
+|[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|设置家并在任何时候传送回家|
