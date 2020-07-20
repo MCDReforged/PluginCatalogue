@@ -30,9 +30,9 @@
 | 名称                                                              | 维护者                                            | 功能                          |
 | ----------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 |
-| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/)    | [HackerRouter](https://github.com/HackerRouter/) |在游戏中搜索任意内容              |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser)     | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上     |
+| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
 
 ### 坐标查看
 
