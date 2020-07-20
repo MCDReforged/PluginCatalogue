@@ -41,7 +41,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | Auto Record Death Position    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | Send player death position to the position owner    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | Another warp plugin to record mark point in game, warp teleport[Optional]                     |
-| [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 
 ## Game Helper
 
@@ -56,11 +55,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR)           | [Fallen_Breath](https://github.com/Fallen-Breath)            | Record on server plugin                                      |
 | [Leader](https://github.com/SCT-Technology/Leader)           | [MercyNaima](https://github.com/MercyNaima)                  | Mark you to a leader,and leads people                        |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)            | Statistic query and scoardboard maker                        |
-| [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517)        | Create and rotate the scoreboard                             |
-| [server_change](https://github.com/zhang-anzhi/server_change) | [zhang_anzhi](https://github.com/zhang-anzhi)                | Change server in BC server                                   |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/)             | Change scoreboards automatically                             |
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)                | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints)  | [GamerNoTitle](https://github.com/GamerNoTitle)              | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
+| [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517)        | Create and rotate the scoreboard                             |
 
 ### Bot
 
@@ -162,6 +160,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | AdvancedWhitelist with custom kick message and IP whitelist  |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist)  |[Ricky](https://github.com/rickyhoho)                 |A plugin for control whitelist in multi servers|
+| [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 
 ## API
 
