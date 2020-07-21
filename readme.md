@@ -96,6 +96,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)            |[HackerRouter](https://github.com/HackerRouter/)| Send a message to an offline player    |
 | [Beep](https://github.com/TISUnion/Beep)               | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`                  |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin            |
+| [QQChat](https://github.com/zhang-anzhi/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Connect QQ and Minecraft, with `list` function |
 
 ### Item Management
 
@@ -178,7 +179,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)           | Fast create config file                             |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)     | A library for`bossbar`command                       |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
-| [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Cool QQ and MCDR connect plugin develop API         |
+| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | CoolQ and MCDR connect plugin develop API         |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
 
 ## Bukkit Revolution
