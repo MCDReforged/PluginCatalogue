@@ -60,6 +60,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)                | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints)  | [GamerNoTitle](https://github.com/GamerNoTitle)              | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517)        | Create and rotate the scoreboard                             |
+|[dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport)|[wyf0762](https://github.com/wyf0762)|Teleport between overworld, the nether and the_end|
 
 ### Bot
 
@@ -192,4 +193,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin                      |
 | [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account                           |
-|[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|Set a home and telepot to home at any time|
+|[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|Set a home and teleport to home at any time|
