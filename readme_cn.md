@@ -195,3 +195,4 @@
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求                               |
 | [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号                               |
 |[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|设置家并在任何时候传送回家|
+|[back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back)|[EDHY-233](https://github.com/EDHY-233)|显示与返回玩家死亡点|
