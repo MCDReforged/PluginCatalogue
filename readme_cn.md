@@ -97,6 +97,7 @@
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)      |[HackerRouter](https://github.com/HackerRouter/)   | 向一名离线玩家发送信息           |
 | [Beep](https://github.com/TISUnion/Beep)                        | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人         |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)                     | [Da_Dog](https://github.com/Da-Dog)               | 游戏内投票插件                  |
+| [QQChat](https://github.com/zhang-anzhi/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能   |
 
 ### 物品管理
 
@@ -179,7 +180,7 @@
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)          | 快速创建配置文件                         |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | 封装`bossbar`指令                      |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
-| [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 酷Q和MCDR的插件开发API                   |
+| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 酷Q和MCDR的插件开发API                   |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | 一个仿造Bukkit物品API的API
 
 ## 水桶革命
@@ -194,3 +195,4 @@
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求                               |
 | [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号                               |
 |[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|设置家并在任何时候传送回家|
+|[back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back)|[EDHY-233](https://github.com/EDHY-233)|显示与返回玩家死亡点|
