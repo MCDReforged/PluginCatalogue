@@ -34,7 +34,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser)   | [dogdie233](https://github.com/dogdie233)              | Parse and print Bilibili information on server |
 | [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported |
 
-
 ### Position
 
 | Name                                                           | Maintainer                                             | Function                         |
@@ -98,6 +97,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)            |[HackerRouter](https://github.com/HackerRouter/)| Send a message to an offline player    |
 | [Beep](https://github.com/TISUnion/Beep)               | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`                  |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin            |
+| [QQChat](https://github.com/zhang-anzhi/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Connect QQ and Minecraft, with `list` function |
 
 ### Item Management
 
@@ -180,7 +180,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)           | Fast create config file                             |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)     | A library for`bossbar`command                       |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
-| [CoolQQAPI](https://github.com/zhang-anzhi/CoolQQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Cool QQ and MCDR connect plugin develop API         |
+| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | CoolQ and MCDR connect plugin develop API         |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
 
 ## Bukkit Revolution
@@ -195,3 +195,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin                      |
 | [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account                           |
 |[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|Set a home and teleport to home at any time|
+|[back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back)|[EDHY-233](https://github.com/EDHY-233)|Show and teleport to player's failed place|
