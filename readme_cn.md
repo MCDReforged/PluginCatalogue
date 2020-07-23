@@ -61,6 +61,7 @@
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat)       | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播   |
 |[dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport)|[wyf0762](https://github.com/wyf0762)|在主世界地狱末地之间传送|
+|[PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker)|[wyf0762](https://github.com/wyf0762)|在创造/镜像服中快速制造空置域，逐层操作，防止卡顿|
 
 ### 假人
 
