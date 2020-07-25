@@ -70,6 +70,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | A plugin to show carpet bot |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot)            | [MercyNaima](https://github.com/MercyNaima)           | A plugin to spawn carpet BOT/BOTS    |
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
+| [BotInit](https://github.com/MCDReforged-Plugins/BotInit) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Storage bot list, one key to spawn or kill bot |
 
 ### Command Helper
 
