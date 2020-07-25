@@ -178,7 +178,7 @@
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库                      |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
 | [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                               |
-| [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)          | 快速创建配置文件                         |
+| [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi/) | 快速创建配置文件                         |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | 封装`bossbar`指令                      |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
 | [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 酷Q和MCDR的插件开发API                   |

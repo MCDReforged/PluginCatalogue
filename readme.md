@@ -169,20 +169,20 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ## API
 
-| Name                                                         | Maintainer                                        | Function                                            |
-| ------------------------------------------------------------ | ------------------------------------------------- | --------------------------------------------------- |
-| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
-| [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)       | A library for better text display                   |
-| [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)           | A library for title command                         |
-| [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | Send color messages more simply                     |
-| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream)   | Minecraft Blocks ID Library                 |
-| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)       | HTTP interface for cool Q robot                     |
-| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Economic Preposition                                |
-| [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings)           | Fast create config file                             |
-| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)     | A library for`bossbar`command                       |
-| [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Check player is online                            |
-| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)    | CoolQ and MCDR connect plugin develop API         |
-| [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | An Item api like Bukkit                             |
+| Name                                                         | Maintainer                                                   | Function                                            |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI)   | [Fallen_Breath](https://github.com/Fallen-Breath)            | Get entity information / Parse Minecraft style json |
+| [stext](https://github.com/TISUnion/stext)                   | [Pandaria98](https://github.com/Pandaria98)                  | A library for better text display                   |
+| [TitleAPI](https://github.com/hanbings/TitleAPI)             | [hanbings](https://github.com/hanbings)                      | A library for title command                         |
+| [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)                    | Send color messages more simply                     |
+| [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream)              | Minecraft Blocks ID Library                         |
+| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)                      | HTTP interface for cool Q robot                     |
+| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)               | Economic Preposition                                |
+| [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi/) | Fast create config file                             |
+| [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)                | A library for`bossbar`command                       |
+| [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/)               | Check player is online                              |
+| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)          | [zhang_anzhi](https://github.com/zhang-anzhi/)               | CoolQ and MCDR connect plugin develop API           |
+| [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)                    | An Item api like Bukkit                             |
 
 ## Bukkit Revolution
 
