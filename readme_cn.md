@@ -88,7 +88,7 @@
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)                  | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| 将主手上的东西戴在头上       |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm)      | [ixiaohei](https://github.com/ixiaohei-sakura/)   |使用Websocket的bilibili弹幕姬   |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)               | [Da_Dog](https://github.com/Da-Dog)               | 21点 扑克小游戏                |
-| [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 24点经典数学游戏               |
+| [TwentyFourPoints](https://github.com/Dubhe-Development-Team/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 24点经典数学游戏               |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow)                   | [HackerRouter](https://github.com/HackerRouter)   | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 
 ### 玩家交流
@@ -163,7 +163,7 @@
 
 | 名称                                                              | 维护者                                                | 功能                          |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
-| [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | 高级Ban人插件, 可定时            |
+| [AdvancedBan](https://github.com/Dubhe-Development-Team/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | 高级Ban人插件, 可定时            |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | 高级白名单，可以自定义白名单踢出消息及IP白名单          |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist)  |[Ricky](https://github.com/rickyhoho)                 | 一个用于控制多服务器白名单的插件  |
 | [RepairManager](https://github.com/wyf0762/RepairManager)    | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
@@ -193,8 +193,8 @@
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | 锁箱子插件                             |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)            | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | 多货币动态价格经济/商店系统    |
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog)              | 展示手中物品                            |
-| [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题                      |
+| [QuickAnswer](https://github.com/Dubhe-Development-Team/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 问在线玩家一些算术题                      |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | 传送请求                               |
-| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号                               |
+| [TeamAccount](https://github.com/Dubhe-Development-Team/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 团队账号                               |
 |[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|设置家并在任何时候传送回家|
 |[back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back)|[EDHY-233](https://github.com/EDHY-233)|显示与返回玩家死亡点|

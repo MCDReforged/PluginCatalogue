@@ -88,7 +88,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat)             |[BelowZeroKelvin](https://github.com/BelowZeroKelvin/)  | Put something on your head       |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) |[ixiaohei](https://github.com/ixiaohei-sakura/)         | A BLHClient: using websocket to get bilibili bullet chat  |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack)          | [Da_Dog](https://github.com/Da-Dog)                    | In-Game BlackJack                |
-| [TwentyFourPoints](https://github.com/zhang-anzhi/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Classic math game twenty four points |
+| [TwentyFourPoints](https://github.com/Dubhe-Development-Team/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Classic math game twenty four points |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 
 ### Player Communicate
@@ -163,7 +163,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 | Name                                                             | Maintainer                                           | Function                      |
 | ---------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------- |
-| [AdvancedBan](https://github.com/zhang-anzhi/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
+| [AdvancedBan](https://github.com/Dubhe-Development-Team/AdvancedBan)        | [zhang_anzhi](https://github.com/zhang-anzhi/)       | AdvancedBan, has timing       |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog)             | AdvancedWhitelist with custom kick message and IP whitelist  |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist)  |[Ricky](https://github.com/rickyhoho)                 |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
@@ -193,8 +193,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest)        | [Da_Dog](https://github.com/Da-Dog)              | A plugin that can Lock the Chest       |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency)       | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d)       | A currency plugin with a dynamic-price shop    |
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat)        | [Da_Dog](https://github.com/Da-Dog)              | Show item in chat                      |
-| [QuickAnswer](https://github.com/zhang-anzhi/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
+| [QuickAnswer](https://github.com/Dubhe-Development-Team/QuickAnswer)    | [zhang_anzhi](https://github.com/zhang-anzhi)    | Ask online player some arithmetic problems   |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa)                    | [Da_Dog](https://github.com/Da-Dog)              | tp request plugin                      |
-| [TeamAccount](https://github.com/zhang-anzhi/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account                           |
+| [TeamAccount](https://github.com/Dubhe-Development-Team/TeamAccount)    | [zhang_anzhi](https://github.com/zhang-anzhi/)   | team account                           |
 |[home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home)|[wyf0762](https://github.com/wyf0762)|Set a home and teleport to home at any time|
 |[back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back)|[EDHY-233](https://github.com/EDHY-233)|Show and teleport to player's failed place|
