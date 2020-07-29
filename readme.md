@@ -57,7 +57,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Leader](https://github.com/SCT-Technology/Leader)           | [MercyNaima](https://github.com/MercyNaima)                  | Mark you to a leader,and leads people                        |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath)            | Statistic query and scoardboard maker                        |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/)             | Change scoreboards automatically                             |
-| [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)                | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
+| [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)                | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints)  | [GamerNoTitle](https://github.com/GamerNoTitle)              | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517)        | Create and rotate the scoreboard                             |
 |[dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport)|[wyf0762](https://github.com/wyf0762)|Teleport between overworld, the nether and the_end|
@@ -98,7 +98,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)            |[HackerRouter](https://github.com/HackerRouter/)| Send a message to an offline player    |
 | [Beep](https://github.com/TISUnion/Beep)               | [LucunJi](https://github.com/LucunJi)             | Beeps when someone is mentioned in text with an `@`                  |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)            | [Da_Dog](https://github.com/Da-Dog)           | In game Vote plugin            |
-| [QQChat](https://github.com/zhang-anzhi/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Connect QQ and Minecraft, with `list` function |
+| [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | Connect QQ and Minecraft, with `list` function |
 
 ### Item Management
 
@@ -177,10 +177,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)                    | Send color messages more simply                     |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream)              | Minecraft Blocks ID Library                         |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)                      | HTTP interface for cool Q robot                     |
-| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)               | Economic Preposition                                |
+| [vault](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)               | Economic Preposition                                |
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi/) | Fast create config file                             |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)                | A library for`bossbar`command                       |
-| [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/)               | Check player is online                              |
+| [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/)               | Check player is online                              |
 | [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)          | [zhang_anzhi](https://github.com/zhang-anzhi/)               | CoolQ and MCDR connect plugin develop API           |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)                    | An Item api like Bukkit                             |
 
