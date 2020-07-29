@@ -138,7 +138,7 @@
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)                  | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具     |
 | [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure)    | [TiyaAnlite](https://github.com/TiyaAnlite)           | 显示友好的游戏内插件下载/更新工具   |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)          | [57767598](https://github.com/Squaregentleman/)       | mcdr的插件库                   |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/)        | 游戏内下载插件工具               |
+| [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR)    | [zhang_anzhi](https://github.com/zhang-anzhi/)        | 游戏内下载插件工具               |
 
 ### 扫地大妈
 
