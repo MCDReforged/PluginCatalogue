@@ -138,7 +138,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDP](https://github.com/Dark-Night-Base/MCDP)               | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git*          |
 | [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite)           | A display infomation friendly plugins for helps you download or update other plugins |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get)       | [57767598](https://github.com/Squaregentleman/)       | The plugin library of MCDR        |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi/Economy) | Download plugin in game           |
+| [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi/) | Download plugin in game           |
 
 ### Item Clear
 
