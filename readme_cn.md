@@ -57,7 +57,7 @@
 | [Leader](https://github.com/SCT-Technology/Leader)            | [MercyNaima](https://github.com/MercyNaima)           | 标记你为引领者，引领新人和观光团                     |
 | [StatsHelper](https://github.com/TISUnion/StatsHelper)       | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建   |
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger)        | [HackerRouter](https://github.com/HackerRouter/)        | 定时自动切换计分板        |
-| [GamemodeR](https://github.com/zhang-anzhi/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
+| [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR)        | [zhang_anzhi](https://github.com/zhang-anzhi)       | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍)    |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat)       | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播   |
 |[dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport)|[wyf0762](https://github.com/wyf0762)|在主世界地狱末地之间传送|
@@ -98,7 +98,7 @@
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/)      |[HackerRouter](https://github.com/HackerRouter/)   | 向一名离线玩家发送信息           |
 | [Beep](https://github.com/TISUnion/Beep)                        | [LucunJi](https://github.com/LucunJi)             | 聊天时用 `@` 来提醒某人         |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote)                     | [Da_Dog](https://github.com/Da-Dog)               | 游戏内投票插件                  |
-| [QQChat](https://github.com/zhang-anzhi/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能   |
+| [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat)                 | [zhang_anzhi](https://github.com/zhang-anzhi/)    | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能   |
 
 ### 物品管理
 
@@ -177,10 +177,10 @@
 | [ChatColor](https://github.com/dogdie233/ChatColor)          | [dogdie233](https://github.com/dogdie233)         | 使发送彩色消息更简单                    |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库                      |
 | [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings)           | 给酷Q机器人的http接口               |
-| [vault](https://github.com/zhang-anzhi/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                               |
+| [vault](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/vault)                | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 经济前置                               |
 | [ConfigAPI](https://github.com/hanbings/ConfigAPI)           | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi/) | 快速创建配置文件                         |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar)    | [Preliterate](https://github.com/Preliterate)    | 封装`bossbar`指令                      |
-| [OnlinePlayerAPI](https://github.com/zhang-anzhi/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
+| [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi/) | 玩家在线检查                         |
 | [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI)        | [zhang_anzhi](https://github.com/zhang-anzhi/)   | 酷Q和MCDR的插件开发API                   |
 | [ItemStack](https://github.com/dogdie233/ItemStack)          | [dogdie233](https://github.com/dogdie233)         | 一个仿造Bukkit物品API的API
 
