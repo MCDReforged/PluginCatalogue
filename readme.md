@@ -89,6 +89,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack) | [Da_Dog](https://github.com/Da-Dog) | In-Game BlackJack |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | Classic math game twenty four points |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
+| [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | A chat bot that uses Tencent AI and Youdao translation |
 
 ### Player Communicate
 
