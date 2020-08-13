@@ -24,6 +24,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
 | [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | Highly customized rolling scoreboard plugin |
 | [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | A plugin for synchronizing stats data to fz-s datapack scoreboard |
+| [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
+
 
 ### Search
 
