@@ -160,7 +160,7 @@
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole) | [ixiaohei](https://github.com/ixiaohei-sakura) | 即插即用的MCDR网页控制台 |
 | [simple_test](https://github.com/rickyhoho/simple_test) | [Ricky](https://github.com/rickyhoho) | 一个MCDR的自检插件 |
-| [cpu_temp](https://github.com/rickyhoho/cpu_temp)       | [Ricky](https://github.com/rickyhoho) | 一个MCDR定时检测cpu温度的插件 |
+| [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | 一个MCDR定时检测cpu温度的插件 |
 
 ### 玩家管理
 
