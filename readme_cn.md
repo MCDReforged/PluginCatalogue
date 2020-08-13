@@ -22,8 +22,6 @@
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间 |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
-| [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | 高度自定义的滚动计分板（自动换榜）插件 |
-| [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | 一个用于将stats数据同步到Fz-sDatapack记分版的插件 |
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 
 ### 搜索
@@ -35,14 +33,25 @@
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
 | [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
 
-### 坐标查看
+### 坐标
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | 显示坐标并高亮玩家 |
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | 死亡坐标记录插件 |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 玩家死亡私发死亡坐标 |
+| [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | warp重制版, 坐标点插件, 坐标点传送[可选] |
+
+### 计分板
+
+| 名称 | 维护者 | 功能 |
+| - | - | - |
+| [StatsHelper](https://github.com/TISUnion/StatsHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建 |
+| [MCDR-Auto-Scoreboard](https://github.com/AngelicaRoot/MCDR-Auto-Scoreboard) | [White_Paper_](https://github.com/AngelicaRoot) | 高度自定义的滚动计分板（自动换榜）插件 |
+| [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/) | 定时自动切换计分板 |
+| [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | 一个用于将stats数据同步到Fz-sDatapack记分版的插件 |
+| [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播 |
 
 ## 游戏辅助
 
@@ -55,15 +64,8 @@
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | 玩家间转移动物（如猫/狗等）的所有权 |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 |
-| [Leader](https://github.com/SCT-Technology/Leader) | [MercyNaima](https://github.com/MercyNaima) | 标记你为引领者，引领新人和观光团 |
-| [StatsHelper](https://github.com/TISUnion/StatsHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 统计信息查询以及计分板创建 |
-| [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/) | 定时自动切换计分板 |
 | [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
-| [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
-| [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播 |
-|[dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport)|[wyf0762](https://github.com/wyf0762)|在主世界地狱末地之间传送|
-|[PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker)|[wyf0762](https://github.com/wyf0762)|在创造/镜像服中快速制造空置域，逐层操作，防止卡顿|
-| [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | 让非op可以使用tp、tpa及返回上次传送点 |
+| [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | 在创造/镜像服中快速制造空置域，逐层操作，防止卡顿 |
 
 ### 假人
 
@@ -86,7 +88,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
-| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/)| 将主手上的东西戴在头上 |
+| [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | 将主手上的东西戴在头上 |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) | [ixiaohei](https://github.com/ixiaohei-sakura/) |使用Websocket的bilibili弹幕姬 |
 | [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack) | [Da_Dog](https://github.com/Da-Dog) | 21点 扑克小游戏 |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | 24点经典数学游戏 |
@@ -98,7 +100,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [ChatBridge](https://github.com/TISUnion/ChatBridge) | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天 |
-| [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) |[HackerRouter](https://github.com/HackerRouter/) | 向一名离线玩家发送信息 |
+| [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) | [HackerRouter](https://github.com/HackerRouter/) | 向一名离线玩家发送信息 |
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | 聊天时用 `@` 来提醒某人 |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
@@ -168,9 +170,10 @@
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
+| [Leader](https://github.com/SCT-Technology/Leader) | [MercyNaima](https://github.com/MercyNaima) | 标记你为引领者，引领新人和观光团 |
 | [AdvancedBan](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedBan) | [zhang_anzhi](https://github.com/zhang-anzhi) | 高级Ban人插件, 可定时 |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | 高级白名单，可以自定义白名单踢出消息及IP白名单 |
-| [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) |[Ricky](https://github.com/rickyhoho) | 一个用于控制多服务器白名单的插件 |
+| [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) | [Ricky](https://github.com/rickyhoho) | 一个用于控制多服务器白名单的插件 |
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 
 ## API
@@ -204,3 +207,5 @@
 | [TeamAccount](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TeamAccount) | [zhang_anzhi](https://github.com/zhang-anzhi) | 团队账号 |
 | [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762) | 设置家并在任何时候传送回家 |
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | 显示与返回玩家死亡点 |
+| [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | 在主世界地狱末地之间传送|
+| [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | 让非op可以使用tp、tpa及返回上次传送点 |
