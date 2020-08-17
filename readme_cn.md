@@ -23,6 +23,7 @@
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
+| [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
 
 ### 搜索
 
@@ -175,6 +176,8 @@
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | 高级白名单，可以自定义白名单踢出消息及IP白名单 |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) | [Ricky](https://github.com/rickyhoho) | 一个用于控制多服务器白名单的插件 |
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
+| [mcwl](https://github.com/ChunkAsgore/mcwl) |[ChunkAsgore](https://github.com/ChunkAsgore) |适用于MCDReforged的一个白名单管理插件。|
+| [kick](https://github.com/ChunkAsgore/kick) |[ChunkAsgore](https://github.com/ChunkAsgore) |适用于MCDReforged的用于踢出玩家的插件。|
 
 ## API
 
