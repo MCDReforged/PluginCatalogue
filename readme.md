@@ -177,8 +177,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | AdvancedWhitelist with custom kick message and IP whitelist |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) |[Ricky](https://github.com/rickyhoho) |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
-| [mcwl](https://github.com/ChunkAsgore/mcwl) |[ChunkAsgore](https://github.com/ChunkAsgore) |A whitelist management plugin for MCDReforged.|
-| [kick](https://github.com/ChunkAsgore/kick) |[ChunkAsgore](https://github.com/ChunkAsgore) |A plugin for kicking out players for MCDReforged.|
+| [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
+| [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. |
 
 ## API
 
