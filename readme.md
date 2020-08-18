@@ -165,6 +165,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole) | [ixiaohei](https://github.com/ixiaohei-sakura) | mcdr web console |
 | [simple_test](https://github.com/rickyhoho/simple_test) | [Ricky](https://github.com/rickyhoho) | A plugin for checking simple problem of MCDR |
 | [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | A plugin for MCDReforged to check cpu temp regularly |
+| [CrashRestart](https://github.com/MCDReforged-Plugins/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | A plugin to restart the server after server crashes. Maximum allowance for crashes is configurable |
 
 ### Player management
 
