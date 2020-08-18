@@ -66,7 +66,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin |
 | [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | Create perimeters in creative/mirror servers, operate layer by layer to avoid lags |
-| [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well404](https://github.com/Well2333) | Beacon lightcolumn dyeing auxiliary plugin |
 
 ### Bot
 
@@ -95,6 +94,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | Classic math game twenty four points |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | A chat bot that uses Tencent AI and Youdao translation |
+| [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | Beacon lightcolumn dyeing auxiliary plugin |
 
 ### Player Communicate
 
