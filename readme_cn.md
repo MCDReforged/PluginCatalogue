@@ -66,7 +66,6 @@
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 |
 | [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | 在创造/镜像服中快速制造空置域，逐层操作，防止卡顿 |
-| [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well404](https://github.com/Well2333) | 信标光柱染色辅助插件 |
 
 ### 假人
 
@@ -95,6 +94,7 @@
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | 24点经典数学游戏 |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | 一个使用腾讯AI的聊天机器人,并附带有道翻译 |
+| [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | 信标光柱染色辅助插件 |
 
 ### 玩家交流
 
