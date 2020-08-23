@@ -107,6 +107,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | Beeps when someone is mentioned in text with an `@` |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Connect QQ and Minecraft, with `list` function |
+| [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
 
 ### Item Management
 
