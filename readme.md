@@ -8,6 +8,8 @@ Only include plugins compatible with MCDReforged
 
 If there is any good plugin, please submit a PR, and I will invite you to this organization if necessary
 
+![classification](classification.png)
+
 --------
 
 ## Information
