@@ -8,6 +8,8 @@
 
 有什么好插件的话就来提交 PR 吧，我也会视情况将你邀请进这个组织的
 
+![classification](classification.png)
+
 --------
 
 ## 信息获取
