@@ -71,6 +71,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | Create perimeters in creative/mirror servers, operate layer by layer to avoid lags |
 | [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | Enable single player sleep to skip night in server |
+| [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game |
 
 ### Bot
 
