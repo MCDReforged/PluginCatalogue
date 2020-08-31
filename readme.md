@@ -88,6 +88,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
+| [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. |
 
 ### Recreation
 
@@ -186,7 +187,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) |[Ricky](https://github.com/rickyhoho) |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
-| [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. |
+
 
 ## API
 

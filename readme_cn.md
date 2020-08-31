@@ -88,6 +88,7 @@
 | - | - | - |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
+| [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于踢出玩家的插件。 |
 
 ### 娱乐
 
@@ -186,7 +187,7 @@
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) | [Ricky](https://github.com/rickyhoho) | 一个用于控制多服务器白名单的插件 |
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
-| [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于踢出玩家的插件。 |
+
 
 ## API
 
