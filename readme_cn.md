@@ -187,6 +187,7 @@
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) | [Ricky](https://github.com/rickyhoho) | 一个用于控制多服务器白名单的插件 |
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
+| [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/ChunkAsgore) | 记录玩家坐标，伪和平通知 |
 
 
 ## API
@@ -204,7 +205,7 @@
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | 封装`bossbar`指令 |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 在线玩家API |
 | [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 酷Q和MCDR的插件开发API |
-| [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API
+| [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API |
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取玩家UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
 
