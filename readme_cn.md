@@ -187,7 +187,7 @@
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) | [Ricky](https://github.com/rickyhoho) | 一个用于控制多服务器白名单的插件 |
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
-| [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/ChunkAsgore) | 记录玩家坐标，伪和平通知 |
+| [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | 记录玩家坐标，伪和平通知 |
 
 
 ## API
