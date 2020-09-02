@@ -187,6 +187,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) |[Ricky](https://github.com/rickyhoho) |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
+| [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | Record player coordinates, pseudo-peace notification. |
 
 
 ## API
