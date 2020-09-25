@@ -20,7 +20,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [daycount](https://github.com/TISUnion/daycount) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR) | [Pandaria98](https://github.com/Pandaria98) | Laziness ranking |
-| [TPS](https://github.com/Da-Dog/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | Check for server TPS |
+| [TPS](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | Check for server TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information |
 | [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
@@ -42,10 +42,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name | Maintainer | Function |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself |
-| [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | Auto Record Death Position |
+| [DeathPos](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | Auto Record Death Position |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Send player death position to the position owner |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
-| [WarpR](https://github.com/Da-Dog/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | Another warp plugin to record mark point in game, warp teleport[Optional] |
+| [WarpR](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | Another warp plugin to record mark point in game, warp teleport[Optional] |
 
 ### Scoreboard
 
@@ -97,7 +97,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) |[BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) |[ixiaohei](https://github.com/ixiaohei-sakura/) | A BLHClient: using websocket to get bilibili bullet chat |
-| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack) | [Da_Dog](https://github.com/Da-Dog) | In-Game BlackJack |
+| [BlackJack](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_BlackJack) | [Da_Dog](https://github.com/Da-Dog) | In-Game BlackJack |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | Classic math game twenty four points |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | A chat bot that uses Tencent AI and Youdao translation |
@@ -111,7 +111,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ChatBridge](https://github.com/TISUnion/ChatBridge) | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server |
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) |[HackerRouter](https://github.com/HackerRouter/)| Send a message to an offline player |
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | Beeps when someone is mentioned in text with an `@` |
-| [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
+| [Vote](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Connect QQ and Minecraft, with `list` function |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
 
@@ -130,7 +130,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [joinMOTD](https://github.com/TISUnion/joinMOTD) | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
 | [joinMOTD++](https://github.com/eagle3236/joinMOTD-plus-plus) | [Alex3236](https://github.com/eagle3236/) | joinMOTD++ |
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game |
-| [ANN](https://github.com/Da-Dog/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
+| [ANN](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 
 ### File Management
@@ -142,7 +142,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | Create permanent zipped world backup |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM |
-| [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | Server auto update |
+| [AutoUpdate](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | Server auto update |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | A regular backup plugin(use 7zip) |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | Sync survival server world to mirror server |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
@@ -183,7 +183,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [Leader](https://github.com/SCT-Technology/Leader) | [MercyNaima](https://github.com/MercyNaima) | Mark you to a leader,and leads people |
 | [AdvancedBan](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedBan) | [zhang_anzhi](https://github.com/zhang-anzhi) | AdvancedBan, has timing |
-| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | AdvancedWhitelist with custom kick message and IP whitelist |
+| [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | AdvancedWhitelist with custom kick message and IP whitelist |
 | [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) |[Ricky](https://github.com/rickyhoho) |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
@@ -214,11 +214,11 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name | Maintainer | Function |
 | - | - | - |
 | [Economy](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi) | Economic plugin |
-| [LockChest](https://github.com/Da-Dog/MCDR_Lockchest) | [Da_Dog](https://github.com/Da-Dog) | A plugin that can Lock the Chest |
+| [LockChest](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Lockchest) | [Da_Dog](https://github.com/Da-Dog) | A plugin that can Lock the Chest |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | A currency plugin with a dynamic-price shop |
-| [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat) | [Da_Dog](https://github.com/Da-Dog) | Show item in chat |
+| [MagicChat](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-MagicChat) | [Da_Dog](https://github.com/Da-Dog) | Show item in chat |
 | [QuickAnswer](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QuickAnswer) | [zhang_anzhi](https://github.com/zhang-anzhi) | Ask online player some arithmetic problems |
-| [TPA](https://github.com/Da-Dog/MCDR-tpa) | [Da_Dog](https://github.com/Da-Dog) | tp request plugin |
+| [TPA](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-tpa) | [Da_Dog](https://github.com/Da-Dog) | tp request plugin |
 | [TeamAccount](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TeamAccount) | [zhang_anzhi](https://github.com/zhang-anzhi) | team account |
 | [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762)| Set a home and teleport to home at any time |
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | Show and teleport to player's failed place |
