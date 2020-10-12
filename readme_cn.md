@@ -97,7 +97,6 @@
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | 将主手上的东西戴在头上 |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) | [ixiaohei](https://github.com/ixiaohei-sakura/) |使用Websocket的bilibili弹幕姬 |
-| [BlackJack](https://github.com/Da-Dog/MCDR_BlackJack) | [Da_Dog](https://github.com/Da-Dog) | 21点 扑克小游戏 |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | 24点经典数学游戏 |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | 一个使用腾讯AI的聊天机器人,并附带有道翻译 |
