@@ -97,7 +97,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) |[BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) |[ixiaohei](https://github.com/ixiaohei-sakura/) | A BLHClient: using websocket to get bilibili bullet chat |
-| [BlackJack](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_BlackJack) | [Da_Dog](https://github.com/Da-Dog) | In-Game BlackJack |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | Classic math game twenty four points |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | A chat bot that uses Tencent AI and Youdao translation |
