@@ -100,6 +100,7 @@
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | 24点经典数学游戏 |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | 一个使用腾讯AI的聊天机器人,并附带有道翻译 |
+| [translate](https://github.com/xiaowine/translate) | [xiaowine](https://github.com/xiaowine) | 调用百度翻译API进行玩家聊天翻译 |
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | 信标光柱染色辅助插件 |
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | 提升原版生存红石小游戏的游玩体验 |
 
