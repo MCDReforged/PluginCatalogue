@@ -81,7 +81,7 @@
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot) | [MercyNaima](https://github.com/MercyNaima) | 生成，批量生成地毯BOT(BOT组) |
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
-| [BotInit](https://github.com/MCDReforged-Plugins/BotInit) | [zhang_anzhi](https://github.com/zhang-anzhi) | 存储机器人列表，一键放置/清除机器人 |
+| [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | 存储机器人列表，一键放置/清除机器人 |
 
 ### 指令助手
 
