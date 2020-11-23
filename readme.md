@@ -36,6 +36,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) |Search something in game |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server |
 | [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported |
+| [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | Another Bilibili plugin to parse Bilibili information and get the result on a click instead of typing BV |
 
 ### Position
 
