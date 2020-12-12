@@ -37,6 +37,7 @@
 | 名称                                                           | 维护者                                             | 功能                         |
 | --------------------------------------------------------------- | ------------------------------------------------ | ---------------------------- |
 | [Here](https://github.com/TISUnion/Here)             | [Fallen_Breath](https://github.com/Fallen-Breath) | 显示坐标并高亮玩家                       |
+| [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家                       |
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos)             | [Da_Dog](https://github.com/Da-Dog)             | 死亡坐标记录插件    |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins)            | [57767598](https://github.com/Squaregentleman/)     | 玩家死亡私发死亡坐标    |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp)            | [Da_Dog](https://github.com/Da-Dog)           | warp重制版, 坐标点插件, 坐标点传送[可选]                     |
