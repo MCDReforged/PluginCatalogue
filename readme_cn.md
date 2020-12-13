@@ -36,6 +36,7 @@
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) |在游戏中搜索任意内容 |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
 | [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
+| [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | 另一个哔哩哔哩插件，查询信息并给出视频点击按钮而不是重新打BV号等 |
 
 ### 坐标
 
