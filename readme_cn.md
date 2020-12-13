@@ -43,6 +43,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | 显示坐标并高亮玩家 |
+| [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家（读NBT文件版） |
 | [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | 死亡坐标记录插件 |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 玩家死亡私发死亡坐标 |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
