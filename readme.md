@@ -223,7 +223,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [QuickAnswer](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QuickAnswer) | [zhang_anzhi](https://github.com/zhang-anzhi) | Ask online player some arithmetic problems |
 | [TPA](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-tpa) | [Da_Dog](https://github.com/Da-Dog) | tp request plugin |
 | [TeamAccount](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TeamAccount) | [zhang_anzhi](https://github.com/zhang-anzhi) | team account |
-| [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762)| Set a home and teleport to home at any time |
+| [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762) | Set a home and teleport to home at any time |
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | Show and teleport to player's failed place |
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | Teleport between overworld, the nether and the_end |
 | [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | Let non-op can use tp,tpa and back to last tp Position |
