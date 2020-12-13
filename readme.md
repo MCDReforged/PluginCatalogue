@@ -36,7 +36,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) |Search something in game |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server |
 | [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported |
-| [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | Another Bilibili plugin to parse Bilibili information and get the result on a click instead of typing BV |
 
 ### Position
 
@@ -106,6 +105,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | A chat bot that uses Tencent AI and Youdao translation |
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | Beacon lightcolumn dyeing auxiliary plugin |
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | Make the vanilla minigames more convenient |
+| [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | Another Bilibili plugin to parse Bilibili information and get the result on a click instead of typing BV |
 
 ### Player Communicate
 
