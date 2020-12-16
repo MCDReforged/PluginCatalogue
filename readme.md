@@ -211,6 +211,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | An Item api like Bukkit |
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get player UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | A Minecraft item API |
+| [PlayerInfoAPIR](https://github.com/ixiaohei-sakura/PlayerInfoAPIRI) | [ixiaohei](https://github.com/ixiaohei-sakura) | An API which is using nbtFile to get the player' s information |
 
 ## Bukkit Revolution
 
