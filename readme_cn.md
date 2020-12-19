@@ -211,6 +211,7 @@
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API |
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取玩家UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
+| [PlayerInfoAPIR](https://github.com/ixiaohei-sakura/PlayerInfoAPIRI) | [ixiaohei](https://github.com/ixiaohei-sakura) | 一个以读取nbt文件来获取玩家信息的api |
 
 ## 水桶革命
 
