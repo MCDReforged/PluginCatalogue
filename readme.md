@@ -84,6 +84,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
 | [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | Storage bot list, one key to spawn or kill bot |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | The input English, Chinese (even Pinyin) points to the same BOT and provides operation interface and simplified instructions |
+| [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | Storage bot position list, one key to spawn or kill bot, and can let the bot right click |
 
 ### Command Helper
 
