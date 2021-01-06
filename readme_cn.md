@@ -84,6 +84,7 @@
 | [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
 | [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | 存储机器人列表，一键放置/清除机器人 |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人物品映射：将输入的英文，中文（甚至拼音）指向同一假人并提供操作界面和简化指令的插件 |
+| [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人器械映射：储存假人的位置信息，随时随地一键放置/清除假人，并可以让假人右键|
 
 ### 指令助手
 
