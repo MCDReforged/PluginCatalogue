@@ -1,6 +1,6 @@
 # MCDR插件仓库
 
-[English](https://github.com/MCDReforged-Plugins/PluginCatalogue/blob/master/readme.md)
+[English](https://github.com/MCDReforged/PluginCatalogue/blob/master/readme.md)
 
 一个用于列出 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件的仓库
 
@@ -23,7 +23,7 @@
 | [TPS](https://github.com/Da-Dog/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | 查看服务器TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间 |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
-| [Seed](https://github.com/MCDReforged-Plugins/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
+| [Seed](https://github.com/MCDReforged/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
@@ -81,7 +81,7 @@
 | - | - | - |
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot) | [MercyNaima](https://github.com/MercyNaima) | 生成，批量生成地毯BOT(BOT组) |
-| [MCDR-bot](https://github.com/MCDReforged-Plugins/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
+| [MCDR-bot](https://github.com/MCDReforged/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
 | [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | 存储机器人列表，一键放置/清除机器人 |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人物品映射：将输入的英文，中文（甚至拼音）指向同一假人并提供操作界面和简化指令的插件 |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人器械映射：储存假人的位置信息，随时随地一键放置/清除假人，并可以让假人右键|
@@ -98,7 +98,7 @@
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
-| [PlayerDropSkull](https://github.com/MCDReforged-Plugins/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
+| [PlayerDropSkull](https://github.com/MCDReforged/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | 将主手上的东西戴在头上 |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) | [ixiaohei](https://github.com/ixiaohei-sakura/) |使用Websocket的bilibili弹幕姬 |
 | [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | 24点经典数学游戏 |
@@ -143,7 +143,7 @@
 | - | - | - |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | 用于镜像服的 region 文件更新 |
-| [PermanentBackup](https://github.com/MCDReforged-Plugins/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 |
+| [PermanentBackup](https://github.com/MCDReforged/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一个支持多槽位的自动快速备份＆回档插件，由QuickBackupM改编而来 |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | 自动更新服务器核心 |
@@ -157,7 +157,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
-| [pget_pure](https://github.com/MCDReforged-Plugins/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
+| [pget_pure](https://github.com/MCDReforged/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get) | [57767598](https://github.com/Squaregentleman/) | mcdr的插件库 |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 游戏内下载插件工具 |
 
@@ -173,13 +173,13 @@
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
-| [SimpleOP](https://github.com/MCDReforged-Plugins/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
-| [StartStopHelper](https://github.com/MCDReforged-Plugins/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟 |
+| [SimpleOP](https://github.com/MCDReforged/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 `!!op` 来获得 op，`!!restart` 来重启服务器。适用于创造服 |
+| [StartStopHelper](https://github.com/MCDReforged/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 帮助管理员启动 / 停止 / 重启服务器，自定义执行前延迟 |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个镜像服的开启同步、开启插件，适用于服务器机器的建筑设计及红石调试 |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole) | [ixiaohei](https://github.com/ixiaohei-sakura) | 即插即用的MCDR网页控制台 |
 | [simple_test](https://github.com/rickyhoho/simple_test) | [Ricky](https://github.com/rickyhoho) | 一个MCDR的自检插件 |
 | [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | 一个MCDR定时检测cpu温度的插件 |
-| [CrashRestart](https://github.com/MCDReforged-Plugins/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个检测崩服后自动重启服务器的插件，可调整最大崩溃容忍度 |
+| [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个检测崩服后自动重启服务器的插件，可调整最大崩溃容忍度 |
 
 ### 玩家管理
 
