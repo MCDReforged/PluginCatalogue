@@ -47,6 +47,7 @@
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | warp重制版, 坐标点插件, 坐标点传送[可选] |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家（读NBT文件版） |
+| [LocationMarker](https://github.com/DancingSnow0517/Here-NBT) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
 
 ### 计分板
 
@@ -142,6 +143,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 |
+| [TimedQBM](https://github.com/TISUnion/TimedQBM) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个 QuickBackupM 插件的扩展，用于定时触发 QBM 从而进行自动备份 |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | 用于镜像服的 region 文件更新 |
 | [PermanentBackup](https://github.com/MCDReforged/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *rsync* 实现的自动增量备份（仅在 Linux 测试通过）|
@@ -198,7 +200,8 @@
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
-| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json，仅 MCDR 0.x |
+| [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个用获得玩家信息等数据的的 API |
 | [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | 字体显示库 |
 | [TitleAPI](https://github.com/hanbings/TitleAPI) | [hanbings](https://github.com/hanbings) | 封装Title指令 |
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | 使发送彩色消息更简单 |
