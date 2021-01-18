@@ -47,7 +47,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
 | [WarpR](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | Another warp plugin to record mark point in game, warp teleport[Optional] |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT) | [DancingSnow0517](https://github.com/DancingSnow0517) | Boardcast your position and high light yourself (Read NBT File Ver) |
-| [LocationMarker](https://github.com/DancingSnow0517/Here-NBT) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
+| [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 
 ### Scoreboard
 
