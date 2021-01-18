@@ -41,12 +41,13 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 | Name | Maintainer | Function |
 | - | - | - |
-| [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast your position and high light yourself |
+| [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | Broadcast your position and high light yourself |
 | [DeathPos](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | Auto Record Death Position |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Send player death position to the position owner |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
 | [WarpR](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | Another warp plugin to record mark point in game, warp teleport[Optional] |
-| [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | Boardcast your position and high light yourself（Read NBT File Ver） |
+| [Here-NBT](https://github.com/DancingSnow0517/Here-NBT) | [DancingSnow0517](https://github.com/DancingSnow0517) | Boardcast your position and high light yourself (Read NBT File Ver) |
+| [LocationMarker](https://github.com/DancingSnow0517/Here-NBT) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 
 ### Scoreboard
 
@@ -142,6 +143,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name | Maintainer | Function |
 | - | - | - |
 | [QuickBackupM](https://github.com/TISUnion/QuickBackupM) | [Fallen_Breath](https://github.com/Fallen-Breath) | Backup/Restore plugin, with muti backup slot |
+| [TimedQBM](https://github.com/TISUnion/TimedQBM) | [Fallen_Breath](https://github.com/Fallen-Breath) | A Quick-Backup-Multi extension for automatically trigger QBM at given interval |
 | [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) | [Fallen_Breath](https://github.com/Fallen-Breath) | Update region files for mirror server |
 | [PermanentBackup](https://github.com/MCDReforged/PermanentBackup) | [Fallen_Breath](https://github.com/Fallen-Breath) | Create permanent zipped world backup |
 | [AutoBackup](https://github.com/Dark-Night-Base/AutoBackup) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Auto backup via *rsync* (tested only on Linux) |
@@ -198,7 +200,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 | Name | Maintainer | Function |
 | - | - | - |
-| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json |
+| [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json. MCDR 0.x only |
+| [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more |
 | [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | A library for better text display |
 | [TitleAPI](https://github.com/hanbings/TitleAPI) | [hanbings](https://github.com/hanbings) | A library for title command |
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | Send color messages more simply |
