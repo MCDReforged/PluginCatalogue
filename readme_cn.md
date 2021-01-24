@@ -1,6 +1,6 @@
 # MCDR插件仓库
 
-[English](https://github.com/MCDReforged/PluginCatalogue/blob/master/readme.md)
+[English](https://github.com/MCDReforged/PluginCatalogue/blob/master/readme.md) | **中文**
 
 一个用于列出 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件的仓库
 
@@ -27,6 +27,7 @@
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
+| [SeedR](https://github.com/Van-Involution/MCDR-Plugins) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，经过重制以适配MCDR 1.x，具有和原版格式相同并经过翻译的回复 |
 
 ### 搜索
 
