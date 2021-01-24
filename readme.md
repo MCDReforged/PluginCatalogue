@@ -27,7 +27,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for querying server map seeds for MCDReforged. |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get useful server info(CPU/memory/world size...) |
-| [SeedR](https://github.com/Van-Involution/MCDR-Plugins) | [Van_Involution](https://github.com/Van-Involution) | Use `!!seed` to get seed, be reforged to apply to MCDR 1.x, reply translated message just like vanilla |
+| [SeedR](https://github.com/Van-Involution/MCDR-Plugins) | [Van_Involution](https://github.com/Van-Involution) | Use `!!seed` to get seed, be reforged to apply to MCDR 1.x, reply translated message just like vanilla style |
 
 ### Search
 
