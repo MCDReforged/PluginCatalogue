@@ -27,7 +27,8 @@
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
-| [SeedR](https://github.com/Van-Involution/MCDR-Plugins) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，经过重制以适配MCDR 1.x，回复具有原版风格并经过翻译的消息 |
+| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，经过重制以适配**MCDR-v1.x**，回复具有原版风格并经过翻译的消息 |
+| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!days`获取开服天数，经过重制以适配**MCDR-v1.x**，通过配置文件自定义开服日期和回复消息 |
 
 ### 搜索
 
