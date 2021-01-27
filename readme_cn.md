@@ -70,6 +70,7 @@
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器 |
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98) | 工程任务进度管理 |
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
+| [GameMode_for_1.16+](https://github.com/xksnetcbs/MCDR-gamemode_helper-1.16-/) | [DC_Provide/xksnetcbs](https://github.com/xksnetcbs) | 支持1.16以上的版本！切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | 玩家间转移动物（如猫/狗等）的所有权 |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 |
 | [GamemodeR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/GamemodeR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
