@@ -50,6 +50,7 @@
 | [WarpR](https://github.com/Da-Dog/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | warp重制版, 坐标点插件, 坐标点传送[可选] |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家（读NBT文件版） |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
+| [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | 查看其他玩家的坐标 |
 
 ### 计分板
 
