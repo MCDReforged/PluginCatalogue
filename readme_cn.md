@@ -220,6 +220,7 @@
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API |
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取玩家UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
+| [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 插件存储数据API |
 
 ## 水桶革命
 
