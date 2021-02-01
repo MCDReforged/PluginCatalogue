@@ -31,7 +31,6 @@
 | [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，经过重制以适配**MCDR-v1.x**，回复具有原版风格并经过翻译的消息 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
 
-
 ### 搜索
 
 | 名称 | 维护者 | 功能 |
@@ -81,6 +80,7 @@
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | 提供游戏内多种便捷计算 |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | 计算珍珠在珍珠炮环境的tnt作用下每一t的位置 |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | 更方便地传送到另一个维度，例如使用 `!!overworld <x> <y> <z>` 来指定传送坐标 |
+
 ### 假人
 
 | 名称 | 维护者 | 功能 |
@@ -201,7 +201,6 @@
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | 记录玩家坐标，伪和平通知 |
 
-
 ## API
 
 | 名称 | 维护者 | 功能 |
@@ -221,7 +220,6 @@
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API |
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取玩家UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
-| [PlayerInfoAPIR](https://github.com/ixiaohei-sakura/PlayerInfoAPIRI) | [ixiaohei](https://github.com/ixiaohei-sakura) | 一个以读取nbt文件来获取玩家信息的api |
 
 ## 水桶革命
 

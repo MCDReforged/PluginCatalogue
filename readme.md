@@ -80,6 +80,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | A tool to calculate the position of each gametick of the pearl accelerated by TNT on the pearl cannon |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates |
+
 ### Bot
 
 | Name | Maintainer | Function |
@@ -200,7 +201,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | Record player coordinates, pseudo-peace notification. |
 
-
 ## API
 
 | Name | Maintainer | Function |
@@ -220,7 +220,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | An Item api like Bukkit |
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get player UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | A Minecraft item API |
-| [PlayerInfoAPIR](https://github.com/ixiaohei-sakura/PlayerInfoAPIRI) | [ixiaohei](https://github.com/ixiaohei-sakura) | An API which is using nbtFile to get the player' s information |
 
 ## Bukkit Revolution
 
