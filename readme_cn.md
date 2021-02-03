@@ -1,6 +1,6 @@
 # MCDR插件仓库
 
-[English](https://github.com/MCDReforged/PluginCatalogue/blob/master/readme.md) | **中文**
+[English](readme.md) | **中文**
 
 一个用于列出 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件的仓库
 
