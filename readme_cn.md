@@ -19,8 +19,6 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [daycount](https://github.com/TISUnion/daycount) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` 获得开服至今的天数 |
-| [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | 通过 NBT 文件获取服务器总运行时长，极易上手无需配置（**仅支持MCDR 1.x**） |
-| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!days`获取开服天数，经过重制以适配**MCDR-v1.x**，通过配置文件自定义开服日期和回复消息 |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR) | [Pandaria98](https://github.com/Pandaria98) | 摸鱼时长排名 |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | 查看服务器TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间 |
@@ -28,8 +26,10 @@
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
-| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，经过重制以适配**MCDR-v1.x**，回复具有原版风格并经过翻译的消息 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
+| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，经过重制以适配**MCDR-v1.x**，回复具有原版风格并经过翻译的消息 |
+| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!days`获取开服天数，经过重制以适配**MCDR-v1.x**，通过配置文件自定义开服日期和回复消息 |
+| [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | 通过 NBT 文件获取服务器总运行时长，极易上手无需配置（**仅支持MCDR 1.x**） |
 
 ### 搜索
 
@@ -232,7 +232,6 @@
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat) | [Da_Dog](https://github.com/Da-Dog) | 展示手中物品 |
 | [QuickAnswer](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QuickAnswer) | [zhang_anzhi](https://github.com/zhang-anzhi) | 问在线玩家一些算术题 |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa) | [Da_Dog](https://github.com/Da-Dog) | 传送请求 |
-| [TeamAccount](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TeamAccount) | [zhang_anzhi](https://github.com/zhang-anzhi) | 团队账号 |
 | [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762) | 设置家并在任何时候传送回家 |
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | 显示与返回玩家死亡点 |
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | 在主世界地狱末地之间传送|
