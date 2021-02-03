@@ -20,13 +20,13 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [daycount](https://github.com/TISUnion/daycount) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed |
 | [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | An easy-use daycount (**MCDR 1.x Only**) |
-| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | Use `!!days` to get day count since server set up, be reforged to apply to **MCDR-v1.x**, customize **start day** and **reply msg** by config file |
+| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | Use `!!days` to get day count since server set up, customize **start day** and **reply msg** by config file (**MCDR 1.x Only**) |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR) | [Pandaria98](https://github.com/Pandaria98) | Laziness ranking |
 | [TPS](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | Check for server TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information(**Unstable**)|
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
-| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | Use `!!seed` to get seed, be reforged to apply to **MCDR-v1.x**, reply translated message just like vanilla style |
+| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | Use `!!seed` to get seed,, reply translated message just like vanilla style (**MCDR 1.x Only**) |
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for querying server map seeds for MCDReforged. |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get useful server info(CPU/memory/world size...) |
@@ -114,6 +114,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | Beacon lightcolumn dyeing auxiliary plugin |
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | Make the vanilla minigames more convenient |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | Another Bilibili plugin to parse Bilibili information and get the result on a click instead of typing BV |
+| [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | Use `!!bullshit` to generate copyable bullshit article with customizable limit and key words (**MCDR 1.x Only**) |
 
 ### Player Communicate
 
@@ -143,6 +144,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game |
 | [ANN](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
+| [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
 
 ### File Management
 
