@@ -45,10 +45,8 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | 显示坐标并高亮玩家 |
-| [DeathPos](https://github.com/Da-Dog/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | 死亡坐标记录插件 |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 玩家死亡私发死亡坐标 |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
-| [WarpR](https://github.com/Da-Dog/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | warp重制版, 坐标点插件, 坐标点传送[可选] |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家（读NBT文件版） |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | 查看其他玩家的坐标 |
@@ -74,7 +72,7 @@
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | 玩家间转移动物（如猫/狗等）的所有权 |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 |
-| [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | 计时收费切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
+| [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | 切换模式为旁观者模式，当改变为生存模式时传送到原位置 |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | 在创造/镜像服中快速制造空置域，逐层操作，防止卡顿 |
 | [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | 允许在服务器中单人睡觉跳过夜晚 |
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | 提供游戏内多种便捷计算 |
@@ -115,6 +113,7 @@
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | 提升原版生存红石小游戏的游玩体验 |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | 另一个哔哩哔哩插件，查询信息并给出视频点击按钮而不是重新打BV号等 |
 | [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
+| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
 
 ### 玩家交流
 
@@ -126,12 +125,6 @@
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 支持原版显示[Minecraft样式代码](https://minecraft-zh.gamepedia.com/%E6%A0%B7%E5%BC%8F%E4%BB%A3%E7%A0%81)的插件 |
-
-### 物品管理
-
-| 名称 | 维护者 | 功能 |
-| - | - | - |
-| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
 
 ## 服务器管理
 
