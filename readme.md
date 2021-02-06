@@ -45,10 +45,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name | Maintainer | Function |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | Broadcast your position and high light yourself |
-| [DeathPos](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_DeathPos) | [Da_Dog](https://github.com/Da-Dog) | Auto Record Death Position |
 | [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Send player death position to the position owner |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
-| [WarpR](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-Warp) | [Da_Dog](https://github.com/Da-Dog) | Another warp plugin to record mark point in game, warp teleport[Optional] |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT) | [DancingSnow0517](https://github.com/DancingSnow0517) | Boardcast your position and high light yourself (Read NBT File Ver) |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | Check the coordinate of a player |
@@ -74,7 +72,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GameMode](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | Move a pet between different players |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin |
-| [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | Change a player's gamemode to spectator with charge base on timer, Switch back will teleport him to the original position and change his mode to survival |
+| [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | Change to spectator mode for observe, teleport to origin position when change back to survival mode |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | Create perimeters in creative/mirror servers, operate layer by layer to avoid lags |
 | [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | Enable single player sleep to skip night in server |
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game |
@@ -92,7 +90,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | The input English, Chinese (even Pinyin) points to the same BOT and provides operation interface and simplified instructions |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | Storage bot position list, one key to spawn or kill bot, and can let the bot right click |
 
-### Command Helper
+### Command
 
 | Name | Maintainer | Function |
 | - | - | - |
@@ -115,8 +113,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | Make the vanilla minigames more convenient |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | Another Bilibili plugin to parse Bilibili information and get the result on a click instead of typing BV |
 | [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | Use `!!bullshit` to generate copyable bullshit article with customizable limit and key words (**MCDR 1.x Only**) |
+| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
 
-### Player Communicate
+### Communicate
 
 | Name | Maintainer | Function |
 | - | - | - |
@@ -126,12 +125,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Vote](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Connect QQ and Minecraft, with `list` function |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
-
-### Item Management
-
-| Name | Maintainer | Function |
-| - | - | - |
-| [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
 
 ## Server Management
 
@@ -146,7 +139,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 | [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
 
-### File Management
+### Files
 
 | Name | Maintainer | Function |
 | - | - | - |
@@ -162,7 +155,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | Automatic render the `Mapcrafter` map |
 
-### Plugins Management
+### Plugins
 
 | Name | Maintainer | Function |
 | - | - | - |
@@ -171,7 +164,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-get](https://github.com/Squaregentleman/MCDR-get) | [57767598](https://github.com/Squaregentleman/) | The plugin library of MCDR |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Download plugin in game |
 
-### Item Clear
+### Item Clean
 
 | Name | Maintainer | Function |
 | - | - | - |
