@@ -115,6 +115,7 @@
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | 提升原版生存红石小游戏的游玩体验 |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | 另一个哔哩哔哩插件，查询信息并给出视频点击按钮而不是重新打BV号等 |
 | [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
+| [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
 
 ### 玩家交流
 
