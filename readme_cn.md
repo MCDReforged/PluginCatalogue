@@ -140,6 +140,7 @@
 | [ANN](https://github.com/Da-Dog/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | 定时公告 |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | 使用命令来修改服务器的MOTD（支持颜色代码） |
 | [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
+| [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | 简单易用的公告插件，可以创建多条公告，设置玩家加入时发送，手动全服广播等（**仅支持MCDR 1.x**） |
 
 ### 文件管理
 
