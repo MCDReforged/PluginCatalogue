@@ -140,6 +140,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ANN](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 | [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
+| [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | Easy-to-use announcement plugin. Multiple announcements, auto send on joining, manually broadcast, etc. (**MCDR 1.x Only**) |
 
 ### Files
 
