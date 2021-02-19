@@ -221,6 +221,7 @@
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
 | [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 插件存储数据API |
 | [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 为其他插件提供 websocket 支持 |
+| [RText-EXP](https://github.com/eagle3236/rtext-exp) | [Alex3236](https://github.com/eagle3236) | 一种 RText 表达式实现，支持颜色、样式和悬停文字 |
 
 ## 水桶革命
 
