@@ -220,7 +220,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get player UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | A Minecraft item API |
 | [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Plugin data storage API |
-| [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Enable other plugins to use WebSocket |
+| [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Provide websocket support for other plugins |
 
 ## Bukkit Revolution
 
