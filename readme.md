@@ -20,6 +20,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [daycount](https://github.com/TISUnion/daycount) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR) | [Pandaria98](https://github.com/Pandaria98) | Laziness ranking |
+| [SeenR](https://github.com/ra1ny-yuki/mcdr-seen-refreshed) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Laziness ranking for **MCDR 1.x** which can identify Carpet bot) |
 | [TPS](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | Check for server TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time |
 | [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information(**Unstable**)|
@@ -79,6 +80,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | A tool to calculate the position of each gametick of the pearl accelerated by TNT on the pearl cannon |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates |
+| [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Quick teleport helper, teleport between dims, teleport to waypoint quickyly and more functions |
 
 ### Bot
 
@@ -158,6 +160,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | Sync survival server world to mirror server |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | Automatic render the `Mapcrafter` map |
+| [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Copy WorldEdit schematic files quickly between sub-servers |
 
 ### Plugins
 
