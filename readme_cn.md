@@ -23,7 +23,7 @@
 | [SeenR](https://github.com/ra1ny-yuki/mcdr-seen-refreshed) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | 可识别地毯假人的摸鱼时长排名(**仅适用于MCDR 1.x**) |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | 查看服务器TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间 |
-| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息(不稳定) |
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
