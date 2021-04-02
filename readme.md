@@ -23,7 +23,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [SeenR](https://github.com/ra1ny-yuki/mcdr-seen-refreshed) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Laziness ranking for **MCDR 1.x** which can identify Carpet bot) |
 | [TPS](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | Check for server TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time |
-| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information(**Unstable**)|
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information|
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for querying server map seeds for MCDReforged. |
