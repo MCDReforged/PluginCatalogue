@@ -245,4 +245,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | Teleport between overworld, the nether and the_end |
 | [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | Let non-op can use tp,tpa and back to last tp Position |
 | [TPN](https://github.com/hyf3513OneGO/TPN) | [hyf3513OneGO](https://github.com/hyf3513OneGO/) | Teleport between non-op players freely，show online players |
-| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | Another MCDR Teleportation Plugin, provide more functions |
+| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | Allow teleportation between non-op players, with home/back/spawn support |
