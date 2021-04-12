@@ -246,3 +246,4 @@
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | 在主世界地狱末地之间传送|
 | [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | 让非op可以使用tp、tpa及返回上次传送点 |
 | [TPN](https://github.com/hyf3513OneGO/TPN) | [hyf3513OneGO](https://github.com/hyf3513OneGO/) | 让非OP玩家可以在玩家之间进行tp，显示在线玩家 |
+| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | 支持非管理员玩家之间传送，并添加家园、出生点、回溯相关功能 |
