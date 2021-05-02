@@ -166,6 +166,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 
 ### Plugins
 
+**Note that any current plugin management plugins have major flaws. It is recommended to wait patiently for the official plugin manager.**
 | Name | Maintainer | Function |
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
