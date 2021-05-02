@@ -166,6 +166,7 @@
 
 ### 插件管理
 
+**注意，目前的任何插件管理插件都存在较大的缺陷。建议耐心等待官方插件管理器。**
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
