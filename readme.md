@@ -120,6 +120,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | Use `!!bullshit` to generate copyable bullshit article with customizable limit and key words (**MCDR 1.x Only**) |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
 | [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | Use `!!homo` to generate expression with 114514 for **homo** (**MCDR 1.x Only**) |
+| [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | Generate map paintings |
 
 ### Communicate
 

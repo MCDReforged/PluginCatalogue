@@ -120,6 +120,7 @@
 | [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
 | [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
+| [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | 生成地图画 |
 
 ### 玩家交流
 
