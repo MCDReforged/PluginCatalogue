@@ -121,6 +121,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
 | [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | Use `!!homo` to generate expression with 114514 for **homo** (**MCDR 1.x Only**) |
 | [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | Generate map paintings |
+| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) |[B-2U](https://github.com/B-2U/) | Put something on your head (**MCDR 1.x Only**)|
 
 ### Communicate
 
