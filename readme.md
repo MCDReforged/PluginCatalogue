@@ -121,7 +121,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
 | [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | Use `!!homo` to generate expression with 114514 for **homo** (**MCDR 1.x Only**) |
 | [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | Generate map paintings |
-| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) |[B-2U](https://github.com/B-2U/) | Put something on your head (**MCDR 1.x Only**)|
+| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) |[B-2U](https://github.com/B-2U/) | Put something on your head (**MCDR 1.x Only**) |
 
 ### Communicate
 
@@ -251,4 +251,4 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | Teleport between overworld, the nether and the_end |
 | [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | Let non-op can use tp,tpa and back to last tp Position |
 | [TPN](https://github.com/hyf3513OneGO/TPN) | [hyf3513OneGO](https://github.com/hyf3513OneGO/) | Teleport between non-op players freely，show online players |
-| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | Allow teleportation between non-op players, with home/back/spawn support|
+| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | Allow teleportation between non-op players, with home/back/spawn support |
