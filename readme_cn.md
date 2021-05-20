@@ -121,7 +121,7 @@
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
 | [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
 | [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | 生成地图画 |
-| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) |[B-2U](https://github.com/B-2U/) | 将主手上的东西戴在头上 (**MCDR 1.x Only**)|
+| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) | [B-2U](https://github.com/B-2U/) | 将主手上的东西戴在头上 (**MCDR 1.x Only**)|
 
 ### 玩家交流
 
