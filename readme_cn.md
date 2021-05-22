@@ -165,6 +165,7 @@
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | 自动渲染 `Mapcrafter` 地图 |
 | [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 在同机器上不同子服务器间复制WE原理图 |
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 |
+| [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 轻松地更新原版服务端 |
 
 ### 插件管理
 
