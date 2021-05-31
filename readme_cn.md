@@ -199,7 +199,6 @@
 | [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个检测崩服后自动重启服务器的插件，可调整最大崩溃容忍度 |
 | [Hibernate](https://github.com/Dark-Night-Base/Hibernate) |[Dark-Night-Base](https://github.com/Dark-Night-Base) | 一个自动关服的插件，长时间无人则关服，有人尝试登陆则开服 |
 | [StartStopHelperR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/StartStopHelperR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 服务器管理小助手 |
-| [MCDReforged-Remote](https://github.com/CuBitStudio/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
 
 ### 玩家管理
 
@@ -239,6 +238,7 @@
 | [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 语言API |
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 一个非常简单的插件，提供了一些(二次封装的)API与事件 |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | \现在你可以依赖你想要的 Python 版本了/ |
+| [MCDReforged-Remote](https://github.com/CuBitStudio/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
 
 ## 水桶革命
 
