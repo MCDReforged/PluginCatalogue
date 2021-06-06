@@ -28,8 +28,8 @@
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
-| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，回复具有原版风格并经过翻译的消息（**仅支持MCDR 1.x**） |
-| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!days`获取开服天数，通过配置文件自定义开服日期和回复消息（**仅支持MCDR 1.x**） |
+| [SeedR](https://github.com/Van-Nya/SeedR) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!seed`获取种子，回复具有原版风格并经过翻译的消息（**仅支持MCDR 1.x**） |
+| [DayCountR](https://github.com/Van-Nya/DayCountR) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!days`获取开服天数，通过配置文件自定义开服日期和回复消息（**仅支持MCDR 1.x**） |
 | [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | 通过 NBT 文件获取服务器总运行时长，极易上手无需配置（**仅支持MCDR 1.x**） |
 
 ### 搜索
@@ -117,9 +117,9 @@
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | 信标光柱染色辅助插件 |
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | 提升原版生存红石小游戏的游玩体验 |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | 另一个哔哩哔哩插件，查询信息并给出视频点击按钮而不是重新打BV号等 |
-| [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
+| [BullshitGen](https://github.com/Van-Nya/BullshitGen) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
-| [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
+| [HomoCalc](https://github.com/Van-Nya/HomoCalc) | [Van_Nya](https://github.com/Van-Nya) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
 | [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | 生成地图画 |
 | [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) | [B-2U](https://github.com/B-2U/) | 将主手上的东西戴在头上 (**MCDR 1.x Only**)|
 
@@ -145,7 +145,7 @@
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | 定时公告 |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | 使用命令来修改服务器的MOTD（支持颜色代码） |
-| [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
+| [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
 | [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | 简单易用的公告插件，可以创建多条公告，设置玩家加入时发送，手动全服广播等（**仅支持MCDR 1.x**） |
 
 ### 文件管理
