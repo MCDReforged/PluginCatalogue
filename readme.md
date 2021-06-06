@@ -20,9 +20,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [daycount](https://github.com/TISUnion/daycount) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` give you the number of day passed |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR) | [Pandaria98](https://github.com/Pandaria98) | Laziness ranking |
+| [SeenR](https://github.com/ra1ny-yuki/mcdr-seen-refreshed) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Laziness ranking for **MCDR 1.x** which can identify Carpet bot) |
 | [TPS](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | Check for server TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Show minecraft time |
-| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information(**Unstable**)|
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | View system information|
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for querying server map seeds for MCDReforged. |
@@ -50,6 +51,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT) | [DancingSnow0517](https://github.com/DancingSnow0517) | Boardcast your position and high light yourself (Read NBT File Ver) |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | Check the coordinate of a player |
+| [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | Create, share and manage Your coordinates! |
 
 ### Scoreboard
 
@@ -60,6 +62,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/) | Change scoreboards automatically |
 | [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | A plugin for synchronizing stats data to fz-s datapack scoreboard |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517) | Create and rotate the scoreboard |
+| [MinedRanking](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinedRanking) | [zhang_anzhi](https://github.com/zhang-anzhi) | Set mined ranking on scoreboard |
 
 ## Game Helper
 
@@ -78,6 +81,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | A tool to calculate the position of each gametick of the pearl accelerated by TNT on the pearl cannon |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates |
+| [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Quick teleport helper, teleport between dims, teleport to waypoint quickyly and more functions |
 
 ### Bot
 
@@ -116,6 +120,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BullshitGen](https://github.com/Van-Nya/BullshitGen) | [Van_Nya](https://github.com/Van-Nya) | Use `!!bullshit` to generate copyable bullshit article with customizable limit and key words (**MCDR 1.x Only**) |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
 | [HomoCalc](https://github.com/Van-Nya/HomoCalc) | [Van_Nya](https://github.com/Van-Nya) | Use `!!homo` to generate expression with 114514 for **homo** (**MCDR 1.x Only**) |
+| [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | Generate map paintings |
+| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) | [B-2U](https://github.com/B-2U/) | Put something on your head (**MCDR 1.x Only**) |
 
 ### Communicate
 
@@ -140,6 +146,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ANN](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 | [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
+| [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | Easy-to-use announcement plugin. Multiple announcements, auto send on joining, manually broadcast, etc. (**MCDR 1.x Only**) |
 
 ### Files
 
@@ -156,9 +163,14 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | Sync survival server world to mirror server |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | Automatic render the `Mapcrafter` map |
+| [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Copy WorldEdit schematic files quickly between sub-servers |
+| [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | A lite weight in-game file manager |
+| [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Keep your vanilla server up-to-date easily |
+| [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | Daily backup and unknown player backup base on PermanentBackup |
 
 ### Plugins
 
+**Note that any current plugin management plugins have major flaws. It is recommended to wait patiently for the official plugin manager.**
 | Name | Maintainer | Function |
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
@@ -186,6 +198,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | A plugin for MCDReforged to check cpu temp regularly |
 | [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | A plugin to restart the server after server crashes. Maximum allowance for crashes is configurable |
 | [Hibernate](https://github.com/Dark-Night-Base/Hibernate) |[Dark-Night-Base](https://github.com/Dark-Night-Base) | A plugin which hibernates your server when no one's online, and resume it when someone login |
+| [StartStopHelperR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/StartStopHelperR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Start and stop server helper |
 
 ### Player management
 
@@ -219,6 +232,13 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get player UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | A Minecraft item API |
 | [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Plugin data storage API |
+| [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Provide websocket support for other plugins |
+| [RText-EXP](https://github.com/eagle3236/rtext-exp) | [Alex3236](https://github.com/eagle3236) | An RText expression implementation with color, style and hover text support |
+| [DatabaseAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/DatabaseAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Database API |
+| [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Language API |
+| [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | A very simple plugin that provides some (secondary wrapper) API with events |
+| [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Let you can depend a you want python version |
+| [MCDReforged-Remote](https://github.com/CuBitStudio/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | A MCDR plugin and a Java library, connecting QQ and Minecraft & allowing users to implement server control and other functions through the library  |
 
 ## Bukkit Revolution
 
@@ -234,3 +254,5 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | Show and teleport to player's failed place |
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | Teleport between overworld, the nether and the_end |
 | [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | Let non-op can use tp,tpa and back to last tp Position |
+| [TPN](https://github.com/hyf3513OneGO/TPN) | [hyf3513OneGO](https://github.com/hyf3513OneGO/) | Teleport between non-op players freely，show online players |
+| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | Allow teleportation between non-op players, with home/back/spawn support |

@@ -20,9 +20,10 @@
 | - | - | - |
 | [daycount](https://github.com/TISUnion/daycount) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!day` 获得开服至今的天数 |
 | [Seen](https://github.com/TISUnion/Seen/tree/MCDR) | [Pandaria98](https://github.com/Pandaria98) | 摸鱼时长排名 |
+| [SeenR](https://github.com/ra1ny-yuki/mcdr-seen-refreshed) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | 可识别地毯假人的摸鱼时长排名(**仅适用于MCDR 1.x**) |
 | [TPS](https://github.com/Da-Dog/MCDR-TPS) | [Da_Dog](https://github.com/Da-Dog) | 查看服务器TPS |
 | [Daytime](https://github.com/BelowZeroKelvin/MCDR-Daytime) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看mc的时间 |
-| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息(不稳定) |
+| [SystemInfo](https://github.com/eagle3236/SystemInfo) | [Alex3236](https://github.com/eagle3236) | 查看系统信息 |
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
@@ -50,6 +51,7 @@
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家（读NBT文件版） |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | 查看其他玩家的坐标 |
+| [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | 保存、共享、管理坐标，分享自己的坐标！ |
 
 ### 计分板
 
@@ -60,6 +62,7 @@
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/) | 定时自动切换计分板 |
 | [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | 一个用于将stats数据同步到Fz-sDatapack记分版的插件 |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播 |
+| [MinedRanking](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinedRanking) | [zhang_anzhi](https://github.com/zhang-anzhi) | 使用计分板显示挖掘榜 |
 
 ## 游戏辅助
 
@@ -78,6 +81,7 @@
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | 提供游戏内多种便捷计算 |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | 计算珍珠在珍珠炮环境的tnt作用下每一t的位置 |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | 更方便地传送到另一个维度，例如使用 `!!overworld <x> <y> <z>` 来指定传送坐标 |
+| [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 快速传送小帮手，提供维度间传送及定点快速传送等功能 |
 
 ### 假人
 
@@ -116,6 +120,8 @@
 | [BullshitGen](https://github.com/Van-Nya/BullshitGen) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
 | [HomoCalc](https://github.com/Van-Nya/HomoCalc) | [Van_Nya](https://github.com/Van-Nya) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
+| [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | 生成地图画 |
+| [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) | [B-2U](https://github.com/B-2U/) | 将主手上的东西戴在头上 (**MCDR 1.x Only**)|
 
 ### 玩家交流
 
@@ -140,6 +146,7 @@
 | [ANN](https://github.com/Da-Dog/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | 定时公告 |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | 使用命令来修改服务器的MOTD（支持颜色代码） |
 | [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
+| [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | 简单易用的公告插件，可以创建多条公告，设置玩家加入时发送，手动全服广播等（**仅支持MCDR 1.x**） |
 
 ### 文件管理
 
@@ -156,9 +163,14 @@
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | 在镜像服内同步生存服存档至镜像服 |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | 用指令来获取服务器存档的大小 |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | 自动渲染 `Mapcrafter` 地图 |
+| [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 在同机器上不同子服务器间复制WE原理图 |
+| [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 |
+| [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 轻松地更新原版服务端 |
+| [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | 基于PermanentBackup的每日自动备份与新玩家登录备份 |
 
 ### 插件管理
 
+**注意，目前的任何插件管理插件都存在较大的缺陷。建议耐心等待官方插件管理器。**
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
@@ -186,6 +198,7 @@
 | [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | 一个MCDR定时检测cpu温度的插件 |
 | [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个检测崩服后自动重启服务器的插件，可调整最大崩溃容忍度 |
 | [Hibernate](https://github.com/Dark-Night-Base/Hibernate) |[Dark-Night-Base](https://github.com/Dark-Night-Base) | 一个自动关服的插件，长时间无人则关服，有人尝试登陆则开服 |
+| [StartStopHelperR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/StartStopHelperR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 服务器管理小助手 |
 
 ### 玩家管理
 
@@ -219,6 +232,13 @@
 | [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取玩家UUID |
 | [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
 | [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 插件存储数据API |
+| [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 为其他插件提供 websocket 支持 |
+| [RText-EXP](https://github.com/eagle3236/rtext-exp) | [Alex3236](https://github.com/eagle3236) | 一种 RText 表达式实现，支持颜色、样式和悬停文字 |
+| [DatabaseAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/DatabaseAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 数据库API |
+| [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 语言API |
+| [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 一个非常简单的插件，提供了一些(二次封装的)API与事件 |
+| [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | \现在你可以依赖你想要的 Python 版本了/ |
+| [MCDReforged-Remote](https://github.com/CuBitStudio/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
 
 ## 水桶革命
 
@@ -234,3 +254,5 @@
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | 显示与返回玩家死亡点 |
 | [dimTeleport](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/dimTeleport) | [wyf0762](https://github.com/wyf0762) | 在主世界地狱末地之间传送|
 | [tpHelper](https://github.com/dream-rhythm/MCDRPlugin-tpHelper) | [dream-rhythm](https://github.com/dream-rhythm) | 让非op可以使用tp、tpa及返回上次传送点 |
+| [TPN](https://github.com/hyf3513OneGO/TPN) | [hyf3513OneGO](https://github.com/hyf3513OneGO/) | 让非OP玩家可以在玩家之间进行tp，显示在线玩家 |
+| [Telekinesis](https://github.com/Nyaacinth/Telekinesis) | [Nyaacinth](https://github.com/Nyaacinth) | 支持非管理员玩家之间传送，并添加家园、出生点、回溯相关功能 |
