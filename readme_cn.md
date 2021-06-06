@@ -128,6 +128,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [ChatBridge](https://github.com/TISUnion/ChatBridge) | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天 |
+| [ChatBridgeReforged](https://github.com/MCDReforged/PluginCatalogue) | [Ricky](https://github.com/rickyhoho) | [ChatBridge](https://github.com/TISUnion/ChatBridge) 重制版， 跨服聊天 |
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) | [HackerRouter](https://github.com/HackerRouter/) | 向一名离线玩家发送信息 |
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | 聊天时用 `@` 来提醒某人 |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
