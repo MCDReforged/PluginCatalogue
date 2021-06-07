@@ -133,6 +133,7 @@
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 支持原版显示[Minecraft样式代码](https://minecraft-zh.gamepedia.com/%E6%A0%B7%E5%BC%8F%E4%BB%A3%E7%A0%81)的插件 |
+| [ChatBridgeReforged](https://github.com/MCDReforged/PluginCatalogue) | [Ricky](https://github.com/rickyhoho) | [ChatBridge](https://github.com/TISUnion/ChatBridge) 重制版， 跨服聊天 |
 
 ## 服务器管理
 
