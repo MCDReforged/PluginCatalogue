@@ -82,6 +82,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | A tool to calculate the position of each gametick of the pearl accelerated by TNT on the pearl cannon |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates |
 | [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Quick teleport helper, teleport between dims, teleport to waypoint quickyly and more functions |
+| [DimensionConvert](https://github.com/ActiniumCraft/dimension-convert) | [Eleven](https://github.com/voidswordQQJ) | A plugin to convert dimension coordinate between nether and overworld |
 
 ### Bot
 
