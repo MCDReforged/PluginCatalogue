@@ -213,6 +213,7 @@
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | 记录玩家坐标，伪和平通知 |
+| [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一款定时获取在线玩家位置进行记录，同时设定禁区，若玩家被检测到处于禁区中，则全服广播提示的插件。 |
 
 ## API
 
