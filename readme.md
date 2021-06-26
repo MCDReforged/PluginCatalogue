@@ -187,6 +187,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | Auto and can be delayed clean |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info: the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean) |
+| [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | This may be the simplest auto cleaner of MCDR |
 
 ### Server Control
 
