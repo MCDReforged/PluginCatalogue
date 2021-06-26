@@ -187,6 +187,7 @@
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地) |
+| [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | 这可能是最简单的MCDR自动扫地姬 |
 
 ### 服务器控制
 
