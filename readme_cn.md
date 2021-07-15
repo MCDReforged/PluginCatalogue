@@ -28,8 +28,8 @@
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
-| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!seed`获取种子，回复具有原版风格并经过翻译的消息（**仅支持MCDR 1.x**） |
-| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!days`获取开服天数，通过配置文件自定义开服日期和回复消息（**仅支持MCDR 1.x**） |
+| [SeedR](https://github.com/Van-Nya/SeedR) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!seed`获取种子，回复具有原版风格并经过翻译的消息（**仅支持MCDR 1.x**） |
+| [DayCountR](https://github.com/Van-Nya/DayCountR) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!days`获取开服天数，通过配置文件自定义开服日期和回复消息（**仅支持MCDR 1.x**） |
 | [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | 通过 NBT 文件获取服务器总运行时长，极易上手无需配置（**仅支持MCDR 1.x**） |
 
 ### 搜索
@@ -82,6 +82,7 @@
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | 计算珍珠在珍珠炮环境的tnt作用下每一t的位置 |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | 更方便地传送到另一个维度，例如使用 `!!overworld <x> <y> <z>` 来指定传送坐标 |
 | [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 快速传送小帮手，提供维度间传送及定点快速传送等功能 |
+| [DimensionConvert](https://github.com/ActiniumCraft/dimension-convert) | [Eleven](https://github.com/voidswordQQJ) | 转换地狱和主世界的对应坐标 |
 
 ### 假人
 
@@ -117,9 +118,9 @@
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | 信标光柱染色辅助插件 |
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | 提升原版生存红石小游戏的游玩体验 |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | 另一个哔哩哔哩插件，查询信息并给出视频点击按钮而不是重新打BV号等 |
-| [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
+| [BullshitGen](https://github.com/Van-Nya/BullshitGen) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!bullshit`生成可指定字数和关键词，并且可复制的狗屁不通文章（**仅支持MCDR 1.x**） |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 |
-| [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
+| [HomoCalc](https://github.com/Van-Nya/HomoCalc) | [Van_Nya](https://github.com/Van-Nya) | 通过 `!!homo` 命令, 用114514生成**ホモ特有表达式**（**仅支持MCDR 1.x**） |
 | [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | 生成地图画 |
 | [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) | [B-2U](https://github.com/B-2U/) | 将主手上的东西戴在头上 (**MCDR 1.x Only**)|
 
@@ -133,6 +134,7 @@
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 支持原版显示[Minecraft样式代码](https://minecraft-zh.gamepedia.com/%E6%A0%B7%E5%BC%8F%E4%BB%A3%E7%A0%81)的插件 |
+| [ChatBridgeReforged](https://github.com/rickyhoho/ChatBridgeReforged) | [Ricky](https://github.com/rickyhoho) | [ChatBridge](https://github.com/TISUnion/ChatBridge) 重制版， 跨服聊天 |
 
 ## 服务器管理
 
@@ -145,7 +147,7 @@
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | 定时公告 |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | 使用命令来修改服务器的MOTD（支持颜色代码） |
-| [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
+| [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
 | [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | 简单易用的公告插件，可以创建多条公告，设置玩家加入时发送，手动全服广播等（**仅支持MCDR 1.x**） |
 
 ### 文件管理
@@ -160,11 +162,14 @@
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一个支持多槽位的自动快速备份＆回档插件，由QuickBackupM改编而来 |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | 自动更新服务器核心 |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件 |
+| [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | 一个使用git来管理世界备份的插件 |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | 在镜像服内同步生存服存档至镜像服 |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | 用指令来获取服务器存档的大小 |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | 自动渲染 `Mapcrafter` 地图 |
 | [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 在同机器上不同子服务器间复制WE原理图 |
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 |
+| [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 轻松地更新原版服务端 |
+| [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | 基于PermanentBackup的每日自动备份与新玩家登录备份 |
 
 ### 插件管理
 
@@ -183,6 +188,7 @@
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地) |
+| [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | 这可能是最简单的MCDR自动扫地姬 |
 
 ### 服务器控制
 
@@ -209,6 +215,7 @@
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | 记录玩家坐标，伪和平通知 |
+| [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一款定时获取在线玩家位置进行记录，同时设定禁区，若玩家被检测到处于禁区中，则全服广播提示的插件。 |
 
 ## API
 
@@ -235,6 +242,8 @@
 | [DatabaseAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/DatabaseAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 数据库API |
 | [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 语言API |
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 一个非常简单的插件，提供了一些(二次封装的)API与事件 |
+| [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | \现在你可以依赖你想要的 Python 版本了/ |
+| [MCDReforged-Remote](https://github.com/CuBitStudio/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
 
 ## 水桶革命
 
