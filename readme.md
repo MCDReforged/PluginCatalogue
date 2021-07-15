@@ -28,8 +28,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for querying server map seeds for MCDReforged. |
 | [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get useful server info(CPU/memory/world size...) |
-| [SeedR](https://github.com/Van-Involution/SeedR) | [Van_Involution](https://github.com/Van-Involution) | Use `!!seed` to get seed,, reply translated message just like vanilla style (**MCDR 1.x Only**) |
-| [DayCountR](https://github.com/Van-Involution/DayCountR) | [Van_Involution](https://github.com/Van-Involution) | Use `!!days` to get day count since server set up, customize **start day** and **reply msg** by config file (**MCDR 1.x Only**) |
+| [SeedR](https://github.com/Van-Nya/SeedR) | [Van_Nya](https://github.com/Van-Nya) | Use `!!seed` to get seed,, reply translated message just like vanilla style (**MCDR 1.x Only**) |
+| [DayCountR](https://github.com/Van-Nya/DayCountR) | [Van_Nya](https://github.com/Van-Nya) | Use `!!days` to get day count since server set up, customize **start day** and **reply msg** by config file (**MCDR 1.x Only**) |
 | [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | An easy-use daycount (**MCDR 1.x Only**) |
 
 ### Search
@@ -82,6 +82,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | A tool to calculate the position of each gametick of the pearl accelerated by TNT on the pearl cannon |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates |
 | [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Quick teleport helper, teleport between dims, teleport to waypoint quickyly and more functions |
+| [DimensionConvert](https://github.com/ActiniumCraft/dimension-convert) | [Eleven](https://github.com/voidswordQQJ) | A plugin to convert dimension coordinate between nether and overworld |
 
 ### Bot
 
@@ -117,9 +118,9 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | Beacon lightcolumn dyeing auxiliary plugin |
 | [Minigame](https://github.com/Jianguo-Nut/Minigame) | [Jianguo_Nut](https://github.com/Jianguo-Nut) | Make the vanilla minigames more convenient |
 | [BilibiliInfo](https://github.com/CalciumSilicate/BilibiliInfo) | [CalciumSilicate](https://github.com/CalciumSilicate) | Another Bilibili plugin to parse Bilibili information and get the result on a click instead of typing BV |
-| [BullshitGen](https://github.com/Van-Involution/BullshitGen) | [Van_Involution](https://github.com/Van-Involution) | Use `!!bullshit` to generate copyable bullshit article with customizable limit and key words (**MCDR 1.x Only**) |
+| [BullshitGen](https://github.com/Van-Nya/BullshitGen) | [Van_Nya](https://github.com/Van-Nya) | Use `!!bullshit` to generate copyable bullshit article with customizable limit and key words (**MCDR 1.x Only**) |
 | [MCDRpost](https://github.com/Flyky/MCDRpost) | [Flyky](https://github.com/Flyky) | A MCDR plugin for post/teleport items |
-| [HomoCalc](https://github.com/Van-Involution/HomoCalc) | [Van_Involution](https://github.com/Van-Involution) | Use `!!homo` to generate expression with 114514 for **homo** (**MCDR 1.x Only**) |
+| [HomoCalc](https://github.com/Van-Nya/HomoCalc) | [Van_Nya](https://github.com/Van-Nya) | Use `!!homo` to generate expression with 114514 for **homo** (**MCDR 1.x Only**) |
 | [mapitem](https://github.com/InkEcau/MCDReforgedPlugins/tree/master/mapitem) | [InkEcau](https://github.com/InkEcau) | Generate map paintings |
 | [MCDR-Hat](https://github.com/B-2U/MCDR-Hat) | [B-2U](https://github.com/B-2U/) | Put something on your head (**MCDR 1.x Only**) |
 
@@ -133,6 +134,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Vote](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Connect QQ and Minecraft, with `list` function |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
+| [ChatBridgeReforged](https://github.com/rickyhoho/ChatBridgeReforged) | [Ricky](https://github.com/rickyhoho) | Reforged of [ChatBridge](https://github.com/TISUnion/ChatBridge),<br> Boardcast chat between mc servers or even discord server |
 
 ## Server Management
 
@@ -145,7 +147,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game |
 | [ANN](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
-| [JoinMOTDR](https://github.com/Van-Involution/JoinMOTDR) | [Van_Involution](https://github.com/Van-Involution) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
+| [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
 | [Notice](https://github.com/LiamSho/MCDReforgedPlugins/tree/main/Notice) | [LiamSho](https://github.com/LiamSho) | Easy-to-use announcement plugin. Multiple announcements, auto send on joining, manually broadcast, etc. (**MCDR 1.x Only**) |
 
 ### Files
@@ -160,11 +162,14 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | Server auto update |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | A regular backup plugin(use 7zip) |
+| [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | A plugin using git to manage Minecraft backup |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | Sync survival server world to mirror server |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | Automatic render the `Mapcrafter` map |
 | [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Copy WorldEdit schematic files quickly between sub-servers |
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | A lite weight in-game file manager |
+| [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Keep your vanilla server up-to-date easily |
+| [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | Daily backup and unknown player backup base on PermanentBackup |
 
 ### Plugins
 
@@ -183,6 +188,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | Auto and can be delayed clean |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
 | [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info: the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean) |
+| [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | This may be the simplest auto cleaner of MCDR |
 
 ### Server Control
 
@@ -209,6 +215,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | Record player coordinates, pseudo-peace notification. |
+| [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | A plugin that regularly obtains the location of online players for recording, and sets a restricted area at the same time. |
 
 ## API
 
@@ -235,6 +242,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [DatabaseAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/DatabaseAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Database API |
 | [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Language API |
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | A very simple plugin that provides some (secondary wrapper) API with events |
+| [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Let you can depend a you want python version |
+| [MCDReforged-Remote](https://github.com/CuBitStudio/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | A MCDR plugin and a Java library, connecting QQ and Minecraft & allowing users to implement server control and other functions through the library  |
 
 ## Bukkit Revolution
 
