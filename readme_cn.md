@@ -162,7 +162,6 @@
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一个支持多槽位的自动快速备份＆回档插件，由QuickBackupM改编而来 |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | 自动更新服务器核心 |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件 |
-| [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | 一个使用git来管理世界备份的插件 |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | 在镜像服内同步生存服存档至镜像服 |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | 用指令来获取服务器存档的大小 |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | 自动渲染 `Mapcrafter` 地图 |
@@ -170,6 +169,7 @@
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 |
 | [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 轻松地更新原版服务端 |
 | [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | 基于PermanentBackup的每日自动备份与新玩家登录备份 |
+| [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | 一个使用git来管理世界备份的插件 |
 
 ### 插件管理
 
@@ -216,6 +216,7 @@
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的一个白名单管理插件。 |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | 记录玩家坐标，伪和平通知 |
 | [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一款定时获取在线玩家位置进行记录，同时设定禁区，若玩家被检测到处于禁区中，则全服广播提示的插件。 |
+| [WhiteList](https://github.com/zyxgad/whitelist_mcdr) | [zyxgad](https://github.com/zyxgad) | 一个简单的白名单/黑名单插件 |
 
 ## API
 

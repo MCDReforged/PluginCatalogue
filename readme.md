@@ -162,7 +162,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [AutoQuickBackup](https://github.com/XiaoHuiHui233/AutoQuickBackup) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | Auto Backup/Restore plugin, with muti backup slot. Modified from QuickBackupM |
 | [AutoUpdate](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-AutoUpdate) | [Da_Dog](https://github.com/Da-Dog) | Server auto update |
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | A regular backup plugin(use 7zip) |
-| [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | A plugin using git to manage Minecraft backup |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | Sync survival server world to mirror server |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
 | [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | Automatic render the `Mapcrafter` map |
@@ -170,6 +169,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | A lite weight in-game file manager |
 | [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Keep your vanilla server up-to-date easily |
 | [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | Daily backup and unknown player backup base on PermanentBackup |
+| [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | A plugin using git to manage Minecraft backup |
 
 ### Plugins
 
@@ -216,6 +216,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | Record player coordinates, pseudo-peace notification. |
 | [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | A plugin that regularly obtains the location of online players for recording, and sets a restricted area at the same time. |
+| [WhiteList](https://github.com/zyxgad/whitelist_mcdr) | [zyxgad](https://github.com/zyxgad) | A whitelist/blacklist plugin |
 
 ## API
 
