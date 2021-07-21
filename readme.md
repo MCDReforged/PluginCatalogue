@@ -46,7 +46,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name | Maintainer | Function |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | Broadcast your position and high light yourself |
-| [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Send player death position to the position owner |
+| [DeiPos](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | Send player death position to the position owner |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | Gather your waypoints with Volexmap， save them in a database of your server and share them across the server |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT) | [DancingSnow0517](https://github.com/DancingSnow0517) | Boardcast your position and high light yourself (Read NBT File Ver) |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
@@ -72,7 +72,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | In game calculator |
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98) | Shows tasks of project in progress |
-| [GameMode](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival |
+| [GameMode](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | Move a pet between different players |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin |
 | [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | Change to spectator mode for observe, teleport to origin position when change back to survival mode |
@@ -178,7 +178,7 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
 | [pget_pure](https://github.com/MCDReforged/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
-| [MCDR-get](https://github.com/Squaregentleman/MCDR-get) | [57767598](https://github.com/Squaregentleman/) | The plugin library of MCDR |
+| [MCDR-get](https://github.com/577fkj/MCDR-get) | [57767598](https://github.com/577fkj/) | The plugin library of MCDR |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Download plugin in game |-->
 
 ### Item Clean
@@ -187,7 +187,7 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | - | - | - |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | Auto and can be delayed clean |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info: the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean) |
+| [ClearItem](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info: the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean) |
 | [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | This may be the simplest auto cleaner of MCDR |
 
 ### Server Control
