@@ -46,7 +46,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [Here](https://github.com/TISUnion/Here) | [Fallen_Breath](https://github.com/Fallen-Breath) | 显示坐标并高亮玩家 |
-| [DeiPos](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 玩家死亡私发死亡坐标 |
+| [DeiPos](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | 玩家死亡私发死亡坐标 |
 | [Waypoints](https://github.com/GamerNoTitle/MCDR-Waypoints) | [GamerNoTitle](https://github.com/GamerNoTitle) | 全服共享型VolexMap路径点，让路径点成为共享潮流！ |
 | [Here-NBT](https://github.com/DancingSnow0517/Here-NBT)             | [DancingSnow0517](https://github.com/DancingSnow0517) | 显示坐标并高亮玩家（读NBT文件版） |
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
@@ -72,7 +72,7 @@
 | - | - | - |
 | [Calculator](https://github.com/TISUnion/Calculator) | [Fallen_Breath](https://github.com/Fallen-Breath) | 游戏内计算器 |
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98) | 工程任务进度管理 |
-| [GameMode](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
+| [GameMode](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | 玩家间转移动物（如猫/狗等）的所有权 |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 |
 | [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | 切换模式为旁观者模式，当改变为生存模式时传送到原位置 |
@@ -178,7 +178,7 @@
 | - | - | - |
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
 | [pget_pure](https://github.com/MCDReforged/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
-| [MCDR-get](https://github.com/Squaregentleman/MCDR-get) | [57767598](https://github.com/Squaregentleman/) | mcdr的插件库 |
+| [MCDR-get](https://github.com/577fkj/MCDR-get) | [57767598](https://github.com/577fkj/) | mcdr的插件库 |
 | [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 游戏内下载插件工具 |-->
 
 ### 扫地大妈
@@ -187,7 +187,7 @@
 | - | - | - |
 | [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
-| [ClearItem](https://github.com/Squaregentleman/MCDR-plugins) | [57767598](https://github.com/Squaregentleman/) | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地) |
+| [ClearItem](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地) |
 | [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | 这可能是最简单的MCDR自动扫地姬 |
 
 ### 服务器控制
