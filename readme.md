@@ -148,7 +148,6 @@ If you have a good plugin, please submit a pull request and make sure you sort t
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged | :red_circle: |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. | :red_circle: |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | A plugin can send commend to the system in games. | :red_circle: |
-| [RawInput](https://github.com/zyxgad/rawinput_mcdr) | [zyxgad](https://github.com/zyxgad/) | Provide better command line interface for vanilla server(like spigot's) | :large_blue_circle: |
 
 ### Recreation
 
