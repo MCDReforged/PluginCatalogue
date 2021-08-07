@@ -143,6 +143,7 @@
 | [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 | :red_circle: |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于踢出玩家的插件。 | :red_circle: |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | 一个游戏内运行系统命令的插件 | :red_circle: |
+| [RawInput](https://github.com/zyxgad/rawinput_mcdr) | [zyxgad](https://github.com/zyxgad/) | 为原版端提供更好的命令行界面(类spigot) | :large_blue_circle: |
 
 ### 娱乐
 
