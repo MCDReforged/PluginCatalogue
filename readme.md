@@ -77,7 +77,7 @@ If you have a good plugin, please submit a pull request and make sure you sort t
 | Name | Maintainer | Function | 1.x Support |
 | - | - | - | - |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click | :large_blue_circle: |
-| [WikiRequest](https://github.com/DrLee-lihr/WikiRequests) | [DrLee_lihr](https://github.com/DrLee-lihr) | A plugin to query wiki and return the link of pages you want | :large_blue_circle: |
+| [WikiRequest](https://github.com/DrLee-lihr/WikiRequest) | [DrLee_lihr](https://github.com/DrLee-lihr) | A plugin to query wiki and return the link of pages you want | :large_blue_circle: |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) | Search something in game | :red_circle: |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server | :red_circle: |
 
