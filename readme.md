@@ -117,6 +117,7 @@ If you have a good plugin, please submit a pull request and make sure you sort t
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98) | Shows tasks of project in progress | :large_blue_circle: |
 | [GameMode](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival | :large_blue_circle: |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin | :large_blue_circle: |
+| [Renewability](https://github.com/Fidelxyz/MCDR-Renewability/) | [XuanYun_Fidel](https://github.com/Fidelxyz) | Allows players to clone non-renewable items | :large_blue_circle: |
 | [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | Enable single player sleep to skip night in server | :large_blue_circle: |
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game | :large_blue_circle: |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates | :large_blue_circle: |

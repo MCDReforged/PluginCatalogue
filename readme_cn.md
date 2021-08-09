@@ -113,6 +113,7 @@
 | [Task](https://github.com/TISUnion/Task) | [Pandaria98](https://github.com/Pandaria98) | 工程任务进度管理 | :large_blue_circle: |
 | [GameMode](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) | :large_blue_circle: |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 | :large_blue_circle: |
+| [Renewability](https://github.com/Fidelxyz/MCDR-Renewability/) | [XuanYun_Fidel](https://github.com/Fidelxyz) | 允许玩家复制不可再生物品 | :large_blue_circle: |
 | [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | 允许在服务器中单人睡觉跳过夜晚 | :large_blue_circle: |
 | [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | 提供游戏内多种便捷计算 | :large_blue_circle: |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | 更方便地传送到另一个维度，例如使用 `!!overworld <x> <y> <z>` 来指定传送坐标 | :large_blue_circle: |
