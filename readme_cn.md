@@ -76,9 +76,10 @@
 | 名称 | 维护者 | 功能 | 兼容 1.x |
 | - | - | - | - |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 | :large_blue_circle: |
+| [WikiRequest](https://github.com/DrLee-lihr/WikiRequest) | [DrLee_lihr](https://github.com/DrLee-lihr) | 一个用于查询Wiki并返回你要的页面的链接的插件 | :large_blue_circle: |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) | 在游戏中搜索任意内容 | :red_circle: |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 | :red_circle: |
-| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 | :red_circle: |
+
 
 ### 坐标
 
@@ -140,7 +141,7 @@
 | - | - | - | - |
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | 一个快速运行指令集的插件 | :large_blue_circle: |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 | :red_circle: |
-| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 | :red_circle: |
+| [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 | :red_circle: |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于踢出玩家的插件。 | :red_circle: |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | 一个游戏内运行系统命令的插件 | :red_circle: |
 
