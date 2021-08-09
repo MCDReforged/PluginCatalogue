@@ -77,10 +77,9 @@ If you have a good plugin, please submit a pull request and make sure you sort t
 | Name | Maintainer | Function | 1.x Support |
 | - | - | - | - |
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click | :large_blue_circle: |
+| [WikiRequest](https://github.com/DrLee-lihr/WikiRequest) | [DrLee_lihr](https://github.com/DrLee-lihr) | A plugin to query wiki and return the link of pages you want | :large_blue_circle: |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) | Search something in game | :red_circle: |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server | :red_circle: |
-| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported | :red_circle: |
-
 
 ### Position
 
@@ -145,7 +144,7 @@ If you have a good plugin, please submit a pull request and make sure you sort t
 | - | - | - | - |
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | A plugin can run command script quickly in server. | :large_blue_circle: |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player | :red_circle: |
-| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged | :red_circle: |
+| [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged | :red_circle: |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. | :red_circle: |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | A plugin can send commend to the system in games. | :red_circle: |
 
