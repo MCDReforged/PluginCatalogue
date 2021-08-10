@@ -145,7 +145,7 @@ class Plugin:
 			return default
 		return resp.text
 
-	def fetch_metadata(self) -> MetaInfo:
+	def fetch_meta(self) -> MetaInfo:
 		metadata = self.get_repos_json('mcdreforged.plugin.json')
 		assert metadata['id'] == self.id
 		self.meta_info = MetaInfo()
@@ -204,7 +204,7 @@ class PluginList(List[Plugin]):
 		if self.__meta_fetched:
 			return
 		print('Fetching meta info')
-		self.__fetch(lambda plg: plg.fetch_meta)
+		self.__fetch(lambda plg: plg.fetch_meta())
 		print('Meta info fetched')
 		self.__meta_fetched = True
 

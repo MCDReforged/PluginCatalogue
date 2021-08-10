@@ -1,0 +1,42 @@
+name: PR Check
+
+on:
+  push:
+    branches:
+      - next
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-:
+
+      - name: Generate doc
+        run: |
+          cd ./scripts
+          pip install -r requirements.txt
+          python manager.py doc
+
+      - name: Upload doc
+        run: |
+          mkdir doc_repo
+          mv ./catalogue readme.md ./doc_repo
+          cd ./doc_repo
+          git init
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -am "Doc update for '${{ github.event.head_commit.message }}'"
+          git push --force --quiet master:catalogue
