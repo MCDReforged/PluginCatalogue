@@ -2,13 +2,6 @@
 
 Use `ctrl-f` to performance an in-page search, for what you are interested in
 
-## Label List
-
-- [Information](/generated/labels/information.md)
-- [Tool](/generated/labels/tool.md)
-- [Management](/generated/labels/management.md)
-- [API](/generated/labels/api.md)
-
 ## minecraft_data_api
 
 - Plugin ID: `minecraft_data_api`
@@ -16,12 +9,12 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 - Version: 1.4.0
 - Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: API
+- Labels: `API`
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/generated/full.md#mcdreforged) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/generated/plugins/mcdreforged.md) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 
@@ -30,6 +23,8 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
+
+**Description**
 
 A MCDReforged api plugin to get player data information and more
 
@@ -40,18 +35,20 @@ A MCDReforged api plugin to get player data information and more
 - Version: 1.2.0
 - Authors: Fallen_Breath
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: Management
+- Labels: `Management`
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/generated/full.md#mcdreforged) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/generated/plugins/mcdreforged.md) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 
 | Python package | Requirement |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+
+**Description**
 
 A backup/restore plugin for your world, with mutiple backup slot
 
