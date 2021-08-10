@@ -6,7 +6,9 @@ ROOT = os.path.abspath(os.path.join(HERE, '..'))
 TEMPLATE = os.path.join(HERE, 'templates')
 PLUGINS_FOLDER = os.path.join(ROOT, 'plugins')
 LABEL_FILE = os.path.join(PLUGINS_FOLDER, 'labels.json')
-GENERATED_FOLDER = os.path.join(ROOT, 'generated')
+CATALOGUE_FOLDER = os.path.join(ROOT, 'catalogue')
+META_FOLDER = os.path.join(ROOT, 'meta')
+META_CACHE_FOLDER = os.path.join(META_FOLDER, '%cache')
 
 PROXIES = None
 if 'http_proxy' in os.environ:
