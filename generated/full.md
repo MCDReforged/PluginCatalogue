@@ -4,10 +4,10 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 
 ## Label List
 
-- [Information](/generated/labels/Information.md)
-- [Tool](/generated/labels/Tool.md)
-- [Management](/generated/labels/Management.md)
-- [API](/generated/labels/API.md)
+- [Information](/generated/labels/information.md)
+- [Tool](/generated/labels/tool.md)
+- [Management](/generated/labels/management.md)
+- [API](/generated/labels/api.md)
 
 ## minecraft_data_api
 
