@@ -1,4 +1,4 @@
-Plugin Catalogue Full Collection
+Plugin Catalogue Full Information Collection
 ---------
 
-Use `ctrl-f` to performance a in-page search
+Use `ctrl-f` to performance an in-page search, for what you are interested in

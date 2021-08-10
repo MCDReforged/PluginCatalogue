@@ -1,7 +1,8 @@
 Plugin Catalogue Index
 ---------
 
-Plugin Amount: 0
+Plugin Amount: 1
 
-| Plugin Name | Plugin ID | Author | Labels |
+| Plugin Name | Version | Author | Labels |
 | --- | --- | --- | --- |
+| [Minecraft Data API](/generated/full.md#minecraft-data-api) | 1.4.0 | Fallen_Breath | API |
