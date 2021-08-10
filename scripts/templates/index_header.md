@@ -1,2 +1,1 @@
-Plugin Catalogue Index
----------
+# Plugin Catalogue Index
