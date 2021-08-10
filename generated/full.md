@@ -1,7 +1,13 @@
-Plugin Catalogue Full Collection
----------
+# Full Plugin Information Collection
 
 Use `ctrl-f` to performance an in-page search, for what you are interested in
+
+## Label List
+
+- [Information](/generated/labels/Information.md)
+- [Tool](/generated/labels/Tool.md)
+- [Management](/generated/labels/Management.md)
+- [API](/generated/labels/API.md)
 
 ## minecraft_data_api
 

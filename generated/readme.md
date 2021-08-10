@@ -1,5 +1,4 @@
-Plugin Catalogue Index
----------
+# Plugin Catalogue Index
 
 Plugin Amount: 2
 
