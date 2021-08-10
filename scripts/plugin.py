@@ -1,7 +1,7 @@
 import json
 import os
 from concurrent.futures.thread import ThreadPoolExecutor
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Callable, Any
 
 import requests
 from requests import Response
@@ -9,18 +9,67 @@ from requests import Response
 import constants
 import utils
 from label import Label, get_label_set
+from serializer import Serializable
 from text import Text
 
 
-class MetaInfo:
+class MetaInfo(Serializable):
+	id: str
+	name: str
 	version: str
+	repository: str
+	labels: List[str]
+	authors: List[str]
 	dependencies: Dict[str, str]
 	requirements: List[str]
 
-	def __init__(self, version: str, dependencies: Dict[str, str], requirements: List[str]):
-		self.version = version
-		self.dependencies = dependencies
-		self.requirements = requirements
+
+class AssetInfo(Serializable):
+	name: str
+	size: int
+	download_count: int
+	created_at: str
+	url: str
+
+
+class ReleaseInfo(Serializable):
+	url: str
+	name: str
+	tag_name: str
+	created_at: str
+	assets: List[AssetInfo]
+	description: str
+
+	@property
+	def version(self) -> str:
+		return self.tag_name
+
+
+class ReleaseSummary(Serializable):
+	id: str
+	latest_version: str
+	etag: str = ''
+	releases: List[ReleaseInfo]
+
+	def fetch_from_api(self, plugin: 'Plugin'):
+		url = f'https://api.github.com/repos/{plugin.repos_path}/releases'
+		resp: Optional[List[dict]]
+		new_etag: str
+		resp, new_etag = utils.request_github_api(url, etag=self.etag)
+		self.id = plugin.id
+		self.etag = new_etag
+		if resp is not None:
+			self.releases = []
+			for item in resp:
+				item['url'] = item['html_url']
+				item['description'] = item['body']
+				self.releases.append(ReleaseInfo.deserialize(item))
+			self.latest_version = self.releases[0].tag_name if len(self.releases) > 0 else None
+
+
+class PluginMetaSummary(Serializable):
+	plugin_amount: int
+	plugins: Dict[str, MetaInfo]
 
 
 class Plugin:
@@ -34,6 +83,7 @@ class Plugin:
 	readme: Text
 
 	meta_info: Optional[MetaInfo]
+	release_summary: Optional[ReleaseSummary]
 
 	def __init__(self, plugin_id: str):
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
@@ -74,11 +124,16 @@ class Plugin:
 		self.readme = Text(readme_en, readme_cn)
 
 		self.meta_info = None
+		self.release_summary = None
+
+	@property
+	def repos_path(self) -> str:
+		# TISUnion/QuickBackupM
+		return utils.remove_prefix(self.repository, 'https://github.com/')
 
 	def __get_repos_file(self, file_path: str) -> Response:
-		repos_path = utils.remove_prefix(self.repository, 'https://github.com/')
 		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/next/mcdreforged.plugin.json
-		url_base = f'https://raw.githubusercontent.com/{repos_path}/{self.branch}/{self.related_path}/'
+		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{self.branch}/{self.related_path}/'
 		return requests.get(url_base + file_path, proxies=constants.PROXIES)
 
 	def get_repos_json(self, file_path: str) -> dict:
@@ -90,46 +145,94 @@ class Plugin:
 			return default
 		return resp.text
 
-	def fetch_metadata(self):
+	def fetch_metadata(self) -> MetaInfo:
 		metadata = self.get_repos_json('mcdreforged.plugin.json')
 		assert metadata['id'] == self.id
-		version = metadata.get('version')
-		dependencies = metadata.get('dependencies', {})
-		requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
-		self.meta_info = MetaInfo(version, dependencies, requirements)
+		self.meta_info = MetaInfo()
+		self.meta_info.id = self.id
+		self.meta_info.name = self.name
+		self.meta_info.version = metadata.get('version')
+		self.meta_info.repository = self.repository
+		self.meta_info.labels = list(map(str, self.labels))
+		self.meta_info.authors = self.authors
+		self.meta_info.dependencies = metadata.get('dependencies', {})
+		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
 		print('Fetched meta info of {}'.format(self.id))
+		return self.meta_info
 
-	def fetch_release(self):
-		pass
+	def save_meta(self):
+		utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+
+	def pull_release(self) -> ReleaseSummary:
+		release_info_file = os.path.join(constants.META_FOLDER, self.id, 'release.json')
+		self.release_summary = ReleaseSummary.deserialize(utils.load_json(release_info_file))
+		self.release_summary.fetch_from_api(self)
+		utils.save_json(self.release_summary.serialize(), release_info_file)
+		print('Fetched release info of {}'.format(self.id))
+		return self.release_summary
 
 
 class PluginList(List[Plugin]):
 	def __init__(self):
 		super().__init__()
+		self.__inited = False
+		self.__meta_fetched = False
+		self.__release_pulled = False
+
+	def init(self):
+		if self.__inited:
+			return
+		self.clear()
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
 			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
 				print('Found plugin {}'.format(folder))
 				self.append(Plugin(folder))
 
-		print('Loaded {} plugins'.format(len(self)))
+		print('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())
+		self.__inited = True
 
-	def fetch_meta(self):
-		print('Fetching meta info')
-		futures = []
+	def __fetch(self, func: Callable[[Plugin], Any]):
 		with ThreadPoolExecutor(max_workers=16) as executor:
+			futures = []
 			for plugin in self:
-				futures.append(executor.submit(plugin.fetch_metadata))
+				futures.append(executor.submit(func, plugin))
 			for future in futures:
 				future.result()
 
+	def fetch_meta(self):
+		if self.__meta_fetched:
+			return
+		print('Fetching meta info')
+		self.__fetch(lambda plg: plg.fetch_meta)
 		print('Meta info fetched')
+		self.__meta_fetched = True
+
+	def pull_release(self):
+		if self.__release_pulled:
+			return
+		print('Fetching and storing release info')
+		self.__fetch(lambda plg: plg.pull_release)
+		print('Release info fetched and stored')
+		self.__release_pulled = True
+
+	def save_meta(self):
+		print('Storing meta')
+		meta_summary = PluginMetaSummary()
+		meta_summary.plugin_amount = len(self)
+		meta_summary.plugins = {}
+		for plugin in self:
+			plugin.save_meta()
+			meta_summary.plugins[plugin.id] = plugin.meta_info
+		utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'))
+		print('Meta stored')
 
 
 _plugin_list = PluginList()
 
 
 def get_plugin_list() -> PluginList:
+	_plugin_list.init()
 	return _plugin_list
 
 

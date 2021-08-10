@@ -2,7 +2,7 @@
 
 A repository for listing [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugins
 
-See [here](/generated) to see the plugin catalogue 
+See [here](/catalogue) to see the plugin catalogue 
 
 Only include plugins compatible with MCDReforged
 
