@@ -1,4 +1,4 @@
-name: PR Check
+name: Update Catalogue
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - next
 
 jobs:
-  update:
+  catalogue:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,15 +28,20 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
           python manager.py doc
+        env:
+          github_api_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload doc
+      - name: Collect doc
         run: |
           mkdir doc_repo
           mv ./catalogue readme.md ./doc_repo
-          cd ./doc_repo
-          git init
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git commit -am "Doc update for '${{ github.event.head_commit.message }}'"
-          git push --force --quiet master:catalogue
+
+      - name: Deploy doc
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: catalogue
+          FOLDER: doc_repo
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          SQUASH_HISTORY: true
+          SKIP_EMPTY_COMMITS: true

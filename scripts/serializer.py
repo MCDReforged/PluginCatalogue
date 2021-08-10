@@ -64,7 +64,11 @@ class Serializable(ABC):
 
 	@classmethod
 	def deserialize(cls, data: dict, **kwargs):
-		return deserialize(data, cls, **kwargs)
+		try:
+			return deserialize(data, cls, **kwargs)
+		except Exception as e:
+			print('Failed to deserialize to {} from data {}'.format(cls, data))
+			raise e from None
 
 	def deserialize_from(self, data: dict):
 		vars(self).update(vars(self.deserialize(data)))

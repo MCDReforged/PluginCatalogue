@@ -64,7 +64,7 @@ class ReleaseSummary(Serializable):
 				item['url'] = item['html_url']
 				item['description'] = item['body']
 				self.releases.append(ReleaseInfo.deserialize(item))
-			self.latest_version = self.releases[0].tag_name if len(self.releases) > 0 else None
+			self.latest_version = self.releases[0].tag_name if len(self.releases) > 0 else 'N/A'
 
 
 class PluginMetaSummary(Serializable):
@@ -165,7 +165,10 @@ class Plugin:
 
 	def pull_release(self) -> ReleaseSummary:
 		release_info_file = os.path.join(constants.META_FOLDER, self.id, 'release.json')
-		self.release_summary = ReleaseSummary.deserialize(utils.load_json(release_info_file))
+		try:
+			self.release_summary = ReleaseSummary.deserialize(utils.load_json(release_info_file))
+		except:
+			self.release_summary = ReleaseSummary()
 		self.release_summary.fetch_from_api(self)
 		utils.save_json(self.release_summary.serialize(), release_info_file)
 		print('Fetched release info of {}'.format(self.id))
@@ -212,7 +215,7 @@ class PluginList(List[Plugin]):
 		if self.__release_pulled:
 			return
 		print('Fetching and storing release info')
-		self.__fetch(lambda plg: plg.pull_release)
+		self.__fetch(lambda plg: plg.pull_release())
 		print('Release info fetched and stored')
 		self.__release_pulled = True
 
@@ -237,4 +240,4 @@ def get_plugin_list() -> PluginList:
 
 
 if __name__ == '__main__':
-	Plugin('quick_backup_multi').fetch_metadata()
+	Plugin('quick_backup_multi').fetch_meta()
