@@ -1,6 +1,7 @@
 import json
 import os
-from typing import Optional, List
+from concurrent.futures.thread import ThreadPoolExecutor
+from typing import Optional, List, Dict
 
 import requests
 from requests import Response
@@ -9,6 +10,17 @@ import constants
 import utils
 from label import Label, get_label_set
 from text import Text
+
+
+class MetaInfo:
+	version: str
+	dependencies: Dict[str, str]
+	requirements: List[str]
+
+	def __init__(self, version: str, dependencies: Dict[str, str], requirements: List[str]):
+		self.version = version
+		self.dependencies = dependencies
+		self.requirements = requirements
 
 
 class Plugin:
@@ -20,6 +32,8 @@ class Plugin:
 	authors: List[str]
 	name: str
 	readme: Text
+
+	meta_info: Optional[MetaInfo]
 
 	def __init__(self, plugin_id: str):
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
@@ -59,29 +73,65 @@ class Plugin:
 			readme_cn = None
 		self.readme = Text(readme_en, readme_cn)
 
-	def __get_file(self, file_path: str) -> Response:
+		self.meta_info = None
+
+	def __get_repos_file(self, file_path: str) -> Response:
 		repos_path = utils.remove_prefix(self.repository, 'https://github.com/')
 		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/next/mcdreforged.plugin.json
 		url_base = f'https://raw.githubusercontent.com/{repos_path}/{self.branch}/{self.related_path}/'
-		return requests.get(url_base + file_path)
+		return requests.get(url_base + file_path, proxies=constants.PROXIES)
 
-	def get_json(self, file_path: str):
-		return self.__get_file(file_path).json()
+	def get_repos_json(self, file_path: str) -> dict:
+		return self.__get_repos_file(file_path).json()
 
-	def check_repository(self):
-		metadata = self.get_json('mcdreforged.plugin.json')
+	def get_repos_text(self, file_path: str, default=None) -> str:
+		resp = self.__get_repos_file(file_path)
+		if resp.status_code != 200:
+			return default
+		return resp.text
+
+	def fetch_metadata(self):
+		metadata = self.get_repos_json('mcdreforged.plugin.json')
 		assert metadata['id'] == self.id
+		version = metadata.get('version')
+		dependencies = metadata.get('dependencies', {})
+		requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
+		self.meta_info = MetaInfo(version, dependencies, requirements)
+		print('Fetched meta info of {}'.format(self.id))
+
+	def fetch_release(self):
+		pass
 
 
-def get_plugin_list() -> List[Plugin]:
-	plugin_list = []
-	for folder in os.listdir(constants.PLUGINS_FOLDER):
-		if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
-			print('Found plugin {}'.format(folder))
-			plugin_list.append(Plugin(folder))
-	plugin_list.sort(key=lambda plg: plg.id.lower())
-	return plugin_list
+class PluginList(List[Plugin]):
+	def __init__(self):
+		super().__init__()
+		for folder in os.listdir(constants.PLUGINS_FOLDER):
+			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
+				print('Found plugin {}'.format(folder))
+				self.append(Plugin(folder))
+
+		print('Loaded {} plugins'.format(len(self)))
+		self.sort(key=lambda plg: plg.id.lower())
+
+	def fetch_meta(self):
+		print('Fetching meta info')
+		futures = []
+		with ThreadPoolExecutor(max_workers=16) as executor:
+			for plugin in self:
+				futures.append(executor.submit(plugin.fetch_metadata))
+			for future in futures:
+				future.result()
+
+		print('Meta info fetched')
+
+
+_plugin_list = PluginList()
+
+
+def get_plugin_list() -> PluginList:
+	return _plugin_list
 
 
 if __name__ == '__main__':
-	Plugin('quick_backup_multi').check_repository()
+	Plugin('quick_backup_multi').fetch_metadata()

@@ -3,6 +3,6 @@ Plugin Catalogue Index
 
 Plugin Amount: 1
 
-| Plugin Name | Plugin ID | Author | Labels |
+| Plugin Name | Version | Author | Labels |
 | --- | --- | --- | --- |
-| [QuickBackupM](/generated/full.md#quick-backup-multi) | quick_backup_multi | Fallen_Breath | Management |
+| [QuickBackupM](/generated/full.md#quick-backup-multi) | 1.2.0 | Fallen_Breath | Management |
