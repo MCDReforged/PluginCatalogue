@@ -4,10 +4,10 @@ Full plugin information document [here](./full.md)
 
 ## Index with label
 
-- [Information](/catalogue/labels/information.md)
-- [Tool](/catalogue/labels/tool.md)
-- [Management](/catalogue/labels/management.md)
-- [API](/catalogue/labels/api.md)
+- [Information](/labels/information)
+- [Tool](/labels/tool)
+- [Management](/labels/management)
+- [API](/labels/api)
 
 -------
 
@@ -15,5 +15,5 @@ Plugin Amount: 2
 
 | Plugin Name | Version | Author | Labels |
 | --- | --- | --- | --- |
-| [Minecraft Data API](/catalogue/plugins/minecraft_data_api.md) | 1.4.0 | Fallen_Breath | [API](/catalogue/labels/api.md) |
-| [QuickBackupM](/catalogue/plugins/quick_backup_multi.md) | 1.1.3 | Fallen_Breath | [Management](/catalogue/labels/management.md) |
+| [Minecraft Data API](/plugins/minecraft_data_api) | 1.4.0 | Fallen_Breath | [API](/labels/api) |
+| [QuickBackupM](/plugins/quick_backup_multi) | 1.1.3 | Fallen_Breath | [Management](/labels/management) |

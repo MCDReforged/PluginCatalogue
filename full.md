@@ -16,7 +16,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/catalogue/plugins/mcdreforged.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 
@@ -44,7 +44,7 @@ A MCDReforged api plugin to get player data information and more
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/catalogue/plugins/mcdreforged.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 

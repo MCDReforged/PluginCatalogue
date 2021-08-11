@@ -6,4 +6,4 @@ Plugin Amount: 1
 
 | Plugin Name | Version | Author | Labels |
 | --- | --- | --- | --- |
-| [QuickBackupM](/catalogue/plugins/quick_backup_multi.md) | 1.1.3 | Fallen_Breath | [Management](/catalogue/labels/management.md) |
+| [QuickBackupM](/plugins/quick_backup_multi) | 1.1.3 | Fallen_Breath | [Management](/labels/management) |

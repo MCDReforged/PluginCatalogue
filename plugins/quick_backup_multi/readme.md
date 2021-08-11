@@ -12,7 +12,7 @@
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/catalogue/plugins/mcdreforged.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 
