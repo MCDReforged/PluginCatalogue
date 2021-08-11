@@ -103,6 +103,7 @@ class Plugin:
 	name: str
 	readme: Text
 
+	# Available after fetch_data()
 	meta_info: Optional[MetaInfo]
 	release_summary: Optional[ReleaseSummary]
 
@@ -148,6 +149,12 @@ class Plugin:
 		self.release_summary = None
 
 	@property
+	def latest_version(self) -> str:
+		if self.release_summary.latest_version != 'N/A':
+			return self.release_summary.latest_version
+		return self.meta_info.version
+
+	@property
 	def repos_path(self) -> str:
 		# TISUnion/QuickBackupM
 		return utils.remove_prefix(self.repository, 'https://github.com/')
@@ -184,14 +191,19 @@ class Plugin:
 	def save_meta(self):
 		utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
 
-	def pull_release(self) -> ReleaseSummary:
-		release_info_file = os.path.join(constants.META_FOLDER, self.id, 'release.json')
+	@property
+	def __release_info_file(self) -> str:
+		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
+
+	def save_release_info(self):
+		utils.save_json(self.release_summary.serialize(), self.__release_info_file)
+
+	def fetch_release(self) -> ReleaseSummary:
 		try:
-			self.release_summary = ReleaseSummary.deserialize(utils.load_json(release_info_file))
+			self.release_summary = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file))
 		except:
 			self.release_summary = ReleaseSummary()
 		self.release_summary.fetch_from_api(self)
-		utils.save_json(self.release_summary.serialize(), release_info_file)
 		print('Fetched release info of {}'.format(self.id))
 		return self.release_summary
 
@@ -200,8 +212,7 @@ class PluginList(List[Plugin]):
 	def __init__(self):
 		super().__init__()
 		self.__inited = False
-		self.__meta_fetched = False
-		self.__release_pulled = False
+		self.__data_fetched = False
 
 	def init(self):
 		if self.__inited:
@@ -224,32 +235,26 @@ class PluginList(List[Plugin]):
 			for future in futures:
 				future.result()
 
-	def fetch_meta(self):
-		if self.__meta_fetched:
+	def fetch_data(self, meta: bool = True, release: bool = True):
+		if self.__data_fetched:
 			return
-		print('Fetching meta info')
-		self.__fetch(lambda plg: plg.fetch_meta())
-		print('Meta info fetched')
-		self.__meta_fetched = True
+		print('Fetching data')
+		if meta:
+			self.__fetch(lambda plg: plg.fetch_meta())
+		if release:
+			self.__fetch(lambda plg: plg.fetch_release())
+		self.__data_fetched = True
 
-	def pull_release(self):
-		if self.__release_pulled:
-			return
-		print('Fetching and storing release info')
-		self.__fetch(lambda plg: plg.pull_release())
-		print('Release info fetched and stored')
-		self.__release_pulled = True
-
-	def save_meta(self):
-		print('Storing meta')
+	def store_data(self):
+		print('Storing data')
 		meta_summary = PluginMetaSummary()
 		meta_summary.plugin_amount = len(self)
 		meta_summary.plugins = {}
 		for plugin in self:
 			plugin.save_meta()
+			plugin.save_release_info()
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 		utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'))
-		print('Meta stored')
 
 
 _plugin_list = PluginList()
