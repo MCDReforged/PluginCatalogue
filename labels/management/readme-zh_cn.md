@@ -8,4 +8,4 @@
 
 | 插件名 | 版本 | 作者 | 标签 |
 | --- | --- | --- | --- |
-| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | 1.1.3 | Fallen_Breath | [管理](/labels/management/readme-zh_cn.md) |
+| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | 1.1.3 | [Fallen_Breath](https://github.com/Fallen-Breath) | [管理](/labels/management/readme-zh_cn.md) |

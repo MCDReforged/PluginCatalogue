@@ -7,7 +7,7 @@
 - 版本: 1.4.0
   - 元数据版本: 1.4.0
   - 发布版本: N/A
-- 作者: Fallen_Breath
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: `API`
 - 插件依赖:
@@ -23,6 +23,7 @@
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
+
 
 **描述**
 

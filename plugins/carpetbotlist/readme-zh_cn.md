@@ -18,6 +18,7 @@
 | [minecraft_data_api](/plugins/minecraft_data_api/readme-zh_cn.md) | * |
 
 - 包依赖: 无
+
 **描述**
 
 帮助你管理地毯端的假人

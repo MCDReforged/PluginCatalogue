@@ -7,7 +7,7 @@
 - Version: 1.4.0
   - Metadata version: 1.4.0
   - Release version: N/A
-- Authors: Fallen_Breath
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `API`
 - Dependencies:
@@ -23,6 +23,7 @@
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
+
 
 **Description**
 

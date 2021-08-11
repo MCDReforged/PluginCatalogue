@@ -7,7 +7,7 @@
 - Version: 1.1.3
   - Metadata version: 1.2.0
   - Release version: 1.1.3
-- Authors: Fallen_Breath
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `Management`
 - Dependencies:
@@ -21,6 +21,7 @@
 | Python package | Requirement |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+
 
 **Description**
 

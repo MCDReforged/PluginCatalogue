@@ -18,6 +18,7 @@
 | [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
 - requirements: None
+
 **Description**
 
 Help you manage your carpet fake player

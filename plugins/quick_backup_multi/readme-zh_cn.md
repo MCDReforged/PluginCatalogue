@@ -7,7 +7,7 @@
 - 版本: 1.1.3
   - 元数据版本: 1.2.0
   - 发布版本: 1.1.3
-- 作者: Fallen_Breath
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
 - 标签: `管理`
 - 插件依赖:
@@ -21,6 +21,7 @@
 | Python 包 | 依赖需求 |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+
 
 **描述**
 

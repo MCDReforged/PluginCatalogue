@@ -22,6 +22,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 | [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
 - requirements: None
+
 **Description**
 
 Help you manage your carpet fake player
@@ -33,7 +34,7 @@ Help you manage your carpet fake player
 - Version: 1.4.0
   - Metadata version: 1.4.0
   - Release version: N/A
-- Authors: Fallen_Breath
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `API`
 - Dependencies:
@@ -50,6 +51,7 @@ Help you manage your carpet fake player
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
 
+
 **Description**
 
 A MCDReforged api plugin to get player data information and more
@@ -61,7 +63,7 @@ A MCDReforged api plugin to get player data information and more
 - Version: 1.1.3
   - Metadata version: 1.2.0
   - Release version: 1.1.3
-- Authors: Fallen_Breath
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `Management`
 - Dependencies:
@@ -75,6 +77,7 @@ A MCDReforged api plugin to get player data information and more
 | Python package | Requirement |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+
 
 **Description**
 
