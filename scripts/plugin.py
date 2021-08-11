@@ -1,5 +1,6 @@
 import json
 import os
+import traceback
 from concurrent.futures.thread import ThreadPoolExecutor
 from typing import Optional, List, Dict, Callable, Any
 
@@ -229,22 +230,30 @@ class PluginList(List[Plugin]):
 		self.sort(key=lambda plg: plg.id.lower())
 		self.__inited = True
 
-	def __fetch(self, func: Callable[[Plugin], Any]):
+	def __fetch(self, name: str, func: Callable[[Plugin], Any], fail_hard: bool):
 		with ThreadPoolExecutor(max_workers=16) as executor:
 			futures = []
 			for plugin in self:
 				futures.append(executor.submit(func, plugin))
 			for future in futures:
-				future.result()
+				try:
+					future.result()
+				except Exception as e:
+					print('Failed to fetch {} for plugin {}'.format(name, plugin))
+					if fail_hard:
+						traceback.print_exc()
+						raise
+					else:
+						print('{}: {}'.format(type(e), e))
 
-	def fetch_data(self, meta: bool = True, release: bool = True):
+	def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
 		if self.__data_fetched:
 			return
 		print('Fetching data')
 		if meta:
-			self.__fetch(lambda plg: plg.fetch_meta())
+			self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard)
 		if release:
-			self.__fetch(lambda plg: plg.fetch_release())
+			self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard)
 		self.__data_fetched = True
 
 	def store_data(self):

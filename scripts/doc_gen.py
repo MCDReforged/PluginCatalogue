@@ -147,7 +147,7 @@ def generate_plugins(plugin_list: List[Plugin]):
 def generate_doc():
 	print('Generating doc')
 	plugin_list = get_plugin_list()
-	plugin_list.fetch_data()
+	plugin_list.fetch_data(fail_hard=False)
 	if os.path.isdir(constants.CATALOGUE_FOLDER):
 		shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)
