@@ -5,12 +5,12 @@ from plugin import get_plugin_list
 
 
 def check():
-	get_plugin_list().fetch_data(meta=True, release=False)  # so github api token is not needed
+	get_plugin_list().fetch_data(meta=True, release=False, fail_hard=True)  # so github api token is not needed
 
 
 def update_data():
 	plugin_list = get_plugin_list()
-	plugin_list.fetch_data()
+	plugin_list.fetch_data(fail_hard=False)
 	plugin_list.store_data()
 
 
