@@ -112,6 +112,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 		file.write('\n')
 	else:
 		file.write('- {}: {}\n'.format(Text('requirements'), Text('none')))
+	file.write('\n')
 	file.write('**{}**\n'.format(Text('description')))
 	file.write('\n')
 	file.write(plugin.readme.get())
