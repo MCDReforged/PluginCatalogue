@@ -7,7 +7,7 @@
 - Version: 1.1.3
   - Metadata version: 1.2.0
   - Release version: 1.1.3
-- Authors: 
+- Authors: Fallen_Breath
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `management`
 - Dependencies:

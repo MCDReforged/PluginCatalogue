@@ -7,7 +7,7 @@
 - Version: 1.4.0
   - Metadata version: 1.4.0
   - Release version: N/A
-- Authors: 
+- Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `api`
 - Dependencies:

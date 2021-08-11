@@ -7,7 +7,7 @@
 - 版本: 1.4.0
   - 元数据版本: 1.4.0
   - 发布版本: N/A
-- 作者: 
+- 作者: Fallen_Breath
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: `api`
 - 插件依赖:

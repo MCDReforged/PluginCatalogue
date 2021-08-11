@@ -11,7 +11,7 @@
 - 版本: 1.4.0
   - 元数据版本: 1.4.0
   - 发布版本: N/A
-- 作者: 
+- 作者: Fallen_Breath
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: `api`
 - 插件依赖:
@@ -39,7 +39,7 @@ A MCDReforged api plugin to get player data information and more
 - 版本: 1.1.3
   - 元数据版本: 1.2.0
   - 发布版本: 1.1.3
-- 作者: 
+- 作者: Fallen_Breath
 - 仓库: https://github.com/TISUnion/QuickBackupM
 - 标签: `management`
 - 插件依赖:

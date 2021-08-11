@@ -11,7 +11,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 - Version: 1.4.0
   - Metadata version: 1.4.0
   - Release version: N/A
-- Authors: 
+- Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `api`
 - Dependencies:
@@ -39,7 +39,7 @@ A MCDReforged api plugin to get player data information and more
 - Version: 1.1.3
   - Metadata version: 1.2.0
   - Release version: 1.1.3
-- Authors: 
+- Authors: Fallen_Breath
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `management`
 - Dependencies:
