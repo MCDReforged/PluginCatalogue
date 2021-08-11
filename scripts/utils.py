@@ -26,10 +26,19 @@ def format_markdown(text: str) -> str:
 
 def load_json(file_path: str) -> dict:
 	if os.path.isfile(file_path):
-		with open(file_path) as file:
+		with open(file_path, encoding='utf8') as file:
 			return json.load(file)
 	else:
 		return {}
+
+
+@contextmanager
+def read_file(file_path: str):
+	"""
+	ensure utf8
+	"""
+	with open(file_path, 'r', encoding='utf8') as file:
+		yield file
 
 
 @contextmanager
@@ -40,7 +49,7 @@ def write_file(file_path: str):
 	dir_path = os.path.dirname(file_path)
 	if not os.path.isdir(dir_path):
 		os.makedirs(dir_path)
-	with open(file_path, 'w') as file:
+	with open(file_path, 'w', encoding='utf8') as file:
 		yield file
 
 
