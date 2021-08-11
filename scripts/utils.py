@@ -47,13 +47,15 @@ def request_github_api(url: str, *, etag: str = '') -> Tuple[Optional[Any], str]
 		'If-None-Match': etag
 	}
 	if 'github_api_token' in os.environ:
-		headers['authorization'] = 'Bearer {}'.format(os.environ['github_api_token'])
+		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
 	response = requests.get(url, proxies=constants.PROXIES, headers=headers)
-	print('RateLimit: {}/{}'.format(response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']))
 	new_etag = response.headers['ETag']
+	# print('RateLimit: {}/{}'.format(response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']))
+	# print('ETag: {} -> {}'.format(etag, new_etag))
 	if response.status_code == 304:
 		return None, new_etag
 	if response.status_code != 200:
 		raise Exception('Un-expected status code {}: {}'.format(response.status_code, response.content))
 	return response.json(), new_etag
+
 

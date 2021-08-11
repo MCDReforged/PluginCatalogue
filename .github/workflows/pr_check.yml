@@ -28,3 +28,5 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
           python manager.py check
+        env:
+          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
