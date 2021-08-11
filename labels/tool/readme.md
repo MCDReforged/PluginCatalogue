@@ -1,8 +1,10 @@
-# Tool
+**English** | [中文](readme-zh_cn.md)
 
-Plugin Index with label `Tool`
+# tool
+
+Plugin Index with label `tool`
 
 Plugin Amount: 0
 
-| Plugin Name | Version | Author | Labels |
+| Plugin Name | Version | Authors | Labels |
 | --- | --- | --- | --- |

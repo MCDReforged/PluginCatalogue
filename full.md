@@ -1,3 +1,5 @@
+**English** | [中文](full-zh_cn.md)
+
 # Full Plugin Information Collection
 
 Use `ctrl-f` to performance an in-page search, for what you are interested in
@@ -9,16 +11,16 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 - Version: 1.4.0
   - Metadata version: 1.4.0
   - Release version: N/A
-- Authors: Fallen_Breath
+- Authors: 
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: `API`
+- Labels: `api`
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- Requirements:
+- requirements:
 
 | Python package | Requirement |
 | --- | --- |
@@ -37,16 +39,16 @@ A MCDReforged api plugin to get player data information and more
 - Version: 1.1.3
   - Metadata version: 1.2.0
   - Release version: 1.1.3
-- Authors: Fallen_Breath
+- Authors: 
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: `Management`
+- Labels: `management`
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- Requirements:
+- requirements:
 
 | Python package | Requirement |
 | --- | --- |

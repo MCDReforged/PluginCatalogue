@@ -1,3 +1,5 @@
+**English** | [中文](readme-zh_cn.md)
+
 ## quick_backup_multi
 
 - Plugin ID: `quick_backup_multi`
@@ -5,16 +7,16 @@
 - Version: 1.1.3
   - Metadata version: 1.2.0
   - Release version: 1.1.3
-- Authors: Fallen_Breath
+- Authors: 
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: `Management`
+- Labels: `management`
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- Requirements:
+- requirements:
 
 | Python package | Requirement |
 | --- | --- |

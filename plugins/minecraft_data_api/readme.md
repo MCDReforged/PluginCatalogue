@@ -1,3 +1,5 @@
+**English** | [中文](readme-zh_cn.md)
+
 ## minecraft_data_api
 
 - Plugin ID: `minecraft_data_api`
@@ -5,16 +7,16 @@
 - Version: 1.4.0
   - Metadata version: 1.4.0
   - Release version: N/A
-- Authors: Fallen_Breath
+- Authors: 
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: `API`
+- Labels: `api`
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged) | \>=2.0.0-alpha.4 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- Requirements:
+- requirements:
 
 | Python package | Requirement |
 | --- | --- |

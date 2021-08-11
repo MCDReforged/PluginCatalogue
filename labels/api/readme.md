@@ -1,9 +1,11 @@
-# API
+**English** | [中文](readme-zh_cn.md)
 
-Plugin Index with label `API`
+# api
+
+Plugin Index with label `api`
 
 Plugin Amount: 1
 
-| Plugin Name | Version | Author | Labels |
+| Plugin Name | Version | Authors | Labels |
 | --- | --- | --- | --- |
-| [Minecraft Data API](/plugins/minecraft_data_api) | 1.4.0 | Fallen_Breath | [API](/labels/api) |
+| [Minecraft Data API](/plugins/minecraft_data_api/readme.md) | 1.4.0 |  | [api](/labels/api/readme.md) |
