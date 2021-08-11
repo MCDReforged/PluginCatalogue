@@ -7,6 +7,8 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 - Plugin ID: `minecraft_data_api`
 - Plugin Name: Minecraft Data API
 - Version: 1.4.0
+  - Metadata version: 1.4.0
+  - Release version: N/A
 - Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `API`
@@ -32,7 +34,9 @@ A MCDReforged api plugin to get player data information and more
 
 - Plugin ID: `quick_backup_multi`
 - Plugin Name: QuickBackupM
-- Version: 1.2.0
+- Version: 1.1.3
+  - Metadata version: 1.2.0
+  - Release version: 1.1.3
 - Authors: Fallen_Breath
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `Management`

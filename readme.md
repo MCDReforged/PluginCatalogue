@@ -16,4 +16,4 @@ Plugin Amount: 2
 | Plugin Name | Version | Author | Labels |
 | --- | --- | --- | --- |
 | [Minecraft Data API](/catalogue/plugins/minecraft_data_api.md) | 1.4.0 | Fallen_Breath | [API](/catalogue/labels/api.md) |
-| [QuickBackupM](/catalogue/plugins/quick_backup_multi.md) | 1.2.0 | Fallen_Breath | [Management](/catalogue/labels/management.md) |
+| [QuickBackupM](/catalogue/plugins/quick_backup_multi.md) | 1.1.3 | Fallen_Breath | [Management](/catalogue/labels/management.md) |

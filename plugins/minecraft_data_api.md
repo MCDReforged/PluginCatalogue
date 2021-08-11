@@ -3,6 +3,8 @@
 - Plugin ID: `minecraft_data_api`
 - Plugin Name: Minecraft Data API
 - Version: 1.4.0
+  - Metadata version: 1.4.0
+  - Release version: N/A
 - Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `API`
