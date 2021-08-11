@@ -30,7 +30,7 @@
 
 **描述**
 
-A MCDReforged api plugin to get player data information and more
+一个用获得玩家信息等数据的的 API
 
 ## quick_backup_multi
 
