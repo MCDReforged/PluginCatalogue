@@ -183,7 +183,7 @@ class Plugin:
 		self.meta_info.name = self.name
 		self.meta_info.version = metadata.get('version')
 		self.meta_info.repository = self.repository
-		self.meta_info.labels = list(map(str, self.labels))
+		self.meta_info.labels = list(map(lambda l: l.id, self.labels))
 		self.meta_info.authors = self.authors
 		self.meta_info.dependencies = metadata.get('dependencies', {})
 		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
