@@ -39,7 +39,7 @@
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) |在游戏中搜索任意内容 |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
-| [WikiRequests](https://github.com/DrLee-lihr/WikiRequests) | [DrLee_lihr](https://github.com/DrLee-lihr) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
+| [WikiRequest](https://github.com/DrLee-lihr/WikiRequest) | [DrLee_lihr](https://github.com/DrLee-lihr) | 一个用于查询Wiki并返回你要的页面的链接的插件 |
 
 ### 坐标
 
