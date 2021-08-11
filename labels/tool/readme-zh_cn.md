@@ -1,5 +1,7 @@
 [English](readme.md) | **中文**
 
+\>\>\> [回到索引](/readme-zh_cn.md)
+
 # 工具
 
 具有标签 `工具` 插件的索引

@@ -1,5 +1,7 @@
 [English](readme.md) | **中文**
 
+\>\>\> [回到索引](/readme-zh_cn.md)
+
 ## quick_backup_multi
 
 - 插件 ID: `quick_backup_multi`

@@ -1,5 +1,7 @@
 **English** | [中文](readme-zh_cn.md)
 
+\>\>\> [Back to index](/readme.md)
+
 ## quick_backup_multi
 
 - Plugin ID: `quick_backup_multi`
@@ -16,7 +18,7 @@
 | --- | --- |
 | [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- requirements:
+- Requirements:
 
 | Python package | Requirement |
 | --- | --- |

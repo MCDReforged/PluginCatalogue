@@ -1,5 +1,7 @@
 **English** | [中文](readme-zh_cn.md)
 
+\>\>\> [Back to index](/readme.md)
+
 ## minecraft_data_api
 
 - Plugin ID: `minecraft_data_api`
@@ -16,7 +18,7 @@
 | --- | --- |
 | [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- requirements:
+- Requirements:
 
 | Python package | Requirement |
 | --- | --- |

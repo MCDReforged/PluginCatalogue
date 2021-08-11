@@ -1,5 +1,7 @@
 [English](readme.md) | **中文**
 
+\>\>\> [回到索引](/readme-zh_cn.md)
+
 ## carpetbotlist
 
 - 插件 ID: `carpetbotlist`

@@ -1,5 +1,7 @@
 **English** | [中文](full-zh_cn.md)
 
+\>\>\> [Back to index](/readme.md)
+
 # Full Plugin Information Collection
 
 Use `ctrl-f` to performance an in-page search, for what you are interested in
@@ -21,7 +23,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 | [mcdreforged](/plugins/mcdreforged/readme.md) | ~2.0.0-beta.1 |
 | [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
-- requirements: None
+- Requirements: None
 
 **Description**
 
@@ -43,7 +45,7 @@ Help you manage your carpet fake player
 | --- | --- |
 | [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- requirements:
+- Requirements:
 
 | Python package | Requirement |
 | --- | --- |
@@ -72,7 +74,7 @@ A MCDReforged api plugin to get player data information and more
 | --- | --- |
 | [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
 
-- requirements:
+- Requirements:
 
 | Python package | Requirement |
 | --- | --- |

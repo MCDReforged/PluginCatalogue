@@ -1,5 +1,7 @@
 **English** | [中文](readme-zh_cn.md)
 
+\>\>\> [Back to index](/readme.md)
+
 ## carpetbotlist
 
 - Plugin ID: `carpetbotlist`
@@ -17,7 +19,7 @@
 | [mcdreforged](/plugins/mcdreforged/readme.md) | ~2.0.0-beta.1 |
 | [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
-- requirements: None
+- Requirements: None
 
 **Description**
 

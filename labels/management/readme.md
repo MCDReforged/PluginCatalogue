@@ -1,5 +1,7 @@
 **English** | [中文](readme-zh_cn.md)
 
+\>\>\> [Back to index](/readme.md)
+
 # Management
 
 Plugin Index with label `Management`

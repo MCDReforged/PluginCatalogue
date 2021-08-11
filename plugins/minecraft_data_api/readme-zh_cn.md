@@ -1,5 +1,7 @@
 [English](readme.md) | **中文**
 
+\>\>\> [回到索引](/readme-zh_cn.md)
+
 ## minecraft_data_api
 
 - 插件 ID: `minecraft_data_api`

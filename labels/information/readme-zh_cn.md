@@ -1,5 +1,7 @@
 [English](readme.md) | **中文**
 
+\>\>\> [回到索引](/readme-zh_cn.md)
+
 # 信息
 
 具有标签 `信息` 插件的索引
