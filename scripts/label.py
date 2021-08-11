@@ -7,7 +7,7 @@ from translation import Text
 
 class Label(Text):
 	def __init__(self, id: str):
-		super().__init__(id)
+		super().__init__('label.{}'.format(id))
 		self.id = id
 
 	def __repr__(self):

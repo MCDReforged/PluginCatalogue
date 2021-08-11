@@ -43,10 +43,10 @@ class ReleaseInfo(Serializable):
 
 	def __parse_version(self, plugin_id: str) -> Optional[str]:
 		# Possible tag names
-		# plugin_id-v1.2.3
-		# plugin_id-1.2.3
-		# v1.2.3
-		# 1.2.3
+		#   plugin_id-v1.2.3
+		#   plugin_id-1.2.3
+		#   v1.2.3
+		#   1.2.3
 
 		version = self.tag_name
 		if version.startswith(plugin_id + '-'):
