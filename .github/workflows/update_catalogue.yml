@@ -23,6 +23,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-:
 
+      - name: Pull previous meta
+        uses: actions/checkout@v2
+        with:
+          ref: meta
+          path: meta
+
       - name: Generate doc
         run: |
           cd ./scripts

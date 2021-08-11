@@ -36,7 +36,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	for plugin in plugin_list:
 		file.write('| [{}]({}) | {} | {} | {} |\n'.format(
 			plugin.name, get_plugin_detail_link(plugin.id),
-			plugin.meta_info.version,
+			plugin.latest_version,
 			', '.join(plugin.authors),
 			', '.join(map(lambda l: '[{}]({})'.format(l, get_label_doc_link(l.id)), plugin.labels))
 		))
@@ -47,7 +47,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('\n')
 	file.write('- Plugin ID: `{}`\n'.format(plugin.id))
 	file.write('- Plugin Name: {}\n'.format(plugin.name))
-	file.write('- Version: {}\n'.format(plugin.meta_info.version))
+	file.write('- Version: {}\n'.format(plugin.latest_version))
 	file.write('- Authors: {}\n'.format(', '.join(plugin.authors)))
 	file.write('- Repository: {}\n'.format(plugin.repository))
 	file.write('- Labels: {}\n'.format(', '.join(map(lambda l: '`{}`'.format(l), plugin.labels))))
@@ -111,7 +111,7 @@ def generate_plugins(plugin_list: List[Plugin]):
 
 def generate_doc():
 	plugin_list = get_plugin_list()
-	plugin_list.fetch_meta()
+	plugin_list.fetch_data()
 	shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)
 
@@ -130,14 +130,13 @@ def generate_doc():
 
 
 def check():
-	get_plugin_list().fetch_meta()
+	get_plugin_list().fetch_data(meta=True, release=False)  # so github api token is not needed
 
 
-def fetch_data():
+def update_data():
 	plugin_list = get_plugin_list()
-	plugin_list.fetch_meta()
-	plugin_list.save_meta()
-	plugin_list.pull_release()
+	plugin_list.fetch_data()
+	plugin_list.store_data()
 
 
 def main():
@@ -153,11 +152,11 @@ def main():
 	if result.subparser_name == 'check':
 		check()
 	elif result.subparser_name == 'fetch':
-		fetch_data()
+		update_data()
 	elif result.subparser_name == 'doc':
 		generate_doc()
 	elif result.subparser_name == 'all':
-		fetch_data()
+		update_data()
 		generate_doc()
 	else:
 		parser.print_help()
