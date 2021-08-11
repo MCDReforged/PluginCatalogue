@@ -10,7 +10,7 @@ import constants
 import utils
 from label import Label, get_label_set
 from serializer import Serializable
-from text import Text
+from translation import Text, BundledText, EN_US, LANGUAGES
 
 
 class MetaInfo(Serializable):
@@ -111,7 +111,7 @@ class Plugin:
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
 		if not os.path.isdir(self.directory):
 			raise FileNotFoundError('Directory {} not found'.format(self.directory))
-		with open(os.path.join(self.directory, 'info.json'), 'r') as file_handler:
+		with open(os.path.join(self.directory, 'info.json')) as file_handler:
 			js: dict = json.load(file_handler)
 
 		self.id = js.get('id', None)
@@ -123,7 +123,7 @@ class Plugin:
 			raise ValueError('Github repository with https url is required, found: {}'.format(self.repository))
 		self.branch = js['branch']
 		self.related_path = js.get('related_path', '.').strip('/')
-		self.authors = js.get('author', [])
+		self.authors = js.get('authors', [])
 		if isinstance(self.authors, str):
 			self.authors = [self.authors]
 		self.labels = []
@@ -135,15 +135,16 @@ class Plugin:
 				self.labels.append(label)
 
 		# readme
-		with open(os.path.join(self.directory, 'readme.md'), 'r') as file_handler:
+		with open(os.path.join(self.directory, 'readme.md'), 'r', encoding='utf8') as file_handler:
 			readme_en = file_handler.read()
-		readme_cn_file = os.path.join(self.directory, 'readme.md')
-		if os.path.isfile(readme_cn_file):
-			with open(readme_cn_file, 'r') as file_handler:
-				readme_cn = file_handler.read()
-		else:
-			readme_cn = None
-		self.readme = Text(readme_en, readme_cn)
+		readme_translations = {EN_US: readme_en}
+		for lang in LANGUAGES:
+			readme_tr_file_path = os.path.join(self.directory, 'readme-{}.md'.format(lang))
+			if os.path.isfile(readme_tr_file_path):
+				with open(readme_tr_file_path, 'r', encoding='utf8') as file_handler:
+					readme_tr = file_handler.read()
+				readme_translations[lang] = readme_tr
+		self.readme = BundledText(readme_translations)
 
 		self.meta_info = None
 		self.release_summary = None

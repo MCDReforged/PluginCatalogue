@@ -3,7 +3,9 @@ import os
 HERE = os.path.dirname(__file__)
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 
-TEMPLATE = os.path.join(HERE, 'templates')
+RESOURCES_FOLDER = os.path.join(HERE, 'resources')
+TEMPLATE_FOLDER = os.path.join(RESOURCES_FOLDER, 'templates')
+TRANSLATION_FOLDER = os.path.join(RESOURCES_FOLDER, 'lang')
 PLUGINS_FOLDER = os.path.join(ROOT, 'plugins')
 LABEL_FILE = os.path.join(PLUGINS_FOLDER, 'labels.json')
 CATALOGUE_FOLDER = os.path.join(ROOT, 'catalogue')
