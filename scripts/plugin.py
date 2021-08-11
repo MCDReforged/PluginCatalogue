@@ -44,6 +44,7 @@ class ReleaseInfo(Serializable):
 	def __parse_version(self, plugin_id: str) -> Optional[str]:
 		# Possible tag names
 		# plugin_id-v1.2.3
+		# plugin_id-1.2.3
 		# v1.2.3
 		# 1.2.3
 
@@ -52,10 +53,10 @@ class ReleaseInfo(Serializable):
 			version = utils.remove_prefix(version, plugin_id + '-')
 		if len(version) == 0:
 			return version
-		if version.isdigit():
+		if version[0].isdigit():
 			return version
 		elif version[0].lower() == 'v':
-			return version.lstrip('vV')
+			return version[1:]
 		else:
 			return None
 
