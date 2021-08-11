@@ -1,5 +1,6 @@
 import json
 import os
+from contextlib import contextmanager
 from typing import Optional, Any, Tuple
 
 import requests
@@ -31,11 +32,20 @@ def load_json(file_path: str) -> dict:
 		return {}
 
 
-def save_json(data: dict, file_path: str):
+@contextmanager
+def write_file(file_path: str):
+	"""
+	Just like open() in 'w' mode, but create the directory automatically
+	"""
 	dir_path = os.path.dirname(file_path)
 	if not os.path.isdir(dir_path):
 		os.makedirs(dir_path)
 	with open(file_path, 'w') as file:
+		yield file
+
+
+def save_json(data: dict, file_path: str):
+	with write_file(file_path) as file:
 		json.dump(data, file, indent=2, ensure_ascii=False)
 
 

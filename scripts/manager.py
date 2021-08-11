@@ -11,11 +11,11 @@ from plugin import get_plugin_list, Plugin
 
 
 def get_plugin_detail_link(plugin_id: str):
-	return '/catalogue/plugins/{}.md'.format(plugin_id)
+	return '/plugins/{}'.format(plugin_id)
 
 
 def get_label_doc_link(label_id: str):
-	return '/catalogue/labels/{}.md'.format(label_id)
+	return '/labels/{}'.format(label_id)
 
 
 def write_label_info(file: IO[str]):
@@ -93,9 +93,8 @@ def generate_full(plugin_list: Iterable[Plugin], file: IO[str]):
 
 def generate_labels(plugin_list: List[Plugin]):
 	label_root = os.path.join(constants.CATALOGUE_FOLDER, 'labels')
-	os.mkdir(label_root)
 	for label in get_label_set().get_label_list():
-		with open(os.path.join(label_root, '{}.md'.format(label.id)), 'w') as file:
+		with utils.write_file(os.path.join(label_root, label.id, 'readme.md')) as file:
 			file.write('# {}\n'.format(label))
 			file.write('\n')
 			file.write('Plugin Index with label `{}`\n'.format(label))
@@ -105,9 +104,8 @@ def generate_labels(plugin_list: List[Plugin]):
 
 def generate_plugins(plugin_list: List[Plugin]):
 	plugin_root = os.path.join(constants.CATALOGUE_FOLDER, 'plugins')
-	os.mkdir(plugin_root)
 	for plugin in plugin_list:
-		with open(os.path.join(plugin_root, '{}.md'.format(plugin.id)), 'w') as file:
+		with utils.write_file(os.path.join(plugin_root, plugin.id, 'readme.md')) as file:
 			write_plugin(plugin, file)
 
 
