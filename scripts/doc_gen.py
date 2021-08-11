@@ -30,6 +30,14 @@ def get_file_name(name: str) -> str:
 		return '{}-{}.{}'.format(base, get_language(), extension)
 
 
+def get_root_readme_file_path():
+	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('readme.md'))
+
+
+def get_full_index_file_path():
+	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('full.md'))
+
+
 def write_translation_nav(file_name: str, file: IO[str]):
 	nav_list = []
 	for lang in LANGUAGES:
@@ -45,10 +53,17 @@ def write_translation_nav(file_name: str, file: IO[str]):
 	file.write('\n')
 
 
+def write_back_to_index_nav(file: IO[str]):
+	file.write('{} [{}]({})\n'.format(utils.format_markdown('>>>'), Text('back_to_index'), get_file_name('/readme.md')))
+	file.write('\n')
+
+
 @contextmanager
-def write_file_with_translation_nav(file_path: str):
+def write_nav(file_path: str):
 	with utils.write_file(file_path) as file:
 		write_translation_nav(os.path.basename(file_path), file)
+		if file_path != get_root_readme_file_path():
+			write_back_to_index_nav(file)
 		yield file
 
 
@@ -130,7 +145,7 @@ def generate_full(plugin_list: Iterable[Plugin], file: IO[str]):
 def generate_labels(plugin_list: List[Plugin]):
 	label_root = os.path.join(constants.CATALOGUE_FOLDER, 'labels')
 	for label in get_label_set().get_label_list():
-		with write_file_with_translation_nav(os.path.join(label_root, label.id, get_file_name('readme.md'))) as file:
+		with write_nav(os.path.join(label_root, label.id, get_file_name('readme.md'))) as file:
 			file.write('# {}\n'.format(label))
 			file.write('\n')
 			file.write('{}\n'.format(Text('plugin_index_with_label')).format(label))
@@ -141,7 +156,7 @@ def generate_labels(plugin_list: List[Plugin]):
 def generate_plugins(plugin_list: List[Plugin]):
 	plugin_root = os.path.join(constants.CATALOGUE_FOLDER, 'plugins')
 	for plugin in plugin_list:
-		with write_file_with_translation_nav(os.path.join(plugin_root, plugin.id, get_file_name('readme.md'))) as file:
+		with write_nav(os.path.join(plugin_root, plugin.id, get_file_name('readme.md'))) as file:
 			write_plugin(plugin, file)
 
 
@@ -154,7 +169,7 @@ def generate_doc():
 	os.mkdir(constants.CATALOGUE_FOLDER)
 
 	def write_doc():
-		with write_file_with_translation_nav(os.path.join(constants.CATALOGUE_FOLDER, get_file_name('readme.md'))) as file:
+		with write_nav(get_root_readme_file_path()) as file:
 			with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('index_header.md'))) as header:
 				file.write(header.read())
 			file.write('\n')
@@ -165,11 +180,10 @@ def generate_doc():
 		generate_labels(plugin_list)
 		generate_plugins(plugin_list)
 
-		with write_file_with_translation_nav(os.path.join(constants.CATALOGUE_FOLDER, get_file_name('full.md'))) as file:
+		with write_nav(get_full_index_file_path()) as file:
 			generate_full(plugin_list, file)
 
 	for lang in LANGUAGES:
 		print('Generating doc in language {}'.format(lang))
 		with with_language(lang):
 			write_doc()
-
