@@ -48,6 +48,8 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('- Plugin ID: `{}`\n'.format(plugin.id))
 	file.write('- Plugin Name: {}\n'.format(plugin.name))
 	file.write('- Version: {}\n'.format(plugin.latest_version))
+	file.write('  - Metadata version: {}\n'.format(plugin.meta_info.version))
+	file.write('  - Release version: {}\n'.format(plugin.release_summary.latest_version))
 	file.write('- Authors: {}\n'.format(', '.join(plugin.authors)))
 	file.write('- Repository: {}\n'.format(plugin.repository))
 	file.write('- Labels: {}\n'.format(', '.join(map(lambda l: '`{}`'.format(l), plugin.labels))))
@@ -112,7 +114,8 @@ def generate_plugins(plugin_list: List[Plugin]):
 def generate_doc():
 	plugin_list = get_plugin_list()
 	plugin_list.fetch_data()
-	shutil.rmtree(constants.CATALOGUE_FOLDER)
+	if os.path.isdir(constants.CATALOGUE_FOLDER):
+		shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)
 
 	with open(os.path.join(constants.CATALOGUE_FOLDER, 'readme.md'), 'w') as file:
