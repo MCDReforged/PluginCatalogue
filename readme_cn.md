@@ -39,7 +39,7 @@
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | 一个可以在游戏内搜索，点击链接出结果的wiki插件 |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) |在游戏中搜索任意内容 |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | 解析哔哩哔哩各种信息并打印在MC服务器上 |
-| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
+| [WikiRequests](https://github.com/DrLee-lihr/WikiRequests) | [DrLee_lihr](https://github.com/DrLee-lihr) | 另一个Wiki插件，查询Wiki上是否有某页面并返回该页面链接，其他情况会报错 |
 
 ### 坐标
 
@@ -101,7 +101,7 @@
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
-| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
+| [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于踢出玩家的插件。 |
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | 一个快速运行指令集的插件 |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | 一个游戏内运行系统命令的插件 |
