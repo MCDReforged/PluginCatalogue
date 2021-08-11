@@ -9,7 +9,7 @@
   - Release version: N/A
 - Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: `api`
+- Labels: `API`
 - Dependencies:
 
 | Plugin ID | Requirement |

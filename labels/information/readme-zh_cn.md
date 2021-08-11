@@ -1,8 +1,8 @@
 [English](readme.md) | **中文**
 
-# information
+# 信息
 
-具有标签 `information` 插件的索引
+具有标签 `信息` 插件的索引
 
 插件数量: 0
 

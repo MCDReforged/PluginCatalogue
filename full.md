@@ -13,7 +13,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
   - Release version: N/A
 - Authors: Fallen_Breath
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: `api`
+- Labels: `API`
 - Dependencies:
 
 | Plugin ID | Requirement |
@@ -41,7 +41,7 @@ A MCDReforged api plugin to get player data information and more
   - Release version: 1.1.3
 - Authors: Fallen_Breath
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: `management`
+- Labels: `Management`
 - Dependencies:
 
 | Plugin ID | Requirement |

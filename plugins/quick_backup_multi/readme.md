@@ -9,7 +9,7 @@
   - Release version: 1.1.3
 - Authors: Fallen_Breath
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: `management`
+- Labels: `Management`
 - Dependencies:
 
 | Plugin ID | Requirement |

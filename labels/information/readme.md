@@ -1,8 +1,8 @@
 **English** | [中文](readme-zh_cn.md)
 
-# information
+# Information
 
-Plugin Index with label `information`
+Plugin Index with label `Information`
 
 Plugin Amount: 0
 
