@@ -39,7 +39,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [MCDR-WikiSearcher](https://github.com/GamerNoTitle/MCDR-WikiSearcher) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you search Minecraft Wiki in game and get the result on one click |
 | [FastSearch](https://github.com/HackerRouter/MCDR-FastSearch/) | [HackerRouter](https://github.com/HackerRouter/) |Search something in game |
 | [BilibiliParser](https://github.com/dogdie233/BilibiliParser) | [dogdie233](https://github.com/dogdie233) | Parse and print Bilibili information on server |
-| [WikiRequests](https://github.com/lihuoran-oier/WikiRequests) | [DrLee_lihr](https://github.com/lihuoran-oier) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported |
+| [WikiRequests](https://github.com/DrLee-lihr/WikiRequests) | [DrLee_lihr](https://github.com/DrLee-lihr) | Another wiki plugin to query whether there is a page on the wiki and return the link, otherwise an error will be reported |
 
 ### Position
 
@@ -101,7 +101,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | Name | Maintainer | Function |
 | - | - | - |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
-| [CommandPermissionReload](https://github.com/lihuoran-oier/CommandPermissionReload) | [DrLee_lihr](https://github.com/lihuoran-oier) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
+| [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. |
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | A plugin can run command script quickly in server. |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | A plugin can send commend to the system in games. |
