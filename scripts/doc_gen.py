@@ -71,7 +71,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 		file.write('| [{}]({}) | {} | {} | {} |\n'.format(
 			plugin.name, get_plugin_detail_link(plugin.id),
 			plugin.latest_version,
-			', '.join(plugin.authors),
+			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
 			', '.join(map(lambda l: '[{}]({})'.format(l, get_label_doc_link(l.id)), plugin.labels))
 		))
 
@@ -84,7 +84,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
 	file.write('  - {}: {}\n'.format(Text('metadata_version'), plugin.meta_info.version))
 	file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version))
-	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(plugin.authors)))
+	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
 	file.write('- {}: {}\n'.format(Text('labels'), ', '.join(map(lambda l: '`{}`'.format(l), plugin.labels))))
 	if len(plugin.meta_info.dependencies) > 0:

@@ -95,13 +95,23 @@ class PluginMetaSummary(Serializable):
 	plugins: Dict[str, MetaInfo]
 
 
+class Author(Serializable):
+	name: str
+	link: str = None
+
+	def to_markdown(self) -> str:
+		if self.link is None:
+			return self.name
+		return '[{}]({})'.format(self.name, self.link)
+
+
 class Plugin:
 	id: str
 	repository: str
 	branch: str
 	related_path: Optional[str]
 	labels: List[Label]
-	authors: List[str]
+	authors: List[Author]
 	name: str
 	readme: Text
 
@@ -125,9 +135,18 @@ class Plugin:
 			raise ValueError('Github repository with https url is required, found: {}'.format(self.repository))
 		self.branch = js['branch']
 		self.related_path = js.get('related_path', '.').strip('/')
-		self.authors = js.get('authors', [])
-		if isinstance(self.authors, str):
-			self.authors = [self.authors]
+
+		authors = js.get('authors', [])
+		self.authors = []
+		for item in authors:
+			author = Author()
+			if isinstance(item, str):
+				author.name = item
+			else:
+				assert isinstance(item, dict)
+				author.deserialize_from(item)
+			self.authors.append(author)
+
 		self.labels = []
 		for label_key in js['labels']:
 			label = get_label_set().get_label(label_key)
@@ -185,7 +204,7 @@ class Plugin:
 		self.meta_info.version = metadata.get('version')
 		self.meta_info.repository = self.repository
 		self.meta_info.labels = list(map(lambda l: l.id, self.labels))
-		self.meta_info.authors = self.authors
+		self.meta_info.authors = list(map(lambda a: a.name, self.authors))
 		self.meta_info.dependencies = metadata.get('dependencies', {})
 		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
 		print('Fetched meta info of {}'.format(self.id))
@@ -257,7 +276,7 @@ class PluginList(List[Plugin]):
 		self.__data_fetched = True
 
 	def store_data(self):
-		print('Storing data')
+		print('Storing data into meta folder')
 		meta_summary = PluginMetaSummary()
 		meta_summary.plugin_amount = len(self)
 		meta_summary.plugins = {}
