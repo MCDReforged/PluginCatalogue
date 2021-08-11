@@ -13,9 +13,10 @@
 
 -------
 
-插件数量: 2
+插件数量: 3
 
 | 插件名 | 版本 | 作者 | 标签 |
 | --- | --- | --- | --- |
+| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | 2.0.0 | ZeroKelvin | [工具](/labels/tool/readme-zh_cn.md) |
 | [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | 1.4.0 | Fallen_Breath | [API](/labels/api/readme-zh_cn.md) |
 | [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | 1.1.3 | Fallen_Breath | [管理](/labels/management/readme-zh_cn.md) |
