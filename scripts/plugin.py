@@ -132,7 +132,7 @@ class Plugin:
 		for label_key in js['labels']:
 			label = get_label_set().get_label(label_key)
 			if label is None:
-				print('Unknown label: {}'.format(label_key))
+				raise ValueError('Unknown label: {}'.format(label_key))
 			else:
 				self.labels.append(label)
 
