@@ -39,7 +39,7 @@ jobs:
           pip install -r requirements.txt
           python manager.py fetch
         env:
-          github_api_token: ${{ secrets.GITHUB_TOKEN }}
+          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
       - name: Deploy meta
         uses: s0/git-publish-subdir-action@develop

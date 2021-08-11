@@ -39,10 +39,29 @@ class ReleaseInfo(Serializable):
 	created_at: str
 	assets: List[AssetInfo]
 	description: str
+	parsed_version: str
 
-	@property
-	def version(self) -> str:
-		return self.tag_name
+	def __parse_version(self, plugin_id: str) -> Optional[str]:
+		# Possible tag names
+		# plugin_id-v1.2.3
+		# v1.2.3
+		# 1.2.3
+
+		version = self.tag_name
+		if version.startswith(plugin_id + '-'):
+			version = utils.remove_prefix(version, plugin_id + '-')
+		if len(version) == 0:
+			return version
+		if version.isdigit():
+			return version
+		elif version[0].lower() == 'v':
+			return version.lstrip('vV')
+		else:
+			return None
+
+	def parse_version(self, plugin_id: str) -> Optional[str]:
+		self.parsed_version = self.__parse_version(plugin_id)
+		return self.parsed_version
 
 
 class ReleaseSummary(Serializable):
@@ -63,8 +82,10 @@ class ReleaseSummary(Serializable):
 			for item in resp:
 				item['url'] = item['html_url']
 				item['description'] = item['body']
-				self.releases.append(ReleaseInfo.deserialize(item))
-			self.latest_version = self.releases[0].tag_name if len(self.releases) > 0 else 'N/A'
+				r_info = ReleaseInfo.deserialize(item)
+				if r_info.parse_version(self.id) is not None:
+					self.releases.append(r_info)
+			self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
 
 
 class PluginMetaSummary(Serializable):
