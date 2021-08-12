@@ -4,7 +4,7 @@
 
 A repository for listing [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugins
 
-Visit [here](https://github.com/MCDReforged/PluginCatalogue/tree/catalogue) to see the plugin catalogue index
+[Click me](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme.md) to see the plugin catalogue index
 
 Visit [here](https://github.com/MCDReforged/PluginCatalogue/tree/meta) to see the catalogue meta 
 
