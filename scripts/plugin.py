@@ -61,7 +61,7 @@ class ReleaseInfo(Serializable):
 			except:
 				return None
 			else:
-				return version
+				return version_str
 
 		version = self.tag_name
 		if version.startswith(plugin_id + '-'):
