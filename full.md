@@ -50,7 +50,7 @@ Help you manage your carpet fake player
 - Authors: [Ricky](https://github.com/rickyhoho)
 - Repository: https://github.com/rickyhoho/ChatBridgeReforged
 - Labels: [`Tool`](/labels/tool/readme.md)
-- Description: Reforged of ChatBridge, Client for normal mc server.
+- Description: Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custome clients).
 
 ### Dependencies
 

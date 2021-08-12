@@ -11,5 +11,5 @@ Plugin Amount: 2
 | Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
 | [CarpetBotList](/plugins/carpetbotlist/readme.md) | ZeroKelvin | Help you manage your carpet fake player | [`Tool`](/labels/tool/readme.md) |
-| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, Client for normal mc server. | [`Tool`](/labels/tool/readme.md) |
+| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custome clients). | [`Tool`](/labels/tool/readme.md) |
 

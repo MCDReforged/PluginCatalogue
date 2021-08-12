@@ -14,7 +14,7 @@
 - 作者: [Ricky](https://github.com/rickyhoho)
 - 仓库: https://github.com/rickyhoho/ChatBridgeReforged
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
-- 描述: Reforged of ChatBridge, Client for normal mc server.
+- 描述: ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是）
 
 ### 插件依赖
 

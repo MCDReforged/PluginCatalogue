@@ -11,5 +11,5 @@
 | 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
 | [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | ZeroKelvin | Help you manage your carpet fake player | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, Client for normal mc server. | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) | ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是） | [`工具`](/labels/tool/readme-zh_cn.md) |
 
