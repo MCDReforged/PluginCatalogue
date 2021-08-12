@@ -12,13 +12,13 @@
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - 标签: `工具`
-- 简介: N/A
+- 简介: 
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | ~2.0.0-beta.1 |
-| [minecraft_data_api](/plugins/minecraft_data_api/readme-zh_cn.md) | * |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ~2.0.0-beta.1 |
+| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme-zh_cn.md/) | * |
 
 - 包依赖: 无
 

@@ -8,6 +8,7 @@
 
 插件数量: 1
 
-| 插件名 | 版本 | 作者 | 标签 | 简介 |
-| --- | --- | --- | --- | --- |
-| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | 1.1.3 | [Fallen_Breath](https://github.com/Fallen-Breath) | [管理](/labels/management/readme-zh_cn.md) | 多槽位备份/回档插件 |
+| 插件名 | 作者 | 简介 |
+| --- | --- | --- |
+| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 |
+

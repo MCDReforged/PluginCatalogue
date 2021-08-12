@@ -16,13 +16,13 @@
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - 标签: `工具`
-- 简介: N/A
+- 简介: 
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | ~2.0.0-beta.1 |
-| [minecraft_data_api](/plugins/minecraft_data_api/readme-zh_cn.md) | * |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ~2.0.0-beta.1 |
+| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme-zh_cn.md/) | * |
 
 - 包依赖: 无
 
@@ -40,12 +40,12 @@
 - 作者: [Ricky](https://github.com/rickyhoho)
 - 仓库: https://github.com/rickyhoho/ChatBridgeReforged
 - 标签: `工具`
-- 简介: N/A
+- 简介: 
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha4 |
 
 - 包依赖: 无
 
@@ -68,7 +68,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
 
 - 包依赖:
 
@@ -98,7 +98,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
 
 - 包依赖:
 

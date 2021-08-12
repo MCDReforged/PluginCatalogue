@@ -12,13 +12,13 @@
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - Labels: `Tool`
-- Summary: N/A
+- Summary: 
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | ~2.0.0-beta.1 |
-| [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ~2.0.0-beta.1 |
+| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
 
 - Requirements: None
 

@@ -17,7 +17,7 @@
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 

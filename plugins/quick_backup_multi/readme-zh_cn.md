@@ -17,7 +17,7 @@
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
 
 - 包依赖:
 

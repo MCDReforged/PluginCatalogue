@@ -12,12 +12,12 @@
 - 作者: [Ricky](https://github.com/rickyhoho)
 - 仓库: https://github.com/rickyhoho/ChatBridgeReforged
 - 标签: `工具`
-- 简介: N/A
+- 简介: 
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha4 |
 
 - 包依赖: 无
 

@@ -8,5 +8,6 @@ Plugin Index with label `Information`
 
 Plugin Amount: 0
 
-| Plugin Name | Version | Authors | Labels | Summary |
-| --- | --- | --- | --- | --- |
+| Plugin Name | Authors | Summary |
+| --- | --- | --- |
+

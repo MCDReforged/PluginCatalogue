@@ -16,13 +16,13 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - Labels: `Tool`
-- Summary: N/A
+- Summary: 
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | ~2.0.0-beta.1 |
-| [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ~2.0.0-beta.1 |
+| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
 
 - Requirements: None
 
@@ -40,12 +40,12 @@ Help you manage your carpet fake player
 - Authors: [Ricky](https://github.com/rickyhoho)
 - Repository: https://github.com/rickyhoho/ChatBridgeReforged
 - Labels: `Tool`
-- Summary: N/A
+- Summary: 
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha4 |
 
 - Requirements: None
 
@@ -68,7 +68,7 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 
@@ -98,7 +98,7 @@ A MCDReforged api plugin to get player data information and more
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha.4 |
 
 - Requirements:
 

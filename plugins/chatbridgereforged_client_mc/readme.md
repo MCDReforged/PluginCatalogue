@@ -12,12 +12,12 @@
 - Authors: [Ricky](https://github.com/rickyhoho)
 - Repository: https://github.com/rickyhoho/ChatBridgeReforged
 - Labels: `Tool`
-- Summary: N/A
+- Summary: 
 - Dependencies:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha4 |
 
 - Requirements: None
 

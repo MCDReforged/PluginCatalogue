@@ -8,6 +8,7 @@ Plugin Index with label `API`
 
 Plugin Amount: 1
 
-| Plugin Name | Version | Authors | Labels | Summary |
-| --- | --- | --- | --- | --- |
-| [Minecraft Data API](/plugins/minecraft_data_api/readme.md) | 1.4.0 | [Fallen_Breath](https://github.com/Fallen-Breath) | [API](/labels/api/readme.md) | A MCDReforged api plugin to get player data information and more |
+| Plugin Name | Authors | Summary |
+| --- | --- | --- |
+| [Minecraft Data API](/plugins/minecraft_data_api/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more |
+
