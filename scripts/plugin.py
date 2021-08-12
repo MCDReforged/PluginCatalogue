@@ -125,10 +125,16 @@ class Plugin:
 		if not os.path.isdir(self.directory):
 			raise FileNotFoundError('Directory {} not found'.format(self.directory))
 		js: dict = utils.load_json(os.path.join(self.directory, 'plugin_info.json'))
+		self.load_from_json(js)
 
-		self.id = js.get('id', None)
 		if self.id != plugin_id:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
+
+		self.meta_info = None
+		self.release_summary = None
+
+	def load_from_json(self, js: dict):
+		self.id = js.get('id', None)
 		self.name = js.get('name', self.id)
 		self.repository = js['repository'].rstrip('/')
 		if not self.repository.startswith('https://github.com/'):
@@ -175,9 +181,6 @@ class Plugin:
 						readme_tr = file_handler.read()
 					readme_translations[lang] = readme_tr
 		self.readme = BundledText(readme_translations)
-
-		self.meta_info = None
-		self.release_summary = None
 
 	def is_data_fetched(self) -> bool:
 		return self.meta_info is not None and self.release_summary is not None
