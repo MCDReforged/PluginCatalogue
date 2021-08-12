@@ -73,12 +73,12 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	plugin_list = list(plugin_list)
 	file.write('{}: {}\n'.format(Text('plugin_amount'), len(plugin_list)))
 	file.write('\n')
-	table = Table(Text('plugin_name'), Text('authors'), Text('summary'), Text('labels'))
+	table = Table(Text('plugin_name'), Text('authors'), Text('description'), Text('labels'))
 	for plugin in plugin_list:
 		table.add_row(
 			'[{}]({})'.format(plugin.name, get_plugin_detail_link(plugin.id)),
 			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
-			plugin.summary,
+			plugin.meta_info.translated_description,
 			get_label_list_markdown(plugin)
 		)
 	table.write(file)
@@ -86,6 +86,9 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 
 def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('## {}\n'.format(plugin.id))
+	file.write('\n')
+
+	file.write('### {}\n'.format(Text('basic_info')))
 	file.write('\n')
 
 	file.write('- {}: `{}`\n'.format(Text('plugin_id'), plugin.id))
@@ -101,44 +104,40 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
 	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))
-	file.write('- {}: {}\n'.format(Text('summary'), plugin.summary))
-
-	if plugin.is_data_fetched():
-		if len(plugin.meta_info.dependencies) > 0:
-			file.write('- {}:\n'.format(Text('dependencies')))
-			file.write('\n')
-			table = Table(Text('plugin_id'), Text('dependencies.requirement'))
-			for pid, req in plugin.meta_info.dependencies.items():
-				table.add_row(
-					'[{}](https://pypi.org/project/{}/)'.format(pid, get_plugin_detail_link(pid)),
-					utils.format_markdown(req)
-				)
-			table.write(file)
-		else:
-			file.write('- {}: {}\n'.format(Text('dependencies'), Text('none')))
-	else:
-		file.write('- {}: *{}*\n'.format(Text('dependencies'), Text('data_fetched_failed')))
-
-	if plugin.is_data_fetched():
-		if len(plugin.meta_info.requirements) > 0:
-			file.write('- {}:\n'.format(Text('requirements')))
-			file.write('\n')
-			table = Table(Text('python_package'), Text('requirements.requirement'))
-			for line in plugin.meta_info.requirements:
-				package = re.match(r'^[A-Za-z.-]+', line).group()
-				req = utils.remove_prefix(line, package)
-				table.add_row(
-					'[{}](https://pypi.org/project/{}/)'.format(package, package),
-					utils.format_markdown(req)
-				)
-			table.write(file)
-		else:
-			file.write('- {}: {}\n'.format(Text('requirements'), Text('none')))
-	else:
-		file.write('- {}: *{}*\n'.format(Text('requirements'), Text('data_fetched_failed')))
+	file.write('- {}: {}\n'.format(Text('description'), plugin.meta_info.translated_description))
 	file.write('\n')
 
-	file.write('**{}**\n'.format(Text('description')))
+	file.write('### {}\n'.format(Text('dependencies')))
+	file.write('\n')
+	if plugin.is_data_fetched():
+		table = Table(Text('plugin_id'), Text('dependencies.requirement'))
+		for pid, req in plugin.meta_info.dependencies.items():
+			table.add_row(
+				'[{}](https://pypi.org/project/{}/)'.format(pid, get_plugin_detail_link(pid)),
+				utils.format_markdown(req)
+			)
+		table.write(file)
+	else:
+		file.write('*{}*\n'.format(Text('data_fetched_failed')))
+	file.write('\n')
+
+	file.write('### {}\n'.format(Text('requirements')))
+	file.write('\n')
+	if plugin.is_data_fetched():
+		table = Table(Text('python_package'), Text('requirements.requirement'))
+		for line in plugin.meta_info.requirements:
+			package = re.match(r'^[A-Za-z.-]+', line).group()
+			req = utils.remove_prefix(line, package)
+			table.add_row(
+				'[{}](https://pypi.org/project/{}/)'.format(package, package),
+				utils.format_markdown(req)
+			)
+		table.write(file)
+	else:
+		file.write('*{}*\n'.format(Text('data_fetched_failed')))
+	file.write('\n')
+
+	file.write('### {}\n'.format(Text('introduction')))
 	file.write('\n')
 	file.write(plugin.readme.get())
 	file.write('\n')
