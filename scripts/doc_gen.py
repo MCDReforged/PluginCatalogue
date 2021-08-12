@@ -55,7 +55,8 @@ def write_back_to_index_nav(file: IO[str]):
 def write_nav(file_path: str):
 	with utils.write_file(file_path) as file:
 		write_translation_nav(os.path.basename(file_path), file)
-		write_back_to_index_nav(file)
+		if file_path != get_root_readme_file_path():
+			write_back_to_index_nav(file)
 		yield file
 
 
