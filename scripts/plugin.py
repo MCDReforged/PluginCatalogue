@@ -1,5 +1,4 @@
 import os
-import os
 import traceback
 from concurrent.futures.thread import ThreadPoolExecutor
 from typing import Optional, List, Dict, Callable, Any
@@ -124,11 +123,11 @@ class Plugin:
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
 		if not os.path.isdir(self.directory):
 			raise FileNotFoundError('Directory {} not found'.format(self.directory))
-		js: dict = utils.load_json(os.path.join(self.directory, 'info.json'))
+		js: dict = utils.load_json(os.path.join(self.directory, 'plugin_info.json'))
 
 		self.id = js.get('id', None)
 		if self.id != plugin_id:
-			raise ValueError('Inconsistent plugin id, found {} in info.json but {} expected'.format(self.id, plugin_id))
+			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
 		self.name = js.get('name', self.id)
 		self.repository = js['repository'].rstrip('/')
 		if not self.repository.startswith('https://github.com/'):
