@@ -82,42 +82,57 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('## {}\n'.format(plugin.id))
 	file.write('\n')
+
 	file.write('- {}: `{}`\n'.format(Text('plugin_id'), plugin.id))
 	file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.name))
-	file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
-	file.write('  - {}: {}\n'.format(Text('metadata_version'), plugin.meta_info.version))
-	file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version))
+
+	if plugin.is_data_fetched():
+		file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
+		file.write('  - {}: {}\n'.format(Text('metadata_version'), plugin.meta_info.version))
+		file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version))
+	else:
+		file.write('- {}: *{}*\n'.format(Text('version'), Text('data_fetched_failed')))
+
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
 	file.write('- {}: {}\n'.format(Text('labels'), ', '.join(map(lambda l: '`{}`'.format(l), plugin.labels))))
 	file.write('- {}: {}\n'.format(Text('summary'), plugin.summary))
-	if len(plugin.meta_info.dependencies) > 0:
-		file.write('- {}:\n'.format(Text('dependencies')))
-		file.write('\n')
-		table = Table(Text('plugin_id'), Text('dependencies.requirement'))
-		for pid, req in plugin.meta_info.dependencies.items():
-			table.add_row(
-				'[{}](https://pypi.org/project/{}/)'.format(pid, get_plugin_detail_link(pid)),
-				utils.format_markdown(req)
-			)
-		table.write(file)
+
+	if plugin.is_data_fetched():
+		if len(plugin.meta_info.dependencies) > 0:
+			file.write('- {}:\n'.format(Text('dependencies')))
+			file.write('\n')
+			table = Table(Text('plugin_id'), Text('dependencies.requirement'))
+			for pid, req in plugin.meta_info.dependencies.items():
+				table.add_row(
+					'[{}](https://pypi.org/project/{}/)'.format(pid, get_plugin_detail_link(pid)),
+					utils.format_markdown(req)
+				)
+			table.write(file)
+		else:
+			file.write('- {}: {}\n'.format(Text('dependencies'), Text('none')))
 	else:
-		file.write('- {}: {}\n'.format(Text('dependencies'), Text('none')))
-	if len(plugin.meta_info.requirements) > 0:
-		file.write('- {}:\n'.format(Text('requirements')))
-		file.write('\n')
-		table = Table(Text('python_package'), Text('requirements.requirement'))
-		for line in plugin.meta_info.requirements:
-			package = re.match(r'^[A-Za-z.-]+', line).group()
-			req = utils.remove_prefix(line, package)
-			table.add_row(
-				'[{}](https://pypi.org/project/{}/)'.format(package, package),
-				utils.format_markdown(req)
-			)
-		table.write(file)
+		file.write('- {}: *{}*\n'.format(Text('dependencies'), Text('data_fetched_failed')))
+
+	if plugin.is_data_fetched():
+		if len(plugin.meta_info.requirements) > 0:
+			file.write('- {}:\n'.format(Text('requirements')))
+			file.write('\n')
+			table = Table(Text('python_package'), Text('requirements.requirement'))
+			for line in plugin.meta_info.requirements:
+				package = re.match(r'^[A-Za-z.-]+', line).group()
+				req = utils.remove_prefix(line, package)
+				table.add_row(
+					'[{}](https://pypi.org/project/{}/)'.format(package, package),
+					utils.format_markdown(req)
+				)
+			table.write(file)
+		else:
+			file.write('- {}: {}\n'.format(Text('requirements'), Text('none')))
 	else:
-		file.write('- {}: {}\n'.format(Text('requirements'), Text('none')))
+		file.write('- {}: *{}*\n'.format(Text('requirements'), Text('data_fetched_failed')))
 	file.write('\n')
+
 	file.write('**{}**\n'.format(Text('description')))
 	file.write('\n')
 	file.write(plugin.readme.get())

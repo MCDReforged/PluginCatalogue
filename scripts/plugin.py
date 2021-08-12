@@ -1,6 +1,7 @@
 import os
 import traceback
 from concurrent.futures.thread import ThreadPoolExecutor
+from json import JSONDecodeError
 from typing import Optional, List, Dict, Callable, Any
 
 import requests
@@ -105,8 +106,8 @@ class Author(Serializable):
 
 
 class Plugin:
-	id: str
-	repository: str
+	id: str = 'N/A'
+	repository: str = 'N/A'
 	branch: str
 	related_path: Optional[str]
 	labels: List[Label]
@@ -116,8 +117,8 @@ class Plugin:
 	readme: Text
 
 	# Available after fetch_data()
-	meta_info: Optional[MetaInfo]
-	release_summary: Optional[ReleaseSummary]
+	meta_info: Optional[MetaInfo] = None
+	release_summary: Optional[ReleaseSummary] = None
 
 	def __init__(self, plugin_id: str):
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
@@ -178,6 +179,9 @@ class Plugin:
 		self.meta_info = None
 		self.release_summary = None
 
+	def is_data_fetched(self) -> bool:
+		return self.meta_info is not None and self.release_summary is not None
+
 	@property
 	def latest_version(self) -> str:
 		if self.release_summary.latest_version != 'N/A':
@@ -189,13 +193,21 @@ class Plugin:
 		# TISUnion/QuickBackupM
 		return utils.remove_prefix(self.repository, 'https://github.com/')
 
+	def __repr__(self):
+		return 'Plugin[id={},repository={}]'.format(self.id, self.repository)
+
 	def __get_repos_file(self, file_path: str) -> Response:
 		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/next/mcdreforged.plugin.json
 		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{self.branch}/{self.related_path}/'
 		return requests.get(url_base + file_path, proxies=constants.PROXIES)
 
 	def get_repos_json(self, file_path: str) -> dict:
-		return self.__get_repos_file(file_path).json()
+		response = self.__get_repos_file(file_path)
+		try:
+			return response.json()
+		except JSONDecodeError:
+			print('Failed to decode json from response! status_code {}: {}'.format(response.status_code, response.content))
+			raise
 
 	def get_repos_text(self, file_path: str, default=None) -> str:
 		resp = self.__get_repos_file(file_path)
@@ -219,14 +231,20 @@ class Plugin:
 		return self.meta_info
 
 	def save_meta(self):
-		utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+		if self.meta_info is None:
+			print('Skipping {} during meta_info saving since meta_info is None'.format(self))
+		else:
+			utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
 
 	@property
 	def __release_info_file(self) -> str:
 		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
 
 	def save_release_info(self):
-		utils.save_json(self.release_summary.serialize(), self.__release_info_file)
+		if self.release_summary is None:
+			print('Skipping {} during release_summary saving since release_summary is None'.format(self))
+		else:
+			utils.save_json(self.release_summary.serialize(), self.__release_info_file)
 
 	def fetch_release(self) -> ReleaseSummary:
 		try:
@@ -242,7 +260,8 @@ class PluginList(List[Plugin]):
 	def __init__(self):
 		super().__init__()
 		self.__inited = False
-		self.__data_fetched = False
+		self.__meta_fetched = False
+		self.__release_fetched = False
 
 	def init(self):
 		if self.__inited:
@@ -251,7 +270,12 @@ class PluginList(List[Plugin]):
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
 			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
 				print('Found plugin {}'.format(folder))
-				self.append(Plugin(folder))
+				try:
+					self.append(Plugin(folder))
+				except:
+					print('Failed to initialize plugin in folder "{}"'.format(folder))
+					traceback.print_exc()
+					raise
 
 		print('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())
@@ -266,7 +290,7 @@ class PluginList(List[Plugin]):
 				try:
 					future.result()
 				except Exception as e:
-					print('Failed to fetch {} for plugin {}'.format(name, plugin))
+					print('Failed to fetch {} of plugin {}'.format(name, plugin))
 					if fail_hard:
 						traceback.print_exc()
 						raise
@@ -274,14 +298,13 @@ class PluginList(List[Plugin]):
 						print('{}: {}'.format(type(e), e))
 
 	def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
-		if self.__data_fetched:
-			return
 		print('Fetching data')
-		if meta:
+		if meta and not self.__meta_fetched:
 			self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard)
-		if release:
+			self.__meta_fetched = True
+		if release and not self.__release_fetched:
 			self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard)
-		self.__data_fetched = True
+			self.__release_fetched = True
 
 	def store_data(self):
 		print('Storing data into meta folder')
