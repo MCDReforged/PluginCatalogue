@@ -1,7 +1,5 @@
 **English** | [中文](readme-zh_cn.md)
 
-\>\>\> [Back to index](/readme.md)
-
 # Plugin Catalogue Index
 
 Full plugin information document [here](./full.md)

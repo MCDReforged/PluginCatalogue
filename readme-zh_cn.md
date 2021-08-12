@@ -1,8 +1,6 @@
 [English](readme.md) | **中文**
 
-\>\>\> [回到索引](/readme-zh_cn.md)
-
-# 插件目录索引
+# 插件仓库索引
 
 全插件信息集合见 [此处](./full-zh_cn.md)
 
