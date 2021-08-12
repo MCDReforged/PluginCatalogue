@@ -8,9 +8,9 @@
 
 - Plugin ID: `quick_backup_multi`
 - Plugin Name: QuickBackupM
-- Version: v1.1.3
+- Version: v1.2.1
   - Metadata version: 1.2.1
-  - Release version: v1.1.3
+  - Release version: v1.2.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: [`Management`](/labels/management/readme.md)

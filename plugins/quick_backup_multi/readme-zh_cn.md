@@ -8,9 +8,9 @@
 
 - 插件 ID: `quick_backup_multi`
 - 插件名: QuickBackupM
-- 版本: v1.1.3
+- 版本: v1.2.1
   - 元数据版本: 1.2.1
-  - 发布版本: v1.1.3
+  - 发布版本: v1.2.1
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
 - 标签: [`管理`](/labels/management/readme-zh_cn.md)
