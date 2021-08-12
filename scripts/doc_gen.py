@@ -7,7 +7,8 @@ from typing import List, IO, Iterable
 import constants
 import utils
 from label import get_label_set
-from plugin import get_plugin_list, Plugin
+from plugin import Plugin
+from plugin_list import get_plugin_list
 from translation import Text, get_language, get_file_name, LANGUAGES, with_language
 
 

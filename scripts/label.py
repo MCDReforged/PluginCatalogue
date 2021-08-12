@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Set
 
 import constants
 import utils
@@ -14,8 +14,9 @@ class Label(Text):
 		return 'Label[id={}]'.format(self.id)
 
 
-class LabelSet:
+class LabelSet(Set[Label]):
 	def __init__(self):
+		super().__init__()
 		self.__labels: Dict[str, Label] = {}
 		for label_id in utils.load_json(constants.LABEL_FILE):
 			self.__labels[label_id] = Label(label_id)
