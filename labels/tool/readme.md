@@ -8,6 +8,6 @@ Plugin Index with label `Tool`
 
 Plugin Amount: 1
 
-| Plugin Name | Version | Authors | Labels |
-| --- | --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme.md) | 2.0.0 | ZeroKelvin | [Tool](/labels/tool/readme.md) |
+| Plugin Name | Version | Authors | Labels | Summary |
+| --- | --- | --- | --- | --- |
+| [CarpetBotList](/plugins/carpetbotlist/readme.md) | 2.0.0 | ZeroKelvin | [Tool](/labels/tool/readme.md) | N/A |

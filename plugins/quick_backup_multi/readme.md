@@ -12,6 +12,7 @@
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `Management`
+- Summary: A backup/restore plugin for your world, with mutiple backup slot
 - Dependencies:
 
 | Plugin ID | Requirement |

@@ -8,10 +8,11 @@
 - 插件名: CarpetBotList
 - 版本: 2.0.0
   - 元数据版本: 2.0.0
-  - 发布版本: N/A
+  - 发布版本: 2.0.0
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - 标签: `工具`
+- 简介: N/A
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |

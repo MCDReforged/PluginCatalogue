@@ -12,10 +12,11 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 - Plugin Name: CarpetBotList
 - Version: 2.0.0
   - Metadata version: 2.0.0
-  - Release version: N/A
+  - Release version: 2.0.0
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - Labels: `Tool`
+- Summary: N/A
 - Dependencies:
 
 | Plugin ID | Requirement |
@@ -39,6 +40,7 @@ Help you manage your carpet fake player
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: `API`
+- Summary: A MCDReforged api plugin to get player data information and more
 - Dependencies:
 
 | Plugin ID | Requirement |
@@ -68,6 +70,7 @@ A MCDReforged api plugin to get player data information and more
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: `Management`
+- Summary: A backup/restore plugin for your world, with mutiple backup slot
 - Dependencies:
 
 | Plugin ID | Requirement |

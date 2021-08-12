@@ -8,10 +8,11 @@
 - Plugin Name: CarpetBotList
 - Version: 2.0.0
   - Metadata version: 2.0.0
-  - Release version: N/A
+  - Release version: 2.0.0
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - Labels: `Tool`
+- Summary: N/A
 - Dependencies:
 
 | Plugin ID | Requirement |

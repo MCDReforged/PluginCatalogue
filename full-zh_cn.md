@@ -12,10 +12,11 @@
 - 插件名: CarpetBotList
 - 版本: 2.0.0
   - 元数据版本: 2.0.0
-  - 发布版本: N/A
+  - 发布版本: 2.0.0
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - 标签: `工具`
+- 简介: N/A
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
@@ -39,6 +40,7 @@
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: `API`
+- 简介: 一个用获得玩家信息等数据的的 API
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
@@ -68,6 +70,7 @@
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
 - 标签: `管理`
+- 简介: 多槽位备份/回档插件
 - 插件依赖:
 
 | 插件 ID | 依赖需求 |
