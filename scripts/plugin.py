@@ -162,7 +162,7 @@ class Plugin:
 				summary_translations[lang] = summary
 			else:
 				raise ValueError('Unknown language in summary: {}'.format(lang))
-		self.summary = BundledText(summary_translations, default='N/A')
+		self.summary = BundledText(summary_translations, default='')
 
 		# readme
 		readme_translations = {}
