@@ -133,5 +133,12 @@ A MCDReforged api plugin to get player data information and more
 
 ### Introduction
 
-A backup/restore plugin for your world, with mutiple backup slot
+A backup / restore plugin, with multiple backup slot
+
+Features:
+
+- Comment for backup
+- Extra backup for removed world
+- Time protection for slot
+- Backup size display
 
