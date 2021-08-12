@@ -1,7 +1,7 @@
 import os
 import threading
 from contextlib import contextmanager
-from typing import Dict
+from typing import Dict, Optional
 
 import constants
 import utils
@@ -35,6 +35,17 @@ def with_language(lang: str):
 		set_language(prev)
 
 
+def get_file_name(name: str) -> str:
+	base, extension = name.rsplit('.', 1)
+	split = base.rsplit('-', 1)
+	if len(split) == 2 and split[1] in LANGUAGES:
+		base = split[0]  # remove existed language suffix
+	if get_language() == DEFAULT_LANGUAGE:
+		return '{}.{}'.format(base, extension)
+	else:
+		return '{}-{}.{}'.format(base, get_language(), extension)
+
+
 _TRANSLATION_TYPE = Dict[str, str]
 _TRANSLATION_COLLECTION_TYPE = Dict[str, _TRANSLATION_TYPE]
 
@@ -50,10 +61,12 @@ class Text:
 	def __init__(self, key: str):
 		self.__key = key
 
-	def get(self) -> str:
+	def get(self) -> Optional[str]:
 		result = _TRANSLATION[get_language()].get(self.__key)
 		if result is None:
-			result = _TRANSLATION[DEFAULT_LANGUAGE].get(self.__key, self.__key)
+			result = _TRANSLATION[DEFAULT_LANGUAGE].get(self.__key)
+		if result is None:
+			raise KeyError('Unknown translation key {}'.format(self.__key))
 		return result
 
 	def __str__(self):
@@ -61,12 +74,15 @@ class Text:
 
 
 class BundledText(Text):
-	def __init__(self, mapping: _TRANSLATION_TYPE):
+	def __init__(self, mapping: _TRANSLATION_TYPE, default: Optional[str] = None):
 		super().__init__('')
+		self.__default = default
 		self.__mapping: _TRANSLATION_TYPE = mapping
 
-	def get(self) -> str:
+	def get(self) -> Optional[str]:
 		result = self.__mapping.get(get_language())
 		if result is None:
 			result = self.__mapping.get(DEFAULT_LANGUAGE)
+		if result is None:
+			result = self.__default
 		return result

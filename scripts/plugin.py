@@ -1,4 +1,4 @@
-import json
+import os
 import os
 import traceback
 from concurrent.futures.thread import ThreadPoolExecutor
@@ -11,7 +11,7 @@ import constants
 import utils
 from label import Label, get_label_set
 from serializer import Serializable
-from translation import Text, BundledText, EN_US, LANGUAGES
+from translation import Text, BundledText, LANGUAGES, get_file_name, with_language
 
 
 class MetaInfo(Serializable):
@@ -112,6 +112,7 @@ class Plugin:
 	related_path: Optional[str]
 	labels: List[Label]
 	authors: List[Author]
+	summary: Text
 	name: str
 	readme: Text
 
@@ -123,8 +124,7 @@ class Plugin:
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
 		if not os.path.isdir(self.directory):
 			raise FileNotFoundError('Directory {} not found'.format(self.directory))
-		with open(os.path.join(self.directory, 'info.json')) as file_handler:
-			js: dict = json.load(file_handler)
+		js: dict = utils.load_json(os.path.join(self.directory, 'info.json'))
 
 		self.id = js.get('id', None)
 		if self.id != plugin_id:
@@ -147,6 +147,7 @@ class Plugin:
 				author.deserialize_from(item)
 			self.authors.append(author)
 
+		# label
 		self.labels = []
 		for label_key in js['labels']:
 			label = get_label_set().get_label(label_key)
@@ -155,16 +156,24 @@ class Plugin:
 			else:
 				self.labels.append(label)
 
+		# summary
+		summary_translations = {}
+		for lang, summary in js.get('summary', {}).items():
+			if lang in LANGUAGES:
+				summary_translations[lang] = summary
+			else:
+				raise ValueError('Unknown language in summary: {}'.format(lang))
+		self.summary = BundledText(summary_translations, default='N/A')
+
 		# readme
-		with open(os.path.join(self.directory, 'readme.md'), 'r', encoding='utf8') as file_handler:
-			readme_en = file_handler.read()
-		readme_translations = {EN_US: readme_en}
+		readme_translations = {}
 		for lang in LANGUAGES:
-			readme_tr_file_path = os.path.join(self.directory, 'readme-{}.md'.format(lang))
-			if os.path.isfile(readme_tr_file_path):
-				with open(readme_tr_file_path, 'r', encoding='utf8') as file_handler:
-					readme_tr = file_handler.read()
-				readme_translations[lang] = readme_tr
+			with with_language(lang):
+				readme_tr_file_path = os.path.join(self.directory, get_file_name('readme.md'))
+				if os.path.isfile(readme_tr_file_path):
+					with utils.read_file(readme_tr_file_path) as file_handler:
+						readme_tr = file_handler.read()
+					readme_translations[lang] = readme_tr
 		self.readme = BundledText(readme_translations)
 
 		self.meta_info = None
