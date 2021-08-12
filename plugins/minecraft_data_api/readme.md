@@ -4,6 +4,8 @@
 
 ## minecraft_data_api
 
+### Basic Information
+
 - Plugin ID: `minecraft_data_api`
 - Plugin Name: Minecraft Data API
 - Version: 1.4.0
@@ -12,14 +14,16 @@
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: [`API`](/labels/api/readme.md)
-- Summary: A MCDReforged api plugin to get player data information and more
-- Dependencies:
+- Description: A MCDReforged api plugin to get player data information and more
+
+### Dependencies
 
 | Plugin ID | Requirement |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha.4 |
 
-- Requirements:
+
+### Requirements
 
 | Python package | Requirement |
 | --- | --- |
@@ -28,7 +32,7 @@
 | [parse](https://pypi.org/project/parse/) |  |
 
 
-**Description**
+### Introduction
 
 A MCDReforged api plugin to get player data information and more
 

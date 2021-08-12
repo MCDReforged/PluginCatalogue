@@ -4,6 +4,8 @@
 
 ## minecraft_data_api
 
+### 基本信息
+
 - 插件 ID: `minecraft_data_api`
 - 插件名: Minecraft Data API
 - 版本: 1.4.0
@@ -12,14 +14,16 @@
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: [`API`](/labels/api/readme-zh_cn.md)
-- 简介: 一个用获得玩家信息等数据的的 API
-- 插件依赖:
+- 描述: A MCDReforged api plugin to get player data information and more
+
+### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
 
-- 包依赖:
+
+### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
@@ -28,7 +32,7 @@
 | [parse](https://pypi.org/project/parse/) |  |
 
 
-**描述**
+### 介绍
 
 一个用获得玩家信息等数据的的 API
 

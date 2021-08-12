@@ -8,7 +8,7 @@
 
 插件数量: 1
 
-| 插件名 | 作者 | 简介 | 标签 |
+| 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
-| [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个用获得玩家信息等数据的的 API | [`API`](/labels/api/readme-zh_cn.md) |
+| [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more | [`API`](/labels/api/readme-zh_cn.md) |
 

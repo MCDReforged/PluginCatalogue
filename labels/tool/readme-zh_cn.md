@@ -8,8 +8,8 @@
 
 插件数量: 2
 
-| 插件名 | 作者 | 简介 | 标签 |
+| 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | ZeroKelvin |  | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) |  | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | ZeroKelvin | Help you manage your carpet fake player | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, Client for normal mc server. | [`工具`](/labels/tool/readme-zh_cn.md) |
 

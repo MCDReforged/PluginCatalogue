@@ -4,6 +4,8 @@
 
 ## carpetbotlist
 
+### Basic Information
+
 - Plugin ID: `carpetbotlist`
 - Plugin Name: CarpetBotList
 - Version: 2.0.0
@@ -12,17 +14,23 @@
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - Labels: [`Tool`](/labels/tool/readme.md)
-- Summary: 
-- Dependencies:
+- Description: Help you manage your carpet fake player
+
+### Dependencies
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ~2.0.0-beta.1 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ^2.0.0-beta.1 |
 | [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
 
-- Requirements: None
 
-**Description**
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+
+
+### Introduction
 
 Help you manage your carpet fake player
 

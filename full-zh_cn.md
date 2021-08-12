@@ -8,6 +8,8 @@
 
 ## carpetbotlist
 
+### 基本信息
+
 - 插件 ID: `carpetbotlist`
 - 插件名: CarpetBotList
 - 版本: 2.0.0
@@ -16,21 +18,29 @@
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
-- 简介: 
-- 插件依赖:
+- 描述: Help you manage your carpet fake player
+
+### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ~2.0.0-beta.1 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ^2.0.0-beta.1 |
 | [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme-zh_cn.md/) | * |
 
-- 包依赖: 无
 
-**描述**
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+
+
+### 介绍
 
 帮助你管理地毯端的假人
 
 ## chatbridgereforged_client_mc
+
+### 基本信息
 
 - 插件 ID: `chatbridgereforged_client_mc`
 - 插件名: ChatBridgeReforged
@@ -40,20 +50,28 @@
 - 作者: [Ricky](https://github.com/rickyhoho)
 - 仓库: https://github.com/rickyhoho/ChatBridgeReforged
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
-- 简介: 
-- 插件依赖:
+- 描述: Reforged of ChatBridge, Client for normal mc server.
+
+### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha4 |
 
-- 包依赖: 无
 
-**描述**
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+
+
+### 介绍
 
 ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是）
 
 ## minecraft_data_api
+
+### 基本信息
 
 - 插件 ID: `minecraft_data_api`
 - 插件名: Minecraft Data API
@@ -63,14 +81,16 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: [`API`](/labels/api/readme-zh_cn.md)
-- 简介: 一个用获得玩家信息等数据的的 API
-- 插件依赖:
+- 描述: A MCDReforged api plugin to get player data information and more
+
+### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
 
-- 包依赖:
+
+### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
@@ -79,35 +99,39 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 | [parse](https://pypi.org/project/parse/) |  |
 
 
-**描述**
+### 介绍
 
 一个用获得玩家信息等数据的的 API
 
 ## quick_backup_multi
 
+### 基本信息
+
 - 插件 ID: `quick_backup_multi`
 - 插件名: QuickBackupM
-- 版本: 1.1.3
+- 版本: v1.1.3
   - 元数据版本: 1.2.0
-  - 发布版本: 1.1.3
+  - 发布版本: v1.1.3
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
 - 标签: [`管理`](/labels/management/readme-zh_cn.md)
-- 简介: 多槽位备份/回档插件
-- 插件依赖:
+- 描述: A backup and restore backup plugin, with multiple backup slots
+
+### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
 
-- 包依赖:
+
+### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
 
 
-**描述**
+### 介绍
 
 多槽位备份/回档插件
 

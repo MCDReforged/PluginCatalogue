@@ -15,10 +15,10 @@
 
 插件数量: 4
 
-| 插件名 | 作者 | 简介 | 标签 |
+| 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | ZeroKelvin |  | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) |  | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个用获得玩家信息等数据的的 API | [`API`](/labels/api/readme-zh_cn.md) |
-| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | ZeroKelvin | Help you manage your carpet fake player | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, Client for normal mc server. | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more | [`API`](/labels/api/readme-zh_cn.md) |
+| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A backup and restore backup plugin, with multiple backup slots | [`管理`](/labels/management/readme-zh_cn.md) |
 

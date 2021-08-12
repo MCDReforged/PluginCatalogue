@@ -8,8 +8,8 @@ Plugin Index with label `Tool`
 
 Plugin Amount: 2
 
-| Plugin Name | Authors | Summary | Labels |
+| Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme.md) | ZeroKelvin |  | [`Tool`](/labels/tool/readme.md) |
-| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) |  | [`Tool`](/labels/tool/readme.md) |
+| [CarpetBotList](/plugins/carpetbotlist/readme.md) | ZeroKelvin | Help you manage your carpet fake player | [`Tool`](/labels/tool/readme.md) |
+| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, Client for normal mc server. | [`Tool`](/labels/tool/readme.md) |
 
