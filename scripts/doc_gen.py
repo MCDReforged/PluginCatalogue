@@ -27,6 +27,10 @@ def get_full_index_file_path():
 	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('full.md'))
 
 
+def get_label_list_markdown(plugin: Plugin):
+	return ', '.join(map(lambda l: '[`{}`]({})'.format(l, get_label_doc_link(l.id)), plugin.labels))
+
+
 def write_translation_nav(file_name: str, file: IO[str]):
 	nav_list = []
 	for lang in LANGUAGES:
@@ -68,12 +72,13 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	plugin_list = list(plugin_list)
 	file.write('{}: {}\n'.format(Text('plugin_amount'), len(plugin_list)))
 	file.write('\n')
-	table = Table(Text('plugin_name'), Text('authors'), Text('summary'))
+	table = Table(Text('plugin_name'), Text('authors'), Text('summary'), Text('labels'))
 	for plugin in plugin_list:
 		table.add_row(
 			'[{}]({})'.format(plugin.name, get_plugin_detail_link(plugin.id)),
 			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
-			plugin.summary
+			plugin.summary,
+			get_label_list_markdown(plugin)
 		)
 	table.write(file)
 
@@ -94,7 +99,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
-	file.write('- {}: {}\n'.format(Text('labels'), ', '.join(map(lambda l: '`{}`'.format(l), plugin.labels))))
+	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))
 	file.write('- {}: {}\n'.format(Text('summary'), plugin.summary))
 
 	if plugin.is_data_fetched():
