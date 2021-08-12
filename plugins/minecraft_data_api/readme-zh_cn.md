@@ -14,20 +14,20 @@
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: [`API`](/labels/api/readme-zh_cn.md)
-- 描述: A MCDReforged api plugin to get player data information and more
+- 描述: 一个用获得玩家信息等数据的的 API
 
 ### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
 
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
 

@@ -10,5 +10,5 @@ Plugin Amount: 1
 
 | Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
-| [QuickBackupM](/plugins/quick_backup_multi/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A backup and restore backup plugin, with multiple backup slots | [`Management`](/labels/management/readme.md) |
+| [QuickBackupM](/plugins/quick_backup_multi/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A backup / restore plugin, with multiple backup slot | [`Management`](/labels/management/readme.md) |
 

@@ -81,20 +81,20 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: [`API`](/labels/api/readme-zh_cn.md)
-- 描述: A MCDReforged api plugin to get player data information and more
+- 描述: 一个用获得玩家信息等数据的的 API
 
 ### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
 
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
 
@@ -110,25 +110,25 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 - 插件 ID: `quick_backup_multi`
 - 插件名: QuickBackupM
 - 版本: v1.1.3
-  - 元数据版本: 1.2.0
+  - 元数据版本: 1.2.1
   - 发布版本: v1.1.3
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
 - 标签: [`管理`](/labels/management/readme-zh_cn.md)
-- 描述: A backup and restore backup plugin, with multiple backup slots
+- 描述: 多槽位备份/回档插件
 
 ### 插件依赖
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha.4 |
+| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
 
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0a4 |
+| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
 
 
 ### 介绍
