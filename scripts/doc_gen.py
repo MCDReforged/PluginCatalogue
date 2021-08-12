@@ -69,16 +69,14 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	plugin_list = list(plugin_list)
 	file.write('{}: {}\n'.format(Text('plugin_amount'), len(plugin_list)))
 	file.write('\n')
-	file.write('| {} | {} | {} | {} | {} |\n'.format(Text('plugin_name'), Text('version'), Text('authors'), Text('labels'), Text('summary')))
-	file.write('| --- | --- | --- | --- | --- |\n')
+	table = Table(Text('plugin_name'), Text('authors'), Text('summary'))
 	for plugin in plugin_list:
-		file.write('| [{}]({}) | {} | {} | {} | {} |\n'.format(
-			plugin.name, get_plugin_detail_link(plugin.id),
-			plugin.latest_version,
+		table.add_row(
+			'[{}]({})'.format(plugin.name, get_plugin_detail_link(plugin.id)),
 			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
-			', '.join(map(lambda l: '[{}]({})'.format(l, get_label_doc_link(l.id)), plugin.labels)),
 			plugin.summary
-		))
+		)
+	table.write(file)
 
 
 def write_plugin(plugin: Plugin, file: IO[str]):
@@ -96,26 +94,27 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	if len(plugin.meta_info.dependencies) > 0:
 		file.write('- {}:\n'.format(Text('dependencies')))
 		file.write('\n')
-		file.write('| {} | {} |\n'.format(Text('plugin_id'), Text('dependencies.requirement')))
-		file.write('| --- | --- |\n')
+		table = Table(Text('plugin_id'), Text('dependencies.requirement'))
 		for pid, req in plugin.meta_info.dependencies.items():
-			file.write('| [{}]({}) | {} |\n'.format(pid, get_plugin_detail_link(pid), utils.format_markdown(req)))
-		file.write('\n')
+			table.add_row(
+				'[{}](https://pypi.org/project/{}/)'.format(pid, get_plugin_detail_link(pid)),
+				utils.format_markdown(req)
+			)
+		table.write(file)
 	else:
 		file.write('- {}: {}\n'.format(Text('dependencies'), Text('none')))
 	if len(plugin.meta_info.requirements) > 0:
 		file.write('- {}:\n'.format(Text('requirements')))
 		file.write('\n')
-		file.write('| {} | {} |\n'.format(Text('python_package'), Text('requirements.requirement')))
-		file.write('| --- | --- |\n')
+		table = Table(Text('python_package'), Text('requirements.requirement'))
 		for line in plugin.meta_info.requirements:
 			package = re.match(r'^[A-Za-z.-]+', line).group()
 			req = utils.remove_prefix(line, package)
-			file.write('| [{}](https://pypi.org/project/{}/) | {} |\n'.format(
-				package, package,
+			table.add_row(
+				'[{}](https://pypi.org/project/{}/)'.format(package, package),
 				utils.format_markdown(req)
-			))
-		file.write('\n')
+			)
+		table.write(file)
 	else:
 		file.write('- {}: {}\n'.format(Text('requirements'), Text('none')))
 	file.write('\n')
@@ -178,3 +177,25 @@ def generate_doc():
 		print('Generating doc in language {}'.format(lang))
 		with with_language(lang):
 			write_doc()
+
+
+class Table:
+	def __init__(self, *title):
+		self.__title = title
+		self.__column_count = len(title)
+		self.__rows: List[tuple] = []
+
+	def add_row(self, *items):
+		assert len(items) == self.__column_count
+		self.__rows.append(items)
+
+	@staticmethod
+	def __write_row(file: IO[str], items: tuple):
+		file.write('| {} |\n'.format(' | '.join(map(str, items))))
+
+	def write(self, file: IO[str]):
+		self.__write_row(file, self.__title)
+		self.__write_row(file, ('---', ) * self.__column_count)
+		for row in self.__rows:
+			self.__write_row(file, row)
+		file.write('\n')
