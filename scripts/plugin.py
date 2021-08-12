@@ -5,13 +5,14 @@ from json import JSONDecodeError
 from typing import Optional, List, Dict, Callable, Any
 
 import requests
+from mcdreforged.plugin.meta.version import Version
 from requests import Response
 
 import constants
 import utils
 from label import Label, get_label_set
 from serializer import Serializable
-from translation import Text, BundledText, LANGUAGES, get_file_name, with_language
+from translation import Text, BundledText, LANGUAGES, get_file_name, with_language, DEFAULT_LANGUAGE
 
 
 class MetaInfo(Serializable):
@@ -23,6 +24,11 @@ class MetaInfo(Serializable):
 	authors: List[str]
 	dependencies: Dict[str, str]
 	requirements: List[str]
+	description: Dict[str, str]
+
+	@property
+	def translated_description(self) -> Text:
+		return BundledText(self.description)
 
 
 class AssetInfo(Serializable):
@@ -49,15 +55,23 @@ class ReleaseInfo(Serializable):
 		#   v1.2.3
 		#   1.2.3
 
+		def test_and_return(version_str: str) -> Optional[str]:
+			try:
+				Version(version_str, allow_wildcard=False)
+			except:
+				return None
+			else:
+				return version
+
 		version = self.tag_name
 		if version.startswith(plugin_id + '-'):
 			version = utils.remove_prefix(version, plugin_id + '-')
 		if len(version) == 0:
 			return version
 		if version[0].isdigit():
-			return version
+			return test_and_return(version)
 		elif version[0].lower() == 'v':
-			return version[1:]
+			return test_and_return(version[1:])
 		else:
 			return None
 
@@ -112,7 +126,6 @@ class Plugin:
 	related_path: Optional[str]
 	labels: List[Label]
 	authors: List[Author]
-	summary: Text
 	name: str
 	readme: Text
 
@@ -161,15 +174,6 @@ class Plugin:
 				raise ValueError('Unknown label: {}'.format(label_key))
 			else:
 				self.labels.append(label)
-
-		# summary
-		summary_translations = {}
-		for lang, summary in js.get('summary', {}).items():
-			if lang in LANGUAGES:
-				summary_translations[lang] = summary
-			else:
-				raise ValueError('Unknown language in summary: {}'.format(lang))
-		self.summary = BundledText(summary_translations, default='')
 
 		# readme
 		readme_translations = {}
@@ -230,6 +234,9 @@ class Plugin:
 		self.meta_info.authors = list(map(lambda a: a.name, self.authors))
 		self.meta_info.dependencies = metadata.get('dependencies', {})
 		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
+		self.meta_info.description = metadata.get('description', {})
+		if isinstance(self.meta_info.description, str):
+			self.meta_info.description = {DEFAULT_LANGUAGE: self.meta_info.description}
 		print('Fetched meta info of {}'.format(self.id))
 		return self.meta_info
 
