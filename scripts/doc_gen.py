@@ -8,7 +8,7 @@ import constants
 import utils
 from label import get_label_set
 from plugin import get_plugin_list, Plugin
-from translation import Text, get_language, DEFAULT_LANGUAGE, LANGUAGES, with_language
+from translation import Text, get_language, get_file_name, LANGUAGES, with_language
 
 
 def get_plugin_detail_link(plugin_id: str):
@@ -17,17 +17,6 @@ def get_plugin_detail_link(plugin_id: str):
 
 def get_label_doc_link(label_id: str):
 	return '/labels/{}/{}'.format(label_id, get_file_name('readme.md'))
-
-
-def get_file_name(name: str) -> str:
-	base, extension = name.rsplit('.', 1)
-	split = base.rsplit('-', 1)
-	if len(split) == 2 and split[1] in LANGUAGES:
-		base = split[0]
-	if get_language() == DEFAULT_LANGUAGE:
-		return '{}.{}'.format(base, extension)
-	else:
-		return '{}-{}.{}'.format(base, get_language(), extension)
 
 
 def get_root_readme_file_path():
@@ -80,14 +69,15 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	plugin_list = list(plugin_list)
 	file.write('{}: {}\n'.format(Text('plugin_amount'), len(plugin_list)))
 	file.write('\n')
-	file.write('| {} | {} | {} | {} |\n'.format(Text('plugin_name'), Text('version'), Text('authors'), Text('labels')))
-	file.write('| --- | --- | --- | --- |\n')
+	file.write('| {} | {} | {} | {} | {} |\n'.format(Text('plugin_name'), Text('version'), Text('authors'), Text('labels'), Text('summary')))
+	file.write('| --- | --- | --- | --- | --- |\n')
 	for plugin in plugin_list:
-		file.write('| [{}]({}) | {} | {} | {} |\n'.format(
+		file.write('| [{}]({}) | {} | {} | {} | {} |\n'.format(
 			plugin.name, get_plugin_detail_link(plugin.id),
 			plugin.latest_version,
 			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
-			', '.join(map(lambda l: '[{}]({})'.format(l, get_label_doc_link(l.id)), plugin.labels))
+			', '.join(map(lambda l: '[{}]({})'.format(l, get_label_doc_link(l.id)), plugin.labels)),
+			plugin.summary
 		))
 
 
@@ -102,6 +92,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
 	file.write('- {}: {}\n'.format(Text('labels'), ', '.join(map(lambda l: '`{}`'.format(l), plugin.labels))))
+	file.write('- {}: {}\n'.format(Text('summary'), plugin.summary))
 	if len(plugin.meta_info.dependencies) > 0:
 		file.write('- {}:\n'.format(Text('dependencies')))
 		file.write('\n')
