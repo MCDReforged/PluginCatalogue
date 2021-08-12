@@ -4,9 +4,9 @@
 
 一个用于列出 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件的仓库
 
-[点我](https://github.com/MCDReforged/PluginCatalogue/tree/catalogue) 开始浏览插件仓库索引
+[点我](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme-zh_cn.md) 开始浏览插件仓库索引
 
-[点我](https://github.com/MCDReforged/PluginCatalogue/tree/meta) 查看插件仓库数据
+在 [这里](https://github.com/MCDReforged/PluginCatalogue/tree/meta) 你可以了解到插件仓库提供的插件数据
 
 本仓库仅包含支持 MCDReforged >=2.x 的插件
 
