@@ -31,6 +31,7 @@ def main():
 	elif result.subparser_name == 'doc':
 		generate_doc()
 	elif result.subparser_name == 'all':
+		check()
 		update_data()
 		generate_doc()
 	else:
