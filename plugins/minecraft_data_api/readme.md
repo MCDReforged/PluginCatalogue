@@ -11,7 +11,7 @@
   - Release version: N/A
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: `API`
+- Labels: [`API`](/labels/api/readme.md)
 - Summary: A MCDReforged api plugin to get player data information and more
 - Dependencies:
 

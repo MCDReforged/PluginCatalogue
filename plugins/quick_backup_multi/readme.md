@@ -11,7 +11,7 @@
   - Release version: 1.1.3
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: `Management`
+- Labels: [`Management`](/labels/management/readme.md)
 - Summary: A backup/restore plugin for your world, with mutiple backup slot
 - Dependencies:
 

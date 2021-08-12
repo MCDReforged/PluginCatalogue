@@ -11,7 +11,7 @@
   - 发布版本: N/A
 - 作者: [Ricky](https://github.com/rickyhoho)
 - 仓库: https://github.com/rickyhoho/ChatBridgeReforged
-- 标签: `工具`
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 简介: 
 - 插件依赖:
 

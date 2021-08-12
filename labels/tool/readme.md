@@ -8,8 +8,8 @@ Plugin Index with label `Tool`
 
 Plugin Amount: 2
 
-| Plugin Name | Authors | Summary |
-| --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme.md) | ZeroKelvin |  |
-| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) |  |
+| Plugin Name | Authors | Summary | Labels |
+| --- | --- | --- | --- |
+| [CarpetBotList](/plugins/carpetbotlist/readme.md) | ZeroKelvin |  | [`Tool`](/labels/tool/readme.md) |
+| [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) |  | [`Tool`](/labels/tool/readme.md) |
 

@@ -15,7 +15,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
   - Release version: 2.0.0
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
-- Labels: `Tool`
+- Labels: [`Tool`](/labels/tool/readme.md)
 - Summary: 
 - Dependencies:
 
@@ -39,7 +39,7 @@ Help you manage your carpet fake player
   - Release version: N/A
 - Authors: [Ricky](https://github.com/rickyhoho)
 - Repository: https://github.com/rickyhoho/ChatBridgeReforged
-- Labels: `Tool`
+- Labels: [`Tool`](/labels/tool/readme.md)
 - Summary: 
 - Dependencies:
 
@@ -62,7 +62,7 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
   - Release version: N/A
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
-- Labels: `API`
+- Labels: [`API`](/labels/api/readme.md)
 - Summary: A MCDReforged api plugin to get player data information and more
 - Dependencies:
 
@@ -92,7 +92,7 @@ A MCDReforged api plugin to get player data information and more
   - Release version: 1.1.3
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
-- Labels: `Management`
+- Labels: [`Management`](/labels/management/readme.md)
 - Summary: A backup/restore plugin for your world, with mutiple backup slot
 - Dependencies:
 

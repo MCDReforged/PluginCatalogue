@@ -11,7 +11,7 @@
   - Release version: N/A
 - Authors: [Ricky](https://github.com/rickyhoho)
 - Repository: https://github.com/rickyhoho/ChatBridgeReforged
-- Labels: `Tool`
+- Labels: [`Tool`](/labels/tool/readme.md)
 - Summary: 
 - Dependencies:
 

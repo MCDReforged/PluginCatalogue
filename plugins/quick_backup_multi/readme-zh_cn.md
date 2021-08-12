@@ -11,7 +11,7 @@
   - 发布版本: 1.1.3
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
-- 标签: `管理`
+- 标签: [`管理`](/labels/management/readme-zh_cn.md)
 - 简介: 多槽位备份/回档插件
 - 插件依赖:
 

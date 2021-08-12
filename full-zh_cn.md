@@ -15,7 +15,7 @@
   - 发布版本: 2.0.0
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
-- 标签: `工具`
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 简介: 
 - 插件依赖:
 
@@ -39,7 +39,7 @@
   - 发布版本: N/A
 - 作者: [Ricky](https://github.com/rickyhoho)
 - 仓库: https://github.com/rickyhoho/ChatBridgeReforged
-- 标签: `工具`
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 简介: 
 - 插件依赖:
 
@@ -62,7 +62,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
   - 发布版本: N/A
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
-- 标签: `API`
+- 标签: [`API`](/labels/api/readme-zh_cn.md)
 - 简介: 一个用获得玩家信息等数据的的 API
 - 插件依赖:
 
@@ -92,7 +92,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
   - 发布版本: 1.1.3
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/QuickBackupM
-- 标签: `管理`
+- 标签: [`管理`](/labels/management/readme-zh_cn.md)
 - 简介: 多槽位备份/回档插件
 - 插件依赖:
 

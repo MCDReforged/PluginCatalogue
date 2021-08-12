@@ -11,7 +11,7 @@
   - 发布版本: N/A
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
-- 标签: `API`
+- 标签: [`API`](/labels/api/readme-zh_cn.md)
 - 简介: 一个用获得玩家信息等数据的的 API
 - 插件依赖:
 

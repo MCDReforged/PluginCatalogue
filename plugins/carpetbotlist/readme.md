@@ -11,7 +11,7 @@
   - Release version: 2.0.0
 - Authors: ZeroKelvin
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
-- Labels: `Tool`
+- Labels: [`Tool`](/labels/tool/readme.md)
 - Summary: 
 - Dependencies:
 

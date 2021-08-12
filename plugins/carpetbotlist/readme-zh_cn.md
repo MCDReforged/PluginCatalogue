@@ -11,7 +11,7 @@
   - 发布版本: 2.0.0
 - 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
-- 标签: `工具`
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 简介: 
 - 插件依赖:
 
