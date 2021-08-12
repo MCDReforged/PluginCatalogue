@@ -1,0 +1,27 @@
+**English** | [中文](readme-zh_cn.md)
+
+\>\>\> [Back to index](/readme.md)
+
+## chatbridgereforged_client_mc
+
+- Plugin ID: `chatbridgereforged_client_mc`
+- Plugin Name: ChatBridgeReforged
+- Version: 0.0.1-Alpha-006-pre5-2.0-test
+  - Metadata version: 0.0.1-Alpha-006-pre5-2.0-test
+  - Release version: N/A
+- Authors: [Ricky](https://github.com/rickyhoho)
+- Repository: https://github.com/rickyhoho/ChatBridgeReforged
+- Labels: `Tool`
+- Summary: N/A
+- Dependencies:
+
+| Plugin ID | Requirement |
+| --- | --- |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha4 |
+
+- Requirements: None
+
+**Description**
+
+Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bot or other things).
+
