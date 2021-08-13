@@ -35,7 +35,7 @@ class AssetInfo(Serializable):
 	size: int
 	download_count: int
 	created_at: str
-	url: str
+	browser_download_url: str
 
 
 class ReleaseInfo(Serializable):
@@ -78,6 +78,9 @@ class ReleaseInfo(Serializable):
 		self.parsed_version = self.__parse_version(plugin_id)
 		return self.parsed_version
 
+	def get_mcdr_assets(self) -> List[AssetInfo]:
+		return [asset for asset in self.assets if asset.name.endswith('.mcdr')]
+
 
 class ReleaseSummary(Serializable):
 	id: str
@@ -98,9 +101,14 @@ class ReleaseSummary(Serializable):
 				item['url'] = item['html_url']
 				item['description'] = item['body']
 				r_info = ReleaseInfo.deserialize(item)
-				if r_info.parse_version(self.id) is not None:
+				if self.check_release(r_info):
 					self.releases.append(r_info)
 			self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
+
+	def check_release(self, r_info: ReleaseInfo) -> bool:
+		if r_info.parse_version(self.id) is None:
+			return False
+		return len(r_info.get_mcdr_assets()) > 0
 
 
 class PluginMetaSummary(Serializable):

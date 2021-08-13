@@ -9,10 +9,10 @@ pip install -r requirements.txt
 
 2. Start
 
-Run the scrip in the `scripts/` folder
+Run the script in the `scripts/` folder
 
 ```
-python manager.py
+python manager.py --help
 python manager.py check
 ```
 
