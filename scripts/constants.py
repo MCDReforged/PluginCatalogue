@@ -2,6 +2,8 @@ import os
 
 RELEASE_INFO_SCHEMA_VERSION = 1
 
+THREAD_POOL_WORKER = 32
+
 HERE = os.path.dirname(__file__)
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 

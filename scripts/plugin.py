@@ -189,17 +189,14 @@ class Plugin:
 		introduction_translations = {}
 		for lang in LANGUAGES:
 			with with_language(lang):
-				if lang in external_introduction:
-					url = external_introduction[lang]
+				file_location = external_introduction.get(lang)
+				if file_location is not None:
 					try:
-						response = requests.get(url, proxies=constants.PROXIES)
-						assert response.status_code == 200, 'status code: {}'.format(response.status_code)
+						introduction_translations[lang] = self.get_repos_text(file_location)
 					except:
-						print('Failed to get custom introduction file from {} in language {} in {}'.format(url, lang, self))
+						print('Failed to get custom introduction file from {} in language {} in {}'.format(file_location, lang, self))
 						traceback.print_exc()
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
-					else:
-						introduction_translations[lang] = response.text
 				introduction_tr_file_path = os.path.join(self.directory, get_file_name('introduction.md'))
 				if os.path.isfile(introduction_tr_file_path):
 					with utils.read_file(introduction_tr_file_path) as file_handler:
@@ -236,10 +233,13 @@ class Plugin:
 			print('Failed to decode json from response! status_code {}: {}'.format(response.status_code, response.content))
 			raise
 
-	def get_repos_text(self, file_path: str, default=None) -> str:
+	def get_repos_text(self, file_path: str, default: Optional[str] = None) -> str:
 		resp = self.__get_repos_file(file_path)
 		if resp.status_code != 200:
-			return default
+			if default is not None:
+				return default
+			else:
+				raise Exception('not 200 status code when fetching repository file {}: {}'.format(file_path, resp.status_code))
 		return resp.text
 
 	def fetch_meta(self) -> MetaInfo:
