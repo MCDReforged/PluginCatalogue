@@ -20,17 +20,22 @@
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-beta.3 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-beta.3 |
 
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
-| [hjson](https://pypi.org/project/hjson/) |  |
-| [parse](https://pypi.org/project/parse/) |  |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b3 |
+| [hjson](https://pypi.org/project/hjson) |  |
+| [parse](https://pypi.org/project/parse) |  |
 
 ### Introduction
 
 A MCDReforged api plugin to get player data information and more
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
 

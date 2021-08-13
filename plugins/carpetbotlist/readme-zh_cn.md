@@ -20,8 +20,8 @@
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ^2.0.0-beta.1 |
-| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme-zh_cn.md/) | * |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | ^2.0.0-beta.1 |
+| [minecraft_data_api](/plugins/minecraft_data_api/readme-zh_cn.md) | * |
 
 ### 包依赖
 
@@ -31,4 +31,10 @@
 ### 介绍
 
 帮助你管理地毯端的假人
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [[↓]](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
 

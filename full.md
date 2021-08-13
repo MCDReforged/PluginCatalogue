@@ -24,8 +24,8 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ^2.0.0-beta.1 |
-| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | ^2.0.0-beta.1 |
+| [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
 ### Requirements
 
@@ -35,6 +35,12 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 ### Introduction
 
 Help you manage your carpet fake player
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [[↓]](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
 
 ## chatbridgereforged_client_mc
 
@@ -54,7 +60,7 @@ Help you manage your carpet fake player
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha4 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha4 |
 
 ### Requirements
 
@@ -64,6 +70,11 @@ Help you manage your carpet fake player
 ### Introduction
 
 Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bot or other things).
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
 
 ## minecraft_data_api
 
@@ -83,19 +94,24 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-beta.3 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-beta.3 |
 
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
-| [hjson](https://pypi.org/project/hjson/) |  |
-| [parse](https://pypi.org/project/parse/) |  |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b3 |
+| [hjson](https://pypi.org/project/hjson) |  |
+| [parse](https://pypi.org/project/parse) |  |
 
 ### Introduction
 
 A MCDReforged api plugin to get player data information and more
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
 
 ## quick_backup_multi
 
@@ -115,13 +131,13 @@ A MCDReforged api plugin to get player data information and more
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-beta.3 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-beta.3 |
 
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b3 |
 
 ### Introduction
 
@@ -133,4 +149,10 @@ Features:
 - Extra backup for removed world
 - Time protection for slot
 - Backup size display
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 5 | [[↓]](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 

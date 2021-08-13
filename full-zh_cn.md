@@ -24,8 +24,8 @@
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ^2.0.0-beta.1 |
-| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme-zh_cn.md/) | * |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | ^2.0.0-beta.1 |
+| [minecraft_data_api](/plugins/minecraft_data_api/readme-zh_cn.md) | * |
 
 ### 包依赖
 
@@ -35,6 +35,12 @@
 ### 介绍
 
 帮助你管理地毯端的假人
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [[↓]](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
 
 ## chatbridgereforged_client_mc
 
@@ -54,7 +60,7 @@
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha4 |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha4 |
 
 ### 包依赖
 
@@ -64,6 +70,11 @@
 ### 介绍
 
 ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是）
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
 
 ## minecraft_data_api
 
@@ -83,19 +94,24 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-beta.3 |
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
-| [hjson](https://pypi.org/project/hjson/) |  |
-| [parse](https://pypi.org/project/parse/) |  |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b3 |
+| [hjson](https://pypi.org/project/hjson) |  |
+| [parse](https://pypi.org/project/parse) |  |
 
 ### 介绍
 
 一个用获得玩家信息等数据的的 API
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
 
 ## quick_backup_multi
 
@@ -115,13 +131,13 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-beta.3 |
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b3 |
 
 ### 介绍
 
@@ -133,4 +149,10 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 - 对被删除世界的额外备份
 - 插槽时间保护
 - 备份大小显示
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 5 | [[↓]](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 

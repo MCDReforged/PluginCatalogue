@@ -20,13 +20,13 @@
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-beta.3 |
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b3 |
 
 ### 介绍
 
@@ -38,4 +38,10 @@
 - 对被删除世界的额外备份
 - 插槽时间保护
 - 备份大小显示
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 5 | [[↓]](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 

@@ -20,8 +20,8 @@
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ^2.0.0-beta.1 |
-| [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | ^2.0.0-beta.1 |
+| [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
 ### Requirements
 
@@ -31,4 +31,10 @@
 ### Introduction
 
 Help you manage your carpet fake player
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [[↓]](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
 

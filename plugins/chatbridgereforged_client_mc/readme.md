@@ -20,7 +20,7 @@
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha4 |
+| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha4 |
 
 ### Requirements
 
@@ -30,4 +30,9 @@
 ### Introduction
 
 Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bot or other things).
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
 

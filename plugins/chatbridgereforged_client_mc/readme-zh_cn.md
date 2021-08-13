@@ -20,7 +20,7 @@
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha4 |
+| [mcdreforged](/plugins/mcdreforged/readme-zh_cn.md) | \>=2.0.0-alpha4 |
 
 ### 包依赖
 
@@ -30,4 +30,9 @@
 ### 介绍
 
 ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是）
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
 
