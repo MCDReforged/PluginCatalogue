@@ -22,7 +22,6 @@
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-beta.3 |
 
-
 ### 包依赖
 
 | Python 包 | 依赖需求 |
@@ -30,7 +29,6 @@
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
-
 
 ### 介绍
 

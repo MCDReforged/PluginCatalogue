@@ -23,12 +23,10 @@
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ^2.0.0-beta.1 |
 | [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
 
-
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-
 
 ### Introduction
 

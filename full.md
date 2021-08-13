@@ -27,12 +27,10 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | ^2.0.0-beta.1 |
 | [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme.md/) | * |
 
-
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-
 
 ### Introduction
 
@@ -58,12 +56,10 @@ Help you manage your carpet fake player
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-alpha4 |
 
-
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-
 
 ### Introduction
 
@@ -89,7 +85,6 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-beta.3 |
 
-
 ### Requirements
 
 | Python package | Requirement |
@@ -97,7 +92,6 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
 | [hjson](https://pypi.org/project/hjson/) |  |
 | [parse](https://pypi.org/project/parse/) |  |
-
 
 ### Introduction
 
@@ -109,9 +103,9 @@ A MCDReforged api plugin to get player data information and more
 
 - Plugin ID: `quick_backup_multi`
 - Plugin Name: QuickBackupM
-- Version: v1.2.1
+- Version: 1.2.1
   - Metadata version: 1.2.1
-  - Release version: v1.2.1
+  - Release version: 1.2.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: [`Management`](/labels/management/readme.md)
@@ -123,13 +117,11 @@ A MCDReforged api plugin to get player data information and more
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme.md/) | \>=2.0.0-beta.3 |
 
-
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
 | [mcdreforged](https://pypi.org/project/mcdreforged/) | \>=2.0.0b3 |
-
 
 ### Introduction
 

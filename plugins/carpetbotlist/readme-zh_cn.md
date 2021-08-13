@@ -23,12 +23,10 @@
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | ^2.0.0-beta.1 |
 | [minecraft_data_api](https://pypi.org/project//plugins/minecraft_data_api/readme-zh_cn.md/) | * |
 
-
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-
 
 ### 介绍
 

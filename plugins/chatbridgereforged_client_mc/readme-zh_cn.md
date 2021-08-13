@@ -22,12 +22,10 @@
 | --- | --- |
 | [mcdreforged](https://pypi.org/project//plugins/mcdreforged/readme-zh_cn.md/) | \>=2.0.0-alpha4 |
 
-
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-
 
 ### 介绍
 
