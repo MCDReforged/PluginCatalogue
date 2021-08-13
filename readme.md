@@ -102,10 +102,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
 | [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
-| [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | Customize command permissions, supports carpet. |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. |
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | A plugin can run command script quickly in server. |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | A plugin can send commend to the system in games. |
+| [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | Customize command permissions, supports carpet mod. |
 
 ### Recreation
 

@@ -102,10 +102,10 @@
 | - | - | - |
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | 给非 op 以提供开关 carpet 特性的权限 |
 | [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | 提供了一个通过将命令前的'/'字符换为"!!"而通过MCDReforged的权限系统可控制的方式执行命令 |
-| [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | 自定义指令的使用权限（支持 Carpet mod）。 |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于踢出玩家的插件。 |
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | 一个快速运行指令集的插件 |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | 一个游戏内运行系统命令的插件 |
+| [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | 自定义指令的使用权限（支持 Carpet mod）。 |
 
 ### 娱乐
 
