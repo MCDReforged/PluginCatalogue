@@ -36,5 +36,5 @@ Help you manage your carpet fake player
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [[↓]](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
+| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [Download](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
 

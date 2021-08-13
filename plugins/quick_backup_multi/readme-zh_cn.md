@@ -43,5 +43,5 @@
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 5 | [[↓]](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
+| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 6 | [下载](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 

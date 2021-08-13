@@ -40,7 +40,7 @@
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [[↓]](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
+| [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [下载](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/2.0.0/CarpetBotList-v2.0.0.mcdr) |
 
 ## chatbridgereforged_client_mc
 
@@ -154,5 +154,5 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 5 | [[↓]](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
+| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 6 | [下载](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 
