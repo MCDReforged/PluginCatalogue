@@ -20,11 +20,15 @@ class PluginList(List[Plugin]):
 		if self.__inited:
 			return
 		self.clear()
-		for folder in os.listdir(constants.PLUGINS_FOLDER):
-			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
-				print('Found plugin {}'.format(folder))
+		with ThreadPoolExecutor(max_workers=constants.THREAD_POOL_WORKER) as executor:
+			futures = []
+			for folder in os.listdir(constants.PLUGINS_FOLDER):
+				if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
+					print('Found plugin {}'.format(folder))
+					futures.append(executor.submit(Plugin, folder))
+			for future in futures:
 				try:
-					self.append(Plugin(folder))
+					self.append(future.result())
 				except:
 					print('Failed to initialize plugin in folder "{}"'.format(folder))
 					traceback.print_exc()
@@ -35,7 +39,7 @@ class PluginList(List[Plugin]):
 		self.__inited = True
 
 	def __fetch(self, name: str, func: Callable[[Plugin], Any], fail_hard: bool):
-		with ThreadPoolExecutor(max_workers=16) as executor:
+		with ThreadPoolExecutor(max_workers=constants.THREAD_POOL_WORKER) as executor:
 			futures = []
 			for plugin in self:
 				futures.append(executor.submit(func, plugin))
