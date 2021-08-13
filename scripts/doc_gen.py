@@ -120,7 +120,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 		table.write(file)
 	else:
 		file.write('*{}*\n'.format(Text('data_fetched_failed')))
-	file.write('\n')
+		file.write('\n')
 
 	file.write('### {}\n'.format(Text('requirements')))
 	file.write('\n')
@@ -136,11 +136,11 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 		table.write(file)
 	else:
 		file.write('*{}*\n'.format(Text('data_fetched_failed')))
-	file.write('\n')
+		file.write('\n')
 
 	file.write('### {}\n'.format(Text('introduction')))
 	file.write('\n')
-	file.write(plugin.readme.get())
+	file.write(plugin.introduction.get())
 	file.write('\n')
 
 

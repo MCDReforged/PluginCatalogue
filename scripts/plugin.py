@@ -1,4 +1,5 @@
 import os
+import traceback
 from json import JSONDecodeError
 from typing import Optional, List, Dict
 
@@ -125,7 +126,7 @@ class Plugin:
 	labels: List[Label]
 	authors: List[Author]
 	name: str
-	readme: Text
+	introduction: Text
 
 	# Available after fetch_data()
 	meta_info: Optional[MetaInfo] = None
@@ -173,16 +174,27 @@ class Plugin:
 			else:
 				self.labels.append(label)
 
-		# readme
-		readme_translations = {}
+		# introduction
+		external_introduction = js.get('introduction', {})
+		introduction_translations = {}
 		for lang in LANGUAGES:
 			with with_language(lang):
-				readme_tr_file_path = os.path.join(self.directory, get_file_name('readme.md'))
-				if os.path.isfile(readme_tr_file_path):
-					with utils.read_file(readme_tr_file_path) as file_handler:
-						readme_tr = file_handler.read()
-					readme_translations[lang] = readme_tr
-		self.readme = BundledText(readme_translations)
+				if lang in external_introduction:
+					url = external_introduction[lang]
+					try:
+						response = requests.get(url, proxies=constants.PROXIES)
+						assert response.status_code == 200, 'status code: {}'.format(response.status_code)
+					except:
+						print('Failed to get custom introduction file from {} in language {} in {}'.format(url, lang, self))
+						traceback.print_exc()
+						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
+					else:
+						introduction_translations[lang] = response.text
+				introduction_tr_file_path = os.path.join(self.directory, get_file_name('introduction.md'))
+				if os.path.isfile(introduction_tr_file_path):
+					with utils.read_file(introduction_tr_file_path) as file_handler:
+						introduction_translations[lang] = file_handler.read()
+		self.introduction = BundledText(introduction_translations)
 
 	def is_data_fetched(self) -> bool:
 		return self.meta_info is not None and self.release_summary is not None
