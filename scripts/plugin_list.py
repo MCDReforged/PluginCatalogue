@@ -45,10 +45,10 @@ class PluginList(List[Plugin]):
 				except Exception as e:
 					print('Failed to fetch {} of plugin {}'.format(name, plugin))
 					if fail_hard:
-						traceback.print_exc()
 						raise
 					else:
 						print('{}: {}'.format(type(e), e))
+					traceback.print_exc()
 
 	def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
 		print('Fetching data')
