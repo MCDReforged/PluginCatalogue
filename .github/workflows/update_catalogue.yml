@@ -4,18 +4,19 @@ on:
   push:
     branches:
       - next
+  schedule:
+    # Runs at minute 0 and 30 of every hour
+    - cron: '0,30 * * * *'
 
 jobs:
-  catalogue:
+  update:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8'
-
       - uses: actions/cache@v2
         with:
           path: ~/.cache/pip
@@ -29,13 +30,35 @@ jobs:
           ref: meta
           path: meta
 
+      - name: Prepare runtime
+        run: |
+          rm -rf ./meta/.git
+          cd ./scripts
+          pip install -r requirements.txt
+
+      - name: Fetch data
+        run: |
+          cd ./scripts
+          python manager.py fetch
+        env:
+          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+
       - name: Generate doc
         run: |
           cd ./scripts
-          pip install -r requirements.txt
           python manager.py doc
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+
+      - name: Deploy meta
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: meta
+          FOLDER: meta
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          SQUASH_HISTORY: true
+          SKIP_EMPTY_COMMITS: true
 
       - name: Deploy doc
         uses: s0/git-publish-subdir-action@develop
