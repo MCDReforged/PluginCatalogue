@@ -83,6 +83,7 @@ class ReleaseInfo(Serializable):
 
 
 class ReleaseSummary(Serializable):
+	schema_version: int = None
 	id: str
 	latest_version: str
 	etag: str = ''
@@ -93,6 +94,7 @@ class ReleaseSummary(Serializable):
 		resp: Optional[List[dict]]
 		new_etag: str
 		resp, new_etag = utils.request_github_api(url, etag=self.etag)
+		self.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		self.id = plugin.id
 		self.etag = new_etag
 		if resp is not None:
@@ -275,12 +277,26 @@ class Plugin:
 			utils.save_json(self.release_summary.serialize(), self.__release_info_file)
 
 	def fetch_release(self) -> ReleaseSummary:
+		prev = None
 		try:
-			self.release_summary = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file))
+			self.release_summary = prev = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file))
 		except:
+			self.release_summary = None
+		if self.release_summary.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
+			print('Ignoring previous release info due to different schema_version: {} -> {}'.format(self.release_summary.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
+			self.release_summary = None
+		if self.release_summary is None:
 			self.release_summary = ReleaseSummary()
-		self.release_summary.fetch_from_api(self)
-		print('Fetched release info of {}'.format(self.id))
+		try:
+			self.release_summary.fetch_from_api(self)
+		except Exception as e:
+			if prev is not None:
+				self.release_summary = prev
+				print('Failed to fetch release info of {}, use the previous serialized one: {}'.format(self, e))
+			else:
+				raise e from None
+		else:
+			print('Fetched release info of {}'.format(self.id))
 		return self.release_summary
 
 

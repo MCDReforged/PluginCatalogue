@@ -1,5 +1,7 @@
 import os
 
+RELEASE_INFO_SCHEMA_VERSION = 1
+
 HERE = os.path.dirname(__file__)
 ROOT = os.path.abspath(os.path.join(HERE, '..'))
 

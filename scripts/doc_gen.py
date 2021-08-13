@@ -90,22 +90,26 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 	file.write('### {}\n'.format(Text('download')))
 	file.write('\n')
 
-	table = Table(Text('file'), Text('version'), Text('date'), Text('download_amount'), Text('operations'))
-	for release in plugin.release_summary.releases:
-		for asset in release.get_mcdr_assets():
-			table.add_row(
-				Link(asset.name, release.url),
-				release.parsed_version,
-				time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(asset.created_at, '%Y-%m-%dT%H:%M:%SZ')),
-				asset.download_count,
-				' '.join(map(str, [
-					Link('[↓]', asset.browser_download_url)
-				]))
-			)
-			break  # takes the first .mcdr asset
-		if table.row_count == limit:
-			break
-	table.write(file)
+	if plugin.release_summary is not None:
+		table = Table(Text('file'), Text('version'), Text('date'), Text('download_amount'), Text('operations'))
+		for release in plugin.release_summary.releases:
+			for asset in release.get_mcdr_assets():
+				table.add_row(
+					Link(asset.name, release.url),
+					release.parsed_version,
+					time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(asset.created_at, '%Y-%m-%dT%H:%M:%SZ')),
+					asset.download_count,
+					' '.join(map(str, [
+						Link('[↓]', asset.browser_download_url)
+					]))
+				)
+				break  # takes the first .mcdr asset
+			if table.row_count == limit:
+				break
+		table.write(file)
+	else:
+		file.write('*{}*\n'.format(Text('data_fetched_failed')))
+		file.write('\n')
 
 
 def write_plugin(plugin: Plugin, file: IO[str]):
