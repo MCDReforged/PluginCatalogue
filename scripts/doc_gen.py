@@ -100,7 +100,7 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 					time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(asset.created_at, '%Y-%m-%dT%H:%M:%SZ')),
 					asset.download_count,
 					' '.join(map(str, [
-						Link('[↓]', asset.browser_download_url)
+						Link(Text('operations.download'), asset.browser_download_url)
 					]))
 				)
 				break  # takes the first .mcdr asset
@@ -252,7 +252,7 @@ class Table:
 
 	def add_row(self, *items):
 		assert len(items) == self.column_count
-		self.__rows.append(items)
+		self.__rows.append(tuple(map(str, items)))
 
 	@staticmethod
 	def __write_row(file: IO[str], items: tuple):
