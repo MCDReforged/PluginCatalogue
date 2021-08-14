@@ -106,6 +106,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | A plugin can run command script quickly in server. |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | A plugin can send commend to the system in games. |
 | [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | Customize command permissions, supports carpet mod. |
+| [RawInput](https://github.com/zyxgad/rawinput_mcdr) | [zyxgad](https://github.com/zyxgad/) | Provide better command line interface for vanilla server(like spigot's) |
 
 ### Recreation
 
