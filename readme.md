@@ -13,7 +13,7 @@ Full plugin information document [here](./full.md)
 
 -------
 
-Plugin Amount: 4
+Plugin Amount: 5
 
 | Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
@@ -21,4 +21,5 @@ Plugin Amount: 4
 | [ChatBridgeReforged](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custome clients). | [`Tool`](/labels/tool/readme.md) |
 | [Minecraft Data API](/plugins/minecraft_data_api/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more | [`API`](/labels/api/readme.md) |
 | [QuickBackupM](/plugins/quick_backup_multi/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A backup / restore plugin, with multiple backup slot | [`Management`](/labels/management/readme.md) |
+| [Stats Helper](/plugins/stats_helper/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A Minecraft statistic helper | [`Tool`](/labels/tool/readme.md) |
 
