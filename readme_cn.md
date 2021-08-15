@@ -106,6 +106,7 @@
 | [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | 一个快速运行指令集的插件 |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | 一个游戏内运行系统命令的插件 |
 | [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | 自定义指令的使用权限（支持 Carpet mod）。 |
+| [RawInput](https://github.com/zyxgad/rawinput_mcdr) | [zyxgad](https://github.com/zyxgad/) | 为原版服务端提供更好的命令行输入(类似spigot) |
 
 ### 娱乐
 
