@@ -4,6 +4,7 @@ from json import JSONDecodeError
 from typing import Optional, List, Dict
 
 import requests
+from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
 from requests import Response
 
@@ -135,7 +136,6 @@ class Plugin:
 	related_path: Optional[str]
 	labels: List[Label]
 	authors: List[Author]
-	name: str
 	introduction: Text
 
 	# Available after fetch_data()
@@ -157,7 +157,6 @@ class Plugin:
 
 	def load_from_json(self, js: dict):
 		self.id = js.get('id', None)
-		self.name = js.get('name', self.id)
 		self.repository = js['repository'].rstrip('/')
 		if not self.repository.startswith('https://github.com/'):
 			raise ValueError('Github repository with https url is required, found: {}'.format(self.repository))
@@ -243,18 +242,19 @@ class Plugin:
 		return resp.text
 
 	def fetch_meta(self) -> MetaInfo:
-		metadata = self.get_repos_json('mcdreforged.plugin.json')
-		assert metadata['id'] == self.id
+		metadata_json = self.get_repos_json('mcdreforged.plugin.json')
+		metadata = Metadata(metadata_json)
+		assert metadata.id == self.id
 		self.meta_info = MetaInfo()
-		self.meta_info.id = self.id
-		self.meta_info.name = self.name
-		self.meta_info.version = metadata.get('version')
+		self.meta_info.id = metadata.id
+		self.meta_info.name = metadata.name
+		self.meta_info.version = str(metadata.version)
 		self.meta_info.repository = self.repository
 		self.meta_info.labels = list(map(lambda l: l.id, self.labels))
 		self.meta_info.authors = list(map(lambda a: a.name, self.authors))
-		self.meta_info.dependencies = metadata.get('dependencies', {})
+		self.meta_info.dependencies = dict(map(lambda t: (str(t[0]), str(t[1])), metadata.dependencies.items()))
 		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
-		self.meta_info.description = metadata.get('description', {})
+		self.meta_info.description = metadata.description
 		if isinstance(self.meta_info.description, str):
 			self.meta_info.description = {DEFAULT_LANGUAGE: self.meta_info.description}
 		print('Fetched meta info of {}'.format(self.id))
