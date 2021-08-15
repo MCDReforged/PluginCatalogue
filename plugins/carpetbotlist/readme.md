@@ -20,7 +20,7 @@
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | ^2.0.0-beta.1 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | ^2.0.0-beta.1 |
 | [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
 ### Requirements

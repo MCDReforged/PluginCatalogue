@@ -24,7 +24,7 @@ Use `ctrl-f` to performance an in-page search, for what you are interested in
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | ^2.0.0-beta.1 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | ^2.0.0-beta.1 |
 | [minecraft_data_api](/plugins/minecraft_data_api/readme.md) | * |
 
 ### Requirements
@@ -60,7 +60,7 @@ Help you manage your carpet fake player
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-alpha4 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-alpha4 |
 
 ### Requirements
 
@@ -94,7 +94,7 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-beta.3 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.3 |
 
 ### Requirements
 
@@ -131,7 +131,7 @@ A MCDReforged api plugin to get player data information and more
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-beta.3 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.3 |
 
 ### Requirements
 
@@ -162,9 +162,9 @@ Features:
 
 - Plugin ID: `stats_helper`
 - Plugin Name: Stats Helper
-- Version: 7.1.0
-  - Metadata version: 7.1.0
-  - Release version: 7.1.0
+- Version: 7.1.1
+  - Metadata version: 7.1.1
+  - Release version: 7.1.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/StatsHelper
 - Labels: [`Tool`](/labels/tool/readme.md)
@@ -174,7 +174,7 @@ Features:
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](/plugins/mcdreforged/readme.md) | \>=2.0.0-beta.4 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.4 |
 
 ### Requirements
 
@@ -190,5 +190,6 @@ Use `!!stats` to see the value / rank, or build a scoreboard from given statisti
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [StatsHelper-v7.1.1.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.1) | 7.1.1 | 2021/08/15 03:16:33 | 0 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.1/StatsHelper-v7.1.1.mcdr) |
 | [StatsHelper-v7.1.0.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.0) | 7.1.0 | 2021/08/15 02:54:18 | 0 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.0/StatsHelper-v7.1.0.mcdr) |
 
