@@ -7,7 +7,7 @@
 ### 基本信息
 
 - 插件 ID: `quick_backup_multi`
-- 插件名: QuickBackupM
+- 插件名: Quick Backup Multi
 - 版本: 1.2.1
   - 元数据版本: 1.2.1
   - 发布版本: 1.2.1

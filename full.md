@@ -47,7 +47,7 @@ Help you manage your carpet fake player
 ### Basic Information
 
 - Plugin ID: `chatbridgereforged_client_mc`
-- Plugin Name: ChatBridgeReforged
+- Plugin Name: ChatBridgeReforged_client_mc
 - Version: 0.0.1-Alpha-006-pre5-2.0-test
   - Metadata version: 0.0.1-Alpha-006-pre5-2.0-test
   - Release version: N/A
@@ -70,6 +70,42 @@ Help you manage your carpet fake player
 ### Introduction
 
 Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bot or other things).
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+
+## lite_file_manager
+
+### Basic Information
+
+- Plugin ID: `lite_file_manager`
+- Plugin Name: Lite File Manager
+- Version: 1.2.0
+  - Metadata version: 1.2.0
+  - Release version: N/A
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
+- Repository: https://github.com/MCDReforged/LiteFileManager
+- Labels: [`Management`](/labels/management/readme.md)
+- Description: A lite-weight in-game file manager
+
+### Dependencies
+
+| Plugin ID | Requirement |
+| --- | --- |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.7 |
+
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b7 |
+| [requests](https://pypi.org/project/requests) |  |
+
+### Introduction
+
+Browse / Import / Export files in the server in Minecraft!
 
 ### Download
 
@@ -118,7 +154,7 @@ A MCDReforged api plugin to get player data information and more
 ### Basic Information
 
 - Plugin ID: `quick_backup_multi`
-- Plugin Name: QuickBackupM
+- Plugin Name: Quick Backup Multi
 - Version: 1.2.1
   - Metadata version: 1.2.1
   - Release version: 1.2.1

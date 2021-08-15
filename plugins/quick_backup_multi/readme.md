@@ -7,7 +7,7 @@
 ### Basic Information
 
 - Plugin ID: `quick_backup_multi`
-- Plugin Name: QuickBackupM
+- Plugin Name: Quick Backup Multi
 - Version: 1.2.1
   - Metadata version: 1.2.1
   - Release version: 1.2.1

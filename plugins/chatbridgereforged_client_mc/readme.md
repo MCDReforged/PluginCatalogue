@@ -7,7 +7,7 @@
 ### Basic Information
 
 - Plugin ID: `chatbridgereforged_client_mc`
-- Plugin Name: ChatBridgeReforged
+- Plugin Name: ChatBridgeReforged_client_mc
 - Version: 0.0.1-Alpha-006-pre5-2.0-test
   - Metadata version: 0.0.1-Alpha-006-pre5-2.0-test
   - Release version: N/A

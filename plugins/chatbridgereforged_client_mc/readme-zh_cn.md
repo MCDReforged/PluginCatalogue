@@ -7,7 +7,7 @@
 ### 基本信息
 
 - 插件 ID: `chatbridgereforged_client_mc`
-- 插件名: ChatBridgeReforged
+- 插件名: ChatBridgeReforged_client_mc
 - 版本: 0.0.1-Alpha-006-pre5-2.0-test
   - 元数据版本: 0.0.1-Alpha-006-pre5-2.0-test
   - 发布版本: N/A

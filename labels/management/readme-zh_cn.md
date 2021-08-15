@@ -6,9 +6,10 @@
 
 具有标签 `管理` 插件的索引
 
-插件数量: 1
+插件数量: 2
 
 | 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
-| [QuickBackupM](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [Lite File Manager](/plugins/lite_file_manager/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [Quick Backup Multi](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | [`管理`](/labels/management/readme-zh_cn.md) |
 

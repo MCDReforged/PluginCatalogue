@@ -47,7 +47,7 @@
 ### 基本信息
 
 - 插件 ID: `chatbridgereforged_client_mc`
-- 插件名: ChatBridgeReforged
+- 插件名: ChatBridgeReforged_client_mc
 - 版本: 0.0.1-Alpha-006-pre5-2.0-test
   - 元数据版本: 0.0.1-Alpha-006-pre5-2.0-test
   - 发布版本: N/A
@@ -70,6 +70,42 @@
 ### 介绍
 
 ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是）
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+
+## lite_file_manager
+
+### 基本信息
+
+- 插件 ID: `lite_file_manager`
+- 插件名: Lite File Manager
+- 版本: 1.2.0
+  - 元数据版本: 1.2.0
+  - 发布版本: N/A
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
+- 仓库: https://github.com/MCDReforged/LiteFileManager
+- 标签: [`管理`](/labels/management/readme-zh_cn.md)
+- 描述: 一个轻量级的游戏内文件管理器
+
+### 插件依赖
+
+| 插件 ID | 依赖需求 |
+| --- | --- |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.7 |
+
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b7 |
+| [requests](https://pypi.org/project/requests) |  |
+
+### 介绍
+
+在 Minecraft 中浏览/导入/导出服务器中的文件！
 
 ### 下载
 
@@ -118,7 +154,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 ### 基本信息
 
 - 插件 ID: `quick_backup_multi`
-- 插件名: QuickBackupM
+- 插件名: Quick Backup Multi
 - 版本: 1.2.1
   - 元数据版本: 1.2.1
   - 发布版本: 1.2.1
