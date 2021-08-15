@@ -81,7 +81,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	table = Table(Text('plugin_name'), Text('authors'), Text('description'), Text('labels'))
 	for plugin in plugin_list:
 		table.add_row(
-			Link(plugin.name, get_plugin_detail_link(plugin.id)),
+			Link(plugin.meta_info.name, get_plugin_detail_link(plugin.id)),
 			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
 			plugin.meta_info.translated_description,
 			get_label_list_markdown(plugin)
@@ -123,7 +123,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('\n')
 
 	file.write('- {}: `{}`\n'.format(Text('plugin_id'), plugin.id))
-	file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.name))
+	file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.meta_info.name))
 
 	if plugin.is_data_fetched():
 		file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
