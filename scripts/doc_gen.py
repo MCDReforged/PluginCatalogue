@@ -14,7 +14,10 @@ from translation import Text, get_language, get_file_name, LANGUAGES, with_langu
 
 
 def get_plugin_detail_link(plugin_id: str):
-	return '/plugins/{}/{}'.format(plugin_id, get_file_name('readme.md'))
+	if plugin_id == 'mcdreforged':
+		return constants.MCDR_LINK
+	else:
+		return '/plugins/{}/{}'.format(plugin_id, get_file_name('readme.md'))
 
 
 def get_label_doc_link(label_id: str):
