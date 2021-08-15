@@ -172,7 +172,7 @@ class Plugin:
 				author.name = item
 			else:
 				assert isinstance(item, dict)
-				author.deserialize_from(item)
+				author.update_from(item)
 			self.authors.append(author)
 
 		# label
