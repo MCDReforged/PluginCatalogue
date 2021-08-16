@@ -42,6 +42,41 @@
 | --- | --- | --- | --- | --- |
 | [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/v2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [下载](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/v2.0.0/CarpetBotList-v2.0.0.mcdr) |
 
+## chatbridge_client
+
+### 基本信息
+
+- 插件 ID: `chatbridge_client`
+- 插件名: ChatBridge Client
+- 版本: 1.1.0
+  - 元数据版本: 1.1.0
+  - 发布版本: N/A
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
+- 仓库: https://github.com/TISUnion/ChatBridge
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
+- 描述: 跨服聊天
+
+### 插件依赖
+
+| 插件 ID | 依赖需求 |
+| --- | --- |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.10 |
+
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+| [pycryptodome](https://pypi.org/project/pycryptodome) |  |
+
+### 介绍
+
+跨服聊天
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+
 ## chatbridgereforged_client_mc
 
 ### 基本信息
@@ -75,6 +110,40 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
+
+## here
+
+### 基本信息
+
+- 插件 ID: `here`
+- 插件名: Here
+- 版本: 1.1.1
+  - 元数据版本: 1.1.1
+  - 发布版本: 1.1.1
+- 作者: 
+- 仓库: https://github.com/TISUnion/Here
+- 标签: [`信息`](/labels/information/readme-zh_cn.md)
+- 描述: 一显示坐标并高亮玩家
+
+### 插件依赖
+
+| 插件 ID | 依赖需求 |
+| --- | --- |
+
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+
+### 介绍
+
+无
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [Here-v1.1.1.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.1) | 1.1.1 | 2021/08/16 02:45:38 | 0 | [下载](https://github.com/TISUnion/Here/releases/download/v1.1.1/Here-v1.1.1.mcdr) |
 
 ## lite_file_manager
 

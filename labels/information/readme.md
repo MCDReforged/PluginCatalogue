@@ -6,8 +6,9 @@
 
 Plugin Index with label `Information`
 
-Plugin Amount: 0
+Plugin Amount: 1
 
 | Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
+| [Here](/plugins/here/readme.md) |  | Broadcast your position and high light yourself | [`Information`](/labels/information/readme.md) |
 

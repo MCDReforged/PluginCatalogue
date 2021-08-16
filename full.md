@@ -42,6 +42,41 @@ Help you manage your carpet fake player
 | --- | --- | --- | --- | --- |
 | [CarpetBotList-v2.0.0.mcdr](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/tag/v2.0.0) | 2.0.0 | 2021/08/12 07:45:32 | 3 | [Download](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList/releases/download/v2.0.0/CarpetBotList-v2.0.0.mcdr) |
 
+## chatbridge_client
+
+### Basic Information
+
+- Plugin ID: `chatbridge_client`
+- Plugin Name: ChatBridge Client
+- Version: 1.1.0
+  - Metadata version: 1.1.0
+  - Release version: N/A
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
+- Repository: https://github.com/TISUnion/ChatBridge
+- Labels: [`Tool`](/labels/tool/readme.md)
+- Description: Boardcast chat between mc servers or even discord server
+
+### Dependencies
+
+| Plugin ID | Requirement |
+| --- | --- |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.10 |
+
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+| [pycryptodome](https://pypi.org/project/pycryptodome) |  |
+
+### Introduction
+
+Shitty written, but it works XD
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+
 ## chatbridgereforged_client_mc
 
 ### Basic Information
@@ -75,6 +110,40 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+
+## here
+
+### Basic Information
+
+- Plugin ID: `here`
+- Plugin Name: Here
+- Version: 1.1.1
+  - Metadata version: 1.1.1
+  - Release version: 1.1.1
+- Authors: 
+- Repository: https://github.com/TISUnion/Here
+- Labels: [`Information`](/labels/information/readme.md)
+- Description: Broadcast your position and high light yourself
+
+### Dependencies
+
+| Plugin ID | Requirement |
+| --- | --- |
+
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+
+### Introduction
+
+None
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+| [Here-v1.1.1.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.1) | 1.1.1 | 2021/08/16 02:45:38 | 0 | [Download](https://github.com/TISUnion/Here/releases/download/v1.1.1/Here-v1.1.1.mcdr) |
 
 ## lite_file_manager
 
