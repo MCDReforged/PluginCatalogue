@@ -13,7 +13,7 @@
 
 -------
 
-插件数量: 11
+插件数量: 12
 
 | 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
@@ -26,6 +26,7 @@
 | [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个用获得玩家信息等数据的的 API | [`API`](/labels/api/readme-zh_cn.md) |
 | [Permanent Backup](/plugins/permanent_backup/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Quick Backup Multi](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [Region file Updater](/plugins/region_file_updater/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个从指定位置拉取region文件至本服存档的插件 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Stats Helper](/plugins/stats_helper/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个 Minecraft 统计信息助手 | [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md) |
 | [Timed QBM](/plugins/timed_quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个QuickBackupM插件的扩展，用于定时触发QBM从而进行自动备份 | [`管理`](/labels/management/readme-zh_cn.md) |
 

@@ -10,7 +10,7 @@
 - Plugin Name: Location Marker
 - Version: 1.3.1
   - Metadata version: 1.3.1
-  - Release version: N/A
+  - Release version: 1.3.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [Van_Involution](https://github.com/Van-Nya)
 - Repository: https://github.com/TISUnion/LocationMarker
 - Labels: [`Information`](/labels/information/readme.md)
@@ -36,4 +36,5 @@ None
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [LocationMarker-v1.3.1.mcdr](https://github.com/TISUnion/LocationMarker/releases/tag/v1.3.1) | 1.3.1 | 2021/08/16 09:28:09 | 0 | [Download](https://github.com/TISUnion/LocationMarker/releases/download/v1.3.1/LocationMarker-v1.3.1.mcdr) |
 
