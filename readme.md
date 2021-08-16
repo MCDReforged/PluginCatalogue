@@ -52,6 +52,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | Check the coordinate of a player |
 | [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | Create, share and manage Your coordinates! |
+| [DiePosition](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/DiePos) | [Harry-zklcd](https://github.com/Harry-zklcdc) | Send player death position to the position owner && Support MCDR1.x |
 
 ### Scoreboard
 
