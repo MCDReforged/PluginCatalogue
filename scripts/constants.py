@@ -1,6 +1,6 @@
 import os
 
-RELEASE_INFO_SCHEMA_VERSION = 1
+RELEASE_INFO_SCHEMA_VERSION = 2
 
 THREAD_POOL_WORKER = 32
 MCDR_LINK = 'https://github.com/Fallen-Breath/MCDReforged'

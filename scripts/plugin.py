@@ -46,6 +46,7 @@ class ReleaseInfo(Serializable):
 	created_at: str
 	assets: List[AssetInfo]
 	description: str
+	prerelease: bool
 	parsed_version: str
 
 	def __parse_version(self, plugin_id: str) -> Optional[str]:
@@ -110,6 +111,8 @@ class ReleaseSummary(Serializable):
 
 	def check_release(self, r_info: ReleaseInfo) -> bool:
 		if r_info.parse_version(self.id) is None:
+			return False
+		if r_info.prerelease:
 			return False
 		return len(r_info.get_mcdr_assets()) > 0
 
