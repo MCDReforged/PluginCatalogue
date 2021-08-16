@@ -334,3 +334,37 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 | [StatsHelper-v7.1.1.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.1) | 7.1.1 | 2021/08/15 03:16:33 | 0 | [下载](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.1/StatsHelper-v7.1.1.mcdr) |
 | [StatsHelper-v7.1.0.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.0) | 7.1.0 | 2021/08/15 02:54:18 | 0 | [下载](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.0/StatsHelper-v7.1.0.mcdr) |
 
+## timed_quick_backup_multi
+
+### 基本信息
+
+- 插件 ID: `timed_quick_backup_multi`
+- 插件名: Timed QBM
+- 版本: 1.0.1
+  - 元数据版本: 1.0.1
+  - 发布版本: N/A
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
+- 仓库: https://github.com/TISUnion/TimedQBM
+- 标签: [`管理`](/labels/management/readme-zh_cn.md)
+- 描述: 一个QuickBackupM插件的扩展，用于定时触发QBM从而进行自动备份
+
+### 插件依赖
+
+| 插件 ID | 依赖需求 |
+| --- | --- |
+| [quick_backup_multi](/plugins/quick_backup_multi/readme-zh_cn.md) | \>=1.1.0 |
+
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+
+### 介绍
+
+担心备份不频繁导致回档损失严重？快试试这个定时备份插件吧！
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+

@@ -334,3 +334,37 @@ Use `!!stats` to see the value / rank, or build a scoreboard from given statisti
 | [StatsHelper-v7.1.1.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.1) | 7.1.1 | 2021/08/15 03:16:33 | 0 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.1/StatsHelper-v7.1.1.mcdr) |
 | [StatsHelper-v7.1.0.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.0) | 7.1.0 | 2021/08/15 02:54:18 | 0 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.0/StatsHelper-v7.1.0.mcdr) |
 
+## timed_quick_backup_multi
+
+### Basic Information
+
+- Plugin ID: `timed_quick_backup_multi`
+- Plugin Name: Timed QBM
+- Version: 1.0.1
+  - Metadata version: 1.0.1
+  - Release version: N/A
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
+- Repository: https://github.com/TISUnion/TimedQBM
+- Labels: [`Management`](/labels/management/readme.md)
+- Description: A Quick-Backup-Multi extension for automatically trigger QBM at given interval
+
+### Dependencies
+
+| Plugin ID | Requirement |
+| --- | --- |
+| [quick_backup_multi](/plugins/quick_backup_multi/readme.md) | \>=1.1.0 |
+
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+
+### Introduction
+
+Worried about infrequent backups leading to serious progress losses due to the world being restored? Try this timed backup plugin now!
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+
