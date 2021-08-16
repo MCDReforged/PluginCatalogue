@@ -52,7 +52,7 @@
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | 查看其他玩家的坐标 |
 | [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | 保存、共享、管理坐标，分享自己的坐标！ |
-| [DiePosition](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/DiePos) | [Harry-zklcd](https://github.com/Harry-zklcdc) | Send player death position to the position owner && Support MCDR1.x |
+| [DiePosition](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/DiePos) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | 玩家死亡私发死亡坐标 && 支持 `MCDR1.x` |
 
 ### 计分板
 
