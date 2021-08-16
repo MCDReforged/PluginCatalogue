@@ -43,11 +43,11 @@ class PluginList(List[Plugin]):
 			futures = []
 			for plugin in self:
 				futures.append(executor.submit(func, plugin))
-			for future in futures:
+			for i, future in enumerate(futures):
 				try:
 					future.result()
 				except Exception as e:
-					print('Failed to fetch {} of plugin {}'.format(name, plugin))
+					print('Failed to fetch {} of plugin {}'.format(name, self[i]))
 					if fail_hard:
 						raise
 					else:

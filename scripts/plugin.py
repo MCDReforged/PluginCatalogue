@@ -232,7 +232,7 @@ class Plugin:
 		try:
 			return response.json()
 		except JSONDecodeError:
-			print('Failed to decode json from response! status_code {}: {}'.format(response.status_code, response.content))
+			print('Failed to decode json from response! url: {}, status_code {}: {}'.format(response.url, response.status_code, response.content))
 			raise
 
 	def get_repos_text(self, file_path: str, default: Optional[str] = None) -> str:
@@ -257,7 +257,12 @@ class Plugin:
 		self.meta_info.authors = list(map(lambda a: a.name, self.authors))
 		self.meta_info.dependencies = dict(map(lambda t: (str(t[0]), str(t[1])), metadata.dependencies.items()))
 		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
-		self.meta_info.description = metadata.description
+		if isinstance(metadata.description, str):
+			self.meta_info.description = {DEFAULT_LANGUAGE: metadata.description}
+		elif isinstance(metadata.description, dict):
+			self.meta_info.description = metadata.description
+		else:
+			self.meta_info.description = {}
 		if isinstance(self.meta_info.description, str):
 			self.meta_info.description = {DEFAULT_LANGUAGE: self.meta_info.description}
 		print('Fetched meta info of {}'.format(self.id))
