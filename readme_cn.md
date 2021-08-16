@@ -52,6 +52,7 @@
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | 查看其他玩家的坐标 |
 | [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | 保存、共享、管理坐标，分享自己的坐标！ |
+| [DiePosition](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/DiePos) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | 玩家死亡私发死亡坐标 && 支持 `MCDR1.x` |
 
 ### 计分板
 
@@ -95,6 +96,7 @@
 | [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | 存储机器人列表，一键放置/清除机器人 |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人物品映射：将输入的英文，中文（甚至拼音）指向同一假人并提供操作界面和简化指令的插件 |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人器械映射：储存假人的位置信息，随时随地一键放置/清除假人，并可以让假人右键|
+| [MCDR_bot](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/MCDR_Bot) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件, 支持 `1.16.4` 和自建 `Yggdrasil API` |
 
 ### 指令助手
 
@@ -248,6 +250,7 @@
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 一个非常简单的插件，提供了一些(二次封装的)API与事件 |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | \现在你可以依赖你想要的 Python 版本了/ |
 | [MCDReforged-Remote](https://github.com/iXORTech/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
+| [MoreAPIs](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/MoreAPIs) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | 提供了更多的API, 并对原插件进行bug修复 |
 
 ## 水桶革命
 
