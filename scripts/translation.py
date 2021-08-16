@@ -70,7 +70,10 @@ class Text:
 		return result
 
 	def __str__(self):
-		return self.get()
+		rv = self.get()
+		if rv is None:
+			raise ValueError()
+		return rv
 
 
 class BundledText(Text):
