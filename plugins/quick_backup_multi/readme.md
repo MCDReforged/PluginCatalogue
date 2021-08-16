@@ -10,7 +10,7 @@
 - Plugin Name: Quick Backup Multi
 - Version: 1.2.1
   - Metadata version: 1.2.1
-  - Release version: 1.2.1
+  - Release version: N/A
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: [`Management`](/labels/management/readme.md)
@@ -43,5 +43,4 @@ Features:
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 7 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 

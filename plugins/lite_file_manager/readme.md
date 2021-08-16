@@ -10,7 +10,7 @@
 - Plugin Name: Lite File Manager
 - Version: 1.2.0
   - Metadata version: 1.2.0
-  - Release version: N/A
+  - Release version: 1.2.0
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/LiteFileManager
 - Labels: [`Management`](/labels/management/readme.md)
@@ -37,4 +37,5 @@ Browse / Import / Export files in the server in Minecraft!
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/15 16:07:56 | 1 | [Download](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
 

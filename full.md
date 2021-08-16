@@ -84,7 +84,7 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 - Plugin Name: Lite File Manager
 - Version: 1.2.0
   - Metadata version: 1.2.0
-  - Release version: N/A
+  - Release version: 1.2.0
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/LiteFileManager
 - Labels: [`Management`](/labels/management/readme.md)
@@ -111,6 +111,7 @@ Browse / Import / Export files in the server in Minecraft!
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/15 16:07:56 | 1 | [Download](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
 
 ## minecraft_data_api
 
@@ -157,7 +158,7 @@ A MCDReforged api plugin to get player data information and more
 - Plugin Name: Quick Backup Multi
 - Version: 1.2.1
   - Metadata version: 1.2.1
-  - Release version: 1.2.1
+  - Release version: N/A
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Labels: [`Management`](/labels/management/readme.md)
@@ -190,7 +191,6 @@ Features:
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.2.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.1) | 1.2.1 | 2021/08/12 13:00:22 | 7 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.1/QuickBackupM-v1.2.1.mcdr) |
 
 ## stats_helper
 
