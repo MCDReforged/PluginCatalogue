@@ -10,7 +10,7 @@
 - Plugin Name: Timed QBM
 - Version: 1.0.1
   - Metadata version: 1.0.1
-  - Release version: N/A
+  - Release version: 1.0.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/TimedQBM
 - Labels: [`Management`](/labels/management/readme.md)
@@ -35,4 +35,5 @@ Worried about infrequent backups leading to serious progress losses due to the w
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [TimedQBM-v1.0.1.mcdr](https://github.com/TISUnion/TimedQBM/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 03:54:58 | 0 | [Download](https://github.com/TISUnion/TimedQBM/releases/download/v1.0.1/TimedQBM-v1.0.1.mcdr) |
 
