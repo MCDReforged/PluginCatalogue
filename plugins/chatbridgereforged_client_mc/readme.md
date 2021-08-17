@@ -33,6 +33,6 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 ### Download
 
-| File | Version | Date | Downloads | Operations |
-| --- | --- | --- | --- | --- |
+| File | Version | Date | Size | Downloads | Operations |
+| --- | --- | --- | --- | --- | --- |
 
