@@ -94,13 +94,14 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 	file.write('\n')
 
 	if plugin.release_summary is not None:
-		table = Table(Text('file'), Text('version'), Text('date'), Text('download_amount'), Text('operations'))
+		table = Table(Text('file'), Text('version'), Text('date'), Text('size'), Text('download_amount'), Text('operations'))
 		for release in plugin.release_summary.releases:
 			for asset in release.get_mcdr_assets():
 				table.add_row(
 					Link(asset.name, release.url),
 					release.parsed_version,
 					time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(asset.created_at, '%Y-%m-%dT%H:%M:%SZ')),
+					utils.pretty_file_size(asset.size),
 					asset.download_count,
 					' '.join(map(str, [
 						Link(Text('operations.download'), asset.browser_download_url)
