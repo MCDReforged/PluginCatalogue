@@ -250,7 +250,6 @@
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 一个非常简单的插件，提供了一些(二次封装的)API与事件 |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | \现在你可以依赖你想要的 Python 版本了/ |
 | [MCDReforged-Remote](https://github.com/iXORTech/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
-| [MoreAPIs](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/MoreAPIs) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | 提供了更多的API, 并对原插件进行bug修复 |
 
 ## 水桶革命
 
