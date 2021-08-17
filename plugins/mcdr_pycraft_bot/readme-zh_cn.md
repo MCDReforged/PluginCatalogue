@@ -1,0 +1,42 @@
+[English](readme.md) | **中文**
+
+\>\>\> [回到索引](/readme-zh_cn.md)
+
+## mcdr_pycraft_bot
+
+### 基本信息
+
+- 插件 ID: `mcdr_pycraft_bot`
+- 插件名: MCDR Bot
+- 版本: 1.1.0
+  - 元数据版本: 1.1.0
+  - 发布版本: 1.1.0
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
+- 仓库: https://github.com/MCDReforged/MCDR-bot
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
+- 描述: 使用 pycraft 的假人插件
+
+### 插件依赖
+
+| 插件 ID | 依赖需求 |
+| --- | --- |
+
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+| [cryptography](https://pypi.org/project/cryptography) | \>=1.5 |
+| [requests](https://pypi.org/project/requests) |  |
+| [PyNBT](https://pypi.org/project/PyNBT) |  |
+
+### 介绍
+
+基于 [pyCraft](https://github.com/ammaraskar/pyCraft) 的假人插件，适用于盗版服务器
+
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [MCDRBot-v1.1.0.mcdr](https://github.com/MCDReforged/MCDR-bot/releases/tag/v1.1.0) | 1.1.0 | 2021/08/17 01:19:33 | 0 | [下载](https://github.com/MCDReforged/MCDR-bot/releases/download/v1.1.0/MCDRBot-v1.1.0.mcdr) |
+

@@ -8,9 +8,9 @@
 
 - Plugin ID: `here`
 - Plugin Name: Here
-- Version: 1.1.1
-  - Metadata version: 1.1.1
-  - Release version: 1.1.1
+- Version: 1.1.2
+  - Metadata version: 1.1.2
+  - Release version: 1.1.2
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
 - Repository: https://github.com/TISUnion/Here
 - Labels: [`Information`](/labels/information/readme.md)
@@ -34,5 +34,6 @@ None
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [Here-v1.1.2.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.2) | 1.1.2 | 2021/08/16 17:12:55 | 0 | [Download](https://github.com/TISUnion/Here/releases/download/v1.1.2/Here-v1.1.2.mcdr) |
 | [Here-v1.1.1.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.1) | 1.1.1 | 2021/08/16 02:45:38 | 11 | [Download](https://github.com/TISUnion/Here/releases/download/v1.1.1/Here-v1.1.1.mcdr) |
 

@@ -13,7 +13,7 @@ Full plugin information document [here](./full.md)
 
 -------
 
-Plugin Amount: 13
+Plugin Amount: 14
 
 | Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
@@ -24,6 +24,7 @@ Plugin Amount: 13
 | [Lite File Manager](/plugins/lite_file_manager/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A lite-weight in-game file manager | [`Management`](/labels/management/readme.md) |
 | [Location Marker](/plugins/location_marker/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [Van_Involution](https://github.com/Van-Nya) | A server side waypoint manager | [`Information`](/labels/information/readme.md) |
 | [Minecraft UUID API](/plugins/mc_uuid/readme.md) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Minecraft UUID API | [`API`](/labels/api/readme.md) |
+| [MCDR Bot](/plugins/mcdr_pycraft_bot/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | MCDR Bot powered by pyCraft | [`Tool`](/labels/tool/readme.md) |
 | [Minecraft Data API](/plugins/minecraft_data_api/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more | [`API`](/labels/api/readme.md) |
 | [Permanent Backup](/plugins/permanent_backup/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A plugin for creating permanent zip world backups | [`Management`](/labels/management/readme.md) |
 | [Quick Backup Multi](/plugins/quick_backup_multi/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A backup / restore plugin, with multiple backup slot | [`Management`](/labels/management/readme.md) |

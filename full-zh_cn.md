@@ -118,9 +118,9 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 - 插件 ID: `here`
 - 插件名: Here
-- 版本: 1.1.1
-  - 元数据版本: 1.1.1
-  - 发布版本: 1.1.1
+- 版本: 1.1.2
+  - 元数据版本: 1.1.2
+  - 发布版本: 1.1.2
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
 - 仓库: https://github.com/TISUnion/Here
 - 标签: [`信息`](/labels/information/readme-zh_cn.md)
@@ -144,6 +144,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
+| [Here-v1.1.2.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.2) | 1.1.2 | 2021/08/16 17:12:55 | 0 | [下载](https://github.com/TISUnion/Here/releases/download/v1.1.2/Here-v1.1.2.mcdr) |
 | [Here-v1.1.1.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.1) | 1.1.1 | 2021/08/16 02:45:38 | 11 | [下载](https://github.com/TISUnion/Here/releases/download/v1.1.1/Here-v1.1.1.mcdr) |
 
 ## lite_file_manager
@@ -152,9 +153,9 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 - 插件 ID: `lite_file_manager`
 - 插件名: Lite File Manager
-- 版本: 1.2.0
-  - 元数据版本: 1.2.0
-  - 发布版本: 1.2.0
+- 版本: 1.2.1
+  - 元数据版本: 1.2.1
+  - 发布版本: 1.2.1
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/LiteFileManager
 - 标签: [`管理`](/labels/management/readme-zh_cn.md)
@@ -181,7 +182,8 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/15 16:07:56 | 12 | [下载](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
+| [LiteFileManager-v1.2.1.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.1) | 1.2.1 | 2021/08/16 17:09:01 | 0 | [下载](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.1/LiteFileManager-v1.2.1.mcdr) |
+| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/16 17:07:34 | 0 | [下载](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
 
 ## location_marker
 
@@ -217,7 +219,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [LocationMarker-v1.3.1.mcdr](https://github.com/TISUnion/LocationMarker/releases/tag/v1.3.1) | 1.3.1 | 2021/08/16 09:28:09 | 6 | [下载](https://github.com/TISUnion/LocationMarker/releases/download/v1.3.1/LocationMarker-v1.3.1.mcdr) |
+| [LocationMarker-v1.3.1.mcdr](https://github.com/TISUnion/LocationMarker/releases/tag/v1.3.1) | 1.3.1 | 2021/08/16 17:09:34 | 0 | [下载](https://github.com/TISUnion/LocationMarker/releases/download/v1.3.1/LocationMarker-v1.3.1.mcdr) |
 
 ## mc_uuid
 
@@ -254,15 +256,53 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 | --- | --- | --- | --- | --- |
 | [MinecraftUUIDAPI-v1.0.0.mcdr](https://github.com/HuajiMUR233/MCUUID/releases/tag/1.0.0) | 1.0.0 | 2021/08/16 15:53:02 | 0 | [下载](https://github.com/HuajiMUR233/MCUUID/releases/download/1.0.0/MinecraftUUIDAPI-v1.0.0.mcdr) |
 
+## mcdr_pycraft_bot
+
+### 基本信息
+
+- 插件 ID: `mcdr_pycraft_bot`
+- 插件名: MCDR Bot
+- 版本: 1.1.0
+  - 元数据版本: 1.1.0
+  - 发布版本: 1.1.0
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
+- 仓库: https://github.com/MCDReforged/MCDR-bot
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
+- 描述: 使用 pycraft 的假人插件
+
+### 插件依赖
+
+| 插件 ID | 依赖需求 |
+| --- | --- |
+
+### 包依赖
+
+| Python 包 | 依赖需求 |
+| --- | --- |
+| [cryptography](https://pypi.org/project/cryptography) | \>=1.5 |
+| [requests](https://pypi.org/project/requests) |  |
+| [PyNBT](https://pypi.org/project/PyNBT) |  |
+
+### 介绍
+
+基于 [pyCraft](https://github.com/ammaraskar/pyCraft) 的假人插件，适用于盗版服务器
+
+
+### 下载
+
+| 文件 | 版本 | 日期 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- |
+| [MCDRBot-v1.1.0.mcdr](https://github.com/MCDReforged/MCDR-bot/releases/tag/v1.1.0) | 1.1.0 | 2021/08/17 01:19:33 | 0 | [下载](https://github.com/MCDReforged/MCDR-bot/releases/download/v1.1.0/MCDRBot-v1.1.0.mcdr) |
+
 ## minecraft_data_api
 
 ### 基本信息
 
 - 插件 ID: `minecraft_data_api`
 - 插件名: Minecraft Data API
-- 版本: 1.4.0
-  - 元数据版本: 1.4.0
-  - 发布版本: N/A
+- 版本: 1.4.1
+  - 元数据版本: 1.4.1
+  - 发布版本: 1.4.1
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/MinecraftDataAPI
 - 标签: [`API`](/labels/api/readme-zh_cn.md)
@@ -290,6 +330,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
+| [MinecraftDataAPI-v1.4.1.mcdr](https://github.com/MCDReforged/MinecraftDataAPI/releases/tag/v1.4.1) | 1.4.1 | 2021/08/16 17:14:55 | 0 | [下载](https://github.com/MCDReforged/MinecraftDataAPI/releases/download/v1.4.1/MinecraftDataAPI-v1.4.1.mcdr) |
 
 ## permanent_backup
 
@@ -324,7 +365,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [PermanentBackup-v1.0.1.mcdr](https://github.com/MCDReforged/PermanentBackup/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 03:01:38 | 11 | [下载](https://github.com/MCDReforged/PermanentBackup/releases/download/v1.0.1/PermanentBackup-v1.0.1.mcdr) |
+| [PermanentBackup-v1.0.1.mcdr](https://github.com/MCDReforged/PermanentBackup/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 17:05:01 | 0 | [下载](https://github.com/MCDReforged/PermanentBackup/releases/download/v1.0.1/PermanentBackup-v1.0.1.mcdr) |
 
 ## quick_backup_multi
 
@@ -367,7 +408,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.2.2.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.2) | 1.2.2 | 2021/08/16 03:28:05 | 13 | [下载](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.2/QuickBackupM-v1.2.2.mcdr) |
+| [QuickBackupM-v1.2.2.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.2) | 1.2.2 | 2021/08/16 17:06:50 | 2 | [下载](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.2/QuickBackupM-v1.2.2.mcdr) |
 
 ## region_file_updater
 
@@ -402,7 +443,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [RegionfileUpdater-v1.4.1.mcdr](https://github.com/TISUnion/RegionFileUpdater/releases/tag/v1.4.1) | 1.4.1 | 2021/08/16 09:48:12 | 6 | [下载](https://github.com/TISUnion/RegionFileUpdater/releases/download/v1.4.1/RegionfileUpdater-v1.4.1.mcdr) |
+| [RegionfileUpdater-v1.4.1.mcdr](https://github.com/TISUnion/RegionFileUpdater/releases/tag/v1.4.1) | 1.4.1 | 2021/08/16 17:03:12 | 0 | [下载](https://github.com/TISUnion/RegionFileUpdater/releases/download/v1.4.1/RegionfileUpdater-v1.4.1.mcdr) |
 
 ## stats_helper
 
@@ -410,9 +451,9 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 - 插件 ID: `stats_helper`
 - 插件名: Stats Helper
-- 版本: 7.1.1
-  - 元数据版本: 7.1.1
-  - 发布版本: 7.1.1
+- 版本: 7.1.3
+  - 元数据版本: 7.1.3
+  - 发布版本: 7.1.3
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/StatsHelper
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md)
@@ -422,13 +463,13 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 插件 ID | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.4 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.7 |
 
 ### 包依赖
 
 | Python 包 | 依赖需求 |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b4 |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b7 |
 
 ### 介绍
 
@@ -438,6 +479,7 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
+| [StatsHelper-v7.1.3.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.3) | 7.1.3 | 2021/08/16 17:11:23 | 0 | [下载](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.3/StatsHelper-v7.1.3.mcdr) |
 | [StatsHelper-v7.1.1.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.1) | 7.1.1 | 2021/08/15 03:16:33 | 11 | [下载](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.1/StatsHelper-v7.1.1.mcdr) |
 | [StatsHelper-v7.1.0.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.0) | 7.1.0 | 2021/08/15 02:54:18 | 11 | [下载](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.0/StatsHelper-v7.1.0.mcdr) |
 
@@ -474,5 +516,5 @@ ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的�
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [TimedQBM-v1.0.1.mcdr](https://github.com/TISUnion/TimedQBM/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 03:54:58 | 6 | [下载](https://github.com/TISUnion/TimedQBM/releases/download/v1.0.1/TimedQBM-v1.0.1.mcdr) |
+| [TimedQBM-v1.0.1.mcdr](https://github.com/TISUnion/TimedQBM/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 17:10:01 | 0 | [下载](https://github.com/TISUnion/TimedQBM/releases/download/v1.0.1/TimedQBM-v1.0.1.mcdr) |
 

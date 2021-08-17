@@ -118,9 +118,9 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 - Plugin ID: `here`
 - Plugin Name: Here
-- Version: 1.1.1
-  - Metadata version: 1.1.1
-  - Release version: 1.1.1
+- Version: 1.1.2
+  - Metadata version: 1.1.2
+  - Release version: 1.1.2
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
 - Repository: https://github.com/TISUnion/Here
 - Labels: [`Information`](/labels/information/readme.md)
@@ -144,6 +144,7 @@ None
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [Here-v1.1.2.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.2) | 1.1.2 | 2021/08/16 17:12:55 | 0 | [Download](https://github.com/TISUnion/Here/releases/download/v1.1.2/Here-v1.1.2.mcdr) |
 | [Here-v1.1.1.mcdr](https://github.com/TISUnion/Here/releases/tag/v1.1.1) | 1.1.1 | 2021/08/16 02:45:38 | 11 | [Download](https://github.com/TISUnion/Here/releases/download/v1.1.1/Here-v1.1.1.mcdr) |
 
 ## lite_file_manager
@@ -152,9 +153,9 @@ None
 
 - Plugin ID: `lite_file_manager`
 - Plugin Name: Lite File Manager
-- Version: 1.2.0
-  - Metadata version: 1.2.0
-  - Release version: 1.2.0
+- Version: 1.2.1
+  - Metadata version: 1.2.1
+  - Release version: 1.2.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/LiteFileManager
 - Labels: [`Management`](/labels/management/readme.md)
@@ -181,7 +182,8 @@ Browse / Import / Export files in the server in Minecraft!
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/15 16:07:56 | 12 | [Download](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
+| [LiteFileManager-v1.2.1.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.1) | 1.2.1 | 2021/08/16 17:09:01 | 0 | [Download](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.1/LiteFileManager-v1.2.1.mcdr) |
+| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/16 17:07:34 | 0 | [Download](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
 
 ## location_marker
 
@@ -217,7 +219,7 @@ None
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [LocationMarker-v1.3.1.mcdr](https://github.com/TISUnion/LocationMarker/releases/tag/v1.3.1) | 1.3.1 | 2021/08/16 09:28:09 | 6 | [Download](https://github.com/TISUnion/LocationMarker/releases/download/v1.3.1/LocationMarker-v1.3.1.mcdr) |
+| [LocationMarker-v1.3.1.mcdr](https://github.com/TISUnion/LocationMarker/releases/tag/v1.3.1) | 1.3.1 | 2021/08/16 17:09:34 | 0 | [Download](https://github.com/TISUnion/LocationMarker/releases/download/v1.3.1/LocationMarker-v1.3.1.mcdr) |
 
 ## mc_uuid
 
@@ -254,15 +256,52 @@ None
 | --- | --- | --- | --- | --- |
 | [MinecraftUUIDAPI-v1.0.0.mcdr](https://github.com/HuajiMUR233/MCUUID/releases/tag/1.0.0) | 1.0.0 | 2021/08/16 15:53:02 | 0 | [Download](https://github.com/HuajiMUR233/MCUUID/releases/download/1.0.0/MinecraftUUIDAPI-v1.0.0.mcdr) |
 
+## mcdr_pycraft_bot
+
+### Basic Information
+
+- Plugin ID: `mcdr_pycraft_bot`
+- Plugin Name: MCDR Bot
+- Version: 1.1.0
+  - Metadata version: 1.1.0
+  - Release version: 1.1.0
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
+- Repository: https://github.com/MCDReforged/MCDR-bot
+- Labels: [`Tool`](/labels/tool/readme.md)
+- Description: MCDR Bot powered by pyCraft
+
+### Dependencies
+
+| Plugin ID | Requirement |
+| --- | --- |
+
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+| [cryptography](https://pypi.org/project/cryptography) | \>=1.5 |
+| [requests](https://pypi.org/project/requests) |  |
+| [PyNBT](https://pypi.org/project/PyNBT) |  |
+
+### Introduction
+
+MCDR Bot powered by [pyCraft](https://github.com/ammaraskar/pyCraft), works for offline servers
+
+### Download
+
+| File | Version | Date | Downloads | Operations |
+| --- | --- | --- | --- | --- |
+| [MCDRBot-v1.1.0.mcdr](https://github.com/MCDReforged/MCDR-bot/releases/tag/v1.1.0) | 1.1.0 | 2021/08/17 01:19:33 | 0 | [Download](https://github.com/MCDReforged/MCDR-bot/releases/download/v1.1.0/MCDRBot-v1.1.0.mcdr) |
+
 ## minecraft_data_api
 
 ### Basic Information
 
 - Plugin ID: `minecraft_data_api`
 - Plugin Name: Minecraft Data API
-- Version: 1.4.0
-  - Metadata version: 1.4.0
-  - Release version: N/A
+- Version: 1.4.1
+  - Metadata version: 1.4.1
+  - Release version: 1.4.1
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/MCDReforged/MinecraftDataAPI
 - Labels: [`API`](/labels/api/readme.md)
@@ -290,6 +329,7 @@ A MCDReforged api plugin to get player data information and more
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [MinecraftDataAPI-v1.4.1.mcdr](https://github.com/MCDReforged/MinecraftDataAPI/releases/tag/v1.4.1) | 1.4.1 | 2021/08/16 17:14:55 | 0 | [Download](https://github.com/MCDReforged/MinecraftDataAPI/releases/download/v1.4.1/MinecraftDataAPI-v1.4.1.mcdr) |
 
 ## permanent_backup
 
@@ -324,7 +364,7 @@ None
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [PermanentBackup-v1.0.1.mcdr](https://github.com/MCDReforged/PermanentBackup/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 03:01:38 | 11 | [Download](https://github.com/MCDReforged/PermanentBackup/releases/download/v1.0.1/PermanentBackup-v1.0.1.mcdr) |
+| [PermanentBackup-v1.0.1.mcdr](https://github.com/MCDReforged/PermanentBackup/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 17:05:01 | 0 | [Download](https://github.com/MCDReforged/PermanentBackup/releases/download/v1.0.1/PermanentBackup-v1.0.1.mcdr) |
 
 ## quick_backup_multi
 
@@ -367,7 +407,7 @@ Features:
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.2.2.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.2) | 1.2.2 | 2021/08/16 03:28:05 | 13 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.2/QuickBackupM-v1.2.2.mcdr) |
+| [QuickBackupM-v1.2.2.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.2) | 1.2.2 | 2021/08/16 17:06:50 | 2 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.2/QuickBackupM-v1.2.2.mcdr) |
 
 ## region_file_updater
 
@@ -402,7 +442,7 @@ None
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [RegionfileUpdater-v1.4.1.mcdr](https://github.com/TISUnion/RegionFileUpdater/releases/tag/v1.4.1) | 1.4.1 | 2021/08/16 09:48:12 | 6 | [Download](https://github.com/TISUnion/RegionFileUpdater/releases/download/v1.4.1/RegionfileUpdater-v1.4.1.mcdr) |
+| [RegionfileUpdater-v1.4.1.mcdr](https://github.com/TISUnion/RegionFileUpdater/releases/tag/v1.4.1) | 1.4.1 | 2021/08/16 17:03:12 | 0 | [Download](https://github.com/TISUnion/RegionFileUpdater/releases/download/v1.4.1/RegionfileUpdater-v1.4.1.mcdr) |
 
 ## stats_helper
 
@@ -410,9 +450,9 @@ None
 
 - Plugin ID: `stats_helper`
 - Plugin Name: Stats Helper
-- Version: 7.1.1
-  - Metadata version: 7.1.1
-  - Release version: 7.1.1
+- Version: 7.1.3
+  - Metadata version: 7.1.3
+  - Release version: 7.1.3
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/StatsHelper
 - Labels: [`Tool`](/labels/tool/readme.md), [`Information`](/labels/information/readme.md)
@@ -422,13 +462,13 @@ None
 
 | Plugin ID | Requirement |
 | --- | --- |
-| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.4 |
+| [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) | \>=2.0.0-beta.7 |
 
 ### Requirements
 
 | Python package | Requirement |
 | --- | --- |
-| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b4 |
+| [mcdreforged](https://pypi.org/project/mcdreforged) | \>=2.0.0b7 |
 
 ### Introduction
 
@@ -438,6 +478,7 @@ Use `!!stats` to see the value / rank, or build a scoreboard from given statisti
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
+| [StatsHelper-v7.1.3.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.3) | 7.1.3 | 2021/08/16 17:11:23 | 0 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.3/StatsHelper-v7.1.3.mcdr) |
 | [StatsHelper-v7.1.1.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.1) | 7.1.1 | 2021/08/15 03:16:33 | 11 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.1/StatsHelper-v7.1.1.mcdr) |
 | [StatsHelper-v7.1.0.mcdr](https://github.com/TISUnion/StatsHelper/releases/tag/v7.1.0) | 7.1.0 | 2021/08/15 02:54:18 | 11 | [Download](https://github.com/TISUnion/StatsHelper/releases/download/v7.1.0/StatsHelper-v7.1.0.mcdr) |
 
@@ -474,5 +515,5 @@ Worried about infrequent backups leading to serious progress losses due to the w
 
 | File | Version | Date | Downloads | Operations |
 | --- | --- | --- | --- | --- |
-| [TimedQBM-v1.0.1.mcdr](https://github.com/TISUnion/TimedQBM/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 03:54:58 | 6 | [Download](https://github.com/TISUnion/TimedQBM/releases/download/v1.0.1/TimedQBM-v1.0.1.mcdr) |
+| [TimedQBM-v1.0.1.mcdr](https://github.com/TISUnion/TimedQBM/releases/tag/v1.0.1) | 1.0.1 | 2021/08/16 17:10:01 | 0 | [Download](https://github.com/TISUnion/TimedQBM/releases/download/v1.0.1/TimedQBM-v1.0.1.mcdr) |
 

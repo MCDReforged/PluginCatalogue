@@ -8,9 +8,9 @@
 
 - 插件 ID: `lite_file_manager`
 - 插件名: Lite File Manager
-- 版本: 1.2.0
-  - 元数据版本: 1.2.0
-  - 发布版本: 1.2.0
+- 版本: 1.2.1
+  - 元数据版本: 1.2.1
+  - 发布版本: 1.2.1
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/MCDReforged/LiteFileManager
 - 标签: [`管理`](/labels/management/readme-zh_cn.md)
@@ -37,5 +37,6 @@
 
 | 文件 | 版本 | 日期 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- |
-| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/15 16:07:56 | 12 | [下载](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
+| [LiteFileManager-v1.2.1.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.1) | 1.2.1 | 2021/08/16 17:09:01 | 0 | [下载](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.1/LiteFileManager-v1.2.1.mcdr) |
+| [LiteFileManager-v1.2.0.mcdr](https://github.com/MCDReforged/LiteFileManager/releases/tag/v1.2.0) | 1.2.0 | 2021/08/16 17:07:34 | 0 | [下载](https://github.com/MCDReforged/LiteFileManager/releases/download/v1.2.0/LiteFileManager-v1.2.0.mcdr) |
 

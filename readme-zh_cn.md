@@ -13,7 +13,7 @@
 
 -------
 
-插件数量: 13
+插件数量: 14
 
 | 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
@@ -24,6 +24,7 @@
 | [Lite File Manager](/plugins/lite_file_manager/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Location Marker](/plugins/location_marker/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [Van_Involution](https://github.com/Van-Nya) | 一个服务端共享路标点管理器 | [`信息`](/labels/information/readme-zh_cn.md) |
 | [Minecraft UUID API](/plugins/mc_uuid/readme-zh_cn.md) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Minecraft UUID API | [`API`](/labels/api/readme-zh_cn.md) |
+| [MCDR Bot](/plugins/mcdr_pycraft_bot/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 pycraft 的假人插件 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Minecraft Data API](/plugins/minecraft_data_api/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个用获得玩家信息等数据的的 API | [`API`](/labels/api/readme-zh_cn.md) |
 | [Permanent Backup](/plugins/permanent_backup/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 创建永久的用 zip 压缩的备份 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Quick Backup Multi](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | [`管理`](/labels/management/readme-zh_cn.md) |
