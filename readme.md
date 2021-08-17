@@ -250,7 +250,6 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | A very simple plugin that provides some (secondary wrapper) API with events |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Let you can depend a you want python version |
 | [MCDReforged-Remote](https://github.com/iXORTech/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | A MCDR plugin and a Java library, connecting QQ and Minecraft & allowing users to implement server control and other functions through the library  |
-| [MoreAPIs](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/MoreAPIs) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | Provides some (secondary wrapper) API with events, and fix some bugs |
 
 ## Bukkit Revolution
 
