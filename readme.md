@@ -52,7 +52,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | Check the coordinate of a player |
 | [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | Create, share and manage Your coordinates! |
-| [DiePosition](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/DiePos) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | Send player death position to the position owner && Support `MCDR1.x` |
 
 ### Scoreboard
 
@@ -96,7 +95,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | Storage bot list, one key to spawn or kill bot |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | The input English, Chinese (even Pinyin) points to the same BOT and provides operation interface and simplified instructions |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | Storage bot position list, one key to spawn or kill bot, and can let the bot right click |
-| [MCDR_bot](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/MCDR_Bot) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft), Supoort to `1.16.4` and yourself `Yggdrasil API` |
 
 ### Command
 
@@ -250,7 +248,6 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | A very simple plugin that provides some (secondary wrapper) API with events |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Let you can depend a you want python version |
 | [MCDReforged-Remote](https://github.com/iXORTech/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | A MCDR plugin and a Java library, connecting QQ and Minecraft & allowing users to implement server control and other functions through the library  |
-| [MoreAPIs](https://github.com/Harry-zklcdc/MCDR-Plugins/tree/main/MoreAPIs) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | Provides some (secondary wrapper) API with events, and fix some bugs |
 
 ## Bukkit Revolution
 
