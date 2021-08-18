@@ -13,13 +13,14 @@
 
 -------
 
-插件数量: 15
+插件数量: 16
 
 | 插件名 | 作者 | 描述 | 标签 |
 | --- | --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | ZeroKelvin | 帮助你管理地毯端假人 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | 帮助你管理地毯端假人 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [ChatBridge Client](/plugins/chatbridge_client/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [ChatBridgeReforged_client_mc](/plugins/chatbridgereforged_client_mc/readme-zh_cn.md) | [Ricky](https://github.com/rickyhoho) | ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是） | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Daytime](/plugins/daytime/readme-zh_cn.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | 显示游戏中的时间 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Here](/plugins/here/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | 一显示坐标并高亮玩家 | [`信息`](/labels/information/readme-zh_cn.md) |
 | [Lite File Manager](/plugins/lite_file_manager/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Location Marker](/plugins/location_marker/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [Van_Involution](https://github.com/Van-Nya) | 一个服务端共享路标点管理器 | [`信息`](/labels/information/readme-zh_cn.md) |

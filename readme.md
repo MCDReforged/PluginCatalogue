@@ -13,13 +13,14 @@ Full plugin information document [here](./full.md)
 
 -------
 
-Plugin Amount: 15
+Plugin Amount: 16
 
 | Plugin Name | Authors | Description | Labels |
 | --- | --- | --- | --- |
-| [CarpetBotList](/plugins/carpetbotlist/readme.md) | ZeroKelvin | Help you manage your carpet fake player | [`Tool`](/labels/tool/readme.md) |
+| [CarpetBotList](/plugins/carpetbotlist/readme.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | Help you manage your carpet fake player | [`Tool`](/labels/tool/readme.md) |
 | [ChatBridge Client](/plugins/chatbridge_client/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | Boardcast chat between mc servers or even discord server | [`Tool`](/labels/tool/readme.md) |
 | [ChatBridgeReforged_client_mc](/plugins/chatbridgereforged_client_mc/readme.md) | [Ricky](https://github.com/rickyhoho) | Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custome clients). | [`Tool`](/labels/tool/readme.md) |
+| [Daytime](/plugins/daytime/readme.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | show time in minecraft | [`Tool`](/labels/tool/readme.md) |
 | [Here](/plugins/here/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Broadcast your position and high light yourself | [`Information`](/labels/information/readme.md) |
 | [Lite File Manager](/plugins/lite_file_manager/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A lite-weight in-game file manager | [`Management`](/labels/management/readme.md) |
 | [Location Marker](/plugins/location_marker/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [Van_Involution](https://github.com/Van-Nya) | A server side waypoint manager | [`Information`](/labels/information/readme.md) |

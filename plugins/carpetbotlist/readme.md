@@ -11,7 +11,7 @@
 - Version: 2.1.0
   - Metadata version: 2.1.0
   - Release version: 2.1.0
-- Authors: ZeroKelvin
+- Authors: [ZeroKelvin](https://github.com/BelowZeroKelvin)
 - Repository: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - Labels: [`Tool`](/labels/tool/readme.md)
 - Description: Help you manage your carpet fake player
