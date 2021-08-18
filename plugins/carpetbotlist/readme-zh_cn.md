@@ -11,7 +11,7 @@
 - 版本: 2.1.0
   - 元数据版本: 2.1.0
   - 发布版本: 2.1.0
-- 作者: [ZeroKelvin](https://github.com/BelowZeroKelvin)
+- 作者: ZeroKelvin
 - 仓库: https://github.com/BelowZeroKelvin/MCDR-CarpetBotList
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 描述: 帮助你管理地毯端假人
