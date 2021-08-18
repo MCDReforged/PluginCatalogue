@@ -199,7 +199,7 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | - | - | - |
 | [SimpleOP](https://github.com/MCDReforged/SimpleOP) | [Fallen_Breath](https://github.com/Fallen-Breath) | `!!op` to get op, `!!restart` to restart the server. For CMP server |
 | [StartStopHelper](https://github.com/MCDReforged/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server |
-| [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you sync/turn on your mirror server, for building design and redstone debug |
+| [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you sync/turn on your mirror server, for building design and redstone debug (Rcon related feature is not supported in MCDR 1.x) |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole) | [ixiaohei](https://github.com/ixiaohei-sakura) | mcdr web console |
 | [simple_test](https://github.com/rickyhoho/simple_test) | [Ricky](https://github.com/rickyhoho) | A plugin for checking simple problem of MCDR |
 | [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | A plugin for MCDReforged to check cpu temp regularly |
