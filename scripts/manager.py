@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 
 from doc_gen import generate_doc
-from plugin import get_plugin_list
+from plugin_list import get_plugin_list
 
 
 def check():

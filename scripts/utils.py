@@ -78,3 +78,11 @@ def request_github_api(url: str, *, etag: str = '') -> Tuple[Optional[Any], str]
 	return response.json(), new_etag
 
 
+def pretty_file_size(size: int) -> str:
+	for c in ('B', 'KB', 'MB', 'GB', 'TB'):
+		unit = c
+		if size < 2 ** 10:
+			break
+		size /= 2 ** 10
+	return str(round(size, 2)) + unit
+
