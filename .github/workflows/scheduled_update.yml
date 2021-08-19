@@ -1,9 +1,9 @@
-name: Update Catalogue
+name: Scheduled update
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    # Runs at minute 15 and 45 of every hour
+    - cron: '15,45 * * * *'
 
 jobs:
   update:
@@ -33,10 +33,17 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
 
-      - name: Check, fetch data and generate doc
+      - name: Fetch data
         run: |
           cd ./scripts
-          python manager.py all
+          python manager.py fetch
+        env:
+          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+
+      - name: Generate doc
+        run: |
+          cd ./scripts
+          python manager.py doc
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
