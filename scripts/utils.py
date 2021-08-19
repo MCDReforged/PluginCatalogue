@@ -71,6 +71,11 @@ def request_github_api(url: str, *, etag: str = '') -> Tuple[Optional[Any], str]
 	new_etag = response.headers['ETag']
 	# print('RateLimit: {}/{}'.format(response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']))
 	# print('ETag: {} -> {}'.format(etag, new_etag))
+
+	# strange prefix. does not affect accuracy, but will randomly change from time to time
+	# so yeets it here in advance
+	if new_etag.startswith('W/'):
+		new_etag = new_etag[2:]
 	if response.status_code == 304:
 		return None, new_etag
 	if response.status_code != 200:
