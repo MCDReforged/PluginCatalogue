@@ -256,7 +256,7 @@ class Plugin:
 		self.meta_info.labels = list(map(lambda l: l.id, self.labels))
 		self.meta_info.authors = list(map(lambda a: a.name, self.authors))
 		self.meta_info.dependencies = dict(map(lambda t: (str(t[0]), str(t[1])), metadata.dependencies.items()))
-		self.meta_info.requirements = self.get_repos_text('requirements.txt', default='').strip().splitlines()
+		self.meta_info.requirements = list(filter(lambda l: len(l) > 0 and not l.startswith('#'), self.get_repos_text('requirements.txt', default='').splitlines()))
 		if isinstance(metadata.description, str):
 			self.meta_info.description = {DEFAULT_LANGUAGE: metadata.description}
 		elif isinstance(metadata.description, dict):
