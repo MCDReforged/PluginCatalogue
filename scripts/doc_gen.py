@@ -90,6 +90,14 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 
 
 def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
+	try:
+		_write_plugin_download(plugin, file, limit)
+	except:
+		print('Failed to write plugin downloads of {}'.format(plugin))
+		raise
+
+
+def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 	file.write('### {}\n'.format(Text('download')))
 	file.write('\n')
 
@@ -117,6 +125,14 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 
 
 def write_plugin(plugin: Plugin, file: IO[str]):
+	try:
+		_write_plugin(plugin, file)
+	except:
+		print('Failed to write plugin information of {}'.format(plugin))
+		raise
+
+
+def _write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('## {}\n'.format(plugin.id))
 	file.write('\n')
 
@@ -158,7 +174,11 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	if plugin.is_data_fetched():
 		table = Table(Text('python_package'), Text('requirements.requirement'))
 		for line in plugin.meta_info.requirements:
-			package = re.match(r'^[A-Za-z.-]+', line).group()
+			matched = re.match(r'^[A-Za-z.-]+', line)
+			if matched is None:
+				print('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
+				continue
+			package = matched.group()
 			req = utils.remove_prefix(line, package)
 			table.add_row(
 				Link(package, 'https://pypi.org/project/{}'.format(package)),
