@@ -27,12 +27,11 @@ class MetaInfo(Serializable):
 	description: Dict[str, str]
 
 	@property
-	def translated_description(self) -> Text:
-		text = BundledText(self.description)
-		if text.can_translate():
-			return text
-		else:
-			return Text('none')
+	def translated_description(self) -> str:
+		text = BundledText(self.description).get()
+		if text is None:
+			text = '*{}*'.format(Text('none'))
+		return text
 
 
 class AssetInfo(Serializable):

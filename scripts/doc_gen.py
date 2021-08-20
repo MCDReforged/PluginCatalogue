@@ -196,7 +196,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 
 	file.write('### {}\n'.format(Text('introduction')))
 	file.write('\n')
-	file.write(plugin.introduction.get() or '{}\n'.format(Text('none').get()))
+	file.write(plugin.introduction.get() or '*{}*\n'.format(Text('none').get()))
 	file.write('\n')
 
 
