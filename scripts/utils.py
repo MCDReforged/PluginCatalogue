@@ -68,7 +68,11 @@ def request_github_api(url: str, *, etag: str = '') -> Tuple[Optional[Any], str]
 	if 'github_api_token' in os.environ:
 		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
 	response = requests.get(url, proxies=constants.PROXIES, headers=headers)
-	new_etag = response.headers['ETag']
+	try:
+		new_etag = response.headers['ETag']
+	except KeyError:
+		print('No ETag in response! url={}, status_code={}, content={}'.format(url, response.status_code, response.content))
+		raise
 	# print('RateLimit: {}/{}'.format(response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']))
 	# print('ETag: {} -> {}'.format(etag, new_etag))
 
