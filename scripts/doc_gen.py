@@ -153,6 +153,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	else:
 		file.write('- {}: *{}*\n'.format(Text('version'), Text('data_fetched_failed')))
 
+	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
 	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))

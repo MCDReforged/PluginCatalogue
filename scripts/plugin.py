@@ -120,6 +120,13 @@ class ReleaseSummary(Serializable):
 			return False
 		return len(r_info.get_mcdr_assets()) > 0
 
+	def get_total_downloads(self) -> int:
+		total = 0
+		for release in self.releases:
+			for asset in release.get_mcdr_assets():
+				total += asset.download_count
+		return total
+
 
 class PluginMetaSummary(Serializable):
 	plugin_amount: int
