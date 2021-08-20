@@ -80,12 +80,16 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	file.write('\n')
 	table = Table(Text('plugin_name'), Text('authors'), Text('description'), Text('labels'))
 	for plugin in plugin_list:
-		table.add_row(
-			Link(plugin.meta_info.name, get_plugin_detail_link(plugin.id)),
-			', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
-			plugin.meta_info.translated_description,
-			get_label_list_markdown(plugin)
-		)
+		try:
+			table.add_row(
+				Link(plugin.meta_info.name, get_plugin_detail_link(plugin.id)),
+				', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
+				plugin.meta_info.translated_description,
+				get_label_list_markdown(plugin)
+			)
+		except:
+			print('Failed to write plugin index of {}'.format(plugin))
+			raise
 	table.write(file)
 
 
@@ -276,7 +280,11 @@ class Table:
 
 	def add_row(self, *items):
 		assert len(items) == self.column_count
-		self.__rows.append(tuple(map(str, items)))
+		try:
+			self.__rows.append(tuple(map(str, items)))
+		except:
+			print('Failed to add new rows to table, rows: {}'.format(items))
+			raise
 
 	@staticmethod
 	def __write_row(file: IO[str], items: tuple):

@@ -61,19 +61,35 @@ class Text:
 	def __init__(self, key: str):
 		self.__key = key
 
+	def _key_not_found(self):
+		raise KeyError('Unknown translation key {}'.format(self.__key))
+
 	def get(self) -> Optional[str]:
 		result = _TRANSLATION[get_language()].get(self.__key)
 		if result is None:
 			result = _TRANSLATION[DEFAULT_LANGUAGE].get(self.__key)
-		if result is None:
-			raise KeyError('Unknown translation key {}'.format(self.__key))
 		return result
+
+	def can_translate(self) -> bool:
+		return self.get() is not None
 
 	def __str__(self):
 		rv = self.get()
 		if rv is None:
-			raise ValueError()
+			self._key_not_found()
 		return rv
+
+	def __repr__(self):
+		return 'Text[key={}]'.format(self.__key)
+
+
+class LiteralText(Text):
+	def __init__(self, text: str):
+		super().__init__('')
+		self.__text = text
+
+	def get(self) -> Optional[str]:
+		return self.__text
 
 
 class BundledText(Text):
@@ -81,6 +97,12 @@ class BundledText(Text):
 		super().__init__('')
 		self.__default = default
 		self.__mapping: _TRANSLATION_TYPE = mapping
+
+	def _key_not_found(self):
+		raise KeyError('Unknown translation key in {}'.format(repr(self)))
+
+	def __repr__(self):
+		return 'BundledText[default={},mapping={}]'.format(self.__default, self.__mapping)
 
 	def get(self) -> Optional[str]:
 		result = self.__mapping.get(get_language())

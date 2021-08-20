@@ -28,7 +28,11 @@ class MetaInfo(Serializable):
 
 	@property
 	def translated_description(self) -> Text:
-		return BundledText(self.description)
+		text = BundledText(self.description)
+		if text.can_translate():
+			return text
+		else:
+			return Text('none')
 
 
 class AssetInfo(Serializable):
@@ -287,12 +291,14 @@ class Plugin:
 	def fetch_release(self) -> ReleaseSummary:
 		prev = None
 		try:
-			self.release_summary = prev = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file))
-		except:
+			self.release_summary = prev = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file), error_at_missing=True)
+		except Exception as e:
+			print('Failed to deserialized existed release_summary: {} {}'.format(type(e), e))
 			self.release_summary = None
-		if self.release_summary.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
-			print('Ignoring previous release info due to different schema_version: {} -> {}'.format(self.release_summary.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
-			self.release_summary = None
+		else:
+			if self.release_summary.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
+				print('Ignoring previous release info due to different schema_version: {} -> {}'.format(self.release_summary.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
+				self.release_summary = None
 		if self.release_summary is None:
 			self.release_summary = ReleaseSummary()
 		try:
@@ -300,7 +306,7 @@ class Plugin:
 		except Exception as e:
 			if prev is not None:
 				self.release_summary = prev
-				print('Failed to fetch release info of {}, use the previous serialized one: {}'.format(self, e))
+				print('Failed to fetch release info of {}, use the previous serialized one: {} {}'.format(self, type(e), e))
 			else:
 				raise e from None
 		else:
