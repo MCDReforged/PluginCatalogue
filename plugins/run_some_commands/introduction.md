@@ -1,0 +1,1 @@
+Let player run whitelisted vanilla command
