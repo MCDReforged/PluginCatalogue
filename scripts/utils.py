@@ -29,7 +29,7 @@ def load_json(file_path: str) -> dict:
 		with open(file_path, encoding='utf8') as file:
 			return json.load(file)
 	else:
-		return {}
+		raise FileNotFoundError('File {} not found when loading json'.format(file_path))
 
 
 @contextmanager
