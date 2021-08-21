@@ -31,6 +31,8 @@ class MetaInfo(Serializable):
 		text = BundledText(self.description).get()
 		if text is None:
 			text = '*{}*'.format(Text('none'))
+		else:
+			text = utils.format_markdown(text)
 		return text
 
 
