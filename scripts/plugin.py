@@ -229,6 +229,12 @@ class Plugin:
 		# TISUnion/QuickBackupM
 		return utils.remove_prefix(self.repository, 'https://github.com/')
 
+	def str(self):
+		try:
+			return self.id
+		except:
+			return repr(self)
+
 	def __repr__(self):
 		return 'Plugin[id={},repository={}]'.format(self.id, self.repository)
 
@@ -307,7 +313,8 @@ class Plugin:
 		try:
 			self.release_summary = prev = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file), error_at_missing=True)
 		except Exception as e:
-			print('Failed to deserialized existed release_summary: {} {}'.format(type(e), e))
+			if not isinstance(e, FileNotFoundError):
+				print('Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
 			self.release_summary = None
 		else:
 			if self.release_summary.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
