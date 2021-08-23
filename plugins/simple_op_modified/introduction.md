@@ -1,1 +1,1 @@
-Get op automatically, or restart
+`!!op` to configure auto-op, or `!!restart` to restart serv3r
