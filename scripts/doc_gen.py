@@ -24,6 +24,14 @@ def get_label_doc_link(label_id: str):
 	return '/labels/{}/{}'.format(label_id, get_file_name('readme.md'))
 
 
+def failed() -> str:
+	return '*{}*'.format(Text('data_fetched_failed'))
+
+
+def none() -> str:
+	return '*{}*'.format(Text('none'))
+
+
 def get_root_readme_file_path():
 	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('readme.md'))
 
@@ -81,10 +89,15 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	table = Table(Text('plugin_name'), Text('authors'), Text('description'), Text('labels'))
 	for plugin in plugin_list:
 		try:
+			if plugin.is_data_fetched():
+				name = plugin.meta_info.name
+				translated_description = plugin.meta_info.translated_description
+			else:
+				name = translated_description = failed()
 			table.add_row(
-				Link(plugin.meta_info.name, get_plugin_detail_link(plugin.id)),
+				Link(name, get_plugin_detail_link(plugin.id)),
 				', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
-				plugin.meta_info.translated_description,
+				translated_description,
 				get_label_list_markdown(plugin)
 			)
 		except:
@@ -144,20 +157,22 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('\n')
 
 	file.write('- {}: `{}`\n'.format(Text('plugin_id'), plugin.id))
-	file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.meta_info.name))
-
 	if plugin.is_data_fetched():
+		file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.meta_info.name))
 		file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
 		file.write('  - {}: {}\n'.format(Text('metadata_version'), plugin.meta_info.version))
 		file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version))
 	else:
-		file.write('- {}: *{}*\n'.format(Text('version'), Text('data_fetched_failed')))
+		file.write('- {}: {}\n'.format(Text('version'), failed()))
 
 	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
 	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))
-	file.write('- {}: {}\n'.format(Text('description'), plugin.meta_info.translated_description))
+	if plugin.is_data_fetched():
+		file.write('- {}: {}\n'.format(Text('description'), plugin.meta_info.translated_description))
+	else:
+		file.write('- {}: {}\n'.format(Text('description'), failed()))
 	file.write('\n')
 
 	file.write('### {}\n'.format(Text('dependencies')))
@@ -171,7 +186,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 			)
 		table.write(file)
 	else:
-		file.write('*{}*\n'.format(Text('data_fetched_failed')))
+		file.write('{}\n'.format(failed()))
 		file.write('\n')
 
 	file.write('### {}\n'.format(Text('requirements')))
@@ -191,12 +206,12 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 			)
 		table.write(file)
 	else:
-		file.write('*{}*\n'.format(Text('data_fetched_failed')))
+		file.write('{}\n'.format(failed()))
 		file.write('\n')
 
 	file.write('### {}\n'.format(Text('introduction')))
 	file.write('\n')
-	file.write(plugin.introduction.get() or '*{}*\n'.format(Text('none').get()))
+	file.write(plugin.introduction.get() or '{}\n'.format(none()))
 	file.write('\n')
 
 
@@ -255,6 +270,8 @@ def generate_doc():
 		print('Generating doc in language {}'.format(lang))
 		with with_language(lang):
 			write_doc()
+
+	print('Generating doc done')
 
 
 class Link:
