@@ -194,7 +194,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	if plugin.is_data_fetched():
 		table = Table(Text('python_package'), Text('requirements.requirement'))
 		for line in plugin.meta_info.requirements:
-			matched = re.match(r'^[A-Za-z.-]+', line)
+			matched = re.match(r'^[^<>=~^]+', line)
 			if matched is None:
 				print('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
 				continue
