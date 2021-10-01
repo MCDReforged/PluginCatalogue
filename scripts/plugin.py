@@ -86,7 +86,7 @@ class ReleaseInfo(Serializable):
 		return self.parsed_version
 
 	def get_mcdr_assets(self) -> List[AssetInfo]:
-		return [asset for asset in self.assets if asset.name.endswith('.mcdr')]
+		return [asset for asset in self.assets if asset.name.endswith('.mcdr') or asset.name.endswith('.pyz')]
 
 
 class ReleaseSummary(Serializable):
