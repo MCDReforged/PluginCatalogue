@@ -103,7 +103,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetFeatureHelper](https://github.com/TISUnion/CarpetFeatureHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Give the ability of switching some of carpet options to non-op player |
 | [CommandPermissionReload](https://github.com/DrLee-lihr/CommandPermissionReload) | [DrLee_lihr](https://github.com/DrLee-lihr) | Provides a way to execute the command by changing the '/' character in front of the command to "!!", which can be controlled by the permission system of MCDReforged |
 | [kick](https://github.com/ChunkAsgore/kick) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for kicking out players for MCDReforged. |
-| [quick_run_cmd](https://github.com/rickyhoho/quick_run_cmd) | [Ricky](https://github.com/rickyhoho) | A plugin can run command script quickly in server. |
+| [quick_run_cmd](https://github.com/R1ckyH/quick_run_cmd) | [Ricky](https://github.com/R1ckyH) | A plugin can run command script quickly in server. |
 | [CwdHelper](https://github.com/Railgun-wiki/CwdHelper) | [Railgun_ALGO](https://github.com/Railgun-wiki) | A plugin can send commend to the system in games. |
 | [CommandTraverse](https://github.com/zhangtianli2006/CommandTraverse) | [zhangtianli2006](https://github.com/zhangtianli2006) | Customize command permissions, supports carpet mod. |
 | [RawInput](https://github.com/zyxgad/rawinput_mcdr) | [zyxgad](https://github.com/zyxgad/) | Provide better command line interface for vanilla server(like spigot's) |
@@ -137,7 +137,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Vote](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
 | [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Connect QQ and Minecraft, with `list` function |
 | [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
-| [ChatBridgeReforged](https://github.com/rickyhoho/ChatBridgeReforged) | [Ricky](https://github.com/rickyhoho) | Reforged of [ChatBridge](https://github.com/TISUnion/ChatBridge), Boardcast chat between mc servers or even discord server |
+| [ChatBridgeReforged](https://github.com/R1ckyH/ChatBridgeReforged) | [Ricky](https://github.com/R1ckyH) | Reforged of [ChatBridge](https://github.com/TISUnion/ChatBridge), Boardcast chat between mc servers or even discord server |
 
 ## Server Management
 
@@ -201,8 +201,8 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [StartStopHelper](https://github.com/MCDReforged/StartStopHelper) | [Fallen_Breath](https://github.com/Fallen-Breath) | Help admin to start / stop / restart the server |
 | [MCDR-Mirror-Server](https://github.com/GamerNoTitle/MCDR-Mirror-Server) | [GamerNoTitle](https://github.com/GamerNoTitle) | A plugin helps you sync/turn on your mirror server, for building design and redstone debug (Rcon related feature is not supported in MCDR 1.x) |
 | [MWConsole](https://github.com/ixiaohei-sakura/MWConsole) | [ixiaohei](https://github.com/ixiaohei-sakura) | mcdr web console |
-| [simple_test](https://github.com/rickyhoho/simple_test) | [Ricky](https://github.com/rickyhoho) | A plugin for checking simple problem of MCDR |
-| [cpu_temp](https://github.com/rickyhoho/cpu_temp) | [Ricky](https://github.com/rickyhoho) | A plugin for MCDReforged to check cpu temp regularly |
+| [simple_test](https://github.com/R1ckyH/simple_test) | [Ricky](https://github.com/R1ckyH) | A plugin for checking simple problem of MCDR |
+| [cpu_temp](https://github.com/R1ckyH/cpu_temp) | [Ricky](https://github.com/R1ckyH) | A plugin for MCDReforged to check cpu temp regularly |
 | [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | A plugin to restart the server after server crashes. Maximum allowance for crashes is configurable |
 | [Hibernate](https://github.com/Dark-Night-Base/Hibernate) |[Dark-Night-Base](https://github.com/Dark-Night-Base) | A plugin which hibernates your server when no one's online, and resume it when someone login |
 | [StartStopHelperR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/StartStopHelperR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Start and stop server helper |
@@ -214,7 +214,7 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [Leader](https://github.com/SCT-Technology/Leader) | [MercyNaima](https://github.com/MercyNaima) | Mark you to a leader,and leads people |
 | [AdvancedBan](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedBan) | [zhang_anzhi](https://github.com/zhang-anzhi) | AdvancedBan, has timing |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | AdvancedWhitelist with custom kick message and IP whitelist |
-| [multi_whitelist](https://github.com/rickyhoho/multi_whitelist) |[Ricky](https://github.com/rickyhoho) |A plugin for control whitelist in multi servers|
+| [multi_whitelist](https://github.com/R1ckyH/multi_whitelist) |[Ricky](https://github.com/R1ckyH) |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
 | [mcwl](https://github.com/ChunkAsgore/mcwl) | [ChunkAsgore](https://github.com/ChunkAsgore) | A whitelist management plugin for MCDReforged. |
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | Record player coordinates, pseudo-peace notification. |
