@@ -52,6 +52,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | A server side waypoint manager |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | Check the coordinate of a player |
 | [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | Create, share and manage Your coordinates! |
+| [WhoIsDied](https://github.com/linstar-fxt/MyMCDRPlugins/tree/main/WhoIsDied) | [hail122](https://github.com/linstar-fxt) | broadcast player death position (**DO NOT SUPPORT MCDR 0x**) |
 
 ### Scoreboard
 
@@ -220,6 +221,7 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | Record player coordinates, pseudo-peace notification. |
 | [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | A plugin that regularly obtains the location of online players for recording, and sets a restricted area at the same time. |
 | [WhiteList](https://github.com/zyxgad/whitelist_mcdr) | [zyxgad](https://github.com/zyxgad) | A whitelist/blacklist plugin |
+| [LeaderR](https://github.com/linstar-fxt/MyMCDRPlugins/tree/main/Leader-ReForged) | [hail122](https://github.com/linstar-fxt) | migration ‘leader’ to MCDR1x(**DO NOT SUPPORT MCDR 0x**) |
 
 ## API
 
