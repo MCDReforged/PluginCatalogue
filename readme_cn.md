@@ -52,6 +52,7 @@
 | [LocationMarker](https://github.com/TISUnion/LocationMarker) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个服务端共享路标点管理器 |
 | [Where](https://github.com/Ivan-YFw/MCDReforged-Plugins/tree/master/where) | [IvanYF](https://github.com/Ivan-YFw) | 查看其他玩家的坐标 |
 | [Markit](https://github.com/mrxiaozhuox/Markit) | [mrxiaozhuox](https://github.com/mrxiaozhuox) | 保存、共享、管理坐标，分享自己的坐标！ |
+| [WhoIsDied](https://github.com/linstar-fxt/MyMCDRPlugins/tree/main/WhoIsDied) | [hail122](https://github.com/linstar-fxt) | 广播死亡坐标(**不支持0x**) |
 
 ### 计分板
 
@@ -220,6 +221,7 @@
 | [Monitor](https://github.com/W-Kazdel/Monitor) | [W-Kazdel](https://github.com/W-Kazdel) | 记录玩家坐标，伪和平通知 |
 | [MonitorR](https://github.com/XiaoHuiHui233/MonitorR) | [XiaoHuiHui233](https://github.com/XiaoHuiHui233) | 一款定时获取在线玩家位置进行记录，同时设定禁区，若玩家被检测到处于禁区中，则全服广播提示的插件。 |
 | [WhiteList](https://github.com/zyxgad/whitelist_mcdr) | [zyxgad](https://github.com/zyxgad) | 一个简单的白名单/黑名单插件 |
+| [LeaderR](https://github.com/linstar-fxt/MyMCDRPlugins/tree/main/Leader-ReForged) | [hail122](https://github.com/linstar-fxt) | 迁移Leader的功能至MCDR1x+(**不支持0x**) |
 
 ## API
 
