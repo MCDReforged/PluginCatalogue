@@ -53,9 +53,12 @@ def write_file(file_path: str):
 		yield file
 
 
-def save_json(data: dict, file_path: str):
+def save_json(data: dict, file_path: str, *, compact: bool = False):
 	with write_file(file_path) as file:
-		json.dump(data, file, indent=2, ensure_ascii=False)
+		if compact:
+			json.dump(data, file, ensure_ascii=False, separators=(',', ':'))
+		else:
+			json.dump(data, file, indent=2, ensure_ascii=False)
 
 
 def request_github_api(url: str, *, etag: str = '') -> Tuple[Optional[Any], str]:
