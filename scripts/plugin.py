@@ -114,6 +114,11 @@ class ReleaseSummary(Serializable):
 					self.releases.append(r_info)
 			self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
 
+	def get_latest_release(self) -> Optional[ReleaseInfo]:
+		if len(self.releases) > 0:
+			return self.releases[0]
+		return None
+
 	def check_release(self, r_info: ReleaseInfo) -> bool:
 		if r_info.parse_version(self.id) is None:
 			return False

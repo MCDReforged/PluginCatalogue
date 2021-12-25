@@ -32,6 +32,10 @@ def none() -> str:
 	return '*{}*'.format(Text('none'))
 
 
+def formatted_time(created_at: str) -> str:
+	return time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(created_at, '%Y-%m-%dT%H:%M:%SZ'))
+
+
 def get_root_readme_file_path():
 	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('readme.md'))
 
@@ -86,7 +90,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 	plugin_list = list(plugin_list)
 	file.write('{}: {}\n'.format(Text('plugin_amount'), len(plugin_list)))
 	file.write('\n')
-	table = Table(Text('plugin_name'), Text('authors'), Text('description'), Text('labels'))
+	table = Table(Text('plugin_name'), Text('authors'), Text('description'), Text('last_update'), Text('labels'))
 	for plugin in plugin_list:
 		try:
 			if plugin.is_data_fetched():
@@ -94,10 +98,16 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 				translated_description = plugin.meta_info.translated_description
 			else:
 				name = translated_description = failed()
+			release = plugin.release_summary.get_latest_release()
+			if release is not None:
+				last_update = formatted_time(release.created_at)
+			else:
+				last_update = 'N/A'
 			table.add_row(
 				Link(name, get_plugin_detail_link(plugin.id)),
 				', '.join(map(lambda a: a.to_markdown(), plugin.authors)),
 				translated_description,
+				last_update,
 				get_label_list_markdown(plugin)
 			)
 		except:
@@ -125,7 +135,7 @@ def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 				table.add_row(
 					Link(asset.name, release.url),
 					release.parsed_version,
-					time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(asset.created_at, '%Y-%m-%dT%H:%M:%SZ')),
+					formatted_time(asset.created_at),
 					utils.pretty_file_size(asset.size),
 					asset.download_count,
 					' '.join(map(str, [
