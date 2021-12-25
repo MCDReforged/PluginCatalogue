@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+    inputs:
+      squash_history:
+        description: Enter "true" if you want the history to be squashed
+        required: false
+        default: 'false'
 
 jobs:
   update:
@@ -47,7 +53,7 @@ jobs:
           BRANCH: meta
           FOLDER: meta
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SQUASH_HISTORY: true
+          SQUASH_HISTORY: ${{ github.event.inputs.squash_history }}
           SKIP_EMPTY_COMMITS: true
 
       - name: Deploy doc
@@ -57,5 +63,5 @@ jobs:
           BRANCH: catalogue
           FOLDER: catalogue
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SQUASH_HISTORY: true
+          SQUASH_HISTORY: ${{ github.event.inputs.squash_history }}
           SKIP_EMPTY_COMMITS: true
