@@ -32,8 +32,16 @@ def none() -> str:
 	return '*{}*'.format(Text('none'))
 
 
-def formatted_time(created_at: str) -> str:
-	return time.strftime('%Y/%m/%d %H:%M:%S', time.strptime(created_at, '%Y-%m-%dT%H:%M:%SZ'))
+def formatted_time(created_at: str, precision: str) -> str:
+	"""
+	:param created_at: The created_at field from github api
+	:param precision: should be 'day' or 'second'
+	"""
+	st = time.strptime(created_at, '%Y-%m-%dT%H:%M:%SZ')
+	fmt = '%Y/%m/%d'
+	if precision == 'second':
+		fmt += ' %H:%M:%S'
+	return time.strftime(fmt, st)
 
 
 def get_root_readme_file_path():
@@ -100,7 +108,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 				name = translated_description = failed()
 			release = plugin.release_summary.get_latest_release()
 			if release is not None:
-				last_update = formatted_time(release.created_at)
+				last_update = formatted_time(release.created_at, precision='day')
 			else:
 				last_update = 'N/A'
 			table.add_row(
@@ -129,13 +137,13 @@ def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 	file.write('\n')
 
 	if plugin.release_summary is not None:
-		table = Table(Text('file'), Text('version'), Text('date'), Text('size'), Text('download_amount'), Text('operations'))
+		table = Table(Text('file'), Text('version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
 		for release in plugin.release_summary.releases:
 			for asset in release.get_mcdr_assets():
 				table.add_row(
 					Link(asset.name, release.url),
 					release.parsed_version,
-					formatted_time(asset.created_at),
+					formatted_time(asset.created_at, precision='second'),
 					utils.pretty_file_size(asset.size),
 					asset.download_count,
 					' '.join(map(str, [
