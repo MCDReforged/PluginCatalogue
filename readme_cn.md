@@ -148,7 +148,6 @@
 | - | - | - |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家加入服务器时显示欢迎信息及服务器列表 |
 | [joinMOTD++](https://github.com/eagle3236/joinMOTD_Plus) | [Alex3236](https://github.com/eagle3236/) | 玩家加入服务器时显示指定信息。功能丰富，推荐使用（**仅支持MCDR 1.x**） |
-| [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | 进入游戏以Title形式发送一句随机的话给玩家 |
 | [ANN](https://github.com/Da-Dog/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | 定时公告 |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | 使用命令来修改服务器的MOTD（支持颜色代码） |
 | [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | 玩家加入服务器时显示可通过配置文件**深度自定义**的信息（**仅支持MCDR 1.x**） |
@@ -189,7 +188,6 @@
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
-| [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | 可延迟清理的定时清理掉落物 |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | 又一个MCDR的扫地姬（可自定义方块白名单） |
 | [ClearItem](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | 手动扫地大妈,执行后延迟15s后清扫,过程可以中断,可以添加白名单物品,玩家死亡阻止扫地5分钟(除非死亡玩家同意扫地) |
 | [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | 这可能是最简单的MCDR自动扫地姬 |
@@ -230,12 +228,10 @@
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 获得实体信息 / 解析 Minecraft 风格的 json，仅 MCDR 0.x |
 | [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个用获得玩家信息等数据的的 API |
 | [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | 字体显示库 |
-| [TitleAPI](https://github.com/hanbings/TitleAPI) | [hanbings](https://github.com/hanbings) | 封装Title指令 |
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | 使发送彩色消息更简单 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库 |
-| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings) | 给酷Q机器人的http接口 |
 | [vault](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/vault) | [zhang_anzhi](https://github.com/zhang-anzhi) | 经济前置 |
-| [ConfigAPI](https://github.com/hanbings/ConfigAPI) | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi) | 快速创建配置文件 |
+| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi) | 快速创建配置文件 |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | 封装`bossbar`指令 |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 在线玩家API |
 | [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 酷Q和MCDR的插件开发API |
