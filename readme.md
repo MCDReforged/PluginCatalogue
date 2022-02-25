@@ -148,7 +148,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | - | - | - |
 | [joinMOTD](https://github.com/TISUnion/joinMOTD) | [Fallen_Breath](https://github.com/Fallen-Breath) | Welcome message and server list on player joined |
 | [joinMOTD++(Recommended)](https://github.com/eagle3236/joinMOTD_Plus) | [Alex3236](https://github.com/eagle3236/) | A more useful joinMOTD.(**MCDR 1.x Only**) |
-| [Welcomer](https://github.com/hanbings/Welcomer) | [hanbings](https://github.com/hanbings) | Send a sentence to the player after joining the game |
 | [ANN](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_ANN) | [Da_Dog](https://github.com/Da-Dog) | Timed announcement |
 | [CustomMOTD](https://github.com/GamerNoTitle/CustomMOTD) | [GamerNoTitle](https://github.com/GamerNoTitle) | Change your MOTD with a command(colorful content is supported) |
 | [JoinMOTDR](https://github.com/Van-Nya/JoinMOTDR) | [Van_Nya](https://github.com/Van-Nya) | Send MOTD on player joined, can **deeply customize** by config file (**MCDR 1.x Only**) |
@@ -189,7 +188,6 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 
 | Name | Maintainer | Function |
 | - | - | - |
-| [MCDRClear](https://github.com/hanbings/MCDRClear) | [hanbings](https://github.com/hanbings) | Auto and can be delayed clean |
 | [MCDR-AutoCleaner](https://github.com/Forgot-Dream/MCDR-AutoCleaner) | [Forgot-Dream](https://github.com/Forgot-Dream) | A sweeping robot that can add whitelist |
 | [ClearItem](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | Manual sweeping: after 15s delay, the items on the floor will be clean. The items will be protect for 5min if there's a player die(unless the dead player agrees to sweep the floor) . Info: the sweeping process can be interrupted at any time. You can add items on the white list(will not be clean) |
 | [AutoCleaner](https://github.com/GamerNoTitle/AutoCleaner) | [GamerNoTitle](https://github.com/GamerNoTitle) | This may be the simplest auto cleaner of MCDR |
@@ -230,12 +228,10 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [PlayerInfoAPI](https://github.com/TISUnion/PlayerInfoAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | Get entity information / Parse Minecraft style json. MCDR 0.x only |
 | [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDReforged api plugin to get player data information and more |
 | [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | A library for better text display |
-| [TitleAPI](https://github.com/hanbings/TitleAPI) | [hanbings](https://github.com/hanbings) | A library for title command |
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | Send color messages more simply |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
-| [MCDR-CHA-ChatAPI](https://github.com/hanbings/MCDR-CHA-ChatAPI) | [hanbings](https://github.com/hanbings) | HTTP interface for cool Q robot |
 | [vault](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/vault) | [zhang_anzhi](https://github.com/zhang-anzhi) | Economic Preposition |
-| [ConfigAPI](https://github.com/hanbings/ConfigAPI) | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi) | Fast create config file |
+| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi) | Fast create config file |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | A library for`bossbar`command |
 | [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Online player api |
 | [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | CoolQ and MCDR connect plugin develop API |
