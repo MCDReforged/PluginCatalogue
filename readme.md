@@ -1,22 +1,25 @@
 **English** | [中文](readme_cn.md)
 
-# MCDReforged Plugin Catalogue
+<h1 align="center"> MCDReforged PluginCatalogue</h1>
 
-tl;dr, show me the catalogue
+<p align="center"> 
+  A repository for listing <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> plugins.
+  <br>
+  <br>
+  <a href="https://github.com/twbs/bootstrap/issues/new?assignees=-&labels=bug&template=bug_report.yml"><strong>Main Plugins Catalogue</strong></a> 
+  ·
+  <a href="https://github.com/twbs/bootstrap/issues/new?assignees=&labels=feature&template=feature_request.yml">Legacy Plugins Catalogue</a> 
+</p>
+<br>
 
-- [Main Plugins Catalogue](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme.md)
-- [Legacy Plugins Catalogue](https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme.md), storing all plugins designed before MCDR v2. Probably also work in MCDR v2 and later
+> ⚠️ **Warning: Before using any plugin, please read the README file in its repository.**
 
-----
+<br>
 
-A repository for listing [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugins
+The main plugin repository contains only plugins that support MCDReforged >= 2.x
 
-Visit [here](https://github.com/MCDReforged/PluginCatalogue/tree/meta) to see the catalogue meta 
+For plugins designed for earlier versions of MCDR, please consult the [legacy](https://github.com/MCDReforged/PluginCatalogue/tree/legacy) branch (old plugins directory). Most of these plugins that support MCDR 1.x will still work fine with MCDR >= 2.x. PRs for the `legacy` branch are still welcome
 
-Only includes plugins compatible with MCDReforged >=2.x
+If you would like to add your plugin to the plugin repository, you may wish to submit a PR. Check out the [documentation](https://mcdreforged.readthedocs.io/zh_CN/latest/plugin_dev/plugin_catalogue.html) for more information
 
-For those plugins designed for previous version of MCDR, you can have a look at the [legacy](https://github.com/MCDReforged/PluginCatalogue/tree/legacy) branch. If the plugin works in MCDR 1.x then it will probably work in MCDR >=2.x. PRs to the legacy branch are still welcome
-
-Feel free to submit your PR if you want to add your plugin. Check the [document](https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html) for more information
-
-Visit [here](https://github.com/MCDReforged/PluginCatalogue/tree/meta) to see the catalogue meta for development usages
+You can learn about the plugin data provided by the plugin repository [here](https://github.com/MCDReforged/PluginCatalogue/tree/meta)
