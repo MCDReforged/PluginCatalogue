@@ -1,1 +1,1 @@
-A use `Random` func Plugin
+Today's horoscope based on `random.randint(0, 100)`
