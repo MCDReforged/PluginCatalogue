@@ -6,9 +6,9 @@
   A repository for listing <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> plugins.
   <br>
   <br>
-  <a href="https://github.com/twbs/bootstrap/issues/new?assignees=-&labels=bug&template=bug_report.yml"><strong>Main Plugins Catalogue</strong></a> 
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme.md"><strong>Main Plugins Catalogue</strong></a> 
   ·
-  <a href="https://github.com/twbs/bootstrap/issues/new?assignees=&labels=feature&template=feature_request.yml">Legacy Plugins Catalogue</a> 
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme.md">Legacy Plugins Catalogue</a> 
 </p>
 <br>
 
