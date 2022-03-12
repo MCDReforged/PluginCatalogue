@@ -6,9 +6,9 @@
   一个用于列出 <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> 插件的仓库。
   <br>
   <br>
-  <a href="https://github.com/twbs/bootstrap/issues/new?assignees=-&labels=bug&template=bug_report.yml"><strong>主插件目录</strong></a>
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme-zh_cn.md"><strong>主插件目录</strong></a>
   ·
-  <a href="https://github.com/twbs/bootstrap/issues/new?assignees=&labels=feature&template=feature_request.yml">旧插件目录</a>
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_cn.md">旧插件目录</a>
 </p>
 <br>
 
