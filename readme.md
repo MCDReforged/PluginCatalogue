@@ -27,7 +27,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper_](https://github.com/AngelicaRoot) | Use"!!seed"to get seed |
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | A plugin for querying online players of several servers |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | A plugin for querying server map seeds for MCDReforged. |
-| [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get useful server info(CPU/memory/world size...) |
+| [Info](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Info) | [AnzhiZhang](https://github.com/AnzhiZhang) | Get useful server info(CPU/memory/world size...) |
 | [SeedR](https://github.com/Van-Nya/SeedR) | [Van_Nya](https://github.com/Van-Nya) | Use `!!seed` to get seed,, reply translated message just like vanilla style (**MCDR 1.x Only**) |
 | [DayCountR](https://github.com/Van-Nya/DayCountR) | [Van_Nya](https://github.com/Van-Nya) | Use `!!days` to get day count since server set up, customize **start day** and **reply msg** by config file (**MCDR 1.x Only**) |
 | [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | An easy-use daycount (**MCDR 1.x Only**) |
@@ -63,7 +63,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/) | Change scoreboards automatically |
 | [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | A plugin for synchronizing stats data to fz-s datapack scoreboard |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517) | Create and rotate the scoreboard |
-| [MinedRanking](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinedRanking) | [zhang_anzhi](https://github.com/zhang-anzhi) | Set mined ranking on scoreboard |
+| [MinedRanking](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/MinedRanking) | [AnzhiZhang](https://github.com/AnzhiZhang) | Set mined ranking on scoreboard |
 
 ## Game Helper
 
@@ -76,10 +76,10 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [GameMode](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | Change a player's gamemode to spectator, Switch back will teleport him to the original position and change his mode to survival |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | Move a pet between different players |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | Record on server plugin |
-| [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | Change to spectator mode for observe, teleport to origin position when change back to survival mode |
+| [Gamemode](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Gamemode) | [AnzhiZhang](https://github.com/AnzhiZhang) | Change to spectator mode for observe, teleport to origin position when change back to survival mode |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | Create perimeters in creative/mirror servers, operate layer by layer to avoid lags |
-| [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | Enable single player sleep to skip night in server |
-| [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | Provides multiple convenient calculate in game |
+| [SinglePlayerSleep](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/SinglePlayerSleep) | [AnzhiZhang](https://github.com/AnzhiZhang) | Enable single player sleep to skip night in server |
+| [AdvancedCalculator](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [AnzhiZhang](https://github.com/AnzhiZhang) | Provides multiple convenient calculate in game |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | A tool to calculate the position of each gametick of the pearl accelerated by TNT on the pearl cannon |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | Teleports between dimensions more easily.For example,use `!!overworld <x> <y> <z>` to specify teleport coordinates |
 | [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Quick teleport helper, teleport between dims, teleport to waypoint quickyly and more functions |
@@ -93,7 +93,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | A plugin to show carpet bot |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot) | [MercyNaima](https://github.com/MercyNaima) | A plugin to spawn carpet BOT/BOTS |
 | [MCDR-bot](https://github.com/MCDReforged/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
-| [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | Storage bot list, one key to spawn or kill bot |
+| [Bot](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Bot) | [AnzhiZhang](https://github.com/AnzhiZhang) | Storage bot list, one key to spawn or kill bot |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | The input English, Chinese (even Pinyin) points to the same BOT and provides operation interface and simplified instructions |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | Storage bot position list, one key to spawn or kill bot, and can let the bot right click |
 
@@ -116,7 +116,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [PlayerDropSkull](https://github.com/MCDReforged/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | Player drops skull on death |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) |[BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | Put something on your head |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) |[ixiaohei](https://github.com/ixiaohei-sakura/) | A BLHClient: using websocket to get bilibili bullet chat |
-| [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | Classic math game twenty four points |
+| [TwentyFourPoints](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/TwentyFourPoints) | [AnzhiZhang](https://github.com/AnzhiZhang) | Classic math game twenty four points |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | A multifunctional chat bot.(like switching some carpet options) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | A chat bot that uses Tencent AI and Youdao translation |
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | Beacon lightcolumn dyeing auxiliary plugin |
@@ -136,8 +136,8 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) |[HackerRouter](https://github.com/HackerRouter/)| Send a message to an offline player |
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | Beeps when someone is mentioned in text with an `@` |
 | [Vote](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | In game Vote plugin |
-| [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Connect QQ and Minecraft, with `list` function |
-| [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
+| [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/QQChat) | [AnzhiZhang](https://github.com/AnzhiZhang) | Connect QQ and Minecraft, with `list` function |
+| [ColoredChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/ColoredChat) | [AnzhiZhang](https://github.com/AnzhiZhang) | Support display [Formatting codes](https://minecraft.gamepedia.com/Formatting_codes) in vanilla server |
 | [ChatBridgeReforged](https://github.com/R1ckyH/ChatBridgeReforged) | [Ricky](https://github.com/R1ckyH) | Reforged of [ChatBridge](https://github.com/TISUnion/ChatBridge), Boardcast chat between mc servers or even discord server |
 
 ## Server Management
@@ -167,22 +167,12 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | A regular backup plugin(use 7zip) |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | Sync survival server world to mirror server |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | Use command to get your server's save size |
-| [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | Automatic render the `Mapcrafter` map |
+| [MapcrafterRender](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/MapcrafterRender) | [AnzhiZhang](https://github.com/AnzhiZhang) | Automatic render the `Mapcrafter` map |
 | [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Copy WorldEdit schematic files quickly between sub-servers |
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | A lite weight in-game file manager |
 | [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | Keep your vanilla server up-to-date easily |
 | [AutoZipBackup](https://github.com/DGBCraft/AutoZipBackup) | [Sanluli36li](https://github.com/Sanluli36li) | Daily backup and unknown player backup base on PermanentBackup |
 | [GitBackUp](https://github.com/zyxgad/gitbackup_mcdr) | [zyxgad](https://github.com/zyxgad) | A plugin using git to manage Minecraft backup |
-
-### Plugins
-
-The official plugin manager will be released after the release of MCDR 2.0. Please wait patiently.
-<!--| Name | Maintainer | Function |
-| - | - | - |
-| [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | Manage plugins via *git* |
-| [pget_pure](https://github.com/MCDReforged/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | A display infomation friendly plugins for helps you download or update other plugins |
-| [MCDR-get](https://github.com/577fkj/MCDR-get) | [57767598](https://github.com/577fkj/) | The plugin library of MCDR |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Download plugin in game |-->
 
 ### Item Clean
 
@@ -204,14 +194,14 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [cpu_temp](https://github.com/R1ckyH/cpu_temp) | [Ricky](https://github.com/R1ckyH) | A plugin for MCDReforged to check cpu temp regularly |
 | [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | A plugin to restart the server after server crashes. Maximum allowance for crashes is configurable |
 | [Hibernate](https://github.com/Dark-Night-Base/Hibernate) |[Dark-Night-Base](https://github.com/Dark-Night-Base) | A plugin which hibernates your server when no one's online, and resume it when someone login |
-| [StartStopHelperR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/StartStopHelperR) | [zhang_anzhi](https://github.com/zhang-anzhi) | Start and stop server helper |
+| [StartStopHelperR](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/StartStopHelperR) | [AnzhiZhang](https://github.com/AnzhiZhang) | Start and stop server helper |
 
 ### Player management
 
 | Name | Maintainer | Function |
 | - | - | - |
 | [Leader](https://github.com/SCT-Technology/Leader) | [MercyNaima](https://github.com/MercyNaima) | Mark you to a leader,and leads people |
-| [AdvancedBan](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedBan) | [zhang_anzhi](https://github.com/zhang-anzhi) | AdvancedBan, has timing |
+| [AdvancedBan](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/AdvancedBan) | [AnzhiZhang](https://github.com/AnzhiZhang) | AdvancedBan, has timing |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | AdvancedWhitelist with custom kick message and IP whitelist |
 | [multi_whitelist](https://github.com/R1ckyH/multi_whitelist) |[Ricky](https://github.com/R1ckyH) |A plugin for control whitelist in multi servers|
 | [RepairManager](https://github.com/wyf0762/RepairManager)| [wyf0762](https://github.com/wyf0762)|Manage reports for repair|
@@ -230,19 +220,19 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 | [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | A library for better text display |
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | Send color messages more simply |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
-| [vault](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/vault) | [zhang_anzhi](https://github.com/zhang-anzhi) | Economic Preposition |
-| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi) | Fast create config file |
+| [vault](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/vault) | [AnzhiZhang](https://github.com/AnzhiZhang) | Economic Preposition |
+| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [AnzhiZhang](https://github.com/AnzhiZhang) | Fast create config file |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | A library for`bossbar`command |
-| [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Online player api |
-| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | CoolQ and MCDR connect plugin develop API |
+| [OnlinePlayerAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/OnlinePlayerAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | Online player api |
+| [CoolQAPI](https://github.com/AnzhiZhang/CoolQAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | CoolQ and MCDR connect plugin develop API |
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | An Item api like Bukkit |
-| [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Get player UUID |
-| [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | A Minecraft item API |
-| [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Plugin data storage API |
+| [UUIDAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/UUIDAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | Get player UUID |
+| [MinecraftItemAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/MinecraftItemAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | A Minecraft item API |
+| [JsonDataAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/JsonDataAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | Plugin data storage API |
 | [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | Provide websocket support for other plugins |
 | [RText-EXP](https://github.com/eagle3236/rtext-exp) | [Alex3236](https://github.com/eagle3236) | An RText expression implementation with color, style and hover text support |
-| [DatabaseAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/DatabaseAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Database API |
-| [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | Language API |
+| [DatabaseAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/DatabaseAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | Database API |
+| [LanguageAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/LanguageAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | Language API |
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | A very simple plugin that provides some (secondary wrapper) API with events |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | Let you can depend a you want python version |
 | [MCDReforged-Remote](https://github.com/iXORTech/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | A MCDR plugin and a Java library, connecting QQ and Minecraft & allowing users to implement server control and other functions through the library  |
@@ -251,11 +241,11 @@ The official plugin manager will be released after the release of MCDR 2.0. Plea
 
 | Name | Maintainer | Function |
 | - | - | - |
-| [Economy](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi) | Economic plugin |
+| [Economy](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/Economy) | [AnzhiZhang](https://github.com/AnzhiZhang) | Economic plugin |
 | [LockChest](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR_Lockchest) | [Da_Dog](https://github.com/Da-Dog) | A plugin that can Lock the Chest |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | A currency plugin with a dynamic-price shop |
 | [MagicChat](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-MagicChat) | [Da_Dog](https://github.com/Da-Dog) | Show item in chat |
-| [QuickAnswer](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QuickAnswer) | [zhang_anzhi](https://github.com/zhang-anzhi) | Ask online player some arithmetic problems |
+| [QuickAnswer](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/QuickAnswer) | [AnzhiZhang](https://github.com/AnzhiZhang) | Ask online player some arithmetic problems |
 | [TPA](https://github.com/Da-Dog/MCDR-Plugins/tree/master/MCDR-tpa) | [Da_Dog](https://github.com/Da-Dog) | tp request plugin |
 | [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762) | Set a home and teleport to home at any time |
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | Show and teleport to player's failed place |
