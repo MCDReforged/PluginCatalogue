@@ -2,7 +2,7 @@ import os
 import shutil
 import traceback
 from concurrent.futures.thread import ThreadPoolExecutor
-from typing import Callable, Any, List
+from typing import Callable, Any, List, Collection, Optional
 
 import constants
 import utils
@@ -16,7 +16,7 @@ class PluginList(List[Plugin]):
 		self.__meta_fetched = False
 		self.__release_fetched = False
 
-	def init(self):
+	def init(self, target_ids: Optional[Collection[str]]):
 		if self.__inited:
 			return
 		self.clear()
@@ -24,8 +24,11 @@ class PluginList(List[Plugin]):
 			futures = []
 			for folder in os.listdir(constants.PLUGINS_FOLDER):
 				if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
-					print('Found plugin {}'.format(folder))
-					futures.append(executor.submit(Plugin, folder))
+					if target_ids is None or folder in target_ids:
+						print('Found plugin {}'.format(folder))
+						futures.append(executor.submit(Plugin, folder))
+					else:
+						print('Skipping plugin {}'.format(folder))
 			for future in futures:
 				try:
 					self.append(future.result())
@@ -80,6 +83,6 @@ class PluginList(List[Plugin]):
 _plugin_list = PluginList()
 
 
-def get_plugin_list() -> PluginList:
-	_plugin_list.init()
+def get_plugin_list(target_ids: Optional[Collection[str]] = None) -> PluginList:
+	_plugin_list.init(target_ids)
 	return _plugin_list
