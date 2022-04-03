@@ -20,6 +20,6 @@ The main plugin repository contains only plugins that support MCDReforged >= 2.x
 
 For plugins designed for earlier versions of MCDR, please consult the [legacy](https://github.com/MCDReforged/PluginCatalogue/tree/legacy) branch (old plugins directory). Most of these plugins that support MCDR 1.x will still work fine with MCDR >= 2.x. PRs for the `legacy` branch are still welcome
 
-If you would like to add your plugin to the plugin repository, you may wish to submit a PR. Check out the [documentation](https://mcdreforged.readthedocs.io/zh_CN/latest/plugin_dev/plugin_catalogue.html) for more information
+If you would like to add your plugin to the plugin repository, you may wish to submit a PR. Check out the [documentation](https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html) for more information
 
 You can learn about the plugin data provided by the plugin repository [here](https://github.com/MCDReforged/PluginCatalogue/tree/meta)
