@@ -23,10 +23,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-:
 
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v18.6
+
       - name: Check plugins
         run: |
           cd ./scripts
           pip install -r requirements.txt
-          python manager.py check
+          plugins=""
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            if [[ $file =~ ^plugins\/([a-z0-9_]*) ]]; then
+              plugins="${plugins}${BASH_REMATCH[1]},"
+            fi
+          if [[ $plugins == "" ]]; then
+            echo Hmm, no plugin changes found. Let's skip this part.
+          else
+            plugins=${plugins%,}
+            echo Well, seems there's plugin(s) added or modified. let's run a check for: $plugins
+            python manager.py check --id $plugins
+          fi
+          done
+          
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
