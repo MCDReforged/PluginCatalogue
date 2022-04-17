@@ -37,7 +37,7 @@ jobs:
               plugins="${plugins}${BASH_REMATCH[1]},"
             fi
           if [[ $plugins == "" ]]; then
-            echo Hmm, no plugin changes found. Let's skip this part.
+            echo Hmm, no plugin changes found. Let\'s skip this part.
           else
             plugins=${plugins%,}
             echo Well, seems there's plugin(s) added or modified. let's run a check for: $plugins
