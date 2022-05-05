@@ -27,7 +27,7 @@
 | [Seed](https://github.com/MCDReforged/Seed) | [White_Paper](https://github.com/AngelicaRoot) | 查看服务器存档种子|
 | [Online](https://github.com/A-JiuA/Online) | [A-JiuA](https://github.com/A-JiuA) | 查询多个服务器的玩家在线情况并在玩家登入时提示 |
 | [seed](https://github.com/ChunkAsgore/seed) | [ChunkAsgore](https://github.com/ChunkAsgore) | 适用于MCDReforged的用于查询服务器地图种子的插件。 |
-| [Info](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Info) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取有用的服务器信息(CPU/内存/存档大小等) |
+| [Info](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Info) | [AnzhiZhang](https://github.com/AnzhiZhang) | 获取有用的服务器信息(CPU/内存/存档大小等) |
 | [SeedR](https://github.com/Van-Nya/SeedR) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!seed`获取种子，回复具有原版风格并经过翻译的消息（**仅支持MCDR 1.x**） |
 | [DayCountR](https://github.com/Van-Nya/DayCountR) | [Van_Nya](https://github.com/Van-Nya) | 使用`!!days`获取开服天数，通过配置文件自定义开服日期和回复消息（**仅支持MCDR 1.x**） |
 | [daycount-NBT](https://github.com/eagle3236/daycount-NBT) | [Alex3236](https://github.com/eagle3236) | 通过 NBT 文件获取服务器总运行时长，极易上手无需配置（**仅支持MCDR 1.x**） |
@@ -63,7 +63,7 @@
 | [SChanger](https://github.com/HackerRouter/MCDR-ScoreboardChanger) | [HackerRouter](https://github.com/HackerRouter/) | 定时自动切换计分板 |
 | [Fz-sDatapackImporter](https://github.com/Hendrix-Shen/Fz-sDatapackImporter) | [Hendrix-Shen](https://github.com/Hendrix-Shen) | 一个用于将stats数据同步到Fz-sDatapack记分版的插件 |
 | [StatsRepeat](https://github.com/DancingSnow0517/StatsRepeat) | [DancingSnow0517](https://github.com/DancingSnow0517) | 计分板的创建并轮播 |
-| [MinedRanking](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinedRanking) | [zhang_anzhi](https://github.com/zhang-anzhi) | 使用计分板显示挖掘榜 |
+| [MinedRanking](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/MinedRanking) | [AnzhiZhang](https://github.com/AnzhiZhang) | 使用计分板显示挖掘榜 |
 
 ## 游戏辅助
 
@@ -76,10 +76,10 @@
 | [GameMode](https://github.com/577fkj/MCDR-plugins) | [57767598](https://github.com/577fkj/) | 切换玩家模式到旁观，切换回来会回到原来的位置(高级灵魂出窍) |
 | [petmove](https://github.com/63815af756f0357940c666d2ae1c801d/petmove) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | 玩家间转移动物（如猫/狗等）的所有权 |
 | [PCRC-MCDR](https://github.com/TISUnion/PCRC-MCDR) | [Fallen_Breath](https://github.com/Fallen-Breath) | 服务端录制插件 |
-| [Gamemode](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Gamemode) | [zhang_anzhi](https://github.com/zhang-anzhi) | 切换模式为旁观者模式，当改变为生存模式时传送到原位置 |
+| [Gamemode](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Gamemode) | [AnzhiZhang](https://github.com/AnzhiZhang) | 切换模式为旁观者模式，当改变为生存模式时传送到原位置 |
 | [PerimeterMaker](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/PerimeterMaker) | [wyf0762](https://github.com/wyf0762) | 在创造/镜像服中快速制造空置域，逐层操作，防止卡顿 |
-| [SinglePlayerSleep](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/SinglePlayerSleep) | [zhang_anzhi](https://github.com/zhang-anzhi) | 允许在服务器中单人睡觉跳过夜晚 |
-| [AdvancedCalculator](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [zhang_anzhi](https://github.com/zhang-anzhi) | 提供游戏内多种便捷计算 |
+| [SinglePlayerSleep](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/SinglePlayerSleep) | [AnzhiZhang](https://github.com/AnzhiZhang) | 允许在服务器中单人睡觉跳过夜晚 |
+| [AdvancedCalculator](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/AdvancedCalculator) | [AnzhiZhang](https://github.com/AnzhiZhang) | 提供游戏内多种便捷计算 |
 | [PearlCannonHelper](https://github.com/SCT-Technology/PearlCannonHelper) | [hai_dan](https://github.com/haidanQAQ) | 计算珍珠在珍珠炮环境的tnt作用下每一t的位置 |
 | [TpDimension](https://github.com/MIZUkiYuu/MCDR-Plugins/tree/main/TpDimension) | [MIZUkiYuu](https://github.com/MIZUkiYuu) | 更方便地传送到另一个维度，例如使用 `!!overworld <x> <y> <z>` 来指定传送坐标 |
 | [LazyTP](https://github.com/ra1ny-yuki/lazytp) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 快速传送小帮手，提供维度间传送及定点快速传送等功能 |
@@ -93,7 +93,7 @@
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 查看地毯端假人 |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot) | [MercyNaima](https://github.com/MercyNaima) | 生成，批量生成地毯BOT(BOT组) |
 | [MCDR-bot](https://github.com/MCDReforged/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 [pycraft](https://github.com/ammaraskar/pyCraft) 的假人插件 |
-| [Bot](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Bot) | [zhang_anzhi](https://github.com/zhang-anzhi) | 存储机器人列表，一键放置/清除机器人 |
+| [Bot](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/Bot) | [AnzhiZhang](https://github.com/AnzhiZhang) | 存储机器人列表，一键放置/清除机器人 |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人物品映射：将输入的英文，中文（甚至拼音）指向同一假人并提供操作界面和简化指令的插件 |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | 假人器械映射：储存假人的位置信息，随时随地一键放置/清除假人，并可以让假人右键|
 
@@ -116,7 +116,7 @@
 | [PlayerDropSkull](https://github.com/MCDReforged/PlayerDropSkull) | [Fallen_Breath](https://github.com/Fallen-Breath) | 玩家在死亡时掉落头颅 |
 | [Hat](https://github.com/BelowZeroKelvin/MCDR-Hat) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin/) | 将主手上的东西戴在头上 |
 | [WebsocketBlh](https://github.com/ixiaohei-sakura/blh-blivedm) | [ixiaohei](https://github.com/ixiaohei-sakura/) |使用Websocket的bilibili弹幕姬 |
-| [TwentyFourPoints](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/TwentyFourPoints) | [zhang_anzhi](https://github.com/zhang-anzhi) | 24点经典数学游戏 |
+| [TwentyFourPoints](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/TwentyFourPoints) | [AnzhiZhang](https://github.com/AnzhiZhang) | 24点经典数学游戏 |
 | [Meow](https://github.com/HackerRouter/MCDR-Meow) | [HackerRouter](https://github.com/HackerRouter) | 一个多功能聊天机器人.(比如切换地毯端选项等) |
 | [AIchat](https://github.com/A-jiu-a/AIchat) | [A-jiuA](https://github.com/A-JiuA) | 一个使用腾讯AI的聊天机器人,并附带有道翻译 |
 | [BeaconRGB](https://github.com/Well2333/BeaconRGB-calculating-software) | [Well2333](https://github.com/Well2333) | 信标光柱染色辅助插件 |
@@ -136,8 +136,8 @@
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) | [HackerRouter](https://github.com/HackerRouter/) | 向一名离线玩家发送信息 |
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | 聊天时用 `@` 来提醒某人 |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
-| [QQChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QQChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
-| [ColoredChat](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/ColoredChat) | [zhang_anzhi](https://github.com/zhang-anzhi) | 支持原版显示[Minecraft样式代码](https://minecraft-zh.gamepedia.com/%E6%A0%B7%E5%BC%8F%E4%BB%A3%E7%A0%81)的插件 |
+| [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/QQChat) | [AnzhiZhang](https://github.com/AnzhiZhang) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
+| [ColoredChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/ColoredChat) | [AnzhiZhang](https://github.com/AnzhiZhang) | 支持原版显示[Minecraft样式代码](https://minecraft-zh.gamepedia.com/%E6%A0%B7%E5%BC%8F%E4%BB%A3%E7%A0%81)的插件 |
 | [ChatBridgeReforged](https://github.com/R1ckyH/ChatBridgeReforged) | [Ricky](https://github.com/R1ckyH) | [ChatBridge](https://github.com/TISUnion/ChatBridge) 重制版， 跨服聊天 |
 
 ## 服务器管理
@@ -167,7 +167,7 @@
 | [Regularbackup](https://github.com/TANGhz17/Regularbackup) | [TANGhz17](https://github.com/TANGhz17) | 一个使用7zip自定义时间、压缩比的自动备份并压缩的插件 |
 | [MirrorSync](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/MirrorSync) | [wyf0762](https://github.com/wyf0762) | 在镜像服内同步生存服存档至镜像服 |
 | [Size](https://github.com/AngelicaRoot/MCDR-Size-Plugin) | [White_Paper_](https://github.com/AngelicaRoot) | 用指令来获取服务器存档的大小 |
-| [MapcrafterRender](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MapcrafterRender) | [zhang_anzhi](https://github.com/zhang-anzhi) | 自动渲染 `Mapcrafter` 地图 |
+| [MapcrafterRender](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/MapcrafterRender) | [AnzhiZhang](https://github.com/AnzhiZhang) | 自动渲染 `Mapcrafter` 地图 |
 | [WESchem](https://github.com/ra1ny-yuki/weschem) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 在同机器上不同子服务器间复制WE原理图 |
 | [LiteFileManager](https://github.com/MCDReforged/LiteFileManager) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个轻量级的游戏内文件管理器 |
 | [Server-Updater](https://github.com/Lazy-Bing-Server/Server-Updater) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki/) | 轻松地更新原版服务端 |
@@ -182,7 +182,7 @@
 | [MCDP](https://github.com/Dark-Night-Base/MCDP) | [Dark-Night-Base](https://github.com/Dark-Night-Base) | 借助 *git* 实现的插件管理工具 |
 | [pget_pure](https://github.com/MCDReforged/pget_pure) | [TiyaAnlite](https://github.com/TiyaAnlite) | 显示友好的游戏内插件下载/更新工具 |
 | [MCDR-get](https://github.com/577fkj/MCDR-get) | [57767598](https://github.com/577fkj/) | mcdr的插件库 |
-| [pget_for_MCDR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/pget_for_MCDR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 游戏内下载插件工具 |-->
+|-->
 
 ### 扫地大妈
 
@@ -204,14 +204,14 @@
 | [cpu_temp](https://github.com/R1ckyH/cpu_temp) | [Ricky](https://github.com/R1ckyH) | 一个MCDR定时检测cpu温度的插件 |
 | [CrashRestart](https://github.com/MCDReforged/CrashRestart) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个检测崩服后自动重启服务器的插件，可调整最大崩溃容忍度 |
 | [Hibernate](https://github.com/Dark-Night-Base/Hibernate) |[Dark-Night-Base](https://github.com/Dark-Night-Base) | 一个自动关服的插件，长时间无人则关服，有人尝试登陆则开服 |
-| [StartStopHelperR](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/StartStopHelperR) | [zhang_anzhi](https://github.com/zhang-anzhi) | 服务器管理小助手 |
+| [StartStopHelperR](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/StartStopHelperR) | [AnzhiZhang](https://github.com/AnzhiZhang) | 服务器管理小助手 |
 
 ### 玩家管理
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
 | [Leader](https://github.com/SCT-Technology/Leader) | [MercyNaima](https://github.com/MercyNaima) | 标记你为引领者，引领新人和观光团 |
-| [AdvancedBan](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/AdvancedBan) | [zhang_anzhi](https://github.com/zhang-anzhi) | 高级Ban人插件, 可定时 |
+| [AdvancedBan](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/AdvancedBan) | [AnzhiZhang](https://github.com/AnzhiZhang) | 高级Ban人插件, 可定时 |
 | [AdvancedWhitelist](https://github.com/Da-Dog/MCDR-AdvancedWhitelist) | [Da_Dog](https://github.com/Da-Dog) | 高级白名单，可以自定义白名单踢出消息及IP白名单 |
 | [multi_whitelist](https://github.com/R1ckyH/multi_whitelist) | [Ricky](https://github.com/R1ckyH) | 一个用于控制多服务器白名单的插件 |
 | [RepairManager](https://github.com/wyf0762/RepairManager) | [wyf0762](https://github.com/wyf0762/) | 管理机器报修 |
@@ -230,19 +230,19 @@
 | [stext](https://github.com/TISUnion/stext) | [Pandaria98](https://github.com/Pandaria98) | 字体显示库 |
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | 使发送彩色消息更简单 |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | MC方块ID库 |
-| [vault](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/vault) | [zhang_anzhi](https://github.com/zhang-anzhi) | 经济前置 |
-| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [zhang_anzhi](https://github.com/zhang-anzhi) | 快速创建配置文件 |
+| [vault](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/vault) | [AnzhiZhang](https://github.com/AnzhiZhang) | 经济前置 |
+| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [AnzhiZhang](https://github.com/AnzhiZhang) | 快速创建配置文件 |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | 封装`bossbar`指令 |
-| [OnlinePlayerAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/OnlinePlayerAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 在线玩家API |
-| [CoolQAPI](https://github.com/zhang-anzhi/CoolQAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 酷Q和MCDR的插件开发API |
+| [OnlinePlayerAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/OnlinePlayerAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 在线玩家API |
+| [CoolQAPI](https://github.com/AnzhiZhang/CoolQAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 酷Q和MCDR的插件开发API |
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API |
-| [UUIDAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/UUIDAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 获取玩家UUID |
-| [MinecraftItemAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/MinecraftItemAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 一个Minecraft物品API |
-| [JsonDataAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/JsonDataAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 插件存储数据API |
+| [UUIDAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/UUIDAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 获取玩家UUID |
+| [MinecraftItemAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/MinecraftItemAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 一个Minecraft物品API |
+| [JsonDataAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/JsonDataAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 插件存储数据API |
 | [WebsocketAPI](https://github.com/BelowZeroKelvin/MCDR-WebsocketAPI) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | 为其他插件提供 websocket 支持 |
 | [RText-EXP](https://github.com/eagle3236/rtext-exp) | [Alex3236](https://github.com/eagle3236) | 一种 RText 表达式实现，支持颜色、样式和悬停文字 |
-| [DatabaseAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/DatabaseAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 数据库API |
-| [LanguageAPI](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/LanguageAPI) | [zhang_anzhi](https://github.com/zhang-anzhi) | 语言API |
+| [DatabaseAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/DatabaseAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 数据库API |
+| [LanguageAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/LanguageAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 语言API |
 | [MoreAPIs](https://github.com/HuajiMUR233/MoreAPIs) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 一个非常简单的插件，提供了一些(二次封装的)API与事件 |
 | [PythonIsPlugin](https://github.com/HuajiMUR233/PythonIsPlugin) | [Huaji_MUR233](https://github.com/HuajiMUR233) | \现在你可以依赖你想要的 Python 版本了/ |
 | [MCDReforged-Remote](https://github.com/iXORTech/MCDReforged-Remote) | [Cubik65536](https://github.com/Cubik65536) | 一个MCDR插件+Java库，允许用户通过该库实现QQ，MC双向聊天，服务器控制等功能 |
@@ -251,11 +251,11 @@
 
 | 名称 | 维护者 | 功能 |
 | - | - | - |
-| [Economy](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/Economy) | [zhang_anzhi](https://github.com/zhang-anzhi) | 经济插件 |
+| [Economy](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/Economy) | [AnzhiZhang](https://github.com/AnzhiZhang) | 经济插件 |
 | [LockChest](https://github.com/Da-Dog/MCDR_Lockchest) | [Da_Dog](https://github.com/Da-Dog) | 锁箱子插件 |
 | [currency](https://github.com/63815af756f0357940c666d2ae1c801d/currency) | [63815af756f0357940c666d2ae1c801d](https://github.com/63815af756f0357940c666d2ae1c801d) | 多货币动态价格经济/商店系统 |
 | [MagicChat](https://github.com/Da-Dog/MCDR-MagicChat) | [Da_Dog](https://github.com/Da-Dog) | 展示手中物品 |
-| [QuickAnswer](https://github.com/zhang-anzhi/MCDReforgedPlugins/tree/master/QuickAnswer) | [zhang_anzhi](https://github.com/zhang-anzhi) | 问在线玩家一些算术题 |
+| [QuickAnswer](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/QuickAnswer) | [AnzhiZhang](https://github.com/AnzhiZhang) | 问在线玩家一些算术题 |
 | [TPA](https://github.com/Da-Dog/MCDR-tpa) | [Da_Dog](https://github.com/Da-Dog) | 传送请求 |
 | [home](https://github.com/wyf0762/MCDReforged-Plugins/tree/master/home) | [wyf0762](https://github.com/wyf0762) | 设置家并在任何时候传送回家 |
 | [back](https://github.com/EDHY-233/MCDR-Plugins/tree/master/back) | [EDHY-233](https://github.com/EDHY-233) | 显示与返回玩家死亡点 |
