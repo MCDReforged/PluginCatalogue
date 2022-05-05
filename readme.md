@@ -93,7 +93,7 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [CarpetBotList](https://github.com/BelowZeroKelvin/MCDR-CarpetBotList) | [BelowZeroKelvin](https://github.com/BelowZeroKelvin) | A plugin to show carpet bot |
 | [AutoBot](https://github.com/SCT-Technology/AutoBot) | [MercyNaima](https://github.com/MercyNaima) | A plugin to spawn carpet BOT/BOTS |
 | [MCDR-bot](https://github.com/MCDReforged/MCDR-bot) | [Fallen_Breath](https://github.com/Fallen-Breath) | Fake player support based on [pycraft](https://github.com/ammaraskar/pyCraft) |
-| [Bot](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Bot) | [AnzhiZhang](https://github.com/AnzhiZhang) | Storage bot list, one key to spawn or kill bot |
+| [Bot](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/Archive/Bot) | [AnzhiZhang](https://github.com/AnzhiZhang) | Storage bot list, one key to spawn or kill bot |
 | [BotMono](https://github.com/Jerry-FaGe/MCDR-BotMono) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | The input English, Chinese (even Pinyin) points to the same BOT and provides operation interface and simplified instructions |
 | [BotKikai](https://github.com/Jerry-FaGe/MCDR-BotKikai) | [Jerry-FaGe](https://github.com/Jerry-FaGe) | Storage bot position list, one key to spawn or kill bot, and can let the bot right click |
 
