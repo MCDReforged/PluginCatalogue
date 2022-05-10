@@ -31,7 +31,11 @@ class PluginList(List[Plugin]):
 						print('Skipping plugin {}'.format(folder))
 			for future in futures:
 				try:
-					self.append(future.result())
+					plugin = future.result()
+					if plugin.is_disabled():
+						print('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
+					else:
+						self.append(plugin)
 				except:
 					print('Failed to initialize plugin in folder "{}"'.format(folder))
 					traceback.print_exc()
