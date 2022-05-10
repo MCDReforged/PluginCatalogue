@@ -154,6 +154,8 @@ class Author(Serializable):
 
 
 class Plugin:
+	plugin_json: dict
+
 	id: str = 'N/A'
 	repository: str = 'N/A'
 	branch: str
@@ -179,7 +181,15 @@ class Plugin:
 		self.meta_info = None
 		self.release_summary = None
 
+	def is_disabled(self) -> bool:
+		return bool(self.plugin_json.get('disable'))
+
+	def get_disable_reason(self) -> str:
+		return str(self.plugin_json.get('disable_reason', 'unknown'))
+
 	def load_from_json(self, js: dict):
+		self.plugin_json = js
+
 		self.id = js.get('id', None)
 		self.repository = js['repository'].rstrip('/')
 		if not self.repository.startswith('https://github.com/'):
