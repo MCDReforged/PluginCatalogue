@@ -108,8 +108,12 @@ class ReleaseSummary(Serializable):
 			self.releases = []
 			for item in resp:
 				item['url'] = item['html_url']
-				item['description'] = item['body']
-				r_info = ReleaseInfo.deserialize(item)
+				item['description'] = item['body'] or 'N/A'
+				try:
+					r_info = ReleaseInfo.deserialize(item)
+				except Exception as e:
+					print('Failed to deserialize ReleaseInfo from {}: {}'.format(item, e))
+					continue
 				if self.check_release(r_info):
 					self.releases.append(r_info)
 			self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
