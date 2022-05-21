@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       squash_history:
-        description: Enter "true" if you want the history to be squashed
-        required: false
-        default: 'false'
+        description: Select if you want the history to be squashed
+        type: boolean
+        default: false
 
 jobs:
   update:
