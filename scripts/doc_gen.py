@@ -135,6 +135,8 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 	file.write('### {}\n'.format(Text('download')))
 	file.write('\n')
+	file.write('> :warning: {}'.format(Text('rtfm_warn')))
+	file.write('\n')
 
 	if plugin.release_summary is not None:
 		table = Table(Text('file'), Text('version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
