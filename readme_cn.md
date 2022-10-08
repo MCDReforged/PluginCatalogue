@@ -136,7 +136,7 @@
 | [FastPost](https://github.com/HackerRouter/MCDR-FastPost/) | [HackerRouter](https://github.com/HackerRouter/) | 向一名离线玩家发送信息 |
 | [Beep](https://github.com/TISUnion/Beep) | [LucunJi](https://github.com/LucunJi) | 聊天时用 `@` 来提醒某人 |
 | [Vote](https://github.com/Da-Dog/MCDR_Vote) | [Da_Dog](https://github.com/Da-Dog) | 游戏内投票插件 |
-| [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/qq_chat) | [AnzhiZhang](https://github.com/AnzhiZhang) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
+| [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/qq_chat) | [AnzhiZhang](https://github.com/AnzhiZhang) | 一个用于连接QQ和MC的聊天插件，附带查看在线玩家列表功能 |
 | [ColoredChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/ColoredChat) | [AnzhiZhang](https://github.com/AnzhiZhang) | 支持原版显示[Minecraft样式代码](https://minecraft-zh.gamepedia.com/%E6%A0%B7%E5%BC%8F%E4%BB%A3%E7%A0%81)的插件 |
 | [ChatBridgeReforged](https://github.com/R1ckyH/ChatBridgeReforged) | [Ricky](https://github.com/R1ckyH) | [ChatBridge](https://github.com/TISUnion/ChatBridge) 重制版， 跨服聊天 |
 
@@ -234,7 +234,7 @@
 | [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [AnzhiZhang](https://github.com/AnzhiZhang) | 快速创建配置文件 |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | 封装`bossbar`指令 |
 | [OnlinePlayerAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/OnlinePlayerAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 在线玩家API |
-| [CoolQAPI](https://github.com/AnzhiZhang/CoolQAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 酷Q和MCDR的插件开发API |
+| [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/qq_api) | [AnzhiZhang](https://github.com/AnzhiZhang) | 连接MC与QQ |
 | [ItemStack](https://github.com/dogdie233/ItemStack) | [dogdie233](https://github.com/dogdie233) | 一个仿造Bukkit物品API的API |
 | [UUIDAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/UUIDAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 获取玩家UUID |
 | [MinecraftItemAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/MinecraftItemAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | 一个Minecraft物品API |
