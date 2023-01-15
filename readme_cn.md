@@ -16,10 +16,10 @@
 
 <br>
 
-主插件仓库仅包含支持 MCDReforged >=2.x 的插件
+**主插件目录** 仅包含支持 MCDReforged >=2.x 的插件
 
-对于为更早版本的 MCDR 设计的插件，请查阅 [legacy](https://github.com/MCDReforged/PluginCatalogue/tree/legacy) 分支（旧插件目录）。其中，大部分支持 MCDR 1.x 的插件仍可在 MCDR >=2.x 中正常运行。依然欢迎 `legacy` 分支的  PR
+**旧插件目录** 收录早期版本 MCDR 的插件。你应该避免使用这些过时的插件，否则可能造成严重的兼容问题
 
-如果你想添加你的插件到插件仓库中，不妨交个 PR 。查看 [文档](https://mcdreforged.readthedocs.io/zh_CN/latest/plugin_dev/plugin_catalogue.html) 以了解更多信息
+如果你想添加你的插件到插件仓库中，不妨交个 PR。查看 [文档](https://mcdreforged.readthedocs.io/zh_CN/latest/plugin_dev/plugin_catalogue.html) 以了解更多信息
 
 你可以在 [这里](https://github.com/MCDReforged/PluginCatalogue/tree/meta) 了解到插件仓库提供的插件数据
