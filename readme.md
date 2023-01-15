@@ -18,7 +18,7 @@
 
 **Main Plugins Catalogue** contains plugins that support MCDReforged >= 2.x
 
-**Old Plugins Catalog** contains plugins for earlier versions of MCDR. You should avoid using these obsolete plugins as they may cause serious compatibility problems
+**Old Plugins Catalogue** contains plugins for earlier versions of MCDR. You should avoid using these obsolete plugins as they may cause serious compatibility problems
 
 If you would like to add your plugin to the plugin repository, you may wish to submit a PR. Check out the [documentation](https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html) for more information
 
