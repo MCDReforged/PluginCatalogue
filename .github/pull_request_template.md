@@ -1,7 +1,12 @@
 <!-- 撰写您想附加的信息 -->
 <!-- Write your own things -->
 
+**Please check your copyright declearation**
+
+- [ ] By making this pull request, I declare that I legally own the copyright and other related rights of the plugin which I submitted, and that any adverse consequences arising from a false declaration shall be borne by me. 通过提交此拉取请求，我声明我合法拥有我提交的插件的著作权和其它有关权利，由虚假声明产生的不利后果由我本人承担。
+
 ---
+
 <!-- 供仓库维护者检查使用，勿动 -->
 <!-- For repo maintainers, do not modify -->
 ## 合并检查单
