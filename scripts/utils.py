@@ -7,6 +7,7 @@ from typing import Optional, Any, Tuple
 import requests
 
 import constants
+from report import reporter
 
 
 def remove_prefix(text: str, prefix: str) -> str:
@@ -64,14 +65,8 @@ def save_json(data: dict, file_path: str, *, compact: bool = False):
 
 def request_get(url: str, *, headers: dict = None, params: dict = None, retries: int = 3) -> requests.Response:
 	"""
-	requests.get wrapper with retries for connection / ssl errors and token in header
+	requests.get wrapper with retries for connection / ssl errors
 	"""
-	if headers is None:
-		headers = {}
-	if params is None:
-		params = {}
-	if 'github_api_token' in os.environ:
-		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
 	err = None
 	for i in range(max(1, retries)):
 		try:
@@ -89,14 +84,18 @@ def request_github_api(url: str, *, params: dict = None, etag: str = '', retries
 	headers = {
 		'If-None-Match': etag
 	}
+	if 'github_api_token' in os.environ:
+		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
 	response = request_get(url, headers=headers, params=params, retries=retries)
 	try:
 		new_etag = response.headers['ETag']
 	except KeyError:
 		print('No ETag in response! url={}, params={} status_code={}, content={}'.format(url, params, response.status_code, response.content))
 		raise
+	remaining, limit = response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']
+	reporter.record_rate_limit(remaining, limit)
 	if constants.DEBUG.SHOW_RATE_LIMIT:
-		print('\tRateLimit: {}/{}'.format(response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']))
+		print('\tRateLimit: {}/{}'.format(remaining, limit))
 		print('ETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
 
 	# strange prefix. does not affect accuracy, but will randomly change from time to time

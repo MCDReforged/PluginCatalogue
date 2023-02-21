@@ -10,6 +10,7 @@ from mcdreforged.plugin.meta.version import Version
 import constants
 import utils
 from label import Label, get_label_set
+from report import reporter
 from serializer import Serializable
 from translation import Text, BundledText, LANGUAGES, get_file_name, with_language, DEFAULT_LANGUAGE
 
@@ -270,8 +271,9 @@ class Plugin:
 				if file_location is not None:
 					try:
 						introduction_translations[lang] = self.get_repos_text(file_location)
-					except:
-						print('Failed to get custom introduction file from {} in language {} in {}'.format(file_location, lang, self))
+					except Exception as e:
+						print('[Error] Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
+						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {}'.format(lang, file_location), e)
 						traceback.print_exc()
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 				introduction_tr_file_path = os.path.join(self.directory, get_file_name('introduction.md'))

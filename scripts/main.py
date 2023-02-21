@@ -3,6 +3,7 @@ from typing import Collection, Optional
 
 from doc_gen import generate_doc
 from plugin_list import get_plugin_list
+from report import reporter
 
 
 def check(target_ids: Optional[Collection[str]]):
@@ -39,6 +40,8 @@ def main():
 		generate_doc()
 	else:
 		parser.print_help()
+
+	reporter.report(get_plugin_list())
 
 
 if __name__ == '__main__':
