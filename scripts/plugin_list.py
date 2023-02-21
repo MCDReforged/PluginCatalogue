@@ -35,11 +35,12 @@ class PluginList(List[Plugin]):
 					plugin = future.result()
 					if plugin.is_disabled():
 						print('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
+						reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
 					else:
 						self.append(plugin)
 				except Exception as e:
 					print('[Error] Failed to initialize plugin in folder "{}"'.format(folder))
-					reporter.record_failure(folder, 'Initialize plugin in folder {}'.format(folder), e)
+					reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 					traceback.print_exc()
 					raise
 

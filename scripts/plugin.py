@@ -273,7 +273,7 @@ class Plugin:
 						introduction_translations[lang] = self.get_repos_text(file_location)
 					except Exception as e:
 						print('[Error] Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
-						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {}'.format(lang, file_location), e)
+						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
 						traceback.print_exc()
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 				introduction_tr_file_path = os.path.join(self.directory, get_file_name('introduction.md'))
@@ -324,7 +324,7 @@ class Plugin:
 			if default is not None:
 				return default
 			else:
-				raise Exception('status code {} != 200 when fetching file {} from {}'.format(resp.status_code, file_path, resp.url))
+				raise Exception('status code {} (should be 200) when fetching {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
 
 	def fetch_meta(self) -> MetaInfo:
