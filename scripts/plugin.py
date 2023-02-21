@@ -115,7 +115,7 @@ class ReleaseSummary(Serializable):
 				break
 		if all_resp:
 			self.releases = []
-			for item in resp:
+			for item in all_resp:
 				item['url'] = item['html_url']
 				item['description'] = item['body'] or 'N/A'
 				try:
