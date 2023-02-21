@@ -28,6 +28,7 @@ def main():
 	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 
 	args = parser.parse_args()
+	reporter.record_command(args.subparser_name)
 	if args.subparser_name == 'check':
 		check(None if args.id == '' else args.id.split(','))
 	elif args.subparser_name == 'fetch':

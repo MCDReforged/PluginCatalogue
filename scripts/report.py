@@ -11,10 +11,15 @@ if TYPE_CHECKING:
 class Reporter:
 	def __init__(self):
 		self.__lock = Lock()
+		self.__command = None
 		self.__failures: Dict[str, List[str]] = collections.defaultdict(list)
 		self.__disabled_plugins: Dict[str, str] = {}
 		self.__rate_limit_remaining = '?'
 		self.__rate_limit_limit = '?'
+
+	def record_command(self, command: str):
+		with self.__lock:
+			self.__command = command
 
 	def record_failure(self, plugin_id: str, message: str, err: Exception):
 		with self.__lock:
@@ -30,6 +35,9 @@ class Reporter:
 			self.__rate_limit_limit = limit
 
 	def __dump(self, plugin_list: 'PluginList', f: IO[str]):
+		f.write('# Report for command "{}"\n\n'.format(self.__command))
+		f.write('Script args: {}\n\n'.format(sys.argv[1:]))
+
 		f.write('## Summary\n\n')
 		f.write('Activated plugins: {}\n\n'.format(len(plugin_list)))
 		f.write('Disabled plugins: {}\n\n'.format(len(self.__disabled_plugins)))
@@ -43,14 +51,11 @@ class Reporter:
 		f.write('## Failures\n\n')
 		f.write('Plugins with failure: {}\n\n'.format(len(self.__failures)))
 		f.write('Failure amount: {}\n\n'.format(sum(map(lambda msgs: len(msgs), self.__failures.values()))))
-		if len(self.__failures) > 0:
-			for plugin_id, messages in self.__failures.items():
-				f.write('### {}\n\n'.format(plugin_id))
-				for msg in messages:
-					f.write('- {}\n'.format(msg))
-				f.write('\n')
-		else:
-			f.write('Nope\n\n')
+		for plugin_id, messages in self.__failures.items():
+			f.write('### `{}`\n\n'.format(plugin_id))
+			for msg in messages:
+				f.write('- {}\n'.format(msg))
+			f.write('\n')
 
 	def report(self, plugin_list: 'PluginList'):
 		print('\n===================================\n', file=sys.stdout)
