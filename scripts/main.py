@@ -3,6 +3,7 @@ from typing import Collection, Optional
 
 from doc_gen import generate_doc
 from plugin_list import get_plugin_list
+from report import reporter
 
 
 def check(target_ids: Optional[Collection[str]]):
@@ -27,6 +28,7 @@ def main():
 	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 
 	args = parser.parse_args()
+	reporter.record_command(args.subparser_name)
 	if args.subparser_name == 'check':
 		check(None if args.id == '' else args.id.split(','))
 	elif args.subparser_name == 'fetch':
@@ -39,6 +41,8 @@ def main():
 		generate_doc()
 	else:
 		parser.print_help()
+
+	reporter.report(get_plugin_list())
 
 
 if __name__ == '__main__':

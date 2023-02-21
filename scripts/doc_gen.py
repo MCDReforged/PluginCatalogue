@@ -53,7 +53,7 @@ def get_full_index_file_path():
 
 
 def get_label_list_markdown(plugin: Plugin):
-	return ', '.join(map(lambda l: '[`{}`]({})'.format(l, get_label_doc_link(l.id)), plugin.labels))
+	return ', '.join(map(lambda label: '[`{}`]({})'.format(label, get_label_doc_link(label.id)), plugin.labels))
 
 
 def write_translation_nav(file_name: str, file: IO[str]):

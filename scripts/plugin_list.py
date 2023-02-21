@@ -7,6 +7,7 @@ from typing import Callable, Any, List, Collection, Optional
 import constants
 import utils
 from plugin import PluginMetaSummary, Plugin
+from report import reporter
 
 
 class PluginList(List[Plugin]):
@@ -34,10 +35,12 @@ class PluginList(List[Plugin]):
 					plugin = future.result()
 					if plugin.is_disabled():
 						print('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
+						reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
 					else:
 						self.append(plugin)
-				except:
-					print('Failed to initialize plugin in folder "{}"'.format(folder))
+				except Exception as e:
+					print('[Error] Failed to initialize plugin in folder "{}"'.format(folder))
+					reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 					traceback.print_exc()
 					raise
 
@@ -45,16 +48,17 @@ class PluginList(List[Plugin]):
 		self.sort(key=lambda plg: plg.id.lower())
 		self.__inited = True
 
-	def __fetch(self, name: str, func: Callable[[Plugin], Any], fail_hard: bool):
+	def __fetch(self, fetch_target_name: str, func: Callable[[Plugin], Any], fail_hard: bool):
 		with ThreadPoolExecutor(max_workers=constants.THREAD_POOL_WORKER) as executor:
 			futures = []
 			for plugin in self:
-				futures.append(executor.submit(func, plugin))
-			for i, future in enumerate(futures):
+				futures.append((plugin, executor.submit(func, plugin)))
+			for plugin, future in futures:
 				try:
 					future.result()
 				except Exception as e:
-					print('Failed to fetch {} of plugin {}'.format(name, self[i]))
+					print('[Error] Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
+					reporter.record_failure(plugin.id, 'Fetch {} failed'.format(fetch_target_name), e)
 					if fail_hard:
 						raise
 					else:

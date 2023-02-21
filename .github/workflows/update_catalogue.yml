@@ -42,7 +42,7 @@ jobs:
       - name: Check, fetch data and generate doc
         run: |
           cd ./scripts
-          python manager.py all
+          python main.py all
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
