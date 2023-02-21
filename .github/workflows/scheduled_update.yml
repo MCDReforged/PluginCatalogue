@@ -36,14 +36,14 @@ jobs:
       - name: Fetch data
         run: |
           cd ./scripts
-          python manager.py fetch
+          python main.py fetch
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
       - name: Generate doc
         run: |
           cd ./scripts
-          python manager.py doc
+          python main.py doc
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 

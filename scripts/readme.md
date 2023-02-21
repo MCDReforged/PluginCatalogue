@@ -12,8 +12,8 @@ pip install -r requirements.txt
 Run the script in the `scripts/` folder
 
 ```
-python manager.py --help
-python manager.py check
+python main.py --help
+python main.py check
 ```
 
 ## Environment variable
