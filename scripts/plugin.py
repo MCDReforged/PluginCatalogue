@@ -6,7 +6,6 @@ from typing import Optional, List, Dict
 import requests
 from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
-from requests import Response
 
 import constants
 import utils
@@ -89,46 +88,91 @@ class ReleaseInfo(Serializable):
 		return [asset for asset in self.assets if asset.name.endswith('.mcdr') or asset.name.endswith('.pyz')]
 
 
+class ReleasePage(Serializable):
+	index: int = -1
+	etag: str = ''
+	releases: List[ReleaseInfo]
+	empty: bool
+
+	@classmethod
+	def fetch_page(cls, plugin: 'Plugin', page_index: int, old_etag: str) -> Optional['ReleasePage']:
+		"""
+		:return: (page, is_empty)
+		"""
+		url = f'https://api.github.com/repos/{plugin.repos_path}/releases'
+		resp, new_etag = utils.request_github_api(url, etag=old_etag, params={'page': page_index, 'per_page': constants.MAX_RELEASE_PER_PAGE})
+		if resp is None:
+			return None
+
+		page = ReleasePage(index=page_index, etag=new_etag)
+		page.releases = []
+		for item in resp:
+			item['url'] = item['html_url']
+			item['description'] = item['body'] or 'N/A'
+			try:
+				r_info = ReleaseInfo.deserialize(item)
+			except Exception as e:
+				print('Failed to deserialize ReleaseInfo from {}: {}'.format(item, e))
+				continue
+			if cls.check_release(plugin, r_info):
+				page.releases.append(r_info)
+		page.empty = len(resp) == 0
+		return page
+
+	@classmethod
+	def check_release(cls, plugin: 'Plugin', r_info: ReleaseInfo) -> bool:
+		if r_info.parse_version(plugin.id) is None:
+			return False
+		if r_info.prerelease:
+			return False
+		return len(r_info.get_mcdr_assets()) > 0
+
+
+class ReleaseSummaryVersionHolder(Serializable):
+	schema_version: int
+
+
 class ReleaseSummary(Serializable):
 	schema_version: int = None
 	id: str
 	latest_version: str
-	etag: str = ''
-	releases: List[ReleaseInfo]
+	releases: List[ReleaseInfo] = []
+	release_pages: List[ReleasePage] = []
 
-	def fetch_from_api(self, plugin: 'Plugin'):
-		url = f'https://api.github.com/repos/{plugin.repos_path}/releases'
-		resp: Optional[List[dict]]
-		new_etag: str
-		resp, new_etag = utils.request_github_api(url, etag=self.etag)
+	def update(self, plugin: 'Plugin'):
 		self.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		self.id = plugin.id
-		self.etag = new_etag
-		if resp is not None:
-			self.releases = []
-			for item in resp:
-				item['url'] = item['html_url']
-				item['description'] = item['body'] or 'N/A'
-				try:
-					r_info = ReleaseInfo.deserialize(item)
-				except Exception as e:
-					print('Failed to deserialize ReleaseInfo from {}: {}'.format(item, e))
-					continue
-				if self.check_release(r_info):
-					self.releases.append(r_info)
-			self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
+		page_map: Dict[int, ReleasePage] = {page.index: page for page in self.release_pages}
+
+		# GitHub: Only the first 10000 results are available.
+		# 10000 results == 100 pages
+		for i in range(100):  # i in [0, 99]
+			idx = i + 1  # idx in [1, 100]
+			if idx in page_map:
+				old_etag = page_map[idx].etag
+			else:
+				old_etag = ''
+			page = ReleasePage.fetch_page(plugin, idx, old_etag)
+			if page is not None:  # page updated
+				page_map[idx] = page
+			if page_map[idx].empty:  # not that many releases
+				break
+
+		self.release_pages = list(page_map.values())
+		self.release_pages.sort(key=lambda p: p.index)
+		self.releases = []
+		for page in self.release_pages:
+			self.releases.extend(page.releases)
+		self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
+
+	@property
+	def page_amount(self) -> int:
+		return len(self.release_pages) - 1
 
 	def get_latest_release(self) -> Optional[ReleaseInfo]:
 		if len(self.releases) > 0:
 			return self.releases[0]
 		return None
-
-	def check_release(self, r_info: ReleaseInfo) -> bool:
-		if r_info.parse_version(self.id) is None:
-			return False
-		if r_info.prerelease:
-			return False
-		return len(r_info.get_mcdr_assets()) > 0
 
 	def get_total_downloads(self) -> int:
 		total = 0
@@ -259,10 +303,10 @@ class Plugin:
 	def __repr__(self):
 		return 'Plugin[id={},repository={}]'.format(self.id, self.repository)
 
-	def __get_repos_file(self, file_path: str) -> Response:
+	def __get_repos_file(self, file_path: str) -> requests.Response:
 		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/next/mcdreforged.plugin.json
 		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{self.branch}/{self.related_path}/'
-		return requests.get(url_base + file_path, proxies=constants.PROXIES)
+		return utils.request_get(url_base + file_path)
 
 	def get_repos_json(self, file_path: str) -> dict:
 		response = self.__get_repos_file(file_path)
@@ -278,7 +322,7 @@ class Plugin:
 			if default is not None:
 				return default
 			else:
-				raise Exception('not 200 status code when fetching repository file {}: {}'.format(file_path, resp.status_code))
+				raise Exception('status code {} != 200 when fetching file {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
 
 	def fetch_meta(self) -> MetaInfo:
@@ -330,21 +374,23 @@ class Plugin:
 			utils.save_json(self.release_summary.serialize(), self.__release_info_file)
 
 	def fetch_release(self) -> ReleaseSummary:
-		prev = None
+		prev: Optional[ReleaseSummary] = None
 		try:
-			self.release_summary = prev = ReleaseSummary.deserialize(utils.load_json(self.__release_info_file), error_at_missing=True)
+			release_info_object = utils.load_json(self.__release_info_file)
+			holder = ReleaseSummaryVersionHolder.deserialize(release_info_object, error_at_missing=True)
+			if holder.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
+				print('Ignoring previous release info due to different schema_version: {} -> {}'.format(holder.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
+				self.release_summary = None
+			else:
+				self.release_summary = prev = ReleaseSummary.deserialize(release_info_object, error_at_missing=True)
 		except Exception as e:
 			if not isinstance(e, FileNotFoundError):
 				print('Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
 			self.release_summary = None
-		else:
-			if self.release_summary.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
-				print('Ignoring previous release info due to different schema_version: {} -> {}'.format(self.release_summary.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
-				self.release_summary = None
 		if self.release_summary is None:
 			self.release_summary = ReleaseSummary()
 		try:
-			self.release_summary.fetch_from_api(self)
+			self.release_summary.update(self)
 		except Exception as e:
 			if prev is not None:
 				self.release_summary = prev
@@ -352,7 +398,7 @@ class Plugin:
 			else:
 				raise e from None
 		else:
-			print('Fetched release info of {}'.format(self.id))
+			print('Fetched release info of {}, page num {}'.format(self.id, self.release_summary.page_amount))
 		return self.release_summary
 
 

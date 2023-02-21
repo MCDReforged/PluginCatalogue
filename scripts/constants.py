@@ -1,6 +1,7 @@
 import os
 
-RELEASE_INFO_SCHEMA_VERSION = 2
+RELEASE_INFO_SCHEMA_VERSION = 3
+MAX_RELEASE_PER_PAGE = 100
 
 THREAD_POOL_WORKER = 32
 MCDR_LINK = 'https://github.com/Fallen-Breath/MCDReforged'
@@ -24,3 +25,7 @@ if 'http_proxy' in os.environ:
 		'http': http_proxy,
 		'https': http_proxy
 	}
+
+
+class DEBUG:
+	SHOW_RATE_LIMIT = False
