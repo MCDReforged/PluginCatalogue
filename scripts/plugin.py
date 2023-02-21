@@ -97,14 +97,23 @@ class ReleaseSummary(Serializable):
 	releases: List[ReleaseInfo]
 
 	def fetch_from_api(self, plugin: 'Plugin'):
-		url = f'https://api.github.com/repos/{plugin.repos_path}/releases'
+		per_page: int = 1
+		page: int = 1
+		url = f'https://api.github.com/repos/{plugin.repos_path}/releases?per_page={per_page}&page={{}}'
+		all_resp: List[dict] = []
 		resp: Optional[List[dict]]
 		new_etag: str
-		resp, new_etag = utils.request_github_api(url, etag=self.etag)
 		self.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		self.id = plugin.id
-		self.etag = new_etag
-		if resp is not None:
+		while True:
+			resp, new_etag = utils.request_github_api(url.format(page), etag=self.etag)
+			self.etag = new_etag
+			if resp is not None and len(resp) <= per_page:
+				all_resp += resp
+				page += 1
+			else:
+				break
+		if all_resp:
 			self.releases = []
 			for item in resp:
 				item['url'] = item['html_url']
