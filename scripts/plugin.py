@@ -97,7 +97,7 @@ class ReleaseSummary(Serializable):
 	releases: List[ReleaseInfo]
 
 	def fetch_from_api(self, plugin: 'Plugin'):
-		per_page: int = 1
+		per_page: int = 100
 		page: int = 1
 		url = f'https://api.github.com/repos/{plugin.repos_path}/releases?per_page={per_page}&page={{}}'
 		all_resp: List[dict] = []
