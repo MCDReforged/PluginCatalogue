@@ -7,7 +7,7 @@
 ## 检查以下事项 | Check the following:
 
 <!-- 请检查确认后勾选以下项目（- [x] ...） -->
-<!-- Complete checkboxes (- [x] ...) after check the following things -->
+<!-- After checking the following, tick the checkboxes (- [x] ...) -->
 <!--Checkmate-->
 
 - [ ] 仓库 URL、分支和 `related_path` 正确且 `mcdreforged.plugin.json` 位于应当存在的位置  
