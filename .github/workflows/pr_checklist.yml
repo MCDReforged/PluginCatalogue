@@ -1,6 +1,10 @@
 on:
   pull_request:
     types: [edited, opened, reopened, synchronize]
+    paths:
+      - plugins/**
+  issue_comment:
+    types: [edited]
 
 name: Checklist
 jobs:
