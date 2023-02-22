@@ -18,7 +18,7 @@
 
 **主插件目录** 仅包含支持 MCDReforged >=2.x 的插件
 
-**旧插件目录** 收录早期版本 MCDR 的插件。你应该避免使用这些过时的插件，否则可能造成严重的兼容问题
+**旧插件目录** 收录早期版本 MCDR 的插件。这些过时的插件可能无法兼容当前版本的 MCDR，请谨慎使用
 
 如果你想添加你的插件到插件仓库中，不妨交个 PR。查看 [文档](https://mcdreforged.readthedocs.io/zh_CN/latest/plugin_dev/plugin_catalogue.html) 以了解更多信息
 
