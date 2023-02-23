@@ -1,7 +1,7 @@
 import os
 import traceback
 from json import JSONDecodeError
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, NamedTuple, Iterable, Union
 
 import requests
 from mcdreforged.plugin.meta.metadata import Metadata
@@ -12,6 +12,7 @@ import utils
 from label import Label, get_label_set
 from report import reporter
 from serializer import Serializable
+from thread_pools import downloader_pool
 from translation import Text, BundledText, LANGUAGES, get_file_name, with_language, DEFAULT_LANGUAGE
 
 
@@ -34,6 +35,38 @@ class MetaInfo(Serializable):
 		else:
 			text = utils.format_markdown(text)
 		return text
+
+	@classmethod
+	def fetch(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
+		metadata_json = plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
+		metadata = Metadata(metadata_json)
+		assert metadata.id == plugin.id
+		meta_info = MetaInfo()
+		meta_info.id = metadata.id
+		meta_info.name = metadata.name
+		meta_info.version = str(metadata.version)
+		meta_info.repository = plugin.repository
+		meta_info.labels = list(map(lambda l: l.id, plugin.labels))
+		meta_info.authors = list(map(lambda a: a.name, plugin.authors))
+		meta_info.dependencies = dict(map(
+			lambda t: (str(t[0]), str(t[1])),
+			metadata.dependencies.items()
+		))
+		meta_info.requirements = list(filter(
+			lambda l: len(l) > 0, map(
+				lambda l: l.split('#', 1)[0].strip(),
+				plugin.get_repos_text('requirements.txt', default='', tag=tag).splitlines()
+			)
+		))
+		if isinstance(metadata.description, str):
+			meta_info.description = {DEFAULT_LANGUAGE: metadata.description}
+		elif isinstance(metadata.description, dict):
+			meta_info.description = metadata.description
+		else:
+			meta_info.description = {}
+		if isinstance(meta_info.description, str):
+			meta_info.description = {DEFAULT_LANGUAGE: meta_info.description}
+		return meta_info
 
 
 class AssetInfo(Serializable):
@@ -92,13 +125,17 @@ class ReleaseInfo(Serializable):
 class ReleasePage(Serializable):
 	index: int = -1
 	etag: str = ''
-	releases: List[ReleaseInfo]
+	release_tags: List[str]  # list of tags
 	empty: bool
 
+	class FetchResult(NamedTuple):
+		page: 'ReleasePage'
+		release_map: Dict[str, ReleaseInfo]
+
 	@classmethod
-	def fetch_page(cls, plugin: 'Plugin', page_index: int, old_etag: str) -> Optional['ReleasePage']:
+	def fetch_page(cls, plugin: 'Plugin', page_index: int, old_etag: str) -> Optional['ReleasePage.FetchResult']:
 		"""
-		:return: (page, is_empty)
+		:return: None if page unchanged
 		"""
 		url = f'https://api.github.com/repos/{plugin.repos_path}/releases'
 		resp, new_etag = utils.request_github_api(url, etag=old_etag, params={'page': page_index, 'per_page': constants.MAX_RELEASE_PER_PAGE})
@@ -106,19 +143,21 @@ class ReleasePage(Serializable):
 			return None
 
 		page = ReleasePage(index=page_index, etag=new_etag)
-		page.releases = []
+		page.release_tags = []
+		release_map: Dict[str, ReleaseInfo] = {}  # tag name -> ReleaseInfo
 		for item in resp:
 			item['url'] = item['html_url']
 			item['description'] = item['body'] or 'N/A'
 			try:
 				r_info = ReleaseInfo.deserialize(item)
 			except Exception as e:
-				print('Failed to deserialize ReleaseInfo from {}: {}'.format(item, e))
+				print('Failed to deserialize fetched ReleaseInfo from {}: {}'.format(item, e))
 				continue
 			if cls.check_release(plugin, r_info):
-				page.releases.append(r_info)
+				release_map[r_info.tag_name] = r_info
+				page.release_tags.append(r_info.tag_name)
 		page.empty = len(resp) == 0
-		return page
+		return cls.FetchResult(page, release_map)
 
 	@classmethod
 	def check_release(cls, plugin: 'Plugin', r_info: ReleaseInfo) -> bool:
@@ -139,36 +178,86 @@ class ReleaseSummary(Serializable):
 	latest_version: str
 	releases: List[ReleaseInfo] = []
 	release_pages: List[ReleasePage] = []
+	release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta or err_msg
 
 	def update(self, plugin: 'Plugin'):
 		self.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		self.id = plugin.id
-		page_map: Dict[int, ReleasePage] = {page.index: page for page in self.release_pages}
+
+		self.__update_release_data(plugin)
+		self.__update_release_meta(plugin)
+
+	def __update_release_data(self, plugin: 'Plugin'):
+		old_page_map: Dict[int, ReleasePage] = {page.index: page for page in self.release_pages}  # page index -> page
+		old_release_map: Dict[str, ReleaseInfo] = {release.tag_name: release for release in self.releases}  # tag name -> ReleaseInfo
+		new_page_map: Dict[int, ReleasePage] = {}  # page index -> page
+		new_release_map: Dict[str, ReleaseInfo] = {}  # tag name -> ReleaseInfo
+
+		def fetch_page(idx_: int):
+			if idx_ in old_page_map:
+				old_etag = old_page_map[idx_].etag
+			else:
+				old_etag = ''
+			return downloader_pool.submit(lambda: ReleasePage.fetch_page(plugin, idx_, old_etag))
+
+		# pages of existing indexes are probably not empty
+		# fetch them in batch
+		futures = {}  # idx -> future
+		for idx in old_page_map.keys():
+			futures[idx] = fetch_page(idx)
 
 		# GitHub: Only the first 10000 results are available.
 		# 10000 results == 100 pages
-		for i in range(100):  # i in [0, 99]
+		for i in range(100):
 			idx = i + 1  # idx in [1, 100]
-			if idx in page_map:
-				old_etag = page_map[idx].etag
+			if idx in futures:
+				result = futures[idx].result()
 			else:
-				old_etag = ''
-			page = ReleasePage.fetch_page(plugin, idx, old_etag)
-			if page is not None:  # page updated
-				page_map[idx] = page
-			if page_map[idx].empty:  # not that many releases
+				result = fetch_page(idx).result()
+			if result is not None:  # page updated
+				new_page_map[idx] = result.page
+				new_release_map.update(result.release_map)
+			else:  # page unchanged, use the old releases
+				assert old_page_map[idx] is not None, 'unchanged page does not exist in page_map'
+				new_page_map[idx] = old_page_map[idx]
+				new_release_map.update({tag: old_release_map[tag] for tag in old_page_map[idx].release_tags})
+			if new_page_map[idx].empty:  # not that many releases
 				break
 
-		self.release_pages = list(page_map.values())
+		self.release_pages = list(new_page_map.values())
 		self.release_pages.sort(key=lambda p: p.index)
 		self.releases = []
 		for page in self.release_pages:
-			self.releases.extend(page.releases)
+			for tag in page.release_tags:
+				self.releases.append(new_release_map[tag])
 		self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
+
+	def __update_release_meta(self, plugin: 'Plugin'):
+		old_release_meta = self.release_meta.copy()
+		new_release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta
+		futures = []
+		for tag in self.release_tags:
+			if tag in old_release_meta:
+				futures.append((tag, downloader_pool.submit(lambda: old_release_meta[tag])))
+			else:
+				futures.append((tag, downloader_pool.submit(lambda: MetaInfo.fetch(plugin, tag=tag))))
+
+		for tag, future in futures:
+			try:
+				new_release_meta[tag] = future.result()
+			except Exception as e:
+				print('[Warn] failed to fetch release meta for tag {} for plugin {}: {}'.format(tag, plugin, e))
+				new_release_meta[tag] = str(e)
+
+		self.release_meta = new_release_meta
 
 	@property
 	def page_amount(self) -> int:
 		return len(self.release_pages) - 1
+
+	@property
+	def release_tags(self) -> Iterable[str]:
+		return map(lambda r: r.tag_name, self.releases)
 
 	def get_latest_release(self) -> Optional[ReleaseInfo]:
 		if len(self.releases) > 0:
@@ -305,21 +394,20 @@ class Plugin:
 	def __repr__(self):
 		return 'Plugin[id={},repository={}]'.format(self.id, self.repository)
 
-	def __get_repos_file(self, file_path: str) -> requests.Response:
-		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/next/mcdreforged.plugin.json
-		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{self.branch}/{self.related_path}/'
+	def __get_repos_file(self, file_path: str, *, tag: Optional[str] = None) -> requests.Response:
+		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/master/mcdreforged.plugin.json
+		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{tag or self.branch}/{self.related_path}/'
 		return utils.request_get(url_base + file_path)
 
-	def get_repos_json(self, file_path: str) -> dict:
-		response = self.__get_repos_file(file_path)
+	def get_repos_json(self, file_path: str, **kwargs) -> dict:
+		response = self.__get_repos_file(file_path, **kwargs)
 		try:
 			return response.json()
 		except JSONDecodeError:
-			print('Failed to decode json from response! url: {}, status_code {}: {}'.format(response.url, response.status_code, response.content))
-			raise
+			raise Exception('Failed to decode json from response! url: {}, status_code {}: {}'.format(response.url, response.status_code, response.content)) from None
 
-	def get_repos_text(self, file_path: str, default: Optional[str] = None) -> str:
-		resp = self.__get_repos_file(file_path)
+	def get_repos_text(self, file_path: str, default: Optional[str] = None, **kwargs) -> str:
+		resp = self.__get_repos_file(file_path, **kwargs)
 		if resp.status_code != 200:
 			if default is not None:
 				return default
@@ -328,34 +416,7 @@ class Plugin:
 		return resp.text
 
 	def fetch_meta(self) -> MetaInfo:
-		metadata_json = self.get_repos_json('mcdreforged.plugin.json')
-		metadata = Metadata(metadata_json)
-		assert metadata.id == self.id
-		self.meta_info = MetaInfo()
-		self.meta_info.id = metadata.id
-		self.meta_info.name = metadata.name
-		self.meta_info.version = str(metadata.version)
-		self.meta_info.repository = self.repository
-		self.meta_info.labels = list(map(lambda l: l.id, self.labels))
-		self.meta_info.authors = list(map(lambda a: a.name, self.authors))
-		self.meta_info.dependencies = dict(map(
-			lambda t: (str(t[0]), str(t[1])),
-			metadata.dependencies.items()
-		))
-		self.meta_info.requirements = list(filter(
-			lambda l: len(l) > 0, map(
-				lambda l: l.split('#', 1)[0].strip(),
-				self.get_repos_text('requirements.txt', default='').splitlines()
-			)
-		))
-		if isinstance(metadata.description, str):
-			self.meta_info.description = {DEFAULT_LANGUAGE: metadata.description}
-		elif isinstance(metadata.description, dict):
-			self.meta_info.description = metadata.description
-		else:
-			self.meta_info.description = {}
-		if isinstance(self.meta_info.description, str):
-			self.meta_info.description = {DEFAULT_LANGUAGE: self.meta_info.description}
+		self.meta_info = MetaInfo.fetch(self)
 		print('Fetched meta info of {}'.format(self.id))
 		return self.meta_info
 
@@ -397,6 +458,7 @@ class Plugin:
 			if prev is not None:
 				self.release_summary = prev
 				print('Failed to fetch release info of {}, use the previous serialized one: {} {}'.format(self, type(e), e))
+				traceback.print_exc()
 			else:
 				raise e from None
 		else:

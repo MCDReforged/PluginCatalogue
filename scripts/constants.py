@@ -1,6 +1,6 @@
 import os
 
-RELEASE_INFO_SCHEMA_VERSION = 3
+RELEASE_INFO_SCHEMA_VERSION = 4
 MAX_RELEASE_PER_PAGE = 100
 
 THREAD_POOL_WORKER = 32
@@ -28,4 +28,5 @@ if 'http_proxy' in os.environ:
 
 
 class DEBUG:
+	REQUEST_GET = False
 	SHOW_RATE_LIMIT = False

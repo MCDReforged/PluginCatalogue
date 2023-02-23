@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from typing import Collection, Optional
 
+import thread_pools
 from doc_gen import generate_doc
 from plugin_list import get_plugin_list
 from report import reporter
@@ -43,6 +44,7 @@ def main():
 		parser.print_help()
 
 	reporter.report(get_plugin_list())
+	thread_pools.shutdown()
 
 
 if __name__ == '__main__':
