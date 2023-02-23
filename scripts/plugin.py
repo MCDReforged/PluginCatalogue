@@ -168,8 +168,17 @@ class ReleasePage(Serializable):
 		return len(r_info.get_mcdr_assets()) > 0
 
 
-class ReleaseSummaryVersionHolder(Serializable):
+class SchemaVersionHolder(Serializable):
 	schema_version: int
+
+
+class ReleasePageCache(Serializable):
+	NOTICE: str = 'Not public API, DO NOT use this file'
+	release_pages: List[ReleasePage] = []
+
+	@property
+	def page_amount(self) -> int:
+		return len(self.release_pages) - 1
 
 
 class ReleaseSummary(Serializable):
@@ -177,10 +186,10 @@ class ReleaseSummary(Serializable):
 	id: str = None
 	latest_version: str = None
 	releases: List[ReleaseInfo] = []
-	release_pages: List[ReleasePage] = []
 	release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta or err_msg
 
 	def update(self, plugin: 'Plugin'):
+		assert plugin.release_page_cache is not None
 		self.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		self.id = plugin.id
 
@@ -188,7 +197,7 @@ class ReleaseSummary(Serializable):
 		self.__update_release_meta(plugin)
 
 	def __update_release_data(self, plugin: 'Plugin'):
-		old_page_map: Dict[int, ReleasePage] = {page.index: page for page in self.release_pages}  # page index -> page
+		old_page_map: Dict[int, ReleasePage] = {page.index: page for page in plugin.release_page_cache.release_pages}  # page index -> page
 		old_release_map: Dict[str, ReleaseInfo] = {release.tag_name: release for release in self.releases}  # tag name -> ReleaseInfo
 		new_page_map: Dict[int, ReleasePage] = {}  # page index -> page
 		new_release_map: Dict[str, ReleaseInfo] = {}  # tag name -> ReleaseInfo
@@ -224,12 +233,15 @@ class ReleaseSummary(Serializable):
 			if new_page_map[idx].empty:  # not that many releases
 				break
 
-		self.release_pages = list(new_page_map.values())
-		self.release_pages.sort(key=lambda p: p.index)
+		release_pages = list(new_page_map.values())
+		release_pages.sort(key=lambda p: p.index)
+		plugin.release_page_cache.release_pages = release_pages
+
 		self.releases = []
-		for page in self.release_pages:
+		for page in release_pages:
 			for tag in page.release_tags:
 				self.releases.append(new_release_map[tag])
+
 		self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
 
 	def __update_release_meta(self, plugin: 'Plugin'):
@@ -251,10 +263,6 @@ class ReleaseSummary(Serializable):
 				new_release_meta[tag] = str(e)
 
 		self.release_meta = new_release_meta
-
-	@property
-	def page_amount(self) -> int:
-		return len(self.release_pages) - 1
 
 	@property
 	def release_tags(self) -> Iterable[str]:
@@ -302,6 +310,7 @@ class Plugin:
 	# Available after fetch_data()
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
+	release_page_cache: Optional[ReleasePageCache] = None
 
 	def __init__(self, plugin_id: str):
 		self.directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
@@ -315,6 +324,7 @@ class Plugin:
 
 		self.meta_info = None
 		self.release_summary = None
+		self.release_page_cache = None
 
 	def is_disabled(self) -> bool:
 		return bool(self.plugin_json.get('disable'))
@@ -431,17 +441,25 @@ class Plugin:
 	def __release_info_file(self) -> str:
 		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
 
+	@property
+	def __release_page_cache_file(self) -> str:
+		return os.path.join(constants.META_FOLDER, self.id, '.release_page_cache.json')
+
 	def save_release_info(self):
 		if self.release_summary is None:
 			print('Skipping {} during release_summary saving since release_summary is None'.format(self))
 		else:
 			utils.save_json(self.release_summary.serialize(), self.__release_info_file)
+		if self.release_page_cache is None:
+			print('Skipping {} during release_page_cache saving since release_page_cache is None'.format(self))
+		else:
+			utils.save_json(self.release_page_cache.serialize(), self.__release_page_cache_file)
 
 	def fetch_release(self) -> ReleaseSummary:
 		prev: Optional[ReleaseSummary] = None
 		try:
 			release_info_object = utils.load_json(self.__release_info_file)
-			holder = ReleaseSummaryVersionHolder.deserialize(release_info_object, error_at_missing=True)
+			holder = SchemaVersionHolder.deserialize(release_info_object, error_at_missing=True)
 			if holder.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
 				print('Ignoring previous release info due to different schema_version: {} -> {}'.format(holder.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
 				self.release_summary = None
@@ -449,10 +467,22 @@ class Plugin:
 				self.release_summary = prev = ReleaseSummary.deserialize(release_info_object, error_at_missing=True)
 		except Exception as e:
 			if not isinstance(e, FileNotFoundError):
-				print('Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
+				print('[Warn] Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
+				reporter.record_warning(self.id, 'Failed to deserialized existed release_summary', e)
 			self.release_summary = None
 		if self.release_summary is None:
 			self.release_summary = ReleaseSummary()
+
+		try:
+			self.release_page_cache = ReleasePageCache.deserialize(utils.load_json(self.__release_page_cache_file))
+		except Exception as e:
+			if not isinstance(e, FileNotFoundError):
+				print('[Warn] Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
+				reporter.record_warning(self.id, 'Failed to deserialized existed release_page_cache', e)
+			self.release_page_cache = None
+		if self.release_page_cache is None:
+			self.release_page_cache = ReleasePageCache()
+
 		try:
 			self.release_summary.update(self)
 		except Exception as e:
@@ -463,7 +493,7 @@ class Plugin:
 			else:
 				raise e from None
 		else:
-			print('Fetched release info of {}, page num {}'.format(self.id, self.release_summary.page_amount))
+			print('Fetched release info of {}, page num {}'.format(self.id, self.release_page_cache.page_amount))
 		return self.release_summary
 
 
