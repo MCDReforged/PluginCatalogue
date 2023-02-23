@@ -174,8 +174,8 @@ class ReleaseSummaryVersionHolder(Serializable):
 
 class ReleaseSummary(Serializable):
 	schema_version: int = None
-	id: str
-	latest_version: str
+	id: str = None
+	latest_version: str = None
 	releases: List[ReleaseInfo] = []
 	release_pages: List[ReleasePage] = []
 	release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta or err_msg
@@ -237,7 +237,7 @@ class ReleaseSummary(Serializable):
 		new_release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta
 		futures = []
 		for tag in self.release_tags:
-			if tag in old_release_meta:
+			if tag in old_release_meta and isinstance(old_release_meta[tag], MetaInfo):
 				futures.append((tag, downloader_pool.submit(lambda: old_release_meta[tag])))
 			else:
 				futures.append((tag, downloader_pool.submit(lambda: MetaInfo.fetch(plugin, tag=tag))))
@@ -247,6 +247,7 @@ class ReleaseSummary(Serializable):
 				new_release_meta[tag] = future.result()
 			except Exception as e:
 				print('[Warn] failed to fetch release meta for tag {} for plugin {}: {}'.format(tag, plugin, e))
+				reporter.record_warning(plugin.id, 'Failed to fetch release meta for tag {}'.format(tag), e)
 				new_release_meta[tag] = str(e)
 
 		self.release_meta = new_release_meta

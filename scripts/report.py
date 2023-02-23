@@ -12,6 +12,7 @@ class Reporter:
 	def __init__(self):
 		self.__lock = Lock()
 		self.__command = None
+		self.__warnings: Dict[str, List[str]] = collections.defaultdict(list)
 		self.__failures: Dict[str, List[str]] = collections.defaultdict(list)
 		self.__disabled_plugins: Dict[str, str] = {}
 		self.__rate_limit_remaining = '?'
@@ -21,9 +22,13 @@ class Reporter:
 		with self.__lock:
 			self.__command = command
 
+	def record_warning(self, plugin_id: str, message: str, err: Exception):
+		with self.__lock:
+			self.__warnings[plugin_id].append(message + ': ({}) {}'.format(type(err).__name__, err))
+
 	def record_failure(self, plugin_id: str, message: str, err: Exception):
 		with self.__lock:
-			self.__failures[plugin_id].append(message + ': ({}) {}'.format(type(err), err))
+			self.__failures[plugin_id].append(message + ': ({}) {}'.format(type(err).__name__, err))
 
 	def record_plugin_disabled(self, plugin_id: str, reason: str):
 		with self.__lock:
@@ -35,6 +40,7 @@ class Reporter:
 			self.__rate_limit_limit = limit
 
 	def __dump(self, plugin_list: 'PluginList', f: IO[str]):
+		f.write('-----------------------------------\n\n')
 		f.write('# Report for command "{}"\n\n'.format(self.__command))
 		f.write('Script args: {}\n\n'.format(sys.argv[1:]))
 
@@ -57,8 +63,16 @@ class Reporter:
 				f.write('- {}\n'.format(msg))
 			f.write('\n')
 
+		f.write('## Warnings\n\n')
+		f.write('Plugins with warning: {}\n\n'.format(len(self.__warnings)))
+		f.write('Warning amount: {}\n\n'.format(sum(map(lambda msgs: len(msgs), self.__warnings.values()))))
+		for plugin_id, messages in self.__warnings.items():
+			f.write('### `{}`\n\n'.format(plugin_id))
+			for msg in messages:
+				f.write('- {}\n'.format(msg))
+			f.write('\n')
+
 	def report(self, plugin_list: 'PluginList'):
-		print('\n===================================\n', file=sys.stdout)
 		self.__dump(plugin_list, sys.stdout)
 		if 'GITHUB_STEP_SUMMARY' in os.environ:
 			with open(os.environ['GITHUB_STEP_SUMMARY'], 'w') as f:
