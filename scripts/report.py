@@ -1,6 +1,7 @@
 import collections
 import os
 import sys
+import time
 from threading import Lock
 from typing import Dict, List, TYPE_CHECKING, IO
 
@@ -12,6 +13,8 @@ class Reporter:
 	def __init__(self):
 		self.__lock = Lock()
 		self.__command = None
+		self.__start_time = None
+		self.__end_time = None
 		self.__warnings: Dict[str, List[str]] = collections.defaultdict(list)
 		self.__failures: Dict[str, List[str]] = collections.defaultdict(list)
 		self.__disabled_plugins: Dict[str, str] = {}
@@ -21,6 +24,14 @@ class Reporter:
 	def record_command(self, command: str):
 		with self.__lock:
 			self.__command = command
+
+	def record_script_start(self):
+		with self.__lock:
+			self.__start_time = time.time()
+
+	def record_script_end(self):
+		with self.__lock:
+			self.__end_time = time.time()
 
 	def record_warning(self, plugin_id: str, message: str, err: Exception):
 		with self.__lock:
@@ -40,23 +51,27 @@ class Reporter:
 			self.__rate_limit_limit = limit
 
 	def __dump(self, plugin_list: 'PluginList', f: IO[str]):
-		f.write('-----------------------------------\n\n')
+		f.write('---------------------------------------\n\n')
 		f.write('# Report for command "{}"\n\n'.format(self.__command))
-		f.write('Script args: {}\n\n'.format(sys.argv[1:]))
+		f.write('Script arguments: {}\n\n'.format(sys.argv[1:]))
 
 		f.write('## Summary\n\n')
-		f.write('Activated plugins: {}\n\n'.format(len(plugin_list)))
-		f.write('Disabled plugins: {}\n\n'.format(len(self.__disabled_plugins)))
-		f.write('API rate limit: {} / {}\n\n'.format(self.__rate_limit_remaining, self.__rate_limit_limit))
+		f.write('- Activated plugins: {}\n'.format(len(plugin_list)))
+		f.write('- Disabled plugins: {}\n'.format(len(self.__disabled_plugins)))
+		f.write('- API rate limit: {} / {}\n'.format(self.__rate_limit_remaining, self.__rate_limit_limit))
+		if self.__start_time is not None and self.__end_time is not None:
+			f.write('- Time cost: {}s\n'.format(round(self.__end_time - self.__start_time, 1)))
+		f.write('- Failure amount: {}\n'.format(sum(map(lambda msgs: len(msgs), self.__failures.values()))))
+		f.write('- Warning amount: {}\n'.format(sum(map(lambda msgs: len(msgs), self.__warnings.values()))))
+		f.write('\n')
 
 		f.write('## Disabled plugins\n\n')
 		for plugin_id, reason in self.__disabled_plugins.items():
-			f.write('- {}: {}\n'.format(plugin_id, reason))
+			f.write('- `{}`: {}\n'.format(plugin_id, reason))
 		f.write('\n')
 
 		f.write('## Failures\n\n')
 		f.write('Plugins with failure: {}\n\n'.format(len(self.__failures)))
-		f.write('Failure amount: {}\n\n'.format(sum(map(lambda msgs: len(msgs), self.__failures.values()))))
 		for plugin_id, messages in self.__failures.items():
 			f.write('### `{}`\n\n'.format(plugin_id))
 			for msg in messages:
@@ -65,7 +80,6 @@ class Reporter:
 
 		f.write('## Warnings\n\n')
 		f.write('Plugins with warning: {}\n\n'.format(len(self.__warnings)))
-		f.write('Warning amount: {}\n\n'.format(sum(map(lambda msgs: len(msgs), self.__warnings.values()))))
 		for plugin_id, messages in self.__warnings.items():
 			f.write('### `{}`\n\n'.format(plugin_id))
 			for msg in messages:

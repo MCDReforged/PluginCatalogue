@@ -30,6 +30,8 @@ def main():
 
 	args = parser.parse_args()
 	reporter.record_command(args.subparser_name)
+	reporter.record_script_start()
+
 	if args.subparser_name == 'check':
 		check(None if args.id == '' else args.id.split(','))
 	elif args.subparser_name == 'fetch':
@@ -43,6 +45,7 @@ def main():
 	else:
 		parser.print_help()
 
+	reporter.record_script_end()
 	reporter.report(get_plugin_list())
 	thread_pools.shutdown()
 
