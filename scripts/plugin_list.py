@@ -84,6 +84,7 @@ class PluginList(List[Plugin]):
 			plugin.save_release_info()
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 		utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True)
+		shutil.copy(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md'), os.path.join(constants.META_FOLDER, 'readme.md'))
 
 
 _plugin_list = PluginList()
