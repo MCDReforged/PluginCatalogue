@@ -12,10 +12,7 @@ jobs:
   checklists:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Validate checklists
-        uses: roryq/checkmate@master
+      - uses: actions/checkout@v3
       - name: Auto comment
         uses: wow-actions/auto-comment@v1
         if: ${{ github.event.action == 'opened' }}
@@ -30,9 +27,10 @@ jobs:
             - [ ] 应当有可阅读插件说明，且内容足以帮助用户使用
             - [ ] 若使用了插件仓库文件作为介绍，文件应当有效，检查时应当注意相对路径
             - [ ] 其他应当检查并予以合并或不合并的情况
+      - name: Validate checklists
+        uses: roryq/checkmate@master
   plugin-check:
     runs-on: ubuntu-latest
-    needs: checklists
     if: ${{ github.event.action == 'opened' || github.event.action == 'synchronize' }}
     steps:
       - uses: actions/checkout@v3
@@ -71,4 +69,4 @@ jobs:
           done
           
         env:
-          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}  
+          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
