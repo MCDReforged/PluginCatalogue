@@ -41,7 +41,7 @@ jobs:
           else
             plugins=${plugins%,}
             echo Well, seems there's plugin(s) added or modified. let's run a check for: $plugins
-            python main.py check --id $plugins
+            python main.py --targets $plugins check
           fi
           done
           
