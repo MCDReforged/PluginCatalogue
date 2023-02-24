@@ -250,9 +250,9 @@ class ReleaseSummary(Serializable):
 		futures = []
 		for tag in self.release_tags:
 			if tag in old_release_meta and isinstance(old_release_meta[tag], MetaInfo):
-				futures.append((tag, downloader_pool.submit(lambda: old_release_meta[tag])))
+				futures.append((tag, downloader_pool.submit(old_release_meta.get, tag)))
 			else:
-				futures.append((tag, downloader_pool.submit(lambda: MetaInfo.fetch(plugin, tag=tag))))
+				futures.append((tag, downloader_pool.submit(MetaInfo.fetch, plugin, tag=tag)))
 
 		for tag, future in futures:
 			try:
