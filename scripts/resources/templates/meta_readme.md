@@ -115,9 +115,8 @@ Information of a GitHub release
   "tag_name": "v1.2.0",  // tag of the release
   "created_at": "2022-10-05T09:20:00Z",  // release creation time, in %Y-%m-%dT%H:%M:%SZ format
   
-  // A list of AssetInfo object
-  // Notes that all asset in the releases will be stored here.
-  // You can filter out MCDR plugin by checking file extension, ".mcdr" or ".pyz"
+  // A list of AssetInfo object, storing all assets with ".mcdr" or ".pyz" file extension
+  // Notes that all matching asset in the releases will be stored here. Usually you can just take the 1st asset
   // The plugin category will take the 1st MCDR plugin file as the plugin file of this release
   "assets": [  
     {/* AssetInfo */},
