@@ -317,7 +317,7 @@ class Table:
 		return len(self.__title)
 
 	def add_row(self, *items):
-		assert len(items) == self.column_count
+		assert len(items) == self.column_count, 'expected row width {}, but found row with width {}'.format(self.column_count, len(items))
 		try:
 			self.__rows.append(tuple(map(str, items)))
 		except:

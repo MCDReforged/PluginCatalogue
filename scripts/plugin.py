@@ -40,7 +40,7 @@ class MetaInfo(Serializable):
 	def fetch(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
 		metadata_json = plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
 		metadata = Metadata(metadata_json)
-		assert metadata.id == plugin.id
+		assert metadata.id == plugin.id, 'wrong plugin id in mcdreforged.plugin.json, expected {} but found {}'.format(plugin.id, metadata.id)
 		meta_info = MetaInfo()
 		meta_info.id = metadata.id
 		meta_info.name = metadata.name
@@ -189,7 +189,7 @@ class ReleaseSummary(Serializable):
 	release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta or err_msg
 
 	def update(self, plugin: 'Plugin'):
-		assert plugin.release_page_cache is not None
+		assert plugin.release_page_cache is not None, 'updating ReleaseSummary with empty ReleasePageCache'
 		self.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		self.id = plugin.id
 
@@ -346,10 +346,10 @@ class Plugin:
 		self.authors = []
 		for item in authors:
 			author = Author()
+			assert isinstance(item, (str, dict)), 'author item should be str or dict, found {}'.format(type(item))
 			if isinstance(item, str):
 				author.name = item
 			else:
-				assert isinstance(item, dict)
 				author.update_from(item)
 			self.authors.append(author)
 
