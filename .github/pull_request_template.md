@@ -2,6 +2,9 @@
 <!-- 在上方撰写您想附加的信息 -->
 <!-- Write your own things above -->
 
+<!-- 如果你不是为了添加插件入库，请删除下方所有内容 -->
+<!-- Delete all the content below if you're not adding your plugin to the catalogue -->
+
 ---
 
 ## 检查以下事项 | Check the following:
@@ -12,7 +15,6 @@
 - 勾选案例：- [x] ...
   Ticked checkbox sample: - [x] ...
 -->
-<!--Checkmate-->
 
 - 仓库 URL、分支和 `related_path` 正确且 `mcdreforged.plugin.json` 位于应当存在的位置
   Repository URL, branch and `related_path` are correct and `mcdreforged.plugin.json` file exists at the correct path
