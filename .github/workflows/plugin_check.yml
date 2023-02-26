@@ -1,14 +1,16 @@
-name: PR Check
+name: Plugin Check
 
 on:
   pull_request:
     branches:
       - master
+    paths:
+      - 'plugins/**'
+    types: [opened, synchronize]
 
 jobs:
-  check:
+  plugin-check:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
 
