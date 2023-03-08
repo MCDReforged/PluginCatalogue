@@ -401,6 +401,15 @@ class Plugin:
 		# TISUnion/QuickBackupM
 		return utils.remove_prefix(self.repository, 'https://github.com/')
 
+	@property
+	def repository_plugin_page(self) -> str:
+		# https://github.com/TISUnion/QuickBackupM/tree/master
+		# https://github.com/Myself/MyPlugin/tree/main/path/to/plugin
+		url = f'{self.repository}/tree/{self.branch}'
+		if self.related_path != '.':
+			url += '/' + self.related_path
+		return url
+
 	def str(self):
 		try:
 			return self.id
@@ -412,7 +421,9 @@ class Plugin:
 
 	def __get_repos_file(self, file_path: str, *, tag: Optional[str] = None) -> requests.Response:
 		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/master/mcdreforged.plugin.json
-		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{tag or self.branch}/{self.related_path}/'
+		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{tag or self.branch}/'
+		if self.related_path != '.':
+			url_base += self.related_path + '/'
 		return utils.request_get(url_base + file_path)
 
 	def get_repos_json(self, file_path: str, **kwargs) -> dict:

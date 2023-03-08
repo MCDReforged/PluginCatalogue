@@ -188,6 +188,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
+	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repository_plugin_page))
 	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))
 	if plugin.is_data_fetched():
 		file.write('- {}: {}\n'.format(Text('description'), plugin.meta_info.translated_description))
