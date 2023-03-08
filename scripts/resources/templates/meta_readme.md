@@ -40,12 +40,22 @@ The Summary of the plugin catalogue meta
 
 Necessary information for a plugin
 
+For `MetaInfo` object in `meta.json`, the information is fetched from the **latest commit** of its repository
+
+For `MetaInfo` object in `ReleaseSummary` object, the information is fetched from the **corresponding tag** of its repository
+
 ```json5
 {
+  // Basic information
   "id": "my_plugin",  // id of the plugin
   "name": "MyPlugin",  // name of the plugin
   "version": "1.2.0",  // version of the plugin
+  
+  // Repository info
   "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
+  "branch": "master",  // git branch for the plugin
+  "related_path": ".",  // related path in the repository. see https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html#related-path
+  
   "labels": ["management"],  // a list of string, labels of the plugin
   "authors": ["Fallen_Breath"],  // a list of string, names of plugin's authors
   

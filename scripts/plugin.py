@@ -21,6 +21,8 @@ class MetaInfo(Serializable):
 	name: str
 	version: str
 	repository: str
+	branch: str
+	related_path: str
 	labels: List[str]
 	authors: List[str]
 	dependencies: Dict[str, str]
@@ -46,6 +48,8 @@ class MetaInfo(Serializable):
 		meta_info.name = metadata.name
 		meta_info.version = str(metadata.version)
 		meta_info.repository = plugin.repository
+		meta_info.branch = plugin.branch
+		meta_info.related_path = plugin.related_path
 		meta_info.labels = list(map(lambda l: l.id, plugin.labels))
 		meta_info.authors = list(map(lambda a: a.name, plugin.authors))
 		meta_info.dependencies = dict(map(
@@ -470,16 +474,17 @@ class Plugin:
 				print('[Warn] Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
 				reporter.record_warning(self.id, 'Failed to deserialized existed release_summary', e)
 			self.release_summary = None
+
 		if self.release_summary is None:
 			self.release_summary = ReleaseSummary()
-
-		try:
-			self.release_page_cache = ReleasePageCache.deserialize(utils.load_json(self.__release_page_cache_file))
-		except Exception as e:
-			if not isinstance(e, FileNotFoundError):
-				print('[Warn] Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
-				reporter.record_warning(self.id, 'Failed to deserialized existed release_page_cache', e)
-			self.release_page_cache = None
+		else:  # load release page cache iif release summary is valid
+			try:
+				self.release_page_cache = ReleasePageCache.deserialize(utils.load_json(self.__release_page_cache_file))
+			except Exception as e:
+				if not isinstance(e, FileNotFoundError):
+					print('[Warn] Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
+					reporter.record_warning(self.id, 'Failed to deserialized existed release_page_cache', e)
+				self.release_page_cache = None
 		if self.release_page_cache is None:
 			self.release_page_cache = ReleasePageCache()
 
