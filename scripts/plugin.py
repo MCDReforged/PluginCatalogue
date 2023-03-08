@@ -17,6 +17,7 @@ from translation import Text, BundledText, LANGUAGES, get_file_name, with_langua
 
 
 class MetaInfo(Serializable):
+	schema_version: int = constants.META_INFO_SCHEMA_VERSION
 	id: str
 	name: str
 	version: str
