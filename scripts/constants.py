@@ -1,6 +1,7 @@
 import os
 
-META_INFO_SCHEMA_VERSION = 1
+PLUGIN_INFO_SCHEMA_VERSION = 1
+META_INFO_SCHEMA_VERSION = 2
 RELEASE_INFO_SCHEMA_VERSION = 5
 MAX_RELEASE_PER_PAGE = 100
 
@@ -17,7 +18,6 @@ PLUGINS_FOLDER = os.path.join(ROOT, 'plugins')
 LABEL_FILE = os.path.join(RESOURCES_FOLDER, 'labels.json')
 CATALOGUE_FOLDER = os.path.join(ROOT, 'catalogue')
 META_FOLDER = os.path.join(ROOT, 'meta')
-META_CACHE_FOLDER = os.path.join(META_FOLDER, '%cache')
 
 PROXIES = None
 if 'http_proxy' in os.environ:

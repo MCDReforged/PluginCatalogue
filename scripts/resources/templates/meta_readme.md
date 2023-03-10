@@ -8,15 +8,18 @@ The branch for custom MCDR plugin managers to fetch data from
 repos_root/
 +-- my_plugin/        # A plugin with id "my_plugin"
 |   +-- meta.json     # Json object: MetaInfo
+|   +-- plugin.json   # Json object: FormattedPluginInfo
 |   +-- release.json  # Json object: ReleaseSummary
 |
 +-- another_plugin/   # Another plugin with id "another_plugin"
-|   +-- meta.json     # Json object: MetaInfo
-|   +-- release.json  # Json object: ReleaseSummary
+|   +-- meta.json
+|   +-- plugin.json
+|   +-- release.json
 |
 +-- ...               # more directory for more plugins
 |
 +-- plugins.json      # Json object: PluginMetaSummary
++-- authors.json      # Json object: AuthorSummary
 ```
 
 ### Object definition
@@ -36,6 +39,28 @@ The Summary of the plugin catalogue meta
 }
 ```
 
+#### AuthorSummary
+
+A collection of all authors of plugins
+
+Authors are collected from `plugin_info.json` and categorized by their names
+
+```json5
+{
+  "amount": 2,  // the amount of authors
+  "authors": {
+    "Fallen_Breath": {
+      "name": "Fallen_Breath",
+      "link": "https://github.com/Fallen-Breath"
+    },
+    "SomeoneElse": {
+      "name": "SomeoneElse",
+      "link": "https://github.com/SomeoneElse"
+    }
+  }
+}
+```
+
 #### MetaInfo
 
 Necessary information for a plugin
@@ -46,18 +71,14 @@ For `MetaInfo` object in `ReleaseSummary` object, the information is fetched fro
 
 ```json5
 {
+  "schema_version": 2,
+
   // Basic information
   "id": "my_plugin",  // id of the plugin
   "name": "MyPlugin",  // name of the plugin
   "version": "1.2.0",  // version of the plugin
-  
-  // Repository info
   "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
-  "branch": "master",  // git branch for the plugin
-  "related_path": ".",  // related path in the repository. see https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html#related-path
-  
-  "labels": ["management"],  // a list of string, labels of the plugin
-  "authors": ["Fallen_Breath"],  // a list of string, names of plugin's authors
+  "authors": ["MyName"],  // a list of string, names of plugin's authors
   
   // A map of (string -> string) that maps plugin id -> version requirement
   // Plugin's mcdr plugin requirements
@@ -87,7 +108,7 @@ The release summary of the plugin, which contains necessary information of all r
 
 ```json5
 {
-  "schema_version": 4,  // The schema version of the ReleaseSummary object
+  "schema_version": 5,
   "id": "my_plugin",  // The id of the plugin that this ReleaseSummary belongs to
   
   // The latest version of the plugin
@@ -152,5 +173,26 @@ Information of an asset in GitHub release
   "download_count": 1457,  // download count of the asset
   "created_at": "2022-10-03T04:13:26Z",  // asset creation time, in %Y-%m-%dT%H:%M:%SZ format
   "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr"  // the url to download this asset
+}
+```
+
+#### FormattedPluginInfo
+
+A formatted version of `plugin_info.json`
+
+```json5
+{
+  "schema_version": 1,
+  "id": "my_plugin",
+  "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
+
+  "branch": "master",  // git branch for the plugin
+  "related_path": ".",  // related path in the repository. see https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html#related-path
+  "labels": ["management"],  // a list of string, labels of the plugin
+
+  "introduction": {
+    "en_us": "Use `!!stats` to see the value / rank, or build a scoreboard from given statistic type and name\n",
+    "zh_cn": "使用 `!!stats` 并输入统计信息的类别和名称，来查询统计信息的值/排名，或者显示对应的计分板\n"
+  }
 }
 ```

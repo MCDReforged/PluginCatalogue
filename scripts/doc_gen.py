@@ -3,7 +3,7 @@ import re
 import shutil
 import time
 from contextlib import contextmanager
-from typing import List, IO, Iterable, Any
+from typing import List, IO, Iterable, Any, Optional, Collection
 
 import constants
 import utils
@@ -264,9 +264,9 @@ def generate_plugins(plugin_list: List[Plugin]):
 			write_plugin_download(plugin, file, limit=-1)
 
 
-def generate_doc():
+def generate_doc(target_ids: Optional[Collection[str]] = None):
 	print('Generating doc')
-	plugin_list = get_plugin_list()
+	plugin_list = get_plugin_list(target_ids)
 	plugin_list.fetch_data(fail_hard=False)
 	if os.path.isdir(constants.CATALOGUE_FOLDER):
 		shutil.rmtree(constants.CATALOGUE_FOLDER)

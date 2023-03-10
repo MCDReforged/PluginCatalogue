@@ -1,11 +1,19 @@
 from typing import TypeVar, Type
 
-from mcdreforged.utils.serializer import Serializable as mcdr_Serializable
+import mcdreforged.utils.serializer as mcdr_serializer
+
+__all__ = [
+	'serialize', 'Serializable'
+]
+
 
 Self = TypeVar('Self', bound='Serializable')
 
 
-class Serializable(mcdr_Serializable):
+serialize = mcdr_serializer.serialize
+
+
+class Serializable(mcdr_serializer.Serializable):
 	@classmethod
 	def deserialize(cls: Type[Self], data: dict, **kwargs) -> Self:
 		try:

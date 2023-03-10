@@ -28,7 +28,11 @@ def main():
 	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 
 	args = parser.parse_args()
-	target_ids = None if args.targets == '' else args.targets.split(',')
+	if args.targets == '':
+		target_ids = None
+	else:
+		target_ids = args.targets.split(',')
+		print('Targets: {}'.format(', '.join(target_ids)))
 	reporter.record_command(args.subparser_name)
 	reporter.record_script_start()
 
@@ -37,11 +41,11 @@ def main():
 	elif args.subparser_name == 'fetch':
 		update_data(target_ids)
 	elif args.subparser_name == 'doc':
-		generate_doc()
+		generate_doc(target_ids)
 	elif args.subparser_name == 'all':
-		check(None)
+		check(target_ids)
 		update_data(target_ids)
-		generate_doc()
+		generate_doc(target_ids)
 	else:
 		parser.print_help()
 

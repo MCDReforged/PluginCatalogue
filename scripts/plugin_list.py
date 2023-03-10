@@ -1,33 +1,15 @@
 import os
 import shutil
 import traceback
-from typing import Callable, Any, List, Collection, Optional, Dict
+from typing import Callable, Any, List, Collection, Optional
 
 import constants
 import utils
-from plugin import PluginMetaSummary, Plugin, Author
+from plugin import Plugin
 from report import reporter
-from serializer import Serializable
+from schema import PluginMetaSummary, AuthorSummary
+from serializer import serialize
 from thread_pools import worker_pool
-
-
-class AuthorStorage(Serializable):
-	authors: Dict[str, Author]
-
-	def __init__(self, **kwargs):
-		super().__init__(**kwargs)
-		self.__author_source: Dict[str, str] = {}  # author name -> source plugin id
-
-	def add_author(self, author: Author, plugin_id: str):
-		existed = self.authors.get(author.name)
-		if existed is not None and existed.link is not None:
-			if author.link is not None and existed.link != author.link:
-				reporter.record_warning(plugin_id, 'Inconsistent link of author: {} says {}, but {} says {}'.format(
-					plugin_id, author.link, self.__author_source.get(author.name, '?'), existed.link
-				))
-			return
-		self.authors[author.name] = author
-		self.__author_source[author.name] = plugin_id
 
 
 class PluginList(List[Plugin]):
@@ -98,12 +80,19 @@ class PluginList(List[Plugin]):
 		# prepare folder
 		if os.path.isdir(constants.META_FOLDER):
 			shutil.rmtree(constants.META_FOLDER)
+		os.makedirs(constants.META_FOLDER)
 		shutil.copy(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md'), os.path.join(constants.META_FOLDER, 'readme.md'))
 
 		# store info for each plugin
 		for plugin in self:
-			plugin.save_meta()
-			plugin.save_release_info()
+			try:
+				plugin.save_meta()
+				plugin.save_release_info()
+				plugin.save_formatted_plugin_info()
+			except Exception as e:
+				print('[Error] Storing info for plugin {}'.format(plugin))
+				reporter.record_failure(plugin.id, 'Store plugin info', e)
+				traceback.print_exc()
 
 		# make and store plugin summary
 		meta_summary = PluginMetaSummary()
@@ -111,14 +100,15 @@ class PluginList(List[Plugin]):
 		meta_summary.plugins = {}
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
-		utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True)
+		utils.save_json(serialize(meta_summary), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True)
 
 		# make and store author summary
-		author_storage = AuthorStorage()
+		author_storage = AuthorSummary()
 		for plugin in self:
 			for author in plugin.authors:
 				author_storage.add_author(author.copy(), plugin.id)
-		utils.save_json(author_storage.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'))
+		author_storage.finalize()
+		utils.save_json(serialize(author_storage), os.path.join(constants.META_FOLDER, 'authors.json'))
 
 
 _plugin_list = PluginList()
