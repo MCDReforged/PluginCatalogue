@@ -220,9 +220,7 @@ class Plugin:
 				reporter.record_warning(self.id, 'Failed to deserialized existed release_summary', e)
 			self.release_summary = None
 
-		if self.release_summary is None:
-			self.release_summary = ReleaseSummary()
-		else:  # load release page cache iif release summary is valid
+		if self.release_summary is not None:  # load release page cache iif release summary is valid
 			try:
 				self.release_page_cache = ReleasePageCache.deserialize(utils.load_json(self.__release_page_cache_file))
 			except Exception as e:
@@ -230,6 +228,18 @@ class Plugin:
 					print('[Warn] Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
 					reporter.record_warning(self.id, 'Failed to deserialized existed release_page_cache', e)
 				self.release_page_cache = None
+
+		if self.release_summary is not None and self.release_page_cache is not None:
+			try:
+				self.release_summary.sanity_check(self.release_page_cache)
+			except Exception as e:
+				print('[Warn] Failed to check release data sanity for plugin {}: {} {}, discarding existing data'.format(self, type(e), e))
+				reporter.record_warning(self.id, 'Failed to check release info sanity', e)
+				self.release_summary = None
+				self.release_page_cache = None
+
+		if self.release_summary is None:
+			self.release_summary = ReleaseSummary()
 		if self.release_page_cache is None:
 			self.release_page_cache = ReleasePageCache()
 

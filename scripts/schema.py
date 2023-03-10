@@ -1,4 +1,4 @@
-from typing import Optional, List, Dict, NamedTuple, Iterable, Union, TYPE_CHECKING
+from typing import Optional, List, Dict, NamedTuple, Iterable, Union, TYPE_CHECKING, Set
 
 from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
@@ -215,6 +215,15 @@ class ReleaseSummary(Serializable):
 	id: str = None
 	latest_version: str = None
 	releases: List[ReleaseInfo] = []
+
+	def sanity_check(self, page_cache: ReleasePageCache):
+		releases_tags: Set[str] = {release.tag_name for release in self.releases}
+		page_cache_tags: Set[str] = set()
+		for page in page_cache.release_pages:
+			page_cache_tags.update(page.release_tags)
+		assert releases_tags == page_cache_tags, 'release tag mismatch: ReleaseSummary tags {}, ReleasePageCache tags {}'.format(
+			list(sorted(releases_tags)), list(sorted(page_cache_tags))
+		)
 
 	def update(self, plugin: 'Plugin'):
 		assert plugin.release_page_cache is not None, 'updating ReleaseSummary with empty ReleasePageCache'
