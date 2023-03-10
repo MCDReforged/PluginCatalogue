@@ -71,7 +71,7 @@ For `MetaInfo` object in `ReleaseSummary` object, the information is fetched fro
 
 ```json5
 {
-  "schema_version": 2,
+  "schema_version": "META_INFO_SCHEMA_VERSION",
 
   // Basic information
   "id": "my_plugin",  // id of the plugin
@@ -108,7 +108,7 @@ The release summary of the plugin, which contains necessary information of all r
 
 ```json5
 {
-  "schema_version": 6,
+  "schema_version": "RELEASE_INFO_SCHEMA_VERSION",
   "id": "my_plugin",  // The id of the plugin that this ReleaseSummary belongs to
   
   // The latest version of the plugin
@@ -176,7 +176,7 @@ A formatted version of `plugin_info.json`
 
 ```json5
 {
-  "schema_version": 1,
+  "schema_version": "PLUGIN_INFO_SCHEMA_VERSION",
   "id": "my_plugin",
   "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
 

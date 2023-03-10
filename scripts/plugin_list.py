@@ -81,7 +81,19 @@ class PluginList(List[Plugin]):
 		if os.path.isdir(constants.META_FOLDER):
 			shutil.rmtree(constants.META_FOLDER)
 		os.makedirs(constants.META_FOLDER)
-		shutil.copy(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md'), os.path.join(constants.META_FOLDER, 'readme.md'))
+
+		# make readme
+		with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md')) as f:
+			readme: str = f.read()
+		placeholders = {
+			'"PLUGIN_INFO_SCHEMA_VERSION"': constants.PLUGIN_INFO_SCHEMA_VERSION,
+			'"META_INFO_SCHEMA_VERSION"': constants.META_INFO_SCHEMA_VERSION,
+			'"RELEASE_INFO_SCHEMA_VERSION"': constants.RELEASE_INFO_SCHEMA_VERSION,
+		}
+		for key, value in placeholders.items():
+			readme = readme.replace(str(key), str(value))
+		with utils.write_file(os.path.join(constants.META_FOLDER, 'readme.md')) as f:
+			f.write(readme)
 
 		# store info for each plugin
 		for plugin in self:
