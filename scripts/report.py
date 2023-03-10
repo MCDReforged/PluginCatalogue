@@ -3,7 +3,7 @@ import os
 import sys
 import time
 from threading import Lock
-from typing import Dict, List, TYPE_CHECKING, IO
+from typing import Dict, List, TYPE_CHECKING, IO, Optional
 
 if TYPE_CHECKING:
 	from plugin_list import PluginList
@@ -33,9 +33,11 @@ class Reporter:
 		with self.__lock:
 			self.__end_time = time.time()
 
-	def record_warning(self, plugin_id: str, message: str, err: Exception):
+	def record_warning(self, plugin_id: str, message: str, err: Optional[Exception]):
 		with self.__lock:
-			self.__warnings[plugin_id].append(message + ': ({}) {}'.format(type(err).__name__, err))
+			if err is not None:
+				message += ': ({}) {}'.format(type(err).__name__, err)
+			self.__warnings[plugin_id].append(message)
 
 	def record_failure(self, plugin_id: str, message: str, err: Exception):
 		with self.__lock:

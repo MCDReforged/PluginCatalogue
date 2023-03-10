@@ -13,3 +13,6 @@ class Serializable(mcdr_Serializable):
 		except Exception as e:
 			print('Failed to deserialize to {} from data {}'.format(cls, data))
 			raise e from None
+
+	def copy(self: Type[Self]) -> Self:
+		return self.deserialize(self.serialize())

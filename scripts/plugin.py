@@ -293,7 +293,7 @@ class PluginMetaSummary(Serializable):
 
 class Author(Serializable):
 	name: str
-	link: str = None
+	link: Optional[str] = None
 
 	def to_markdown(self) -> str:
 		if self.link is None:
