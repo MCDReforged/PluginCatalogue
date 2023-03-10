@@ -108,7 +108,7 @@ The release summary of the plugin, which contains necessary information of all r
 
 ```json5
 {
-  "schema_version": 5,
+  "schema_version": 6,
   "id": "my_plugin",  // The id of the plugin that this ReleaseSummary belongs to
   
   // The latest version of the plugin
@@ -119,18 +119,7 @@ The release summary of the plugin, which contains necessary information of all r
   "releases": [
     {/* ReleaseInfo */},
     {/* ReleaseInfo */}
-  ],
-  
-  // A map of (string -> MetaInfo or string) that maps release tag name -> MetaInfo
-  // It stores me
-  // The keys are releases tag names. All release tags in the "releases" list can be found here
-  // The value is the MetaInfo parsed from the repository of the given tag.
-  // If the MetaInfo fetching has failed, the value will be a string of the error message
-  "release_meta": {
-    "v1.2.0": {/* MetaInfo */},
-    "v1.1.0": {/* MetaInfo */},
-    "v1.0.2": "Failed to decode json from response! status_code 404: b'404: Not Found'",
-  }
+  ]
 }
 ```
 
@@ -158,7 +147,12 @@ Information of a GitHub release
   "prerelease": false, // if it's a pre-release
   // A parsed semver like version string of this release
   // Reference: https://mcdreforged.readthedocs.io/en/latest/plugin_dev/metadata.html#version
-  "parsed_version": "1.2.0"
+  "parsed_version": "1.2.0",
+  
+  // The MetaInfo parsed from the repository of the given tag.
+  // If the MetaInfo fetching has failed, the value will be a string of the error message,
+  // e.g. "Failed to decode json from response! status_code 404: b'404: Not Found'"
+  "meta": {/* MetaInfo */}  // MetaInfo or string
 }
 ```
 

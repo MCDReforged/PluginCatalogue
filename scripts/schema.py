@@ -112,6 +112,7 @@ class ReleaseInfo(Serializable):
 	description: str
 	prerelease: bool
 	parsed_version: str
+	meta: Union[MetaInfo, str]
 
 	def __parse_version(self, plugin_id: str) -> Optional[str]:
 		# Possible tag names
@@ -179,9 +180,11 @@ class ReleasePage(Serializable):
 			except Exception as e:
 				print('Failed to deserialize fetched ReleaseInfo from {}: {}'.format(item, e))
 				continue
-			if cls.check_release(plugin, r_info):
-				release_map[r_info.tag_name] = r_info
-				page.release_tags.append(r_info.tag_name)
+			if not cls.check_release(plugin, r_info):
+				continue
+			r_info.meta = 'not fetched'
+			release_map[r_info.tag_name] = r_info
+			page.release_tags.append(r_info.tag_name)
 		page.empty = len(resp) == 0
 		return cls.FetchResult(page, release_map)
 
@@ -212,7 +215,6 @@ class ReleaseSummary(Serializable):
 	id: str = None
 	latest_version: str = None
 	releases: List[ReleaseInfo] = []
-	release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta or err_msg
 
 	def update(self, plugin: 'Plugin'):
 		assert plugin.release_page_cache is not None, 'updating ReleaseSummary with empty ReleasePageCache'
@@ -271,8 +273,11 @@ class ReleaseSummary(Serializable):
 		self.latest_version = self.releases[0].parsed_version if len(self.releases) > 0 else 'N/A'
 
 	def __update_release_meta(self, plugin: 'Plugin'):
-		old_release_meta = self.release_meta.copy()
+		old_release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta
 		new_release_meta: Dict[str, Union[MetaInfo, str]] = {}  # tag -> meta
+		for release in self.releases:
+			old_release_meta[release.tag_name] = release.meta
+
 		futures = []
 		for tag in self.release_tags:
 			if tag in old_release_meta and isinstance(old_release_meta[tag], MetaInfo):
@@ -288,7 +293,8 @@ class ReleaseSummary(Serializable):
 				reporter.record_warning(plugin.id, 'Failed to fetch release meta for tag {}'.format(tag), e)
 				new_release_meta[tag] = str(e)
 
-		self.release_meta = new_release_meta
+		for release in self.releases:
+			release.meta = new_release_meta[release.tag_name]
 
 	@property
 	def release_tags(self) -> Iterable[str]:
