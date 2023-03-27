@@ -3,6 +3,8 @@ import os
 PLUGIN_INFO_SCHEMA_VERSION = 1
 META_INFO_SCHEMA_VERSION = 3
 RELEASE_INFO_SCHEMA_VERSION = 7
+
+# https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases
 MAX_RELEASE_PER_PAGE = 100
 
 THREAD_POOL_WORKER = 32
