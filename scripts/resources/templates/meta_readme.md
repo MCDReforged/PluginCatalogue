@@ -77,7 +77,8 @@ For `MetaInfo` object in `ReleaseSummary` object, the information is fetched fro
   "id": "my_plugin",  // id of the plugin
   "name": "MyPlugin",  // name of the plugin
   "version": "1.2.0",  // version of the plugin
-  "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
+  "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url, from plugin_info.json
+  "link": "https://home.myself.me",  // plugin's main page, from mcdreforged.plugin.json. Might not be a GitHub url
   "authors": ["MyName"],  // a list of string, names of plugin's authors
   
   // A map of (string -> string) that maps plugin id -> version requirement

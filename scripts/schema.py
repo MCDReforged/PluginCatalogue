@@ -51,6 +51,7 @@ class MetaInfo(Serializable):
 	name: str
 	version: str
 	repository: str
+	link: str
 	authors: List[str]
 	dependencies: Dict[str, str]
 	requirements: List[str]
@@ -75,6 +76,7 @@ class MetaInfo(Serializable):
 		meta_info.name = metadata.name
 		meta_info.version = str(metadata.version)
 		meta_info.repository = plugin.repository
+		meta_info.link = metadata.link
 		meta_info.authors = [author.name for author in plugin.authors]
 		meta_info.dependencies = dict(map(
 			lambda t: (str(t[0]), str(t[1])),
