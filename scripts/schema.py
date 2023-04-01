@@ -24,7 +24,10 @@ class Author(Serializable):
 		return '[{}]({})'.format(self.name, self.link)
 
 
-class FormattedPluginInfo(Serializable):  # processed one
+class FormattedPluginInfo(Serializable):
+	"""
+	The processed PluginInfo, that will be stored in the meta branch
+	"""
 	schema_version: int = constants.PLUGIN_INFO_SCHEMA_VERSION
 	id: str
 	authors: List[str]  # author names
@@ -35,7 +38,10 @@ class FormattedPluginInfo(Serializable):  # processed one
 	introduction: Dict[str, str]  # lang -> content
 
 
-class PluginInfo(Serializable):  # plugin_info.json
+class PluginInfo(Serializable):
+	"""
+	Content of plugin_info.json
+	"""
 	id: str
 	authors: List[Union[str, Author]] = []
 	repository: str
@@ -327,6 +333,7 @@ class ReleaseSummary(Serializable):
 class PluginMetaSummary:
 	plugin_amount: int
 	plugins: Dict[str, MetaInfo]
+	plugin_info: Dict[str, FormattedPluginInfo]
 
 
 class AuthorSummary:

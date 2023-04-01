@@ -110,8 +110,10 @@ class PluginList(List[Plugin]):
 		meta_summary = PluginMetaSummary()
 		meta_summary.plugin_amount = len(self)
 		meta_summary.plugins = {}
+		meta_summary.plugin_info = {}
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
+			meta_summary.plugin_info[plugin.id] = plugin.generate_formatted_plugin_info()
 		utils.save_json(serialize(meta_summary), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True)
 
 		# make and store author summary

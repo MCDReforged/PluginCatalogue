@@ -18,24 +18,33 @@ repos_root/
 |
 +-- ...               # more directory for more plugins
 |
-+-- plugins.json      # Json object: PluginMetaSummary
 +-- authors.json      # Json object: AuthorSummary
++-- plugins.json      # Json object: PluginMetaSummary
 ```
 
 ### Object definition
 
 #### PluginMetaSummary
 
-The Summary of the plugin catalogue meta
+A collection of `MetaInfo` and `FormattedPluginInfo` of all plugins
+
+A quick way to get an overview of the `meta` repository
+
+See the [MetaInfo](#MetaInfo) section for more information
 
 ```json5
 {
   "plugin_amount": 100,  // the amount of the plugins
-  // A map of (string -> string) that maps plugin id -> plugin's MetaInfo
-  // A quick way to get an overview of the meta repository
+  // A map of plugin id -> MetaInfo
   "plugins": {
-    "my_plugin": {/* MetaInfo */}
-  }  
+    "my_plugin": {/* MetaInfo */},
+    // ...
+  },
+  // A map of plugin id -> FormattedPluginInfo
+  "plugin_info": {
+    "my_plugin": {/* FormattedPluginInfo */},
+    // ...
+  }
 }
 ```
 
@@ -56,7 +65,8 @@ Authors are collected from `plugin_info.json` and categorized by their names
     "SomeoneElse": {
       "name": "SomeoneElse",
       "link": "https://github.com/SomeoneElse"
-    }
+    },
+    // ...
   }
 }
 ```
