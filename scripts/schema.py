@@ -57,7 +57,7 @@ class MetaInfo(Serializable):
 	name: str
 	version: str
 	repository: str
-	link: str
+	link: Optional[str]
 	authors: List[str]
 	dependencies: Dict[str, str]
 	requirements: List[str]
