@@ -189,8 +189,9 @@ A formatted version of `plugin_info.json`
 {
   "schema_version": "PLUGIN_INFO_SCHEMA_VERSION",
   "id": "my_plugin",
+  "authors": ["MyName"],  // a list of string, names of plugin's authors
+  
   "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
-
   "branch": "master",  // git branch for the plugin
   "related_path": ".",  // related path in the repository. see https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html#related-path
   "labels": ["management"],  // a list of string, labels of the plugin
