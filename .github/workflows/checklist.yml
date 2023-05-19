@@ -8,13 +8,15 @@ on:
       - 'plugins/**'
     types: [edited, opened, reopened]
 
+permissions: write-all
+
 jobs:
   checklists:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Auto comment
-        uses: wow-actions/auto-comment@v1
+        uses: wow-actions/auto-comment@v1.1.2
         if: ${{ github.event.action == 'opened' }}
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
