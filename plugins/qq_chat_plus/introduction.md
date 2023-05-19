@@ -1,0 +1,1 @@
+QQ Chat plug-in Plus version, supports more features
