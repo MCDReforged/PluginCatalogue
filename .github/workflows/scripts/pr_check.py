@@ -4,6 +4,9 @@ A specified script to check plugins on pull requests.
 
 import json
 import os
+import sys
+
+sys.path.append('scripts')
 
 from constants import ROOT
 from main import check

@@ -30,14 +30,13 @@ jobs:
         uses: tj-actions/changed-files@v35
         with:
           files: | 
-            **/*.json
+            plugins/*/*.json
           json: true
           write_output_files: true
 
       - name: Check plugins
         run: |
-          cd ./scripts
           pip install -r requirements.txt
-          python pr_check.py
+          python .github/workflows/scripts/pr_check.py
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
