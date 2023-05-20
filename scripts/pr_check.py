@@ -13,6 +13,8 @@ with open(os.path.join(ROOT, '.github/outputs/all_changed_and_modified_files.jso
 	modified_files = json.load(f)
 
 folders = []
+skip = False
+msg = 'Found modified plugin(s): ' + ', '.join(folders)
 
 for f in modified_files:
 	folder_name = os.path.split(os.path.dirname(f))[-1]
@@ -21,10 +23,12 @@ for f in modified_files:
 
 if not folders:
 	msg = 'Skipped plugin checking as there are no checkable modifications.'
-	print(msg)
-	if 'GITHUB_STEP_SUMMARY' in os.environ:
-		with open(os.environ['GITHUB_STEP_SUMMARY'], 'w') as f:
-			f.write(msg)
-	sys.exit(0)
+	skip = True
 
-check(folders)
+print(msg)
+if 'GITHUB_STEP_SUMMARY' in os.environ:
+	with open(os.environ['GITHUB_STEP_SUMMARY'], 'w') as f:
+		f.write(msg)
+
+if not skip:
+	check(folders)

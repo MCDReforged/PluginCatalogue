@@ -43,6 +43,5 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
           python pr_check.py
-          
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
