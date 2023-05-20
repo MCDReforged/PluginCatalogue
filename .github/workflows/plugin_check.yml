@@ -36,7 +36,7 @@ jobs:
 
       - name: Check plugins
         run: |
-          pip install -r requirements.txt
+          pip install -r scripts/requirements.txt
           python .github/workflows/scripts/pr_check.py
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
