@@ -12,13 +12,14 @@ with open(os.path.join(ROOT, '.github/outputs/all_changed_and_modified_files.jso
 	modified_files = json.load(f)
 
 folders = []
-skip = False
-msg = f'Check modified plugin(s): {folders}'
 
 for f in modified_files:
 	folder_name = os.path.split(os.path.dirname(f))[-1]
 	if folder_name not in folders:
 		folders.append(folder_name)
+
+skip = False
+msg = f'Check modified plugin(s): {folders}'
 
 if not folders:
 	msg = 'Skipped plugin checking as there are no checkable modifications.'
