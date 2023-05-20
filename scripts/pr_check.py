@@ -13,7 +13,7 @@ with open(os.path.join(ROOT, '.github/outputs/all_changed_and_modified_files.jso
 
 folders = []
 skip = False
-msg = 'Found modified plugin(s): ' + ', '.join(folders)
+msg = f'Check modified plugin(s): {folders}'
 
 for f in modified_files:
 	folder_name = os.path.split(os.path.dirname(f))[-1]
