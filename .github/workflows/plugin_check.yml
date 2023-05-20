@@ -38,10 +38,11 @@ jobs:
         run: | 
           cat .github/outputs/all_changed_and_modified_files.json
 
-      # - name: Check plugins
-      #   run: |
-      #     cd ./scripts
-      #     pip install -r requirements.txt
+      - name: Check plugins
+        run: |
+          cd ./scripts
+          pip install -r requirements.txt
+          python pr_check.py
       #     plugins=""
       #     for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
       #       if [[ $file =~ ^plugins\/([a-z0-9_]*) ]]; then
@@ -56,5 +57,5 @@ jobs:
       #     fi
       #     done
           
-      #   env:
-      #     github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+        env:
+          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
