@@ -1,0 +1,1 @@
+Edit/send command stack & automatically send commands
