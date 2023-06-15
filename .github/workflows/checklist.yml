@@ -6,7 +6,9 @@ on:
       - master
     paths:
       - 'plugins/**'
-    types: [edited, opened, reopened]
+    types: [edited, opened, reopened, synchronize]
+
+permissions: write-all
 
 jobs:
   checklists:
@@ -14,11 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Auto comment
-        uses: wow-actions/auto-comment@v1
+        uses: NejcZdovc/comment-pr@v2
         if: ${{ github.event.action == 'opened' }}
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          pullRequestOpened: |
+          message: |
             ## 合并前检查单
             感谢您的贡献。请等待插件仓库维护者检查您的插件。以下是供仓库维护者参考的合并前检查单。
             - [ ] 插件名称符合其功能、没有歧义
@@ -27,5 +28,7 @@ jobs:
             - [ ] 存在插件说明，且内容足以帮助用户使用
             - [ ] 若使用版本库文件作为介绍，则该文件有效（检查时应当注意相对路径）
             - 其他应当作为合并前检查的事项
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: Validate checklists
         uses: roryq/checkmate@master
