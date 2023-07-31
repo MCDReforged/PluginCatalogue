@@ -4,5 +4,5 @@
 
 ### ⚠ Warning
 
-- 需要搭配[iPanel Host](https://github.com/iPanelDev/Host)使用
+- 需要搭配[iPanel Host](https://github.com/iPanelDev/iPanel-Host)使用
 - 使用前务必阅读[文档](https://ipanel.serein.cc/)
