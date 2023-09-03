@@ -1,4 +1,4 @@
-###  https://githubfast.com/ikunsz666/reden_update_check
+###  https://github.com/ikunsz666/reden_update_check
 Reden Update Check
 
 一个用来自动安装/更新Reden模组的插件。
