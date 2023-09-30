@@ -1,3 +1,4 @@
+import gzip
 import json
 import os
 import ssl
@@ -55,12 +56,17 @@ def write_file(file_path: str):
 		yield file
 
 
-def save_json(data: dict, file_path: str, *, compact: bool = False):
-	with write_file(file_path) as file:
-		if compact:
-			json.dump(data, file, ensure_ascii=False, separators=(',', ':'))
-		else:
-			json.dump(data, file, indent=2, ensure_ascii=False)
+def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: bool = False):
+	if compact:
+		s = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
+	else:
+		s = json.dumps(data, indent=2, ensure_ascii=False)
+
+	with write_file(file_path) as f:
+		f.write(s)
+	if with_gz:
+		with gzip.open(file_path + '.gz', 'wb') as zf:
+			zf.write(s.encode('utf8'))
 
 
 def request_get(url: str, *, headers: dict = None, params: dict = None, retries: int = 3) -> requests.Response:

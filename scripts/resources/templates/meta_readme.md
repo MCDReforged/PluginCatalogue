@@ -20,6 +20,7 @@ repos_root/
 |
 +-- authors.json      # Json object: AuthorSummary
 +-- plugins.json      # Json object: PluginMetaSummary
++-- plugins.json.gz   # A gz compressed of "plugins.json"
 ```
 
 ### Object definition
