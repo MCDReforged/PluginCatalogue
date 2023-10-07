@@ -65,7 +65,7 @@ def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: boo
 	with write_file(file_path) as f:
 		f.write(s)
 	if with_gz:
-		with gzip.open(file_path + '.gz', 'wb') as zf:
+		with gzip.GzipFile(file_path + '.gz', 'wb', mtime=0) as zf:
 			zf.write(s.encode('utf8'))
 
 
