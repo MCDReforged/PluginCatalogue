@@ -342,11 +342,12 @@ class PluginMetaSummary(Serializable):
 
 
 # authors.json
-class AuthorSummary:
+class AuthorSummary(Serializable):
+	amount: int = 0
+	authors: Dict[str, Author] = {}
+
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
-		self.amount = 0
-		self.authors: Dict[str, Author] = {}
 		self.__author_source: Dict[str, str] = {}  # author name -> source plugin id
 
 	def add_author(self, author: Author, plugin_id: str):
