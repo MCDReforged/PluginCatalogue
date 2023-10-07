@@ -24,6 +24,7 @@ class Author(Serializable):
 		return '[{}]({})'.format(self.name, self.link)
 
 
+# <plugin_id>/plugin.json
 class FormattedPluginInfo(Serializable):
 	"""
 	The processed PluginInfo, that will be stored in the meta branch
@@ -51,6 +52,7 @@ class PluginInfo(Serializable):
 	introduction: Dict[str, str] = {}  # lang -> file path in repos
 
 
+# <plugin_id>/meta.json
 class MetaInfo(Serializable):
 	schema_version: int = constants.META_INFO_SCHEMA_VERSION
 	id: str
@@ -209,6 +211,7 @@ class SchemaVersionHolder(Serializable):
 	schema_version: int
 
 
+# <plugin_id>/.release_page_cache.json
 class ReleasePageCache(Serializable):
 	NOTICE: str = 'Not public API, DO NOT use this file'
 	release_pages: List[ReleasePage] = []
@@ -218,6 +221,7 @@ class ReleasePageCache(Serializable):
 		return len(self.release_pages) - 1
 
 
+# <plugin_id>/release.json
 class ReleaseSummary(Serializable):
 	schema_version: int = None
 	id: str = None
@@ -330,12 +334,14 @@ class ReleaseSummary(Serializable):
 		return total
 
 
-class PluginMetaSummary:
+# plugins.json
+class PluginMetaSummary(Serializable):
 	plugin_amount: int
 	plugins: Dict[str, MetaInfo]
 	plugin_info: Dict[str, FormattedPluginInfo]
 
 
+# authors.json
 class AuthorSummary:
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)
@@ -357,3 +363,15 @@ class AuthorSummary:
 	def finalize(self):
 		self.authors = {key: self.authors[key] for key in sorted(self.authors.keys(), key=str.lower)}
 		self.amount = len(self.authors)
+
+
+class EverythingOfAPlugin(Serializable):
+	meta: MetaInfo
+	plugin: FormattedPluginInfo
+	release: ReleaseInfo
+
+
+# everything.json
+class Everything(Serializable):
+	authors: AuthorSummary
+	plugins: Dict[str, EverythingOfAPlugin]

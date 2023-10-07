@@ -18,12 +18,51 @@ repos_root/
 |
 +-- ...               # more directory for more plugins
 |
-+-- authors.json      # Json object: AuthorSummary
-+-- plugins.json      # Json object: PluginMetaSummary
-+-- plugins.json.gz   # A gz compressed of "plugins.json"
++-- everything.json      # Json object: Everything
++-- everything.json.gz   # A gz compressed "everything.json"
++-- authors.json         # Json object: AuthorSummary
++-- plugins.json         # Json object: PluginMetaSummary
++-- plugins.json.gz      # A gz compressed "plugins.json"
 ```
 
+| What you want                     | Where to get           |
+|-----------------------------------|------------------------|
+| Everything in the meta repository | `everything.json`      |
+| Summary of all plugins            | `plugins.json`         |
+| Summary of plugin authors         | `authors.json`         |
+| Information of a specified plugin | `<plugin_id>/xxx.json` |
+
 ### Object definition
+
+#### Everything
+
+Everything in the meta repository, including:
+
+- [AuthorSummary](#AuthorSummary)
+- [MetaInfo](#MetaInfo), [FormattedPluginInfo](#FormattedPluginInfo) and [ReleaseInfo](#ReleaseInfo) of all plugins
+
+If you want to grab the whole repository, fetch this and that's it
+
+```json5
+// Everything
+{
+  "authors": {/* AuthorSummary */},
+  // A map of plugin id -> EverythingOfAPlugin
+  "plugins": {
+    "my_plugin": {/* EverythingOfAPlugin */},
+    // ...
+  }
+}
+```
+
+```json5
+// EverythingOfAPlugin
+{
+  "meta": {/* MetaInfo */},
+  "plugin": {/* FormattedPluginInfo */},
+  "release": {/* ReleaseInfo */},
+}
+```
 
 #### PluginMetaSummary
 
@@ -32,6 +71,8 @@ A collection of `MetaInfo` and `FormattedPluginInfo` of all plugins
 A quick way to get an overview of the `meta` repository
 
 See the [MetaInfo](#MetaInfo) section for more information
+
+If you also want to get the [ReleaseInfo](#ReleaseInfo), use [`everything.json`](#Everything) instead
 
 ```json5
 {

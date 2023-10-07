@@ -7,7 +7,7 @@ import constants
 import utils
 from plugin import Plugin
 from report import reporter
-from schema import PluginMetaSummary, AuthorSummary
+from schema import PluginMetaSummary, AuthorSummary, Everything, EverythingOfAPlugin
 from serializer import serialize
 from thread_pools import worker_pool
 
@@ -114,7 +114,7 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 			meta_summary.plugin_info[plugin.id] = plugin.generate_formatted_plugin_info()
-		utils.save_json(serialize(meta_summary), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True, with_gz=True)
+		utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True, with_gz=True)
 
 		# make and store author summary
 		author_storage = AuthorSummary()
@@ -123,6 +123,17 @@ class PluginList(List[Plugin]):
 				author_storage.add_author(author.copy(), plugin.id)
 		author_storage.finalize()
 		utils.save_json(serialize(author_storage), os.path.join(constants.META_FOLDER, 'authors.json'))
+
+		# everything
+		everything = Everything(plugins={})
+		everything.authors = author_storage
+		for plugin in self:
+			everything.plugins[plugin.id] = EverythingOfAPlugin(
+				meta=plugin.meta_info,
+				plugin=plugin.generate_formatted_plugin_info(),
+				release=plugin.release_summary,
+			)
+		utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
 
 
 _plugin_list = PluginList()
