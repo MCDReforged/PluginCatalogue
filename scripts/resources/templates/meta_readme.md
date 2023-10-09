@@ -25,12 +25,12 @@ repos_root/
 +-- plugins.json.gz      # A gz compressed "plugins.json"
 ```
 
-| What you want                     | Where to get           |
-|-----------------------------------|------------------------|
-| Everything in the meta repository | `everything.json`      |
-| Summary of all plugins            | `plugins.json`         |
-| Summary of plugin authors         | `authors.json`         |
-| Information of a specified plugin | `<plugin_id>/xxx.json` |
+| What you want                     | Where to get                         |
+|-----------------------------------|--------------------------------------|
+| Everything in the meta repository | [`everything.json`](#Everything)     |
+| Summary of all plugins            | [`plugins.json`](#PluginMetaSummary) |
+| Summary of plugin authors         | [`authors.json`](#AuthorSummary)     |
+| Information of a specified plugin | `<plugin_id>/xxx.json`               |
 
 ### Object definition
 
@@ -39,7 +39,7 @@ repos_root/
 Everything in the meta repository, including:
 
 - [AuthorSummary](#AuthorSummary)
-- [MetaInfo](#MetaInfo), [FormattedPluginInfo](#FormattedPluginInfo) and [ReleaseInfo](#ReleaseInfo) of all plugins
+- [MetaInfo](#MetaInfo), [FormattedPluginInfo](#FormattedPluginInfo) and [ReleaseSummary](#ReleaseSummary) of all plugins
 
 If you want to grab the whole repository, fetch this and that's it
 
@@ -60,7 +60,7 @@ If you want to grab the whole repository, fetch this and that's it
 {
   "meta": {/* MetaInfo */},
   "plugin": {/* FormattedPluginInfo */},
-  "release": {/* ReleaseInfo */},
+  "release": {/* ReleaseSummary */},
 }
 ```
 

@@ -369,7 +369,7 @@ class AuthorSummary(Serializable):
 class EverythingOfAPlugin(Serializable):
 	meta: MetaInfo
 	plugin: FormattedPluginInfo
-	release: ReleaseInfo
+	release: ReleaseSummary
 
 
 # everything.json
