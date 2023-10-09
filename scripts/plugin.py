@@ -6,6 +6,7 @@ from typing import Optional, List
 import requests
 
 import constants
+import log
 import utils
 from label import Label, get_label_set
 from report import reporter
@@ -91,9 +92,8 @@ class Plugin:
 					try:
 						introduction_translations[lang] = self.get_repos_text(file_location)
 					except Exception as e:
-						print('[Error] Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
+						log.exception('Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
 						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
-						traceback.print_exc()
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 				introduction_tr_file_path = os.path.join(self.directory, get_file_name('introduction.md'))
 				if os.path.isfile(introduction_tr_file_path):
@@ -177,12 +177,12 @@ class Plugin:
 
 	def fetch_meta(self) -> MetaInfo:
 		self.meta_info = MetaInfo.fetch(self)
-		print('Fetched meta info of {}'.format(self.id))
+		log.info('Fetched meta info of {}'.format(self.id))
 		return self.meta_info
 
 	def save_meta(self):
 		if self.meta_info is None:
-			print('Skipping {} during meta_info saving since meta_info is None'.format(self))
+			log.info('Skipping {} during meta_info saving since meta_info is None'.format(self))
 		else:
 			utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
 
@@ -196,11 +196,11 @@ class Plugin:
 
 	def save_release_info(self):
 		if self.release_summary is None:
-			print('Skipping {} during release_summary saving since release_summary is None'.format(self))
+			log.info('Skipping {} during release_summary saving since release_summary is None'.format(self))
 		else:
 			utils.save_json(self.release_summary.serialize(), self.__release_info_file)
 		if self.release_page_cache is None:
-			print('Skipping {} during release_page_cache saving since release_page_cache is None'.format(self))
+			log.info('Skipping {} during release_page_cache saving since release_page_cache is None'.format(self))
 		else:
 			utils.save_json(self.release_page_cache.serialize(), self.__release_page_cache_file)
 
@@ -210,13 +210,13 @@ class Plugin:
 			release_info_object = utils.load_json(self.__release_info_file)
 			holder = SchemaVersionHolder.deserialize(release_info_object, error_at_missing=True)
 			if holder.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
-				print('Ignoring previous release info due to different schema_version: {} -> {}'.format(holder.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
+				log.warning('Ignoring previous release info due to different schema_version: {} -> {}'.format(holder.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
 				self.release_summary = None
 			else:
 				self.release_summary = prev = ReleaseSummary.deserialize(release_info_object, error_at_missing=True)
 		except Exception as e:
 			if not isinstance(e, FileNotFoundError):
-				print('[Warn] Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
+				log.warning('Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
 				reporter.record_warning(self.id, 'Failed to deserialized existed release_summary', e)
 			self.release_summary = None
 
@@ -225,7 +225,7 @@ class Plugin:
 				self.release_page_cache = ReleasePageCache.deserialize(utils.load_json(self.__release_page_cache_file))
 			except Exception as e:
 				if not isinstance(e, FileNotFoundError):
-					print('[Warn] Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
+					log.warning('Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
 					reporter.record_warning(self.id, 'Failed to deserialized existed release_page_cache', e)
 				self.release_page_cache = None
 
@@ -233,7 +233,7 @@ class Plugin:
 			try:
 				self.release_summary.sanity_check(self.release_page_cache)
 			except Exception as e:
-				print('[Warn] Failed to check release data sanity for plugin {}: {} {}, discarding existing data'.format(self, type(e), e))
+				log.warning('Failed to check release data sanity for plugin {}: {} {}, discarding existing data'.format(self, type(e), e))
 				reporter.record_warning(self.id, 'Failed to check release info sanity', e)
 				self.release_summary = None
 				self.release_page_cache = None
@@ -248,12 +248,11 @@ class Plugin:
 		except Exception as e:
 			if prev is not None:
 				self.release_summary = prev
-				print('Failed to fetch release info of {}, use the previous serialized one: {} {}'.format(self, type(e), e))
-				traceback.print_exc()
+				log.exception('Failed to fetch release info of {}, use the previous serialized one: {} {}'.format(self, type(e), e))
 			else:
 				raise e from None
 		else:
-			print('Fetched release info of {}, page num {}'.format(self.id, self.release_page_cache.page_amount))
+			log.info('Fetched release info of {}, page num {}'.format(self.id, self.release_page_cache.page_amount))
 		return self.release_summary
 
 

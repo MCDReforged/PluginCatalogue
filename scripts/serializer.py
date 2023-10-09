@@ -16,5 +16,6 @@ class Serializable(mcdr_serializer.Serializable):
 		try:
 			return super().deserialize(data, **kwargs)
 		except Exception as e:
-			print('Failed to deserialize to {} from data {}'.format(cls, data))
+			import log
+			log.error('Failed to deserialize to {} from data {}'.format(cls, data))
 			raise e from None

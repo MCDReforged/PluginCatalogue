@@ -4,6 +4,7 @@ from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
 
 import constants
+import log
 import utils
 from report import reporter
 from serializer import Serializable
@@ -188,7 +189,7 @@ class ReleasePage(Serializable):
 			try:
 				r_info = ReleaseInfo.deserialize(item)
 			except Exception as e:
-				print('Failed to deserialize fetched ReleaseInfo from {}: {}'.format(item, e))
+				log.error('Failed to deserialize fetched ReleaseInfo from {}: {}'.format(item, e))
 				continue
 			if not cls.check_release(plugin, r_info):
 				continue
@@ -310,7 +311,7 @@ class ReleaseSummary(Serializable):
 			try:
 				new_release_meta[tag] = future.result()
 			except Exception as e:
-				print('[Warn] failed to fetch release meta for tag {} for plugin {}: {}'.format(tag, plugin, e))
+				log.warning('Failed to fetch release meta for tag {} for plugin {}: {}'.format(tag, plugin, e))
 				reporter.record_warning(plugin.id, 'Failed to fetch release meta for tag {}'.format(tag), e)
 				new_release_meta[tag] = str(e)
 
@@ -324,7 +325,7 @@ class ReleaseSummary(Serializable):
 			try:
 				m_ver = Version(meta.version, allow_wildcard=False)
 			except ValueError as e:
-				print('[Warn] bad meta version {} for tag {} for plugin {}: {}'.format(repr(meta.version), release.tag_name, plugin, e))
+				log.warning('Bad meta version {} for tag {} for plugin {}: {}'.format(repr(meta.version), release.tag_name, plugin, e))
 				reporter.record_warning(plugin.id, 'Bad meta version {} for tag {}'.format(repr(meta.version), release.tag_name), e)
 				release.meta = 'bad meta version {}: {}'.format(repr(meta.version), e)
 				continue
@@ -333,7 +334,7 @@ class ReleaseSummary(Serializable):
 			r_ver_seq = '.'.join(map(str, r_ver.component))
 			if not m_ver_seq.startswith(r_ver_seq):
 				what = 'release version {}, meta version {}'.format(release.parsed_version, meta.version)
-				print('[Warn] plugin version mismatched for tag {} for plugin {}: {}'.format(release.tag_name, plugin, what))
+				log.warning('Plugin version mismatched for tag {} for plugin {}: {}'.format(release.tag_name, plugin, what))
 				reporter.record_warning(plugin.id, 'Plugin version mismatched for tag {}: {}'.format(release.tag_name, what), None)
 			else:
 				release.meta = meta

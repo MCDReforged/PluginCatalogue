@@ -8,6 +8,7 @@ from typing import Optional, Any, Tuple
 import requests
 
 import constants
+import log
 from report import reporter
 
 
@@ -76,7 +77,7 @@ def request_get(url: str, *, headers: dict = None, params: dict = None, retries:
 	err = None
 	for i in range(max(1, retries)):
 		if constants.DEBUG.REQUEST_GET:
-			print('\tRequesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
+			log.debug('\tRequesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
 		try:
 			return requests.get(url, params=params, proxies=constants.PROXIES, headers=headers)
 		except (requests.exceptions.ConnectionError, ssl.SSLError) as e:
@@ -98,13 +99,13 @@ def request_github_api(url: str, *, params: dict = None, etag: str = '', retries
 	try:
 		new_etag = response.headers['ETag']
 	except KeyError:
-		print('No ETag in response! url={}, params={} status_code={}, content={}'.format(url, params, response.status_code, response.content))
+		log.error('No ETag in response! url={}, params={} status_code={}, content={}'.format(url, params, response.status_code, response.content))
 		raise
 	remaining, limit = response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']
 	reporter.record_rate_limit(remaining, limit)
 	if constants.DEBUG.SHOW_RATE_LIMIT:
-		print('\tRateLimit: {}/{}'.format(remaining, limit))
-		print('\tETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
+		log.debug('\tRateLimit: {}/{}'.format(remaining, limit))
+		log.debug('\tETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
 
 	# strange prefix. does not affect accuracy, but will randomly change from time to time
 	# so yeets it here in advance

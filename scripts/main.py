@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from typing import Collection, Optional
 
+import log
 import thread_pools
 from doc_gen import generate_doc
 from plugin_list import get_plugin_list
@@ -32,7 +33,7 @@ def main():
 		target_ids = None
 	else:
 		target_ids = args.targets.split(',')
-		print('Targets: {}'.format(', '.join(target_ids)))
+		log.info('Targets: {}'.format(', '.join(target_ids)))
 	reporter.record_command(args.subparser_name)
 	reporter.record_script_start()
 

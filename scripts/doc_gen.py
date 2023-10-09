@@ -6,6 +6,7 @@ from contextlib import contextmanager
 from typing import List, IO, Iterable, Any, Optional, Collection
 
 import constants
+import log
 import utils
 from label import get_label_set
 from plugin import Plugin
@@ -119,7 +120,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 				get_label_list_markdown(plugin)
 			)
 		except:
-			print('Failed to write plugin index of {}'.format(plugin))
+			log.error('Failed to write plugin index of {}'.format(plugin))
 			raise
 	table.write(file)
 
@@ -128,7 +129,7 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 	try:
 		_write_plugin_download(plugin, file, limit)
 	except:
-		print('Failed to write plugin downloads of {}'.format(plugin))
+		log.error('Failed to write plugin downloads of {}'.format(plugin))
 		raise
 
 
@@ -167,7 +168,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	try:
 		_write_plugin(plugin, file)
 	except:
-		print('Failed to write plugin information of {}'.format(plugin))
+		log.error('Failed to write plugin information of {}'.format(plugin))
 		raise
 
 
@@ -219,7 +220,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 		for line in plugin.meta_info.requirements:
 			matched = re.match(r'^[^<>=~^]+', line)
 			if matched is None:
-				print('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
+				log.warning('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
 				continue
 			package = matched.group()
 			req = utils.remove_prefix(line, package)
@@ -267,7 +268,7 @@ def generate_plugins(plugin_list: List[Plugin]):
 
 
 def generate_doc(target_ids: Optional[Collection[str]] = None):
-	print('Generating doc')
+	log.info('Generating doc')
 	plugin_list = get_plugin_list(target_ids)
 	plugin_list.fetch_data(fail_hard=False)
 	if os.path.isdir(constants.CATALOGUE_FOLDER):
@@ -290,11 +291,11 @@ def generate_doc(target_ids: Optional[Collection[str]] = None):
 			generate_full(plugin_list, file)
 
 	for lang in LANGUAGES:
-		print('Generating doc in language {}'.format(lang))
+		log.info('Generating doc in language {}'.format(lang))
 		with with_language(lang):
 			write_doc()
 
-	print('Generating doc done')
+	log.info('Generating doc done')
 
 
 class Link:
@@ -324,7 +325,7 @@ class Table:
 		try:
 			self.__rows.append(tuple(map(str, items)))
 		except:
-			print('Failed to add new rows to table, rows: {}'.format(items))
+			log.error('Failed to add new rows to table, rows: {}'.format(items))
 			raise
 
 	@staticmethod

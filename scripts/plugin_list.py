@@ -4,6 +4,7 @@ import traceback
 from typing import Callable, Any, List, Collection, Optional
 
 import constants
+import log
 import utils
 from plugin import Plugin
 from report import reporter
@@ -26,25 +27,24 @@ class PluginList(List[Plugin]):
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
 			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
 				if target_ids is None or folder in target_ids:
-					print('Found plugin {}'.format(folder))
+					log.info('Found plugin {}'.format(folder))
 					futures.append((folder, worker_pool.submit(Plugin, folder)))
 				else:
-					print('Skipping plugin {}'.format(folder))
+					log.info('Skipping plugin {}'.format(folder))
 		for folder, future in futures:
 			try:
 				plugin = future.result()
 				if plugin.is_disabled():
-					print('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
+					log.info('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
 					reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
 				else:
 					self.append(plugin)
 			except Exception as e:
-				print('[Error] Failed to initialize plugin in folder "{}"'.format(folder))
+				log.exception('Failed to initialize plugin in folder "{}"'.format(folder))
 				reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
-				traceback.print_exc()
 				raise
 
-		print('Found {} plugins in total'.format(len(self)))
+		log.info('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())
 		self.__inited = True
 
@@ -56,16 +56,15 @@ class PluginList(List[Plugin]):
 			try:
 				future.result()
 			except Exception as e:
-				print('[Error] Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
+				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
 				reporter.record_failure(plugin.id, 'Fetch {} failed'.format(fetch_target_name), e)
 				if fail_hard:
 					raise
 				else:
-					print('{}: {}'.format(type(e), e))
-				traceback.print_exc()
+					log.exception('{}: {}'.format(type(e), e))
 
 	def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
-		print('Fetching data')
+		log.info('Fetching data')
 		if meta and not self.__meta_fetched:
 			self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard)
 			self.__meta_fetched = True
@@ -74,7 +73,7 @@ class PluginList(List[Plugin]):
 			self.__release_fetched = True
 
 	def store_data(self):
-		print('Storing data into meta folder')
+		log.info('Storing data into meta folder')
 
 		# prepare folder
 		if os.path.isdir(constants.META_FOLDER):
@@ -101,9 +100,8 @@ class PluginList(List[Plugin]):
 				plugin.save_release_info()
 				plugin.save_formatted_plugin_info()
 			except Exception as e:
-				print('[Error] Storing info for plugin {}'.format(plugin))
+				log.exception('Storing info for plugin {}'.format(plugin))
 				reporter.record_failure(plugin.id, 'Store plugin info', e)
-				traceback.print_exc()
 
 		# make and store plugin summary
 		meta_summary = PluginMetaSummary()
