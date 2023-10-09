@@ -315,7 +315,28 @@ class ReleaseSummary(Serializable):
 				new_release_meta[tag] = str(e)
 
 		for release in self.releases:
-			release.meta = new_release_meta[release.tag_name]
+			meta = new_release_meta[release.tag_name]
+			if isinstance(meta, str):
+				release.meta = meta
+				continue
+
+			r_ver = Version(release.parsed_version, allow_wildcard=False)
+			try:
+				m_ver = Version(meta.version, allow_wildcard=False)
+			except ValueError as e:
+				print('[Warn] bad meta version {} for tag {} for plugin {}: {}'.format(repr(meta.version), release.tag_name, plugin, e))
+				reporter.record_warning(plugin.id, 'Bad meta version {} for tag {}'.format(repr(meta.version), release.tag_name), e)
+				release.meta = 'bad meta version {}: {}'.format(repr(meta.version), e)
+				continue
+
+			m_ver_seq = '.'.join(map(str, m_ver.component))
+			r_ver_seq = '.'.join(map(str, r_ver.component))
+			if not m_ver_seq.startswith(r_ver_seq):
+				what = 'release version {}, meta version {}'.format(release.parsed_version, meta.version)
+				print('[Warn] plugin version mismatched for tag {} for plugin {}: {}'.format(release.tag_name, plugin, what))
+				reporter.record_warning(plugin.id, 'Plugin version mismatched for tag {}: {}'.format(release.tag_name, what), None)
+			else:
+				release.meta = meta
 
 	@property
 	def release_tags(self) -> Iterable[str]:
