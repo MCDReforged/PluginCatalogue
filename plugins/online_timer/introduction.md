@@ -1,0 +1,1 @@
+A plugin to show how much players have spent on this server
