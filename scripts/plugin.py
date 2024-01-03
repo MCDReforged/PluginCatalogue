@@ -90,11 +90,19 @@ class Plugin:
 				file_location = external_introduction.get(lang)
 				if file_location is not None:
 					try:
-						introduction_translations[lang] = self.get_repos_text(file_location)
+						file_content = self.get_repos_text(file_location)
 					except Exception as e:
 						log.exception('Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
 						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
+					else:
+						if file_location.lower().endswith('.md'):
+							file_content = utils.rewrite_markdown(
+								file_content,
+								repos_url=self.__get_repos_page_base(),
+								raw_url=self.__get_repos_raw_base(),
+							)
+						introduction_translations[lang] = file_content
 				introduction_tr_file_path = os.path.join(self.directory, get_file_name('introduction.md'))
 				if os.path.isfile(introduction_tr_file_path):
 					with utils.read_file(introduction_tr_file_path) as file_handler:
@@ -137,22 +145,36 @@ class Plugin:
 	def __repr__(self):
 		return 'Plugin[id={},repository={}]'.format(self.id, self.repository)
 
-	def __get_repos_file(self, file_path: str, *, tag: Optional[str] = None) -> requests.Response:
-		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/master/mcdreforged.plugin.json
+	def __get_repos_page_base(self, tag: Optional[str] = None) -> str:
+		# https://github.com/TISUnion/QuickBackupM/blob/master/
+		url_base = f'https://github.com/{self.repos_path}/blob/{tag or self.branch}/'
+		if self.related_path != '.':
+			url_base += self.related_path + '/'
+		return url_base
+
+	def __get_repos_raw_base(self, tag: Optional[str] = None) -> str:
+		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/master/
 		url_base = f'https://raw.githubusercontent.com/{self.repos_path}/{tag or self.branch}/'
 		if self.related_path != '.':
 			url_base += self.related_path + '/'
-		return utils.request_get(url_base + file_path)
+		return url_base
+
+	def __get_repos_raw_file_path(self, file_path: str, *, tag: Optional[str] = None) -> str:
+		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/master/mcdreforged.plugin.json
+		return self.__get_repos_raw_base(tag=tag) + file_path
+
+	def __request_repos_file(self, file_path: str, *, tag: Optional[str] = None) -> requests.Response:
+		return utils.request_get(self.__get_repos_raw_file_path(file_path, tag=tag))
 
 	def get_repos_json(self, file_path: str, **kwargs) -> dict:
-		response = self.__get_repos_file(file_path, **kwargs)
+		response = self.__request_repos_file(file_path, **kwargs)
 		try:
 			return response.json()
 		except JSONDecodeError:
 			raise Exception('Failed to decode json from response! url: {}, status_code {}: {}'.format(response.url, response.status_code, response.content)) from None
 
 	def get_repos_text(self, file_path: str, default: Optional[str] = None, **kwargs) -> str:
-		resp = self.__get_repos_file(file_path, **kwargs)
+		resp = self.__request_repos_file(file_path, **kwargs)
 		if resp.status_code != 200:
 			if default is not None:
 				return default
