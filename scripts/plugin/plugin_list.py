@@ -3,10 +3,10 @@ import shutil
 from typing import Callable, Any, List, Collection, Optional
 
 from common import constants, log
-from utils import utils
-from plugin.plugin import Plugin
 from common.report import reporter
 from meta.schema import PluginMetaSummary, AuthorSummary, Everything, EverythingOfAPlugin
+from plugin.plugin import Plugin
+from utils import file_utils
 from utils.thread_pools import worker_pool
 
 
@@ -14,6 +14,7 @@ class PluginList(List[Plugin]):
 	def __init__(self):
 		super().__init__()
 		self.__inited = False
+		self.__intro_fetched = False
 		self.__meta_fetched = False
 		self.__release_fetched = False
 
@@ -21,26 +22,23 @@ class PluginList(List[Plugin]):
 		if self.__inited:
 			return
 		self.clear()
-		futures = []
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
 			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
 				if target_ids is None or folder in target_ids:
 					log.info('Found plugin {}'.format(folder))
-					futures.append((folder, worker_pool.submit(Plugin, folder)))
+					try:
+						plugin = Plugin(folder)
+						if plugin.is_disabled():
+							log.info('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
+							reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
+						else:
+							self.append(plugin)
+					except Exception as e:
+						log.exception('Failed to initialize plugin in folder "{}"'.format(folder))
+						reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
+						raise
 				else:
 					log.info('Skipping plugin {}'.format(folder))
-		for folder, future in futures:
-			try:
-				plugin = future.result()
-				if plugin.is_disabled():
-					log.info('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
-					reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
-				else:
-					self.append(plugin)
-			except Exception as e:
-				log.exception('Failed to initialize plugin in folder "{}"'.format(folder))
-				reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
-				raise
 
 		log.info('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())
@@ -64,6 +62,9 @@ class PluginList(List[Plugin]):
 
 	def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
 		log.info('Fetching data')
+		if not self.__intro_fetched:
+			self.__fetch('introduction', lambda plg: plg.fetch_introduction(), fail_hard=fail_hard)
+			self.__intro_fetched = True
 		if meta and not self.__meta_fetched:
 			self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard)
 			self.__meta_fetched = True
@@ -80,7 +81,7 @@ class PluginList(List[Plugin]):
 		os.makedirs(constants.META_FOLDER)
 
 		# make readme
-		with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md')) as f:
+		with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md')) as f:
 			readme: str = f.read()
 		placeholders = {
 			'"PLUGIN_INFO_SCHEMA_VERSION"': constants.PLUGIN_INFO_SCHEMA_VERSION,
@@ -89,7 +90,7 @@ class PluginList(List[Plugin]):
 		}
 		for key, value in placeholders.items():
 			readme = readme.replace(str(key), str(value))
-		with utils.write_file(os.path.join(constants.META_FOLDER, 'readme.md')) as f:
+		with file_utils.open_for_write(os.path.join(constants.META_FOLDER, 'readme.md')) as f:
 			f.write(readme)
 
 		# store info for each plugin
@@ -110,7 +111,7 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 			meta_summary.plugin_info[plugin.id] = plugin.generate_formatted_plugin_info()
-		utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True, with_gz=True)
+		file_utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True, with_gz=True)
 
 		# make and store author summary
 		author_summary = AuthorSummary()
@@ -118,7 +119,7 @@ class PluginList(List[Plugin]):
 			for author in plugin.authors:
 				author_summary.add_author(author.copy(), plugin.id)
 		author_summary.finalize()
-		utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'))
+		file_utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'))
 
 		# everything
 		everything = Everything(plugins={})
@@ -129,7 +130,7 @@ class PluginList(List[Plugin]):
 				plugin=plugin.generate_formatted_plugin_info(),
 				release=plugin.release_summary,
 			)
-		utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
+		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
 
 
 _plugin_list = PluginList()

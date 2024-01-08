@@ -1,8 +1,8 @@
 from typing import List, Dict, Optional, Set
 
 from common import constants
-from utils import utils
 from common.translation import Text
+from utils import file_utils
 
 
 class Label(Text):
@@ -18,7 +18,7 @@ class LabelSet(Set[Label]):
 	def __init__(self):
 		super().__init__()
 		self.__labels: Dict[str, Label] = {}
-		for label_id in utils.load_json(constants.LABEL_FILE):
+		for label_id in file_utils.load_json(constants.LABEL_FILE):
 			self.__labels[label_id] = Label(label_id)
 
 	def get_label_list(self) -> List[Label]:

@@ -1,11 +1,12 @@
 from argparse import ArgumentParser
+from contextlib import ExitStack
 from typing import Collection, Optional
 
-from utils import thread_pools
-from common import log
 from catalogue.doc_gen import generate_doc
-from plugin.plugin_list import get_plugin_list
+from common import log
 from common.report import reporter
+from plugin.plugin_list import get_plugin_list
+from utils import thread_pools
 
 
 def check(target_ids: Optional[Collection[str]]):
@@ -34,25 +35,28 @@ def main():
 	else:
 		target_ids = args.targets.split(',')
 		log.info('Targets: {}'.format(', '.join(target_ids)))
-	reporter.record_command(args.subparser_name)
-	reporter.record_script_start()
 
-	if args.subparser_name == 'check':
-		check(target_ids)
-	elif args.subparser_name == 'meta':
-		update_data(target_ids)
-	elif args.subparser_name == 'doc':
-		generate_doc(target_ids)
-	elif args.subparser_name == 'all':
-		check(target_ids)
-		update_data(target_ids)
-		generate_doc(target_ids)
-	else:
-		parser.print_help()
+	with ExitStack() as es:
+		es.callback(thread_pools.shutdown)
 
-	reporter.record_script_end()
-	reporter.report(get_plugin_list())
-	thread_pools.shutdown()
+		reporter.record_command(args.subparser_name)
+		reporter.record_script_start()
+
+		if args.subparser_name == 'check':
+			check(target_ids)
+		elif args.subparser_name == 'meta':
+			update_data(target_ids)
+		elif args.subparser_name == 'doc':
+			generate_doc(target_ids)
+		elif args.subparser_name == 'all':
+			check(target_ids)
+			update_data(target_ids)
+			generate_doc(target_ids)
+		else:
+			parser.print_help()
+
+		reporter.record_script_end()
+		reporter.report(get_plugin_list())
 
 
 if __name__ == '__main__':

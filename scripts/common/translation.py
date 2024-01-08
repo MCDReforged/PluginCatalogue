@@ -4,7 +4,7 @@ from contextlib import contextmanager
 from typing import Dict, Optional
 
 from common import constants
-from utils import utils
+from utils import file_utils, value_utils
 
 EN_US = 'en_us'
 ZH_CN = 'zh_cn'
@@ -53,8 +53,8 @@ _TRANSLATION: _TRANSLATION_COLLECTION_TYPE = {}
 for file_name in os.listdir(constants.TRANSLATION_FOLDER):
 	file_path = os.path.join(constants.TRANSLATION_FOLDER, file_name)
 	if os.path.isfile(file_path) and file_name.endswith('.json'):
-		lang = utils.remove_suffix(file_name, '.json')
-		_TRANSLATION[lang] = utils.load_json(file_path)
+		lang = value_utils.remove_suffix(file_name, '.json')
+		_TRANSLATION[lang] = file_utils.load_json(file_path)
 
 
 class Text:

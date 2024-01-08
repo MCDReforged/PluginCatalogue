@@ -6,11 +6,11 @@ from contextlib import contextmanager
 from typing import List, IO, Iterable, Any, Optional, Collection
 
 from common import constants, log
-from utils import utils
+from common.translation import Text, get_language, get_file_name, LANGUAGES, with_language
 from plugin.label import get_label_set
 from plugin.plugin import Plugin
 from plugin.plugin_list import get_plugin_list
-from common.translation import Text, get_language, get_file_name, LANGUAGES, with_language
+from utils import file_utils, value_utils, markdown_utils
 
 
 def get_plugin_detail_link(plugin_id: str):
@@ -72,13 +72,13 @@ def write_translation_nav(file_name: str, file: IO[str]):
 
 
 def write_back_to_index_nav(file: IO[str]):
-	file.write('{} {}\n'.format(utils.format_markdown('>>>'), Link(Text('back_to_index'), get_file_name('/readme.md'))))
+	file.write('{} {}\n'.format(markdown_utils.format_markdown('>>>'), Link(Text('back_to_index'), get_file_name('/readme.md'))))
 	file.write('\n')
 
 
 @contextmanager
 def write_nav(file_path: str):
-	with utils.write_file(file_path) as file:
+	with file_utils.open_for_write(file_path) as file:
 		write_translation_nav(os.path.basename(file_path), file)
 		if file_path != get_root_readme_file_path():
 			write_back_to_index_nav(file)
@@ -149,7 +149,7 @@ def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 					release.parsed_version,
 					release.meta.version if isinstance(release.meta, MetaInfo) else 'N/A',
 					formatted_time(asset.created_at, precision='second'),
-					utils.pretty_file_size(asset.size),
+					value_utils.pretty_file_size(asset.size),
 					asset.download_count,
 					' '.join(map(str, [
 						Link(Text('operations.download'), asset.browser_download_url)
@@ -190,8 +190,8 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 
 	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
-	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
-	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repository_plugin_page))
+	file.write('- {}: {}\n'.format(Text('repository'), plugin.repos.repos_url))
+	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repos.plugin_homepage))
 	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))
 	if plugin.is_data_fetched():
 		file.write('- {}: {}\n'.format(Text('description'), plugin.meta_info.translated_description))
@@ -206,7 +206,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 		for pid, req in plugin.meta_info.dependencies.items():
 			table.add_row(
 				Link(pid, get_plugin_detail_link(pid)),
-				utils.format_markdown(req)
+				markdown_utils.format_markdown(req)
 			)
 		table.write(file)
 	else:
@@ -223,10 +223,10 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 				log.warning('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
 				continue
 			package = matched.group()
-			req = utils.remove_prefix(line, package)
+			req = value_utils.remove_prefix(line, package)
 			table.add_row(
 				Link(package, 'https://pypi.org/project/{}'.format(package)),
-				utils.format_markdown(req)
+				markdown_utils.format_markdown(req)
 			)
 		table.write(file)
 	else:
@@ -240,7 +240,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 
 
 def generate_full(plugin_list: Iterable[Plugin], file: IO[str]):
-	with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('full_header.md'))) as header:
+	with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('full_header.md'))) as header:
 		file.write(header.read())
 	file.write('\n')
 	for plugin in plugin_list:
@@ -277,7 +277,7 @@ def generate_doc(target_ids: Optional[Collection[str]] = None):
 
 	def write_doc():
 		with write_nav(get_root_readme_file_path()) as file:
-			with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('index_header.md'))) as header:
+			with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('index_header.md'))) as header:
 				file.write(header.read())
 			file.write('\n')
 			write_label_info(file)

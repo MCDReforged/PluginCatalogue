@@ -4,11 +4,11 @@ from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
 
 from common import constants, log
-from utils import utils
 from common.report import reporter
+from common.translation import Text, BundledText, DEFAULT_LANGUAGE
+from utils import request_utils, markdown_utils, value_utils
 from utils.serializer import Serializable
 from utils.thread_pools import downloader_pool
-from common.translation import Text, BundledText, DEFAULT_LANGUAGE
 
 if TYPE_CHECKING:
 	from plugin.plugin import Plugin
@@ -71,7 +71,7 @@ class MetaInfo(Serializable):
 		if text is None:
 			text = '*{}*'.format(Text('none'))
 		else:
-			text = utils.format_markdown(text)
+			text = markdown_utils.format_markdown(text)
 		return text
 
 	@classmethod
@@ -83,9 +83,9 @@ class MetaInfo(Serializable):
 		meta_info.id = metadata.id
 		meta_info.name = metadata.name
 		meta_info.version = str(metadata.version)
-		meta_info.repository = plugin.repository
+		meta_info.repository = plugin.repos.repos_url
 		meta_info.link = metadata.link
-		meta_info.authors = [author.name for author in plugin.authors]
+		meta_info.authors = metadata.author or []
 		meta_info.dependencies = dict(map(
 			lambda t: (str(t[0]), str(t[1])),
 			metadata.dependencies.items()
@@ -141,7 +141,7 @@ class ReleaseInfo(Serializable):
 
 		version = self.tag_name
 		if version.startswith(plugin_id + '-'):
-			version = utils.remove_prefix(version, plugin_id + '-')
+			version = value_utils.remove_prefix(version, plugin_id + '-')
 		if len(version) == 0:
 			return version
 		if version[0].isdigit():
@@ -174,8 +174,8 @@ class ReleasePage(Serializable):
 		"""
 		:return: None if page unchanged
 		"""
-		url = f'https://api.github.com/repos/{plugin.repos_path}/releases'
-		resp, new_etag = utils.request_github_api(url, etag=old_etag, params={'page': page_index, 'per_page': constants.MAX_RELEASE_PER_PAGE})
+		url = f'{plugin.repos.api_root}/releases'
+		resp, new_etag = request_utils.request_github_api(url, etag=old_etag, params={'page': page_index, 'per_page': constants.MAX_RELEASE_PER_PAGE})
 		if resp is None:
 			return None
 
@@ -383,7 +383,7 @@ class AuthorSummary(Serializable):
 		self.__author_source[author.name] = plugin_id
 
 	def finalize(self):
-		self.authors = {key: self.authors[key] for key in sorted(self.authors.keys(), key=str.lower)}
+		self.authors = value_utils.sort_dict(self.authors)
 		self.amount = len(self.authors)
 
 
