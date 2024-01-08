@@ -10,9 +10,8 @@ from typing import Optional, Any, Tuple
 import mistletoe
 import requests
 
-import constants
-import log
-from report import reporter
+from common import constants, log
+from common.report import reporter
 
 
 def remove_prefix(text: str, prefix: str) -> str:

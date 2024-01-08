@@ -3,16 +3,15 @@ from typing import Optional, List, Dict, NamedTuple, Iterable, Union, TYPE_CHECK
 from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
 
-import constants
-import log
-import utils
-from report import reporter
-from serializer import Serializable
-from thread_pools import downloader_pool
-from translation import Text, BundledText, DEFAULT_LANGUAGE
+from common import constants, log
+from utils import utils
+from common.report import reporter
+from utils.serializer import Serializable
+from utils.thread_pools import downloader_pool
+from common.translation import Text, BundledText, DEFAULT_LANGUAGE
 
 if TYPE_CHECKING:
-	from plugin import Plugin
+	from plugin.plugin import Plugin
 
 
 class Author(Serializable):

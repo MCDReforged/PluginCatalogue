@@ -3,8 +3,8 @@ import threading
 from contextlib import contextmanager
 from typing import Dict, Optional
 
-import constants
-import utils
+from common import constants
+from utils import utils
 
 EN_US = 'en_us'
 ZH_CN = 'zh_cn'

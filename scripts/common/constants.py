@@ -11,15 +11,16 @@ THREAD_POOL_WORKER = 32
 MCDR_LINK = 'https://github.com/Fallen-Breath/MCDReforged'
 
 HERE = os.path.dirname(__file__)
-ROOT = os.path.abspath(os.path.join(HERE, '..'))
+SCRIPT_ROOT = os.path.abspath(os.path.join(HERE, '..'))
+REPOS_ROOT = os.path.abspath(os.path.join(SCRIPT_ROOT, '..'))
 
-RESOURCES_FOLDER = os.path.join(HERE, 'resources')
+RESOURCES_FOLDER = os.path.join(SCRIPT_ROOT, 'resources')
 TEMPLATE_FOLDER = os.path.join(RESOURCES_FOLDER, 'templates')
 TRANSLATION_FOLDER = os.path.join(RESOURCES_FOLDER, 'lang')
-PLUGINS_FOLDER = os.path.join(ROOT, 'plugins')
+PLUGINS_FOLDER = os.path.join(REPOS_ROOT, 'plugins')
 LABEL_FILE = os.path.join(RESOURCES_FOLDER, 'labels.json')
-CATALOGUE_FOLDER = os.path.join(ROOT, 'catalogue')
-META_FOLDER = os.path.join(ROOT, 'meta')
+CATALOGUE_FOLDER = os.path.join(REPOS_ROOT, 'catalogue')
+META_FOLDER = os.path.join(REPOS_ROOT, 'meta')
 
 PROXIES = None
 if 'http_proxy' in os.environ:

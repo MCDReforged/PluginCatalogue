@@ -1,17 +1,15 @@
 import os
-import traceback
 from json import JSONDecodeError
 from typing import Optional, List
 
 import requests
 
-import constants
-import log
-import utils
-from label import Label, get_label_set
-from report import reporter
-from schema import Author, MetaInfo, ReleaseSummary, ReleasePageCache, PluginInfo, FormattedPluginInfo, SchemaVersionHolder
-from translation import Text, BundledText, LANGUAGES, get_file_name, with_language
+from common import constants, log
+from utils import utils
+from plugin.label import Label, get_label_set
+from common.report import reporter
+from meta.schema import Author, MetaInfo, ReleaseSummary, ReleasePageCache, PluginInfo, FormattedPluginInfo, SchemaVersionHolder
+from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
 
 
 class Plugin:

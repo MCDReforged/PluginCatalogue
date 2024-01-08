@@ -1,8 +1,8 @@
 from typing import List, Dict, Optional, Set
 
-import constants
-import utils
-from translation import Text
+from common import constants
+from utils import utils
+from common.translation import Text
 
 
 class Label(Text):

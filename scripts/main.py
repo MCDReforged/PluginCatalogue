@@ -1,11 +1,11 @@
 from argparse import ArgumentParser
 from typing import Collection, Optional
 
-import log
-import thread_pools
-from doc_gen import generate_doc
-from plugin_list import get_plugin_list
-from report import reporter
+from utils import thread_pools
+from common import log
+from catalogue.doc_gen import generate_doc
+from plugin.plugin_list import get_plugin_list
+from common.report import reporter
 
 
 def check(target_ids: Optional[Collection[str]]):
@@ -24,7 +24,7 @@ def main():
 
 	subparsers = parser.add_subparsers(title='Command', help='Available commands', dest='subparser_name')
 	subparsers.add_parser('check', help='Check the correctness of files in "plugins/"')
-	subparsers.add_parser('fetch', help='Fetch metadata and release information from github to "meta/"')
+	subparsers.add_parser('meta', help='Fetch metadata and release information from github to "meta/"')
 	subparsers.add_parser('doc', help='Generate user friendly plugin catalogue doc to "catalogue/"')
 	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 
@@ -39,7 +39,7 @@ def main():
 
 	if args.subparser_name == 'check':
 		check(target_ids)
-	elif args.subparser_name == 'fetch':
+	elif args.subparser_name == 'meta':
 		update_data(target_ids)
 	elif args.subparser_name == 'doc':
 		generate_doc(target_ids)

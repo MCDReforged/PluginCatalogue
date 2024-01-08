@@ -5,13 +5,12 @@ import time
 from contextlib import contextmanager
 from typing import List, IO, Iterable, Any, Optional, Collection
 
-import constants
-import log
-import utils
-from label import get_label_set
-from plugin import Plugin
-from plugin_list import get_plugin_list
-from translation import Text, get_language, get_file_name, LANGUAGES, with_language
+from common import constants, log
+from utils import utils
+from plugin.label import get_label_set
+from plugin.plugin import Plugin
+from plugin.plugin_list import get_plugin_list
+from common.translation import Text, get_language, get_file_name, LANGUAGES, with_language
 
 
 def get_plugin_detail_link(plugin_id: str):
@@ -144,7 +143,7 @@ def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 		table = Table(Text('file'), Text('release_version'), Text('metadata_version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
 		for release in plugin.release_summary.releases:
 			for asset in release.get_mcdr_assets():
-				from schema import MetaInfo
+				from meta.schema import MetaInfo
 				table.add_row(
 					Link(asset.name, release.url),
 					release.parsed_version,

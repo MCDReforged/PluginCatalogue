@@ -1,15 +1,13 @@
 import os
 import shutil
-import traceback
 from typing import Callable, Any, List, Collection, Optional
 
-import constants
-import log
-import utils
-from plugin import Plugin
-from report import reporter
-from schema import PluginMetaSummary, AuthorSummary, Everything, EverythingOfAPlugin
-from thread_pools import worker_pool
+from common import constants, log
+from utils import utils
+from plugin.plugin import Plugin
+from common.report import reporter
+from meta.schema import PluginMetaSummary, AuthorSummary, Everything, EverythingOfAPlugin
+from utils.thread_pools import worker_pool
 
 
 class PluginList(List[Plugin]):
@@ -59,6 +57,7 @@ class PluginList(List[Plugin]):
 				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
 				reporter.record_failure(plugin.id, 'Fetch {} failed'.format(fetch_target_name), e)
 				if fail_hard:
+					log.error('Fail-HARD!')
 					raise
 				else:
 					log.exception('{}: {}'.format(type(e), e))

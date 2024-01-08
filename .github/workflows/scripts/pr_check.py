@@ -8,10 +8,10 @@ import sys
 
 sys.path.append('scripts')
 
-from constants import ROOT
+from common.constants import REPOS_ROOT
 from main import check
 
-with open(os.path.join(ROOT, '.github/outputs/all_changed_and_modified_files.json'), 'r', encoding='utf8') as f:
+with open(os.path.join(REPOS_ROOT, '.github/outputs/all_changed_and_modified_files.json'), 'r', encoding='utf8') as f:
 	modified_files = json.load(f)
 
 folders = []
