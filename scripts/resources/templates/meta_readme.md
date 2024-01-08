@@ -8,7 +8,7 @@ The branch for custom MCDR plugin managers to fetch data from
 repos_root/
 +-- my_plugin/        # A plugin with id "my_plugin"
 |   +-- meta.json     # Json object: MetaInfo
-|   +-- plugin.json   # Json object: FormattedPluginInfo
+|   +-- plugin.json   # Json object: PluginInfo
 |   +-- release.json  # Json object: ReleaseSummary
 |
 +-- another_plugin/   # Another plugin with id "another_plugin"
@@ -39,7 +39,7 @@ repos_root/
 Everything in the meta repository, including:
 
 - [AuthorSummary](#AuthorSummary)
-- [MetaInfo](#MetaInfo), [FormattedPluginInfo](#FormattedPluginInfo) and [ReleaseSummary](#ReleaseSummary) of all plugins
+- [MetaInfo](#MetaInfo), [PluginInfo](#PluginInfo) and [ReleaseSummary](#ReleaseSummary) of all plugins
 
 If you want to grab the whole repository, fetch this and that's it
 
@@ -59,14 +59,14 @@ If you want to grab the whole repository, fetch this and that's it
 // EverythingOfAPlugin
 {
   "meta": {/* MetaInfo */},
-  "plugin": {/* FormattedPluginInfo */},
+  "plugin": {/* PluginInfo */},
   "release": {/* ReleaseSummary */},
 }
 ```
 
 #### PluginMetaSummary
 
-A collection of `MetaInfo` and `FormattedPluginInfo` of all plugins
+A collection of `MetaInfo` and `PluginInfo` of all plugins
 
 A quick way to get an overview of the `meta` repository
 
@@ -82,9 +82,9 @@ If you also want to get the [ReleaseInfo](#ReleaseInfo), use [`everything.json`]
     "my_plugin": {/* MetaInfo */},
     // ...
   },
-  // A map of plugin id -> FormattedPluginInfo
+  // A map of plugin id -> PluginInfo
   "plugin_info": {
-    "my_plugin": {/* FormattedPluginInfo */},
+    "my_plugin": {/* PluginInfo */},
     // ...
   }
 }
@@ -223,9 +223,9 @@ Information of an asset in GitHub release
 }
 ```
 
-#### FormattedPluginInfo
+#### PluginInfo
 
-A formatted version of `plugin_info.json`
+A formatted version of `plugin_info.json` from the master branch
 
 ```json5
 {

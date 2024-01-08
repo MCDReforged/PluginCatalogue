@@ -1,108 +1,14 @@
-from typing import Optional, List, Dict, NamedTuple, Iterable, Union, TYPE_CHECKING, Set
+from typing import List, Union, Optional, NamedTuple, Dict, Set, Iterable
 
-from mcdreforged.plugin.meta.metadata import Metadata
 from mcdreforged.plugin.meta.version import Version
 
 from common import constants, log
 from common.report import reporter
-from common.translation import Text, BundledText, DEFAULT_LANGUAGE
-from utils import request_utils, markdown_utils, value_utils
+from meta.plugin import MetaInfo
+from plugin.plugin import Plugin
+from utils import value_utils, request_utils
 from utils.serializer import Serializable
 from utils.thread_pools import downloader_pool
-
-if TYPE_CHECKING:
-	from plugin.plugin import Plugin
-
-
-class Author(Serializable):
-	name: str = ''
-	link: Optional[str] = None
-
-	def to_markdown(self) -> str:
-		if self.link is None:
-			return self.name
-		return '[{}]({})'.format(self.name, self.link)
-
-
-# <plugin_id>/plugin.json
-class FormattedPluginInfo(Serializable):
-	"""
-	The processed PluginInfo, that will be stored in the meta branch
-	"""
-	schema_version: int = constants.PLUGIN_INFO_SCHEMA_VERSION
-	id: str
-	authors: List[str]  # author names
-	repository: str
-	branch: str
-	related_path: str
-	labels: List[str]
-	introduction: Dict[str, str]  # lang -> content
-
-
-class PluginInfo(Serializable):
-	"""
-	Content of plugin_info.json
-	"""
-	id: str
-	authors: List[Union[str, Author]] = []
-	repository: str
-	branch: str
-	related_path: str = '.'
-	labels: List[str] = []
-	introduction: Dict[str, str] = {}  # lang -> file path in repos
-
-
-# <plugin_id>/meta.json
-class MetaInfo(Serializable):
-	schema_version: int = constants.META_INFO_SCHEMA_VERSION
-	id: str
-	name: str
-	version: str
-	repository: str
-	link: Optional[str]
-	authors: List[str]
-	dependencies: Dict[str, str]
-	requirements: List[str]
-	description: Dict[str, str]
-
-	@property
-	def translated_description(self) -> str:
-		text = BundledText(self.description).get()
-		if text is None:
-			text = '*{}*'.format(Text('none'))
-		else:
-			text = markdown_utils.format_markdown(text)
-		return text
-
-	@classmethod
-	def fetch(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
-		metadata_json = plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
-		metadata = Metadata(metadata_json)
-		assert metadata.id == plugin.id, 'wrong plugin id in mcdreforged.plugin.json, expected {} but found {}'.format(plugin.id, metadata.id)
-		meta_info = MetaInfo()
-		meta_info.id = metadata.id
-		meta_info.name = metadata.name
-		meta_info.version = str(metadata.version)
-		meta_info.repository = plugin.repos.repos_url
-		meta_info.link = metadata.link
-		meta_info.authors = metadata.author or []
-		meta_info.dependencies = dict(map(
-			lambda t: (str(t[0]), str(t[1])),
-			metadata.dependencies.items()
-		))
-		meta_info.requirements = list(filter(
-			lambda l: len(l) > 0, map(
-				lambda l: l.split('#', 1)[0].strip(),
-				plugin.get_repos_text('requirements.txt', default='', tag=tag).splitlines()
-			)
-		))
-		if isinstance(metadata.description, str):
-			meta_info.description = {DEFAULT_LANGUAGE: metadata.description}
-		elif isinstance(metadata.description, dict):
-			meta_info.description = metadata.description
-		else:
-			meta_info.description = {}
-		return meta_info
 
 
 class AssetInfo(Serializable):
@@ -207,12 +113,10 @@ class ReleasePage(Serializable):
 		return len(r_info.get_mcdr_assets()) > 0
 
 
-class SchemaVersionHolder(Serializable):
-	schema_version: int
-
-
-# <plugin_id>/.release_page_cache.json
 class ReleasePageCache(Serializable):
+	"""
+	/<plugin_id>/.release_page_cache.json
+	"""
 	NOTICE: str = 'Not public API, DO NOT use this file'
 	release_pages: List[ReleasePage] = []
 
@@ -221,8 +125,10 @@ class ReleasePageCache(Serializable):
 		return len(self.release_pages) - 1
 
 
-# <plugin_id>/release.json
 class ReleaseSummary(Serializable):
+	"""
+	/<plugin_id>/release.json
+	"""
 	schema_version: int = None
 	id: str = None
 	latest_version: str = None
@@ -353,47 +259,3 @@ class ReleaseSummary(Serializable):
 			for asset in release.get_mcdr_assets():
 				total += asset.download_count
 		return total
-
-
-# plugins.json
-class PluginMetaSummary(Serializable):
-	plugin_amount: int
-	plugins: Dict[str, MetaInfo]
-	plugin_info: Dict[str, FormattedPluginInfo]
-
-
-# authors.json
-class AuthorSummary(Serializable):
-	amount: int = 0
-	authors: Dict[str, Author] = {}
-
-	def __init__(self, **kwargs):
-		super().__init__(**kwargs)
-		self.__author_source: Dict[str, str] = {}  # author name -> source plugin id
-
-	def add_author(self, author: Author, plugin_id: str):
-		existed = self.authors.get(author.name)
-		if existed is not None and existed.link is not None:
-			if author.link is not None and existed.link != author.link:
-				reporter.record_warning(plugin_id, 'Inconsistent link of author: plugin {} says {}, but plugin {} says {}'.format(
-					plugin_id, repr(author.link), self.__author_source.get(author.name, '?'), repr(existed.link)
-				), None)
-			return
-		self.authors[author.name] = author
-		self.__author_source[author.name] = plugin_id
-
-	def finalize(self):
-		self.authors = value_utils.sort_dict(self.authors)
-		self.amount = len(self.authors)
-
-
-class EverythingOfAPlugin(Serializable):
-	meta: MetaInfo
-	plugin: FormattedPluginInfo
-	release: ReleaseSummary
-
-
-# everything.json
-class Everything(Serializable):
-	authors: AuthorSummary
-	plugins: Dict[str, EverythingOfAPlugin]

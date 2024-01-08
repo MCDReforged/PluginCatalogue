@@ -143,7 +143,7 @@ def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 		table = Table(Text('file'), Text('release_version'), Text('metadata_version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
 		for release in plugin.release_summary.releases:
 			for asset in release.get_mcdr_assets():
-				from meta.schema import MetaInfo
+				from meta.plugin import MetaInfo
 				table.add_row(
 					Link(asset.name, release.url),
 					release.parsed_version,

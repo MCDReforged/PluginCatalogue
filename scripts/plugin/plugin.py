@@ -1,15 +1,19 @@
 import enum
 import os
 from json import JSONDecodeError
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Union
 
 from common import constants, log
 from common.report import reporter
 from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
-from meta.schema import Author, MetaInfo, ReleaseSummary, ReleasePageCache, PluginInfo, FormattedPluginInfo, SchemaVersionHolder
+from meta.author import Author
+from meta.misc import SchemaVersionHolder
+from meta.plugin import PluginInfo, MetaInfo
+from meta.release import ReleasePageCache, ReleaseSummary
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
 from utils.repos import GithubRepository
+from utils.serializer import Serializable
 
 
 class _PluginDataSet(enum.Flag):
@@ -23,6 +27,19 @@ class _PluginDataSet(enum.Flag):
 			if ds not in self:
 				return False
 		return True
+
+
+class _PluginInfoJson(Serializable):
+	"""
+	Content of plugin_info.json
+	"""
+	id: str
+	authors: List[Union[str, Author]] = []
+	repository: str
+	branch: str
+	related_path: str = '.'
+	labels: List[str] = []
+	introduction: Dict[str, str] = {}  # lang -> file path in repos
 
 
 class _PluginInfoInner:
@@ -40,7 +57,7 @@ class _PluginInfoInner:
 	disable_reason: str
 
 	def __init__(self, plugin_json: dict):
-		info = PluginInfo.deserialize(plugin_json)
+		info = _PluginInfoJson.deserialize(plugin_json)
 
 		self.id = info.id
 		self.repos = GithubRepository(info.repository, info.branch, info.related_path)
@@ -176,10 +193,10 @@ class Plugin:
 				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
 
-	def generate_formatted_plugin_info(self) -> FormattedPluginInfo:
+	def generate_formatted_plugin_info(self) -> PluginInfo:
 		if (_PluginDataSet.info | _PluginDataSet.introduction) not in self.__dataset:
 			raise RuntimeError('not enough info. current dataset: {}'.format(self.__dataset))
-		info = FormattedPluginInfo()
+		info = PluginInfo()
 		info.id = self.id
 		info.authors = [author.name for author in self.__plugin_info.authors]
 		info.repository = self.repos.repos_url

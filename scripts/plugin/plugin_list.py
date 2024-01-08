@@ -4,7 +4,8 @@ from typing import Callable, Any, List, Collection, Optional
 
 from common import constants, log
 from common.report import reporter
-from meta.schema import PluginMetaSummary, AuthorSummary, Everything, EverythingOfAPlugin
+from meta.author import AuthorSummary
+from meta.all import PluginMetaSummary, EverythingOfAPlugin, Everything
 from plugin.plugin import Plugin
 from utils import file_utils
 from utils.thread_pools import worker_pool
