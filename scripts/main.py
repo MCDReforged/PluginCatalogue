@@ -13,7 +13,7 @@ def check(target_ids: Optional[Collection[str]]):
 	get_plugin_list(target_ids).fetch_data(meta=True, release=False, fail_hard=True)  # so github api token is not needed
 
 
-def update_data(target_ids: Optional[Collection[str]]):
+def fetch_and_store_data(target_ids: Optional[Collection[str]]):
 	plugin_list = get_plugin_list(target_ids)
 	plugin_list.fetch_data(fail_hard=False)
 	plugin_list.store_data()
@@ -25,7 +25,7 @@ def main():
 
 	subparsers = parser.add_subparsers(title='Command', help='Available commands', dest='subparser_name')
 	subparsers.add_parser('check', help='Check the correctness of files in "plugins/"')
-	subparsers.add_parser('meta', help='Fetch metadata and release information from github to "meta/"')
+	subparsers.add_parser('data', help='Fetch all needed data of plugins from github, and save to "meta/"')
 	subparsers.add_parser('doc', help='Generate user friendly plugin catalogue doc to "catalogue/"')
 	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 
@@ -44,13 +44,13 @@ def main():
 
 		if args.subparser_name == 'check':
 			check(target_ids)
-		elif args.subparser_name == 'meta':
-			update_data(target_ids)
+		elif args.subparser_name == 'data':
+			fetch_and_store_data(target_ids)
 		elif args.subparser_name == 'doc':
 			generate_doc(target_ids)
 		elif args.subparser_name == 'all':
 			check(target_ids)
-			update_data(target_ids)
+			fetch_and_store_data(target_ids)
 			generate_doc(target_ids)
 		else:
 			parser.print_help()

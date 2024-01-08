@@ -36,7 +36,7 @@ jobs:
       - name: Fetch data
         run: |
           cd ./scripts
-          python main.py fetch
+          python main.py data
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
