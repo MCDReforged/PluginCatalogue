@@ -2,26 +2,44 @@ import base64
 import gzip
 import json
 from functools import cached_property
-from typing import Dict
+from typing import Dict, Union, Optional
 
 from meta.plugin import MetaInfo
 from utils.serializer import Serializable
 
+_Json = Union[dict, list]
 
-class ReleasePageResponse(Serializable):
+
+class _GitHubApiResponseBase(Serializable):
 	etag: str
-	empty: bool
 	data: str  # GitHub api response json (gz compressed + base64 encoded)
 
 	@cached_property
-	def __decoded_data(self) -> list:
+	def __decoded_data(self) -> _Json:
 		return json.loads(gzip.decompress(base64.b64decode(self.data)))
+
+	def get_json(self) -> _Json:
+		"""
+		Returned the GitHub api response json
+		"""
+		return self.__decoded_data
+
+	@classmethod
+	def encode_json(cls, json_obj: _Json) -> str:
+		return base64.b64encode(gzip.compress(json.dumps(json_obj).encode('utf8'))).decode('utf8')
+
+	def set_encode_data(self, json_obj: _Json):
+		self.data = self.encode_json(json_obj)
+
+
+class ReleasePageResponse(_GitHubApiResponseBase):
+	empty: bool
 
 	def get_release_data_list(self) -> list[dict]:
 		"""
 		Returned the GitHub api response json for the /releases endpoint
 		"""
-		return self.__decoded_data
+		return super().get_json()
 
 	@classmethod
 	def from_response(cls, data: list, etag: str) -> 'ReleasePageResponse':
@@ -29,8 +47,14 @@ class ReleasePageResponse(Serializable):
 		page.etag = etag
 		page.empty = len(data) == 0
 		page.releases = {}
-		page.data = base64.b64encode(gzip.compress(json.dumps(data).encode('utf8'))).decode('utf8')
+		page.set_encode_data(data)
 		return page
+
+
+class RepositoryResponse(_GitHubApiResponseBase):
+	@classmethod
+	def from_response(cls, data: list, etag: str) -> 'RepositoryResponse':
+		return cls(etag=etag, data=cls.encode_json(data))
 
 
 class RequestCache(Serializable):
@@ -39,5 +63,6 @@ class RequestCache(Serializable):
 	"""
 	NOTICE: str = 'Not public API, DO NOT use this file'
 
-	release_pages: Dict[str, ReleasePageResponse] = {}  # page -> ReleasePage
+	release_pages: Dict[str, ReleasePageResponse] = {}  # page -> GitHub API response
 	asset_metas: Dict[str, MetaInfo] = {}  # asset id -> MetaInfo
+	repos_info: Optional[RepositoryResponse] = None  # GitHub API response

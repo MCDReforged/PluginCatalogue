@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, Set
 
 from common import constants, log
 from common.report import reporter
-from meta.cache import RequestCache, ReleasePageResponse
+from meta.cache import RequestCache, ReleasePageResponse, RepositoryResponse
 from meta.plugin import MetaInfo
 from utils import request_utils, file_utils
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 	from plugin.plugin import Plugin
 
 
-class RequestCacheManager:
+class PluginRequestCacheManager:
 	def __init__(self, plugin: 'Plugin', cache_file_path: str):
 		self.plugin = plugin
 		self.cache_file_path = cache_file_path
@@ -81,3 +81,15 @@ class RequestCacheManager:
 
 		self.__used_asset_meta.add(asset_id)
 		return self.__cache.asset_metas[asset_id]
+
+	async def fetch_repository_info(self) -> RepositoryResponse:
+		url = f'https://api.github.com/repos/{self.plugin.repos.repos_pair}'
+		if self.__cache.repos_info is not None:
+			old_etag = self.__cache.repos_info.etag
+		else:
+			old_etag = ''
+		rsp, new_etag = await request_utils.request_github_api(url, etag=old_etag)
+
+		if rsp is not None:  # etag changed
+			self.__cache.repos_info = RepositoryResponse.from_response(rsp, new_etag)
+		return self.__cache.repos_info

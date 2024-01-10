@@ -11,6 +11,7 @@ repos_root/
 |   +-- plugin.json      # Json object: PluginInfo
 |   +-- release.json     # Json object: ReleaseSummary
 |   +-- release.json.gz  # A gz-compressed "release.json"
+|   +-- repository.json  # Json object: RepositoryInfo
 |   +-- all.json         # Json object: AllOfAPlugin
 |   +-- all.json.gz      # A gz-compressed "all.json"
 |
@@ -239,5 +240,14 @@ Information of an asset in GitHub release
   "download_count": 1457,  // download count of the asset
   "created_at": "2022-10-03T04:13:26Z",  // asset creation time, in %Y-%m-%dT%H:%M:%SZ format
   "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr"  // the url to download this asset
+}
+```
+
+#### RepositoryInfo
+
+Basic information of a GitHub repository
+
+```json5
+{
 }
 ```

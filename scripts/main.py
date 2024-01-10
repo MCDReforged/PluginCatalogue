@@ -12,7 +12,7 @@ from plugin.plugin_list import get_plugin_list
 async def check(target_ids: Optional[Collection[str]]):
 	plugin_list = get_plugin_list(target_ids)
 	# don't fetch release, so GitHub api token is not needed
-	await plugin_list.fetch_data(meta=True, release=False, fail_hard=True)
+	await plugin_list.fetch_data(no_api_token=True, fail_hard=True)
 
 
 async def fetch_and_store_data(target_ids: Optional[Collection[str]]):

@@ -6,14 +6,14 @@ from mcdreforged.plugin.meta.version import Version
 
 from common import constants, log
 from common.report import reporter
-from meta.cache import ReleasePageResponse
 from meta.plugin import MetaInfo
 from utils import value_utils
 from utils.serializer import Serializable
 
 if TYPE_CHECKING:
 	from plugin.plugin import Plugin
-	from plugin.cache import RequestCacheManager
+	from plugin.cache import PluginRequestCacheManager
+	from meta.cache import ReleasePageResponse
 
 
 class AssetInfo(Serializable):
@@ -51,7 +51,7 @@ class ReleaseInfo(Serializable):
 	meta: MetaInfo
 
 	@classmethod
-	async def create_from(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager', js: _GitHubReleaseJson) -> 'ReleaseInfo':
+	async def create_from(cls, plugin: 'Plugin', cache_manager: 'PluginRequestCacheManager', js: _GitHubReleaseJson) -> 'ReleaseInfo':
 		if js.prerelease:
 			raise _InvalidReleaseError('pre-release')
 
@@ -140,12 +140,12 @@ class ReleaseSummary(Serializable):
 	__latest_release: Optional[ReleaseInfo] = None
 
 	@classmethod
-	async def create_for(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager') -> 'ReleaseSummary':
+	async def create_for(cls, plugin: 'Plugin', cache_manager: 'PluginRequestCacheManager') -> 'ReleaseSummary':
 		rs = cls()
 		rs.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		rs.id = plugin.id
 
-		page_map: Dict[int, ReleasePageResponse] = {}  # page index -> page
+		page_map: Dict[int, 'ReleasePageResponse'] = {}  # page index -> page
 
 		# GitHub: Only the first 10000 results are available.
 		# 10000 results == 100 pages
@@ -165,7 +165,7 @@ class ReleaseSummary(Serializable):
 					data = _GitHubReleaseJson.deserialize(item)
 				except Exception as e:
 					log.error('Failed to deserialize fetched ReleaseInfo from {}: {}'.format(item, e))
-					continue
+					raise
 				with contextlib.suppress(_InvalidReleaseError):
 					r_info = await ReleaseInfo.create_from(plugin, cache_manager, data)
 					releases[r_info.tag_name] = r_info

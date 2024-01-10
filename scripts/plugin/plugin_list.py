@@ -1,7 +1,7 @@
 import asyncio
 import os
 import shutil
-from typing import Callable, List, Collection, Optional, Coroutine
+from typing import Callable, List, Collection, Optional, Coroutine, Set
 
 from common import constants, log
 from common.report import reporter
@@ -15,9 +15,7 @@ class PluginList(List[Plugin]):
 	def __init__(self):
 		super().__init__()
 		self.__inited = False
-		self.__intro_fetched = False
-		self.__meta_fetched = False
-		self.__release_fetched = False
+		self.__fetched_stuffs: Set[str] = set()
 
 	def init(self, target_ids: Optional[Collection[str]]):
 		if self.__inited:
@@ -46,6 +44,9 @@ class PluginList(List[Plugin]):
 		self.__inited = True
 
 	async def __fetch(self, fetch_target_name: str, func: Callable[[Plugin], Coroutine], fail_hard: bool):
+		if fetch_target_name in self.__fetched_stuffs:
+			return
+
 		async def task_wrapper(plg: Plugin):
 			try:
 				await func(plg)
@@ -62,21 +63,16 @@ class PluginList(List[Plugin]):
 			for plugin in self:
 				tg.create_task(task_wrapper(plugin))
 
-	async def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
+		self.__fetched_stuffs.add(fetch_target_name)
+
+	async def fetch_data(self, *, no_api_token: bool = False, fail_hard: bool):
 		log.info('Fetching data')
 		async with asyncio.TaskGroup() as tg:
-			if not self.__intro_fetched:
-				# noinspection PyTypeChecker
-				tg.create_task(self.__fetch('introduction', Plugin.fetch_introduction, fail_hard=fail_hard))
-				self.__intro_fetched = True
-			if meta and not self.__meta_fetched:
-				# noinspection PyTypeChecker
-				tg.create_task(self.__fetch('meta', Plugin.fetch_meta, fail_hard=fail_hard))
-				self.__meta_fetched = True
-			if release and not self.__release_fetched:
-				# noinspection PyTypeChecker
-				tg.create_task(self.__fetch('release', Plugin.fetch_release, fail_hard=fail_hard))
-				self.__release_fetched = True
+			tg.create_task(self.__fetch('introduction', lambda plg: plg.fetch_introduction(), fail_hard=fail_hard))
+			tg.create_task(self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard))
+			if not no_api_token:
+				tg.create_task(self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard))
+				tg.create_task(self.__fetch('repository', lambda plg: plg.fetch_repository(), fail_hard=fail_hard))
 
 	def store_data(self):
 		log.info('Storing data into meta folder')
@@ -106,6 +102,7 @@ class PluginList(List[Plugin]):
 				plugin.save_meta()
 				plugin.save_release_info()
 				plugin.save_formatted_plugin_info()
+				plugin.save_repository_info()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
 				reporter.record_failure(plugin.id, 'Store plugin info', e)

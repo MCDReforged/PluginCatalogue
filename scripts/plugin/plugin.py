@@ -6,11 +6,12 @@ from typing import Optional, List, Dict, Union
 from common import constants, log
 from common.report import reporter
 from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
-from meta.all import AllOfAPlugin
 from meta.author import Author
 from meta.plugin import PluginInfo, MetaInfo
+from meta.plugin_all import AllOfAPlugin
 from meta.release import ReleaseSummary
-from plugin.cache import RequestCacheManager
+from meta.repos import RepositoryInfo
+from plugin.cache import PluginRequestCacheManager
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
 from utils.repos import GithubRepository
@@ -22,6 +23,7 @@ class _PluginDataSet(enum.Flag):
 	introduction = enum.auto()
 	meta = enum.auto()
 	releases = enum.auto()
+	repository = enum.auto()
 
 	def is_everything_fetched(self) -> bool:
 		for ds in _PluginDataSet:
@@ -94,6 +96,7 @@ class Plugin:
 	__plugin_info: _PluginInfoInner
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
+	repository_info: Optional[RepositoryInfo] = None
 
 	def __init__(self, plugin_id: str):
 		self.__introduction: Optional[BundledText] = None
@@ -108,8 +111,8 @@ class Plugin:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
 
 		self.__dataset = _PluginDataSet.info
-		self.__cache = RequestCacheManager(self, self.__request_cache_file)
-		self.__cache.load()
+		self.__cache_manager = PluginRequestCacheManager(self, self.__request_cache_file)
+		self.__cache_manager.load()
 
 	# ========================= property && getter =========================
 
@@ -170,6 +173,15 @@ class Plugin:
 			else:
 				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
+
+	# ========================= Request Cache =========================
+
+	@property
+	def __request_cache_file(self) -> str:
+		return os.path.join(constants.META_FOLDER, self.id, '.request_cache.json')
+
+	def save_request_cache(self):
+		file_utils.save_json(self.__cache_manager.dump_for_save(), self.__request_cache_file)
 
 	# ========================= Introduction =========================
 
@@ -235,7 +247,7 @@ class Plugin:
 	# ========================= Release & Cache =========================
 
 	async def fetch_release(self):
-		self.release_summary = await ReleaseSummary.create_for(self, self.__cache)
+		self.release_summary = await ReleaseSummary.create_for(self, self.__cache_manager)
 		self.__dataset |= _PluginDataSet.releases
 		log.info('({}) Release fetched'.format(self.id))
 
@@ -243,24 +255,31 @@ class Plugin:
 	def __release_info_file(self) -> str:
 		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
 
-	@property
-	def __request_cache_file(self) -> str:
-		return os.path.join(constants.META_FOLDER, self.id, '.request_cache.json')
-
 	def save_release_info(self):
 		if self.release_summary is not None:
 			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file, with_gz=True)
 
-	def save_request_cache(self):
-		file_utils.save_json(self.__cache.dump_for_save(), self.__request_cache_file)
+	# ========================= RepositoryInfo =========================
+
+	async def fetch_repository(self):
+		self.repository_info = await RepositoryInfo.create_for(self.__cache_manager)
+		self.__dataset |= _PluginDataSet.repository
+		log.info('({}) Repository information fetched'.format(self.id))
+
+	def save_repository_info(self):
+		if self.repository_info is not None:
+			file_utils.save_json(self.repository_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
 
 	# ========================= AllOfAPlugin =========================
 
 	def create_and_save_all_data(self) -> AllOfAPlugin:
+		if not (self.meta_info and self.release_summary and self.repository_info):
+			raise RuntimeError('not enough info to create all. current dataset: {}'.format(self.__dataset))
 		aop = AllOfAPlugin(
 			meta=self.meta_info,
 			plugin=self.generate_formatted_plugin_info(),
 			release=self.release_summary,
+			repository=self.repository_info,
 		)
 		file_utils.save_json(aop.serialize(), os.path.join(constants.META_FOLDER, self.id, 'all.json'), with_gz=True)
 		return aop

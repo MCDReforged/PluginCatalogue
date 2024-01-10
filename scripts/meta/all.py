@@ -1,7 +1,8 @@
 from typing import Dict
 
 from meta.author import AuthorSummary
-from meta.plugin import MetaInfo, PluginInfo, AllOfAPlugin
+from meta.plugin import MetaInfo, PluginInfo
+from meta.plugin_all import AllOfAPlugin
 from utils.serializer import Serializable
 
 

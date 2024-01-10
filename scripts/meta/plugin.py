@@ -4,7 +4,6 @@ from mcdreforged.plugin.meta.metadata import Metadata
 
 from common import constants
 from common.translation import BundledText, Text, DEFAULT_LANGUAGE
-from meta.release import ReleaseSummary
 from utils import markdown_utils
 from utils.serializer import Serializable
 
@@ -85,12 +84,3 @@ class MetaInfo(Serializable):
 		if meta_info.id != plugin.id:
 			raise AssertionError('wrong plugin id in mcdreforged.plugin.json, expected {} but found {}'.format(plugin.id, meta_info.id))
 		return meta_info
-
-
-class AllOfAPlugin(Serializable):
-	"""
-	/<plugin_id>/all.json
-	"""
-	meta: MetaInfo
-	plugin: PluginInfo
-	release: ReleaseSummary
