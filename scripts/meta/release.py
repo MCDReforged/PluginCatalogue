@@ -1,5 +1,6 @@
 import contextlib
-from typing import List, Optional, Dict, TYPE_CHECKING
+import operator
+from typing import List, Optional, Dict, TYPE_CHECKING, Tuple
 
 from mcdreforged.plugin.meta.version import Version
 
@@ -109,7 +110,7 @@ class ReleaseInfo(Serializable):
 		def test_and_return(version_str: str) -> Optional[str]:
 			try:
 				Version(version_str, allow_wildcard=False)
-			except:
+			except ValueError:
 				return None
 			else:
 				return version_str
@@ -136,6 +137,8 @@ class ReleaseSummary(Serializable):
 	latest_version: Optional[str]
 	releases: List[ReleaseInfo]
 
+	__latest_release: Optional[ReleaseInfo] = None
+
 	@classmethod
 	async def create_for(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager') -> 'ReleaseSummary':
 		rs = cls()
@@ -154,10 +157,9 @@ class ReleaseSummary(Serializable):
 			if page.empty:
 				break
 
-		versions: List[Version] = []
 		releases: Dict[str, ReleaseInfo] = {}
 		for i, page in value_utils.sort_dict(page_map).items():
-			log.info('({}) Checking release page {} with {} release'.format(plugin.id, i, len(page.get_release_data_list())))
+			log.info('({}) Checking release page {} with {} releases'.format(plugin.id, i, len(page.get_release_data_list())))
 			for item in page.get_release_data_list():
 				try:
 					data = _GitHubReleaseJson.deserialize(item)
@@ -167,15 +169,19 @@ class ReleaseSummary(Serializable):
 				with contextlib.suppress(_InvalidReleaseError):
 					r_info = await ReleaseInfo.create_from(plugin, cache_manager, data)
 					releases[r_info.tag_name] = r_info
-					versions.append(Version(r_info.meta.version))
 
 		rs.releases = list(releases.values())
-		versions.sort(reverse=True)
-		if len(versions) > 0:
-			rs.latest_version = str(versions[0])
+		vr_list: List[Tuple[Version, ReleaseInfo]] = [(Version(r.meta.version), r) for r in rs.releases]
+		vr_list.sort(key=operator.itemgetter(0), reverse=True)
+		if len(vr_list) > 0:
+			rs.latest_version, rs.__latest_release = vr_list[0]
 		else:
 			rs.latest_version = None
+			rs.__latest_release = None
 		return rs
+
+	def get_latest_release(self) -> Optional[ReleaseInfo]:
+		return self.__latest_release
 
 	def get_total_downloads(self) -> int:
 		total = 0

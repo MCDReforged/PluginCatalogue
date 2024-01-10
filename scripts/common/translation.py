@@ -1,5 +1,5 @@
+import contextvars
 import os
-import threading
 from contextlib import contextmanager
 from typing import Dict, Optional
 
@@ -9,20 +9,20 @@ from utils import file_utils, value_utils
 EN_US = 'en_us'
 ZH_CN = 'zh_cn'
 DEFAULT_LANGUAGE = EN_US
-_TLS = threading.local()
+_TLS_LANG = contextvars.ContextVar('language', default=DEFAULT_LANGUAGE)
 LANGUAGES = [EN_US, ZH_CN]
 
 
 def get_language() -> str:
 	try:
-		return _TLS.language
+		return _TLS_LANG.get()
 	except AttributeError:
 		set_language(DEFAULT_LANGUAGE)
 		return DEFAULT_LANGUAGE
 
 
 def set_language(lang: str):
-	_TLS.language = lang
+	_TLS_LANG.set(lang)
 
 
 @contextmanager

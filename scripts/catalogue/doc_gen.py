@@ -264,10 +264,10 @@ def generate_plugins(plugin_list: List[Plugin]):
 			write_plugin_download(plugin, file, limit=-1)
 
 
-def generate_doc(target_ids: Optional[Collection[str]] = None):
+async def generate_doc(target_ids: Optional[Collection[str]] = None):
 	log.info('Generating doc')
 	plugin_list = get_plugin_list(target_ids)
-	plugin_list.fetch_data(fail_hard=False)
+	await plugin_list.fetch_data(fail_hard=False)
 	if os.path.isdir(constants.CATALOGUE_FOLDER):
 		shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)

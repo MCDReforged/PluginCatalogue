@@ -36,11 +36,11 @@ async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
 	elif args.subparser_name == 'data':
 		await fetch_and_store_data(target_ids)
 	elif args.subparser_name == 'doc':
-		generate_doc(target_ids)
+		await generate_doc(target_ids)
 	elif args.subparser_name == 'all':
 		await check(target_ids)
 		await fetch_and_store_data(target_ids)
-		generate_doc(target_ids)
+		await generate_doc(target_ids)
 	else:
 		parser.print_help()
 
