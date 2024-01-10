@@ -31,7 +31,7 @@ class PluginRequestCacheManager:
 			log.warning('Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
 			reporter.record_warning(self.plugin.id, 'Failed to deserialized existed request cache', e)
 		else:
-			# removed invalid meta cache
+			# remove invalid meta cache
 			for asset_id in list(self.__cache.asset_metas.keys()):
 				if self.__cache.asset_metas[asset_id].schema_version != constants.META_INFO_SCHEMA_VERSION:
 					self.__cache.asset_metas.pop(asset_id)

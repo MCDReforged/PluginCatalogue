@@ -44,7 +44,7 @@ class ReleaseInfo(Serializable):
 	name: str
 	tag_name: str
 	created_at: str
-	description: str
+	description: Optional[str]
 	prerelease: bool
 
 	asset: AssetInfo
@@ -60,9 +60,8 @@ class ReleaseInfo(Serializable):
 		info.name = js.name
 		info.tag_name = js.tag_name
 		info.created_at = js.created_at
-		info.body = js.body
 		info.prerelease = js.prerelease
-		info.description = js.body or 'N/A'
+		info.description = js.body
 
 		tag_version = cls.__parse_version(js.tag_name, plugin.id)
 		if tag_version is None:
@@ -174,7 +173,8 @@ class ReleaseSummary(Serializable):
 		vr_list: List[Tuple[Version, ReleaseInfo]] = [(Version(r.meta.version), r) for r in rs.releases]
 		vr_list.sort(key=operator.itemgetter(0), reverse=True)
 		if len(vr_list) > 0:
-			rs.latest_version, rs.__latest_release = vr_list[0]
+			lv, rs.__latest_release = vr_list[0]
+			rs.latest_version = str(lv)
 		else:
 			rs.latest_version = None
 			rs.__latest_release = None

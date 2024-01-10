@@ -11,7 +11,7 @@ class GithubRepository:
 
 		repository = repository
 		if not repository.startswith('https://github.com/'):
-			raise ValueError('Github repository with https url is required, found: {}'.format(repository))
+			raise ValueError('GitHub repository with https url is required, found: {}'.format(repository))
 
 		# no tailing '/'
 		self.repos_url = repository.rstrip('/')

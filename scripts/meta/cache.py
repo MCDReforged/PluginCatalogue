@@ -16,7 +16,8 @@ class _GitHubApiResponseBase(Serializable):
 
 	@cached_property
 	def __decoded_data(self) -> _Json:
-		return json.loads(gzip.decompress(base64.b64decode(self.data)))
+		b64_buf = base64.b64decode(self.data.encode('utf8'))
+		return json.loads(gzip.decompress(b64_buf))
 
 	def get_json(self) -> _Json:
 		"""
@@ -26,7 +27,8 @@ class _GitHubApiResponseBase(Serializable):
 
 	@classmethod
 	def encode_json(cls, json_obj: _Json) -> str:
-		return base64.b64encode(gzip.compress(json.dumps(json_obj).encode('utf8'))).decode('utf8')
+		buf = gzip.compress(json.dumps(json_obj).encode('utf8'))
+		return base64.b64encode(buf).decode('utf8')
 
 	def set_encode_data(self, json_obj: _Json):
 		self.data = self.encode_json(json_obj)

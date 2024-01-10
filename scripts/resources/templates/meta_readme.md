@@ -213,7 +213,7 @@ Information of a GitHub release
   "tag_name": "v1.2.0",  // tag of the release
   "created_at": "2022-10-05T09:20:00Z",  // release creation time, in %Y-%m-%dT%H:%M:%SZ format
   
-  "description": "My new plugin release, Wow!",  // the description of the GitHub release
+  "description": "My new plugin release, Wow!",  // the body of the GitHub release. Might be null
   "prerelease": false, // if it's a pre-release
   
   // An AssetInfo object storing the valid asset of the release,
