@@ -41,7 +41,7 @@ async def request_get(url: str, *, headers: dict = None, params: dict = None, re
 			if constants.DEBUG.REQUEST_GET:
 				log.debug('    Requesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
 			try:
-				async with aiohttp.ClientSession() as session:
+				async with aiohttp.ClientSession(trust_env=True) as session:
 					# Sometimes SSL error might take a long time before the request failed,
 					# so set a connect timeout to reduce the time wait
 					connect_timeout = max(2, i * 10)  # 2, 10, 20, 30...

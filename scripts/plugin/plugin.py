@@ -257,7 +257,7 @@ class Plugin:
 
 	def save_release_info(self):
 		if self.release_summary is not None:
-			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file, with_gz=True)
+			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file)
 
 	# ========================= RepositoryInfo =========================
 

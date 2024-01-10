@@ -64,6 +64,11 @@ class ReleaseInfo(Serializable):
 		info.prerelease = js.prerelease
 		info.description = js.body or 'N/A'
 
+		tag_version = cls.__parse_version(js.tag_name, plugin.id)
+		if tag_version is None:
+			raise _InvalidReleaseError('tag {!r} is not a valid version for current plugin'.format(js.tag_name))
+		t_ver = Version(tag_version, allow_wildcard=False)
+
 		for asset in js.assets:
 			if asset.name.endswith('.mcdr') or asset.name.endswith('.pyz'):
 				info.asset = asset
@@ -72,12 +77,7 @@ class ReleaseInfo(Serializable):
 		else:
 			raise _InvalidReleaseError('no valid asset')
 
-		tag_version = cls.__parse_version(js.tag_name, plugin.id)
 		meta_version = info.meta.version
-		if tag_version is None:
-			raise _InvalidReleaseError('tag is not a version for current plugin')
-
-		t_ver = Version(tag_version, allow_wildcard=False)
 		try:
 			m_ver = Version(meta_version, allow_wildcard=False)
 		except ValueError as e:

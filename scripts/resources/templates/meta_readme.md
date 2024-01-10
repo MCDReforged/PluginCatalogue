@@ -10,7 +10,6 @@ repos_root/
 |   +-- meta.json        # Json object: MetaInfo
 |   +-- plugin.json      # Json object: PluginInfo
 |   +-- release.json     # Json object: ReleaseSummary
-|   +-- release.json.gz  # A gz-compressed "release.json"
 |   +-- repository.json  # Json object: RepositoryInfo
 |   +-- all.json         # Json object: AllOfAPlugin
 |   +-- all.json.gz      # A gz-compressed "all.json"
@@ -62,9 +61,10 @@ If you want to grab the whole repository, fetch this and that's it
 ```json5
 // AllOfAPlugin
 {
-  "meta": {/* MetaInfo */},           // same with the "<plugin_id>/meta.json" file
-  "plugin": {/* PluginInfo */},       // same with the "<plugin_id>/plugin.json" file
-  "release": {/* ReleaseSummary */},  // same with the "<plugin_id>/release.json" file
+  "meta": {/* MetaInfo */},              // same with the "<plugin_id>/meta.json" file
+  "plugin": {/* PluginInfo */},          // same with the "<plugin_id>/plugin.json" file
+  "release": {/* ReleaseSummary */},     // same with the "<plugin_id>/release.json" file
+  "repository": {/* RepositoryInfo */}   // same with the "<plugin_id>/repository.json" file
 }
 ```
 
@@ -174,8 +174,8 @@ A formatted version of `plugin_info.json` from the master branch of the PluginCa
   "labels": ["management"],  // a list of string, labels of the plugin
 
   "introduction": {
-    "en_us": "Use `!!stats` to see the value / rank, or build a scoreboard from given statistic type and name\n",
-    "zh_cn": "使用 `!!stats` 并输入统计信息的类别和名称，来查询统计信息的值/排名，或者显示对应的计分板\n"
+    "en_us": "My lovely plugin\n\n## Usage\n\n1. Install",
+    "zh_cn": "我那可爱的插件\n\n## 使用方法\n\n1. 安装"
   }
 }
 ```
@@ -249,5 +249,13 @@ Basic information of a GitHub repository
 
 ```json5
 {
+  "url": "https://github.com/Myself/MyPlugin",
+  "name": "MyPlugin",  // Repository name
+  "full_name": "Myself/MyPlugin",  // Username + repository name pair
+  "description": "My lovely plugin",  // Repository description. Might be null if it's unset
+  "archived": false,
+  "stargazers_count": 987,
+  "watchers_count": 65,
+  "forks_count": 321
 }
 ```
