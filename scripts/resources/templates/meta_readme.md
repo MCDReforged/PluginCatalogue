@@ -11,6 +11,8 @@ repos_root/
 |   +-- plugin.json      # Json object: PluginInfo
 |   +-- release.json     # Json object: ReleaseSummary
 |   +-- release.json.gz  # A gz-compressed "release.json"
+|   +-- all.json         # Json object: AllOfAPlugin
+|   +-- all.json.gz      # A gz-compressed "all.json"
 |
 +-- another_plugin/   # Another plugin with id "another_plugin"
 |   +-- meta.json
@@ -48,16 +50,16 @@ If you want to grab the whole repository, fetch this and that's it
 // Everything
 {
   "authors": {/* AuthorSummary */},
-  // A map of plugin id -> EverythingOfAPlugin
+  // A map of plugin id -> AllOfAPlugin
   "plugins": {
-    "my_plugin": {/* EverythingOfAPlugin */},
+    "my_plugin": {/* AllOfAPlugin */},
     // ...
   }
 }
 ```
 
 ```json5
-// EverythingOfAPlugin
+// AllOfAPlugin
 {
   "meta": {/* MetaInfo */},           // same with the "<plugin_id>/meta.json" file
   "plugin": {/* PluginInfo */},       // same with the "<plugin_id>/plugin.json" file

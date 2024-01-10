@@ -6,6 +6,7 @@ from typing import Optional, List, Dict, Union
 from common import constants, log
 from common.report import reporter
 from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
+from meta.all import AllOfAPlugin
 from meta.author import Author
 from meta.plugin import PluginInfo, MetaInfo
 from meta.release import ReleaseSummary
@@ -252,6 +253,17 @@ class Plugin:
 
 	def save_request_cache(self):
 		file_utils.save_json(self.__cache.dump_for_save(), self.__request_cache_file)
+
+	# ========================= AllOfAPlugin =========================
+
+	def create_and_save_all_data(self) -> AllOfAPlugin:
+		aop = AllOfAPlugin(
+			meta=self.meta_info,
+			plugin=self.generate_formatted_plugin_info(),
+			release=self.release_summary,
+		)
+		file_utils.save_json(aop.serialize(), os.path.join(constants.META_FOLDER, self.id, 'all.json'), with_gz=True)
+		return aop
 
 
 if __name__ == '__main__':

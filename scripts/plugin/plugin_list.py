@@ -5,7 +5,7 @@ from typing import Callable, List, Collection, Optional, Coroutine
 
 from common import constants, log
 from common.report import reporter
-from meta.all import PluginMetaSummary, EverythingOfAPlugin, Everything
+from meta.all import PluginMetaSummary, Everything
 from meta.author import AuthorSummary
 from plugin.plugin import Plugin
 from utils import file_utils
@@ -132,11 +132,8 @@ class PluginList(List[Plugin]):
 		everything = Everything(plugins={})
 		everything.authors = author_summary
 		for plugin in self:
-			everything.plugins[plugin.id] = EverythingOfAPlugin(
-				meta=plugin.meta_info,
-				plugin=plugin.generate_formatted_plugin_info(),
-				release=plugin.release_summary,
-			)
+			aop = plugin.create_and_save_all_data()
+			everything.plugins[plugin.id] = aop
 		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
 
 		log.info('Stored data into meta folder')
