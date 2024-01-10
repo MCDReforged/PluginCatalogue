@@ -1,5 +1,7 @@
 ## How to use
 
+Requires Python >= 3.11
+
 1. Install requirement
 
 ```bash
@@ -22,10 +24,10 @@ python3 main.py fetch
 
 ## Environment variable
 
-| name             | description                                                                            |
-|------------------|----------------------------------------------------------------------------------------|
-| http_proxy       | the address for http proxy for `requests` lib. e.g. `127.0.0.1:1081`                   |
-| github_api_token | The token used in github REST API querying. It's automatically filled in github action |
+| name                    | description                                                                            |
+|-------------------------|----------------------------------------------------------------------------------------|
+| http_proxy, https_proxy | the address for http proxy for `aiohttp` lib. e.g. `127.0.0.1:1081`                    |
+| github_api_token        | The token used in github REST API querying. It's automatically filled in github action |
 
 
 ## Plugin disabling

@@ -1,14 +1,14 @@
+import asyncio
 import os
 import shutil
-from typing import Callable, Any, List, Collection, Optional
+from typing import Callable, List, Collection, Optional, Coroutine
 
 from common import constants, log
 from common.report import reporter
-from meta.author import AuthorSummary
 from meta.all import PluginMetaSummary, EverythingOfAPlugin, Everything
+from meta.author import AuthorSummary
 from plugin.plugin import Plugin
 from utils import file_utils
-from utils.thread_pools import worker_pool
 
 
 class PluginList(List[Plugin]):
@@ -45,13 +45,10 @@ class PluginList(List[Plugin]):
 		self.sort(key=lambda plg: plg.id.lower())
 		self.__inited = True
 
-	def __fetch(self, fetch_target_name: str, func: Callable[[Plugin], Any], fail_hard: bool):
-		futures = []
-		for plugin in self:
-			futures.append((plugin, worker_pool.submit(func, plugin)))
-		for plugin, future in futures:
+	async def __fetch(self, fetch_target_name: str, func: Callable[[Plugin], Coroutine], fail_hard: bool):
+		async def task_wrapper(plg: Plugin):
 			try:
-				future.result()
+				await func(plg)
 			except Exception as e:
 				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
 				reporter.record_failure(plugin.id, 'Fetch {} failed'.format(fetch_target_name), e)
@@ -61,17 +58,25 @@ class PluginList(List[Plugin]):
 				else:
 					log.exception('{}: {}'.format(type(e), e))
 
-	def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
+		async with asyncio.TaskGroup() as tg:
+			for plugin in self:
+				tg.create_task(task_wrapper(plugin))
+
+	async def fetch_data(self, meta: bool = True, release: bool = True, *, fail_hard: bool):
 		log.info('Fetching data')
-		if not self.__intro_fetched:
-			self.__fetch('introduction', lambda plg: plg.fetch_introduction(), fail_hard=fail_hard)
-			self.__intro_fetched = True
-		if meta and not self.__meta_fetched:
-			self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard)
-			self.__meta_fetched = True
-		if release and not self.__release_fetched:
-			self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard)
-			self.__release_fetched = True
+		async with asyncio.TaskGroup() as tg:
+			if not self.__intro_fetched:
+				# noinspection PyTypeChecker
+				tg.create_task(self.__fetch('introduction', Plugin.fetch_introduction, fail_hard=fail_hard))
+				self.__intro_fetched = True
+			if meta and not self.__meta_fetched:
+				# noinspection PyTypeChecker
+				tg.create_task(self.__fetch('meta', Plugin.fetch_meta, fail_hard=fail_hard))
+				self.__meta_fetched = True
+			if release and not self.__release_fetched:
+				# noinspection PyTypeChecker
+				tg.create_task(self.__fetch('release', Plugin.fetch_release, fail_hard=fail_hard))
+				self.__release_fetched = True
 
 	def store_data(self):
 		log.info('Storing data into meta folder')
@@ -97,9 +102,9 @@ class PluginList(List[Plugin]):
 		# store info for each plugin
 		for plugin in self:
 			try:
+				plugin.save_request_cache()
 				plugin.save_meta()
 				plugin.save_release_info()
-				plugin.save_request_cache()
 				plugin.save_formatted_plugin_info()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))

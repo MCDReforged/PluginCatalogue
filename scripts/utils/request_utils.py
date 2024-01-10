@@ -1,30 +1,61 @@
+import asyncio
+import dataclasses
+import json
 import os
 import ssl
+from functools import cached_property
 from typing import Tuple, Optional, Any
 
-import requests
+import aiohttp
+from multidict import CIMultiDictProxy
 
 from common import constants, log
 from common.report import reporter
 
 
-def request_get(url: str, *, headers: dict = None, params: dict = None, retries: int = 3) -> requests.Response:
+@dataclasses.dataclass(frozen=True)
+class SimpleResponse:
+	url: str
+	status_code: int
+	headers: CIMultiDictProxy[str]
+	content: bytes
+
+	@cached_property
+	def text(self) -> str:
+		return self.content.decode('utf8')
+
+	def json(self) -> Any:
+		return json.loads(self.content)
+
+
+__request_sem = asyncio.Semaphore(constants.REQUEST_MAX_CONCURRENCY)
+
+
+async def request_get(url: str, *, headers: dict = None, params: dict = None, retries: int = 3) -> SimpleResponse:
 	"""
 	requests.get wrapper with retries for connection / ssl errors
 	"""
 	err = None
 	for i in range(max(1, retries)):
-		if constants.DEBUG.REQUEST_GET:
-			log.debug('\tRequesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
-		try:
-			return requests.get(url, params=params, proxies=constants.PROXIES, headers=headers)
-		except (requests.exceptions.ConnectionError, ssl.SSLError) as e:
-			err = e
+		async with __request_sem:
+			if constants.DEBUG.REQUEST_GET:
+				log.debug('\tRequesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
+			try:
+				async with aiohttp.ClientSession() as session:
+					async with session.get(url, params=params, headers=headers) as response:
+						return SimpleResponse(
+							url=str(response.url),
+							status_code=response.status,
+							headers=response.headers,
+							content=await response.read(),
+						)
+			except (aiohttp.ClientError, ssl.SSLError) as e:
+				err = e
 	if err is not None:
 		raise err from None
 
 
-def request_github_api(url: str, *, params: dict = None, etag: str = '', retries: int = 3) -> Tuple[Optional[Any], str]:
+async def request_github_api(url: str, *, params: dict = None, etag: str = '', retries: int = 3) -> Tuple[Optional[Any], str]:
 	"""
 	Return None if etag doesn't change, in the other word, the response data doesn't change
 	"""
@@ -33,7 +64,7 @@ def request_github_api(url: str, *, params: dict = None, etag: str = '', retries
 	}
 	if 'github_api_token' in os.environ:
 		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
-	response = request_get(url, headers=headers, params=params, retries=retries)
+	response = await request_get(url, headers=headers, params=params, retries=retries)
 	try:
 		new_etag = response.headers['ETag']
 	except KeyError:

@@ -1,3 +1,4 @@
+import contextlib
 from typing import List, Optional, Dict, TYPE_CHECKING
 
 from mcdreforged.plugin.meta.version import Version
@@ -49,7 +50,7 @@ class ReleaseInfo(Serializable):
 	meta: MetaInfo
 
 	@classmethod
-	def create_from(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager', js: _GitHubReleaseJson) -> 'ReleaseInfo':
+	async def create_from(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager', js: _GitHubReleaseJson) -> 'ReleaseInfo':
 		if js.prerelease:
 			raise _InvalidReleaseError('pre-release')
 
@@ -65,13 +66,15 @@ class ReleaseInfo(Serializable):
 		for asset in js.assets:
 			if asset.name.endswith('.mcdr') or asset.name.endswith('.pyz'):
 				info.asset = asset
-				info.meta = cache_manager.fetch_asset_meta(asset.id, asset.browser_download_url)
+				info.meta = await cache_manager.fetch_asset_meta(asset.id, asset.browser_download_url)
 				break
 		else:
 			raise _InvalidReleaseError('no valid asset')
 
 		tag_version = cls.__parse_version(js.tag_name, plugin.id)
 		meta_version = info.meta.version
+		if tag_version is None:
+			raise _InvalidReleaseError('tag is not a version for current plugin')
 
 		t_ver = Version(tag_version, allow_wildcard=False)
 		try:
@@ -85,7 +88,7 @@ class ReleaseInfo(Serializable):
 		m_ver_seq = '.'.join(map(str, m_ver.component))
 		if not m_ver_seq.startswith(t_ver_seq):
 			log.warning('({}) Tag {!r} version {!r} does not match meta version {!r}'.format(plugin.id, js.tag_name, tag_version, meta_version))
-			reporter.record_warning(plugin.id, 'Tag {!r} version {!r} does not match meta version {!r}'.format(js.tag_name, tag_version, meta_version))
+			reporter.record_warning(plugin.id, 'Tag {!r} version {!r} does not match meta version {!r}'.format(js.tag_name, tag_version, meta_version), None)
 			raise _InvalidReleaseError('version mismatched')
 		elif m_ver != t_ver:
 			# TODO: further check for this case
@@ -132,7 +135,7 @@ class ReleaseSummary(Serializable):
 	releases: List[ReleaseInfo]
 
 	@classmethod
-	def create_for(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager') -> 'ReleaseSummary':
+	async def create_for(cls, plugin: 'Plugin', cache_manager: 'RequestCacheManager') -> 'ReleaseSummary':
 		rs = cls()
 		rs.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
 		rs.id = plugin.id
@@ -144,7 +147,7 @@ class ReleaseSummary(Serializable):
 		for i in range(100):
 			i += 1  # page index starts at 1
 			log.info('({}) Fetching release page {}'.format(plugin.id, i))
-			page = cache_manager.fetch_release_page(page=i, per_page=constants.MAX_RELEASE_PER_PAGE)
+			page = await cache_manager.fetch_release_page(page=i, per_page=constants.MAX_RELEASE_PER_PAGE)
 			page_map[i] = page
 			if page.empty:
 				break
@@ -156,13 +159,11 @@ class ReleaseSummary(Serializable):
 			for item in page.get_release_data_list():
 				try:
 					data = _GitHubReleaseJson.deserialize(item)
-					r_info = ReleaseInfo.create_from(plugin, cache_manager, data)
-				except _InvalidReleaseError:
-					pass
 				except Exception as e:
 					log.error('Failed to deserialize fetched ReleaseInfo from {}: {}'.format(item, e))
 					continue
-				else:
+				with contextlib.suppress(_InvalidReleaseError):
+					r_info = await ReleaseInfo.create_from(plugin, cache_manager, data)
 					releases[r_info.tag_name] = r_info
 					versions.append(Version(r_info.meta.version))
 

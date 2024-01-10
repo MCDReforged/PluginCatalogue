@@ -1,7 +1,5 @@
 from typing import Optional
 
-import requests
-
 from utils import request_utils, value_utils
 
 
@@ -60,8 +58,8 @@ class GithubRepository:
 		# https://github.com/TISUnion/QuickBackupM/tree/master/mcdreforged.plugin.json
 		return self.get_page_url_base(tag=tag) + '/' + path
 
-	def request_repos_file(self, path: str, *, tag: Optional[str] = None) -> requests.Response:
-		return request_utils.request_get(self.resolve_raw(path, tag=tag))
+	async def request_repos_file(self, path: str, *, tag: Optional[str] = None) -> request_utils.SimpleResponse:
+		return await request_utils.request_get(self.resolve_raw(path, tag=tag))
 
 	@property
 	def plugin_homepage(self) -> str:

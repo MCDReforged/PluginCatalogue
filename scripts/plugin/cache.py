@@ -46,7 +46,7 @@ class RequestCacheManager:
 				cache.asset_metas.pop(asset_id)
 		return cache.serialize()
 
-	def fetch_release_page(self, page: int, per_page: int) -> ReleasePageResponse:
+	async def fetch_release_page(self, page: int, per_page: int) -> ReleasePageResponse:
 		page = str(page)
 
 		url = f'{self.plugin.repos.api_root}/releases'
@@ -54,19 +54,19 @@ class RequestCacheManager:
 			old_etag = self.__cache.release_pages[page].etag
 		else:
 			old_etag = ''
-		rsp, new_etag = request_utils.request_github_api(url, etag=old_etag, params={'page': page, 'per_page': per_page})
+		rsp, new_etag = await request_utils.request_github_api(url, etag=old_etag, params={'page': page, 'per_page': per_page})
 
 		if rsp is not None:  # etag changed
 			self.__cache.release_pages[page] = ReleasePageResponse.from_response(rsp, new_etag)
 		self.__used_release_page.add(page)
 		return self.__cache.release_pages[page]
 
-	def fetch_asset_meta(self, asset_id: int, download_url: str) -> MetaInfo:
+	async def fetch_asset_meta(self, asset_id: int, download_url: str) -> MetaInfo:
 		asset_id = str(asset_id)
 
 		if asset_id not in self.__cache.asset_metas:
 			log.info('Downloading asset from {!r} for inspection'.format(download_url))
-			rsp = request_utils.request_get(download_url)
+			rsp = await request_utils.request_get(download_url)
 			if rsp.status_code != 200:
 				raise Exception('download asset from {} failed: {} {}'.format(download_url, rsp.status_code, rsp.content))
 
@@ -75,7 +75,7 @@ class RequestCacheManager:
 				try:
 					req_buf = f.read('requirements.txt')
 				except KeyError:
-					pass
+					req_buf = b''
 
 			self.__cache.asset_metas[asset_id] = MetaInfo.of(json.loads(meta_buf), req_buf.decode('utf8'))
 

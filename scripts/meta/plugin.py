@@ -4,10 +4,8 @@ from mcdreforged.plugin.meta.metadata import Metadata
 
 from common import constants
 from common.translation import BundledText, Text, DEFAULT_LANGUAGE
-
 from utils import markdown_utils
 from utils.serializer import Serializable
-
 
 if TYPE_CHECKING:
 	from plugin.plugin import Plugin
@@ -78,9 +76,9 @@ class MetaInfo(Serializable):
 		return meta_info
 
 	@classmethod
-	def fetch_from_repos(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
-		metadata_json = plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
-		requirements_str = plugin.get_repos_text('requirements.txt', default='', tag=tag)
+	async def fetch_from_repos(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
+		metadata_json = await plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
+		requirements_str = await plugin.get_repos_text('requirements.txt', default='', tag=tag)
 		meta_info = cls.of(metadata_json, requirements_str)
 
 		if meta_info.id != plugin.id:

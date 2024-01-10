@@ -110,6 +110,8 @@ class Plugin:
 		self.__cache = RequestCacheManager(self, self.__request_cache_file)
 		self.__cache.load()
 
+	# ========================= property && getter =========================
+
 	@property
 	def id(self) -> str:
 		return self.__plugin_info.id
@@ -126,13 +128,51 @@ class Plugin:
 	def labels(self) -> List[Label]:
 		return self.__plugin_info.labels
 
+	@property
+	def introduction(self) -> Text:
+		return self.__introduction
+
+	@property
+	def latest_version(self) -> str:
+		if self.release_summary.latest_version is not None:
+			return self.release_summary.latest_version
+		return self.meta_info.version
+
 	def is_disabled(self) -> bool:
 		return self.__plugin_info.disable
 
 	def get_disable_reason(self) -> str:
 		return self.__plugin_info.disable_reason
 
-	def fetch_introduction(self):
+	def is_data_fetched(self) -> bool:
+		return self.__dataset.is_everything_fetched()
+
+	def __repr__(self):
+		return 'Plugin[id={},repository={}]'.format(self.id, self.repos.repos_url)
+
+	# ========================= utils =========================
+
+	async def get_repos_json(self, file_path: str, **kwargs) -> dict:
+		resp = await self.repos.request_repos_file(file_path, **kwargs)
+		if resp.status_code != 200:
+			raise Exception('status code {} (should be 200) when fetching json {} from {}'.format(resp.status_code, file_path, resp.url))
+		try:
+			return resp.json()
+		except JSONDecodeError:
+			raise Exception('Failed to decode json from response! url: {}, status_code {}: {}'.format(resp.url, resp.status_code, resp.content)) from None
+
+	async def get_repos_text(self, file_path: str, default: Optional[str] = None, **kwargs) -> str:
+		resp = await self.repos.request_repos_file(file_path, **kwargs)
+		if resp.status_code != 200:
+			if default is not None:
+				return default
+			else:
+				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
+		return resp.text
+
+	# ========================= Introduction =========================
+
+	async def fetch_introduction(self):
 		external_introduction = self.__plugin_info.external_introduction
 		introduction_translations = {}
 		for lang in LANGUAGES:
@@ -140,7 +180,7 @@ class Plugin:
 				file_location = external_introduction.get(lang)
 				if file_location is not None:
 					try:
-						file_content = self.get_repos_text(file_location)
+						file_content = await self.get_repos_text(file_location)
 					except Exception as e:
 						log.exception('Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
 						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
@@ -161,39 +201,7 @@ class Plugin:
 		self.__dataset |= _PluginDataSet.introduction
 		log.info('({}) Introduction fetched'.format(self.id))
 
-	def is_data_fetched(self) -> bool:
-		return self.__dataset.is_everything_fetched()
-
-	@property
-	def introduction(self) -> Text:
-		return self.__introduction
-
-	@property
-	def latest_version(self) -> str:
-		if self.release_summary.latest_version is not None:
-			return self.release_summary.latest_version
-		return self.meta_info.version
-
-	def __repr__(self):
-		return 'Plugin[id={},repository={}]'.format(self.id, self.repos.repos_url)
-
-	def get_repos_json(self, file_path: str, **kwargs) -> dict:
-		resp = self.repos.request_repos_file(file_path, **kwargs)
-		if resp.status_code != 200:
-			raise Exception('status code {} (should be 200) when fetching json {} from {}'.format(resp.status_code, file_path, resp.url))
-		try:
-			return resp.json()
-		except JSONDecodeError:
-			raise Exception('Failed to decode json from response! url: {}, status_code {}: {}'.format(resp.url, resp.status_code, resp.content)) from None
-
-	def get_repos_text(self, file_path: str, default: Optional[str] = None, **kwargs) -> str:
-		resp = self.repos.request_repos_file(file_path, **kwargs)
-		if resp.status_code != 200:
-			if default is not None:
-				return default
-			else:
-				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
-		return resp.text
+	# ========================= PluginInfo =========================
 
 	def generate_formatted_plugin_info(self) -> PluginInfo:
 		if (_PluginDataSet.info | _PluginDataSet.introduction) not in self.__dataset:
@@ -212,14 +220,23 @@ class Plugin:
 		info = self.generate_formatted_plugin_info()
 		file_utils.save_json(info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'plugin.json'))
 
-	def fetch_meta(self):
-		self.meta_info = MetaInfo.fetch_from_repos(self)
+	# ========================= MetaInfo =========================
+
+	async def fetch_meta(self):
+		self.meta_info = await MetaInfo.fetch_from_repos(self)
 		self.__dataset |= _PluginDataSet.meta
 		log.info('({}) MetaInfo fetched'.format(self.id))
 
 	def save_meta(self):
 		if self.meta_info is not None:
 			file_utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+
+	# ========================= Release & Cache =========================
+
+	async def fetch_release(self):
+		self.release_summary = await ReleaseSummary.create_for(self, self.__cache)
+		self.__dataset |= _PluginDataSet.releases
+		log.info('({}) Release fetched'.format(self.id))
 
 	@property
 	def __release_info_file(self) -> str:
@@ -235,11 +252,6 @@ class Plugin:
 
 	def save_request_cache(self):
 		file_utils.save_json(self.__cache.dump_for_save(), self.__request_cache_file)
-
-	def fetch_release(self):
-		self.release_summary = ReleaseSummary.create_for(self, self.__cache)
-		self.__dataset |= _PluginDataSet.releases
-		log.info('({}) Release fetched'.format(self.id))
 
 
 if __name__ == '__main__':

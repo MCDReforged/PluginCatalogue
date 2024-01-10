@@ -1,22 +1,51 @@
+import argparse
+import asyncio
 from argparse import ArgumentParser
-from contextlib import ExitStack
 from typing import Collection, Optional
 
 from catalogue.doc_gen import generate_doc
 from common import log
 from common.report import reporter
 from plugin.plugin_list import get_plugin_list
-from utils import thread_pools
 
 
-def check(target_ids: Optional[Collection[str]]):
-	get_plugin_list(target_ids).fetch_data(meta=True, release=False, fail_hard=True)  # so github api token is not needed
-
-
-def fetch_and_store_data(target_ids: Optional[Collection[str]]):
+async def check(target_ids: Optional[Collection[str]]):
 	plugin_list = get_plugin_list(target_ids)
-	plugin_list.fetch_data(fail_hard=False)
+	# don't fetch release, so GitHub api token is not needed
+	await plugin_list.fetch_data(meta=True, release=False, fail_hard=True)
+
+
+async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
+	plugin_list = get_plugin_list(target_ids)
+	await plugin_list.fetch_data(fail_hard=False)
 	plugin_list.store_data()
+
+
+async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
+	if args.targets == '':
+		target_ids = None
+	else:
+		target_ids = args.targets.split(',')
+		log.info('Targets: {}'.format(', '.join(target_ids)))
+
+	reporter.record_command(args.subparser_name)
+	reporter.record_script_start()
+
+	if args.subparser_name == 'check':
+		await check(target_ids)
+	elif args.subparser_name == 'data':
+		await fetch_and_store_data(target_ids)
+	elif args.subparser_name == 'doc':
+		generate_doc(target_ids)
+	elif args.subparser_name == 'all':
+		await check(target_ids)
+		await fetch_and_store_data(target_ids)
+		generate_doc(target_ids)
+	else:
+		parser.print_help()
+
+	reporter.record_script_end()
+	reporter.report(get_plugin_list())
 
 
 def main():
@@ -30,33 +59,7 @@ def main():
 	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 
 	args = parser.parse_args()
-	if args.targets == '':
-		target_ids = None
-	else:
-		target_ids = args.targets.split(',')
-		log.info('Targets: {}'.format(', '.join(target_ids)))
-
-	with ExitStack() as es:
-		es.callback(thread_pools.shutdown)
-
-		reporter.record_command(args.subparser_name)
-		reporter.record_script_start()
-
-		if args.subparser_name == 'check':
-			check(target_ids)
-		elif args.subparser_name == 'data':
-			fetch_and_store_data(target_ids)
-		elif args.subparser_name == 'doc':
-			generate_doc(target_ids)
-		elif args.subparser_name == 'all':
-			check(target_ids)
-			fetch_and_store_data(target_ids)
-			generate_doc(target_ids)
-		else:
-			parser.print_help()
-
-		reporter.record_script_end()
-		reporter.report(get_plugin_list())
+	asyncio.run(async_main(parser, args))
 
 
 if __name__ == '__main__':
