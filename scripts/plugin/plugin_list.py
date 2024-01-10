@@ -139,6 +139,8 @@ class PluginList(List[Plugin]):
 			)
 		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
 
+		log.info('Stored data into meta folder')
+
 
 _plugin_list = PluginList()
 

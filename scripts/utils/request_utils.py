@@ -39,17 +39,28 @@ async def request_get(url: str, *, headers: dict = None, params: dict = None, re
 	for i in range(max(1, retries)):
 		async with __request_sem:
 			if constants.DEBUG.REQUEST_GET:
-				log.debug('\tRequesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
+				log.debug('    Requesting {}/{} url={} params={}'.format(i + 1, retries, url, params))
 			try:
 				async with aiohttp.ClientSession() as session:
-					async with session.get(url, params=params, headers=headers) as response:
-						return SimpleResponse(
+					# Sometimes SSL error might take a long time before the request failed,
+					# so set a connect timeout to reduce the time wait
+					connect_timeout = max(2, i * 10)  # 2, 10, 20, 30...
+					if connect_timeout > 60:
+						connect_timeout = None
+					timeout = aiohttp.ClientTimeout(connect=connect_timeout)
+
+					async with session.get(url, params=params, headers=headers, timeout=timeout) as response:
+						rsp = SimpleResponse(
 							url=str(response.url),
 							status_code=response.status,
 							headers=response.headers,
 							content=await response.read(),
 						)
+						if constants.DEBUG.REQUEST_GET:
+							log.debug('    Requested {}/{} url={} params={} status_code={}'.format(i + 1, retries, url, params, rsp.status_code))
+						return rsp
 			except (aiohttp.ClientError, ssl.SSLError) as e:
+				log.warning('{}Request error {}/{} url={} params={} error=({}) {}'.format('    ' if constants.DEBUG.REQUEST_GET else '', i + 1, retries, url, params, type(e), e))
 				err = e
 	if err is not None:
 		raise err from None

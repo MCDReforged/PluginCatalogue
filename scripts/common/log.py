@@ -13,7 +13,7 @@ def __setup_logger():
 		def __init__(self):
 			super().__init__(stream=sys.stdout)
 			self.__lock = threading.Lock()
-			self.setFormatter(logging.Formatter('[%(levelname_short)s] %(message)s'))
+			self.setFormatter(logging.Formatter('[%(asctime)s %(levelname_short)s] %(message)s'))
 
 		def emit(self, record):
 			record.levelname_short = {

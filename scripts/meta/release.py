@@ -91,8 +91,10 @@ class ReleaseInfo(Serializable):
 			reporter.record_warning(plugin.id, 'Tag {!r} version {!r} does not match meta version {!r}'.format(js.tag_name, tag_version, meta_version), None)
 			raise _InvalidReleaseError('version mismatched')
 		elif m_ver != t_ver:
-			# TODO: further check for this case
-			log.warning('({}) Mismatched but ok version: tag version {!r}, meta version {!r}'.format(plugin.id, tag_version, meta_version))
+			# Example cases:
+			# - ipanel_mcdreforged: tag version '2.1', meta version '2.1.7.29'
+			# - chatbridgereforged_mc: tag version '0.2.7', meta version '0.2.7-dev032'
+			log.warning('({}) Mismatched but acceptable tag/meta version: tag version {!r}, meta version {!r}'.format(plugin.id, tag_version, meta_version))
 
 		return info
 
