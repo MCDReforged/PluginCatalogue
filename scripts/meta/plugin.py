@@ -35,7 +35,6 @@ class MetaInfo(Serializable):
 	id: str
 	name: str
 	version: str
-	repository: str
 	link: Optional[str]
 	authors: List[str]
 	dependencies: Dict[str, str]
@@ -52,15 +51,12 @@ class MetaInfo(Serializable):
 		return text
 
 	@classmethod
-	def fetch(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
-		metadata_json = plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
+	def of(cls, metadata_json: dict, requirements_str: str) -> 'MetaInfo':
 		metadata = Metadata(metadata_json)
-		assert metadata.id == plugin.id, 'wrong plugin id in mcdreforged.plugin.json, expected {} but found {}'.format(plugin.id, metadata.id)
 		meta_info = MetaInfo()
 		meta_info.id = metadata.id
 		meta_info.name = metadata.name
 		meta_info.version = str(metadata.version)
-		meta_info.repository = plugin.repos.repos_url
 		meta_info.link = metadata.link
 		meta_info.authors = metadata.author or []
 		meta_info.dependencies = dict(map(
@@ -70,7 +66,7 @@ class MetaInfo(Serializable):
 		meta_info.requirements = list(filter(
 			lambda l: len(l) > 0, map(
 				lambda l: l.split('#', 1)[0].strip(),
-				plugin.get_repos_text('requirements.txt', default='', tag=tag).splitlines()
+				requirements_str.splitlines()
 			)
 		))
 		if isinstance(metadata.description, str):
@@ -79,4 +75,14 @@ class MetaInfo(Serializable):
 			meta_info.description = metadata.description
 		else:
 			meta_info.description = {}
+		return meta_info
+
+	@classmethod
+	def fetch_from_repos(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
+		metadata_json = plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
+		requirements_str = plugin.get_repos_text('requirements.txt', default='', tag=tag)
+		meta_info = cls.of(metadata_json, requirements_str)
+
+		if meta_info.id != plugin.id:
+			raise AssertionError('wrong plugin id in mcdreforged.plugin.json, expected {} but found {}'.format(plugin.id, meta_info.id))
 		return meta_info

@@ -19,6 +19,7 @@ def sort_dict(d: Dict[_K, _V]) -> Dict[_K, _V]:
 	def key_extractor(x: _K):
 		if isinstance(x, str):
 			return x.lower(), x
+		return x
 
 	keys: List[_K] = list(d.keys())
 	return {k: d[k] for k in sorted(keys, key=key_extractor)}

@@ -7,9 +7,9 @@ from common import constants, log
 from common.report import reporter
 from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
 from meta.author import Author
-from meta.misc import SchemaVersionHolder
 from meta.plugin import PluginInfo, MetaInfo
-from meta.release import ReleasePageCache, ReleaseSummary
+from meta.release import ReleaseSummary
+from plugin.cache import RequestCacheManager
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
 from utils.repos import GithubRepository
@@ -93,7 +93,6 @@ class Plugin:
 	__plugin_info: _PluginInfoInner
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
-	release_page_cache: Optional[ReleasePageCache] = None
 
 	def __init__(self, plugin_id: str):
 		self.__introduction: Optional[BundledText] = None
@@ -108,6 +107,8 @@ class Plugin:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
 
 		self.__dataset = _PluginDataSet.info
+		self.__cache = RequestCacheManager(self, self.__request_cache_file)
+		self.__cache.load()
 
 	@property
 	def id(self) -> str:
@@ -158,6 +159,7 @@ class Plugin:
 						introduction_translations[lang] = file_handler.read()
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
+		log.info('({}) Introduction fetched'.format(self.id))
 
 	def is_data_fetched(self) -> bool:
 		return self.__dataset.is_everything_fetched()
@@ -168,7 +170,7 @@ class Plugin:
 
 	@property
 	def latest_version(self) -> str:
-		if self.release_summary.latest_version != 'N/A':
+		if self.release_summary.latest_version is not None:
 			return self.release_summary.latest_version
 		return self.meta_info.version
 
@@ -210,16 +212,13 @@ class Plugin:
 		info = self.generate_formatted_plugin_info()
 		file_utils.save_json(info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'plugin.json'))
 
-	def fetch_meta(self) -> MetaInfo:
-		self.meta_info = MetaInfo.fetch(self)
-		log.info('Fetched meta info of {}'.format(self.id))
+	def fetch_meta(self):
+		self.meta_info = MetaInfo.fetch_from_repos(self)
 		self.__dataset |= _PluginDataSet.meta
-		return self.meta_info
+		log.info('({}) MetaInfo fetched'.format(self.id))
 
 	def save_meta(self):
-		if self.meta_info is None:
-			log.info('Skipping {} during meta_info saving since meta_info is None'.format(self))
-		else:
+		if self.meta_info is not None:
 			file_utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
 
 	@property
@@ -227,70 +226,20 @@ class Plugin:
 		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
 
 	@property
-	def __release_page_cache_file(self) -> str:
-		return os.path.join(constants.META_FOLDER, self.id, '.release_page_cache.json')
+	def __request_cache_file(self) -> str:
+		return os.path.join(constants.META_FOLDER, self.id, '.request_cache.json')
 
 	def save_release_info(self):
-		if self.release_summary is None:
-			log.info('Skipping {} during release_summary saving since release_summary is None'.format(self))
-		else:
-			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file)
-		if self.release_page_cache is None:
-			log.info('Skipping {} during release_page_cache saving since release_page_cache is None'.format(self))
-		else:
-			file_utils.save_json(self.release_page_cache.serialize(), self.__release_page_cache_file)
+		if self.release_summary is not None:
+			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file, with_gz=True)
 
-	def fetch_release(self) -> ReleaseSummary:
-		prev: Optional[ReleaseSummary] = None
-		try:
-			release_info_object = file_utils.load_json(self.__release_info_file)
-			holder = SchemaVersionHolder.deserialize(release_info_object, error_at_missing=True)
-			if holder.schema_version != constants.RELEASE_INFO_SCHEMA_VERSION:
-				log.warning('Ignoring previous release info due to different schema_version: {} -> {}'.format(holder.schema_version, constants.RELEASE_INFO_SCHEMA_VERSION))
-				self.release_summary = None
-			else:
-				self.release_summary = prev = ReleaseSummary.deserialize(release_info_object, error_at_missing=True)
-		except Exception as e:
-			if not isinstance(e, FileNotFoundError):
-				log.warning('Failed to deserialized existed release_summary for plugin {}: {} {}'.format(self, type(e), e))
-				reporter.record_warning(self.id, 'Failed to deserialized existed release_summary', e)
-			self.release_summary = None
+	def save_request_cache(self):
+		file_utils.save_json(self.__cache.dump_for_save(), self.__request_cache_file)
 
-		if self.release_summary is not None:  # load release page cache iif release summary is valid
-			try:
-				self.release_page_cache = ReleasePageCache.deserialize(file_utils.load_json(self.__release_page_cache_file))
-			except Exception as e:
-				if not isinstance(e, FileNotFoundError):
-					log.warning('Failed to deserialized existed release_page_cache for plugin {}: {} {}'.format(self, type(e), e))
-					reporter.record_warning(self.id, 'Failed to deserialized existed release_page_cache', e)
-				self.release_page_cache = None
-
-		if self.release_summary is not None and self.release_page_cache is not None:
-			try:
-				self.release_summary.sanity_check(self.release_page_cache)
-			except Exception as e:
-				log.warning('Failed to check release data sanity for plugin {}: {} {}, discarding existing data'.format(self, type(e), e))
-				reporter.record_warning(self.id, 'Failed to check release info sanity', e)
-				self.release_summary = None
-				self.release_page_cache = None
-
-		if self.release_summary is None:
-			self.release_summary = ReleaseSummary()
-		if self.release_page_cache is None:
-			self.release_page_cache = ReleasePageCache()
-
-		try:
-			self.release_summary.update(self)
-		except Exception as e:
-			if prev is not None:
-				self.release_summary = prev
-				log.exception('Failed to fetch release info of {}, use the previous serialized one: {} {}'.format(self, type(e), e))
-			else:
-				raise e from None
-		else:
-			log.info('Fetched release info of {}, page num {}'.format(self.id, self.release_page_cache.page_amount))
-			self.__dataset |= _PluginDataSet.releases
-		return self.release_summary
+	def fetch_release(self):
+		self.release_summary = ReleaseSummary.create_for(self, self.__cache)
+		self.__dataset |= _PluginDataSet.releases
+		log.info('({}) Release fetched'.format(self.id))
 
 
 if __name__ == '__main__':

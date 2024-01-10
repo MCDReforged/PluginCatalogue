@@ -140,22 +140,19 @@ def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 	file.write('\n')
 
 	if plugin.release_summary is not None:
-		table = Table(Text('file'), Text('release_version'), Text('metadata_version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
+		table = Table(Text('file'), Text('version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
 		for release in plugin.release_summary.releases:
-			for asset in release.get_mcdr_assets():
-				from meta.plugin import MetaInfo
-				table.add_row(
-					Link(asset.name, release.url),
-					release.parsed_version,
-					release.meta.version if isinstance(release.meta, MetaInfo) else 'N/A',
-					formatted_time(asset.created_at, precision='second'),
-					value_utils.pretty_file_size(asset.size),
-					asset.download_count,
-					' '.join(map(str, [
-						Link(Text('operations.download'), asset.browser_download_url)
-					]))
-				)
-				break  # takes the first .mcdr asset
+			asset = release.asset
+			table.add_row(
+				Link(asset.name, release.url),
+				release.meta.version,
+				formatted_time(asset.created_at, precision='second'),
+				value_utils.pretty_file_size(asset.size),
+				asset.download_count,
+				' '.join(map(str, [
+					Link(Text('operations.download'), asset.browser_download_url)
+				]))
+			)
 			if table.row_count == limit:
 				break
 		table.write(file)
@@ -184,7 +181,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 		file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.meta_info.name))
 		file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
 		file.write('  - {}: {}\n'.format(Text('metadata_version'), plugin.meta_info.version))
-		file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version))
+		file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version or 'N/A'))
 	else:
 		file.write('- {}: {}\n'.format(Text('version'), failed()))
 

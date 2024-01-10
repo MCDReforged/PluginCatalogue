@@ -6,23 +6,24 @@ The branch for custom MCDR plugin managers to fetch data from
 
 ```bash
 repos_root/
-+-- my_plugin/        # A plugin with id "my_plugin"
-|   +-- meta.json     # Json object: MetaInfo
-|   +-- plugin.json   # Json object: PluginInfo
-|   +-- release.json  # Json object: ReleaseSummary
++-- my_plugin/           # A plugin with id "my_plugin"
+|   +-- meta.json        # Json object: MetaInfo
+|   +-- plugin.json      # Json object: PluginInfo
+|   +-- release.json     # Json object: ReleaseSummary
+|   +-- release.json.gz  # A gz-compressed "release.json"
 |
 +-- another_plugin/   # Another plugin with id "another_plugin"
 |   +-- meta.json
-|   +-- plugin.json
-|   +-- release.json
+|   +-- ...
 |
 +-- ...               # more directory for more plugins
 |
 +-- everything.json      # Json object: Everything
-+-- everything.json.gz   # A gz compressed "everything.json"
++-- everything.json.gz   # A gz-compressed "everything.json"
 +-- authors.json         # Json object: AuthorSummary
++-- authors.json.gz      # A gz-compressed "authors.json"
 +-- plugins.json         # Json object: PluginMetaSummary
-+-- plugins.json.gz      # A gz compressed "plugins.json"
++-- plugins.json.gz      # A gz-compressed "plugins.json"
 ```
 
 | What you want                     | Where to get                         |
@@ -58,9 +59,9 @@ If you want to grab the whole repository, fetch this and that's it
 ```json5
 // EverythingOfAPlugin
 {
-  "meta": {/* MetaInfo */},
-  "plugin": {/* PluginInfo */},
-  "release": {/* ReleaseSummary */},
+  "meta": {/* MetaInfo */},           // same with the "<plugin_id>/meta.json" file
+  "plugin": {/* PluginInfo */},       // same with the "<plugin_id>/plugin.json" file
+  "release": {/* ReleaseSummary */},  // same with the "<plugin_id>/release.json" file
 }
 ```
 
@@ -117,19 +118,18 @@ Authors are collected from `plugin_info.json` and categorized by their names
 
 Necessary information for a plugin
 
-For `MetaInfo` object in `meta.json` and `PluginMetaSummary` object, the information is fetched from the **latest commit** of its repository
+For `MetaInfo` object in `meta.json` and `PluginMetaSummary` object, the information is fetched from the **latest commit** from its repository
 
 For `MetaInfo` object in `ReleaseSummary` object, the information is fetched from the **corresponding tag** of its repository
 
 ```json5
 {
-  "schema_version": "META_INFO_SCHEMA_VERSION",
+  "schema_version": "##META_INFO_SCHEMA_VERSION##",
 
   // Basic information
   "id": "my_plugin",  // id of the plugin
   "name": "MyPlugin",  // name of the plugin
   "version": "1.2.0",  // version of the plugin
-  "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url, from plugin_info.json
   "link": "https://home.myself.me",  // plugin's main page, from mcdreforged.plugin.json. Might not be a GitHub url. Might be null if it doesn't exist
   "authors": ["MyName"],  // a list of string, names of plugin's authors
   
@@ -155,17 +155,39 @@ For `MetaInfo` object in `ReleaseSummary` object, the information is fetched fro
 }
 ```
 
+#### PluginInfo
+
+A formatted version of `plugin_info.json` from the master branch of the PluginCatalogue
+
+```json5
+{
+  "schema_version": "##PLUGIN_INFO_SCHEMA_VERSION##",
+  "id": "my_plugin",
+  "authors": ["MyName"],  // a list of string, names of plugin's authors
+  
+  "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
+  "branch": "master",  // git branch for the plugin
+  "related_path": ".",  // related path in the repository. see https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html#related-path
+  "labels": ["management"],  // a list of string, labels of the plugin
+
+  "introduction": {
+    "en_us": "Use `!!stats` to see the value / rank, or build a scoreboard from given statistic type and name\n",
+    "zh_cn": "使用 `!!stats` 并输入统计信息的类别和名称，来查询统计信息的值/排名，或者显示对应的计分板\n"
+  }
+}
+```
+
 #### ReleaseSummary
 
 The release summary of the plugin, which contains necessary information of all releases
 
 ```json5
 {
-  "schema_version": "RELEASE_INFO_SCHEMA_VERSION",
+  "schema_version": "##RELEASE_INFO_SCHEMA_VERSION##",
   "id": "my_plugin",  // The id of the plugin that this ReleaseSummary belongs to
   
   // The latest version of the plugin
-  // Actually its value equals to the "parsed_version" field of the first release
+  // Notes that it might not be the version of the most recent release
   "latest_version": "1.2.0",
   
   // A list of ReleaseInfo object, the releases information
@@ -188,24 +210,18 @@ Information of a GitHub release
   "tag_name": "v1.2.0",  // tag of the release
   "created_at": "2022-10-05T09:20:00Z",  // release creation time, in %Y-%m-%dT%H:%M:%SZ format
   
-  // A list of AssetInfo object, storing all assets with ".mcdr" or ".pyz" file extension
-  // Notes that all matching asset in the releases will be stored here. Usually you can just take the 1st asset
-  // The plugin category will take the 1st MCDR plugin file as the plugin file of this release
-  "assets": [  
-    {/* AssetInfo */},
-    {/* AssetInfo */}
-  ],
-  
   "description": "My new plugin release, Wow!",  // the description of the GitHub release
   "prerelease": false, // if it's a pre-release
-  // A parsed semver like version string of this release
-  // Reference: https://mcdreforged.readthedocs.io/en/latest/plugin_dev/metadata.html#version
-  "parsed_version": "1.2.0",
   
-  // The MetaInfo parsed from the repository of the given tag.
-  // If the MetaInfo fetching has failed, the value will be a string of the error message,
-  // e.g. "Failed to decode json from response! status_code 404: b'404: Not Found'"
-  "meta": {/* MetaInfo */}  // MetaInfo or string
+  // An AssetInfo object storing the valid asset of the release,
+  // A valid asset is an asset that contains a packed plugin file, which
+  // 1. Has its file name ending with ".mcdr" or ".pyz"
+  // 2. Is a valid zip file, contains "mcdreforged.plugin.json" and optional "requirements.txt" json at the zip root
+  // If there are multiple packed plugin file assets, the first one is used, and the latter ones will be ignored
+  "asset": {/* AssetInfo */},
+  
+  // The MetaInfo parsed from the packed plugin asset file
+  "meta": {/* MetaInfo */}
 }
 ```
 
@@ -215,32 +231,11 @@ Information of an asset in GitHub release
 
 ```json5
 {
+  "id": 123450123,  // GitHub asset ID
   "name": "MyPlugin-v1.2.0.mcdr",  // name of the asset
   "size": 12735,  // size of the asset, in bytes
   "download_count": 1457,  // download count of the asset
   "created_at": "2022-10-03T04:13:26Z",  // asset creation time, in %Y-%m-%dT%H:%M:%SZ format
   "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr"  // the url to download this asset
-}
-```
-
-#### PluginInfo
-
-A formatted version of `plugin_info.json` from the master branch
-
-```json5
-{
-  "schema_version": "PLUGIN_INFO_SCHEMA_VERSION",
-  "id": "my_plugin",
-  "authors": ["MyName"],  // a list of string, names of plugin's authors
-  
-  "repository": "https://github.com/Myself/MyPlugin",  // plugin's GitHub repository url
-  "branch": "master",  // git branch for the plugin
-  "related_path": ".",  // related path in the repository. see https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html#related-path
-  "labels": ["management"],  // a list of string, labels of the plugin
-
-  "introduction": {
-    "en_us": "Use `!!stats` to see the value / rank, or build a scoreboard from given statistic type and name\n",
-    "zh_cn": "使用 `!!stats` 并输入统计信息的类别和名称，来查询统计信息的值/排名，或者显示对应的计分板\n"
-  }
 }
 ```

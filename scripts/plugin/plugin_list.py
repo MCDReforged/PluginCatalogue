@@ -85,9 +85,9 @@ class PluginList(List[Plugin]):
 		with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md')) as f:
 			readme: str = f.read()
 		placeholders = {
-			'"PLUGIN_INFO_SCHEMA_VERSION"': constants.PLUGIN_INFO_SCHEMA_VERSION,
-			'"META_INFO_SCHEMA_VERSION"': constants.META_INFO_SCHEMA_VERSION,
-			'"RELEASE_INFO_SCHEMA_VERSION"': constants.RELEASE_INFO_SCHEMA_VERSION,
+			'"##PLUGIN_INFO_SCHEMA_VERSION##"': constants.PLUGIN_INFO_SCHEMA_VERSION,
+			'"##META_INFO_SCHEMA_VERSION##"': constants.META_INFO_SCHEMA_VERSION,
+			'"##RELEASE_INFO_SCHEMA_VERSION##"': constants.RELEASE_INFO_SCHEMA_VERSION,
 		}
 		for key, value in placeholders.items():
 			readme = readme.replace(str(key), str(value))
@@ -99,6 +99,7 @@ class PluginList(List[Plugin]):
 			try:
 				plugin.save_meta()
 				plugin.save_release_info()
+				plugin.save_request_cache()
 				plugin.save_formatted_plugin_info()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
@@ -120,7 +121,7 @@ class PluginList(List[Plugin]):
 			for author in plugin.authors:
 				author_summary.add_author(author.copy(), plugin.id)
 		author_summary.finalize()
-		file_utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'))
+		file_utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'), with_gz=True)
 
 		# everything
 		everything = Everything(plugins={})
