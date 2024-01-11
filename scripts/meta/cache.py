@@ -48,7 +48,6 @@ class ReleasePageResponse(_GitHubApiResponseBase):
 		page = cls()
 		page.etag = etag
 		page.empty = len(data) == 0
-		page.releases = {}
 		page.set_encode_data(data)
 		return page
 
