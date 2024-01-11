@@ -214,11 +214,13 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('\n')
 	if plugin.is_data_fetched():
 		table = Table(Text('python_package'), Text('requirements.requirement'))
+		pip_reqs = []
 		for line in plugin.meta_info.requirements:
 			matched = re.match(r'^[^<>=~^]+', line)
 			if matched is None:
 				log.warning('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
 				continue
+			pip_reqs.append(line)
 			package = matched.group()
 			req = value_utils.remove_prefix(line, package)
 			table.add_row(
@@ -226,6 +228,16 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 				markdown_utils.format_markdown(req)
 			)
 		table.write(file)
+
+		if len(pip_reqs) > 0:
+			def simple_quote(s: str) -> str:
+				if re.fullmatch(r'[a-z0-9.~^=_-]+', s, re.ASCII | re.IGNORECASE):
+					return s
+				return '"' + s.replace('"', '\\"') + '"'
+
+			file.write('```\n')
+			file.write('{}\n'.format(' '.join(['pip', 'install', *map(simple_quote, pip_reqs)])))
+			file.write('```\n\n')
 	else:
 		file.write('{}\n'.format(failed()))
 		file.write('\n')
@@ -331,7 +343,7 @@ class Table:
 
 	def write(self, file: IO[str]):
 		self.__write_row(file, self.__title)
-		self.__write_row(file, ('---', ) * self.column_count)
+		self.__write_row(file, ('---',) * self.column_count)
 		for row in self.__rows:
 			self.__write_row(file, row)
 		file.write('\n')
