@@ -38,7 +38,8 @@ async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
 	elif args.subparser_name == 'doc':
 		await generate_doc(target_ids)
 	elif args.subparser_name == 'all':
-		await check(target_ids)
+		if not args.no_check:
+			await check(target_ids)
 		await fetch_and_store_data(target_ids)
 		await generate_doc(target_ids)
 	else:
@@ -56,7 +57,9 @@ def main():
 	subparsers.add_parser('check', help='Check the correctness of files in "plugins/"')
 	subparsers.add_parser('data', help='Fetch all needed data of plugins from github, and save to "meta/"')
 	subparsers.add_parser('doc', help='Generate user friendly plugin catalogue doc to "catalogue/"')
-	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
+
+	all_parser = subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
+	all_parser.add_argument('--no-check', action='store_true', help='Skip the check')
 
 	args = parser.parse_args()
 	asyncio.run(async_main(parser, args))

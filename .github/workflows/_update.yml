@@ -1,15 +1,17 @@
-name: Update Catalogue
+name: _reuse.update
 
 on:
-  push:
-    branches:
-      - master
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      squash_history:
-        description: Select if you want the history to be squashed
+      check:
         type: boolean
+        required: true
+        description: If should do the check part
+      squash_history:
+        type: boolean
+        required: false
         default: false
+        description: SQUASH_HISTORY option for the branch push
 
 jobs:
   update:
@@ -23,7 +25,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('scripts/**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-:
 
@@ -39,10 +41,14 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
 
-      - name: Check, fetch data and generate doc
+      - name: Do the update
         run: |
           cd ./scripts
-          python main.py all
+          if [ "${{ inputs.check }}" = "true" ]; then
+            python main.py all
+          else
+            python main.py all --no-check
+          fi
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
@@ -53,7 +59,7 @@ jobs:
           BRANCH: meta
           FOLDER: meta
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SQUASH_HISTORY: ${{ github.event.inputs.squash_history }}
+          SQUASH_HISTORY: ${{ inputs.squash_history }}
           SKIP_EMPTY_COMMITS: true
 
       - name: Deploy doc
@@ -63,5 +69,5 @@ jobs:
           BRANCH: catalogue
           FOLDER: catalogue
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SQUASH_HISTORY: ${{ github.event.inputs.squash_history }}
+          SQUASH_HISTORY: ${{ inputs.squash_history }}
           SKIP_EMPTY_COMMITS: true
