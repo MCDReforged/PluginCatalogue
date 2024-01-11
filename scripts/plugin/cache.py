@@ -57,6 +57,7 @@ class PluginRequestCacheManager:
 		rsp, new_etag = await request_utils.request_github_api(url, etag=old_etag, params={'page': page, 'per_page': per_page})
 
 		if rsp is not None:  # etag changed
+			log.info('ETag changed for GitHub API {!r}: {!r} -> {!r}'.format(url, old_etag, new_etag))
 			self.__cache.release_pages[page] = ReleasePageResponse.from_response(rsp, new_etag)
 		self.__used_release_page.add(page)
 		return self.__cache.release_pages[page]
@@ -65,7 +66,7 @@ class PluginRequestCacheManager:
 		asset_id = str(asset_id)
 
 		if asset_id not in self.__cache.asset_metas:
-			log.info('Downloading asset from {!r} for inspection'.format(download_url))
+			log.info('Downloading asset {} from {!r} for inspection'.format(asset_id, download_url))
 			rsp = await request_utils.request_get(download_url)
 			if rsp.status_code != 200:
 				raise Exception('download asset from {} failed: {} {}'.format(download_url, rsp.status_code, rsp.content))
@@ -91,5 +92,6 @@ class PluginRequestCacheManager:
 		rsp, new_etag = await request_utils.request_github_api(url, etag=old_etag)
 
 		if rsp is not None:  # etag changed
+			log.info('ETag changed for GitHub API {!r}: {!r} -> {!r}'.format(url, old_etag, new_etag))
 			self.__cache.repos_info = RepositoryResponse.from_response(rsp, new_etag)
 		return self.__cache.repos_info
