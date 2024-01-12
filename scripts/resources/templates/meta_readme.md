@@ -122,9 +122,9 @@ Authors are collected from `plugin_info.json` and categorized by their names
 Necessary information for a plugin
 
 For `MetaInfo` object in `meta.json` and `PluginMetaSummary` object, the information is fetched from the **latest commit** from its repository.
-For these object, it's recommended to only use the `description` field, since other fields might be unstable
+For these object, it's recommended to only use the `name` and the `description` field, since other fields might be unstable
 
-For `MetaInfo` object in `ReleaseSummary` object, the information is fetched from the **corresponding tag** of its repository
+For `MetaInfo` object in `ReleaseInfo` object, the information is fetched from the packed plugin file asset of the release
 
 ```json5
 {
