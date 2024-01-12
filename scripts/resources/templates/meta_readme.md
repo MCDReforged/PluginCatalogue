@@ -121,7 +121,8 @@ Authors are collected from `plugin_info.json` and categorized by their names
 
 Necessary information for a plugin
 
-For `MetaInfo` object in `meta.json` and `PluginMetaSummary` object, the information is fetched from the **latest commit** from its repository
+For `MetaInfo` object in `meta.json` and `PluginMetaSummary` object, the information is fetched from the **latest commit** from its repository.
+For these object, it's recommended to only use the `description` field, since other fields might be unstable
 
 For `MetaInfo` object in `ReleaseSummary` object, the information is fetched from the **corresponding tag** of its repository
 
@@ -189,9 +190,13 @@ The release summary of the plugin, which contains necessary information of all r
   "schema_version": "##RELEASE_INFO_SCHEMA_VERSION##",
   "id": "my_plugin",  // The id of the plugin that this ReleaseSummary belongs to
   
-  // The latest version of the plugin
+  // The latest version of the plugin. Nullable
   // Notes that it might not be the version of the most recent release
   "latest_version": "1.2.0",
+    
+  // The index of the latest version in the releases field. Nullable
+  // Index starts from 0. use `releases[latest_version_index]` to get the ReleaseInfo of the latest release
+  "latest_version_index": 0,
   
   // A list of ReleaseInfo object, the releases information
   "releases": [

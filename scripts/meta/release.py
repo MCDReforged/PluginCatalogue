@@ -1,6 +1,5 @@
 import contextlib
-import operator
-from typing import List, Optional, Dict, TYPE_CHECKING, Tuple
+from typing import List, Optional, Dict, TYPE_CHECKING
 
 from mcdreforged.plugin.meta.version import Version
 
@@ -139,6 +138,7 @@ class ReleaseSummary(Serializable):
 	schema_version: int
 	id: str
 	latest_version: Optional[str]
+	latest_version_index: Optional[int]
 	releases: List[ReleaseInfo]
 
 	__latest_release: Optional[ReleaseInfo] = None
@@ -175,13 +175,21 @@ class ReleaseSummary(Serializable):
 					releases[r_info.tag_name] = r_info
 
 		rs.releases = list(releases.values())
-		vr_list: List[Tuple[Version, ReleaseInfo]] = [(Version(r.meta.version), r) for r in rs.releases]
-		vr_list.sort(key=operator.itemgetter(0), reverse=True)
-		if len(vr_list) > 0:
-			lv, rs.__latest_release = vr_list[0]
-			rs.latest_version = str(lv)
+		latest_version: Optional[Version] = None
+		latest_version_index: Optional[int] = None
+		for i, r_info in enumerate(rs.releases):
+			version = Version(r_info.meta.version)
+			if latest_version is None or version > latest_version:
+				latest_version = version
+				latest_version_index = i
+		if latest_version_index is not None and latest_version is not None:
+			r_info = rs.releases[latest_version_index]
+			rs.latest_version = r_info.meta.version
+			rs.latest_version_index = latest_version_index
+			rs.__latest_release = r_info
 		else:
 			rs.latest_version = None
+			rs.latest_version_index = None
 			rs.__latest_release = None
 		return rs
 
