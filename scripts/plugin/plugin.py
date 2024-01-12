@@ -274,7 +274,10 @@ class Plugin:
 
 	def create_and_save_all_data(self) -> AllOfAPlugin:
 		if not (self.meta_info and self.release_summary and self.repository_info):
-			raise RuntimeError('not enough info to create all. current dataset: {}'.format(self.__dataset))
+			raise RuntimeError('not enough info to create all data for {}. dataset: {}, {} {} {}'.format(
+				self, self.__dataset,
+				type(self.meta_info), type(self.release_summary), type(self.repository_info),
+			))
 		aop = AllOfAPlugin(
 			meta=self.meta_info,
 			plugin=self.generate_formatted_plugin_info(),

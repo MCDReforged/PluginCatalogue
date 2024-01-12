@@ -76,6 +76,11 @@ class ReleaseInfo(Serializable):
 		else:
 			raise _InvalidReleaseError('no valid asset')
 
+		if info.meta.id != plugin.id:
+			log.warning('({}) Bad plugin id in tag {!r} asset {!r}, found {!r}'.format(plugin.id, js.tag_name, info.asset.name, info.meta.id))
+			reporter.record_warning(plugin.id, 'Bad plugin id in tag {!r} asset {!r}, found {!r}'.format(js.tag_name, info.asset.name, info.meta.id), None)
+			raise _InvalidReleaseError('bad asset plugin id')
+
 		meta_version = info.meta.version
 		try:
 			m_ver = Version(meta_version, allow_wildcard=False)
