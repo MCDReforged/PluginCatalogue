@@ -49,6 +49,7 @@ If you want to grab the whole repository, fetch this and that's it
 ```json5
 // Everything
 {
+  "timestamp": 1705680000,  // the unix timestamp in seconds, when this data is created
   "authors": {/* AuthorSummary */},
   // A map of plugin id -> AllOfAPlugin
   "plugins": {
@@ -61,6 +62,7 @@ If you want to grab the whole repository, fetch this and that's it
 ```json5
 // AllOfAPlugin
 {
+  "timestamp": 1705680000,  // the unix timestamp in seconds, when this data is created
   "meta": {/* MetaInfo */},              // same with the "<plugin_id>/meta.json" file
   "plugin": {/* PluginInfo */},          // same with the "<plugin_id>/plugin.json" file
   "release": {/* ReleaseSummary */},     // same with the "<plugin_id>/release.json" file

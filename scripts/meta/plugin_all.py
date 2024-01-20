@@ -8,6 +8,7 @@ class AllOfAPlugin(Serializable):
 	"""
 	/<plugin_id>/all.json
 	"""
+	timestamp: int
 	meta: MetaInfo
 	plugin: PluginInfo
 	release: ReleaseSummary

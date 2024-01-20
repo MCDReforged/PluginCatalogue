@@ -1,6 +1,7 @@
 import asyncio
 import os
 import shutil
+import time
 from typing import Callable, List, Collection, Optional, Coroutine, Set
 
 from common import constants, log
@@ -127,6 +128,7 @@ class PluginList(List[Plugin]):
 
 		# everything
 		everything = Everything(plugins={})
+		everything.timestamp = int(time.time())
 		everything.authors = author_summary
 		for plugin in self:
 			aop = plugin.create_and_save_all_data()

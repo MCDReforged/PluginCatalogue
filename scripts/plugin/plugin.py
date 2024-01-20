@@ -1,5 +1,6 @@
 import enum
 import os
+import time
 from json import JSONDecodeError
 from typing import Optional, List, Dict, Union
 
@@ -279,6 +280,7 @@ class Plugin:
 				type(self.meta_info), type(self.release_summary), type(self.repository_info),
 			))
 		aop = AllOfAPlugin(
+			timestamp=int(time.time()),
 			meta=self.meta_info,
 			plugin=self.generate_formatted_plugin_info(),
 			release=self.release_summary,

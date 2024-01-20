@@ -19,5 +19,6 @@ class Everything(Serializable):
 	"""
 	/everything.json
 	"""
+	timestamp: int
 	authors: AuthorSummary
 	plugins: Dict[str, AllOfAPlugin]
