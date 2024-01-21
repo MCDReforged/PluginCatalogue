@@ -22,7 +22,7 @@ class GithubRepository:
 		if self.repos_pair.count('/') != 1:
 			raise ValueError('Bad repository url {!r}'.format(self.repos_url))
 
-	def get_raw_url_base(self, tag: Optional[str] = None) -> str:
+	def get_raw_url_base(self, tag: Optional[str] = None, in_plugin_relative: bool = True) -> str:
 		"""
 		No tailing '/'
 
@@ -31,7 +31,7 @@ class GithubRepository:
 		- https://raw.githubusercontent.com/Myself/MyPlugin/main/path/to/plugin
 		"""
 		url_base = f'https://raw.githubusercontent.com/{self.repos_pair}/{tag or self.branch}'
-		if self.related_path != '.':
+		if in_plugin_relative and self.related_path != '.':
 			url_base += '/' + self.related_path
 		return url_base
 
@@ -50,16 +50,16 @@ class GithubRepository:
 			url_base += '/' + self.related_path
 		return url_base
 
-	def resolve_raw(self, path: str, tag: Optional[str] = None) -> str:
+	def resolve_raw(self, path: str, tag: Optional[str] = None, in_plugin_relative: bool = True) -> str:
 		# https://raw.githubusercontent.com/TISUnion/QuickBackupM/master/mcdreforged.plugin.json
-		return self.get_raw_url_base(tag=tag) + '/' + path
+		return self.get_raw_url_base(tag=tag, in_plugin_relative=in_plugin_relative) + '/' + path
 
 	def resolve_page(self, path: str, tag: Optional[str] = None) -> str:
 		# https://github.com/TISUnion/QuickBackupM/tree/master/mcdreforged.plugin.json
 		return self.get_page_url_base(tag=tag) + '/' + path
 
-	async def request_repos_file(self, path: str, *, tag: Optional[str] = None) -> request_utils.SimpleResponse:
-		return await request_utils.request_get(self.resolve_raw(path, tag=tag))
+	async def request_repos_file(self, path: str, *, tag: Optional[str] = None, in_plugin_relative: bool = True) -> request_utils.SimpleResponse:
+		return await request_utils.request_get(self.resolve_raw(path, tag=tag, in_plugin_relative=in_plugin_relative))
 
 	@property
 	def plugin_homepage(self) -> str:

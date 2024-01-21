@@ -256,6 +256,8 @@ Basic information of a GitHub repository
 
 ```json5
 {
+  "timestamp": 1705680000,  // the unix timestamp in seconds, when this data is created
+
   "url": "https://github.com/Myself/MyPlugin",
   "name": "MyPlugin",  // Repository name
   "full_name": "Myself/MyPlugin",  // Username + repository name pair
@@ -263,6 +265,11 @@ Basic information of a GitHub repository
   "archived": false,
   "stargazers_count": 987,
   "watchers_count": 65,
-  "forks_count": 321
+  "forks_count": 321,
+  
+  // README of the repository
+  // The script will firstly try to fetch the readme from the given repository related path (see `PluginInfo.related_path`)
+  // If fails, it will then try to fetch from the repository root
+  "readme": "## Readme for my lovely plugin"
 }
 ```

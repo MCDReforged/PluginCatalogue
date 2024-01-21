@@ -263,7 +263,7 @@ class Plugin:
 	# ========================= RepositoryInfo =========================
 
 	async def fetch_repository(self):
-		self.repository_info = await RepositoryInfo.create_for(self.__cache_manager)
+		self.repository_info = await RepositoryInfo.create_for(self, self.__cache_manager)
 		self.__dataset |= _PluginDataSet.repository
 		log.info('({}) Repository information fetched'.format(self.id))
 
