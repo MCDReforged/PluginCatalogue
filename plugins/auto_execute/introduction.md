@@ -1,0 +1,1 @@
+An MCDR plugin that stores various instructions for multimodal execution based on scripts

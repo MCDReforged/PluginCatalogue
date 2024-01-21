@@ -7,62 +7,8 @@ on:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.8'
-      - uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-:
-
-      - name: Pull previous meta
-        uses: actions/checkout@v3
-        with:
-          ref: meta
-          path: meta
-
-      - name: Prepare runtime
-        run: |
-          rm -rf ./meta/.git
-          cd ./scripts
-          pip install -r requirements.txt
-
-      - name: Fetch data
-        run: |
-          cd ./scripts
-          python main.py fetch
-        env:
-          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
-
-      - name: Generate doc
-        run: |
-          cd ./scripts
-          python main.py doc
-        env:
-          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
-
-      - name: Deploy meta
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: meta
-          FOLDER: meta
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SQUASH_HISTORY: true
-          SKIP_EMPTY_COMMITS: true
-
-      - name: Deploy doc
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: catalogue
-          FOLDER: catalogue
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          SQUASH_HISTORY: true
-          SKIP_EMPTY_COMMITS: true
+    uses: ./.github/workflows/_update.yml
+    secrets: inherit
+    with:
+      check: false
+      squash_history: false
