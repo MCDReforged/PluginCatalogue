@@ -2,8 +2,8 @@ name: Scheduled update
 
 on:
   schedule:
-    # Runs at minute 15 of every hour
-    - cron: '15 * * * *'
+    # Runs at minute 15 and 45 of every hour
+    - cron: '15,45 * * * *'
 
 jobs:
   update:
