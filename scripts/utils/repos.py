@@ -35,7 +35,7 @@ class GithubRepository:
 			url_base += '/' + self.related_path
 		return url_base
 
-	def get_page_url_base(self, tag: Optional[str] = None) -> str:
+	def get_page_url_base(self, tag: Optional[str] = None, in_plugin_relative: bool = True) -> str:
 		"""
 		No tailing '/'
 
@@ -46,7 +46,7 @@ class GithubRepository:
 		- https://github.com/Myself/MyPlugin/tree/main/path/to/plugin
 		"""
 		url_base = f'{self.repos_url}/tree/{tag or self.branch}'
-		if self.related_path != '.':
+		if in_plugin_relative and self.related_path != '.':
 			url_base += '/' + self.related_path
 		return url_base
 

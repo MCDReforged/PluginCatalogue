@@ -2,6 +2,7 @@ import asyncio
 from typing import TYPE_CHECKING, Optional, List
 
 from common import log
+from utils import markdown_utils
 from utils.serializer import Serializable
 
 if TYPE_CHECKING:
@@ -39,8 +40,18 @@ class RepositoryInfo(Serializable):
 		async def fetch_readme(file: str, what_readme: str, in_plugin_relative: bool):
 			rsp = await plugin.repos.request_repos_file(file, in_plugin_relative=in_plugin_relative)
 			if rsp.status_code == 200:
-				self.readme = rsp.text
 				log.info('({}) Fetched {} readme from file {!r}'.format(plugin.id, what_readme, file))
+				readme = rsp.text
+				try:
+					readme = markdown_utils.rewrite_markdown(
+						rsp.text,
+						repos_url=plugin.repos.get_page_url_base(in_plugin_relative=in_plugin_relative),
+						raw_url=plugin.repos.get_raw_url_base(in_plugin_relative=in_plugin_relative),
+					)
+				except Exception:
+					log.exception('{} Failed to rewrite markdown for, use original content, file: {!r}, rel: {}'.format(plugin.id, file, in_plugin_relative))
+
+				self.readme = readme
 				for task in tasks:
 					task.cancel()
 
