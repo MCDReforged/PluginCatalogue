@@ -1,5 +1,4 @@
 import asyncio
-import time
 from typing import TYPE_CHECKING, Optional, List
 
 from common import log
@@ -11,8 +10,6 @@ if TYPE_CHECKING:
 
 
 class RepositoryInfo(Serializable):
-	timestamp: int
-
 	url: str
 	name: str
 	full_name: str
@@ -32,7 +29,6 @@ class RepositoryInfo(Serializable):
 		data['url'] = data['html_url']
 
 		ri = RepositoryInfo.deserialize(data)
-		ri.timestamp = int(time.time())
 		await ri.__fetch_readmes(plugin)
 		return ri
 
