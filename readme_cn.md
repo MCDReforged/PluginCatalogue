@@ -1,5 +1,9 @@
 [English](readme.md) | **中文**
 
+> [!TIP]
+> 试试我们的 [全新网站](https://mcdreforged.com/zh-CN/plugins)，更快更便捷！ 
+> \* *仍在开发阶段。*
+
 <h1 align="center">MCDReforged PluginCatalogue</h1>
 
 <p align="center">
@@ -12,7 +16,8 @@
 </p>
 <br>
 
-> ⚠️ **注意：在使用任何插件之前，请先阅读其仓库中的 README。**
+> [!IMPORTANT]
+> **在使用任何插件之前，请先阅读其仓库中的 README。**
 
 <br>
 

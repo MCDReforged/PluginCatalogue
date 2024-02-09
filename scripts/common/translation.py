@@ -1,28 +1,28 @@
+import contextvars
 import os
-import threading
 from contextlib import contextmanager
 from typing import Dict, Optional
 
-import constants
-import utils
+from common import constants
+from utils import file_utils, value_utils
 
 EN_US = 'en_us'
 ZH_CN = 'zh_cn'
 DEFAULT_LANGUAGE = EN_US
-_TLS = threading.local()
+_TLS_LANG = contextvars.ContextVar('language', default=DEFAULT_LANGUAGE)
 LANGUAGES = [EN_US, ZH_CN]
 
 
 def get_language() -> str:
 	try:
-		return _TLS.language
+		return _TLS_LANG.get()
 	except AttributeError:
 		set_language(DEFAULT_LANGUAGE)
 		return DEFAULT_LANGUAGE
 
 
 def set_language(lang: str):
-	_TLS.language = lang
+	_TLS_LANG.set(lang)
 
 
 @contextmanager
@@ -53,8 +53,8 @@ _TRANSLATION: _TRANSLATION_COLLECTION_TYPE = {}
 for file_name in os.listdir(constants.TRANSLATION_FOLDER):
 	file_path = os.path.join(constants.TRANSLATION_FOLDER, file_name)
 	if os.path.isfile(file_path) and file_name.endswith('.json'):
-		lang = utils.remove_suffix(file_name, '.json')
-		_TRANSLATION[lang] = utils.load_json(file_path)
+		lang = value_utils.remove_suffix(file_name, '.json')
+		_TRANSLATION[lang] = file_utils.load_json(file_path)
 
 
 class Text:

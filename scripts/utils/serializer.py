@@ -3,14 +3,11 @@ from typing import TypeVar, Type
 import mcdreforged.utils.serializer as mcdr_serializer
 
 __all__ = [
-	'serialize', 'Serializable'
+	'Serializable'
 ]
 
 
 Self = TypeVar('Self', bound='Serializable')
-
-
-serialize = mcdr_serializer.serialize
 
 
 class Serializable(mcdr_serializer.Serializable):
@@ -19,8 +16,6 @@ class Serializable(mcdr_serializer.Serializable):
 		try:
 			return super().deserialize(data, **kwargs)
 		except Exception as e:
-			print('Failed to deserialize to {} from data {}'.format(cls, data))
+			from common import log
+			log.error('Failed to deserialize to {} from data {}'.format(cls, data))
 			raise e from None
-
-	def copy(self: Type[Self]) -> Self:
-		return self.deserialize(self.serialize())

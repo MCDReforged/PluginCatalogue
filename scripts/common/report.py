@@ -6,7 +6,7 @@ from threading import Lock
 from typing import Dict, List, TYPE_CHECKING, IO, Optional
 
 if TYPE_CHECKING:
-	from plugin_list import PluginList
+	from plugin.plugin_list import PluginList
 
 
 class Reporter:

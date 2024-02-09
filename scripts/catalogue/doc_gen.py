@@ -5,12 +5,12 @@ import time
 from contextlib import contextmanager
 from typing import List, IO, Iterable, Any, Optional, Collection
 
-import constants
-import utils
-from label import get_label_set
-from plugin import Plugin
-from plugin_list import get_plugin_list
-from translation import Text, get_language, get_file_name, LANGUAGES, with_language
+from common import constants, log
+from common.translation import Text, get_language, get_file_name, LANGUAGES, with_language
+from plugin.label import get_label_set
+from plugin.plugin import Plugin
+from plugin.plugin_list import get_plugin_list
+from utils import file_utils, value_utils, markdown_utils
 
 
 def get_plugin_detail_link(plugin_id: str):
@@ -72,13 +72,13 @@ def write_translation_nav(file_name: str, file: IO[str]):
 
 
 def write_back_to_index_nav(file: IO[str]):
-	file.write('{} {}\n'.format(utils.format_markdown('>>>'), Link(Text('back_to_index'), get_file_name('/readme.md'))))
+	file.write('{} {}\n'.format(markdown_utils.format_markdown('>>>'), Link(Text('back_to_index'), get_file_name('/readme.md'))))
 	file.write('\n')
 
 
 @contextmanager
 def write_nav(file_path: str):
-	with utils.write_file(file_path) as file:
+	with file_utils.open_for_write(file_path) as file:
 		write_translation_nav(os.path.basename(file_path), file)
 		if file_path != get_root_readme_file_path():
 			write_back_to_index_nav(file)
@@ -119,7 +119,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 				get_label_list_markdown(plugin)
 			)
 		except:
-			print('Failed to write plugin index of {}'.format(plugin))
+			log.error('Failed to write plugin index of {}'.format(plugin))
 			raise
 	table.write(file)
 
@@ -128,31 +128,31 @@ def write_plugin_download(plugin: Plugin, file: IO[str], limit: int = 3):
 	try:
 		_write_plugin_download(plugin, file, limit)
 	except:
-		print('Failed to write plugin downloads of {}'.format(plugin))
+		log.error('Failed to write plugin downloads of {}'.format(plugin))
 		raise
 
 
 def _write_plugin_download(plugin: Plugin, file: IO[str], limit: int):
 	file.write('### {}\n'.format(Text('download')))
 	file.write('\n')
-	file.write('> :warning: {}\n'.format(Text('rtfm_warn')))
+	file.write('> [!IMPORTANT]\n')
+	file.write('> {}\n'.format(Text('rtfm_warn')))
 	file.write('\n')
 
 	if plugin.release_summary is not None:
 		table = Table(Text('file'), Text('version'), Text('upload_time'), Text('size'), Text('download_amount'), Text('operations'))
 		for release in plugin.release_summary.releases:
-			for asset in release.get_mcdr_assets():
-				table.add_row(
-					Link(asset.name, release.url),
-					release.parsed_version,
-					formatted_time(asset.created_at, precision='second'),
-					utils.pretty_file_size(asset.size),
-					asset.download_count,
-					' '.join(map(str, [
-						Link(Text('operations.download'), asset.browser_download_url)
-					]))
-				)
-				break  # takes the first .mcdr asset
+			asset = release.asset
+			table.add_row(
+				Link(asset.name, release.url),
+				release.meta.version,
+				formatted_time(asset.created_at, precision='second'),
+				value_utils.pretty_file_size(asset.size),
+				asset.download_count,
+				' '.join(map(str, [
+					Link(Text('operations.download'), asset.browser_download_url)
+				]))
+			)
 			if table.row_count == limit:
 				break
 		table.write(file)
@@ -165,7 +165,7 @@ def write_plugin(plugin: Plugin, file: IO[str]):
 	try:
 		_write_plugin(plugin, file)
 	except:
-		print('Failed to write plugin information of {}'.format(plugin))
+		log.error('Failed to write plugin information of {}'.format(plugin))
 		raise
 
 
@@ -181,14 +181,14 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 		file.write('- {}: {}\n'.format(Text('plugin_name'), plugin.meta_info.name))
 		file.write('- {}: {}\n'.format(Text('version'), plugin.latest_version))
 		file.write('  - {}: {}\n'.format(Text('metadata_version'), plugin.meta_info.version))
-		file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version))
+		file.write('  - {}: {}\n'.format(Text('release_version'), plugin.release_summary.latest_version or 'N/A'))
 	else:
 		file.write('- {}: {}\n'.format(Text('version'), failed()))
 
 	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
-	file.write('- {}: {}\n'.format(Text('repository'), plugin.repository))
-	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repository_plugin_page))
+	file.write('- {}: {}\n'.format(Text('repository'), plugin.repos.repos_url))
+	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repos.plugin_homepage))
 	file.write('- {}: {}\n'.format(Text('labels'), get_label_list_markdown(plugin)))
 	if plugin.is_data_fetched():
 		file.write('- {}: {}\n'.format(Text('description'), plugin.meta_info.translated_description))
@@ -203,7 +203,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 		for pid, req in plugin.meta_info.dependencies.items():
 			table.add_row(
 				Link(pid, get_plugin_detail_link(pid)),
-				utils.format_markdown(req)
+				markdown_utils.format_markdown(req)
 			)
 		table.write(file)
 	else:
@@ -214,18 +214,30 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	file.write('\n')
 	if plugin.is_data_fetched():
 		table = Table(Text('python_package'), Text('requirements.requirement'))
+		pip_reqs = []
 		for line in plugin.meta_info.requirements:
 			matched = re.match(r'^[^<>=~^]+', line)
 			if matched is None:
-				print('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
+				log.warning('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
 				continue
+			pip_reqs.append(line)
 			package = matched.group()
-			req = utils.remove_prefix(line, package)
+			req = value_utils.remove_prefix(line, package)
 			table.add_row(
 				Link(package, 'https://pypi.org/project/{}'.format(package)),
-				utils.format_markdown(req)
+				markdown_utils.format_markdown(req)
 			)
 		table.write(file)
+
+		if len(pip_reqs) > 0:
+			def simple_quote(s: str) -> str:
+				if re.fullmatch(r'[a-z0-9.~^=_-]+', s, re.ASCII | re.IGNORECASE):
+					return s
+				return '"' + s.replace('"', '\\"') + '"'
+
+			file.write('```\n')
+			file.write('{}\n'.format(' '.join(['pip', 'install', *map(simple_quote, pip_reqs)])))
+			file.write('```\n\n')
 	else:
 		file.write('{}\n'.format(failed()))
 		file.write('\n')
@@ -237,7 +249,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 
 
 def generate_full(plugin_list: Iterable[Plugin], file: IO[str]):
-	with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('full_header.md'))) as header:
+	with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('full_header.md'))) as header:
 		file.write(header.read())
 	file.write('\n')
 	for plugin in plugin_list:
@@ -264,17 +276,17 @@ def generate_plugins(plugin_list: List[Plugin]):
 			write_plugin_download(plugin, file, limit=-1)
 
 
-def generate_doc(target_ids: Optional[Collection[str]] = None):
-	print('Generating doc')
+async def generate_doc(target_ids: Optional[Collection[str]] = None):
+	log.info('Generating doc')
 	plugin_list = get_plugin_list(target_ids)
-	plugin_list.fetch_data(fail_hard=False)
+	await plugin_list.fetch_data(fail_hard=False)
 	if os.path.isdir(constants.CATALOGUE_FOLDER):
 		shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)
 
 	def write_doc():
 		with write_nav(get_root_readme_file_path()) as file:
-			with utils.read_file(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('index_header.md'))) as header:
+			with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('index_header.md'))) as header:
 				file.write(header.read())
 			file.write('\n')
 			write_label_info(file)
@@ -288,11 +300,11 @@ def generate_doc(target_ids: Optional[Collection[str]] = None):
 			generate_full(plugin_list, file)
 
 	for lang in LANGUAGES:
-		print('Generating doc in language {}'.format(lang))
+		log.info('Generating doc in language {}'.format(lang))
 		with with_language(lang):
 			write_doc()
 
-	print('Generating doc done')
+	log.info('Generating doc done')
 
 
 class Link:
@@ -322,7 +334,7 @@ class Table:
 		try:
 			self.__rows.append(tuple(map(str, items)))
 		except:
-			print('Failed to add new rows to table, rows: {}'.format(items))
+			log.error('Failed to add new rows to table, rows: {}'.format(items))
 			raise
 
 	@staticmethod
@@ -331,7 +343,7 @@ class Table:
 
 	def write(self, file: IO[str]):
 		self.__write_row(file, self.__title)
-		self.__write_row(file, ('---', ) * self.column_count)
+		self.__write_row(file, ('---',) * self.column_count)
 		for row in self.__rows:
 			self.__write_row(file, row)
 		file.write('\n')
