@@ -17,6 +17,12 @@ __rewrite_markdown_lock = threading.Lock()
 
 
 def rewrite_markdown(content: str, repos_url: str, raw_url: str) -> str:
+	"""
+	Example
+	- repos: https://github.com/my/repos/, branch: master, file to rewrite: foobar/example.md
+	- repos_url (for text files online view): https://github.com/my/repos/tree/master/foobar/
+	- raw_url (for raw contents direct link): https://raw.githubusercontent.com/my/repos/master/foobar/
+	"""
 	from mistletoe.markdown_renderer import MarkdownRenderer
 	from mistletoe.span_token import Image, Link
 
@@ -31,7 +37,7 @@ def rewrite_markdown(content: str, repos_url: str, raw_url: str) -> str:
 				pass  # keep untouched
 			else:
 				new_url = rewrite_base + '/' + url
-				log.info('URL rewritten for {!r}: {!r} -> {!r}'.format(repos_url, url, new_url))
+				log.info('URL rewritten based on {!r}: {!r} -> {!r}'.format(rewrite_base, url, new_url))
 				return new_url
 		return url
 

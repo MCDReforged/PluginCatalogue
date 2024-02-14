@@ -1,5 +1,9 @@
 **English** | [中文](readme_cn.md)
 
+> [!TIP]
+> Check out our [brand new website](https://mcdreforged.com/en/plugins) for easier browsing!  
+> \* *Still under development.*
+
 <h1 align="center"> MCDReforged PluginCatalogue</h1>
 
 <p align="center"> 
