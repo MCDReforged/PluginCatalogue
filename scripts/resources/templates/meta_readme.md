@@ -264,9 +264,12 @@ Basic information of a GitHub repository
   "watchers_count": 65,
   "forks_count": 321,
   
-  // README of the repository
+  // README content of the repository
   // The script will firstly try to fetch the readme from the given repository related path (see `PluginInfo.related_path`)
   // If fails, it will then try to fetch from the repository root
-  "readme": "## Readme for my lovely plugin"
+  // If it still fails, the value will be null
+  "readme": "## Readme for my lovely plugin",
+  // URL of the readme url. null if failed to get the readme  
+  "readme_url": "https://raw.githubusercontent.com/Myself/MyPlugin/master/README.md"
 }
 ```
