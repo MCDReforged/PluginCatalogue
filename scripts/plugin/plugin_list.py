@@ -35,7 +35,7 @@ class PluginList(List[Plugin]):
 							self.append(plugin)
 					except Exception as e:
 						log.exception('Failed to initialize plugin in folder "{}"'.format(folder))
-						reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
+						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						raise
 				else:
 					log.info('Skipping plugin {}'.format(folder))
@@ -52,8 +52,8 @@ class PluginList(List[Plugin]):
 			try:
 				await func(plg)
 			except Exception as e:
-				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
-				reporter.record_failure(plugin.id, 'Fetch {} failed'.format(fetch_target_name), e)
+				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plg))
+				reporter.record_plugin_failure(plg.id, 'Fetch {} failed'.format(fetch_target_name), e)
 				if fail_hard:
 					log.error('Fail-HARD!')
 					raise
@@ -106,7 +106,7 @@ class PluginList(List[Plugin]):
 				plugin.save_repository_info()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
-				reporter.record_failure(plugin.id, 'Store plugin info', e)
+				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
 
 		# make and store plugin summary
 		meta_summary = PluginMetaSummary()

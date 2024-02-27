@@ -46,7 +46,7 @@ class Reporter:
 				message += ': ({}) {}'.format(type(err).__name__, err)
 			self.__warnings[plugin_id].append(message)
 
-	def record_failure(self, plugin_id: str, message: str, err: Exception):
+	def record_plugin_failure(self, plugin_id: str, message: str, err: Exception):
 		with self.__lock:
 			self.__failures[plugin_id].append(message + ': ({}) {}'.format(type(err).__name__, err))
 
@@ -81,8 +81,8 @@ class Reporter:
 
 		if self.__script_error is not None:
 			f.write('## Script failure\n\n')
-			f.write('`({}) {}`\n\n'.format(type(self.__script_error), self.__script_error))
-			f.write('```\n{}\n```\n\n'.format(self.__script_error_exc))
+			f.write('`Exception: ({}) {}`\n\n'.format(type(self.__script_error), self.__script_error))
+			f.write('```\n{}\n```\n\n'.format(self.__script_error_exc.rstrip('\n')))
 
 		f.write('## Failures\n\n')
 		f.write('Plugins with failure: {}\n\n'.format(len(self.__failures)))

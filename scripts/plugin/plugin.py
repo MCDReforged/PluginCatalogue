@@ -209,7 +209,7 @@ class Plugin:
 						file_content = await self.get_repos_text(file_location)
 					except Exception as e:
 						log.exception('Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
-						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
+						reporter.record_plugin_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 					else:
 						if file_location.lower().endswith('.md'):
