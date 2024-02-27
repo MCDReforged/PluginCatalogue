@@ -11,6 +11,6 @@ class AllOfAPlugin(Serializable):
 	/<plugin_id>/all.json
 	"""
 	meta: Optional[MetaInfo]
-	plugin: Optional[PluginInfo]
+	plugin: PluginInfo
 	release: Optional[ReleaseSummary]
 	repository: Optional[RepositoryInfo]

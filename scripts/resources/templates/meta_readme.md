@@ -62,10 +62,10 @@ If you want to grab the whole repository, fetch this and that's it
 ```json5
 // AllOfAPlugin
 {
-  "meta": {/* MetaInfo */},              // same with the "<plugin_id>/meta.json" file
+  "meta": {/* MetaInfo */},              // same with the "<plugin_id>/meta.json" file, null if fetch failed
   "plugin": {/* PluginInfo */},          // same with the "<plugin_id>/plugin.json" file
-  "release": {/* ReleaseSummary */},     // same with the "<plugin_id>/release.json" file
-  "repository": {/* RepositoryInfo */}   // same with the "<plugin_id>/repository.json" file
+  "release": {/* ReleaseSummary */},     // same with the "<plugin_id>/release.json" file, null if fetch failed
+  "repository": {/* RepositoryInfo */}   // same with the "<plugin_id>/repository.json" file, null if fetch failed
 }
 ```
 
