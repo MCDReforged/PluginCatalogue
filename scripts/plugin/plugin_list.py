@@ -101,7 +101,7 @@ class PluginList(List[Plugin]):
 			try:
 				plugin.save_request_cache()
 				plugin.save_meta()
-				plugin.save_release_info()
+				plugin.save_release_summary()
 				plugin.save_formatted_plugin_info()
 				plugin.save_repository_info()
 			except Exception as e:
