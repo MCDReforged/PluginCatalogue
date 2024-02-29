@@ -14,7 +14,7 @@ jobs:
   checklists:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # - name: Auto comment
       #   uses: NejcZdovc/comment-pr@v2
       #   if: ${{ github.event.action == 'opened' }}

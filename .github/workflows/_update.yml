@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('scripts/**/requirements.txt') }}
@@ -30,7 +30,7 @@ jobs:
             ${{ runner.os }}-pip-:
 
       - name: Pull previous meta
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: meta
           path: meta
