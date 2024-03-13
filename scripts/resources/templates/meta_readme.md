@@ -245,7 +245,9 @@ Information of an asset in GitHub release
   "size": 12735,  // size of the asset, in bytes
   "download_count": 1457,  // download count of the asset
   "created_at": "2022-10-03T04:13:26Z",  // asset creation time, in %Y-%m-%dT%H:%M:%SZ format
-  "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr"  // the url to download this asset
+  "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr",  // the url to download this asset
+  "hash_md5": "14758f1afd44c09b7992073ccf00b43d",  // md5 hash digest of the asset
+  "hash_sha256": "aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f"  // sha256 hash digest of the asset
 }
 ```
 
