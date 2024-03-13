@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "matrix_sync",
+    "name": "MatrixSync",
+    "version": "1.0.0",
+    "link": "https://github.com/Mooling0602/MatrixSync-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0"
+    },
+    "requirements": [
+      "matrix-nio",
+      "aiofiles",
+      "asyncio"
+    ],
+    "description": {
+      "en_us": "Sync messages between online game and Matrix groups.",
+      "zh_cn": "同步Matrix群组和线上游戏的消息."
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "matrix_sync",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/MatrixSync-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool",
+      "information"
+    ],
+    "introduction": {
+      "zh_cn": "# MatrixSync-MCDR\n一个MCDR（全称[MCDReforged](https://mcdreforged.com/)）插件，用于同步Matrix群组和线上游戏之间的消息。\n\n关于[Matrix](https://matrix.org/)：一个开放的去中心化的网络通讯协议，用于聊天软件。\n\n开发过程中使用了pypi中的项目[matrix-nio](https://pypi.org/project/matrix-nio/)。\n\n当前已完成预览开发版本，支持线上游戏的消息上报到群组中，详情可以先看看issue。\n\n## 用法\n从Release下载最新版本，甩到plugins文件夹或你设置的存放插件的文件夹内，然后注意控制台输出的提示即可。\n\n## 注意\n- 首次加载插件会初始化配置并自动卸载插件，你需要修改完默认配置后，重启服务器或重载插件才能正常使用。\n- 不打算支持加密信息（EE2E），有需要自行修改。\n- i18n将在正式版本（v1.1.0）以后得到支持。\n- 房间消息转发到游戏内的功能还在开发，由于看不懂文档，可能还需要很长时间。\n- For English(and other languages) users, you need to use translate tools at present.\n"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "matrix_sync",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/MatrixSync-MCDR/releases/tag/1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2024-03-10T14:06:07Z",
+        "description": "# [+] 支持Matrix群组的消息发送到游戏，但需要注意：\r\n- 用于同步消息的Matrix机器人只能加入用于消息同步的房间，否则其他房间的消息也会被发送到游戏；\r\n- 开服后机器人会连带发送Matrix房间内的多条历史消息，请等待后续修复，不影响新消息的同步；\r\n- 插件可能会经常重建线程，能跑就行（大雾）；\r\n- 下个版本将尝试多语言翻译（仅增加英语/English）",
+        "prerelease": false,
+        "asset": {
+          "id": 155913574,
+          "name": "MatrixSync-v1.0.0.mcdr",
+          "size": 2753,
+          "download_count": 4,
+          "created_at": "2024-03-10T14:01:47Z",
+          "browser_download_url": "https://github.com/Mooling0602/MatrixSync-MCDR/releases/download/1.0.0/MatrixSync-v1.0.0.mcdr",
+          "hash_md5": "bd8185aedeaa6e6e0e498f3a600a68eb",
+          "hash_sha256": "0b83b2304511c43618a60cffd5cde4e502fa97ad266a2871d415ec1acb192e21"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "matrix_sync",
+          "name": "MatrixSync",
+          "version": "1.0.0",
+          "link": "https://github.com/Mooling0602/MatrixSync-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "matrix-nio",
+            "aiofiles",
+            "asyncio"
+          ],
+          "description": {
+            "en_us": "Sync messages between online game and Matrix groups.",
+            "zh_cn": "同步Matrix群组和线上游戏的消息."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/MatrixSync-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2024-02-17T12:43:47Z",
+        "description": "- 首个预览版本，仅实现从线上游戏获取消息并发送到Matrix群组的功能。\r\n- 若有问题，可以发issue讨论。",
+        "prerelease": false,
+        "asset": {
+          "id": 155151863,
+          "name": "MatrixSync-v0.1.0.mcdr",
+          "size": 2538,
+          "download_count": 5,
+          "created_at": "2024-03-06T05:34:25Z",
+          "browser_download_url": "https://github.com/Mooling0602/MatrixSync-MCDR/releases/download/0.1.0/MatrixSync-v0.1.0.mcdr",
+          "hash_md5": "64e97c6cfcb0729d8b6465a01837b8b1",
+          "hash_sha256": "cb51196ec5fba4418414a7ed6358f69a630837e0fea772e4a0882e07701f5fa0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "matrix_sync",
+          "name": "MatrixSync",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/MatrixSync-MCDR",
+          "authors": [
+            "CleMooling"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "matrix-nio",
+            "aiofiles",
+            "asyncio"
+          ],
+          "description": {
+            "en_us": "Sync messages between online game and Matrix groups. First preview, just send game msg to Matrix groups.",
+            "zh_cn": "同步Matrix群组和线上游戏的消息. 首个预览版本，只能向Matrix群组上报消息."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/MatrixSync-MCDR",
+    "name": "MatrixSync-MCDR",
+    "full_name": "Mooling0602/MatrixSync-MCDR",
+    "description": "A MCDR (full name \"MCDReforged\") plugin sync messages between online game and Matrix groups.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# MatrixSync-MCDR\n一个MCDR（全称[MCDReforged](https://mcdreforged.com/)）插件，用于同步Matrix群组和线上游戏之间的消息。\n\n关于[Matrix](https://matrix.org/)：一个开放的去中心化的网络通讯协议，用于聊天软件。\n\n开发过程中使用了pypi中的项目[matrix-nio](https://pypi.org/project/matrix-nio/)。\n\n当前已完成预览开发版本，支持线上游戏的消息上报到群组中，详情可以先看看issue。\n\n## 用法\n从Release下载最新版本，甩到plugins文件夹或你设置的存放插件的文件夹内，然后注意控制台输出的提示即可。\n\n## 注意\n- 首次加载插件会初始化配置并自动卸载插件，你需要修改完默认配置后，重启服务器或重载插件才能正常使用。\n- 不打算支持加密信息（EE2E），有需要自行修改。\n- i18n将在正式版本（v1.1.0）以后得到支持。\n- 房间消息转发到游戏内的功能还在开发，由于看不懂文档，可能还需要很长时间。\n- For English(and other languages) users, you need to use translate tools at present.\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/MatrixSync-MCDR/master/README.md"
+  }
+}
