@@ -80,7 +80,9 @@ class PluginList(List[Plugin]):
 
 		# prepare folder
 		if os.path.isdir(constants.META_FOLDER):
-			shutil.rmtree(constants.META_FOLDER)
+			# raise possible directory operation error before cleaning the meta folder content
+			os.rename(constants.META_FOLDER, constants.META_FOLDER + '.old')
+			shutil.rmtree(constants.META_FOLDER + '.old')
 		os.makedirs(constants.META_FOLDER)
 
 		# make readme
@@ -133,7 +135,15 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			aop = plugin.create_and_save_all_data()
 			everything.plugins[plugin.id] = aop
-		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
+		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True, with_xz=True)
+
+		# everything (slim)
+		for p in everything.plugins.values():
+			p.plugin.introduction = {}
+			p.repository.readme = None
+			for r in p.release.releases:
+				r.description = None
+		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything_slim.json'), compact=True, with_gz=True, with_xz=True)
 
 		log.info('Stored data into meta folder')
 
