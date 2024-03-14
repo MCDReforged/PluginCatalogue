@@ -11,7 +11,7 @@
 - 版本: 1.0
   - 元数据版本: 1.0
   - 发布版本: 1.0
-- 总下载量: 83
+- 总下载量: 84
 - 作者: [ltBerryshdo](https://github.com/ltBerryshdo)
 - 仓库: https://github.com/ltBerryshdo/Whisper
 - 仓库插件页: https://github.com/ltBerryshdo/Whisper/tree/main
@@ -77,5 +77,5 @@ More plugins click *[here](https://github.com/MCDReforged/PluginCatalogue)*
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [Whisper-v1.0.mcdr](https://github.com/ltBerryshdo/Whisper/releases/tag/v1.0) | 1.0 | 2023/02/20 13:29:03 | 3.46KB | 83 | [下载](https://github.com/ltBerryshdo/Whisper/releases/download/v1.0/Whisper-v1.0.mcdr) |
+| [Whisper-v1.0.mcdr](https://github.com/ltBerryshdo/Whisper/releases/tag/v1.0) | 1.0 | 2023/02/20 13:29:03 | 3.46KB | 84 | [下载](https://github.com/ltBerryshdo/Whisper/releases/download/v1.0/Whisper-v1.0.mcdr) |
 

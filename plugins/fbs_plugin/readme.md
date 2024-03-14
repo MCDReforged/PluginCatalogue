@@ -11,7 +11,7 @@
 - Version: 1.1.1
   - Metadata version: 1.1.1
   - Release version: 1.1.1
-- Total downloads: 125
+- Total downloads: 127
 - Authors: [WalkerTian](https://github.com/Walkersifolia)
 - Repository: https://github.com/Walkersifolia/FastBotSpawn
 - Repository plugin page: https://github.com/Walkersifolia/FastBotSpawn/tree/master
@@ -39,6 +39,6 @@
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [FastBotSpawn-v1.1.1.mcdr](https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.1) | 1.1.1 | 2023/09/23 17:49:10 | 2.52KB | 83 | [Download](https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.1/FastBotSpawn-v1.1.1.mcdr) |
-| [FastBotSpawn-v1.1.0.mcdr](https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.0) | 1.1.0 | 2023/07/14 17:12:08 | 2.48KB | 42 | [Download](https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.0/FastBotSpawn-v1.1.0.mcdr) |
+| [FastBotSpawn-v1.1.1.mcdr](https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.1) | 1.1.1 | 2023/09/23 17:49:10 | 2.52KB | 84 | [Download](https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.1/FastBotSpawn-v1.1.1.mcdr) |
+| [FastBotSpawn-v1.1.0.mcdr](https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.0) | 1.1.0 | 2023/07/14 17:12:08 | 2.48KB | 43 | [Download](https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.0/FastBotSpawn-v1.1.0.mcdr) |
 
