@@ -5215,7 +5215,7 @@ A plugin for run command quickly
 - Version: 1.5.0
   - Metadata version: 1.5.0
   - Release version: 1.5.0
-- Total downloads: 42
+- Total downloads: 43
 - Authors: [GHS-Official](https://github.com/GHS-Official)
 - Repository: https://github.com/GHS-Official/Region_BackUp
 - Repository plugin page: https://github.com/GHS-Official/Region_BackUp/tree/master
@@ -5248,7 +5248,7 @@ An MCDR plugin that backs up or archives on a regional basis
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [Region-BackUp-v1.5.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.5.0) | 1.5.0 | 2024/03/04 10:38:15 | 20.6KB | 22 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr) |
+| [Region-BackUp-v1.5.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.5.0) | 1.5.0 | 2024/03/04 10:38:15 | 20.6KB | 23 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr) |
 | [Region-BackUp-v1.1.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.1.0) | 1.1.0 | 2024/02/14 05:02:42 | 20.13KB | 12 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.1.0/Region-BackUp-v1.1.0.mcdr) |
 | [Region-BackUp-v1.0.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.0.0) | 1.0.0 | 2024/02/04 16:24:11 | 20.01KB | 8 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.0.0/Region-BackUp-v1.0.0.mcdr) |
 
