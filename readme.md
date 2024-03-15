@@ -26,7 +26,7 @@ Plugin Amount: 113
 | [Beep](/plugins/beep/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [LucunJi](https://github.com/LucunJi) | Use @ \<someone\> to ping someone, @ all for everyone. Use @@ for a pogger ping | 2021/08/26 | [`Tool`](/labels/tool/readme.md) |
 | [Better Backup](/plugins/better_backup/readme.md) | [z0z0r4](https://github.com/z0z0r4) | A plugin that supports efficient backup/rollback with file deduplication | 2023/08/30 | [`Management`](/labels/management/readme.md) |
 | [Bingo](/plugins/bingo/readme.md) | [Andy Zhang](https://github.com/AnzhiZhang) | Useful tool for Bingo game | 2023/02/26 | [`Tool`](/labels/tool/readme.md) |
-| [Bot](/plugins/bot/readme.md) | [Andy Zhang](https://github.com/AnzhiZhang) | The best carpet bot manager! | 2024/02/27 | [`Tool`](/labels/tool/readme.md), [`Management`](/labels/management/readme.md) |
+| [Bot](/plugins/bot/readme.md) | [Andy Zhang](https://github.com/AnzhiZhang) | The best carpet bot manager! | 2024/03/15 | [`Tool`](/labels/tool/readme.md), [`Management`](/labels/management/readme.md) |
 | [Bot Plugin](/plugins/bot_plugin/readme.md) | [DancingSnow0517](https://github.com/DancingSnow0517) | 管理 carpet 机器人 | 2022/01/09 | [`Management`](/labels/management/readme.md), [`Tool`](/labels/tool/readme.md) |
 | [Carpet Bot Manager](/plugins/carpet_bot_manager/readme.md) | [YehowahLiu](https://github.com/YehowahLiu) | A carpet bot manage plugin, able to spawn bot and make it execute actions | 2023/08/17 | [`Tool`](/labels/tool/readme.md) |
 | [Carpet Tick](/plugins/carpet_tick/readme.md) | [Ivan1F](https://github.com/Ivan-1F) | Get server status using carpet /tick command | 2022/08/27 | [`Information`](/labels/information/readme.md) |
