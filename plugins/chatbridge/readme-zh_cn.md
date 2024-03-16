@@ -11,7 +11,7 @@
 - 版本: 2.5.3
   - 元数据版本: 2.5.3
   - 发布版本: 2.5.3
-- 总下载量: 2962
+- 总下载量: 2963
 - 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
 - 仓库: https://github.com/TISUnion/ChatBridge
 - 仓库插件页: https://github.com/TISUnion/ChatBridge/tree/master
@@ -47,7 +47,7 @@ pip install "mcdreforged>=2.2.0" pycryptodome colorlog
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.3) | 2.5.3 | 2023/12/23 10:31:21 | 41.18KB | 253 | [下载](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.3/ChatBridge.pyz) |
+| [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.3) | 2.5.3 | 2023/12/23 10:31:21 | 41.18KB | 254 | [下载](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.3/ChatBridge.pyz) |
 | [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.2) | 2.5.2 | 2023/10/29 06:49:36 | 40.96KB | 101 | [下载](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.2/ChatBridge.pyz) |
 | [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.1) | 2.5.1 | 2023/04/04 15:28:53 | 40.63KB | 575 | [下载](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.1/ChatBridge.pyz) |
 | [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.0) | 2.5.0 | 2023/03/13 19:01:44 | 41.09KB | 95 | [下载](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.0/ChatBridge.pyz) |

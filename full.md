@@ -927,7 +927,7 @@ When the server starts, it automatically uses Cato (P2P connection tool) for por
 - Version: 2.5.3
   - Metadata version: 2.5.3
   - Release version: 2.5.3
-- Total downloads: 2962
+- Total downloads: 2963
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/ChatBridge
 - Repository plugin page: https://github.com/TISUnion/ChatBridge/tree/master
@@ -963,7 +963,7 @@ Chatbridge v2
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.3) | 2.5.3 | 2023/12/23 10:31:21 | 41.18KB | 253 | [Download](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.3/ChatBridge.pyz) |
+| [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.3) | 2.5.3 | 2023/12/23 10:31:21 | 41.18KB | 254 | [Download](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.3/ChatBridge.pyz) |
 | [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.2) | 2.5.2 | 2023/10/29 06:49:36 | 40.96KB | 101 | [Download](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.2/ChatBridge.pyz) |
 | [ChatBridge.pyz](https://github.com/TISUnion/ChatBridge/releases/tag/v2.5.1) | 2.5.1 | 2023/04/04 15:28:53 | 40.63KB | 575 | [Download](https://github.com/TISUnion/ChatBridge/releases/download/v2.5.1/ChatBridge.pyz) |
 
@@ -976,7 +976,7 @@ Chatbridge v2
 - Version: 0.2.7-dev032
   - Metadata version: 0.2.7-dev032
   - Release version: 0.2.7-dev032
-- Total downloads: 494
+- Total downloads: 495
 - Authors: [Ricky](https://github.com/R1ckyH)
 - Repository: https://github.com/R1ckyH/ChatBridgeReforged
 - Repository plugin page: https://github.com/R1ckyH/ChatBridgeReforged/tree/master/./ChatBridgeReforged_MC
@@ -1011,7 +1011,7 @@ Reforged of ChatBridge, interaction with other clients(such as minecraft server,
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [ChatBridgeReforged_MC.pyz](https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.2.7) | 0.2.7-dev032 | 2022/12/20 09:53:31 | 49.35KB | 333 | [Download](https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.2.7/ChatBridgeReforged_MC.pyz) |
+| [ChatBridgeReforged_MC.pyz](https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.2.7) | 0.2.7-dev032 | 2022/12/20 09:53:31 | 49.35KB | 334 | [Download](https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.2.7/ChatBridgeReforged_MC.pyz) |
 | [ChatBridgeReforged_MC.pyz](https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.1.1) | 0.1.1-dev024 | 2022/03/04 06:12:36 | 46.96KB | 88 | [Download](https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.1.1/ChatBridgeReforged_MC.pyz) |
 | [ChatBridgeReforged_MC.pyz](https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.0.2) | 0.0.2-dev022 | 2022/01/15 16:33:44 | 44.9KB | 73 | [Download](https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.0.2/ChatBridgeReforged_MC.pyz) |
 
@@ -2784,7 +2784,7 @@ Today's horoscope based on `random.randint(0, 100)`
 - Version: 1.4.9
   - Metadata version: 1.4.9
   - Release version: 1.4.9
-- Total downloads: 1329
+- Total downloads: 1330
 - Authors: [zyxkad](https://github.com/zyxkad)
 - Repository: https://github.com/kmcsr/kpi_mcdr
 - Repository plugin page: https://github.com/kmcsr/kpi_mcdr/tree/master
@@ -2814,7 +2814,7 @@ Today's horoscope based on `random.randint(0, 100)`
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [KPI-v1.4.9.mcdr](https://github.com/kmcsr/kpi_mcdr/releases/tag/v1.4.9) | 1.4.9 | 2024/02/03 00:47:07 | 26.16KB | 116 | [Download](https://github.com/kmcsr/kpi_mcdr/releases/download/v1.4.9/KPI-v1.4.9.mcdr) |
+| [KPI-v1.4.9.mcdr](https://github.com/kmcsr/kpi_mcdr/releases/tag/v1.4.9) | 1.4.9 | 2024/02/03 00:47:07 | 26.16KB | 117 | [Download](https://github.com/kmcsr/kpi_mcdr/releases/download/v1.4.9/KPI-v1.4.9.mcdr) |
 | [KPI-v1.4.8.mcdr](https://github.com/kmcsr/kpi_mcdr/releases/tag/v1.4.8) | 1.4.8 | 2023/08/26 19:20:34 | 26.14KB | 226 | [Download](https://github.com/kmcsr/kpi_mcdr/releases/download/v1.4.8/KPI-v1.4.8.mcdr) |
 | [KPI-v1.4.7.mcdr](https://github.com/kmcsr/kpi_mcdr/releases/tag/v1.4.7) | 1.4.7 | 2023/06/28 02:39:10 | 26.14KB | 213 | [Download](https://github.com/kmcsr/kpi_mcdr/releases/download/v1.4.7/KPI-v1.4.7.mcdr) |
 
@@ -4693,7 +4693,7 @@ Database-based Carpet fake player management
 - Version: 1.7.3
   - Metadata version: 1.7.3
   - Release version: 1.7.3
-- Total downloads: 1001
+- Total downloads: 1002
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/PrimeBackup
 - Repository plugin page: https://github.com/TISUnion/PrimeBackup/tree/master
@@ -4779,7 +4779,7 @@ The idea for the hash-based file pool is inspired by https://github.com/z0z0r4/b
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [PrimeBackup-v1.7.3.pyz](https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.3) | 1.7.3 | 2024/03/10 18:48:38 | 146.27KB | 48 | [Download](https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.3/PrimeBackup-v1.7.3.pyz) |
+| [PrimeBackup-v1.7.3.pyz](https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.3) | 1.7.3 | 2024/03/10 18:48:38 | 146.27KB | 49 | [Download](https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.3/PrimeBackup-v1.7.3.pyz) |
 | [PrimeBackup-v1.7.2.pyz](https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.2) | 1.7.2 | 2024/02/25 01:48:39 | 146.17KB | 105 | [Download](https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.2/PrimeBackup-v1.7.2.pyz) |
 | [PrimeBackup-v1.7.1.pyz](https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.1) | 1.7.1 | 2024/02/24 18:44:14 | 146.19KB | 8 | [Download](https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.1/PrimeBackup-v1.7.1.pyz) |
 
