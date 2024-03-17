@@ -11,7 +11,7 @@
 - Version: 2.1.6
   - Metadata version: 2.1.7
   - Release version: 2.1.6
-- Total downloads: 336
+- Total downloads: 338
 - Authors: [z0z0r4](https://github.com/z0z0r4)
 - Repository: https://github.com/z0z0r4/better_backup
 - Repository plugin page: https://github.com/z0z0r4/better_backup/tree/master
@@ -54,5 +54,5 @@ Features:
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [Better_Backup-v2.1.6.mcdr](https://github.com/z0z0r4/better_backup/releases/tag/v2.1.6) | 2.1.6 | 2023/08/30 12:35:29 | 17.57KB | 336 | [Download](https://github.com/z0z0r4/better_backup/releases/download/v2.1.6/Better_Backup-v2.1.6.mcdr) |
+| [Better_Backup-v2.1.6.mcdr](https://github.com/z0z0r4/better_backup/releases/tag/v2.1.6) | 2.1.6 | 2023/08/30 12:35:29 | 17.57KB | 338 | [Download](https://github.com/z0z0r4/better_backup/releases/download/v2.1.6/Better_Backup-v2.1.6.mcdr) |
 
