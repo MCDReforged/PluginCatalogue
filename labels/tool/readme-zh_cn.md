@@ -18,16 +18,16 @@
 | [Bingo](/plugins/bingo/readme-zh_cn.md) | [Andy Zhang](https://github.com/AnzhiZhang) | Bingo 游戏实用工具 | 2023/02/26 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Bot](/plugins/bot/readme-zh_cn.md) | [Andy Zhang](https://github.com/AnzhiZhang) | 最好用的地毯模组假人管理器！ | 2024/03/15 | [`工具`](/labels/tool/readme-zh_cn.md), [`管理`](/labels/management/readme-zh_cn.md) |
 | [Bot Plugin](/plugins/bot_plugin/readme-zh_cn.md) | [DancingSnow0517](https://github.com/DancingSnow0517) | 管理 carpet 机器人 | 2022/01/09 | [`管理`](/labels/management/readme-zh_cn.md), [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Carpet Bot Manager](/plugins/carpet_bot_manager/readme-zh_cn.md) | [YehowahLiu](https://github.com/YehowahLiu) | 一个地毯端bot管理插件, 可以点击召唤bot并让其执行系列动作 | 2023/08/17 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Carpet Bot Manager](/plugins/carpet_bot_manager/readme-zh_cn.md) | [YehowahLiu](https://github.com/YehowahLiu) | 一个地毯端bot管理插件, 可以点击召唤bot并让其执行系列动作 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [CarpetBotList](/plugins/carpetbotlist/readme-zh_cn.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | 帮助你管理地毯端假人 | 2021/08/23 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Cato Plugin](/plugins/cato/readme-zh_cn.md) | [Harry-zklcdc](https://github.com/Harry-zklcdc) | Plugin Cato | 2021/10/31 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [ChatBridge v2 for MCDR](/plugins/chatbridge/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天 | 2023/12/23 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [ChatBridge v2 for MCDR](/plugins/chatbridge/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 跨服聊天 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [ChatBridgeReforged_MC](/plugins/chatbridgereforged_mc/readme-zh_cn.md) | [Ricky](https://github.com/R1ckyH) | ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多服互联（不是） | 2022/12/20 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [ColoredChat](/plugins/colored_chat/readme-zh_cn.md) | [Andy Zhang](https://github.com/AnzhiZhang) | 支持原版显示格式化代码 | 2023/02/26 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Colorful ID](/plugins/colorful_id/readme-zh_cn.md) | [Apricityx_](https://github.com/Apricityx) | 让玩家的名字五颜六色！ | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [MCDR Command Exporter](/plugins/command_exporter/readme-zh_cn.md) | [DancingSnow](https://github.com/DancingSnow0517) | A plugin is used to export the MCDR command tree | 2023/02/04 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [MCDR Command Exporter](/plugins/command_exporter/readme-zh_cn.md) | [DancingSnow](https://github.com/DancingSnow0517) | A plugin is used to export the MCDR command tree | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Crash Restart](/plugins/crash_restart/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 在服务端崩溃后自动重启服务器的插件 | 2021/08/22 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Daytime](/plugins/daytime/readme-zh_cn.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | 显示游戏中的时间 | 2021/08/18 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Daytime](/plugins/daytime/readme-zh_cn.md) | [ZeroKelvin](https://github.com/BelowZeroKelvin) | 显示游戏中的时间 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Delay Exe](/plugins/delayexe/readme-zh_cn.md) | [zyxkad](https://github.com/zyxkad) | 延迟执行命令, 直到所有玩家都离开游戏 | 2023/08/27 | [`工具`](/labels/tool/readme-zh_cn.md), [`API`](/labels/api/readme-zh_cn.md) |
 | [Diamond Calculator](/plugins/diamond_calc/readme-zh_cn.md) | [Huaji_MUR233](https://github.com/HuajiMUR233) | *无* | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Easy Bot Manager](/plugins/easy_bot_manager/readme-zh_cn.md) | [LiuTed](https://github.com/LiuTed) | Easy-to-use Carpet Bot Manager Plugin | 2022/06/23 | [`工具`](/labels/tool/readme-zh_cn.md) |
@@ -36,12 +36,12 @@
 | [FastBotSpawn](/plugins/fbs_plugin/readme-zh_cn.md) | [WalkerTian](https://github.com/Walkersifolia) | A plugin with multiple functions | 2023/09/23 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Gamemode](/plugins/gamemode/readme-zh_cn.md) | [Andy Zhang](https://github.com/AnzhiZhang) | 旁观者模式以旁观，返回生存时传送回原坐标 | 2023/12/26 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [homo_calculator](/plugins/homo_calculator/readme-zh_cn.md) | [meng877](https://github.com/meng877) | homo_calculator | 2024/03/09 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Jrrp](/plugins/jrrp/readme-zh_cn.md) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 《今日人品》 | 2022/08/28 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Jrrp](/plugins/jrrp/readme-zh_cn.md) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 《今日人品》 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Jrrps Plg](/plugins/jrrps/readme-zh_cn.md) | [SkyDynamic](https://github.com/SkyDynamic) | 测试今天的运势 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [LazyBing THB](/plugins/lazybing_thb/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing) | TPA, Home & Back for MCDReforged | 2023/12/07 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [LazyBing THB](/plugins/lazybing_thb/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing) | TPA, Home & Back for MCDReforged | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Leader Reforged](/plugins/leader_reforged/readme-zh_cn.md) | [XavierWah](https://github.com/XavierWah) | 这个插件简化并实现了 Leader 的功能，使得可以指出一个玩家作为导游。 | 2022/04/09 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [MatrixSync](/plugins/matrix_sync/readme-zh_cn.md) | [Mooling0602](https://github.com/Mooling0602) | 同步Matrix群组和线上游戏的消息. | 2024/03/10 | [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md) |
-| [Seen](/plugins/mcd_seen/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Show laziness rank easily | 2024/02/27 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [MatrixSync](/plugins/matrix_sync/readme-zh_cn.md) | [Mooling0602](https://github.com/Mooling0602) | 同步Matrix群组和线上游戏的消息. | N/A | [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md) |
+| [Seen](/plugins/mcd_seen/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Show laziness rank easily | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Task](/plugins/mcd_task/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | 用于展示进行中的工程任务的插件 | 2024/02/07 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [MCDR Bot](/plugins/mcdr_pycraft_bot/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 pycraft 的假人插件 | 2021/08/19 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [MCDRpost](/plugins/mcdrpost/readme-zh_cn.md) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 | 2022/06/16 | [`工具`](/labels/tool/readme-zh_cn.md) |

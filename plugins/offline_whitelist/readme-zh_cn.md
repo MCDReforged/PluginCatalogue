@@ -10,8 +10,8 @@
 - 插件名: OfflineWhitelist
 - 版本: 0.1.4
   - 元数据版本: 0.1.4
-  - 发布版本: 0.1.4
-- 总下载量: 123
+  - 发布版本: N/A
+- 总下载量: 0
 - 作者: [skuzow](https://github.com/skuzow)
 - 仓库: https://github.com/skuzow/offline-whitelist
 - 仓库插件页: https://github.com/skuzow/offline-whitelist/tree/master
@@ -45,5 +45,4 @@ pip install "mcdreforged>=2.0.0"
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [OfflineWhitelist-v0.1.4.mcdr](https://github.com/skuzow/offline-whitelist/releases/tag/v0.1.4) | 0.1.4 | 2022/07/11 13:07:56 | 16.03KB | 123 | [下载](https://github.com/skuzow/offline-whitelist/releases/download/v0.1.4/OfflineWhitelist-v0.1.4.mcdr) |
 
