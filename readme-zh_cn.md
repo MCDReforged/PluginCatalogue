@@ -13,7 +13,7 @@
 
 -------
 
-插件数量: 113
+插件数量: 114
 
 | 插件名 | 作者 | 描述 | 最近更新 | 标签 |
 | --- | --- | --- | --- | --- |
@@ -106,6 +106,7 @@
 | [quick_run_cmd](/plugins/quick_run_cmd/readme-zh_cn.md) | [Ricky](https://github.com/R1ckyH) | 一个快速运行自定义脚本的插件。 | 2021/12/24 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Region-BackUp](/plugins/region_backup/readme-zh_cn.md) | [GHS-Official](https://github.com/GHS-Official) | 一个以区域为单位备份或回档的MCDR插件 | 2024/03/21 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Region file Updater](/plugins/region_file_updater/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个从指定位置拉取region文件至本服存档的插件 | 2022/03/08 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [Region file Updater Multi](/plugins/region_file_updater_multi/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | 一个从多个位置拉取 region 文件至本服存档的插件 | N/A | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Renewability](/plugins/renewability/readme-zh_cn.md) | [Fidel Yin](https://github.com/Fidelxyz) | A plugin that allows players to clone non-renewable items | 2021/09/08 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Requirements](/plugins/requirements/readme-zh_cn.md) | [awaBlack](https://github.com/Hi-awaBlack) | Auto install dependencies. | N/A | [`API`](/labels/api/readme-zh_cn.md) |
 | [RestartServer](/plugins/restartserver/readme-zh_cn.md) | [Crystal0404](https://github.com/Crystal0404) | Restart Server | 2023/12/12 | [`工具`](/labels/tool/readme-zh_cn.md) |

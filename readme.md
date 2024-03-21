@@ -13,7 +13,7 @@ Full plugin information document [here](./full.md)
 
 -------
 
-Plugin Amount: 113
+Plugin Amount: 114
 
 | Plugin Name | Authors | Description | Last Update | Labels |
 | --- | --- | --- | --- | --- |
@@ -106,6 +106,7 @@ Plugin Amount: 113
 | [quick_run_cmd](/plugins/quick_run_cmd/readme.md) | [Ricky](https://github.com/R1ckyH) | A plugin for run command quickly. | 2021/12/24 | [`Tool`](/labels/tool/readme.md) |
 | [Region-BackUp](/plugins/region_backup/readme.md) | [GHS-Official](https://github.com/GHS-Official) | An MCDR plugin that backs up or backs up files on a regional basis | 2024/03/21 | [`Management`](/labels/management/readme.md) |
 | [Region file Updater](/plugins/region_file_updater/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDR plugin to help you update region files in game | 2022/03/08 | [`Management`](/labels/management/readme.md) |
+| [Region file Updater Multi](/plugins/region_file_updater_multi/readme.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | A MCDR plugin to update region files in game from multiple locations | N/A | [`Management`](/labels/management/readme.md) |
 | [Renewability](/plugins/renewability/readme.md) | [Fidel Yin](https://github.com/Fidelxyz) | A plugin that allows players to clone non-renewable items | 2021/09/08 | [`Tool`](/labels/tool/readme.md) |
 | [Requirements](/plugins/requirements/readme.md) | [awaBlack](https://github.com/Hi-awaBlack) | Auto install dependencies. | N/A | [`API`](/labels/api/readme.md) |
 | [RestartServer](/plugins/restartserver/readme.md) | [Crystal0404](https://github.com/Crystal0404) | Restart Server | 2023/12/12 | [`Tool`](/labels/tool/readme.md) |

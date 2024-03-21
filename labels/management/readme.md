@@ -6,7 +6,7 @@
 
 Plugin Index with label `Management`
 
-Plugin Amount: 33
+Plugin Amount: 34
 
 | Plugin Name | Authors | Description | Last Update | Labels |
 | --- | --- | --- | --- | --- |
@@ -38,6 +38,7 @@ Plugin Amount: 33
 | [Quick Backup Multi](/plugins/quick_backup_multi/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A backup / restore plugin, with multiple backup slot | 2023/12/22 | [`Management`](/labels/management/readme.md) |
 | [Region-BackUp](/plugins/region_backup/readme.md) | [GHS-Official](https://github.com/GHS-Official) | An MCDR plugin that backs up or backs up files on a regional basis | 2024/03/21 | [`Management`](/labels/management/readme.md) |
 | [Region file Updater](/plugins/region_file_updater/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | A MCDR plugin to help you update region files in game | 2022/03/08 | [`Management`](/labels/management/readme.md) |
+| [Region file Updater Multi](/plugins/region_file_updater_multi/readme.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | A MCDR plugin to update region files in game from multiple locations | N/A | [`Management`](/labels/management/readme.md) |
 | [SmartBackup](/plugins/smart_backup/readme.md) | [zyxkad](https://github.com/zyxkad) | A Minecraft Backup Plugin | 2022/05/11 | [`Management`](/labels/management/readme.md) |
 | [SmartServerTime](/plugins/smart_servertime/readme.md) | [zyxkad](https://github.com/zyxkad) | A Minecraft Auto Start/Stop Plugin | 2024/02/04 | [`Management`](/labels/management/readme.md) |
 | [The Offline ops](/plugins/the_offline_ops/readme.md) | [ltBerryshdo](https://github.com/ltBerryshdo) | Check the player's IP to prevent impersonation of logging into the offline server | 2023/02/04 | [`Management`](/labels/management/readme.md) |
