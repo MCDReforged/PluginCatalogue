@@ -5116,7 +5116,7 @@ pip install aiocqhttp
 - Version: 1.10.1
   - Metadata version: 1.10.1
   - Release version: 1.10.1
-- Total downloads: 14129
+- Total downloads: 14130
 - Authors: [Fallen_Breath](https://github.com/Fallen-Breath)
 - Repository: https://github.com/TISUnion/QuickBackupM
 - Repository plugin page: https://github.com/TISUnion/QuickBackupM/tree/master
@@ -5157,7 +5157,7 @@ Features:
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [QuickBackupM-v1.10.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.10.1) | 1.10.1 | 2023/12/22 18:20:12 | 23.74KB | 779 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.10.1/QuickBackupM-v1.10.1.mcdr) |
+| [QuickBackupM-v1.10.1.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.10.1) | 1.10.1 | 2023/12/22 18:20:12 | 23.74KB | 780 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.10.1/QuickBackupM-v1.10.1.mcdr) |
 | [QuickBackupM-v1.10.0.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.10.0) | 1.10.0 | 2023/12/07 07:06:25 | 23.72KB | 123 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.10.0/QuickBackupM-v1.10.0.mcdr) |
 | [QuickBackupM-v1.9.0.mcdr](https://github.com/TISUnion/QuickBackupM/releases/tag/v1.9.0) | 1.9.0 | 2023/05/10 17:55:42 | 22.98KB | 2347 | [Download](https://github.com/TISUnion/QuickBackupM/releases/download/v1.9.0/QuickBackupM-v1.9.0.mcdr) |
 
@@ -5212,10 +5212,10 @@ A plugin for run command quickly
 
 - Plugin ID: `region_backup`
 - Plugin Name: Region-BackUp
-- Version: 1.5.0
+- Version: 1.6.0
   - Metadata version: 1.5.0
-  - Release version: 1.5.0
-- Total downloads: 46
+  - Release version: 1.6.0
+- Total downloads: 21
 - Authors: [GHS-Official](https://github.com/GHS-Official)
 - Repository: https://github.com/GHS-Official/Region_BackUp
 - Repository plugin page: https://github.com/GHS-Official/Region_BackUp/tree/master
@@ -5248,9 +5248,9 @@ An MCDR plugin that backs up or archives on a regional basis
 
 | File | Version | Upload Time (UTC) | Size | Downloads | Operations |
 | --- | --- | --- | --- | --- | --- |
-| [Region-BackUp-v1.5.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.5.0) | 1.5.0 | 2024/03/04 10:38:15 | 20.6KB | 25 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr) |
+| [Region-BackUp-v1.6.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.6.0) | 1.6.0 | 2024/03/21 03:40:45 | 20.74KB | 0 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.6.0/Region-BackUp-v1.6.0.mcdr) |
+| [Region-BackUp-v1.5.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.5.0) | 1.5.0 | 2024/03/21 03:39:17 | 20.57KB | 0 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr) |
 | [Region-BackUp-v1.1.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.1.0) | 1.1.0 | 2024/02/14 05:02:42 | 20.13KB | 13 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.1.0/Region-BackUp-v1.1.0.mcdr) |
-| [Region-BackUp-v1.0.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.0.0) | 1.0.0 | 2024/02/04 16:24:11 | 20.01KB | 8 | [Download](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.0.0/Region-BackUp-v1.0.0.mcdr) |
 
 ## region_file_updater
 
