@@ -2175,7 +2175,7 @@ pip install speedcopy
 - 版本: 1.1.0
   - 元数据版本: 1.1.0
   - 发布版本: 1.1.0
-- 总下载量: 1996
+- 总下载量: 1997
 - 作者: [Andy Zhang](https://github.com/AnzhiZhang)
 - 仓库: https://github.com/AnzhiZhang/MCDReforgedPlugins
 - 仓库插件页: https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode
@@ -2254,7 +2254,7 @@ pip install speedcopy
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [Gamemode-v1.1.0.mcdr](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.1.0) | 1.1.0 | 2023/12/26 11:40:57 | 3.17KB | 279 | [下载](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.1.0/Gamemode-v1.1.0.mcdr) |
+| [Gamemode-v1.1.0.mcdr](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.1.0) | 1.1.0 | 2023/12/26 11:40:57 | 3.17KB | 280 | [下载](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.1.0/Gamemode-v1.1.0.mcdr) |
 | [Gamemode-v1.0.1.mcdr](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.0.1) | 1.0.1 | 2023/03/18 15:38:32 | 3.1KB | 927 | [下载](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.0.1/Gamemode-v1.0.1.mcdr) |
 | [Gamemode-v1.0.0.mcdr](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.0.0) | 1.0.0 | 2022/12/02 14:11:43 | 3.06KB | 428 | [下载](https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.0.0/Gamemode-v1.0.0.mcdr) |
 
@@ -5337,7 +5337,7 @@ pip install "mcdreforged>=2.6.0"
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [Region-BackUp-v1.6.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.6.0) | 1.6.0 | 2024/03/21 13:24:45 | 20.74KB | 0 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.6.0/Region-BackUp-v1.6.0.mcdr) |
+| [Region-BackUp-v1.6.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.6.0) | 1.6.0 | 2024/03/21 13:36:36 | 20.74KB | 0 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.6.0/Region-BackUp-v1.6.0.mcdr) |
 | [Region-BackUp-v1.5.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.5.0) | 1.5.0 | 2024/03/21 03:39:17 | 20.57KB | 1 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr) |
 | [Region-BackUp-v1.1.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.1.0) | 1.1.0 | 2024/02/14 05:02:42 | 20.13KB | 13 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.1.0/Region-BackUp-v1.1.0.mcdr) |
 
