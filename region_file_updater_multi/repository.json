@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+  "name": "RegionFileUpdaterMulti-MCDR",
+  "full_name": "Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+  "description": "A MCDR plugin to help you update region files in game",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# Region File Updater Multi\n\nA plugin to update region files from multiple upstreams (including [PrimeBackup](https://github.com/PrimeBackup/) databases)\n\nRebuilt version of [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater/),\nall the functions of original version are ready to use\n\n*Document of this plugin is still on its way*\n\n> [!WARNING]\n> **RegionFileUpdaterMulti** is still in **early access** stage,\n> \n> Note that **NEVER** risk using experimental stuff in production environment,\n> \n> Please point the commit you can reproduce the issue out before submit\n\n\n# Yes, I'm ready to have a try!\n\n1. Clone this repo\n2. Install requirements\n```\ncd <location of your local repo>\npython -m pip install -r requirements.txt\n```\n3. Pack\n```\npython -m mcdreforged pack\n```\n5. Copy generated `.mcdr` plugin archive to your plugin directory and load in MCDR\n6. Install any version of [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n7. Configure `config/region_file_updater_multi/config.yml` in MCDR instance working directory, the set `enable` to `true`\n8. Have a try! Help message goes command `!!region|!!rfum`\n",
+  "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/master/README.md"
+}

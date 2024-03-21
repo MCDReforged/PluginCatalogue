@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "region_file_updater_multi",
+    "name": "Region file Updater Multi",
+    "version": "1.0.0-alpha.2+build.240321",
+    "link": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.12.0",
+      "minecraft_data_api": "*"
+    },
+    "requirements": [
+      "mcdreforged",
+      "psutil",
+      "parse",
+      "apscheduler"
+    ],
+    "description": {
+      "en_us": "A MCDR plugin to update region files in game from multiple locations",
+      "zh_cn": "一个从多个位置拉取 region 文件至本服存档的插件"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "region_file_updater_multi",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "repository": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "A plugin to update region files from other upstreams in game\n\nFeatures:\n\n- Update from multiple upstreams\n- Using world save and [PrimeBackup](https://github.com/TISUnion/PrimeBackup) as upstream\n- Add or del regions to update in group\n- Protect regions in group from updating\n",
+      "zh_cn": "一个游戏内自其他上游更新本服区域文件的插件\n\n一些功能：\n\n- 可自多个上游更新\n- 允许将游戏存档和 [PrimeBackup](https://github.com/TISUnion/PrimeBackup) 数据库作为上游\n- 成组增删要更新的区域\n- 保护组里的区域，使其不可被随意更新\n"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "region_file_updater_multi",
+    "latest_version": null,
+    "latest_version_index": null,
+    "releases": []
+  },
+  "repository": {
+    "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+    "name": "RegionFileUpdaterMulti-MCDR",
+    "full_name": "Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+    "description": "A MCDR plugin to help you update region files in game",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# Region File Updater Multi\n\nA plugin to update region files from multiple upstreams (including [PrimeBackup](https://github.com/PrimeBackup/) databases)\n\nRebuilt version of [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater/),\nall the functions of original version are ready to use\n\n*Document of this plugin is still on its way*\n\n> [!WARNING]\n> **RegionFileUpdaterMulti** is still in **early access** stage,\n> \n> Note that **NEVER** risk using experimental stuff in production environment,\n> \n> Please point the commit you can reproduce the issue out before submit\n\n\n# Yes, I'm ready to have a try!\n\n1. Clone this repo\n2. Install requirements\n```\ncd <location of your local repo>\npython -m pip install -r requirements.txt\n```\n3. Pack\n```\npython -m mcdreforged pack\n```\n5. Copy generated `.mcdr` plugin archive to your plugin directory and load in MCDR\n6. Install any version of [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n7. Configure `config/region_file_updater_multi/config.yml` in MCDR instance working directory, the set `enable` to `true`\n8. Have a try! Help message goes command `!!region|!!rfum`\n",
+    "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/master/README.md"
+  }
+}
