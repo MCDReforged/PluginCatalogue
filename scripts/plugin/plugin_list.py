@@ -35,7 +35,7 @@ class PluginList(List[Plugin]):
 							self.append(plugin)
 					except Exception as e:
 						log.exception('Failed to initialize plugin in folder "{}"'.format(folder))
-						reporter.record_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
+						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						raise
 				else:
 					log.info('Skipping plugin {}'.format(folder))
@@ -52,8 +52,8 @@ class PluginList(List[Plugin]):
 			try:
 				await func(plg)
 			except Exception as e:
-				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plugin))
-				reporter.record_failure(plugin.id, 'Fetch {} failed'.format(fetch_target_name), e)
+				log.error('Failed to fetch {} of plugin {}'.format(fetch_target_name, plg))
+				reporter.record_plugin_failure(plg.id, 'Fetch {} failed'.format(fetch_target_name), e)
 				if fail_hard:
 					log.error('Fail-HARD!')
 					raise
@@ -80,7 +80,9 @@ class PluginList(List[Plugin]):
 
 		# prepare folder
 		if os.path.isdir(constants.META_FOLDER):
-			shutil.rmtree(constants.META_FOLDER)
+			# raise possible directory operation error before cleaning the meta folder content
+			os.rename(constants.META_FOLDER, constants.META_FOLDER + '.old')
+			shutil.rmtree(constants.META_FOLDER + '.old')
 		os.makedirs(constants.META_FOLDER)
 
 		# make readme
@@ -101,12 +103,12 @@ class PluginList(List[Plugin]):
 			try:
 				plugin.save_request_cache()
 				plugin.save_meta()
-				plugin.save_release_info()
+				plugin.save_release_summary()
 				plugin.save_formatted_plugin_info()
 				plugin.save_repository_info()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
-				reporter.record_failure(plugin.id, 'Store plugin info', e)
+				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
 
 		# make and store plugin summary
 		meta_summary = PluginMetaSummary()
@@ -133,7 +135,15 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			aop = plugin.create_and_save_all_data()
 			everything.plugins[plugin.id] = aop
-		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True)
+		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True, with_xz=True)
+
+		# everything (slim)
+		for p in everything.plugins.values():
+			p.plugin.introduction = {}
+			p.repository.readme = None
+			for r in p.release.releases:
+				r.description = None
+		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything_slim.json'), compact=True, with_gz=True, with_xz=True)
 
 		log.info('Stored data into meta folder')
 

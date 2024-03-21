@@ -1,5 +1,6 @@
 import gzip
 import json
+import lzma
 import os
 from contextlib import contextmanager
 
@@ -33,7 +34,7 @@ def load_json(file_path: str) -> dict:
 		raise FileNotFoundError('File {} not found when loading json'.format(file_path))
 
 
-def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: bool = False):
+def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: bool = False, with_xz: bool = False):
 	if compact:
 		s = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
 	else:
@@ -44,3 +45,6 @@ def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: boo
 	if with_gz:
 		with gzip.GzipFile(file_path + '.gz', 'wb', mtime=0) as zf:
 			zf.write(s.encode('utf8'))
+	if with_xz:
+		with lzma.open(file_path + '.xz', 'wb', format=lzma.FORMAT_XZ) as xf:
+			xf.write(s.encode('utf8'))

@@ -1,5 +1,6 @@
 import argparse
 import asyncio
+import traceback
 from argparse import ArgumentParser
 from typing import Collection, Optional
 
@@ -31,22 +32,26 @@ async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
 	reporter.record_command(args.subparser_name)
 	reporter.record_script_start()
 
-	if args.subparser_name == 'check':
-		await check(target_ids)
-	elif args.subparser_name == 'data':
-		await fetch_and_store_data(target_ids)
-	elif args.subparser_name == 'doc':
-		await generate_doc(target_ids)
-	elif args.subparser_name == 'all':
-		if not args.no_check:
+	try:
+		if args.subparser_name == 'check':
 			await check(target_ids)
-		await fetch_and_store_data(target_ids)
-		await generate_doc(target_ids)
-	else:
-		parser.print_help()
-
-	reporter.record_script_end()
-	reporter.report(get_plugin_list())
+		elif args.subparser_name == 'data':
+			await fetch_and_store_data(target_ids)
+		elif args.subparser_name == 'doc':
+			await generate_doc(target_ids)
+		elif args.subparser_name == 'all':
+			if not args.no_check:
+				await check(target_ids)
+			await fetch_and_store_data(target_ids)
+			await generate_doc(target_ids)
+		else:
+			parser.print_help()
+	except Exception as e:
+		reporter.record_script_failure(e, traceback.format_exc())
+		raise
+	finally:
+		reporter.record_script_end()
+		reporter.report(get_plugin_list())
 
 
 def main():

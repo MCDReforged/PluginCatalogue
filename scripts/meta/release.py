@@ -15,13 +15,18 @@ if TYPE_CHECKING:
 	from meta.cache import ReleasePageResponse
 
 
-class AssetInfo(Serializable):
+class _GitHubAssetJson(Serializable):
 	id: int  # GitHub asset ID
 	name: str
 	size: int
 	download_count: int
 	created_at: str
 	browser_download_url: str
+
+
+class AssetInfo(_GitHubAssetJson):
+	hash_md5: str
+	hash_sha256: str
 
 
 class _GitHubReleaseJson(Serializable):
@@ -31,7 +36,7 @@ class _GitHubReleaseJson(Serializable):
 	created_at: str
 	body: Optional[str]
 	prerelease: bool
-	assets: List[AssetInfo]
+	assets: List[_GitHubAssetJson]
 
 
 class _InvalidReleaseError(Exception):
@@ -69,8 +74,20 @@ class ReleaseInfo(Serializable):
 
 		for asset in js.assets:
 			if asset.name.endswith('.mcdr') or asset.name.endswith('.pyz'):
-				info.asset = asset
-				info.meta = await cache_manager.fetch_asset_meta(asset.id, asset.browser_download_url)
+				data = await cache_manager.fetch_asset_data(asset.id, asset.browser_download_url)
+				if data.size != asset.size:
+					# it should not happen, but just in case
+					raise AssertionError('fetched data size {} not equals to asset size {}'.format(data.size, asset.size))
+				info.meta = data.meta
+				info.asset = AssetInfo()
+				info.asset.id = asset.id
+				info.asset.name = asset.name
+				info.asset.size = asset.size
+				info.asset.download_count = asset.download_count
+				info.asset.created_at = asset.created_at
+				info.asset.browser_download_url = asset.browser_download_url
+				info.asset.hash_md5 = data.hash_md5
+				info.asset.hash_sha256 = data.hash_sha256
 				break
 		else:
 			raise _InvalidReleaseError('no valid asset')

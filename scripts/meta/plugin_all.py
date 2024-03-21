@@ -1,3 +1,5 @@
+from typing import Optional
+
 from meta.plugin import MetaInfo, PluginInfo
 from meta.release import ReleaseSummary
 from meta.repos import RepositoryInfo
@@ -8,7 +10,7 @@ class AllOfAPlugin(Serializable):
 	"""
 	/<plugin_id>/all.json
 	"""
-	meta: MetaInfo
+	meta: Optional[MetaInfo]
 	plugin: PluginInfo
-	release: ReleaseSummary
-	repository: RepositoryInfo
+	release: Optional[ReleaseSummary]
+	repository: Optional[RepositoryInfo]

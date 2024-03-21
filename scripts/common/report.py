@@ -3,7 +3,7 @@ import os
 import sys
 import time
 from threading import Lock
-from typing import Dict, List, TYPE_CHECKING, IO, Optional
+from typing import Dict, List, TYPE_CHECKING, IO, Optional, Tuple
 
 if TYPE_CHECKING:
 	from plugin.plugin_list import PluginList
@@ -17,6 +17,8 @@ class Reporter:
 		self.__end_time = None
 		self.__warnings: Dict[str, List[str]] = collections.defaultdict(list)
 		self.__failures: Dict[str, List[str]] = collections.defaultdict(list)
+		self.__script_error: Optional[Tuple[Exception, str]] = None
+		self.__script_error_exc: str = ''
 		self.__disabled_plugins: Dict[str, str] = {}
 		self.__rate_limit_remaining = '?'
 		self.__rate_limit_limit = '?'
@@ -33,13 +35,18 @@ class Reporter:
 		with self.__lock:
 			self.__end_time = time.time()
 
+	def record_script_failure(self, e: Exception, exec_str: str):
+		with self.__lock:
+			self.__script_error = e
+			self.__script_error_exc = exec_str
+
 	def record_warning(self, plugin_id: str, message: str, err: Optional[Exception]):
 		with self.__lock:
 			if err is not None:
 				message += ': ({}) {}'.format(type(err).__name__, err)
 			self.__warnings[plugin_id].append(message)
 
-	def record_failure(self, plugin_id: str, message: str, err: Exception):
+	def record_plugin_failure(self, plugin_id: str, message: str, err: Exception):
 		with self.__lock:
 			self.__failures[plugin_id].append(message + ': ({}) {}'.format(type(err).__name__, err))
 
@@ -71,6 +78,11 @@ class Reporter:
 		for plugin_id, reason in self.__disabled_plugins.items():
 			f.write('- `{}`: {}\n'.format(plugin_id, reason))
 		f.write('\n')
+
+		if self.__script_error is not None:
+			f.write('## Script failure\n\n')
+			f.write('`Exception: ({}) {}`\n\n'.format(type(self.__script_error), self.__script_error))
+			f.write('```\n{}\n```\n\n'.format(self.__script_error_exc.rstrip('\n')))
 
 		f.write('## Failures\n\n')
 		f.write('Plugins with failure: {}\n\n'.format(len(self.__failures)))

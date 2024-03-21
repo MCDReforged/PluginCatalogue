@@ -114,6 +114,10 @@ class Plugin:
 		self.__cache_manager = PluginRequestCacheManager(self, self.__request_cache_file)
 		self.__cache_manager.load()
 
+		self.__meta_info_error: Optional[Exception] = None
+		self.__release_summary_error: Optional[Exception] = None
+		self.__repository_info_error: Optional[Exception] = None
+
 	# ========================= property && getter =========================
 
 	@property
@@ -174,6 +178,15 @@ class Plugin:
 				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
 
+	@classmethod
+	def __error_or_value(cls, value: Optional[Serializable], error: Optional[Exception]) -> dict:
+		if value is not None:
+			return value.serialize()
+		else:
+			return {
+				'_error': 'unknown' if error is None else str(error)
+			}
+
 	# ========================= Request Cache =========================
 
 	@property
@@ -196,7 +209,7 @@ class Plugin:
 						file_content = await self.get_repos_text(file_location)
 					except Exception as e:
 						log.exception('Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
-						reporter.record_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
+						reporter.record_plugin_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 					else:
 						if file_location.lower().endswith('.md'):
@@ -236,18 +249,32 @@ class Plugin:
 	# ========================= MetaInfo =========================
 
 	async def fetch_meta(self):
-		self.meta_info = await MetaInfo.fetch_from_repos(self)
+		try:
+			self.meta_info = await MetaInfo.fetch_from_repos(self)
+		except Exception as e:
+			self.__meta_info_error = e
+			raise
+		else:
+			self.__meta_info_error = None
 		self.__dataset |= _PluginDataSet.meta
 		log.info('({}) MetaInfo fetched'.format(self.id))
 
+	def __get_meta_info_data(self) -> dict:
+		return self.__error_or_value(self.meta_info, self.__meta_info_error)
+
 	def save_meta(self):
-		if self.meta_info is not None:
-			file_utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+		file_utils.save_json(self.__get_meta_info_data(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
 
 	# ========================= Release & Cache =========================
 
 	async def fetch_release(self):
-		self.release_summary = await ReleaseSummary.create_for(self, self.__cache_manager)
+		try:
+			self.release_summary = await ReleaseSummary.create_for(self, self.__cache_manager)
+		except Exception as e:
+			self.__release_summary_error = e
+			raise
+		else:
+			self.__release_summary_error = None
 		self.__dataset |= _PluginDataSet.releases
 		log.info('({}) Release fetched'.format(self.id))
 
@@ -255,29 +282,40 @@ class Plugin:
 	def __release_info_file(self) -> str:
 		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
 
-	def save_release_info(self):
-		if self.release_summary is not None:
-			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file)
+	def __get_release_summary_data(self) -> dict:
+		return self.__error_or_value(self.release_summary, self.__release_summary_error)
+
+	def save_release_summary(self):
+		file_utils.save_json(self.__get_release_summary_data(), self.__release_info_file)
 
 	# ========================= RepositoryInfo =========================
 
 	async def fetch_repository(self):
-		self.repository_info = await RepositoryInfo.create_for(self, self.__cache_manager)
+		try:
+			self.repository_info = await RepositoryInfo.create_for(self, self.__cache_manager)
+		except Exception as e:
+			self.__repository_info_error = e
+			raise
+		else:
+			self.__repository_info_error = None
 		self.__dataset |= _PluginDataSet.repository
 		log.info('({}) Repository information fetched'.format(self.id))
 
+	def __get_repository_info_data(self) -> dict:
+		return self.__error_or_value(self.repository_info, self.__repository_info_error)
+
 	def save_repository_info(self):
-		if self.repository_info is not None:
-			file_utils.save_json(self.repository_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
+		file_utils.save_json(self.__get_repository_info_data(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
 
 	# ========================= AllOfAPlugin =========================
 
 	def create_and_save_all_data(self) -> AllOfAPlugin:
-		if not (self.meta_info and self.release_summary and self.repository_info):
-			raise RuntimeError('not enough info to create all data for {}. dataset: {}, {} {} {}'.format(
-				self, self.__dataset,
-				type(self.meta_info), type(self.release_summary), type(self.repository_info),
-			))
+		if not self.meta_info:
+			log.warning('({}) [create all] meta_info unavailable'.format(self.id))
+		if not self.release_summary:
+			log.warning('({}) [create all] release_summary unavailable'.format(self.id))
+		if not self.repository_info:
+			log.warning('({}) [create all] repository_info unavailable'.format(self.id))
 		aop = AllOfAPlugin(
 			meta=self.meta_info,
 			plugin=self.generate_formatted_plugin_info(),
