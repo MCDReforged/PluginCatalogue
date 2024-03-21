@@ -2272,7 +2272,7 @@ Make file transfers faster!
   - Metadata version: 1.2.2
   - Release version: 1.2.2
 - Total downloads: 9972
-- Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - Repository: https://github.com/TISUnion/Here
 - Repository plugin page: https://github.com/TISUnion/Here/tree/master
 - Labels: [`Information`](/labels/information/readme.md)
@@ -2828,7 +2828,7 @@ Today's horoscope based on `random.randint(0, 100)`
   - Metadata version: 1.0.1
   - Release version: 1.0.1
 - Total downloads: 85
-- Authors: [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing)
+- Authors: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki), [Sinbing](https://github.com/Sinbing)
 - Repository: https://github.com/Lazy-Bing-Server/THB-MCDR
 - Repository plugin page: https://github.com/Lazy-Bing-Server/THB-MCDR/tree/master
 - Labels: [`Tool`](/labels/tool/readme.md)
@@ -3278,7 +3278,7 @@ pip install "requests>=2.25.1"
   - Metadata version: 1.2.2
   - Release version: 1.2.2
 - Total downloads: 2110
-- Authors: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- Authors: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - Repository: https://github.com/TISUnion/Seen
 - Repository plugin page: https://github.com/TISUnion/Seen/tree/master
 - Labels: [`Tool`](/labels/tool/readme.md)
@@ -3326,7 +3326,7 @@ Shows tasks of project in progress
   - Metadata version: 2.3.6-dev+build.68
   - Release version: 2.3.6+build.240207
 - Total downloads: 4247
-- Authors: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- Authors: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - Repository: https://github.com/TISUnion/Task
 - Repository plugin page: https://github.com/TISUnion/Task/tree/master
 - Labels: [`Tool`](/labels/tool/readme.md)
@@ -6341,7 +6341,7 @@ Send welcome message
   - Metadata version: 2.1.1+build.9
   - Release version: 2.1.1+build.9
 - Total downloads: 2330
-- Authors: [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- Authors: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - Repository: https://github.com/Lazy-Bing-Server/WhereIs-MCDR
 - Repository plugin page: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/tree/master
 - Labels: [`Information`](/labels/information/readme.md)

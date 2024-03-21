@@ -2268,7 +2268,7 @@ pip install speedcopy
   - 元数据版本: 1.2.2
   - 发布版本: 1.2.2
 - 总下载量: 9972
-- 作者: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - 仓库: https://github.com/TISUnion/Here
 - 仓库插件页: https://github.com/TISUnion/Here/tree/master
 - 标签: [`信息`](/labels/information/readme-zh_cn.md)
@@ -2831,7 +2831,7 @@ pip install "mcdreforged>=2.1.4"
   - 元数据版本: 1.0.1
   - 发布版本: 1.0.1
 - 总下载量: 85
-- 作者: [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing)
+- 作者: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki), [Sinbing](https://github.com/Sinbing)
 - 仓库: https://github.com/Lazy-Bing-Server/THB-MCDR
 - 仓库插件页: https://github.com/Lazy-Bing-Server/THB-MCDR/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
@@ -3298,7 +3298,7 @@ pip install "requests>=2.25.1"
   - 元数据版本: 1.2.2
   - 发布版本: 1.2.2
 - 总下载量: 2110
-- 作者: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- 作者: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - 仓库: https://github.com/TISUnion/Seen
 - 仓库插件页: https://github.com/TISUnion/Seen/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
@@ -3346,7 +3346,7 @@ pip install "mcdreforged>=2.0.0b12" parse
   - 元数据版本: 2.3.6-dev+build.68
   - 发布版本: 2.3.6+build.240207
 - 总下载量: 4247
-- 作者: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- 作者: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - 仓库: https://github.com/TISUnion/Task
 - 仓库插件页: https://github.com/TISUnion/Task/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
@@ -6308,7 +6308,7 @@ pip install requests
   - 元数据版本: 2.1.1+build.9
   - 发布版本: 2.1.1+build.9
 - 总下载量: 2330
-- 作者: [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- 作者: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - 仓库: https://github.com/Lazy-Bing-Server/WhereIs-MCDR
 - 仓库插件页: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/tree/master
 - 标签: [`信息`](/labels/information/readme-zh_cn.md)

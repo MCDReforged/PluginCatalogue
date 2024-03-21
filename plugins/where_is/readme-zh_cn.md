@@ -12,7 +12,7 @@
   - 元数据版本: 2.1.1+build.9
   - 发布版本: 2.1.1+build.9
 - 总下载量: 2330
-- 作者: [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- 作者: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - 仓库: https://github.com/Lazy-Bing-Server/WhereIs-MCDR
 - 仓库插件页: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/tree/master
 - 标签: [`信息`](/labels/information/readme-zh_cn.md)

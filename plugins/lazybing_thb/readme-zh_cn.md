@@ -12,7 +12,7 @@
   - 元数据版本: 1.0.1
   - 发布版本: 1.0.1
 - 总下载量: 85
-- 作者: [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing)
+- 作者: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki), [Sinbing](https://github.com/Sinbing)
 - 仓库: https://github.com/Lazy-Bing-Server/THB-MCDR
 - 仓库插件页: https://github.com/Lazy-Bing-Server/THB-MCDR/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)

@@ -12,7 +12,7 @@
   - Metadata version: 1.2.2
   - Release version: 1.2.2
 - Total downloads: 9972
-- Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- Authors: [Fallen_Breath](https://github.com/Fallen-Breath), [nathan21hz](https://github.com/nathan21hz), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - Repository: https://github.com/TISUnion/Here
 - Repository plugin page: https://github.com/TISUnion/Here/tree/master
 - Labels: [`Information`](/labels/information/readme.md)

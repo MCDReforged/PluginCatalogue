@@ -12,7 +12,7 @@
   - Metadata version: 1.2.2
   - Release version: 1.2.2
 - Total downloads: 2110
-- Authors: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- Authors: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - Repository: https://github.com/TISUnion/Seen
 - Repository plugin page: https://github.com/TISUnion/Seen/tree/master
 - Labels: [`Tool`](/labels/tool/readme.md)

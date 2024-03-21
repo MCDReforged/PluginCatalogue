@@ -12,7 +12,7 @@
   - 元数据版本: 2.3.6-dev+build.68
   - 发布版本: 2.3.6+build.240207
 - 总下载量: 4247
-- 作者: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki)
+- 作者: [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki)
 - 仓库: https://github.com/TISUnion/Task
 - 仓库插件页: https://github.com/TISUnion/Task/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)

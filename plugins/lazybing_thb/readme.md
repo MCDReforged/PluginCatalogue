@@ -12,7 +12,7 @@
   - Metadata version: 1.0.1
   - Release version: 1.0.1
 - Total downloads: 85
-- Authors: [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing)
+- Authors: [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki), [Sinbing](https://github.com/Sinbing)
 - Repository: https://github.com/Lazy-Bing-Server/THB-MCDR
 - Repository plugin page: https://github.com/Lazy-Bing-Server/THB-MCDR/tree/master
 - Labels: [`Tool`](/labels/tool/readme.md)

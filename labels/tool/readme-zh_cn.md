@@ -38,11 +38,11 @@
 | [homo_calculator](/plugins/homo_calculator/readme-zh_cn.md) | [meng877](https://github.com/meng877) | homo_calculator | 2024/03/09 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Jrrp](/plugins/jrrp/readme-zh_cn.md) | [Huaji_MUR233](https://github.com/HuajiMUR233) | 《今日人品》 | 2022/08/28 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Jrrps Plg](/plugins/jrrps/readme-zh_cn.md) | [SkyDynamic](https://github.com/SkyDynamic) | 测试今天的运势 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [LazyBing THB](/plugins/lazybing_thb/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/ra1ny-yuki), [Sinbing](https://github.com/Sinbing) | TPA, Home & Back for MCDReforged | 2023/12/07 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [LazyBing THB](/plugins/lazybing_thb/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki), [Sinbing](https://github.com/Sinbing) | TPA, Home & Back for MCDReforged | 2023/12/07 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Leader Reforged](/plugins/leader_reforged/readme-zh_cn.md) | [XavierWah](https://github.com/XavierWah) | 这个插件简化并实现了 Leader 的功能，使得可以指出一个玩家作为导游。 | 2022/04/09 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [MatrixSync](/plugins/matrix_sync/readme-zh_cn.md) | [Mooling0602](https://github.com/Mooling0602) | 同步Matrix群组和线上游戏的消息. | 2024/03/10 | [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md) |
-| [Seen](/plugins/mcd_seen/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | Show laziness rank easily | 2024/02/27 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Task](/plugins/mcd_task/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/ra1ny-yuki) | 用于展示进行中的工程任务的插件 | 2024/02/07 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Seen](/plugins/mcd_seen/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | Show laziness rank easily | 2024/02/27 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Task](/plugins/mcd_task/readme-zh_cn.md) | [Pandaria](https://github.com/Pandaria98), [Fallen_Breath](https://github.com/Fallen-Breath), [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | 用于展示进行中的工程任务的插件 | 2024/02/07 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [MCDR Bot](/plugins/mcdr_pycraft_bot/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 使用 pycraft 的假人插件 | 2021/08/19 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [MCDRpost](/plugins/mcdrpost/readme-zh_cn.md) | [Flyky](https://github.com/Flyky) | 一个用于邮寄/传送物品的MCDR插件 | 2022/06/16 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [MultiRconAPI](/plugins/multi_rcon_api/readme-zh_cn.md) | [YehowahLiu](https://github.com/YehowahLiu) | 一个使用rcon来做到对群组服进行简单操作的api | 2022/02/02 | [`工具`](/labels/tool/readme-zh_cn.md), [`API`](/labels/api/readme-zh_cn.md) |
