@@ -5300,9 +5300,9 @@ pip install mcdreforged
 ### 基本信息
 
 - 插件 ID: `region_backup`
-- 插件名: Region-BackUp
+- 插件名: Region BackUp
 - 版本: 1.6.1
-  - 元数据版本: 1.6.1
+  - 元数据版本: 1.7.0
   - 发布版本: 1.6.1
 - 总下载量: 27
 - 作者: [GHS-Official](https://github.com/GHS-Official)

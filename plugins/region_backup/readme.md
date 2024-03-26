@@ -7,9 +7,9 @@
 ### Basic Information
 
 - Plugin ID: `region_backup`
-- Plugin Name: Region-BackUp
+- Plugin Name: Region BackUp
 - Version: 1.6.1
-  - Metadata version: 1.6.1
+  - Metadata version: 1.7.0
   - Release version: 1.6.1
 - Total downloads: 27
 - Authors: [GHS-Official](https://github.com/GHS-Official)
