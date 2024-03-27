@@ -21,7 +21,7 @@
 | [AdvancedWhitelistR](/plugins/advanced_whitelist_r/readme-zh_cn.md) | [noionion](https://github.com/2X-ercha), [GamerNoTitle](https://github.com/GamerNoTitle) | For outline-model Whitelist | 2023/01/04 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [allow_suicide](/plugins/allow_suicide/readme-zh_cn.md) | [JAs0n](https://github.com/JAs0n319) | 允许玩家在没有op权限时自杀 | 2023/02/03 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Auto Command](/plugins/auto_command/readme-zh_cn.md) | [bzyyyyyyyy](https://github.com/bzyyyyyyyy) | 自动发送指令的插件 | 2023/06/10 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Auto-Execute](/plugins/auto_execute/readme-zh_cn.md) | [GHS-Official](https://github.com/GHS-Official) | 一个以脚本为单位存储各类指令多模式执行的MCDR插件 | 2023/08/30 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Auto-Execute](/plugins/auto_execute/readme-zh_cn.md) | [FRUITS-CANDY](https://github.com/FRUITS-CANDY) | 一个以脚本为单位存储各类指令多模式执行的MCDR插件 | 2023/08/30 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Auto Plugin Reloader](/plugins/auto_plugin_reloader/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 在文件变更时自动重载插件 | 2021/10/01 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Beep](/plugins/beep/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [LucunJi](https://github.com/LucunJi) | @某人，@ all可作用于所有玩家。使用两个@@小心被打 | 2021/08/26 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Better Backup](/plugins/better_backup/readme-zh_cn.md) | [z0z0r4](https://github.com/z0z0r4) | 支持文件去重的高效备份/回档插件 | 2023/08/30 | [`管理`](/labels/management/readme-zh_cn.md) |
@@ -104,7 +104,7 @@
 | [QQChat](/plugins/qq_chat/readme-zh_cn.md) | [Andy Zhang](https://github.com/AnzhiZhang), [Aimerny](https://github.com/Aimerny) | QQ 相关实用功能 | 2023/06/29 | [`信息`](/labels/information/readme-zh_cn.md), [`管理`](/labels/management/readme-zh_cn.md) |
 | [Quick Backup Multi](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | 2023/12/22 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [quick_run_cmd](/plugins/quick_run_cmd/readme-zh_cn.md) | [Ricky](https://github.com/R1ckyH) | 一个快速运行自定义脚本的插件。 | 2021/12/24 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Region BackUp](/plugins/region_backup/readme-zh_cn.md) | [GHS-Official](https://github.com/GHS-Official) | 一个以区域为单位备份或回档的MCDR插件 | 2024/03/24 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [Region BackUp](/plugins/region_backup/readme-zh_cn.md) | [FRUITS-CANDY](https://github.com/FRUITS-CANDY) | 一个以区域为单位备份或回档的MCDR插件 | 2024/03/26 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Region file Updater](/plugins/region_file_updater/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个从指定位置拉取region文件至本服存档的插件 | 2022/03/08 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Region file Updater Multi](/plugins/region_file_updater_multi/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | 一个从多个位置拉取 region 文件至本服存档的插件 | N/A | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Renewability](/plugins/renewability/readme-zh_cn.md) | [Fidel Yin](https://github.com/Fidelxyz) | A plugin that allows players to clone non-renewable items | 2021/09/08 | [`工具`](/labels/tool/readme-zh_cn.md) |

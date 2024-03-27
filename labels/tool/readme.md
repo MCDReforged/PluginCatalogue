@@ -13,7 +13,7 @@ Plugin Amount: 51
 | [AdvancedCalculator](/plugins/advanced_calculator/readme.md) | [Andy Zhang](https://github.com/AnzhiZhang) | Provides multiple convenient in-game calculations | 2023/01/19 | [`Tool`](/labels/tool/readme.md) |
 | [allow_suicide](/plugins/allow_suicide/readme.md) | [JAs0n](https://github.com/JAs0n319) | allow player suicide with no op | 2023/02/03 | [`Tool`](/labels/tool/readme.md) |
 | [Auto Command](/plugins/auto_command/readme.md) | [bzyyyyyyyy](https://github.com/bzyyyyyyyy) | A plugin that send send commands automaticly | 2023/06/10 | [`Tool`](/labels/tool/readme.md) |
-| [Auto-Execute](/plugins/auto_execute/readme.md) | [GHS-Official](https://github.com/GHS-Official) | An MCDR plugin that stores various instructions for multimodal execution based on scripts | 2023/08/30 | [`Tool`](/labels/tool/readme.md) |
+| [Auto-Execute](/plugins/auto_execute/readme.md) | [FRUITS-CANDY](https://github.com/FRUITS-CANDY) | An MCDR plugin that stores various instructions for multimodal execution based on scripts | 2023/08/30 | [`Tool`](/labels/tool/readme.md) |
 | [Beep](/plugins/beep/readme.md) | [Fallen_Breath](https://github.com/Fallen-Breath), [LucunJi](https://github.com/LucunJi) | Use @ \<someone\> to ping someone, @ all for everyone. Use @@ for a pogger ping | 2021/08/26 | [`Tool`](/labels/tool/readme.md) |
 | [Bingo](/plugins/bingo/readme.md) | [Andy Zhang](https://github.com/AnzhiZhang) | Useful tool for Bingo game | 2023/02/26 | [`Tool`](/labels/tool/readme.md) |
 | [Bot](/plugins/bot/readme.md) | [Andy Zhang](https://github.com/AnzhiZhang) | The best carpet bot manager! | 2024/03/15 | [`Tool`](/labels/tool/readme.md), [`Management`](/labels/management/readme.md) |

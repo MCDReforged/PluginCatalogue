@@ -198,10 +198,10 @@ pip install "mcdreforged>=2.1.0"
 - 版本: 1.1.0
   - 元数据版本: 1.1.0
   - 发布版本: 1.1.0
-- 总下载量: 64
-- 作者: [GHS-Official](https://github.com/GHS-Official)
-- 仓库: https://github.com/GHS-Official/Auto-Execute
-- 仓库插件页: https://github.com/GHS-Official/Auto-Execute/tree/master
+- 总下载量: 0
+- 作者: [FRUITS-CANDY](https://github.com/FRUITS-CANDY)
+- 仓库: https://github.com/Passion-Never-Dissipate/Auto-Execute
+- 仓库插件页: https://github.com/Passion-Never-Dissipate/Auto-Execute/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 描述: 一个以脚本为单位存储各类指令多模式执行的MCDR插件
 
@@ -232,8 +232,8 @@ pip install "mcdreforged>=2.6.0"
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [Auto-Execute-v1.1.0.mcdr](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/tag/v1.1) | 1.1.0 | 2023/09/04 02:25:05 | 20.42KB | 49 | [下载](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/download/v1.1/Auto-Execute-v1.1.0.mcdr) |
-| [Auto-Execute-v1.0.0.mcdr](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/tag/v1.0) | 1.0.0 | 2023/08/30 14:06:00 | 20.4KB | 15 | [下载](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/download/v1.0/Auto-Execute-v1.0.0.mcdr) |
+| [Auto-Execute-v1.1.0.mcdr](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/tag/v1.1) | 1.1.0 | 2024/03/26 14:34:38 | 20.42KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/download/v1.1/Auto-Execute-v1.1.0.mcdr) |
+| [Auto-Execute-v1.0.0.mcdr](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/tag/v1.0) | 1.0.0 | 2024/03/26 14:34:10 | 20.4KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/download/v1.0/Auto-Execute-v1.0.0.mcdr) |
 
 ## auto_plugin_reloader
 
@@ -5259,7 +5259,7 @@ pip install "mcdreforged>=2.0.1"
 - 版本: 2.0.0
   - 元数据版本: 2.0.0
   - 发布版本: 2.0.0
-- 总下载量: 188
+- 总下载量: 189
 - 作者: [Ricky](https://github.com/R1ckyH)
 - 仓库: https://github.com/R1ckyH/quick_run_cmd
 - 仓库插件页: https://github.com/R1ckyH/quick_run_cmd/tree/master
@@ -5293,7 +5293,7 @@ pip install mcdreforged
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [quick_run_cmd-2.0.0.mcdr](https://github.com/R1ckyH/quick_run_cmd/releases/tag/2.0.0) | 2.0.0 | 2021/12/24 12:37:07 | 9.28KB | 188 | [下载](https://github.com/R1ckyH/quick_run_cmd/releases/download/2.0.0/quick_run_cmd-2.0.0.mcdr) |
+| [quick_run_cmd-2.0.0.mcdr](https://github.com/R1ckyH/quick_run_cmd/releases/tag/2.0.0) | 2.0.0 | 2021/12/24 12:37:07 | 9.28KB | 189 | [下载](https://github.com/R1ckyH/quick_run_cmd/releases/download/2.0.0/quick_run_cmd-2.0.0.mcdr) |
 
 ## region_backup
 
@@ -5301,13 +5301,13 @@ pip install mcdreforged
 
 - 插件 ID: `region_backup`
 - 插件名: Region BackUp
-- 版本: 1.6.1
+- 版本: 1.7.0
   - 元数据版本: 1.7.0
-  - 发布版本: 1.6.1
-- 总下载量: 37
-- 作者: [GHS-Official](https://github.com/GHS-Official)
-- 仓库: https://github.com/GHS-Official/Region_BackUp
-- 仓库插件页: https://github.com/GHS-Official/Region_BackUp/tree/master
+  - 发布版本: 1.7.0
+- 总下载量: 0
+- 作者: [FRUITS-CANDY](https://github.com/FRUITS-CANDY)
+- 仓库: https://github.com/Passion-Never-Dissipate/Region_BackUp
+- 仓库插件页: https://github.com/Passion-Never-Dissipate/Region_BackUp/tree/master
 - 标签: [`管理`](/labels/management/readme-zh_cn.md)
 - 描述: 一个以区域为单位备份或回档的MCDR插件
 
@@ -5337,9 +5337,9 @@ pip install "mcdreforged>=2.6.0"
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [Region_BackUp-v1.6.1.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.6.1) | 1.6.1 | 2024/03/24 13:19:15 | 20.79KB | 7 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.6.1/Region_BackUp-v1.6.1.mcdr) |
-| [Region-BackUp-v1.6.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.6.0) | 1.6.0 | 2024/03/21 13:36:36 | 20.74KB | 5 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.6.0/Region-BackUp-v1.6.0.mcdr) |
-| [Region-BackUp-v1.5.0.mcdr](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/tag/v1.5.0) | 1.5.0 | 2024/03/21 03:39:17 | 20.57KB | 2 | [下载](https://github.com/Ground-Hyper-Sky/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr) |
+| [Region-BackUp-v1.7.0.mcdr](https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.7.0) | 1.7.0 | 2024/03/26 14:05:49 | 23.4KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.7.0/Region-BackUp-v1.7.0.mcdr) |
+| [Region_BackUp-v1.6.1.mcdr](https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.6.1) | 1.6.1 | 2024/03/26 14:08:57 | 20.79KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.6.1/Region_BackUp-v1.6.1.mcdr) |
+| [Region-BackUp-v1.6.0.mcdr](https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.6.0) | 1.6.0 | 2024/03/26 14:09:43 | 20.74KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.6.0/Region-BackUp-v1.6.0.mcdr) |
 
 ## region_file_updater
 

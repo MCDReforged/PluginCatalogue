@@ -36,7 +36,7 @@
 | [Prime Backup](/plugins/prime_backup/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案 | 2024/03/10 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [QQChat](/plugins/qq_chat/readme-zh_cn.md) | [Andy Zhang](https://github.com/AnzhiZhang), [Aimerny](https://github.com/Aimerny) | QQ 相关实用功能 | 2023/06/29 | [`信息`](/labels/information/readme-zh_cn.md), [`管理`](/labels/management/readme-zh_cn.md) |
 | [Quick Backup Multi](/plugins/quick_backup_multi/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 多槽位备份/回档插件 | 2023/12/22 | [`管理`](/labels/management/readme-zh_cn.md) |
-| [Region BackUp](/plugins/region_backup/readme-zh_cn.md) | [GHS-Official](https://github.com/GHS-Official) | 一个以区域为单位备份或回档的MCDR插件 | 2024/03/24 | [`管理`](/labels/management/readme-zh_cn.md) |
+| [Region BackUp](/plugins/region_backup/readme-zh_cn.md) | [FRUITS-CANDY](https://github.com/FRUITS-CANDY) | 一个以区域为单位备份或回档的MCDR插件 | 2024/03/26 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Region file Updater](/plugins/region_file_updater/readme-zh_cn.md) | [Fallen_Breath](https://github.com/Fallen-Breath) | 一个从指定位置拉取region文件至本服存档的插件 | 2022/03/08 | [`管理`](/labels/management/readme-zh_cn.md) |
 | [Region file Updater Multi](/plugins/region_file_updater_multi/readme-zh_cn.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | 一个从多个位置拉取 region 文件至本服存档的插件 | N/A | [`管理`](/labels/management/readme-zh_cn.md) |
 | [SmartBackup](/plugins/smart_backup/readme-zh_cn.md) | [zyxkad](https://github.com/zyxkad) | 一个多功能Minecraft存档备份插件 | 2022/05/11 | [`管理`](/labels/management/readme-zh_cn.md) |

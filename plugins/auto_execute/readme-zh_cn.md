@@ -11,10 +11,10 @@
 - 版本: 1.1.0
   - 元数据版本: 1.1.0
   - 发布版本: 1.1.0
-- 总下载量: 64
-- 作者: [GHS-Official](https://github.com/GHS-Official)
-- 仓库: https://github.com/GHS-Official/Auto-Execute
-- 仓库插件页: https://github.com/GHS-Official/Auto-Execute/tree/master
+- 总下载量: 0
+- 作者: [FRUITS-CANDY](https://github.com/FRUITS-CANDY)
+- 仓库: https://github.com/Passion-Never-Dissipate/Auto-Execute
+- 仓库插件页: https://github.com/Passion-Never-Dissipate/Auto-Execute/tree/master
 - 标签: [`工具`](/labels/tool/readme-zh_cn.md)
 - 描述: 一个以脚本为单位存储各类指令多模式执行的MCDR插件
 
@@ -45,6 +45,6 @@ pip install "mcdreforged>=2.6.0"
 
 | 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
 | --- | --- | --- | --- | --- | --- |
-| [Auto-Execute-v1.1.0.mcdr](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/tag/v1.1) | 1.1.0 | 2023/09/04 02:25:05 | 20.42KB | 49 | [下载](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/download/v1.1/Auto-Execute-v1.1.0.mcdr) |
-| [Auto-Execute-v1.0.0.mcdr](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/tag/v1.0) | 1.0.0 | 2023/08/30 14:06:00 | 20.4KB | 15 | [下载](https://github.com/Ground-Hyper-Sky/Auto-Execute/releases/download/v1.0/Auto-Execute-v1.0.0.mcdr) |
+| [Auto-Execute-v1.1.0.mcdr](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/tag/v1.1) | 1.1.0 | 2024/03/26 14:34:38 | 20.42KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/download/v1.1/Auto-Execute-v1.1.0.mcdr) |
+| [Auto-Execute-v1.0.0.mcdr](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/tag/v1.0) | 1.0.0 | 2024/03/26 14:34:10 | 20.4KB | 0 | [下载](https://github.com/Passion-Never-Dissipate/Auto-Execute/releases/download/v1.0/Auto-Execute-v1.0.0.mcdr) |
 
