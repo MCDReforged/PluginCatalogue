@@ -61,5 +61,5 @@
 | [ToDoList](/plugins/todolist/readme-zh_cn.md) | [Flash-Z](https://github.com/Flash-Z) | ToDoList，待办清单 | 2023/03/19 | [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md) |
 | [TpManager](/plugins/tpm/readme-zh_cn.md) | [zyxkad](https://github.com/zyxkad) | 一个Minecraft服务器传送管理 | 2024/03/09 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Whisper](/plugins/whisper/readme-zh_cn.md) | [ltBerryshdo](https://github.com/ltBerryshdo) | （原版功能扩展）更快速地对一群人说悄悄话 | 2023/02/20 | [`工具`](/labels/tool/readme-zh_cn.md) |
-| [Ye_announcement](/plugins/ye_announcement/readme-zh_cn.md) | [XiaoYeYa](https://github.com/XiaoYeYa) | 当玩家加入游戏时向其发公告 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Ye_announcement](/plugins/ye_announcement/readme-zh_cn.md) | [XiaoYeYa](https://github.com/XiaoYeYa) | 当玩家加入游戏时向其发公告 | 2024/03/27 | [`工具`](/labels/tool/readme-zh_cn.md) |
 
