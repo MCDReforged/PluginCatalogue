@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "ye_announcement",
+    "name": "Ye_announcement",
+    "version": "1.3.0",
+    "link": "https://github.com/XiaoYeYa/ye_announcement",
+    "authors": [
+      "XiaoYeYa"
+    ],
+    "dependencies": {},
+    "requirements": [],
+    "description": {
+      "en_us": "Announce players when they join the game",
+      "zh_cn": "当玩家加入游戏时向其发公告"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "ye_announcement",
+    "authors": [
+      "XiaoYeYa"
+    ],
+    "repository": "https://github.com/XiaoYeYa/ye_announcement",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {}
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "ye_announcement",
+    "latest_version": null,
+    "latest_version_index": null,
+    "releases": []
+  },
+  "repository": {
+    "url": "https://github.com/XiaoYeYa/ye_announcement",
+    "name": "ye_announcement",
+    "full_name": "XiaoYeYa/ye_announcement",
+    "description": "MCDR进服公告插件公告",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# ye_announcement\nMCDR进服公告插件公告\n这是一个进服公告插件\n\n## 使用\n\n- 发布公告：使用 `!!g <公告内容>` 命令发布一条新公告。\n- 删除公告：使用 `!!gd <序号>` 命令删除指定序号的公告。\n- 修改公告颜色：使用 `!!gc <序号> <颜色>` 命令修改指定序号的公告颜色。\n- 查看公告列表：使用 `!!glist` 命令查看当前所有的公告信息，包括序号。\n- 获取帮助：使用 `!!ghelp` 命令获取插件的使用教程和所有命令的帮助信息。\n\n## 注意事项\n\n- 公告内容支持使用 `[颜色]` 来修改颜色，如 `[red]` 表示红色，`[blue]` 表示蓝色等。\n- 公告会在玩家进入服务器时显示，以便玩家及时了解到服务器的重要信息。\n",
+    "readme_url": "https://raw.githubusercontent.com/XiaoYeYa/ye_announcement/master/README.md"
+  }
+}
