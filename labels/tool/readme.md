@@ -6,7 +6,7 @@
 
 Plugin Index with label `Tool`
 
-Plugin Amount: 51
+Plugin Amount: 52
 
 | Plugin Name | Authors | Description | Last Update | Labels |
 | --- | --- | --- | --- | --- |
@@ -61,4 +61,5 @@ Plugin Amount: 51
 | [ToDoList](/plugins/todolist/readme.md) | [Flash-Z](https://github.com/Flash-Z) | ToDoList | 2023/03/19 | [`Tool`](/labels/tool/readme.md), [`Information`](/labels/information/readme.md) |
 | [TpManager](/plugins/tpm/readme.md) | [zyxkad](https://github.com/zyxkad) | A Minecraft teleport manager | 2024/03/09 | [`Tool`](/labels/tool/readme.md) |
 | [Whisper](/plugins/whisper/readme.md) | [ltBerryshdo](https://github.com/ltBerryshdo) | Send some private message to others in a faster way.(Vanilla feature supplements) | 2023/02/20 | [`Tool`](/labels/tool/readme.md) |
+| [Ye_announcement](/plugins/ye_announcement/readme.md) | [XiaoYeYa](https://github.com/XiaoYeYa) | Announce players when they join the game | N/A | [`Tool`](/labels/tool/readme.md) |
 

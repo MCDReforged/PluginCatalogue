@@ -6,7 +6,7 @@
 
 具有标签 `工具` 的插件的索引
 
-插件数量: 51
+插件数量: 52
 
 | 插件名 | 作者 | 描述 | 最近更新 | 标签 |
 | --- | --- | --- | --- | --- |
@@ -61,4 +61,5 @@
 | [ToDoList](/plugins/todolist/readme-zh_cn.md) | [Flash-Z](https://github.com/Flash-Z) | ToDoList，待办清单 | 2023/03/19 | [`工具`](/labels/tool/readme-zh_cn.md), [`信息`](/labels/information/readme-zh_cn.md) |
 | [TpManager](/plugins/tpm/readme-zh_cn.md) | [zyxkad](https://github.com/zyxkad) | 一个Minecraft服务器传送管理 | 2024/03/09 | [`工具`](/labels/tool/readme-zh_cn.md) |
 | [Whisper](/plugins/whisper/readme-zh_cn.md) | [ltBerryshdo](https://github.com/ltBerryshdo) | （原版功能扩展）更快速地对一群人说悄悄话 | 2023/02/20 | [`工具`](/labels/tool/readme-zh_cn.md) |
+| [Ye_announcement](/plugins/ye_announcement/readme-zh_cn.md) | [XiaoYeYa](https://github.com/XiaoYeYa) | 当玩家加入游戏时向其发公告 | N/A | [`工具`](/labels/tool/readme-zh_cn.md) |
 

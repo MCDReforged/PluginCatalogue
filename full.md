@@ -6594,3 +6594,41 @@ It's a plugin to look up any MediaWiki (such as Minecraft Wiki,and so on) and re
 | --- | --- | --- | --- | --- | --- |
 | [WorldCopier-v0.1.0.mcdr](https://github.com/MCDReforged/WorldCopier/releases/tag/v0.1.0) | 0.1.0 | 2022/04/03 07:41:35 | 3.07KB | 349 | [Download](https://github.com/MCDReforged/WorldCopier/releases/download/v0.1.0/WorldCopier-v0.1.0.mcdr) |
 
+## ye_announcement
+
+### Basic Information
+
+- Plugin ID: `ye_announcement`
+- Plugin Name: Ye_announcement
+- Version: 1.3.0
+  - Metadata version: 1.3.0
+  - Release version: N/A
+- Total downloads: 0
+- Authors: [XiaoYeYa](https://github.com/XiaoYeYa)
+- Repository: https://github.com/XiaoYeYa/ye_announcement
+- Repository plugin page: https://github.com/XiaoYeYa/ye_announcement/tree/master
+- Labels: [`Tool`](/labels/tool/readme.md)
+- Description: Announce players when they join the game
+
+### Dependencies
+
+| Plugin ID | Requirement |
+| --- | --- |
+
+### Requirements
+
+| Python package | Requirement |
+| --- | --- |
+
+### Introduction
+
+*None*
+
+### Download
+
+> [!IMPORTANT]
+> Read the README file in plugin repository before using it.
+
+| File | Version | Upload Time (UTC) | Size | Downloads | Operations |
+| --- | --- | --- | --- | --- | --- |
+
