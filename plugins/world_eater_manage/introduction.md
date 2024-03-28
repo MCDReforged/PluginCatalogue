@@ -1,0 +1,1 @@
+A plugin designed for managing the World Eater on the vanilla server
