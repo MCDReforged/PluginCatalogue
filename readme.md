@@ -1,16 +1,12 @@
 **English** | [中文](readme_cn.md)
 
-> [!TIP]
-> Check out our [brand new website](https://mcdreforged.com/en/plugins) for easier browsing!  
-> \* *Still under development.*
-
 <h1 align="center"> MCDReforged PluginCatalogue</h1>
 
 <p align="center"> 
   A repository for listing <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> plugins.
   <br>
   <br>
-  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme.md"><strong>Main Plugins Catalogue</strong></a> 
+  <a href="https://mcdreforged.com/en/plugins"><strong>Main Plugins Catalogue</strong></a> 
   ·
   <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme.md">Legacy Plugins Catalogue</a> 
 </p>
