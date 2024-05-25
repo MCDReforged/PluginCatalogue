@@ -221,7 +221,6 @@ If there is any good plugin, please submit a PR, and I will invite you to this o
 | [ChatColor](https://github.com/dogdie233/ChatColor) | [dogdie233](https://github.com/dogdie233) | Send color messages more simply |
 | [MinecraftItemAPI](https://github.com/Forgot-Dream/MinecraftItemAPI) | [Forgot-Dream](https://github.com/Forgot-Dream) | Minecraft Blocks ID Library |
 | [vault](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/vault) | [AnzhiZhang](https://github.com/AnzhiZhang) | Economic Preposition |
-| [ConfigAPI](https://github.com/MCDReforged/ConfigAPI) | [hanbings](https://github.com/hanbings) / [AnzhiZhang](https://github.com/AnzhiZhang) | Fast create config file |
 | [ProgressBar](https://github.com/Preliterate/ProgressBar) | [Preliterate](https://github.com/Preliterate) | A library for`bossbar`command |
 | [OnlinePlayerAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/OnlinePlayerAPI) | [AnzhiZhang](https://github.com/AnzhiZhang) | Online player api |
 | [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/.archived/qq_api) | [AnzhiZhang](https://github.com/AnzhiZhang) | Connect Minecraft and QQ |
