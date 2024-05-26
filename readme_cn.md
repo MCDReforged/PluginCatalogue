@@ -6,13 +6,14 @@
   一个用于列出 <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> 插件的仓库。
   <br>
   <br>
-  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme-zh_cn.md"><strong>主插件目录</strong></a>
+  <a href="https://mcdreforged.com/zh-CN/plugins"><strong>主插件目录</strong></a>
   ·
   <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_cn.md">旧插件目录</a>
 </p>
 <br>
 
-> ⚠️ **注意：在使用任何插件之前，请先阅读其仓库中的 README。**
+> [!IMPORTANT]
+> **在使用任何插件之前，请先阅读其仓库中的 README。**
 
 <br>
 

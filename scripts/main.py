@@ -1,20 +1,57 @@
+import argparse
+import asyncio
+import traceback
 from argparse import ArgumentParser
 from typing import Collection, Optional
 
-import thread_pools
-from doc_gen import generate_doc
-from plugin_list import get_plugin_list
-from report import reporter
+from catalogue.doc_gen import generate_doc
+from common import log
+from common.report import reporter
+from plugin.plugin_list import get_plugin_list
 
 
-def check(target_ids: Optional[Collection[str]]):
-	get_plugin_list(target_ids).fetch_data(meta=True, release=False, fail_hard=True)  # so github api token is not needed
-
-
-def update_data(target_ids: Optional[Collection[str]]):
+async def check(target_ids: Optional[Collection[str]]):
 	plugin_list = get_plugin_list(target_ids)
-	plugin_list.fetch_data(fail_hard=False)
+	# don't fetch release, so GitHub api token is not needed
+	await plugin_list.fetch_data(no_api_token=True, fail_hard=True)
+
+
+async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
+	plugin_list = get_plugin_list(target_ids)
+	await plugin_list.fetch_data(fail_hard=False)
 	plugin_list.store_data()
+
+
+async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
+	if args.targets == '':
+		target_ids = None
+	else:
+		target_ids = args.targets.split(',')
+		log.info('Targets: {}'.format(', '.join(target_ids)))
+
+	reporter.record_command(args.subparser_name)
+	reporter.record_script_start()
+
+	try:
+		if args.subparser_name == 'check':
+			await check(target_ids)
+		elif args.subparser_name == 'data':
+			await fetch_and_store_data(target_ids)
+		elif args.subparser_name == 'doc':
+			await generate_doc(target_ids)
+		elif args.subparser_name == 'all':
+			if not args.no_check:
+				await check(target_ids)
+			await fetch_and_store_data(target_ids)
+			await generate_doc(target_ids)
+		else:
+			parser.print_help()
+	except Exception as e:
+		reporter.record_script_failure(e, traceback.format_exc())
+		raise
+	finally:
+		reporter.record_script_end()
+		reporter.report(get_plugin_list())
 
 
 def main():
@@ -23,35 +60,14 @@ def main():
 
 	subparsers = parser.add_subparsers(title='Command', help='Available commands', dest='subparser_name')
 	subparsers.add_parser('check', help='Check the correctness of files in "plugins/"')
-	subparsers.add_parser('fetch', help='Fetch metadata and release information from github to "meta/"')
+	subparsers.add_parser('data', help='Fetch all needed data of plugins from github, and save to "meta/"')
 	subparsers.add_parser('doc', help='Generate user friendly plugin catalogue doc to "catalogue/"')
-	subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
+
+	all_parser = subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
+	all_parser.add_argument('--no-check', action='store_true', help='Skip the check')
 
 	args = parser.parse_args()
-	if args.targets == '':
-		target_ids = None
-	else:
-		target_ids = args.targets.split(',')
-		print('Targets: {}'.format(', '.join(target_ids)))
-	reporter.record_command(args.subparser_name)
-	reporter.record_script_start()
-
-	if args.subparser_name == 'check':
-		check(target_ids)
-	elif args.subparser_name == 'fetch':
-		update_data(target_ids)
-	elif args.subparser_name == 'doc':
-		generate_doc(target_ids)
-	elif args.subparser_name == 'all':
-		check(target_ids)
-		update_data(target_ids)
-		generate_doc(target_ids)
-	else:
-		parser.print_help()
-
-	reporter.record_script_end()
-	reporter.report(get_plugin_list())
-	thread_pools.shutdown()
+	asyncio.run(async_main(parser, args))
 
 
 if __name__ == '__main__':
