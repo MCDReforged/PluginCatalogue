@@ -17,4 +17,4 @@ jobs:
     secrets: inherit
     with:
       check: true
-      squash_history: ${{ inputs.squash_history || false }}
+      squash_history: ${{ inputs.squash_history || true }}
