@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "baidu_netdisk_backup",
+    "name": "百度网盘备份",
+    "version": "1.0.0",
+    "link": "https://github.com/moran0710/MinecraftServer_BaiduNetdisk_backup",
+    "authors": [
+      "Moran0710"
+    ],
+    "dependencies": {},
+    "requirements": [],
+    "description": {
+      "en_us": "A MCDR plugin to backup your Minecraft Server and use ByPy to upload it to Baidu Netdisk.It will save your server map and even other data, and also MCDR config and plugin and MCDR plugin config",
+      "zh_cn": "用于备份服务器数据并使用ByPy上传到百度网盘的MCDR插件。将会备份整个服务端（包括用户数据和插件数据），和MCDR插件及配置"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "baidu_netdisk_backup",
+    "authors": [
+      "Moran0710"
+    ],
+    "repository": "https://github.com/moran0710/MinecraftServer_BaiduNetdisk_backup",
+    "branch": "master",
+    "related_path": "baidu_netdisk_backup",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# 百度网盘备份插件\n\n## 介绍\n这是一个基于[ByPy](https://github.com/houtianze/bypy)来~~白嫖~~用来利用百度网盘的免费空间来备份整个服务端的插件\n\n支持自动保存和指令`!!baidu_backup`保存，自动上传到百度网盘，不占用本地空间\n\n支持多槽位，超出槽位个数的百度网盘备份将被删除\n\n## 安装\n\n1. 前往release下载.mcdr文件\n2. 丢进你的mcdr plugin文件夹\n3. 你需要安装以下依赖，直接执行以下命令\n```\npip install bypy\npip install APScheduler\n```\n4. 第一次运行时，Bypy会要求你登录百度网盘，请根据bypy在命令行的提示登录（点击提供的链接，并复制授权码到命令行）\n5. done\n\n## 配置&使用\n插件会在./config下释放配置文件文件夹`./config/baidu_netdisk_backup/baidu_netdisk_backup_config.yaml`，\n按照说明填写即可\n\n使用`!!baidu_backup`手动备份\n\n备份时会重启服务器\n\n## 反馈\n请在issue提供\n\n## 鸣谢\n1. [ByPy](https://github.com/houtianze/bypy)\n2. [MCDReforged](https://github.com/MCDReforged/MCDReforged)\n"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "baidu_netdisk_backup",
+    "latest_version": null,
+    "latest_version_index": null,
+    "releases": []
+  },
+  "repository": {
+    "url": "https://github.com/moran0710/MinecraftServer_BaiduNetdisk_backup",
+    "name": "MinecraftServer_BaiduNetdisk_backup",
+    "full_name": "moran0710/MinecraftServer_BaiduNetdisk_backup",
+    "description": "MCDR的备份插件",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# 百度网盘备份插件\n\n## 介绍\n这是一个基于[ByPy](https://github.com/houtianze/bypy)来~~白嫖~~用来利用百度网盘的免费空间来备份整个服务端的插件\n\n支持自动保存和指令`!!baidu_backup`保存，自动上传到百度网盘，不占用本地空间\n\n支持多槽位，超出槽位个数的百度网盘备份将被删除\n\n## 安装\n\n1. 前往release下载.mcdr文件\n2. 丢进你的mcdr plugin文件夹\n3. 你需要安装以下依赖，直接执行以下命令\n```\npip install bypy\npip install APScheduler\n```\n4. 第一次运行时，Bypy会要求你登录百度网盘，请根据bypy在命令行的提示登录（点击提供的链接，并复制授权码到命令行）\n5. done\n\n## 配置&使用\n插件会在./config下释放配置文件文件夹`./config/baidu_netdisk_backup/baidu_netdisk_backup_config.yaml`，\n按照说明填写即可\n\n使用`!!baidu_backup`手动备份\n\n备份时会重启服务器\n\n## 反馈\n请在issue提供\n\n## 鸣谢\n1. [ByPy](https://github.com/houtianze/bypy)\n2. [MCDReforged](https://github.com/MCDReforged/MCDReforged)\n",
+    "readme_url": "https://raw.githubusercontent.com/moran0710/MinecraftServer_BaiduNetdisk_backup/master/baidu_netdisk_backup/readme.md"
+  }
+}

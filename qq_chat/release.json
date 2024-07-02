@@ -1,0 +1,166 @@
+{
+  "schema_version": 8,
+  "id": "qq_chat",
+  "latest_version": "2.1.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/qq_chat-v2.1.0",
+      "name": "qq_chat: v2.1.0",
+      "tag_name": "qq_chat-v2.1.0",
+      "created_at": "2023-06-29T07:57:03Z",
+      "description": "## [2.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/qq_chat-v2.0.0...qq_chat-v2.1.0) (2023-06-29)\n\n\n### Features\n\n* **qq_chat:** :sparkles: multi server support ([#131](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/131)) ([a573d0b](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a573d0b6e83edf55375d2fb7c553a8f830d5eeea))\n\n\n### Bug Fixes\n\n* **qq_chat:** :bug: fix all message which starts with long command prefix returns help msg ([5787d03](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/5787d038c5edd490da16016aeaf4edc0eb4e4d6f))\n* **qq_chat:** :bug: remove forwards config. move forward feature to sync group ([6126ab9](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/6126ab9bd7c266576ed02e99f8262b32bf6a9754))",
+      "prerelease": false,
+      "asset": {
+        "id": 114825683,
+        "name": "QQChat-v2.1.0.mcdr",
+        "size": 6574,
+        "download_count": 427,
+        "created_at": "2023-06-29T07:57:44Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/qq_chat-v2.1.0/QQChat-v2.1.0.mcdr",
+        "hash_md5": "c3930782143da7a1fb9508a8046e8953",
+        "hash_sha256": "625eb7fab36440246df422b6ab4f2a22f6801beff14a0ef769ba24c3a500faec"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "qq_chat",
+        "name": "QQChat",
+        "version": "2.1.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/qq_api",
+        "authors": [
+          "Andy Zhang",
+          "Aimerny"
+        ],
+        "dependencies": {
+          "qq_api": "^1.2.0",
+          "online_player_api": "^1.0.0"
+        },
+        "requirements": [
+          "aiocqhttp"
+        ],
+        "description": {
+          "en_us": "Useful Functions with QQ",
+          "zh_cn": "QQ 相关实用功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/qq_chat-v2.0.0",
+      "name": "qq_chat: v2.0.0",
+      "tag_name": "qq_chat-v2.0.0",
+      "created_at": "2023-05-21T15:17:27Z",
+      "description": "## [2.0.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/qq_chat-v1.0.1...qq_chat-v2.0.0) (2023-05-21)\n\n\n### ⚠ BREAKING CHANGES\n\n* **qq_chat:** remove  `groups` in `config.json`, please fill in the id in the original `groups` into `message_sync_groups` to maintain the original performance\n\n### Features\n\n* **qq_chat:** ✨ add player_list_regex config ([67649b6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/67649b6e5038c481e65b1bfbb62e9d1e41f458d8))\n* **qq_chat:** ✨ remove bot category in list command ([58e8dcd](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/58e8dcd46424fe6fd710ae1f3cbc74644078cfc5))\n* **qq_chat:** 💥 2.0.0 ([6647439](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/66474399f6b0ccc086fb3c1072d72a8e2bf2862b))\n\n\n### Bug Fixes\n\n* **qq_chat:** 🐛 fix 'mc' command in main group invalid ([2d0c191](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2d0c1910940a1f995189bdf810539fcc92fbf8fd))\n* **qq_chat:** 🐛 use reply instead of bot.sync.send_group_msg ([b28d4b5](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b28d4b57f8bd60db1b41880def7afee1706903e6))",
+      "prerelease": false,
+      "asset": {
+        "id": 109142758,
+        "name": "QQChat-v2.0.0.mcdr",
+        "size": 5433,
+        "download_count": 138,
+        "created_at": "2023-05-21T15:18:12Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/qq_chat-v2.0.0/QQChat-v2.0.0.mcdr",
+        "hash_md5": "fdb1bc96dd192a6584e9c428b0cb8665",
+        "hash_sha256": "ed37e8c7f0b5c58de46d202915a377932ce5b59d2eb087a369d81033c5022858"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "qq_chat",
+        "name": "QQChat",
+        "version": "2.0.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/qq_api",
+        "authors": [
+          "Andy Zhang",
+          "Aimerny"
+        ],
+        "dependencies": {
+          "qq_api": "^1.2.0",
+          "online_player_api": "^1.0.0"
+        },
+        "requirements": [
+          "aiocqhttp"
+        ],
+        "description": {
+          "en_us": "Useful Functions with QQ",
+          "zh_cn": "QQ 相关实用功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/qq_chat-v1.0.1",
+      "name": "qq_chat: v1.0.1",
+      "tag_name": "qq_chat-v1.0.1",
+      "created_at": "2023-02-26T23:52:23Z",
+      "description": "## [1.0.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/qq_chat-v1.0.0...qq_chat-v1.0.1) (2023-02-26)\n\n\n### Bug Fixes\n\n* **qq_api:** 🐛 use event loop from qq_api ([c9ba896](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/c9ba8966bb2bc9105b3c0fe8b7802b5378e50509))",
+      "prerelease": false,
+      "asset": {
+        "id": 97240227,
+        "name": "QQChat-v1.0.1.mcdr",
+        "size": 3429,
+        "download_count": 142,
+        "created_at": "2023-02-26T23:53:03Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/qq_chat-v1.0.1/QQChat-v1.0.1.mcdr",
+        "hash_md5": "ea769521d4bb4323c6411f36ad300beb",
+        "hash_sha256": "4587a33a5c213e48d62f7a0a86d7af20a749728fd1a7e3d01dc19c9594bdd034"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "qq_chat",
+        "name": "QQChat",
+        "version": "1.0.1",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/qq_api",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "qq_api": "^1.2.0",
+          "online_player_api": "^1.0.0"
+        },
+        "requirements": [
+          "aiocqhttp"
+        ],
+        "description": {
+          "en_us": "Useful Functions with QQ",
+          "zh_cn": "QQ 相关实用功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/qq_chat-v1.0.0",
+      "name": "qq_chat: v1.0.0",
+      "tag_name": "qq_chat-v1.0.0",
+      "created_at": "2023-02-03T22:35:44Z",
+      "description": "## 1.0.0 (2023-02-03)\n\n\n### Features\n\n* **qq_chat:** ✨ compatible with MCDR 2.0 ([32bcc63](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/32bcc63a6581742688d80b496d23de065f1d4586))\n* **qq_chat:** ✨ compatible with MCDR 2.0 ([d60e2a9](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/d60e2a9faa0d8b4a0d685d99c8164bf6d4535ff9))",
+      "prerelease": false,
+      "asset": {
+        "id": 94233580,
+        "name": "QQChat-v1.0.0.mcdr",
+        "size": 3443,
+        "download_count": 158,
+        "created_at": "2023-02-03T22:36:22Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/qq_chat-v1.0.0/QQChat-v1.0.0.mcdr",
+        "hash_md5": "49853b6b4a9d075275ddd8cfb30d5305",
+        "hash_sha256": "c216e3fb19c7193a83959be0168ad92daeb7e69425129f63e4f21d97ea5b9e45"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "qq_chat",
+        "name": "QQChat",
+        "version": "1.0.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/qq_api",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "qq_api": "^1.0.0",
+          "online_player_api": "^1.0.0"
+        },
+        "requirements": [
+          "aiocqhttp"
+        ],
+        "description": {
+          "en_us": "Useful Functions with QQ",
+          "zh_cn": "QQ 相关实用功能"
+        }
+      }
+    }
+  ]
+}
