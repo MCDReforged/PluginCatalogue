@@ -111,10 +111,11 @@ class PluginList(List[Plugin]):
 				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
 
 		# make and store plugin summary
-		meta_summary = PluginMetaSummary()
-		meta_summary.plugin_amount = len(self)
-		meta_summary.plugins = {}
-		meta_summary.plugin_info = {}
+		meta_summary = PluginMetaSummary(
+			plugin_amount=len(self),
+			plugins={},
+			plugin_info={},
+		)
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 			meta_summary.plugin_info[plugin.id] = plugin.generate_formatted_plugin_info()
@@ -124,14 +125,16 @@ class PluginList(List[Plugin]):
 		author_summary = AuthorSummary()
 		for plugin in self:
 			for author in plugin.authors:
-				author_summary.add_author(author.copy(), plugin.id)
+				author_summary.add_author(author.model_copy(), plugin.id)
 		author_summary.finalize()
 		file_utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'), with_gz=True)
 
 		# everything
-		everything = Everything(plugins={})
-		everything.timestamp = int(time.time())
-		everything.authors = author_summary
+		everything = Everything(
+			timestamp=int(time.time()),
+			authors=author_summary,
+			plugins={},
+		)
 		for plugin in self:
 			aop = plugin.create_and_save_all_data()
 			everything.plugins[plugin.id] = aop

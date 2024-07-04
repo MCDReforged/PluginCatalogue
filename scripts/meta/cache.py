@@ -30,9 +30,6 @@ class _GitHubApiResponseBase(Serializable):
 		buf = gzip.compress(json.dumps(json_obj).encode('utf8'))
 		return base64.b64encode(buf).decode('utf8')
 
-	def set_encode_data(self, json_obj: _Json):
-		self.data = self.encode_json(json_obj)
-
 
 class ReleasePageResponse(_GitHubApiResponseBase):
 	empty: bool
@@ -45,11 +42,11 @@ class ReleasePageResponse(_GitHubApiResponseBase):
 
 	@classmethod
 	def from_response(cls, data: list, etag: str) -> 'ReleasePageResponse':
-		page = cls()
-		page.etag = etag
-		page.empty = len(data) == 0
-		page.set_encode_data(data)
-		return page
+		return cls(
+			etag=etag,
+			data=cls.encode_json(data),
+			empty=len(data) == 0,
+		)
 
 
 class RepositoryResponse(_GitHubApiResponseBase):

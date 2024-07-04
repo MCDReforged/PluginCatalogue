@@ -21,8 +21,8 @@ class RepositoryInfo(Serializable):
 	watchers_count: int
 	forks_count: int
 
-	readme: Optional[str]
-	readme_url: Optional[str]
+	readme: Optional[str] = None
+	readme_url: Optional[str] = None
 
 	@classmethod
 	async def create_for(cls, plugin: 'Plugin', plugin_cache_manager: 'PluginRequestCacheManager') -> 'RepositoryInfo':

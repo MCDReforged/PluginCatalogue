@@ -1,21 +1,20 @@
-from typing import TypeVar, Type
-
-import mcdreforged.utils.serializer as mcdr_serializer
+from pydantic import BaseModel, ValidationError
+from typing_extensions import Self
 
 __all__ = [
 	'Serializable'
 ]
 
 
-Self = TypeVar('Self', bound='Serializable')
+class Serializable(BaseModel):
+	def serialize(self) -> dict:
+		return self.model_dump(mode='json')
 
-
-class Serializable(mcdr_serializer.Serializable):
 	@classmethod
-	def deserialize(cls: Type[Self], data: dict, **kwargs) -> Self:
+	def deserialize(cls, data: dict) -> Self:
 		try:
-			return super().deserialize(data, **kwargs)
-		except Exception as e:
+			return cls.model_validate(data, strict=True)
+		except ValidationError as e:
 			from common import log
 			log.error('Failed to deserialize to {} from data {}'.format(cls, data))
 			raise e from None
