@@ -58,6 +58,13 @@ class RepositoryResponse(_GitHubApiResponseBase):
 		return cls(etag=etag, data=cls.encode_json(data))
 
 
+class AssetData(Serializable):
+	meta: MetaInfo
+	size: int
+	hash_md5: str
+	hash_sha256: str
+
+
 class RequestCache(Serializable):
 	"""
 	/<plugin_id>/.request_cache.json
@@ -65,5 +72,5 @@ class RequestCache(Serializable):
 	NOTICE: str = 'Not public API, DO NOT use this file'
 
 	release_pages: Dict[str, ReleasePageResponse] = {}  # page -> GitHub API response
-	asset_metas: Dict[str, MetaInfo] = {}  # asset id -> MetaInfo
+	asset_data: Dict[str, AssetData] = {}  # asset id -> AssetData
 	repos_info: Optional[RepositoryResponse] = None  # GitHub API response

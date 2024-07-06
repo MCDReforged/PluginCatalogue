@@ -20,20 +20,25 @@ repos_root/
 |
 +-- ...               # more directory for more plugins
 |
-+-- everything.json      # Json object: Everything
-+-- everything.json.gz   # A gz-compressed "everything.json"
-+-- authors.json         # Json object: AuthorSummary
-+-- authors.json.gz      # A gz-compressed "authors.json"
-+-- plugins.json         # Json object: PluginMetaSummary
-+-- plugins.json.gz      # A gz-compressed "plugins.json"
++-- everything.json           # Json object: Everything
++-- everything.json.gz        # A gz-compressed "everything.json"
++-- everything.json.xz        # A xz-compressed "everything.json"
++-- everything_slim.json      # Json object: Everything (slim)
++-- everything_slim.json.gz   # A gz-compressed "everything_slim.json"
++-- everything_slim.json.xz   # A xz-compressed "everything_slim.json"
++-- authors.json              # Json object: AuthorSummary
++-- authors.json.gz           # A gz-compressed "authors.json"
++-- plugins.json              # Json object: PluginMetaSummary
++-- plugins.json.gz           # A gz-compressed "plugins.json"
 ```
 
-| What you want                     | Where to get                         |
-|-----------------------------------|--------------------------------------|
-| Everything in the meta repository | [`everything.json`](#Everything)     |
-| Summary of all plugins            | [`plugins.json`](#PluginMetaSummary) |
-| Summary of plugin authors         | [`authors.json`](#AuthorSummary)     |
-| Information of a specified plugin | `<plugin_id>/xxx.json`               |
+| What you want                                                                                     | Where to get                               |
+|---------------------------------------------------------------------------------------------------|--------------------------------------------|
+| Everything possible in the meta repository                                                        | [`everything.json`](#Everything)           |
+| Everything in the meta repository, but don't need those textual introduction / description things | [`everything_slim.json`](#slim-everything) |
+| Summary of all plugins, i.e. what plugins does the meta repository have                           | [`plugins.json`](#PluginMetaSummary)       |
+| Summary of plugin authors                                                                         | [`authors.json`](#AuthorSummary)           |
+| Information of a specified plugin                                                                 | `<plugin_id>/xxx.json`                     |
 
 ### Object definition
 
@@ -68,6 +73,18 @@ If you want to grab the whole repository, fetch this and that's it
   "repository": {/* RepositoryInfo */}   // same with the "<plugin_id>/repository.json" file, null if fetch failed
 }
 ```
+
+##### slim everything
+
+A slim version of the [Everything](#everything) object that remove all textural introduction / description stuffs, including:
+
+- `/plugins/*/plugin/introduction`
+- `/plugins/*/repository/readme`
+- `/plugins/*/release/releases/*/description`
+
+Its syntax is the same as [Everything](#everything)
+
+It's useful because of its smaller size for plugin managers / installers since they might not need these textual stuffs
 
 #### PluginMetaSummary
 
@@ -245,7 +262,9 @@ Information of an asset in GitHub release
   "size": 12735,  // size of the asset, in bytes
   "download_count": 1457,  // download count of the asset
   "created_at": "2022-10-03T04:13:26Z",  // asset creation time, in %Y-%m-%dT%H:%M:%SZ format
-  "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr"  // the url to download this asset
+  "browser_download_url": "https://github.com/Myself/MyPlugin/releases/download/v1.2.0/MyPlugin-v1.2.0.mcdr",  // the url to download this asset
+  "hash_md5": "14758f1afd44c09b7992073ccf00b43d",  // md5 hash digest of the asset
+  "hash_sha256": "aec070645fe53ee3b3763059376134f058cc337247c978add178b6ccdfb0019f"  // sha256 hash digest of the asset
 }
 ```
 
