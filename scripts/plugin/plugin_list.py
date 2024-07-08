@@ -143,9 +143,11 @@ class PluginList(List[Plugin]):
 		# everything (slim)
 		for p in everything.plugins.values():
 			p.plugin.introduction = {}
-			p.repository.readme = None
-			for r in p.release.releases:
-				r.description = None
+			if p.repository is not None:
+				p.repository.readme = None
+			if p.release is not None:
+				for r in p.release.releases:
+					r.description = None
 		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything_slim.json'), compact=True, with_gz=True, with_xz=True)
 
 		log.info('Stored data into meta folder')
