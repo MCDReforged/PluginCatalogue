@@ -1,4 +1,4 @@
-[English](readme.md) | **中文**
+[English](readme.md) | **中文** | [日本語](readme_jp.md)
 
 <h1 align="center">MCDReforged PluginCatalogue</h1>
 

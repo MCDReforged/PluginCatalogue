@@ -1,4 +1,4 @@
-**English** | [中文](readme_cn.md)
+**English** | [中文](readme_cn.md) | [日本語](readme_jp.md)
 
 <h1 align="center"> MCDReforged PluginCatalogue</h1>
 
