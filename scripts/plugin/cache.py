@@ -80,11 +80,12 @@ class PluginRequestCacheManager:
 				except KeyError:
 					req_buf = b''
 
-			data = AssetData()
-			data.meta = MetaInfo.of(json.loads(meta_buf), req_buf.decode('utf8'))
-			data.size = len(file_buf)
-			data.hash_md5 = hashlib.md5(file_buf).hexdigest()
-			data.hash_sha256 = hashlib.sha256(file_buf).hexdigest()
+			data = AssetData(
+				meta=MetaInfo.of(json.loads(meta_buf), req_buf.decode('utf8')),
+				size=len(file_buf),
+				hash_md5=hashlib.md5(file_buf).hexdigest(),
+				hash_sha256=hashlib.sha256(file_buf).hexdigest(),
+			)
 			self.__cache.asset_data[asset_id] = data
 
 		self.__used_asset_data.add(asset_id)

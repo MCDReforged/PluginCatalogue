@@ -232,15 +232,15 @@ class Plugin:
 	def generate_formatted_plugin_info(self) -> PluginInfo:
 		if (_PluginDataSet.info | _PluginDataSet.introduction) not in self.__dataset:
 			raise RuntimeError('not enough info. current dataset: {}'.format(self.__dataset))
-		info = PluginInfo()
-		info.id = self.id
-		info.authors = [author.name for author in self.__plugin_info.authors]
-		info.repository = self.repos.repos_url
-		info.branch = self.repos.branch
-		info.related_path = self.repos.related_path
-		info.labels = [label.id for label in self.__plugin_info.labels]
-		info.introduction = self.__introduction.get_mapping().copy()
-		return info
+		return PluginInfo(
+			id=self.id,
+			authors=[author.name for author in self.__plugin_info.authors],
+			repository=self.repos.repos_url,
+			branch=self.repos.branch,
+			related_path=self.repos.related_path,
+			labels=[label.id for label in self.__plugin_info.labels],
+			introduction=self.__introduction.get_mapping().copy(),
+		)
 
 	def save_formatted_plugin_info(self):
 		info = self.generate_formatted_plugin_info()
