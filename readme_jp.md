@@ -6,9 +6,9 @@
   <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> プラグインを一覧表示するためのリポジトリ。
   <br>
   <br>
-  <a href="https://mcdreforged.com/ja/plugins"><strong>メインプラグインカタログ</strong></a>
+  <a href="https://mcdreforged.com/en/plugins"><strong>メインプラグインカタログ</strong></a>
   ·
-  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_jp.md">旧プラグインカタログ</a>
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme.md">旧プラグインカタログ</a>
 </p>
 <br>
 
@@ -21,6 +21,6 @@
 
 **旧プラグインカタログ** には以前のバージョンの MCDR 用のプラグインが含まれています。これらのプラグインは現在のバージョンの MCDR と互換性がない場合がありますので、注意して使用してください
 
-プラグインリポジトリにプラグインを追加したい場合は、PR を提出してください。詳細については [ドキュメント](https://mcdreforged.readthedocs.io/ja/latest/plugin_dev/plugin_catalogue.html) をご覧ください
+プラグインリポジトリにプラグインを追加したい場合は、PR を提出してください。詳細については [ドキュメント](https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html) をご覧ください
 
 プラグインリポジトリが提供するプラグインデータについては [こちら](https://github.com/MCDReforged/PluginCatalogue/tree/meta) で確認できます
