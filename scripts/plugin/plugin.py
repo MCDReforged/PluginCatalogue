@@ -94,6 +94,8 @@ class _PluginInfoInner:
 
 class Plugin:
 	__plugin_info: _PluginInfoInner
+
+	# might be null, if repos not found
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
 	repository_info: Optional[RepositoryInfo] = None
