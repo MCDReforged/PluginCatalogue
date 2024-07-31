@@ -14,6 +14,7 @@ class RepositoryInfo(Serializable):
 	url: str
 	name: str
 	full_name: str
+	html_url: str
 	description: Optional[str]
 	archived: bool
 

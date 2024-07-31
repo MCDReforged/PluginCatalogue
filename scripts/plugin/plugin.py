@@ -292,7 +292,7 @@ class Plugin:
 
 	# ========================= RepositoryInfo =========================
 
-	async def fetch_repository(self):
+	async def fetch_and_update_repository(self):
 		try:
 			self.repository_info = await RepositoryInfo.create_for(self, self.__cache_manager)
 		except Exception as e:
@@ -300,6 +300,8 @@ class Plugin:
 			raise
 		else:
 			self.__repository_info_error = None
+
+		self.repos.update_from_api(self.id, self.repository_info)
 		self.__dataset |= _PluginDataSet.repository
 		log.info('({}) Repository information fetched'.format(self.id))
 

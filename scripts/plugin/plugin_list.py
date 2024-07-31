@@ -66,14 +66,16 @@ class PluginList(List[Plugin]):
 
 		self.__fetched_stuffs.add(fetch_target_name)
 
-	async def fetch_data(self, *, no_api_token: bool = False, fail_hard: bool):
+	async def fetch_data(self, *, fail_hard: bool, skip_release: bool = False):
 		log.info('Fetching data')
+
+		# fetch repos first, maybe the repos var needs some update (e.g. repos rename)
+		await self.__fetch('repository', lambda plg: plg.fetch_and_update_repository(), fail_hard=fail_hard)
 		async with asyncio.TaskGroup() as tg:
 			tg.create_task(self.__fetch('introduction', lambda plg: plg.fetch_introduction(), fail_hard=fail_hard))
 			tg.create_task(self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard))
-			if not no_api_token:
+			if not skip_release:
 				tg.create_task(self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard))
-				tg.create_task(self.__fetch('repository', lambda plg: plg.fetch_repository(), fail_hard=fail_hard))
 
 	def store_data(self):
 		log.info('Storing data into meta folder')

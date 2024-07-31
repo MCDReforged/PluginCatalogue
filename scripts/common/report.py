@@ -86,17 +86,17 @@ class Reporter:
 
 		f.write('## Failures\n\n')
 		f.write('Plugins with failure: {}\n\n'.format(len(self.__failures)))
-		for plugin_id, messages in self.__failures.items():
+		for plugin_id in sorted(self.__failures.keys()):
 			f.write('### `{}`\n\n'.format(plugin_id))
-			for msg in messages:
+			for msg in self.__failures[plugin_id]:
 				f.write('- {}\n'.format(msg))
 			f.write('\n')
 
 		f.write('## Warnings\n\n')
 		f.write('Plugins with warning: {}\n\n'.format(len(self.__warnings)))
-		for plugin_id, messages in self.__warnings.items():
+		for plugin_id in sorted(self.__warnings.keys()):
 			f.write('### `{}`\n\n'.format(plugin_id))
-			for msg in messages:
+			for msg in self.__warnings[plugin_id]:
 				f.write('- {}\n'.format(msg))
 			f.write('\n')
 
