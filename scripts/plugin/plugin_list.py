@@ -38,7 +38,7 @@ class PluginList(List[Plugin]):
 						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						raise
 				else:
-					log.debug('Skipping plugin {}'.form1at(folder))
+					log.debug('Skipping plugin {}'.format(folder))
 
 		log.info('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())
