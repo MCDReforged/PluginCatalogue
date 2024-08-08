@@ -73,8 +73,8 @@ async def request_github_api(url: str, *, params: dict = None, etag: str = '', r
 	headers = {
 		'If-None-Match': etag
 	}
-	if 'github_api_token' in os.environ:
-		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
+	if (api_token := os.environ.get('github_api_token', '')) != '':
+		headers['Authorization'] = 'token {}'.format(api_token)
 	response = await request_get(url, headers=headers, params=params, retries=retries)
 	if response.status_code != 200 and response.status_code != 304:
 		raise Exception('Un-expected status code {}: {}'.format(response.status_code, response.content))
