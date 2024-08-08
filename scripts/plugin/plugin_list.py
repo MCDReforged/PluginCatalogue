@@ -18,10 +18,11 @@ class PluginList(List[Plugin]):
 		self.__inited = False
 		self.__fetched_stuffs: Set[str] = set()
 
-	def init(self, target_ids: Optional[Collection[str]]):
+	def init(self, target_ids: Optional[Collection[str]], concise: Optional[bool] = False):
 		if self.__inited:
 			return
 		self.clear()
+		skipped = 0
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
 			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
 				if target_ids is None or folder in target_ids:
@@ -38,7 +39,11 @@ class PluginList(List[Plugin]):
 						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						raise
 				else:
-					log.info('Skipping plugin {}'.format(folder))
+					skipped += 1
+					if not concise:
+						log.info('Skipping plugin {}'.form1at(folder))
+		if concise:
+			log.info('{} plugins skipped'.format(skipped))
 
 		log.info('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())

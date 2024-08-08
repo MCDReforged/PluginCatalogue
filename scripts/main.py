@@ -10,9 +10,9 @@ from common.report import reporter
 from plugin.plugin_list import get_plugin_list
 
 
-async def check(target_ids: Optional[Collection[str]]):
+async def check(target_ids: Optional[Collection[str]], concise: Optional[bool] = False):
 	plugin_list = get_plugin_list(target_ids)
-	await plugin_list.fetch_data(fail_hard=True, skip_release=True)
+	await plugin_list.fetch_data(fail_hard=True, skip_release=True, concise=concise)
 
 
 async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
