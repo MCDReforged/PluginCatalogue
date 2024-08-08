@@ -45,7 +45,7 @@ class _PluginInfoJson(Serializable):
 	introduction: Dict[str, str] = {}  # lang -> file path in repos
 
 
-class _PluginInfoInner:
+class _PluginInfoInternal:
 	id: str
 
 	repos: GithubRepository
@@ -93,7 +93,7 @@ class _PluginInfoInner:
 
 
 class Plugin:
-	__plugin_info: _PluginInfoInner
+	__plugin_info: _PluginInfoInternal
 
 	# might be null, if repos not found
 	meta_info: Optional[MetaInfo] = None
@@ -108,7 +108,7 @@ class Plugin:
 			raise FileNotFoundError('Directory {} not found'.format(self.__info_directory))
 
 		plugin_json = file_utils.load_json(os.path.join(self.__info_directory, 'plugin_info.json'))
-		self.__plugin_info = _PluginInfoInner(plugin_json)
+		self.__plugin_info = _PluginInfoInternal(plugin_json)
 		if self.id != plugin_id:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
 
