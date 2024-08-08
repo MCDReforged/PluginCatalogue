@@ -38,7 +38,7 @@ def main():
 			f.write(msg)
 
 	if not skip:
-		asyncio.run(check(folders, concise=True))
+		asyncio.run(check(folders))
 
 
 if __name__ == '__main__':
