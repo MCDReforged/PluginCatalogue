@@ -40,4 +40,4 @@ jobs:
         run: |
           python .github/workflows/scripts/pr_check.py
         env:
-          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+          github_api_token: ${{ secrets.GITHUB_TOKEN }}
