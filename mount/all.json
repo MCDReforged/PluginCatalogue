@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "mount",
+    "name": "Mount",
+    "version": "0.3.1",
+    "link": "https://github.com/FAS-Server/Mount",
+    "authors": [
+      "401U"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.7.0"
+    },
+    "requirements": [
+      "jproperties",
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "Mount different minecraft server into a mcdr server, with overwritten properties!",
+      "zh_cn": "将不同的MC服务器挂载进入一个mcdr服务器, 同时能够重写服务器配置!"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "mount",
+    "authors": [
+      "YehowahLiu"
+    ],
+    "repository": "https://github.com/FAS-Server/Mount",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "A plugin that makes it able to mount multi minecraft server to one MCDR instance.\n\n## Feature\n\n- Mount different MC server to one MCDR instance\n\n- Set different start_command, reset_path, handler, mcdr plugin for different MC Server\n\n- Overwrite server.properties when mount, so it's possible that the mounted MC server will use same server port, etc\n\n- For more detials, refer to (README)[https://github.com/FAS-Server/Mount/blob/main/README_en.md]\n",
+      "zh_cn": "一个使多个MC服务器可以挂载到一个MCDR实例的插件.\n\n## 特性：\n\n- 在一个MCDR实例中动态挂载不同MC服务器\n\n- 可为每个的MC服务器配置启动脚本、重置路径、handler、mcdr插件等\n\n- 挂载时按需覆盖server.properties，从而使得挂载后的服务器可以在相同的端口启动\n\n- 更多信息, 请参考(README)[https://github.com/FAS-Server/Mount]\n"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "mount",
+    "latest_version": "0.3.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/FAS-Server/Mount/releases/tag/v0.3.1",
+        "name": "v0.3.1",
+        "tag_name": "v0.3.1",
+        "created_at": "2024-01-18T17:00:00Z",
+        "description": "add an config field which controls whether to show more debug log\r\n\r\n添加新的配置项，可控制输出更多调试信息\r\n\r\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/FAS-Server/Mount/compare/v0.3.0...v0.3.1)",
+        "prerelease": false,
+        "asset": {
+          "id": 147287898,
+          "name": "Mount-v0.3.1.pyz",
+          "size": 30860,
+          "download_count": 42,
+          "created_at": "2024-01-23T13:05:13Z",
+          "browser_download_url": "https://github.com/FAS-Server/Mount/releases/download/v0.3.1/Mount-v0.3.1.pyz",
+          "hash_md5": "e57719b2e4ae8f7aaca59fbdc915bb3d",
+          "hash_sha256": "1a3d6e97b26203c623a88a7e82c9732fbe5e82a354fbebf933ebbe4f9c4d7649"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mount",
+          "name": "Mount",
+          "version": "0.3.1",
+          "link": "https://github.com/FAS-Server/Mount",
+          "authors": [
+            "401U"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "jproperties",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Mount different minecraft server into a mcdr server, with overwritten properties!",
+            "zh_cn": "将不同的MC服务器挂载进入一个mcdr服务器, 同时能够重写服务器配置!"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/FAS-Server/Mount/releases/tag/v0.3.0",
+        "name": "v0.3.0",
+        "tag_name": "v0.3.0",
+        "created_at": "2023-12-23T15:00:12Z",
+        "description": "### &nbsp;&nbsp;&nbsp;🚀 Features\r\n\r\n- Allow using multiple folder as servers_path &nbsp;-&nbsp; by @401U [<samp>(ce26f)</samp>](https://github.com/FAS-Server/Mount/commit/ce26fc7)\r\n- Add load function into MountConfig &nbsp;-&nbsp; by @401U [<samp>(6f533)</samp>](https://github.com/FAS-Server/Mount/commit/6f533ea)\r\n- Pagination of mount list &nbsp;-&nbsp; by @401U [<samp>(9432d)</samp>](https://github.com/FAS-Server/Mount/commit/9432d49)\r\n- Add stats record for slot &nbsp;-&nbsp; by @401U [<samp>(e5447)</samp>](https://github.com/FAS-Server/Mount/commit/e544775)\r\n\r\n### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes\r\n\r\n- Add missing i18n key &nbsp;-&nbsp; by @401U [<samp>(f4fea)</samp>](https://github.com/FAS-Server/Mount/commit/f4feaa9)\r\n- Error click command &nbsp;-&nbsp; by @401U [<samp>(66428)</samp>](https://github.com/FAS-Server/Mount/commit/66428a4)\r\n- Compact with mcdr v2.12 &nbsp;-&nbsp; by @401U [<samp>(35641)</samp>](https://github.com/FAS-Server/Mount/commit/356414a)\r\n\r\n##### &nbsp;&nbsp;&nbsp;&nbsp;[View changes on GitHub](https://github.com/FAS-Server/Mount/compare/v0.2.0...v0.3.0)",
+        "prerelease": false,
+        "asset": {
+          "id": 142146176,
+          "name": "Mount-v0.3.0.pyz",
+          "size": 62283,
+          "download_count": 24,
+          "created_at": "2023-12-23T15:05:33Z",
+          "browser_download_url": "https://github.com/FAS-Server/Mount/releases/download/v0.3.0/Mount-v0.3.0.pyz",
+          "hash_md5": "b5ebb5898fc1fd41cb274c421ef884e9",
+          "hash_sha256": "05bc896d1f1070c5bc24c8239fa86b511173666dc2b8b2044e65343e6c460ef8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mount",
+          "name": "Mount",
+          "version": "0.3.0",
+          "link": "https://github.com/FAS-Server/Mount",
+          "authors": [
+            "401U"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "pyyaml",
+            "jproperties",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Mount different minecraft server into a mcdr server, with overwritten properties!",
+            "zh_cn": "将不同的MC服务器挂载进入一个mcdr服务器, 同时能够重写服务器配置!"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/FAS-Server/Mount/releases/tag/v0.2.0",
+        "name": "Mount v0.2.0",
+        "tag_name": "v0.2.0",
+        "created_at": "2023-02-20T09:10:33Z",
+        "description": "## Fix\r\n- fixed error using of new_thread\r\n\r\n## Chore\r\n- code refactor\r\n- detailed docs for configuration\r\n\r\n**Full Changelog**: https://github.com/FAS-Server/Mount/compare/v0.1.0-beta1...v0.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 96370341,
+          "name": "Mount-v0.2.0.pyz",
+          "size": 27862,
+          "download_count": 113,
+          "created_at": "2023-02-20T09:14:32Z",
+          "browser_download_url": "https://github.com/FAS-Server/Mount/releases/download/v0.2.0/Mount-v0.2.0.pyz",
+          "hash_md5": "c28bd65c438a30e54d3829daf8bcd09c",
+          "hash_sha256": "96b65f34ee8b6a17630b5da17405a0c0e05d29fd14bc52d0a37b87026d3c7a8c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mount",
+          "name": "Mount",
+          "version": "0.2.0",
+          "link": "https://github.com/FAS-Server/Mount",
+          "authors": [
+            "YehowahLiu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "pyyaml",
+            "jproperties",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Mount different minecraft server into a mcdr server, with overwritten properties!",
+            "zh_cn": "将不同的MC服务器挂载进入一个mcdr服务器, 同时能够重写服务器配置!"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/FAS-Server/Mount/releases/tag/v0.1.0-beta1",
+        "name": "Mount v0.1.0-beta1",
+        "tag_name": "v0.1.0-beta1",
+        "created_at": "2022-01-20T17:58:33Z",
+        "description": "**The very beginning!**",
+        "prerelease": false,
+        "asset": {
+          "id": 54492937,
+          "name": "Mount-v0.1.0-beta1.pyz",
+          "size": 27038,
+          "download_count": 154,
+          "created_at": "2022-01-20T18:05:17Z",
+          "browser_download_url": "https://github.com/FAS-Server/Mount/releases/download/v0.1.0-beta1/Mount-v0.1.0-beta1.pyz",
+          "hash_md5": "c9dc46c7885e0633129a2997d5d5588f",
+          "hash_sha256": "597ac6700376371fb1948b45e278458f1c62e67840f74018302f0ec2f549037b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mount",
+          "name": "Mount",
+          "version": "0.1.0-beta1",
+          "link": "https://github.com/FAS-Server/Mount",
+          "authors": [
+            "YehowahLiu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "pyyaml",
+            "jproperties",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Mount different minecraft server into a mcdr server, with overwritten properties!",
+            "zh_cn": "将不同的MC服务器挂载进入一个mcdr服务器, 同时能够重写服务器配置!"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/FAS-Server/Mount",
+    "name": "Mount",
+    "full_name": "FAS-Server/Mount",
+    "html_url": "https://github.com/FAS-Server/Mount",
+    "description": "Mount multi mc server into one mcdr instance!",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 0,
+    "readme": "# Mount\n\n![MCDReforged](https://img.shields.io/badge/dynamic/json?label=MCDReforged&query=dependencies.mcdreforged&url=https%3A%2F%2Fraw.githubusercontent.com%2FFAS-Server%2FMount%2Fmaster%2Fmcdreforged.plugin.json&style=plastic)\n![许可证](https://img.shields.io/github/license/FAS-Server/Mount?style=plastic)\n![版本](https://img.shields.io/github/v/release/FAS-Server/Mount?style=plastic)\n![总下载](https://img.shields.io/github/downloads/FAS-Server/Mount/total?label=total%20download&style=plastic)\n\n**简体中文** | **[English](https://github.com/FAS-Server/Mount/tree/main/README_en.md)**\n\n> 一个可以在单MCDR实例下挂载多个MC服务器的插件\n\n## 使用说明\n\n1. 配置一个MCDR实例(包括MC服务端)并加入此插件, 将其启动\n\n2. 依照 (配置选项)[## 配置选项] 修改主体插件配置, **特别是自动检测挂载点的配置**, 然后重载此插件(使用指令`!!mount -r`即可)\n\n3. 修改在第二步配置的`overwrite_name`文件, 建议添加服务器端口和RCON相关配置来获取一致的体验\n\n4. 在第二步配置的自动检测目录中, 放入更多MC服务端实例, 然后可以游戏内输入`!!mount -l`查看并修改相关配置选项, 在修改完毕之后将`人工检查`项设置为`True`\n\n5. 此时重新输入`!!mount -l` 即可看到人工检查通过的服务端处于可用状态, 挂载即可\n\n6. 更多指令, 可在游戏内输入`!!mount`获取帮助信息\n\n## 配置选项\n1. 主体配置, 储存于配置文件夹下的`mount.json`中, 配置内的文件路径为MCDR实例目录的相对路径\n```json5\n{\n  // 是否在玩家加入时显示一条帮助\n  \"welcome_player\": true,\n  // 是否启用 !!m 短指令\n  \"short_prefix\": true,\n  // 自动检测挂载点时的目录\n  \"servers_path\": [ \"./servers\" ],\n  // 重写挂载点的server.properties时使用的覆盖配置, 格式同server.properties,只添加需要覆盖的配置行即可\n  \"overwrite_path\": \"../servers/server.properties.overwrite\",\n  // 当前可用的挂载点列表,\n  \"available_servers\": [\n    \"servers/Parkour\",\n    \"servers/PVP\",\n    \"servers/Bingo\"\n  ],\n  // 当前MCDR实例正在使用的挂载点\n  \"current_server\": \"servers/Parkour\",\n  // 此MCDR实例的挂载标识\n  \"mount_name\": \"MountDemo\",\n  // 分页大小\n  \"list_size\": 15,\n  // 调试模式, 开启后会在控制台输出更多信息\n  \"debug\": false\n}\n```\n2. 挂载点配置信息, 储存于挂载点路径下的`mountable.json`中, 配置内的文件路径为MC服务器目录的相对路径\n```json5\n{\n  // 是否通过了人工确认\n  \"checked\": false,\n  // 描述信息\n  \"desc\":  \"Demo server\",\n  // 此挂载点启动命令\n  \"start_command\": \"./start.sh\",\n  // 此挂载点使用的MCDR handler\n  \"handler\": \"vanilla_handler\",\n  // 占用此挂载点的MCDR实例的挂载标识, 空代表未挂载\n  \"occupied_by\": \"\",\n  // 此挂载点的重置路径, 空或者.代表无重置路径\n  \"reset_path\": \"\",\n  // 此挂载点的重置方法, full代表全部重置, region代表保留玩家信息(如跑酷记录)\n  \"reset_type\": \"full\",\n  // 专为此挂载点的mcdr插件目录, 使得每个挂载点可使用专有的插件, 空或者.代表无\n  \"plugin_dir\": \"\",\n  \"stats\": {\n    // 此挂载点的统计信息, 将自动生成\n  }\n}\n```\n## 其他\n- 在自动检测目录的子目录下添加名为`.mount-ignore`的文件可以使该子目录免于检测\n- 通过手动修改配置文件, 可以添加任意目录的服务器作为挂载点\n- 实际配置格式均需要满足json格式，即不得包含上例中以`//`开头的注释\n",
+    "readme_url": "https://raw.githubusercontent.com/FAS-Server/Mount/main/README.md"
+  }
+}

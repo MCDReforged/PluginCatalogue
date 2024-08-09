@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "id": "mirror_server_sync",
+  "authors": [
+    "MRNOBODY-ZST",
+    "Power-tile"
+  ],
+  "repository": "https://github.com/VisualSpliter/MirrorServerSync",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "zh_cn": "# Mirror Server Sync\n\nA Simple MCDR Plugin To Sync Map Files Of Minecraft On Different Servers\n\n## 一、使用前配置\n\n本插件适用于Windows系统与Linux系统\n\n在使用本插件前，你需要在你的服务器上安装Rsync\n\nLinux安装方法：`yum -y install rsync`\n\nWindows安装方法：[cwRsync - Rsync for Windows | itefix.net](https://www.itefix.net/cwrsync)下载文件后安装Exe文件，或者安装chololately后通过`choco install rsync`进行安装（需要管理员权限）\n\n一般服务器上默认会安装Rsync，为了保险，手动安装一遍。\n\n请确保您的服务器放行了所有端口以确保Rsync能正常工作\n\n打开终端，执行`ssh-keygen`。无需输入密码，无脑确认即可。再执行`ssh-copy-id Main Server IP`\n\n例如，假如我主服务器的IP为127.0.0.1，命令就为：`ssh-copy-id 127.0.0.1`\n\n之后确认Fingerprint，输入yes后输入对方服务器的密码，一路Enter。\n\n第一次启动时会自动创建mirror_server_sync.json，内容如下\n\n```json\n{\n    \"main_server_ip\": \"127.0.0.1\",\n    \"world_name\": \"world\",\n    \"main_server_dir\": \"/root/fabric_server/server\",\n    \"mirror_server_dir\": \"/root/my_mcdr_server/server\",\n    \"qb_folder_dir_main\": \"/root/fabric_server/qb_multi\",\n    \"qb_folder_dir_mirror\": \"/root/my_mcdr_server/qb_multi\",\n    \"number_of_qb_slots\": 5,\n    \"qb_auto_make\" : \"True\"\n}\n```\n\n`main_server_ip`修改为主服务器IP\n\n`mirror_server_ip`修改为镜像服IP\n\n`main_server_dir`修改为主服务器MCDR文件夹内server文件夹的绝对路径\n\n`mirror_server_dir`修改为镜像服MCDR文件夹内server文件夹的绝对路径\n\n`qb_folder_dir_main`修改为主服务器MCDR文件夹内qb_multi文件夹的绝对路径\n\n`qb_folder_dir_mirror`修改为镜像服MCDR文件夹内qb_multi文件夹的绝对路径\n\n`qb_auto_back`是是否在使用`!!msync recover`指令的时候自动确认回档信息\n\n`number_of_qb_slots`是qb备份槽数，建议主服务器镜像服保持一致\n\n修改完后就可以启动MCDR\n\n## 二、指令说明\n\n!!msync 显示用法\n\n!!msync peek 查看主服务器qb最新存档信息\n\n!!msync sync 备份当前镜像服存档，并同步主服务器qb最新存档\n\n!!msync recover 回档至同步前存档\n\n!!msync help 显示用法\n"
+  }
+}
