@@ -3,14 +3,17 @@ A specified script to check plugins on pull requests.
 """
 import asyncio
 import json
+import logging
 import os
 import sys
 
 sys.path.append('scripts')
 
 from common.constants import REPOS_ROOT
+from common.log import logger
 from main import check
 
+logger.setLevel(logging.INFO)
 
 def main():
 	with open(os.path.join(REPOS_ROOT, '.github/outputs/all_changed_and_modified_files.json'), 'r', encoding='utf8') as f:
