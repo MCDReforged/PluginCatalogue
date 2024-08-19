@@ -43,12 +43,11 @@ async def main():
 	reporter.record_script_start()
 	reporter.record_command('pr_check')
 
-	plugin_list = []
+	plugin_list = get_plugin_list(target_ids)
 	
 	if not target_ids:
 		reporter.record_script_failure(ValueError("Empty plugin list"))
 	else:
-		plugin_list = get_plugin_list(target_ids)
 		await plugin_list.fetch_data(fail_hard=False, skip_release=True)
 		
 	reporter.report(plugin_list)
