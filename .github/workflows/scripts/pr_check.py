@@ -7,12 +7,12 @@ import logging
 import os
 import sys
 
+sys.path.append('scripts')
+
 from common.constants import REPOS_ROOT
 from common.log import logger
 from common.report import reporter
 from plugin.plugin_list import get_plugin_list
-
-sys.path.append('scripts')
 
 
 logger.setLevel(logging.INFO)
