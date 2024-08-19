@@ -62,7 +62,7 @@ class Reporter:
 
 	@property
 	def failures(self) -> int:
-		"""Get failure amount."""
+		"""Get amount of plugin fetch failures."""
 		return sum(map(lambda msgs: len(msgs), self.__failures.values()))
 
 	def __dump(self, plugin_list: 'PluginList', f: IO[str]):
