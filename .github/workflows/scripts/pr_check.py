@@ -42,6 +42,8 @@ async def main():
 
 	reporter.record_script_start()
 	reporter.record_command('pr_check')
+
+	plugin_list = []
 	
 	if not target_ids:
 		reporter.record_script_failure(ValueError("Empty plugin list"))
@@ -49,7 +51,7 @@ async def main():
 		plugin_list = get_plugin_list(target_ids)
 		await plugin_list.fetch_data(fail_hard=False, skip_release=True)
 		
-	reporter.report()
+	reporter.report(plugin_list)
 	if reporter.failures > 0:
 		raise PullRequestCheckError(
 			"Check fails since there's failure during the fetch process. Check report messages above or workflow summary for more infomation.")
