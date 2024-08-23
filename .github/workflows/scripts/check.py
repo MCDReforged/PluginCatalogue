@@ -190,7 +190,10 @@ Thanks for your contribution! 🎉
 Please wait patiently before we done checking. If you have modified any plugins, a brief report shall be generated below.
 
 Have a nice day!
+""".strip()
 
+if Tag.PLG_ADD in tags:
+    reply += """
 ---
 以下是供仓库维护者参考的合并前检查单。
 - 所提交信息齐全、有效
@@ -199,7 +202,7 @@ Have a nice day!
 - 插件分类正确
 - 插件说明足以帮助用户使用
 - 其他应当作为合并前检查的事项
-""".strip()
+"""
 
 with open('reply.md', 'w', encoding='utf-8') as f:
     f.write(reply)
@@ -234,7 +237,9 @@ else:
 
 pr_label(add_labels=[t.value for t in tags])
 pr_comment('reply.md')
-pr_comment('report.md')
+
+if report:
+    pr_comment('report.md')
 
 if len(reporter.failures) > 0:
     raise PluginCheckError('Plugin check failed')
