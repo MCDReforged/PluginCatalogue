@@ -10,6 +10,7 @@ MAX_RELEASE_PER_PAGE = 100
 REQUEST_MAX_CONCURRENCY = 32
 
 MCDR_LINK = 'https://github.com/Fallen-Breath/MCDReforged'
+CATALOGUE_LINK = 'https://github.com/MCDReforged/PluginCatalogue'
 
 HERE = os.path.dirname(__file__)
 SCRIPT_ROOT = os.path.abspath(os.path.join(HERE, '..'))

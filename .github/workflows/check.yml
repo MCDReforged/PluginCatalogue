@@ -1,18 +1,21 @@
-name: Plugin Check
+# Check Pull Requests
+# See also: .github/workflows/scripts
+
+name: PR Check
 
 on:
   pull_request:
     branches:
       - master
-    paths:
-      - 'plugins/**'
-    types: [opened, synchronize]
+    types: [opened] # todo: synchronize
 
 jobs:
   plugin-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Validate checklists
+        uses: roryq/checkmate@master
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -31,13 +34,12 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v41
         with:
-          files: | 
-            plugins/*/*.json
           json: true
           write_output_files: true
 
-      - name: Check plugins
+      - name: Check and report
         run: |
-          python .github/workflows/scripts/pr_check.py
+          python .github/workflows/scripts/check.py
         env:
-          github_api_token: ${{ secrets.GITHUB_TOKEN }}
+          github_api_token: ${{ secrets.GITHUB_TOKEN }} # scripts
+          PR_NUMBER: ${{ github.event.number }} # gh_cli

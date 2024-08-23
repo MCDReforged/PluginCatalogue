@@ -14,7 +14,7 @@ from meta.repos import RepositoryInfo
 from plugin.cache import PluginRequestCacheManager
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
-from utils.repos import GithubRepository
+from utils.repos import PLUGIN_CATALOGUE, GithubRepository
 from utils.serializer import Serializable
 
 
@@ -141,6 +141,24 @@ class Plugin:
 	@property
 	def introduction(self) -> Text:
 		return self.__introduction
+	
+	@property
+	def plugin_info(self) -> _PluginInfoInternal:
+		return self.__plugin_info
+
+	@property
+	def introduction_urls(self) -> str:
+		path = {}
+		if self.__plugin_info.external_introduction:
+			return {lang: self.repos.get_page_url_base(url)
+					for lang, url in self.__plugin_info.external_introduction.items()}
+		else:	
+			path = {}
+			rel_path = os.path.relpath(self.__info_directory, constants.REPOS_ROOT)
+			for lang in LANGUAGES:
+				with with_language(lang):
+					path[lang] = PLUGIN_CATALOGUE.get_page_url_base(os.path.join(rel_path, get_file_name('introduction.md')))
+			return path
 
 	@property
 	def latest_version(self) -> str:
