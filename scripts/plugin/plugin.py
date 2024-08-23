@@ -239,10 +239,15 @@ class Plugin:
 								raw_url=self.repos.get_raw_url_base(),
 							)
 						introduction_translations[lang] = file_content
-				introduction_tr_file_path = os.path.join(self.__info_directory, get_file_name('introduction.md'))
-				if os.path.isfile(introduction_tr_file_path):
-					with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
-						introduction_translations[lang] = file_handler.read()
+				else:
+					introduction_tr_file_path = os.path.join(self.__info_directory, get_file_name('introduction.md'))
+					if os.path.isfile(introduction_tr_file_path):
+						with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
+							introduction_translations[lang] = file_handler.read()
+					else:
+						log.exception('({}) No custom introduction file in language {} found'.format(self.id, lang))
+						reporter.record_plugin_failure(self.id, 'No custom introduction file in language {} found'.format(lang))
+						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
 		log.info('({}) Introduction fetched'.format(self.id))
