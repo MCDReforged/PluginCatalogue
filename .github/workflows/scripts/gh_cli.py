@@ -22,11 +22,13 @@ logger.info("Initializing gh-cli with PR number: %s", PR_NUMBER)
 def pr_comment(body_file: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -> None:
     try:
         logger.info(f"Commenting on PR: #{pr_number}, edit_last: {edit_last}")
-        result = subprocess.check_output(
-            [EXECUTABLE, "pr", "comment", pr_number, "--body-file",
-                body_file, "--edit-last" if edit_last else ""]
-        )
+        cmd = [EXECUTABLE, "pr", "comment", pr_number, "--body-file", body_file]
+        if edit_last:
+            cmd.append("--edit-last")
+        result = subprocess.check_output(cmd)
         logger.info(result.decode("utf-8"))
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Failed to comment: returned {e.returncode}. Output: \n{e.output.decode('utf-8')}")
     except Exception as e:
         logger.error(f"Failed to comment: {e}")
 

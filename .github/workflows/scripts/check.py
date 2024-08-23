@@ -30,7 +30,7 @@ class Tag(str, Enum):
     PLG_ADD = 'plugin add'
     PLG_MODIFY = 'plugin modify'
     PLG_REMOVE = 'plugin remove'
-    WORKFLOW = 'workflow'
+    WORKFLOW = 'github workflow'
     OTHERS = 'others'
 
 

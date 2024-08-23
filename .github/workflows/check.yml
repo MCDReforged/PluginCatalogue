@@ -10,7 +10,7 @@ on:
     types: [opened] # todo: synchronize
 
 jobs:
-  plugin-check:
+  pr-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
