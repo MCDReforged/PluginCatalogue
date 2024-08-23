@@ -166,12 +166,12 @@ def report_plugin(plugin: Plugin) -> str:
 
     if failures:
         report += "> [!CAUTION]\n"
-        report += ''.join(f'> {f}\n' for f in failures)
+        report += ''.join(f'> - {f}\n' for f in failures)
         report += '\n'
 
     if warnings:
         report += "> [!WARNING]\n"
-        report += ''.join(f'> {w}\n' for w in warnings)
+        report += ''.join(f'> - {w}\n' for w in warnings)
         report += '\n'
 
     return report
