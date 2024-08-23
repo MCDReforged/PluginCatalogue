@@ -84,7 +84,7 @@ for file in all_files:
                 actions.add(Action(Tag.PLG_ADD, path[1]))
             elif file in deleted_files:
                 actions.add(Action(Tag.PLG_REMOVE, path[1]))
-            else:
+            elif not any(action.plugin_id == path[1] for action in actions):
                 actions.add(Action(Tag.PLG_MODIFY, path[1]))
         # if other plugin files changed
         elif not any(action.plugin_id == path[1] for action in actions):
