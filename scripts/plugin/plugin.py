@@ -245,8 +245,9 @@ class Plugin:
 						with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
 							introduction_translations[lang] = file_handler.read()
 					else:
-						log.exception('({}) No custom introduction file in language {} found'.format(self.id, lang))
-						reporter.record_plugin_failure(self.id, 'No custom introduction file in language {} found'.format(lang))
+						msg = 'No introduction file in language {} found'.format(lang)
+						log.exception(msg)
+						reporter.record_plugin_failure(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
 						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
