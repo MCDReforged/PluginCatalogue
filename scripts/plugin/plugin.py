@@ -150,14 +150,13 @@ class Plugin:
 	def introduction_urls(self) -> str:
 		path = {}
 		if self.__plugin_info.external_introduction:
-			return {lang: self.repos.get_page_url_base(url)
-					for lang, url in self.__plugin_info.external_introduction.items()}
+			return {lang: self.repos.get_page_url_base() + '/' + path
+					for lang, path in self.__plugin_info.external_introduction.items()}
 		else:	
 			path = {}
-			rel_path = os.path.relpath(self.__info_directory, constants.REPOS_ROOT)
 			for lang in LANGUAGES:
 				with with_language(lang):
-					path[lang] = PLUGIN_CATALOGUE.get_page_url_base(os.path.join(rel_path, get_file_name('introduction.md')))
+					path[lang] = PLUGIN_CATALOGUE.get_page_url_base() + f'/plugins/{self.id}/' + get_file_name('introduction.md')
 			return path
 
 	@property
