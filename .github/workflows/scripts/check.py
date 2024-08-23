@@ -76,7 +76,7 @@ all_files = changed_files | deleted_files  # ACMRD
 actions: set[Action] = set()
 tags: Optional[set[Tag]] = None
 
-for file in all_files:
+for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reverse=True):
     path = Path(file).parts
     if len(path) > 1 and path[0] == 'plugins':
         if path[-1] == 'plugin_info.json':  # if plugin meta changed
@@ -84,7 +84,7 @@ for file in all_files:
                 actions.add(Action(Tag.PLG_ADD, path[1]))
             elif file in deleted_files:
                 actions.add(Action(Tag.PLG_REMOVE, path[1]))
-            elif not any(action.plugin_id == path[1] for action in actions):
+            else:
                 actions.add(Action(Tag.PLG_MODIFY, path[1]))
         # if other plugin files changed
         elif not any(action.plugin_id == path[1] for action in actions):
