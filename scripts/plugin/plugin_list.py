@@ -2,6 +2,7 @@ import asyncio
 import os
 import shutil
 import time
+from traceback import format_exc
 from typing import Callable, List, Collection, Optional, Coroutine, Set
 
 from common import constants, log
@@ -28,15 +29,16 @@ class PluginList(List[Plugin]):
 					log.info('Found plugin {}'.format(folder))
 					try:
 						plugin = Plugin(folder)
+					except Exception as e:
+						log.exception('Failed to initialize plugin in folder "{}":\n {}'.format(folder, format_exc(e)))
+						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
+						continue
+					else:
 						if plugin.is_disabled():
 							log.info('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
 							reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
 						else:
 							self.append(plugin)
-					except Exception as e:
-						log.exception('Failed to initialize plugin in folder "{}"'.format(folder))
-						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
-						raise
 				else:
 					log.debug('Skipping plugin {}'.format(folder))
 
