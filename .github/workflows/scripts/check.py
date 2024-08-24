@@ -141,10 +141,11 @@ def report_plugin(plugin: Plugin) -> str:
     report += rowval(
         'URL',
         # AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat
-        f'[`{plugin.repos.repos_pair} \
-            @{plugin.repos.branch} \
-            {'/' + plugin.repos.related_path if plugin.repos.related_path != '.' else ''} \
-        `]({plugin.repos.get_page_url_base()})',
+        '[{}@{}{}]({})'.format(
+            plugin.repos.repos_pair,
+            plugin.repos.branch,
+            '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else ''
+        ),
         not failures or not any('repository' in f for f in failures)
     )
     report += row(
