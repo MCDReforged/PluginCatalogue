@@ -1,10 +1,10 @@
 """
-## Script for Pull Request Actions.
+Script for Pull Request Actions.
 
 When PR:
-- opened: add a comment, labeling the PR, check and report plugins
-- synchronize: update plugin report if necessary
-- closed: add a congratulate comment if merged
+- opened: add a comment, label the PR, check and report plugins
+- synchronize: update plugin report if plugin changed
+- closed: congratulate if merged
 
 Environ:
 - EVENT_TYPE: opened, synchronize, closed
@@ -12,59 +12,52 @@ Environ:
 """
 
 import asyncio
+import datetime as dt
 import json
 import logging
 import os
 import sys
-from enum import Enum
 from pathlib import Path
 from typing import List, Optional
 
-sys.path.append('scripts') # Make import and script runs from correct directory
+sys.path.append('scripts')  # Make import and script runs from correct directory
 
+import gh_cli as gh
+from classes import *
 from common.constants import REPOS_ROOT
 from common.log import logger
 from common.report import reporter
-from gh_cli import pr_comment, pr_label
 from plugin.plugin import Plugin
 from plugin.plugin_list import get_plugin_list
 
+#! ---- Gather environs ---- ##
+
 PLUGIN_CHECK_LIMIT = 5
+COMMENT_SIGN = '<!-- report -->'
+COMMENT_USER = 'github-actions'
+
+EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
+IS_MERGED = os.environ.get('IS_MERGED', 'false')
+
+if EVENT_TYPE == EventType.CLOSED and IS_MERGED == 'true':
+    EVENT_TYPE = EventType.MERGED
+
+logger.info(f'Running with event type: {EVENT_TYPE}')
 
 
-class PluginCheckError(ValueError):
-    pass
+#! ---- On merged ---- ##
+if EVENT_TYPE == EventType.MERGED:
+    reply = """
+Well done! 🎉
 
+Your pull request has been successfully merged.
 
-class Tag(str, Enum):
-    PLG_ADD = 'plugin add'
-    PLG_MODIFY = 'plugin modify'
-    PLG_REMOVE = 'plugin remove'
-    WORKFLOW = 'github workflow'
-    OTHERS = 'others'
+We appreciate your hard work and valuable input. If you have any further questions or need additional changes, feel free to reach out.
 
-
-class Action:
-    tag: Tag
-    plugin_id: Optional[str]
-
-    def __init__(self, tag: Tag, plugin_id: str = None):
-        self.tag = tag
-        self.plugin_id = plugin_id
-
-    def __eq__(self, value: object) -> bool:
-        if isinstance(value, Action):
-            return self.tag == value.tag and self.plugin_id == value.plugin_id
-
-    def __hash__(self) -> int:
-        return hash((self.tag, self.plugin_id))
-    
-    def __str__(self) -> str:
-        return f'[{self.tag.value}]({self.plugin_id})'
-
-    def __repr__(self) -> str:
-        return self.__str__()
-
+Happy coding!
+""".strip()
+    gh.pr_comment(reply)
+    sys.exit(0)
 
 #! ---- Gather file changes ---- ##
 # https://github.com/marketplace/actions/changed-files#outputs-
@@ -110,6 +103,8 @@ for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reve
         # if other plugin files changed
         elif not any(action.plugin_id == path[1] for action in actions):
             actions.add(Action(Tag.PLG_MODIFY, path[1]))
+    elif path[0] == 'scripts':
+        actions.add(Action(Tag.SCRIPTS))
     elif file.startswith('.github/workflows'):
         actions.add(Action(Tag.WORKFLOW))
     else:
@@ -133,8 +128,7 @@ def report_plugin(plugin: Plugin) -> str:
 
     def rowval(info, value, valid):
         return row(info, value, '✅' if valid else '❌')
-    report = \
-        f"""
+    report = f"""
 ### `{plugin.id}`
 
 | Info | Value | Valid |
@@ -173,8 +167,7 @@ def report_plugin(plugin: Plugin) -> str:
 
     # PluginMeta rows
     if plugin.meta_info:
-        report += \
-            """
+        report += """
 | Meta | Value |
 | --- | --- |
 """
@@ -203,16 +196,21 @@ def report_plugin(plugin: Plugin) -> str:
 
 
 def report_all(plugin_list: List[Plugin]) -> str:
-    return '\n'.join(report_plugin(plugin) for plugin in plugin_list)
+    time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r"%Y-%m-%d %H:%M:%S (%Z)")
+    header = f"""{COMMENT_SIGN}
+_Last updated at: `{time}`_
+## Plugin Validation Report
+"""
+    return header + '\n'.join(report_plugin(plugin) for plugin in plugin_list)
 
 
 reply: str = f"""
 Thanks for your contribution! 🎉
 {
-    '\nSeems that you are modifying multiple parts of the project. We suggest you to split it into multiple PRs. If this is not the case, ignore this message. \n'
+    '\nIt appears that you are modifying multiple parts of the project. We kindly suggest you to split it into multiple PRs. If this is not the case, ignore this message. \n'
     if len(tags) > 1 else ''
 }
-Please wait patiently before we done checking. If you have modified any plugins, a brief report shall be generated below.
+Please be patient before we done checking. If you have modified any plugins, a brief report shall be generated below.
 
 Have a nice day!
 """.strip()
@@ -229,9 +227,6 @@ if Tag.PLG_ADD in tags:
 - 其他应当作为合并前检查的事项
 """
 
-with open('reply.md', 'w', encoding='utf-8') as f:
-    f.write(reply)
-
 report: Optional[str] = None
 
 # https://github.com/MCDReforged/PluginCatalogue/pull/372
@@ -244,27 +239,28 @@ plugins = [
 
 if plugins:
     logger.info(f'Checking {len(plugins)} plugins: {", ".join(plugins)}')
+
     reporter.record_script_start()
     reporter.record_command('pr_check')
     if len(plugins) > PLUGIN_CHECK_LIMIT:
-        logger.warning('Too many plugins to check (>{}), skipping'.format(PLUGIN_CHECK_LIMIT))
-        report = 'Too many plugins to check (>{}), skipped'.format(PLUGIN_CHECK_LIMIT)
+        logger.warning(f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipping')
+        report = f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipped'
         reporter.record_script_failure(report)
     else:
         plugin_list = get_plugin_list(plugins)
         asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=True))
         report = report_all(plugin_list)
+
     reporter.report(plugin_list)
-    with open('report.md', 'w', encoding='utf8') as f:
-        f.write(report)
 else:
     logger.info('No plugins to check, skipping')
 
-pr_label(add_labels=[t.value for t in tags])
-pr_comment('reply.md')
+if EVENT_TYPE == EventType.OPENED:
+    gh.pr_label(add_labels=[t.value for t in tags])
+    gh.pr_comment(reply)
 
 if report:
-    pr_comment('report.md')
+    gh.pr_update_or_comment(COMMENT_USER, COMMENT_SIGN, report)
 
 if len(reporter.failures) > 0:
     raise PluginCheckError('Plugin check failed')

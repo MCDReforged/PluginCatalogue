@@ -1,13 +1,20 @@
 # Check Pull Requests
 # See also: .github/workflows/scripts
 
-name: Pull Request Workflow
+name: PR Check and Report
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 on:
   pull_request:
     branches:
       - master
-    types: [opened] # todo: synchronize
+    types:
+      - opened
+      - synchronize
+      - closed
 
 jobs:
   pr-check:
@@ -40,7 +47,7 @@ jobs:
           json: true
           write_output_files: true
 
-      - name: Execute workflow
+      - name: Check and Report
         run: |
           python .github/workflows/scripts/check.py
         env:
