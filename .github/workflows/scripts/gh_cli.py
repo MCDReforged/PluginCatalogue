@@ -4,6 +4,10 @@ Kind of wrapper for GitHub CLI for Pull Requests
 See:
 - https://cli.github.com/manual
 - https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-github-cli-in-workflows
+
+Environ:
+- PR_NUMBER
+- GH_TOKEN or github_api_token
 """
 
 import subprocess

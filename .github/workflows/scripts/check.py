@@ -1,6 +1,16 @@
 """
-Check and tag pull requests.
+## Script for Pull Request Actions.
+
+When PR:
+- opened: add a comment, labeling the PR, check and report plugins
+- synchronize: update plugin report if necessary
+- closed: add a congratulate comment if merged
+
+Environ:
+- EVENT_TYPE: opened, synchronize, closed
+- IS_MERGED: true, false
 """
+
 import asyncio
 import json
 import logging
@@ -71,7 +81,18 @@ deleted_files = set(get_changed('deleted_files'))  # D
 all_files = changed_files | deleted_files  # ACMRD
 
 
-#! ---- Determine actions and tags ---- ##
+#! ---- Identify actions and tags ---- ##
+
+"""
+In order of priority, the process shoule be:
+
+1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
+2. Both A and D of `plugins/<plugin_id>/plugin_info.json` == Modify of plugin
+3. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
+4. ACMRD of `.github/workflows/**` == `github workflow`
+
+In which, one plugin should only have one action.
+"""
 
 actions: set[Action] = set()
 tags: Optional[set[Tag]] = None
@@ -100,8 +121,8 @@ if Tag.PLG_REMOVE in tags and Tag.PLG_ADD in tags:  # add + remove = modify
     tags.remove(Tag.PLG_ADD)
     tags.add(Tag.PLG_MODIFY)
 
-logger.info(f"Found actions: {', '.join(map(str, actions))}")
-logger.info(f"Calculated tags: {', '.join(map(str, tags))}")
+logger.info(f"Identified actions: {', '.join(map(str, actions))}")
+logger.info(f"Identified tags: {', '.join(map(str, tags))}")
 
 
 #! ---- Run plugin checks and generate report ---- ##
@@ -124,8 +145,12 @@ def report_plugin(plugin: Plugin) -> str:
 
     # PluginInfo rows
     report += rowval(
-        'Repo',
-        f'[`{plugin.repos.repos_pair}`]({plugin.repos.repos_url})',
+        'URL',
+        # AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat
+        f'[`{plugin.repos.repos_pair} \
+            @{plugin.repos.branch} \
+            {'/' + plugin.repos.related_path if plugin.repos.related_path != '.' else ''} \
+        `]({plugin.repos.get_page_url_base()})',
         not failures or not any('repository' in f for f in failures)
     )
     report += row(
@@ -198,7 +223,7 @@ if Tag.PLG_ADD in tags:
 以下是供仓库维护者参考的合并前检查单。
 - 所提交信息齐全、有效
 - 插件名称符合其功能，没有歧义
-- 提交者是版本库所有者或维护者
+- 提交者是版本库所有者/维护者/协作者
 - 插件分类正确
 - 插件说明足以帮助用户使用
 - 其他应当作为合并前检查的事项

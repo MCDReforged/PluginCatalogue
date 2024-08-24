@@ -1,7 +1,7 @@
 # Check Pull Requests
 # See also: .github/workflows/scripts
 
-name: PR Check
+name: Pull Request Workflow
 
 on:
   pull_request:
@@ -14,11 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate checklists
+
+      - name: Validate checkbox # See pull_request_template.md
         uses: roryq/checkmate@master
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
@@ -37,9 +40,14 @@ jobs:
           json: true
           write_output_files: true
 
-      - name: Check and report
+      - name: Execute workflow
         run: |
           python .github/workflows/scripts/check.py
         env:
-          github_api_token: ${{ secrets.GITHUB_TOKEN }} # scripts
-          PR_NUMBER: ${{ github.event.number }} # gh_cli
+          # scripts
+          github_api_token: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_TYPE: ${{ github.event.action }}
+          IS_MERGED: ${{ github.event.pull_request.merged }}
+
+          # gh_cli
+          PR_NUMBER: ${{ github.event.number }}
