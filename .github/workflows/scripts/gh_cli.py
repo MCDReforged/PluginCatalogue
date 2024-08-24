@@ -82,8 +82,7 @@ def pr_label(add_labels: Optional[list[str]] = None, remove_labels: Optional[lis
     Runs:
         gh pr edit <pr_number> [--add-label <add_labels>] [--remove-label <remove_labels>]
     """
-    logger.info(f"Labeling PR: #{pr_number}, add_labels: {
-                add_labels}, remove_labels: {remove_labels}")
+    logger.info(f"Labeling PR: #{pr_number}, add_labels: {add_labels}, remove_labels: {remove_labels}")
     cmd = [EXECUTABLE, "pr", "edit", pr_number]
     if add_labels:
         cmd.extend(["--add-label", ",".join(add_labels)])
