@@ -207,10 +207,12 @@ _Last updated at: `{time}`_
 
 reply: str = f"""
 Thanks for your contribution! 🎉
+
 {
-    '\nIt appears that you are modifying multiple parts of the project. We kindly suggest you to split it into multiple PRs. If this is not the case, ignore this message. \n'
+    'It appears that you are modifying multiple parts of the project. We kindly suggest you to split it into multiple PRs. If this is not the case, ignore this message. '
     if len(tags) > 1 else ''
 }
+
 Please be patient before we done checking. If you have modified any plugins, a brief report shall be generated below.
 
 Have a nice day!
