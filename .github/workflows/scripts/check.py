@@ -141,7 +141,7 @@ def report_plugin(plugin: Plugin) -> str:
     report += rowval(
         'URL',
         # AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat
-        '[{}@{}{}]({})'.format(
+        '[`{}@{}{}`]({})'.format(
             plugin.repos.repos_pair,
             plugin.repos.branch,
             '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else '',
