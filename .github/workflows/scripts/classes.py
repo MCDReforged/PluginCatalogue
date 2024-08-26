@@ -1,14 +1,15 @@
+""" Utility classes """
+
 from enum import Enum
 from typing import Optional
 
-#! ---- Utility classes ---- ##
-
 
 class PluginCheckError(ValueError):
-    pass
+    """Occurs when there's any error on plugin check"""
 
 
 class EventType(Enum):
+    """Workflow event types"""
     OPENED = 'opened'
     SYNCHRONIZE = 'synchronize'
     CLOSED = 'closed'
@@ -16,6 +17,7 @@ class EventType(Enum):
 
 
 class Tag(str, Enum):
+    """Issue (PR) tags"""
     PLG_ADD = 'plugin add'
     PLG_MODIFY = 'plugin modify'
     PLG_REMOVE = 'plugin remove'
@@ -24,6 +26,7 @@ class Tag(str, Enum):
 
 
 class Action:
+    """PR actions"""
     tag: Tag
     plugin_id: Optional[str]
 
@@ -34,6 +37,7 @@ class Action:
     def __eq__(self, value: object) -> bool:
         if isinstance(value, Action):
             return self.tag == value.tag and self.plugin_id == value.plugin_id
+        return False
 
     def __hash__(self) -> int:
         return hash((self.tag, self.plugin_id))

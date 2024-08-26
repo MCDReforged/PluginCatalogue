@@ -22,13 +22,13 @@ from typing import List, Optional
 
 sys.path.append('scripts')  # Make import and script runs from correct directory
 
-import gh_cli as gh  # noqa
-from classes import *  # noqa
-from common.constants import REPOS_ROOT  # noqa
-from common.log import logger  # noqa
-from common.report import reporter  # noqa
-from plugin.plugin import Plugin  # noqa
-from plugin.plugin_list import get_plugin_list  # noqa
+import gh_cli as gh
+from classes import Action, EventType, PluginCheckError, Tag
+from common.constants import REPOS_ROOT
+from common.log import logger
+from common.report import reporter
+from plugin.plugin import Plugin
+from plugin.plugin_list import get_plugin_list
 
 #! ---- Gather environs ---- ##
 
@@ -206,7 +206,7 @@ _Last updated at: `{time}`_
     return header + '\n'.join(report_plugin(plugin) for plugin in plugin_list)
 
 
-reply: str = f"""
+reply: str = """
 Thanks for your contribution! 🎉
 
 Please be patient before we done checking. If you have modified any plugins, a brief report shall be generated below.
@@ -216,6 +216,7 @@ Have a nice day!
 
 if Tag.PLG_ADD in tags:
     reply += """
+
 ---
 以下是供仓库维护者参考的合并前检查单。
 - 所提交信息齐全、有效
@@ -233,7 +234,7 @@ logger.setLevel(logging.INFO)
 
 plugins = [
     action.plugin_id for action in actions if
-    action.tag == Tag.PLG_MODIFY or action.tag == Tag.PLG_ADD
+    action.tag in (Tag.PLG_MODIFY, Tag.PLG_ADD)
 ]
 
 if plugins:
