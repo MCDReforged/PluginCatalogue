@@ -65,7 +65,7 @@ def pr_update_or_comment(user: str, sign: str, body_file: str, pr_number: str = 
     ]
     try:
         result = subprocess.check_output(cmd)
-        if result.decode("utf-8") == "true":
+        if result.decode("utf-8").startswith("true"):
             logger.info(f"Updating last comment of {user} on PR: #{pr_number}")
             pr_comment(pr_number=pr_number, body=body_file, edit_last=True)
         else:

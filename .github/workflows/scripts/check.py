@@ -244,7 +244,7 @@ if plugins:
     if len(plugins) > PLUGIN_CHECK_LIMIT:
         logger.warning(f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipping')
         report = f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipped'
-        reporter.record_script_failure(report)
+        reporter.record_script_failure(report, ValueError(report))
     else:
         plugin_list = get_plugin_list(plugins)
         asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=True))
