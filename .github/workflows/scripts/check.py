@@ -83,7 +83,8 @@ In order of priority, the process shoule be:
 1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
 2. Both A and D of `plugins/<plugin_id>/plugin_info.json` == Modify of plugin
 3. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
-4. ACMRD of `.github/workflows/**` == `github workflow`
+4. ACMRD of `scripts/**` == `scripts`
+5. ACMRD of `.github/workflows/**` == `github workflow`
 
 In which, one plugin should only have one action.
 """
