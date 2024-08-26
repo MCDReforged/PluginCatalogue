@@ -46,6 +46,7 @@ jobs:
         with:
           json: true
           write_output_files: true
+          since_last_remote_commit: true
 
       - name: Check and Report
         run: |

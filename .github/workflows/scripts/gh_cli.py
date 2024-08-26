@@ -31,7 +31,7 @@ def pr_comment(body: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -
     """Comment on a PR
 
     Runs:
-        gh pr comment <pr_number> --body-file <body_file> [--edit-last]
+        `gh pr comment <pr_number> --body-file <body_file> [--edit-last]`
     """
     try:
         logger.info(f"Commenting on PR: #{pr_number}, edit_last: {edit_last}")
@@ -56,8 +56,8 @@ def pr_update_or_comment(user: str, sign: str, body_file: str, pr_number: str = 
     """Update last comment of given user if it contains sign, otherwise add a new one
 
     Checks:
-        gh pr view <pr_number> --json comments --jq <jq_query>
-        jq_query := .comments | any(.author.login == "<user>" and (.body | contains("<sign>")))
+        `gh pr view <pr_number> --json comments --jq <jq_query>`
+        `jq_query := .comments | any(.author.login == "<user>" and (.body | contains("<sign>")))`
     """
     cmd = [
         EXECUTABLE, 'pr', 'view', pr_number, '--json', 'comments', '--jq',
@@ -80,7 +80,7 @@ def pr_label(add_labels: Optional[list[str]] = None, remove_labels: Optional[lis
     """Add or remove labels from a PR
 
     Runs:
-        gh pr edit <pr_number> [--add-label <add_labels>] [--remove-label <remove_labels>]
+        `gh pr edit <pr_number> [--add-label <add_labels>] [--remove-label <remove_labels>]`
     """
     logger.info(f"Labeling PR: #{pr_number}, add_labels: {add_labels}, remove_labels: {remove_labels}")
     cmd = [EXECUTABLE, "pr", "edit", pr_number]

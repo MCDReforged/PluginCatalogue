@@ -22,13 +22,13 @@ from typing import List, Optional
 
 sys.path.append('scripts')  # Make import and script runs from correct directory
 
-import gh_cli as gh
-from classes import *
-from common.constants import REPOS_ROOT
-from common.log import logger
-from common.report import reporter
-from plugin.plugin import Plugin
-from plugin.plugin_list import get_plugin_list
+import gh_cli as gh  # noqa
+from classes import *  # noqa
+from common.constants import REPOS_ROOT  # noqa
+from common.log import logger  # noqa
+from common.report import reporter  # noqa
+from plugin.plugin import Plugin  # noqa
+from plugin.plugin_list import get_plugin_list  # noqa
 
 #! ---- Gather environs ---- ##
 
@@ -61,6 +61,7 @@ Happy coding!
 
 #! ---- Gather file changes ---- ##
 # https://github.com/marketplace/actions/changed-files#outputs-
+
 
 def get_changed(change_type: str) -> List[str]:
     with open(os.path.join(REPOS_ROOT, f'.github/outputs/{change_type}.json'), 'r', encoding='utf8') as f:
@@ -207,11 +208,6 @@ _Last updated at: `{time}`_
 
 reply: str = f"""
 Thanks for your contribution! 🎉
-
-{
-    'It appears that you are modifying multiple parts of the project. We kindly suggest you to split it into multiple PRs. If this is not the case, ignore this message. '
-    if len(tags) > 1 else ''
-}
 
 Please be patient before we done checking. If you have modified any plugins, a brief report shall be generated below.
 
