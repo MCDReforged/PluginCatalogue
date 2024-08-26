@@ -109,8 +109,6 @@ for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reve
         actions.add(Action(Tag.SCRIPTS))
     elif file.startswith('.github/workflows'):
         actions.add(Action(Tag.WORKFLOW))
-    else:
-        actions.add(Action(Tag.OTHERS))
 
 tags = set(action.tag for action in actions)
 if Tag.PLG_REMOVE in tags and Tag.PLG_ADD in tags:  # add + remove = modify
@@ -146,7 +144,8 @@ def report_plugin(plugin: Plugin) -> str:
         '[{}@{}{}]({})'.format(
             plugin.repos.repos_pair,
             plugin.repos.branch,
-            '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else ''
+            '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else '',
+            plugin.repos.get_page_url_base()
         ),
         not failures or not any('repository' in f for f in failures)
     )

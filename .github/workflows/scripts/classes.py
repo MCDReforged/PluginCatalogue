@@ -21,7 +21,6 @@ class Tag(str, Enum):
     PLG_REMOVE = 'plugin remove'
     WORKFLOW = 'github workflow'
     SCRIPTS = 'scripts'
-    OTHERS = 'others'
 
 
 class Action:
