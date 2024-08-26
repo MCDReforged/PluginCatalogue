@@ -1,1 +1,0 @@
-Offline server whitelist management
