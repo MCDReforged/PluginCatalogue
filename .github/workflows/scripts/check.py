@@ -209,7 +209,7 @@ _Last updated at: `{time}`_
 reply: str = """
 Thanks for your contribution! 🎉
 
-Please be patient before we done checking. If you have modified any plugins, a brief report shall be generated below.
+Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
 
 Have a nice day!
 """.strip()
@@ -254,6 +254,9 @@ if plugins:
     reporter.report(plugin_list)
 else:
     logger.info('No plugins to check, skipping')
+
+
+#! ---- Label and comment ---- ##
 
 if EVENT_TYPE == EventType.OPENED:
     gh.pr_label(add_labels=[t.value for t in tags])
