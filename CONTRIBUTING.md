@@ -1,3 +1,5 @@
+**English** | [中文](CONTRIBUTING_CN.md)
+
 # Contribution Guidelines
 
 First of all, thank you for your interest in contributing!
