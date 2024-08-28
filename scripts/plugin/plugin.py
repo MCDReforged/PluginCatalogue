@@ -5,7 +5,7 @@ from typing import Optional, List, Dict, Union
 
 from common import constants, log
 from common.report import reporter
-from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
+from common.translation import Text, BundledText, LANGUAGES, DEFAULT_LANGUAGE, get_file_name, with_language
 from meta.author import Author
 from meta.plugin import PluginInfo, MetaInfo
 from meta.plugin_all import AllOfAPlugin
@@ -244,10 +244,18 @@ class Plugin:
 						with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
 							introduction_translations[lang] = file_handler.read()
 					else:
-						msg = 'No introduction file in language {} found'.format(lang)
-						log.exception(msg)
-						reporter.record_plugin_failure(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
-						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
+						msg = 'No introduction file in language {} found for {}'.format(lang, self)
+						if lang is DEFAULT_LANGUAGE:
+							log.exception(msg)
+							reporter.record_plugin_failure(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
+							introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
+						else:
+							if DEFAULT_LANGUAGE in introduction_translations:
+								introduction_translations[lang] = introduction_translations[DEFAULT_LANGUAGE]
+								log.warning(msg)
+								reporter.record_warning(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
+							else:
+								introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
 		log.info('({}) Introduction fetched'.format(self.id))
