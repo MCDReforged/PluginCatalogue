@@ -8,6 +8,15 @@ Before you get started, we have some suggestions to make the process goes smooth
 
 ### Adding or modifying plugin?
 
+## Is your plugin suitable for catalogue?
+
+Don't rush to submit plugins to the plugin catalogue.
+
+- Is your code necessary to provide as a MCDR plugin? Would it be more suitable for PyPI? Consider the use purpose and make sure it is necessary;
+- Before creating and submitting a new plugin, see if there are plugins with similar functionality - pointless reinventing wheels are not desirable;
+- Consider the general-purpose, make sure that new users have a reason to use your plugin - submitting self-use only or unstable plugins is not recommended;
+- Make sure your project is ready for Beta (public testing) - if it's still in an early version, make it stable before submitting.
+
 ### Make sure you have permissions
 
 Users submitting plugins to the plugin catalogue should be in one of the following capacities:
@@ -31,13 +40,6 @@ A plugin that lacks an introduction is not welcome.
 - In the `description`, briefly summarise what the plugin does in one sentence;
 - Introduce the plugin's features in the `introduction`, or direct reference it to the README file.
 
-### Reinventing wheel and version control
-
-Don't rush to submit plugins to the plugin catalogue.
-
-- Before creating and submitting a new plugin, see if there are plugins with similar functionality - pointless reinventing wheels are not desirable;
-- Ensure that new users have a reason to use your plugin - submitting plugins that are for self-use only or are unstable is not recommended;
-- Make sure your project is ready for Beta (public testing) - if it's still in an early version, make it stable before submitting.
 
 ### One PR for one thing
 
