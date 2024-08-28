@@ -38,7 +38,7 @@ class PluginList(List[Plugin]):
 						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						raise
 				else:
-					log.info('Skipping plugin {}'.format(folder))
+					log.debug('Skipping plugin {}'.format(folder))
 
 		log.info('Found {} plugins in total'.format(len(self)))
 		self.sort(key=lambda plg: plg.id.lower())
@@ -66,14 +66,16 @@ class PluginList(List[Plugin]):
 
 		self.__fetched_stuffs.add(fetch_target_name)
 
-	async def fetch_data(self, *, no_api_token: bool = False, fail_hard: bool):
+	async def fetch_data(self, *, fail_hard: bool, skip_release: bool = False):
 		log.info('Fetching data')
+
+		# fetch repos first, maybe the repos var needs some update (e.g. repos rename)
+		await self.__fetch('repository', lambda plg: plg.fetch_and_update_repository(), fail_hard=fail_hard)
 		async with asyncio.TaskGroup() as tg:
 			tg.create_task(self.__fetch('introduction', lambda plg: plg.fetch_introduction(), fail_hard=fail_hard))
 			tg.create_task(self.__fetch('meta', lambda plg: plg.fetch_meta(), fail_hard=fail_hard))
-			if not no_api_token:
+			if not skip_release:
 				tg.create_task(self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard))
-				tg.create_task(self.__fetch('repository', lambda plg: plg.fetch_repository(), fail_hard=fail_hard))
 
 	def store_data(self):
 		log.info('Storing data into meta folder')
@@ -111,10 +113,11 @@ class PluginList(List[Plugin]):
 				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
 
 		# make and store plugin summary
-		meta_summary = PluginMetaSummary()
-		meta_summary.plugin_amount = len(self)
-		meta_summary.plugins = {}
-		meta_summary.plugin_info = {}
+		meta_summary = PluginMetaSummary(
+			plugin_amount=len(self),
+			plugins={},
+			plugin_info={},
+		)
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 			meta_summary.plugin_info[plugin.id] = plugin.generate_formatted_plugin_info()
@@ -124,14 +127,16 @@ class PluginList(List[Plugin]):
 		author_summary = AuthorSummary()
 		for plugin in self:
 			for author in plugin.authors:
-				author_summary.add_author(author.copy(), plugin.id)
+				author_summary.add_author(author.model_copy(), plugin.id)
 		author_summary.finalize()
 		file_utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'), with_gz=True)
 
 		# everything
-		everything = Everything(plugins={})
-		everything.timestamp = int(time.time())
-		everything.authors = author_summary
+		everything = Everything(
+			timestamp=int(time.time()),
+			authors=author_summary,
+			plugins={},
+		)
 		for plugin in self:
 			aop = plugin.create_and_save_all_data()
 			everything.plugins[plugin.id] = aop
@@ -140,9 +145,11 @@ class PluginList(List[Plugin]):
 		# everything (slim)
 		for p in everything.plugins.values():
 			p.plugin.introduction = {}
-			p.repository.readme = None
-			for r in p.release.releases:
-				r.description = None
+			if p.repository is not None:
+				p.repository.readme = None
+			if p.release is not None:
+				for r in p.release.releases:
+					r.description = None
 		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything_slim.json'), compact=True, with_gz=True, with_xz=True)
 
 		log.info('Stored data into meta folder')

@@ -23,6 +23,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-:
 
+      - name: Setup Requirements
+        run: |
+          pip install -r scripts/requirements.txt
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v41
@@ -34,7 +38,6 @@ jobs:
 
       - name: Check plugins
         run: |
-          pip install -r scripts/requirements.txt
           python .github/workflows/scripts/pr_check.py
         env:
-          github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+          github_api_token: ${{ secrets.GITHUB_TOKEN }}

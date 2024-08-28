@@ -45,7 +45,7 @@ class _PluginInfoJson(Serializable):
 	introduction: Dict[str, str] = {}  # lang -> file path in repos
 
 
-class _PluginInfoInner:
+class _PluginInfoInternal:
 	id: str
 
 	repos: GithubRepository
@@ -93,7 +93,9 @@ class _PluginInfoInner:
 
 
 class Plugin:
-	__plugin_info: _PluginInfoInner
+	__plugin_info: _PluginInfoInternal
+
+	# might be null, if repos not found
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
 	repository_info: Optional[RepositoryInfo] = None
@@ -106,7 +108,7 @@ class Plugin:
 			raise FileNotFoundError('Directory {} not found'.format(self.__info_directory))
 
 		plugin_json = file_utils.load_json(os.path.join(self.__info_directory, 'plugin_info.json'))
-		self.__plugin_info = _PluginInfoInner(plugin_json)
+		self.__plugin_info = _PluginInfoInternal(plugin_json)
 		if self.id != plugin_id:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
 
@@ -232,15 +234,15 @@ class Plugin:
 	def generate_formatted_plugin_info(self) -> PluginInfo:
 		if (_PluginDataSet.info | _PluginDataSet.introduction) not in self.__dataset:
 			raise RuntimeError('not enough info. current dataset: {}'.format(self.__dataset))
-		info = PluginInfo()
-		info.id = self.id
-		info.authors = [author.name for author in self.__plugin_info.authors]
-		info.repository = self.repos.repos_url
-		info.branch = self.repos.branch
-		info.related_path = self.repos.related_path
-		info.labels = [label.id for label in self.__plugin_info.labels]
-		info.introduction = self.__introduction.get_mapping().copy()
-		return info
+		return PluginInfo(
+			id=self.id,
+			authors=[author.name for author in self.__plugin_info.authors],
+			repository=self.repos.repos_url,
+			branch=self.repos.branch,
+			related_path=self.repos.related_path,
+			labels=[label.id for label in self.__plugin_info.labels],
+			introduction=self.__introduction.get_mapping().copy(),
+		)
 
 	def save_formatted_plugin_info(self):
 		info = self.generate_formatted_plugin_info()
@@ -290,7 +292,7 @@ class Plugin:
 
 	# ========================= RepositoryInfo =========================
 
-	async def fetch_repository(self):
+	async def fetch_and_update_repository(self):
 		try:
 			self.repository_info = await RepositoryInfo.create_for(self, self.__cache_manager)
 		except Exception as e:
@@ -298,6 +300,8 @@ class Plugin:
 			raise
 		else:
 			self.__repository_info_error = None
+
+		self.repos.update_from_api(self.id, self.repository_info)
 		self.__dataset |= _PluginDataSet.repository
 		log.info('({}) Repository information fetched'.format(self.id))
 

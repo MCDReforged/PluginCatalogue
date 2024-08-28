@@ -106,7 +106,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 				translated_description = plugin.meta_info.translated_description
 			else:
 				name = translated_description = failed()
-			release = plugin.release_summary.get_latest_release()
+			release = plugin.release_summary.get_latest_release() if plugin.release_summary is not None else None
 			if release is not None:
 				last_update = formatted_time(release.created_at, precision='day')
 			else:
@@ -185,7 +185,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	else:
 		file.write('- {}: {}\n'.format(Text('version'), failed()))
 
-	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
+	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads() if plugin.release_summary is not None else 'N/A'))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repos.repos_url))
 	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repos.plugin_homepage))
