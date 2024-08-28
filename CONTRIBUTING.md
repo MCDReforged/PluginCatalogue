@@ -47,7 +47,7 @@ A plugin that lacks an introduction is not welcome.
 - When modifying plugins, changes to the same fields in multiple plugins by the same author can be combined in a single PR;
 - When deleting plugins, multiple plugins of the same author can be combined in one PR.
 
-## Contribute scripts or workflows?
+## Contributing to scripts or workflows?
 
 - It is recommended to create an Issue first, describing the problem or request, and then create the PR associated with it;
 - All changes should be merged into the `master` branch.
