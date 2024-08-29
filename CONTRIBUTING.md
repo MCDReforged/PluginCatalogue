@@ -12,12 +12,14 @@ These suggestions are also references for catalogue maintainers to determine whe
 
 ## Is your plugin suitable?
 
-Don't rush to submit your plugins to the plugin catalogue.
+Do not submit plugins in a hurry.
 
-- Is your code necessary to provide as a MCDR plugin? Would it be more suitable for PyPI? Consider the use purpose and make sure it is necessary;
-- Before creating and submitting a new plugin, see if there are plugins with similar functionality - pointless reinventing wheels are not desirable;
-- Consider the general-purpose, make sure that new users have a reason to use your plugin - submitting self-use only or unstable plugins is not recommended;
-- Make sure your project is ready for Beta (public testing) - if it's still in an early version, make it stable before submitting.
+Before creating and submitting new plugins, consider following questions:
+
+- Is there already a plugin with really similar functionality? —— Unnecessarily reinventing wheels is not desirable;
+- Is your code necessary to provide as a MCDR plugin? Would it be more suitable for PyPI? —— Consider the use purpose and make sure it is necessary;
+- Is the plugin general enough? Can new users have reasons to use your plugin? —— Do not submit self-use only or completely useless plugins;
+- Is your project ready for public testing (beta)? —— If it is still in an early version, wait until it is stable.
 
 ### Make sure you have permissions
 
@@ -25,6 +27,16 @@ Users submitting plugins to the plugin catalogue should be in one of the followi
 
 - Author, maintainer, or collaborator of the plugin;
 - An uploader who has explicit permission from someone above.
+
+If your plugin reference or use codes from other projects:
+- If the codes is open source, follow their open source licence;
+- If the codes is proprietary, make sure you have the right to use them, and follow their agreement.
+
+### Uniqueness and compatibility
+
+- Plugin name and ID should not be **too similar** to other plugins;
+- Explicitly declare required plugins and/or Python packages in corresponding fields (also declare MCDR version if needed);
+- Make sure that your plugin works properly on target platforms.
 
 ### Write plugin information correctly
 
