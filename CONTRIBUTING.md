@@ -21,7 +21,7 @@ Before creating and submitting new plugins, consider following questions:
 - Is the plugin general enough? Can new users have reasons to use your plugin? —— Do not submit self-use only or completely useless plugins;
 - Is your project ready for public testing (beta)? —— If it is still in an early version, wait until it is stable.
 
-### Make sure you have permissions
+### *Make sure you have permissions
 
 Users submitting plugins to the plugin catalogue should be in one of the following capacities:
 
@@ -32,13 +32,13 @@ If your plugin reference or use codes from other projects:
 - If the codes is open source, follow their open source licence;
 - If the codes is proprietary, make sure you have the right to use them, and follow their agreement.
 
-### Uniqueness and compatibility
+### *Uniqueness and compatibility
 
 - Plugin name and ID should not be **too similar** to other plugins;
 - Explicitly declare required plugins and/or Python packages in corresponding fields (also declare MCDR version if needed);
 - Make sure that your plugin works properly on target platforms.
 
-### Write plugin information correctly
+### *Write plugin information correctly
 
 - Create or edit `plugin_info.json` as described in [documentation](https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html);
 - Take care to check the `label` field is appropriate by referring to existing plugins;
@@ -55,13 +55,13 @@ A plugin that lacks an introduction is not welcome.
 - Introduce the plugin's features in the `introduction`, or direct reference it to the README file.
 
 
-### One PR for one thing
+### *One PR for one thing
 
 - When adding plugins, please submit multiple plugins in separate PRs;
 - When modifying plugins, changes to the same fields in multiple plugins by the same author can be combined in one PR;
 - When deleting plugins, multiple plugins of the same author can be combined in one PR.
 
-## Contributing to scripts or workflows?
+## *Contributing to scripts or workflows?
 
 - It is recommended to create an Issue first, describing the problem or request, and then create the PR associated with it;
 - All changes should be merged into the `master` branch.
