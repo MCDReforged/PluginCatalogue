@@ -5,9 +5,9 @@
 
 <!--
 - 请确认您的PR符合《贡献指南》中的要求，然后勾选下方的复选框，不要修改其它内容
-  Please confirm that your PR meets the Contribution Guidlines, then check the checkbox below,
+  勾选案例：- [x]
+- Please confirm that your PR meets the Contribution Guidlines, then check the checkbox below,
   DO NOT MODIFY ANY OTHER CONTENT
-- 勾选案例：- [x]
   Ticked checkbox sample: - [x]
 -->
 

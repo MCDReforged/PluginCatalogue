@@ -21,6 +21,6 @@
 
 **Legacy Plugins Catalogue** contains plugins for earlier versions of MCDR. They may not be compatible with current version of MCDR. Use them with caution
 
-If you would like to add your plugin to the plugin repository, feel free to submit a PR. Check out the [Documentation](https://mcdreforged.readthedocs.io/en/latest/plugin_dev/plugin_catalogue.html) and [Contributing Guidelines](CONTRIBUTING.md) for more information
+If you would like to add your plugin to the plugin repository, feel free to submit a PR. Check out the [Documentation](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html) and [Contributing Guidelines](CONTRIBUTING.md) for more information
 
 You can learn about the plugin data provided by the plugin repository [here](https://github.com/MCDReforged/PluginCatalogue/tree/meta)

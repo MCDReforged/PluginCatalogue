@@ -6,11 +6,13 @@ First of all, thank you for your interest in contributing!
 
 Before you get started, we have some suggestions to make the process goes smoothly and efficiently.
 
+These suggestions are also references for catalogue maintainers to determine whether to merge PRs.
+
 ### Adding or modifying plugin?
 
-## Is your plugin suitable for catalogue?
+## Is your plugin suitable?
 
-Don't rush to submit plugins to the plugin catalogue.
+Don't rush to submit your plugins to the plugin catalogue.
 
 - Is your code necessary to provide as a MCDR plugin? Would it be more suitable for PyPI? Consider the use purpose and make sure it is necessary;
 - Before creating and submitting a new plugin, see if there are plugins with similar functionality - pointless reinventing wheels are not desirable;
@@ -43,8 +45,8 @@ A plugin that lacks an introduction is not welcome.
 
 ### One PR for one thing
 
-- When adding plugins, please submit multiple plugins separately and do one thing per PR;
-- When modifying plugins, changes to the same fields in multiple plugins by the same author can be combined in a single PR;
+- When adding plugins, please submit multiple plugins in separate PRs;
+- When modifying plugins, changes to the same fields in multiple plugins by the same author can be combined in one PR;
 - When deleting plugins, multiple plugins of the same author can be combined in one PR.
 
 ## Contributing to scripts or workflows?
