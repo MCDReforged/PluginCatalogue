@@ -1,1 +1,0 @@
-Record the last playing time of server members to facilitate the statistics of server members' online status
