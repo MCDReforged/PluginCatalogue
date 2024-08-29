@@ -1,12 +1,16 @@
-**English** | [中文](CONTRIBUTING_CN.md)
+**English** | [中文](CONTRIBUTING_cn.md)
 
 # Contribution Guidelines
 
-First of all, thank you for your interest in contributing!
+We are truly honored and grateful for your willingness to contribute to this project.
 
-Before you get started, we have some suggestions to make the process goes smoothly and efficiently.
+To ensure that your efforts integrate smoothly into the project and benefit the entire community, we have created this guide to help you better understand our standards and processes.
 
-Those with `*` are **required** and the rest are **suggested**, all serve as references for catalogue maintainers to review PRs.
+We recommend you to carefully reading the following information, which is designed to help you work efficiently and ensure that your contributions meet our requirements and guidelines.
+
+Sections marked with an `*` are **requirements**, while the rest are **suggestions**, both serving as references for your development process and for catalogue maintainers when reviewing PRs.
+
+We hope this guide can be a great starting point for you!
 
 ## Adding or modifying plugin?
 
@@ -48,7 +52,7 @@ If your plugin reference or use codes from other projects:
 
 ### Introduce your plugin properly
 
-A plugin that lacks an introduction is not welcome.
+A good and detailed introduction is one of the conditions for becoming an excellent plugin.
 
 - In the README or documentation, explain the plugin's functions, features, usage, etc. in detail;
 - In the `description`, briefly summarise what the plugin does in one sentence;
