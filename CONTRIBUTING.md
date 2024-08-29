@@ -6,11 +6,11 @@ First of all, thank you for your interest in contributing!
 
 Before you get started, we have some suggestions to make the process goes smoothly and efficiently.
 
-These suggestions are also references for catalogue maintainers to determine whether to merge PRs.
+Those with `*` are **required** and the rest are **suggested**, all serve as references for catalogue maintainers to determine whether to merge PRs.
 
-### Adding or modifying plugin?
+## Adding or modifying plugin?
 
-## Is your plugin suitable?
+### Is your plugin suitable?
 
 Do not submit plugins in a hurry.
 
