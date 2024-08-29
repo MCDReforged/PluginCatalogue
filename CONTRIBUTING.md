@@ -6,7 +6,7 @@ First of all, thank you for your interest in contributing!
 
 Before you get started, we have some suggestions to make the process goes smoothly and efficiently.
 
-Those with `*` are **required** and the rest are **suggested**, all serve as references for catalogue maintainers to determine whether to merge PRs.
+Those with `*` are **required** and the rest are **suggested**, all serve as references for catalogue maintainers to review PRs.
 
 ## Adding or modifying plugin?
 
