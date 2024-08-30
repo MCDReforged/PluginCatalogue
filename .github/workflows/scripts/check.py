@@ -12,28 +12,24 @@ Environ:
 """
 
 import asyncio
-import datetime as dt
-import json
 import logging
 import os
 import sys
 from pathlib import Path
-from typing import List, Optional
+from typing import Optional
+
+import gh_cli as gh
+from utilities import Action, ActionList, EventType, PluginCheckError, Tag, report_all, get_changed
 
 sys.path.append('scripts')  # Make import and script runs from correct directory
 
-import gh_cli as gh
-from classes import Action, EventType, PluginCheckError, Tag
-from common.constants import REPOS_ROOT
-from common.log import logger
 from common.report import reporter
-from plugin.plugin import Plugin
+from common.log import logger
 from plugin.plugin_list import get_plugin_list
 
-#! ---- Gather environs ---- ##
+#! ---- Gather environs and constants ---- ##
 
 PLUGIN_CHECK_LIMIT = 5
-COMMENT_SIGN = '<!-- report -->'
 COMMENT_USER = 'github-actions'
 
 EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
@@ -42,12 +38,7 @@ IS_MERGED = os.environ.get('IS_MERGED', 'false')
 if EVENT_TYPE == EventType.CLOSED and IS_MERGED == 'true':
     EVENT_TYPE = EventType.MERGED
 
-logger.info(f'Running with event type: {EVENT_TYPE}')
-
-
-#! ---- On merged ---- ##
-if EVENT_TYPE == EventType.MERGED:
-    reply = """
+MERGED_MSG = """
 Well done! 🎉
 
 Your pull request has been successfully merged.
@@ -56,17 +47,37 @@ We appreciate your hard work and valuable input. If you have any further questio
 
 Happy coding!
 """.strip()
-    gh.pr_comment(reply)
+
+THX_MSG = """
+Thanks for your contribution! 🎉
+
+Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
+
+Have a nice day!
+""".strip()
+
+CHKLST_MSG = """
+
+---
+以下是供仓库维护者参考的合并前检查单。
+- 所提交信息齐全、有效
+- 插件名称符合其功能，没有歧义
+- 提交者是版本库所有者/维护者/协作者
+- 插件分类正确
+- 插件说明足以帮助用户使用
+- 其他应当作为合并前检查的事项
+"""
+
+logger.info(f'Running with event type: {EVENT_TYPE}')
+
+
+#! ---- On merged ---- ##
+if EVENT_TYPE == EventType.MERGED:
+    gh.pr_comment(MERGED_MSG)
     sys.exit(0)
 
 #! ---- Gather file changes ---- ##
 # https://github.com/marketplace/actions/changed-files#outputs-
-
-
-def get_changed(change_type: str) -> List[str]:
-    with open(os.path.join(REPOS_ROOT, f'.github/outputs/{change_type}.json'), 'r', encoding='utf8') as f:
-        return json.load(f)
-
 
 # Add, Copied, Modified, Renamed, Deleted
 added_files = set(get_changed('added_files'))  # A
@@ -81,189 +92,80 @@ all_files = changed_files | deleted_files  # ACMRD
 In order of priority, the process shoule be:
 
 1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
-2. Both A and D of `plugins/<plugin_id>/plugin_info.json` == Modify of plugin
-3. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
-4. ACMRD of `scripts/**` == `scripts`
-5. ACMRD of `.github/workflows/**` == `github workflow`
+2. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
+3. ACMRD of `scripts/**` == `scripts`
+4. ACMRD of `.github/workflows/**` == `github workflow`
 
 In which, one plugin should only have one action.
 """
 
-actions: set[Action] = set()
-tags: Optional[set[Tag]] = None
+actions = ActionList()
 
+# plugin_info first
 for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reverse=True):
     path = Path(file).parts
     if len(path) > 1 and path[0] == 'plugins':
+        plugin_id = path[1]
         if path[-1] == 'plugin_info.json':  # if plugin meta changed
             if file in added_files:
-                actions.add(Action(Tag.PLG_ADD, path[1]))
+                actions.add(Action(Tag.PLG_ADD, plugin_id))
             elif file in deleted_files:
-                actions.add(Action(Tag.PLG_REMOVE, path[1]))
+                actions.add(Action(Tag.PLG_REMOVE, plugin_id))
             else:
-                actions.add(Action(Tag.PLG_MODIFY, path[1]))
+                actions.add(Action(Tag.PLG_MODIFY, plugin_id))
         # if other plugin files changed
-        elif not any(action.plugin_id == path[1] for action in actions):
-            actions.add(Action(Tag.PLG_MODIFY, path[1]))
+        elif plugin_id not in actions.plugins:
+            actions.add(Action(Tag.PLG_MODIFY, plugin_id))
     elif path[0] == 'scripts':
         actions.add(Action(Tag.SCRIPTS))
     elif file.startswith('.github/workflows'):
         actions.add(Action(Tag.WORKFLOW))
 
-tags = set(action.tag for action in actions)
-if Tag.PLG_REMOVE in tags and Tag.PLG_ADD in tags:  # add + remove = modify
-    tags.remove(Tag.PLG_REMOVE)
-    tags.remove(Tag.PLG_ADD)
-    tags.add(Tag.PLG_MODIFY)
-
 logger.info(f"Identified actions: {', '.join(map(str, actions))}")
-logger.info(f"Identified tags: {', '.join(map(str, tags))}")
+logger.info(f"Identified tags: {', '.join(map(str, actions.tags))}")
 
 
 #! ---- Run plugin checks and generate report ---- ##
 
-def report_plugin(plugin: Plugin) -> str:
-    def row(*args):
-        return f"| {' | '.join(args)} |\n"
+reply: str = THX_MSG
 
-    def rowval(info, value, valid):
-        return row(info, value, '✅' if valid else '❌')
-    report = f"""
-### `{plugin.id}`
-
-| Info | Value | Valid |
-| --- | --- | --- |
-"""
-    failures: Optional[List[str]] = reporter.failures.get(plugin.id)
-    warnings: Optional[List[str]] = reporter.warnings.get(plugin.id)
-
-    # PluginInfo rows
-    report += rowval(
-        'URL',
-        # AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat
-        '[`{}@{}{}`]({})'.format(
-            plugin.repos.repos_pair,
-            plugin.repos.branch,
-            '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else '',
-            plugin.repos.get_page_url_base()
-        ),
-        not failures or not any('repository' in f for f in failures)
-    )
-    report += row(
-        'Labels',
-        ' '.join(f'`{i}`' for i in plugin.labels),
-        '❔'
-    )
-    report += rowval(
-        'Introduction',
-        ' '.join(f'[`{lang}`]({url})'
-                 for lang, url in plugin.introduction_urls.items()),
-        not failures or not any('introduction' in f for f in failures)
-    )
-    report += rowval(
-        'Meta',
-        '-',
-        not failures or not any('meta' in f for f in failures)
-    )
-    report += '\n'
-
-    # PluginMeta rows
-    if plugin.meta_info:
-        report += """
-| Meta | Value |
-| --- | --- |
-"""
-        report += row(
-            'Authors',
-            ', '.join(plugin.meta_info.authors)
-        )
-        report += row(
-            'Description',
-            '<br/>'.join(f'`{lang}` {desc}'
-                         for lang, desc in plugin.meta_info.description.items())
-        )
-        report += '\n'
-
-    if failures:
-        report += "> [!CAUTION]\n"
-        report += ''.join(f'> - {f}\n' for f in failures)
-        report += '\n'
-
-    if warnings:
-        report += "> [!WARNING]\n"
-        report += ''.join(f'> - {w}\n' for w in warnings)
-        report += '\n'
-
-    return report
-
-
-def report_all(plugin_list: List[Plugin]) -> str:
-    time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r"%Y-%m-%d %H:%M:%S (%Z)")
-    header = f"""{COMMENT_SIGN}
-_Last updated at: `{time}`_
-## Plugin Validation Report
-"""
-    return header + '\n'.join(report_plugin(plugin) for plugin in plugin_list)
-
-
-reply: str = """
-Thanks for your contribution! 🎉
-
-Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
-
-Have a nice day!
-""".strip()
-
-if Tag.PLG_ADD in tags:
-    reply += """
-
----
-以下是供仓库维护者参考的合并前检查单。
-- 所提交信息齐全、有效
-- 插件名称符合其功能，没有歧义
-- 提交者是版本库所有者/维护者/协作者
-- 插件分类正确
-- 插件说明足以帮助用户使用
-- 其他应当作为合并前检查的事项
-"""
+if Tag.PLG_ADD in actions.tags:
+    reply += CHKLST_MSG
 
 report: Optional[str] = None
 
 # https://github.com/MCDReforged/PluginCatalogue/pull/372
 logger.setLevel(logging.INFO)
 
-plugins = [
-    action.plugin_id for action in actions if
-    action.tag in (Tag.PLG_MODIFY, Tag.PLG_ADD)
-]
-
-if plugins:
-    logger.info(f'Checking {len(plugins)} plugins: {", ".join(plugins)}')
-
-    reporter.record_script_start()
-    reporter.record_command('pr_check')
-    if len(plugins) > PLUGIN_CHECK_LIMIT:
-        logger.warning(f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipping')
-        report = f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipped'
-        reporter.record_script_failure(report, ValueError(report))
-    else:
-        plugin_list = get_plugin_list(plugins)
-        asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=True))
-        report = report_all(plugin_list)
-
-    reporter.report(plugin_list)
+if actions.plugins:
+    modified_plugins = actions.modified_plugins
+    removed_plugins = actions.removed_plugins
+    plugin_list = []
+    if modified_plugins:
+        logger.info(f'Checking {len(modified_plugins)} plugins: {", ".join(modified_plugins)}')
+        reporter.record_script_start()
+        reporter.record_command('pr_check')
+        if len(modified_plugins) > PLUGIN_CHECK_LIMIT:
+            logger.warning(f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipping')
+            report = f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipped'
+            reporter.record_script_failure(report, ValueError(report))
+        else:
+            plugin_list = get_plugin_list(modified_plugins)
+            asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=True))
+            reporter.report(plugin_list)
+    report = report_all(plugin_list, actions, removed_plugins)
 else:
-    logger.info('No plugins to check, skipping')
+    logger.info('No plugins to report, skipping')
 
 
 #! ---- Label and comment ---- ##
 
 if EVENT_TYPE == EventType.OPENED:
-    gh.pr_label(add_labels=[t.value for t in tags])
+    gh.pr_label(add_labels=actions.labels)
     gh.pr_comment(reply)
 
 if report:
-    gh.pr_update_or_comment(COMMENT_USER, COMMENT_SIGN, report)
+    gh.pr_update_or_comment(COMMENT_USER, report)
 
 if len(reporter.failures) > 0:
     raise PluginCheckError('Plugin check failed')

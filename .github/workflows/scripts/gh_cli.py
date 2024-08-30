@@ -15,6 +15,7 @@ import subprocess
 from typing import Optional
 
 from common.log import logger
+from utilities import COMMENT_SIGN
 
 EXECUTABLE = "gh"
 PR_NUMBER = os.environ.get("PR_NUMBER")
@@ -52,7 +53,7 @@ def pr_comment(body: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -
         logger.error(f"Failed to comment: {e}")
 
 
-def pr_update_or_comment(user: str, sign: str, body_file: str, pr_number: str = PR_NUMBER) -> None:
+def pr_update_or_comment(user: str, body_file: str, pr_number: str = PR_NUMBER, sign: str = COMMENT_SIGN) -> None:
     """Update last comment of given user if it contains sign, otherwise add a new one
 
     Checks:
