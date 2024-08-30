@@ -54,6 +54,7 @@ A good and detailed introduction is one of the conditions for becoming an excell
 - In the README or documentation, explain the plugin's functions, features, usage, etc. in detail;
 - In the `description`, briefly summarise what the plugin does in one sentence;
 - Introduce the plugin's features in the `introduction`, or direct reference it to the README file.
+
 ### One PR for one thing
 
 - When adding plugins, please submit multiple plugins in separate PRs;
