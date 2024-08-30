@@ -140,12 +140,12 @@ def report_removed(plugin_id: str):
         if os.path.isdir(directory) and os.listdir(directory):
             report += """
 > [!WARNING]
-- The plugin directory still exists.
+> - The plugin directory is still not empty.
 """
     except Exception as e:
         report += f"""
 > [!WARNING]
-- Failed to check if the plugin directory cleared. {e}
+> - Failed to check if the plugin directory cleared. {e}
 """
     return report
 
@@ -226,6 +226,10 @@ def report_all(plugin_list: list[Plugin], action_list: ActionList, removed_list:
 _Last updated at: `{time}`_
 ## Plugin Validation Report
 """
+    plugins = sorted(
+        [(plugin, action_list.plugins.get(plugin.id)) for plugin in plugin_list],
+        key=lambda x: x[1].value
+    )
     return header + \
-        '\n'.join(report_plugin(plugin, action_list.plugins.get(plugin.id)) for plugin in plugin_list) + \
+        '\n'.join(report_plugin(*plugin) for plugin in plugins) + \
         '\n'.join(report_removed(plugin) for plugin in removed_list)
