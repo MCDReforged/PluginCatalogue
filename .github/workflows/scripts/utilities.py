@@ -70,6 +70,9 @@ class Action:
 
 class ActionList(set[Action]):
     """PR Action list with a [plugin, tag] dict"""
+
+    plugins: dict[str, Tag]
+
     def __init__(self) -> None:
         super().__init__()
         self.plugins = {}
@@ -88,11 +91,6 @@ class ActionList(set[Action]):
     def labels(self) -> set[str]:
         """Returns all labels of actions"""
         return {tag.label for tag in self.tags}
-
-    @property
-    def plugins(self) -> dict[str, Tag]:
-        """Returns all plugin ids with their tags"""
-        return self.plugins
 
     @property
     def modified_plugins(self) -> list[str]:
