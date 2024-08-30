@@ -34,9 +34,6 @@ COMMENT_USER = 'github-actions'
 EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
 IS_MERGED = os.environ.get('IS_MERGED', 'false')
 
-if EVENT_TYPE == EventType.CLOSED and IS_MERGED == 'true':
-    EVENT_TYPE = EventType.MERGED
-
 MERGED_MSG = """
 Well done! 🎉
 
@@ -67,16 +64,21 @@ CHKLST_MSG = """
 - 其他应当作为合并前检查的事项
 """
 
-logger.info(f'Running with event type: {EVENT_TYPE}')
+# https://github.com/MCDReforged/PluginCatalogue/pull/372
+logger.setLevel(logging.INFO)
 
-
-#! ---- On merged ---- ##
-if EVENT_TYPE == EventType.MERGED:
-    gh.pr_comment(MERGED_MSG)
+#! ---- On closed ---- ##
+if EVENT_TYPE == EventType.CLOSED:
+    if IS_MERGED == 'true': # merged
+        gh.pr_comment(MERGED_MSG)
     sys.exit(0)
+
 
 #! ---- Gather file changes ---- ##
 # https://github.com/marketplace/actions/changed-files#outputs-
+
+logger.info(f'Running with event type: {EVENT_TYPE}')
+logger.info(f'Gathering changed files')
 
 # Add, Copied, Modified, Renamed, Deleted
 added_files = set(get_changed('added_files'))  # A
@@ -84,6 +86,7 @@ changed_files = set(get_changed('all_changed_files'))  # ACMR
 deleted_files = set(get_changed('deleted_files'))  # D
 all_files = changed_files | deleted_files  # ACMRD
 
+logger.info(f'{len(all_files)} changes found')
 
 #! ---- Identify actions and tags ---- ##
 
@@ -97,6 +100,8 @@ In order of priority, the process shoule be:
 
 In which, one plugin should only have one action.
 """
+
+logger.info(f"Identifying actions and tags")
 
 actions = ActionList()
 
@@ -133,15 +138,12 @@ if Tag.PLG_ADD in actions.tags:
 
 report: Optional[str] = None
 
-# https://github.com/MCDReforged/PluginCatalogue/pull/372
-logger.setLevel(logging.INFO)
-
 if actions.plugins:
     modified_plugins = actions.modified_plugins
     removed_plugins = actions.removed_plugins
     plugin_list = []
     if modified_plugins:
-        logger.info(f'Checking {len(modified_plugins)} plugins: {", ".join(modified_plugins)}')
+        logger.info(f'Checking plugins: {", ".join(modified_plugins)}')
         reporter.record_script_start()
         reporter.record_command('pr_check')
         if len(modified_plugins) > PLUGIN_CHECK_LIMIT:
@@ -167,4 +169,4 @@ if report:
     gh.pr_update_or_comment(COMMENT_USER, report)
 
 if len(reporter.failures) > 0:
-    raise PluginCheckError('Plugin check failed')
+    raise PluginCheckError(f'Plugin check reported {len(reporter.failures)} failures.')
