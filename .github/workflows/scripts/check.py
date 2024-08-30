@@ -18,14 +18,13 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-import gh_cli as gh
-from utilities import Action, ActionList, EventType, PluginCheckError, Tag, report_all, get_changed
-
 sys.path.append('scripts')  # Make import and script runs from correct directory
 
-from common.report import reporter
+import gh_cli as gh
 from common.log import logger
+from common.report import reporter
 from plugin.plugin_list import get_plugin_list
+from utilities import Action, ActionList, EventType, PluginCheckError, Tag, get_changed, report_all
 
 #! ---- Gather environs and constants ---- ##
 
