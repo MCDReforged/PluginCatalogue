@@ -78,7 +78,7 @@ if EVENT_TYPE == EventType.CLOSED:
 # https://github.com/marketplace/actions/changed-files#outputs-
 
 logger.info(f'Running with event type: {EVENT_TYPE}')
-logger.info(f'Gathering changed files')
+logger.info('Gathering changed files')
 
 # Add, Copied, Modified, Renamed, Deleted
 added_files = set(get_changed('added_files'))  # A
@@ -101,7 +101,7 @@ In order of priority, the process shoule be:
 In which, one plugin should only have one action.
 """
 
-logger.info(f"Identifying actions and tags")
+logger.info("Identifying actions and tags")
 
 actions = ActionList()
 
