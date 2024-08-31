@@ -185,7 +185,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     )
     report += _rowval(
         'Meta',
-        '-',
+        '`mcdreforged.plugin.json`',
         not failures or not any('meta' in f for f in failures)
     )
     report += '\n'
@@ -196,14 +196,23 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
 | Meta | Value |
 | --- | --- |
 """
+        meta = plugin.meta_info
+        report += _row(
+            'Name',
+            meta.name
+        )
+        report += _row(
+            'Version',
+            meta.version
+        )
         report += _row(
             'Authors',
-            ', '.join(plugin.meta_info.authors)
+            ', '.join(meta.authors)
         )
         report += _row(
             'Description',
             '<br/>'.join(f'`{lang}` {desc}'
-                         for lang, desc in plugin.meta_info.description.items())
+                         for lang, desc in meta.description.items())
         )
         report += '\n'
 
