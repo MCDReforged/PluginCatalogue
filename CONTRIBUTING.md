@@ -1,6 +1,6 @@
 **English** | [中文](CONTRIBUTING_cn.md)
 
-# Contribution Guidelines
+# Contributing Guidelines
 
 We are truly honored and grateful for your willingness to contribute to this project.
 
