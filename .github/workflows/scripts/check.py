@@ -46,22 +46,20 @@ Happy coding!
 
 THX_MSG = """
 Thanks for your contribution! 🎉
-
 Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
-
 Have a nice day!
 """.strip()
 
 CHKLST_MSG = """
 
----
-以下是供仓库维护者参考的合并前检查单。
-- 所提交信息齐全、有效
-- 插件名称符合其功能，没有歧义
-- 提交者是版本库所有者/维护者/协作者
-- 插件分类正确
-- 插件说明足以帮助用户使用
-- 其他应当作为合并前检查的事项
+```markdown
+# 合并前检查单（供仓库维护者参考）
+- *插件适合提交；
+- 提交者有权提交；
+- 所提交信息完整有效；
+- 插件分类正确，名称、介绍和说明符合要求。
+详见贡献指南
+```
 """
 
 # https://github.com/MCDReforged/PluginCatalogue/pull/372
