@@ -1,21 +1,40 @@
-name: Plugin Check
+# Check Pull Requests
+# See also: .github/workflows/scripts
+
+name: PR Check and Report
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
 
 on:
   pull_request:
     branches:
       - master
-    paths:
-      - 'plugins/**'
-    types: [opened, synchronize]
+    types:
+      - opened
+      - synchronize
+      - closed
 
 jobs:
-  plugin-check:
+  pr-check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Validate checkbox # See pull_request_template.md
+        uses: roryq/checkmate@master
+        continue-on-error: true
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
@@ -31,13 +50,17 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v41
         with:
-          files: | 
-            plugins/*/*.json
           json: true
           write_output_files: true
 
-      - name: Check plugins
+      - name: Check and Report
         run: |
-          python .github/workflows/scripts/pr_check.py
+          python .github/workflows/scripts/check.py
         env:
+          # scripts
           github_api_token: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_TYPE: ${{ github.event.action }}
+          IS_MERGED: ${{ github.event.pull_request.merged }}
+
+          # gh_cli
+          PR_NUMBER: ${{ github.event.number }}

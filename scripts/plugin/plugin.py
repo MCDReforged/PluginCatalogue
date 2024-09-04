@@ -5,7 +5,7 @@ from typing import Optional, List, Dict, Union
 
 from common import constants, log
 from common.report import reporter
-from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
+from common.translation import Text, BundledText, LANGUAGES, DEFAULT_LANGUAGE, get_file_name, with_language
 from meta.author import Author
 from meta.plugin import PluginInfo, MetaInfo
 from meta.plugin_all import AllOfAPlugin
@@ -14,7 +14,7 @@ from meta.repos import RepositoryInfo
 from plugin.cache import PluginRequestCacheManager
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
-from utils.repos import GithubRepository
+from utils.repos import PLUGIN_CATALOGUE, GithubRepository
 from utils.serializer import Serializable
 
 
@@ -141,6 +141,23 @@ class Plugin:
 	@property
 	def introduction(self) -> Text:
 		return self.__introduction
+	
+	@property
+	def plugin_info(self) -> _PluginInfoInternal:
+		return self.__plugin_info
+
+	@property
+	def introduction_urls(self) -> str:
+		path = {}
+		if self.__plugin_info.external_introduction:
+			return {lang: self.repos.get_page_url_base() + '/' + path
+					for lang, path in self.__plugin_info.external_introduction.items()}
+		else:	
+			path = {}
+			for lang in LANGUAGES:
+				with with_language(lang):
+					path[lang] = PLUGIN_CATALOGUE.get_page_url_base() + f'/plugins/{self.id}/' + get_file_name('introduction.md')
+			return path
 
 	@property
 	def latest_version(self) -> str:
@@ -221,10 +238,24 @@ class Plugin:
 								raw_url=self.repos.get_raw_url_base(),
 							)
 						introduction_translations[lang] = file_content
-				introduction_tr_file_path = os.path.join(self.__info_directory, get_file_name('introduction.md'))
-				if os.path.isfile(introduction_tr_file_path):
-					with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
-						introduction_translations[lang] = file_handler.read()
+				else:
+					introduction_tr_file_path = os.path.join(self.__info_directory, get_file_name('introduction.md'))
+					if os.path.isfile(introduction_tr_file_path):
+						with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
+							introduction_translations[lang] = file_handler.read()
+					else:
+						msg = 'No introduction file in language {} found for {}'.format(lang, self)
+						if lang is DEFAULT_LANGUAGE:
+							log.exception(msg)
+							reporter.record_plugin_failure(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
+							introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
+						else:
+							if DEFAULT_LANGUAGE in introduction_translations:
+								introduction_translations[lang] = introduction_translations[DEFAULT_LANGUAGE]
+								log.warning(msg)
+								reporter.record_warning(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
+							else:
+								introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
 		log.info('({}) Introduction fetched'.format(self.id))

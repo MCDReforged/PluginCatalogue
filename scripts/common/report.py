@@ -58,12 +58,14 @@ class Reporter:
 		with self.__lock:
 			self.__rate_limit_remaining = remaining
 			self.__rate_limit_limit = limit
-	
 
 	@property
-	def failures(self) -> int:
-		"""Get amount of plugin fetch failures."""
-		return sum(map(lambda msgs: len(msgs), self.__failures.values()))
+	def failures(self):
+		return self.__failures
+	
+	@property
+	def warnings(self):
+		return self.__warnings
 
 	def __dump(self, plugin_list: 'PluginList', f: IO[str]):
 		f.write('---------------------------------------\n\n')
