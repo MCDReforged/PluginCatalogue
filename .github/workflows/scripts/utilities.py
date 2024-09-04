@@ -22,7 +22,6 @@ class EventType(Enum):
     OPENED = 'opened'
     SYNCHRONIZE = 'synchronize'
     CLOSED = 'closed'
-    MERGED = 'merged'
 
 
 class Tag(str, Enum):
@@ -62,7 +61,7 @@ class Action:
         return hash((self.tag, self.plugin_id))
 
     def __str__(self) -> str:
-        return f'[{self.tag.value}]({self.plugin_id})'
+        return f'[{self.tag.value}]' + f'({self.plugin_id})' if self.plugin_id else ''
 
     def __repr__(self) -> str:
         return self.__str__()

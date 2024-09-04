@@ -124,7 +124,7 @@ for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reve
         actions.add(Action(Tag.WORKFLOW))
 
 logger.info(f"Identified actions: {', '.join(map(str, actions))}")
-logger.info(f"Identified tags: {', '.join(map(str, actions.tags))}")
+logger.info(f"Identified labels: {', '.join(map(str, actions.labels))}")
 
 
 #! ---- Run plugin checks and generate report ---- ##
