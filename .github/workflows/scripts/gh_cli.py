@@ -53,7 +53,7 @@ def pr_comment(body: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -
         logger.error(f"Failed to comment: {e}")
 
 
-def pr_update_or_comment(user: str, body_file: str, pr_number: str = PR_NUMBER, sign: str = COMMENT_SIGN) -> None:
+def pr_update_or_comment(user: str, body: str, pr_number: str = PR_NUMBER, sign: str = COMMENT_SIGN) -> None:
     """Update last comment of given user if it contains sign, otherwise add a new one
 
     Checks:
@@ -68,9 +68,9 @@ def pr_update_or_comment(user: str, body_file: str, pr_number: str = PR_NUMBER, 
         result = subprocess.check_output(cmd)
         if result.decode("utf-8").startswith("true"):
             logger.info(f"Updating last comment of {user} on PR: #{pr_number}")
-            pr_comment(pr_number=pr_number, body=body_file, edit_last=True)
+            pr_comment(pr_number=pr_number, body=body, edit_last=True)
         else:
-            pr_comment(pr_number=pr_number, body=body_file)
+            pr_comment(pr_number=pr_number, body=body)
     except subprocess.CalledProcessError as e:
         logger.error(f"Failed to check last comment: returned {e.returncode}. Output: \n{e.output.decode('utf-8')}")
     except Exception as e:
