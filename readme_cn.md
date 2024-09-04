@@ -1,6 +1,6 @@
 [English](readme.md) | **中文**
 
-<h1 align="center">MCDReforged PluginCatalogue</h1>
+<h1 align="center">MCDReforged 插件仓库</h1>
 
 <p align="center">
   一个用于列出 <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> 插件的仓库。
