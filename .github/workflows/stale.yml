@@ -1,0 +1,29 @@
+name: 'Close stale issues and PR'
+on:
+  schedule:
+    - cron: '0 12 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          stale-pr-message: |
+            Hi, 
+            This Pull Request has been inactive for 7 days. If your work have completed but we haven't reviewed it, please ping us. Otherwise, please keep it on. We'll close this after another 7 days if there's still no activity.
+
+            Hope you well!
+          close-pr-message: |
+            Hi,
+            This Pull Request has been inactive for 14 days. We're closing this for now. If you still working on it, feel free to reopen it when you're ready.
+
+            Hope you well!
+          stale-issue-message: |
+            Hi,
+            this issue has been inactive for 7 days. We're labeling this as stale.
+
+            Hope everything goes well!
+          days-before-stale: 7
+          days-before-close: -1
+          days-before-pr-close: 7
