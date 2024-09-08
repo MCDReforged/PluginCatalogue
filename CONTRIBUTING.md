@@ -37,7 +37,7 @@ If your plugin references or uses codes from other projects:
 ### Uniqueness and compatibility
 
 - Plugin name and ID should not be **too similar** to other plugins;  
-  _As a reference, a quantification standard is: the Levenshtein Distance between the lowercase name and ID of your plugin and other's should not be less than 3_
+  _As a reference, a quantification standard is: the [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between the lowercase name and ID of your plugin and other's should not be less than 3_
 - Explicitly declare required plugins and/or Python packages in corresponding fields  
   _Mind if your plugin uses specific interfaces in new versions of MCDR, declare the MCDR version as necessary_;
 - Make sure that your plugin works properly on target platforms.
