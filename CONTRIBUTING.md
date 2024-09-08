@@ -8,7 +8,7 @@ To ensure that your efforts integrate smoothly into the project and benefit the 
 
 We encourage you to read the following information carefully to help you work efficiently and ensure that your contributions meet our requirements and guidelines.
  
-Sections marked with an `*` are **suggestions**, while the rest are **requirements**, both serving as references for your development process and for catalogue maintainers when reviewing PRs. Pay particular attention to **bolded ones**.
+_Italic contents are **suggestions**_, while the rest are **requirements**, both serving as references for your development process and for catalogue maintainers when reviewing PRs. Pay particular attention to **bolded ones**.
 
 We hope this guide can be a great starting point for you!
 
