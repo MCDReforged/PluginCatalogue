@@ -34,7 +34,7 @@ If your plugin references or uses codes from other projects:
 - If the codes is open source, follow their open source license;
 - If the codes is proprietary, make sure you have the right to use them, and follow their agreement.
 
-**We strongly recommend that you [use an open source licence to the plugin](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository) to protect rights of yours and others**. Operations performed by catalogue and MCDR on your repos should compatible with all OSI-approved licences.
+**We strongly recommend that you [use an open source licence](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository) to protect rights of yours and others**. Operations performed by catalogue and MCDR on your repos should compatible with all OSI-approved licences.
 
 **Otherwise, please understand and acknowledge that**:
 - **By submitting your plugin, you grant us and other MCDR users, over and above the proprietary agreement (or license, if any): the right to use, copy, modify, and distribute copies of your plugin and its source code.**;
