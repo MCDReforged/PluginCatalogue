@@ -24,7 +24,7 @@ Do not submit plugins in a hurry. Before creating and submitting new plugins, co
 - _Is the plugin commonly applicable? Can new users have reasons to use your plugin? —— Do not submit self-use only or completely useless plugins_;
 - _Is your project ready for public testing (beta)? —— If it is still in an early stage, wait until it is ready. We recommend to ensure that the plugin has an available release when submitting_.
 
-### Make sure you have permissions
+### Attention to copyrights
 
 Users submitting plugins to the plugin catalogue should be in one of the following capacities:
 - Author, maintainer, or collaborator of the plugin;
@@ -33,6 +33,12 @@ Users submitting plugins to the plugin catalogue should be in one of the followi
 If your plugin references or uses codes from other projects:
 - If the codes is open source, follow their open source license;
 - If the codes is proprietary, make sure you have the right to use them, and follow their agreement.
+
+**We strongly recommend that you [use an open source licence to the plugin](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository) to protect rights of yours and others**. Operations performed by catalogue and MCDR on your repos should compatible with all OSI-approved licences.
+
+**Otherwise, please understand and acknowledge that**:
+- **By submitting your plugin, you grant us and other MCDR users, over and above the proprietary agreement (or license, if any): the right to use, copy, modify, and distribute copies of your plugin and its source code.**;
+- **Your submission PR may take longer to process**.
 
 ### Uniqueness and compatibility
 
