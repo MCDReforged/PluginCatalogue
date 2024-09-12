@@ -46,7 +46,7 @@ from utilities import Action, ActionList, EventType, PluginCheckError, Tag, get_
 
 #! ---- Gather environs and constants ---- ##
 
-PLUGIN_CHECK_LIMIT = 5
+PLUGIN_CHECK_LIMIT = 16
 COMMENT_USER = 'github-actions'
 
 EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
