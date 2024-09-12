@@ -73,7 +73,7 @@ A good and detailed introduction is one of the conditions for becoming an excell
 
 ### Wait patiently after submitting
 
-After submitting a PR, catalogue maintainers will review your plugin asap. They will base their response on the results of automatic checks, this guide, and their personal judgment. If they can not make a decision, your PR may be assigned to a higher-level maintainer. During this process, you can choose to accept or reject their suggestions (if any). Those suggestions may help your plugin merge more smoothly into the catalogue.
+After submitting a PR, catalogue maintainers will review your plugin asap. They will base their response on the results of automatic checks, this guide, and their personal judgment. If they can not make a decision, your PR may be assigned to a higher-level maintainer. During this process, you can choose whether or not to accept their suggestions (if any). Those suggestions may help your plugin merge more smoothly into the catalogue.
 
 ### Be careful when releasing
 
