@@ -185,7 +185,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
             '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else '',
             plugin.repos.get_page_url_base()
         ),
-        not failures or not any('repository' in f for f in failures)
+        not failures or not any('fetch repository' in f for f in failures)
     )
     report += _row(
         'Labels',
