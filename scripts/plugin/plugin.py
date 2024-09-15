@@ -229,7 +229,6 @@ class Plugin:
 					except Exception as e:
 						log.exception('Failed to get custom introduction file in language {} from {} in {}'.format(lang, file_location, self))
 						reporter.record_plugin_failure(self.id, 'Fetch custom introduction file in language {} from {} failed'.format(lang, file_location), e)
-						introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 					else:
 						if file_location.lower().endswith('.md'):
 							file_content = markdown_utils.rewrite_markdown(
@@ -248,14 +247,11 @@ class Plugin:
 						if lang is DEFAULT_LANGUAGE:
 							log.exception(msg)
 							reporter.record_plugin_failure(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
-							introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
-						else:
-							if DEFAULT_LANGUAGE in introduction_translations:
+						elif DEFAULT_LANGUAGE in introduction_translations:
 								introduction_translations[lang] = introduction_translations[DEFAULT_LANGUAGE]
 								log.warning(msg)
-								reporter.record_warning(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
-							else:
-								introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
+				if lang not in introduction_translations:
+					introduction_translations[lang] = '*{}*'.format(Text('data_fetched_failed'))
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
 		log.info('({}) Introduction fetched'.format(self.id))
