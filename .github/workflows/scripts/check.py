@@ -5,6 +5,7 @@ When PR:
 - opened: add a comment, label the PR, check and report plugins
 - synchronize: update plugin report if plugin changed
 - closed: congratulate if merged
+- labeled: regenerate plugin report if labeled with `recheck`
 
 Environ:
 - EVENT_TYPE: opened, synchronize, closed
@@ -45,9 +46,11 @@ from plugin.plugin_list import get_plugin_list
 from utilities import Action, ActionList, EventType, PluginCheckError, Tag, get_changed, report_all
 
 #! ---- Gather environs and constants ---- ##
+#  See also: .github/workflows/pull_request.yml
 
 PLUGIN_CHECK_LIMIT = 16
 COMMENT_USER = 'github-actions'
+RECHECK_LABEL = 'recheck'
 
 EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
 IS_MERGED = os.environ.get('IS_MERGED', 'false')
@@ -180,6 +183,9 @@ else:
 if EVENT_TYPE == EventType.OPENED:
     gh.pr_label(add_labels=actions.labels)
     gh.pr_comment(reply)
+
+if EVENT_TYPE == EventType.LABELED:
+    gh.pr_label(remove_labels=[RECHECK_LABEL])
 
 if report:
     gh.pr_update_or_comment(COMMENT_USER, report)

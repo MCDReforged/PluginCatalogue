@@ -66,7 +66,7 @@ def pr_comment(body: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -
         result = subprocess.check_output(cmd)
         logger.info(result.decode("utf-8"))
     except subprocess.CalledProcessError as e:
-        logger.error(f"Failed to comment: returned {e.returncode}. Output: \n{e.output.decode('utf-8')}")
+        logger.error(f"Failed to comment: returned {e.returncode}.")
     except Exception as e:
         logger.error(f"Failed to comment: {e}")
 
@@ -90,7 +90,7 @@ def pr_update_or_comment(user: str, body: str, pr_number: str = PR_NUMBER, sign:
         else:
             pr_comment(pr_number=pr_number, body=body)
     except subprocess.CalledProcessError as e:
-        logger.error(f"Failed to check last comment: returned {e.returncode}. Output: \n{e.output.decode('utf-8')}")
+        logger.error(f"Failed to check last comment: returned {e.returncode}.")
     except Exception as e:
         logger.error(f"Failed to check last comment: {e}")
 

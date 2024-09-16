@@ -34,9 +34,10 @@ class PluginCheckError(ValueError):
 
 
 class EventType(Enum):
-    """Workflow event types"""
+    """Workflow event types that script accepts"""
     OPENED = 'opened'
     SYNCHRONIZE = 'synchronize'
+    LABELED = 'labeled'
     CLOSED = 'closed'
 
 
@@ -248,6 +249,7 @@ def report_all(plugin_list: list[Plugin], action_list: ActionList, removed_list:
     time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r"%Y-%m-%d %H:%M:%S (%Z)")
     header = f"""{COMMENT_SIGN}
 _Last updated at: `{time}`_
+_Add label `recheck` to regenerate manually_
 ## Plugin Validation Report
 """
     plugins = sorted(

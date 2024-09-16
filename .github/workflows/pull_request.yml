@@ -22,10 +22,17 @@ on:
       - opened
       - synchronize
       - closed
+      - labeled
 
 jobs:
   pr-check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
+
+    # To reduce useless runs
+    if: |
+      (github.event.action != 'closed' || github.event.pull_request.merged) &&
+      (github.event.action != 'labeled' || github.event.label.name == 'recheck')
+
     steps:
       - uses: actions/checkout@v4
         with:
