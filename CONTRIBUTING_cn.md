@@ -55,7 +55,7 @@ _斜体部分属于**建议**_，其余属于**要求**，均作为您开发过�
 - _参照已有插件和文档，检查 `label` 字段是否合适_；
 - _插件 README 应当放置于 `related_path` 中且命名为 `README.md`（不分大小写）_；
 - **插件 ID 必须在各个环节保持一致；**
-- **`description` 和 `introduction` 字段应当正确，至少提供 `en_us` 一个版本。**
+- **`description` 和 `introduction` 字段应当正确，至少提供一种语言。**
 
 ### 插件介绍要写好
 
