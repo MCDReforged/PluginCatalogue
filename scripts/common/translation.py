@@ -112,5 +112,7 @@ class BundledText(Text):
 		if result is None:
 			result = self.__mapping.get(DEFAULT_LANGUAGE)
 		if result is None:
+			any(result := i for i in self.__mapping.values())
+		if result is None:
 			result = self.__default
 		return result
