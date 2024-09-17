@@ -2,9 +2,9 @@
 This file is part of scripts of MCDReforged Plugin Catalogue.
 
 This is a free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version.
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
 
 This is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -22,16 +22,15 @@ import os
 from enum import Enum
 from typing import Optional
 
-from plugin.plugin import Plugin
-from common.report import reporter
 from common.constants import REPOS_ROOT
+from common.report import reporter
+from meta.release import ReleaseInfo
+from plugin.plugin import Plugin
 
 COMMENT_SIGN = '<!-- report -->'
 
 
-class PluginCheckError(ValueError):
-    """Occurs when there's any error on plugin check"""
-
+#! ---- Classes ---- ##
 
 class EventType(Enum):
     """Workflow event types that script accepts"""
@@ -124,17 +123,25 @@ class ActionList(set[Action]):
         return self.plugins.keys()
 
 
+#! ---- Workflow related ---- ##
+
 def get_changed(change_type: str) -> list[str]:
     with open(os.path.join(REPOS_ROOT, f'.github/outputs/{change_type}.json'), 'r', encoding='utf8') as f:
         return json.load(f)
 
 
+#! ---- Validation report ---- ##
+
 def _row(*args):
     return f"| {' | '.join(args)} |\n"
 
 
-def _rowval(info, value, valid):
-    return _row(info, value, '✅' if valid else '❌')
+def _rowval(info, value, valid, valid_icon='✅', invalid_icon='❌'):
+    return _row(info, value, valid_icon if valid else invalid_icon)
+
+
+def _check(value: str, src: Optional[list[str]]):
+    return not src or not any(value in s for s in src)
 
 
 def get_icon(tag: Tag) -> str:
@@ -175,6 +182,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
 """
     failures: Optional[list[str]] = reporter.failures.get(plugin.id)
     warnings: Optional[list[str]] = reporter.warnings.get(plugin.id)
+    latest_release: Optional[ReleaseInfo] = plugin.release_summary.get_latest_release()
 
     # PluginInfo rows
     report += _rowval(
@@ -186,7 +194,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
             '/' + plugin.repos.related_path if plugin.repos.related_path != '.' else '',
             plugin.repos.get_page_url_base()
         ),
-        not failures or not any('fetch repository' in f for f in failures)
+        _check('fetch repository', failures)
     )
     report += _row(
         'Labels',
@@ -197,12 +205,18 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         'Introduction',
         ' '.join(f'[`{lang}`]({url})'
                  for lang, url in plugin.introduction_urls.items()),
-        not failures or not any('introduction' in f for f in failures)
+        _check('introduction', failures)
     )
     report += _rowval(
         'Meta',
         '`mcdreforged.plugin.json`',
-        not failures or not any('meta' in f for f in failures)
+        _check('meta', failures)
+    )
+    report += _rowval(
+        'Latest Release',
+        f'[`{latest_release.meta.version}`]({latest_release.url})' if latest_release else '`None`',
+        latest_release,
+        invalid_icon='⚠️'
     )
     report += '\n'
 

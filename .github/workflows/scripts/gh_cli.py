@@ -1,5 +1,5 @@
 """
-Kind of wrapper for GitHub CLI for Pull Requests
+Wrapper of GitHub CLI for Pull Request Actions
 
 See:
 - https://cli.github.com/manual
@@ -14,9 +14,9 @@ Environ:
 This file is part of scripts of MCDReforged Plugin Catalogue.
 
 This is a free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version.
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
 
 This is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -83,7 +83,7 @@ def pr_update_or_comment(user: str, body: str, pr_number: str = PR_NUMBER, sign:
         f'.comments | any(.author.login == "{user}" and (.body | contains("{sign}")))'
     ]
     try:
-        result = subprocess.check_output(cmd)
+        result = subprocess.check_output(cmd) # true\n
         if result.decode("utf-8").startswith("true"):
             logger.info(f"Updating last comment of {user} on PR: #{pr_number}")
             pr_comment(pr_number=pr_number, body=body, edit_last=True)
@@ -98,8 +98,10 @@ def pr_update_or_comment(user: str, body: str, pr_number: str = PR_NUMBER, sign:
 def pr_label(add_labels: Optional[list[str]] = None, remove_labels: Optional[list[str]] = None, pr_number: str = PR_NUMBER) -> None:
     """Add or remove labels from a PR
 
+    `remove_labels` will be ignored it `add_labels` is provided
+
     Runs:
-        `gh pr edit <pr_number> [--add-label <add_labels>] [--remove-label <remove_labels>]`
+        `gh pr edit <pr_number> [--add-label|--remove-label] <add_labels|remove_labels>`
     """
     logger.info(f"Labeling PR: #{pr_number}, add_labels: {add_labels}, remove_labels: {remove_labels}")
     cmd = [EXECUTABLE, "pr", "edit", pr_number]

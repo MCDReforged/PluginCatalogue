@@ -7,18 +7,22 @@ When PR:
 - closed: congratulate if merged
 - labeled: regenerate plugin report if labeled with `recheck`
 
+Reports:
+- `reporter.report` reports the result to standard output and workflow summary
+- `utilities.report_all` and `gh_cli.pr_comment` reports the result to PR comment
+
 Environ:
-- EVENT_TYPE: opened, synchronize, closed
-- IS_MERGED: true, false
+- EVENT_TYPE: utilities.EventType
+- IS_MERGED: bool
 
 ---
 
 This file is part of scripts of MCDReforged Plugin Catalogue.
 
 This is a free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by the Free
-Software Foundation, either version 3 of the License, or (at your option) any
-later version.
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.
 
 This is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -43,10 +47,10 @@ import gh_cli as gh
 from common.log import logger
 from common.report import reporter
 from plugin.plugin_list import get_plugin_list
-from utilities import Action, ActionList, EventType, PluginCheckError, Tag, get_changed, report_all
+from utilities import Action, ActionList, EventType, Tag, get_changed, report_all
 
 #! ---- Gather environs and constants ---- ##
-#  See also: .github/workflows/pull_request.yml
+# See also: .github/workflows/pull_request.yml
 
 PLUGIN_CHECK_LIMIT = 16
 COMMENT_USER = 'github-actions'
@@ -55,7 +59,7 @@ RECHECK_LABEL = 'recheck'
 EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
 IS_MERGED = os.environ.get('IS_MERGED', 'false')
 
-MERGED_MSG = """
+MSG_MERGED = """
 Well done! 🎉
 
 Your pull request has been successfully merged.
@@ -65,13 +69,13 @@ We appreciate your hard work and valuable input. If you have any further questio
 Happy coding!
 """.strip()
 
-THX_MSG = """
+MSG_HEADER = """
 Thanks for your contribution! 🎉
 Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
 Have a nice day!
 """.strip()
 
-CHKLST_MSG = """
+MSG_CHECKLIST = """
 
 ```markdown
 # 合并前检查单（供仓库维护者参考）
@@ -89,7 +93,7 @@ logger.setLevel(logging.INFO)
 #! ---- On closed ---- ##
 if EVENT_TYPE == EventType.CLOSED:
     if IS_MERGED == 'true': # merged
-        gh.pr_comment(MERGED_MSG)
+        gh.pr_comment(MSG_MERGED)
     sys.exit(0)
 
 
@@ -108,17 +112,12 @@ all_files = changed_files | deleted_files  # ACMRD
 logger.info(f'{len(all_files)} changes found')
 
 #! ---- Identify actions and tags ---- ##
-
-"""
-In order of priority, the process shoule be:
-
-1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
-2. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
-3. ACMRD of `scripts/**` == `scripts`
-4. ACMRD of `.github/workflows/**` == `github workflow`
-
-In which, one plugin should only have one action.
-"""
+## In order of priority, the process shoule be:
+## 1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
+## 2. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
+## 3. ACMRD of `scripts/**` == `scripts`
+## 4. ACMRD of `.github/workflows/**` == `github workflow`
+## One plugin should only have one action.
 
 logger.info("Identifying actions and tags")
 
@@ -150,10 +149,10 @@ logger.info(f"Identified labels: {', '.join(map(str, actions.labels))}")
 
 #! ---- Run plugin checks and generate report ---- ##
 
-reply: str = THX_MSG
+reply: str = MSG_HEADER
 
 if Tag.PLG_ADD in actions.tags:
-    reply += CHKLST_MSG
+    reply += MSG_CHECKLIST
 
 report: Optional[str] = None
 
@@ -171,7 +170,7 @@ if actions.plugins:
             reporter.record_script_failure(report, ValueError(report))
         else:
             plugin_list = get_plugin_list(modified_plugins)
-            asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=True))
+            asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=False))
             reporter.report(plugin_list)
     report = report_all(plugin_list, actions, removed_plugins)
 else:
@@ -191,4 +190,5 @@ if report:
     gh.pr_update_or_comment(COMMENT_USER, report)
 
 if len(reporter.failures) > 0:
-    raise PluginCheckError(f'Plugin check reported {len(reporter.failures)} failures.')
+    logger.error(f'Plugin check reported {len(reporter.failures)} failures.')
+    sys.exit(1)
