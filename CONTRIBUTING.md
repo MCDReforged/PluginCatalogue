@@ -37,7 +37,7 @@ If your plugin references or uses codes from other projects:
 **We strongly recommend that you [use an open source licence](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository) to protect rights of yours and others**. Operations performed by catalogue and MCDR on your repos should compatible with all OSI-approved licences.
 
 **Otherwise, please understand and acknowledge that**:
-- **By submitting your plugin, you authorize everyone to download and use your plugin from Github Releases direct or indirectly, over and above the proprietary agreement (or license, if any).**;
+- **By submitting your plugin, you authorize everyone to download and use your plugin from Github Releases direct or indirectly, over and above the proprietary agreement (or license, if any)**;
 - **Your submission PR may take longer to process**.
 
 ### Uniqueness and compatibility
