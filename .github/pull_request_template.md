@@ -12,5 +12,5 @@
 -->
 
 <!--Checkmate-->
-- [ ] 我已阅读并检查，此 PR 符合 [贡献指南](CONTRIBUTING_cn.md) 中的要求
-  I have read and checked that my PR meets the requirements in the [Contributing Guidelines](CONTRIBUTING.md)
+- [ ] 我已阅读并检查，此 PR 符合 [贡献指南](https://github.com/MCDReforged/PluginCatalogue/blob/master/CONTRIBUTING_cn.md) 中的要求
+  I have read and checked that my PR meets the requirements in the [Contributing Guidelines](https://github.com/MCDReforged/PluginCatalogue/blob/master/CONTRIBUTING.md)
