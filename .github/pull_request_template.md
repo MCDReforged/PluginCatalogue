@@ -1,12 +1,13 @@
 
+
 <!-- 在上方撰写您想附加的信息 -->
 <!-- Write your own things above -->
 ---
 
 <!--
-- 请确认您的PR符合《贡献指南》中的要求，然后勾选下方的复选框，不要修改其它内容
+- 请确认您的 PR 符合《贡献指南》中的要求，然后勾选下方的复选框，不要修改其它内容
   勾选案例：- [x]
-- Please confirm that your pull request meets the "Contributing Guidelines", then tick the checkbox below,
+- Please confirm that your pull request meets the Contributing Guidelines, then tick the checkbox below,
   DO NOT MODIFY ANY OTHER CONTENT
   Ticked checkbox sample: - [x]
 -->
