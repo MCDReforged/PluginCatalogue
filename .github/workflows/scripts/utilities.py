@@ -199,7 +199,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     report += _row(
         'Labels',
         ' '.join(f'`{i}`' for i in plugin.labels),
-        '❔'
+        '-'
     )
     report += _rowval(
         'Introduction',
