@@ -1,0 +1,1 @@
+With this plugin, you can publishing an online questionnaire so players can apply for the whitelist by themselves. You only need to apply and fill in the key to run it without any complicated configuration.
