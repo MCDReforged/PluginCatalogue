@@ -34,6 +34,7 @@ in the `scripts` folder of the project root. If not, see
 <https://www.gnu.org/licenses/>.
 """
 
+
 import asyncio
 import logging
 import os
@@ -92,10 +93,13 @@ logger.setLevel(logging.INFO)
 
 #! ---- On closed ---- ##
 if EVENT_TYPE == EventType.CLOSED:
-    if IS_MERGED == 'true': # merged
+    if IS_MERGED == 'true':  # merged
         gh.pr_comment(MSG_MERGED)
     sys.exit(0)
 
+#! ---- No limit on recheck ---- ##
+if EVENT_TYPE == EventType.LABELED:
+    PLUGIN_CHECK_LIMIT = 0
 
 #! ---- Gather file changes ---- ##
 # https://github.com/marketplace/actions/changed-files#outputs-
@@ -112,12 +116,12 @@ all_files = changed_files | deleted_files  # ACMRD
 logger.info(f'{len(all_files)} changes found')
 
 #! ---- Identify actions and tags ---- ##
-## In order of priority, the process shoule be:
-## 1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
-## 2. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
-## 3. ACMRD of `scripts/**` == `scripts`
-## 4. ACMRD of `.github/workflows/**` == `github workflow`
-## One plugin should only have one action.
+# In order of priority, the process shoule be:
+# 1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
+# 2. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
+# 3. ACMRD of `scripts/**` == `scripts`
+# 4. ACMRD of `.github/workflows/**` == `github workflow`
+# One plugin should only have one action.
 
 logger.info("Identifying actions and tags")
 
@@ -160,19 +164,20 @@ if actions.plugins:
     modified_plugins = actions.modified_plugins
     removed_plugins = actions.removed_plugins
     plugin_list = []
+    reached_limit = False
     if modified_plugins:
         logger.info(f'Checking plugins: {", ".join(modified_plugins)}')
         reporter.record_script_start()
         reporter.record_command('pr_check')
-        if len(modified_plugins) > PLUGIN_CHECK_LIMIT:
+        if len(modified_plugins) > PLUGIN_CHECK_LIMIT > 0:
             logger.warning(f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipping')
-            report = f'Too many plugins to check (>{PLUGIN_CHECK_LIMIT}), skipped'
+            reached_limit = True
             reporter.record_script_failure(report, ValueError(report))
         else:
             plugin_list = get_plugin_list(modified_plugins)
             asyncio.run(plugin_list.fetch_data(fail_hard=False, skip_release=False))
             reporter.report(plugin_list)
-    report = report_all(plugin_list, actions, removed_plugins)
+    report = report_all(plugin_list, actions, removed_plugins, reached_limit=reached_limit)
 else:
     logger.info('No plugins to report, skipping')
 

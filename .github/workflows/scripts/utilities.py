@@ -259,17 +259,27 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     return report
 
 
-def report_all(plugin_list: list[Plugin], action_list: ActionList, removed_list: list[str]) -> str:
+def report_all(plugin_list: list[Plugin], action_list: ActionList, removed_list: list[str], reached_limit: bool) -> str:
     time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r"%Y-%m-%d %H:%M:%S (%Z)")
-    header = f"""{COMMENT_SIGN}
+    header = f'''{COMMENT_SIGN}
 _Last updated at: `{time}`_
 _Add label `recheck` to regenerate manually_
 ## Plugin Validation Report
-"""
-    plugins = sorted(
-        [(plugin, action_list.plugins.get(plugin.id)) for plugin in plugin_list],
-        key=lambda x: x[1].value
-    )
-    return header + \
-        '\n'.join(report_plugin(*plugin) for plugin in plugins) + \
-        '\n'.join(report_removed(plugin) for plugin in removed_list)
+'''
+    modified_report: str = None
+
+    if reached_limit:
+        modified_report = '''
+Plugin check limit reached. Check workflow log for details.
+Add label `recheck` to regenerate without limit.
+'''
+    else:
+        plugins = sorted(
+            [(plugin, action_list.plugins.get(plugin.id)) for plugin in plugin_list],
+            key=lambda x: x[1].value
+        )
+        modified_report = '\n'.join(report_plugin(*plugin) for plugin in plugins)
+
+    removed_report = '\n'.join(report_removed(plugin) for plugin in removed_list)
+
+    return header + modified_report + removed_report
