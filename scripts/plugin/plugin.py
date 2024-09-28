@@ -197,15 +197,6 @@ class Plugin:
 				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
 
-	@classmethod
-	def __error_or_value(cls, value: Optional[Serializable], error: Optional[Exception]) -> dict:
-		if value is not None:
-			return value.serialize()
-		else:
-			return {
-				'_error': 'unknown' if error is None else str(error)
-			}
-
 	# ========================= Request Cache =========================
 
 	@property
@@ -283,11 +274,11 @@ class Plugin:
 		self.__dataset |= _PluginDataSet.meta
 		log.info('({}) MetaInfo fetched'.format(self.id))
 
-	def __get_meta_info_data(self) -> dict:
-		return self.__error_or_value(self.meta_info, self.__meta_info_error)
-
-	def save_meta(self):
-		file_utils.save_json(self.__get_meta_info_data(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+	def save_meta_info_if_available(self):
+		if self.meta_info is not None:
+			file_utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+		else:
+			log.warning('({}) Skipping saving meta_info due to error {}'.format(self.id, self.__meta_info_error))
 
 	# ========================= Release & Cache =========================
 
@@ -306,11 +297,11 @@ class Plugin:
 	def __release_info_file(self) -> str:
 		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
 
-	def __get_release_summary_data(self) -> dict:
-		return self.__error_or_value(self.release_summary, self.__release_summary_error)
-
-	def save_release_summary(self):
-		file_utils.save_json(self.__get_release_summary_data(), self.__release_info_file)
+	def save_release_summary_if_available(self):
+		if self.release_summary is not None:
+			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file)
+		else:
+			log.warning('({}) Skipping saving release_summary due to error {}'.format(self.id, self.__release_summary_error))
 
 	# ========================= RepositoryInfo =========================
 
@@ -327,11 +318,11 @@ class Plugin:
 		self.__dataset |= _PluginDataSet.repository
 		log.info('({}) Repository information fetched'.format(self.id))
 
-	def __get_repository_info_data(self) -> dict:
-		return self.__error_or_value(self.repository_info, self.__repository_info_error)
-
-	def save_repository_info(self):
-		file_utils.save_json(self.__get_repository_info_data(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
+	def save_repository_info_if_available(self):
+		if self.repository_info is not None:
+			file_utils.save_json(self.repository_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
+		else:
+			log.warning('({}) Skipping saving repository_info due to error {}'.format(self.id, self.__repository_info_error))
 
 	# ========================= AllOfAPlugin =========================
 
