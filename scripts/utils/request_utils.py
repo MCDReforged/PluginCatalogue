@@ -83,11 +83,15 @@ async def request_github_api(url: str, *, params: dict = None, etag: str = '', r
 	except KeyError:
 		log.error('No ETag in response! url={}, params={} status_code={}, content={}'.format(url, params, response.status_code, response.content))
 		raise
-	remaining, limit = response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']
-	reporter.record_rate_limit(remaining, limit)
-	if constants.DEBUG.SHOW_RATE_LIMIT:
-		log.debug('\tRateLimit: {}/{}'.format(remaining, limit))
-		log.debug('\tETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
+	try:
+		remaining, limit = response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']
+	except KeyError as e:
+		log.error('Get RateLimit headers from response failed: {}, header: {}'.format(e, response.headers))
+	else:
+		reporter.record_rate_limit(remaining, limit)
+		if constants.DEBUG.SHOW_RATE_LIMIT:
+			log.debug('\tRateLimit: {}/{}'.format(remaining, limit))
+			log.debug('\tETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
 
 	# strange prefix. does not affect accuracy, but will randomly change from time to time
 	# so yeets it here in advance
