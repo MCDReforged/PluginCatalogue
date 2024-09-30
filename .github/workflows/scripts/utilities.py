@@ -197,7 +197,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         _check('fetch repository', failures)
     )
     report += _row(
-        'Labels',
+        'Labels ([Doc](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#label) [文档](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html#label))',
         ' '.join(f'`{i}`' for i in plugin.labels),
         '-'
     )
