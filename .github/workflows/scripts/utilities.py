@@ -133,7 +133,7 @@ def get_changed(change_type: str) -> list[str]:
 #! ---- Validation report ---- ##
 
 def _row(*args):
-    return f'| {' | '.join(args)} |\n'
+    return f'| {" | ".join(args)} |\n'
 
 
 def _rowval(info, value, valid, valid_icon='✅', invalid_icon='❌'):
