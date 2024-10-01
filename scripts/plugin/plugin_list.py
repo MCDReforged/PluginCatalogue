@@ -106,10 +106,10 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			try:
 				plugin.save_request_cache()
-				plugin.save_meta()
-				plugin.save_release_summary()
+				plugin.save_meta_info_if_available()
+				plugin.save_release_summary_if_available()
 				plugin.save_formatted_plugin_info()
-				plugin.save_repository_info()
+				plugin.save_repository_info_if_available()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
 				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
