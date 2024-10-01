@@ -185,7 +185,7 @@ else:
 #! ---- Label and comment ---- ##
 
 if EVENT_TYPE == EventType.OPENED:
-    gh.pr_label(add_labels=actions.labels)
+    gh.pr_label(add_labels=sorted(actions.labels))
     gh.pr_comment(reply)
 
 if EVENT_TYPE == EventType.LABELED:

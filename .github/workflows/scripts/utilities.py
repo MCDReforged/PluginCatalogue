@@ -20,7 +20,7 @@ import datetime as dt
 import json
 import os
 from enum import Enum
-from typing import Optional
+from typing import Optional, Iterable
 
 from common.constants import REPOS_ROOT
 from common.report import reporter
@@ -118,7 +118,7 @@ class ActionList(set[Action]):
         return [plugin_id for plugin_id, tag in self.plugins.items() if tag == Tag.PLG_REMOVE]
 
     @property
-    def plugin_ids(self) -> list[str]:
+    def plugin_ids(self) -> Iterable[str]:
         '''Returns all plugin ids of actions'''
         return self.plugins.keys()
 
@@ -282,7 +282,6 @@ _Last updated at: `{time}`_
 _Add label `recheck` to regenerate manually_
 ## Plugin Validation Report
 '''
-    modified_report: str = None
 
     if reached_limit:
         modified_report = '''
