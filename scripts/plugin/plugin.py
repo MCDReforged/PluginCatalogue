@@ -3,9 +3,11 @@ import os
 from json import JSONDecodeError
 from typing import Optional, List, Dict, Union
 
+from typing_extensions import Literal
+
 from common import constants, log
 from common.report import reporter
-from common.translation import Text, BundledText, LANGUAGES, DEFAULT_LANGUAGE, get_file_name, with_language
+from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
 from meta.author import Author
 from meta.plugin import PluginInfo, MetaInfo
 from meta.plugin_all import AllOfAPlugin
@@ -146,18 +148,20 @@ class Plugin:
 	def plugin_info(self) -> _PluginInfoInternal:
 		return self.__plugin_info
 
-	@property
-	def introduction_urls(self) -> Dict[str, str]:
+	def get_introduction_urls(self, kind: Literal['page', 'raw']) -> Dict[str, str]:
+		def get_base_url(repos: GithubRepository) -> str:
+			return repos.get_page_url_base() if kind == 'page' else repos.get_raw_url_base()
+
 		if self.__plugin_info.external_introduction:
 			return {
-				lang: self.repos.get_page_url_base() + '/' + path
+				lang: get_base_url(self.repos) + '/' + path
 				for lang, path in self.__plugin_info.external_introduction.items()
 			}
 		else:	
 			path = {}
 			for lang in LANGUAGES:
 				with with_language(lang):
-					path[lang] = PLUGIN_CATALOGUE.get_page_url_base() + f'/plugins/{self.id}/' + get_file_name('introduction.md')
+					path[lang] = get_base_url(PLUGIN_CATALOGUE) + f'/plugins/{self.id}/' + get_file_name('introduction.md')
 			return path
 
 	@property
@@ -256,6 +260,7 @@ class Plugin:
 			related_path=self.repos.related_path,
 			labels=[label.id for label in self.__plugin_info.labels],
 			introduction=self.__introduction.get_mapping().copy(),
+			introduction_urls=self.get_introduction_urls(kind='raw'),
 		)
 
 	def save_formatted_plugin_info(self):

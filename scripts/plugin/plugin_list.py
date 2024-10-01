@@ -147,6 +147,7 @@ class PluginList(List[Plugin]):
 		# everything (slim)
 		for p in everything.plugins.values():
 			p.plugin.introduction = {}
+			p.plugin.introduction_urls = {}
 			if p.repository is not None:
 				p.repository.readme = None
 			if p.release is not None:

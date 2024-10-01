@@ -23,6 +23,7 @@ class PluginInfo(Serializable):
 	related_path: str
 	labels: List[str]
 	introduction: Dict[str, str]  # lang -> content
+	introduction_urls: Dict[str, str]
 
 
 class MetaInfo(Serializable):

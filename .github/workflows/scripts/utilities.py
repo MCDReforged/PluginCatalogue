@@ -216,7 +216,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         'Introduction',
         # [`en_us`](//...) [`zh_cn`](//...)
         ' '.join(f'[`{lang}`]({url})'
-                 for lang, url in plugin.introduction_urls.items()),
+                 for lang, url in plugin.get_introduction_urls(kind='page').items()),
         _check('introduction', failures)
     )
     report += _rowval(

@@ -195,6 +195,10 @@ A formatted version of `plugin_info.json` from the master branch of the PluginCa
   "introduction": {
     "en_us": "My lovely plugin\n\n## Usage\n\n1. Install",
     "zh_cn": "我那可爱的插件\n\n## 使用方法\n\n1. 安装"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Myself/MyPlugin/master/docs/introduction.md",
+    "zh_cn": "https://raw.githubusercontent.com/Myself/MyPlugin/master/docs/introduction-zh_cn.md"
   }
 }
 ```
