@@ -39,7 +39,7 @@ class PluginRequestCacheManager:
 					self.__cache.asset_data.pop(asset_id)
 
 	def dump_for_save(self) -> dict:
-		cache = self.__cache.copy(deep=True)
+		cache = self.__cache.model_copy(deep=True)
 		for page in list(cache.release_pages.keys()):
 			if page not in self.__used_release_page:
 				cache.release_pages.pop(page)

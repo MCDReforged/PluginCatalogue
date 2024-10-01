@@ -50,11 +50,16 @@ _TRANSLATION_TYPE = Dict[str, str]
 _TRANSLATION_COLLECTION_TYPE = Dict[str, _TRANSLATION_TYPE]
 
 _TRANSLATION: _TRANSLATION_COLLECTION_TYPE = {}
-for file_name in os.listdir(constants.TRANSLATION_FOLDER):
-	file_path = constants.TRANSLATION_FOLDER / file_name
-	if file_path.is_file() and file_name.endswith('.json'):
-		lang = value_utils.remove_suffix(file_name, '.json')
-		_TRANSLATION[lang] = file_utils.load_json(file_path)
+
+def __init_translation():
+	for file_name in os.listdir(constants.TRANSLATION_FOLDER):
+		file_path = constants.TRANSLATION_FOLDER / file_name
+		if file_path.is_file() and file_name.endswith('.json'):
+			lang = value_utils.remove_suffix(file_name, '.json')
+			_TRANSLATION[lang] = file_utils.load_json(file_path)
+
+
+__init_translation()
 
 
 class Text:
