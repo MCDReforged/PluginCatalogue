@@ -184,10 +184,11 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     warnings: Optional[list[str]] = reporter.warnings.get(plugin.id)
     latest_release: Optional[ReleaseInfo] = plugin.release_summary.get_latest_release()
 
-    # PluginInfo rows
+    # --- PluginInfo rows --- #
+
     report += _rowval(
         'URL',
-        # AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat
+        # `AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat`
         '[`{}@{}{}`]({})'.format(
             plugin.repos.repos_pair,
             plugin.repos.branch,
@@ -197,12 +198,23 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         _check('fetch repository', failures)
     )
     report += _row(
+        'Authors',
+        # [`Someone`](//...), `SomeoneElse`
+        ', '.join(
+            f'[`{i.name}`]({i.link})' if i.link else f'`{i.name}`'
+            for i in plugin.authors
+        ),
+        '-'
+    )
+    report += _row(
         'Labels',
+        # `Tool`, `API`
         ' '.join(f'`{i}`' for i in plugin.labels),
         '-'
     )
     report += _rowval(
         'Introduction',
+        # [`en_us`](//...) [`zh_cn`](//...)
         ' '.join(f'[`{lang}`]({url})'
                  for lang, url in plugin.introduction_urls.items()),
         _check('introduction', failures)
@@ -214,13 +226,15 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     )
     report += _rowval(
         'Latest Release',
+        # [`v1.0.0`](//...) || `None`
         f'[`{latest_release.meta.version}`]({latest_release.url})' if latest_release else '`None`',
         latest_release,
         invalid_icon='⚠️'
     )
     report += '\n'
 
-    # PluginMeta rows
+    # --- PluginMeta rows --- #
+
     if plugin.meta_info:
         report += '''
 | Meta | Value |
@@ -241,6 +255,8 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         )
         report += _row(
             'Description',
+            # `en_us` Description content
+            # `zh_cn` 简介内容
             '<br/>'.join(f'`{lang}` {desc}'
                          for lang, desc in meta.description.items())
         )
