@@ -1,4 +1,4 @@
-"""
+'''
 Script for Pull Request Actions.
 
 When PR:
@@ -32,7 +32,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 in the `scripts` folder of the project root. If not, see 
 <https://www.gnu.org/licenses/>.
-"""
+'''
 
 
 import asyncio
@@ -60,7 +60,7 @@ RECHECK_LABEL = 'recheck'
 EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
 IS_MERGED = os.environ.get('IS_MERGED', 'false')
 
-MSG_MERGED = """
+MSG_MERGED = '''
 Well done! 🎉
 
 Your pull request has been successfully merged.
@@ -68,15 +68,15 @@ Your pull request has been successfully merged.
 We appreciate your hard work and valuable input. If you have any further questions or need additional changes, feel free to reach out.
 
 Happy coding!
-""".strip()
+'''.strip()
 
-MSG_HEADER = """
+MSG_HEADER = '''
 Thanks for your contribution! 🎉
 Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
 Have a nice day!
-""".strip()
+'''.strip()
 
-MSG_CHECKLIST = """
+MSG_CHECKLIST = '''
 
 ```markdown
 # 合并前检查单（供仓库维护者参考）
@@ -86,7 +86,7 @@ MSG_CHECKLIST = """
 - 插件分类正确，名称、介绍和说明符合要求。
 详见贡献指南
 ```
-"""
+'''
 
 # https://github.com/MCDReforged/PluginCatalogue/pull/372
 logger.setLevel(logging.INFO)
@@ -123,7 +123,7 @@ logger.info(f'{len(all_files)} changes found')
 # 4. ACMRD of `.github/workflows/**` == `github workflow`
 # One plugin should only have one action.
 
-logger.info("Identifying actions and tags")
+logger.info('Identifying actions and tags')
 
 actions = ActionList()
 
@@ -147,8 +147,8 @@ for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reve
     elif file.startswith('.github/workflows'):
         actions.add(Action(Tag.WORKFLOW))
 
-logger.info(f"Identified actions: {', '.join(map(str, actions))}")
-logger.info(f"Identified labels: {', '.join(map(str, actions.labels))}")
+logger.info(f'Identified actions: {', '.join(map(str, actions))}')
+logger.info(f'Identified labels: {', '.join(map(str, actions.labels))}')
 
 
 #! ---- Run plugin checks and generate report ---- ##
@@ -166,7 +166,7 @@ if actions.plugins:
     plugin_list = []
     reached_limit = False
     if modified_plugins:
-        logger.info(f'Checking plugins: {", ".join(modified_plugins)}')
+        logger.info(f'Checking plugins: {', '.join(modified_plugins)}')
         reporter.record_script_start()
         reporter.record_command('pr_check')
         if len(modified_plugins) > PLUGIN_CHECK_LIMIT > 0:
