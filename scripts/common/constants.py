@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 PLUGIN_INFO_SCHEMA_VERSION = 1
 META_INFO_SCHEMA_VERSION = 4
@@ -12,17 +12,17 @@ REQUEST_MAX_CONCURRENCY = 32
 MCDR_LINK = 'https://github.com/Fallen-Breath/MCDReforged'
 CATALOGUE_LINK = 'https://github.com/MCDReforged/PluginCatalogue'
 
-HERE = os.path.dirname(__file__)
-SCRIPT_ROOT = os.path.abspath(os.path.join(HERE, '..'))
-REPOS_ROOT = os.path.abspath(os.path.join(SCRIPT_ROOT, '..'))
+HERE = Path(__file__).absolute().parent
+SCRIPT_ROOT = HERE.parent
+REPOS_ROOT = SCRIPT_ROOT.parent
 
-RESOURCES_FOLDER = os.path.join(SCRIPT_ROOT, 'resources')
-TEMPLATE_FOLDER = os.path.join(RESOURCES_FOLDER, 'templates')
-TRANSLATION_FOLDER = os.path.join(RESOURCES_FOLDER, 'lang')
-PLUGINS_FOLDER = os.path.join(REPOS_ROOT, 'plugins')
-LABEL_FILE = os.path.join(RESOURCES_FOLDER, 'labels.json')
-CATALOGUE_FOLDER = os.path.join(REPOS_ROOT, 'catalogue')
-META_FOLDER = os.path.join(REPOS_ROOT, 'meta')
+RESOURCES_FOLDER = SCRIPT_ROOT / 'resources'
+TEMPLATE_FOLDER = RESOURCES_FOLDER / 'templates'
+TRANSLATION_FOLDER = RESOURCES_FOLDER / 'lang'
+PLUGINS_FOLDER = REPOS_ROOT / 'plugins'
+LABEL_FILE = RESOURCES_FOLDER / 'labels.json'
+CATALOGUE_FOLDER = REPOS_ROOT / 'catalogue'
+META_FOLDER = REPOS_ROOT / 'meta'
 
 
 class DEBUG:

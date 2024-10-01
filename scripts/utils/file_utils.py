@@ -1,12 +1,13 @@
 import gzip
 import json
 import lzma
-import os
 from contextlib import contextmanager
+from pathlib import Path
+from typing import Union
 
 
 @contextmanager
-def open_for_read(file_path: str):
+def open_for_read(file_path: Union[str, Path]):
 	"""
 	ensure utf8
 	"""
@@ -15,26 +16,27 @@ def open_for_read(file_path: str):
 
 
 @contextmanager
-def open_for_write(file_path: str):
+def open_for_write(file_path: Union[str, Path]):
 	"""
 	Just like open() in 'w' mode, but create the directory automatically
 	"""
-	dir_path = os.path.dirname(file_path)
-	if not os.path.isdir(dir_path):
-		os.makedirs(dir_path)
+	file_path = Path(file_path)
+	file_path.parent.mkdir(parents=True, exist_ok=True)
 	with open(file_path, 'w', encoding='utf8') as file:
 		yield file
 
 
-def load_json(file_path: str) -> dict:
-	if os.path.isfile(file_path):
+def load_json(file_path: Union[str, Path]) -> dict:
+	file_path = Path(file_path)
+	if file_path.is_file():
 		with open_for_read(file_path) as file:
 			return json.load(file)
 	else:
 		raise FileNotFoundError('File {} not found when loading json'.format(file_path))
 
 
-def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: bool = False, with_xz: bool = False):
+def save_json(data: dict, file_path: Union[str, Path], *, compact: bool = False, with_gz: bool = False, with_xz: bool = False):
+	file_path = Path(file_path)
 	if compact:
 		s = json.dumps(data, ensure_ascii=False, separators=(',', ':'))
 	else:
@@ -43,8 +45,8 @@ def save_json(data: dict, file_path: str, *, compact: bool = False, with_gz: boo
 	with open_for_write(file_path) as f:
 		f.write(s)
 	if with_gz:
-		with gzip.GzipFile(file_path + '.gz', 'wb', mtime=0) as zf:
+		with gzip.GzipFile(file_path.parent / (file_path.name + '.gz'), 'wb', mtime=0) as zf:
 			zf.write(s.encode('utf8'))
 	if with_xz:
-		with lzma.open(file_path + '.xz', 'wb', format=lzma.FORMAT_XZ) as xf:
+		with lzma.open(file_path.parent / (file_path.name + '.xz'), 'wb', format=lzma.FORMAT_XZ) as xf:
 			xf.write(s.encode('utf8'))

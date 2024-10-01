@@ -24,7 +24,7 @@ class PluginList(List[Plugin]):
 			return
 		self.clear()
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
-			if os.path.isdir(os.path.join(constants.PLUGINS_FOLDER, folder)):
+			if (constants.PLUGINS_FOLDER / folder).is_dir():
 				if target_ids is None or folder in target_ids:
 					log.info('Found plugin {}'.format(folder))
 					try:
@@ -83,14 +83,15 @@ class PluginList(List[Plugin]):
 		log.info('Storing data into meta folder')
 
 		# prepare folder
-		if os.path.isdir(constants.META_FOLDER):
+		if constants.META_FOLDER.is_dir():
 			# raise possible directory operation error before cleaning the meta folder content
-			os.rename(constants.META_FOLDER, constants.META_FOLDER + '.old')
-			shutil.rmtree(constants.META_FOLDER + '.old')
+			old_dir = constants.META_FOLDER.parent / (constants.META_FOLDER.name + '.old')
+			os.rename(constants.META_FOLDER, old_dir)
+			shutil.rmtree(old_dir)
 		os.makedirs(constants.META_FOLDER)
 
 		# make readme
-		with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, 'meta_readme.md')) as f:
+		with file_utils.open_for_read(constants.TEMPLATE_FOLDER / 'meta_readme.md') as f:
 			readme: str = f.read()
 		placeholders = {
 			'"##PLUGIN_INFO_SCHEMA_VERSION##"': constants.PLUGIN_INFO_SCHEMA_VERSION,
@@ -99,7 +100,7 @@ class PluginList(List[Plugin]):
 		}
 		for key, value in placeholders.items():
 			readme = readme.replace(str(key), str(value))
-		with file_utils.open_for_write(os.path.join(constants.META_FOLDER, 'readme.md')) as f:
+		with file_utils.open_for_write(constants.META_FOLDER / 'readme.md') as f:
 			f.write(readme)
 
 		# store info for each plugin
@@ -123,7 +124,7 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			meta_summary.plugins[plugin.id] = plugin.meta_info
 			meta_summary.plugin_info[plugin.id] = plugin.generate_formatted_plugin_info()
-		file_utils.save_json(meta_summary.serialize(), os.path.join(constants.META_FOLDER, 'plugins.json'), compact=True, with_gz=True)
+		file_utils.save_json(meta_summary.serialize(), constants.META_FOLDER / 'plugins.json', compact=True, with_gz=True)
 
 		# make and store author summary
 		author_summary = AuthorSummary()
@@ -131,7 +132,7 @@ class PluginList(List[Plugin]):
 			for author in plugin.authors:
 				author_summary.add_author(author.model_copy(), plugin.id)
 		author_summary.finalize()
-		file_utils.save_json(author_summary.serialize(), os.path.join(constants.META_FOLDER, 'authors.json'), with_gz=True)
+		file_utils.save_json(author_summary.serialize(), constants.META_FOLDER / 'authors.json', with_gz=True)
 
 		# everything
 		everything = Everything(
@@ -142,7 +143,7 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			aop = plugin.create_and_save_all_data()
 			everything.plugins[plugin.id] = aop
-		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything.json'), compact=True, with_gz=True, with_xz=True)
+		file_utils.save_json(everything.serialize(), constants.META_FOLDER / 'everything.json', compact=True, with_gz=True, with_xz=True)
 
 		# everything (slim)
 		for p in everything.plugins.values():
@@ -153,7 +154,7 @@ class PluginList(List[Plugin]):
 			if p.release is not None:
 				for r in p.release.releases:
 					r.description = None
-		file_utils.save_json(everything.serialize(), os.path.join(constants.META_FOLDER, 'everything_slim.json'), compact=True, with_gz=True, with_xz=True)
+		file_utils.save_json(everything.serialize(), constants.META_FOLDER / 'everything_slim.json', compact=True, with_gz=True, with_xz=True)
 
 		log.info('Stored data into meta folder')
 

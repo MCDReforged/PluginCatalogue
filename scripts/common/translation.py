@@ -51,8 +51,8 @@ _TRANSLATION_COLLECTION_TYPE = Dict[str, _TRANSLATION_TYPE]
 
 _TRANSLATION: _TRANSLATION_COLLECTION_TYPE = {}
 for file_name in os.listdir(constants.TRANSLATION_FOLDER):
-	file_path = os.path.join(constants.TRANSLATION_FOLDER, file_name)
-	if os.path.isfile(file_path) and file_name.endswith('.json'):
+	file_path = constants.TRANSLATION_FOLDER / file_name
+	if file_path.is_file() and file_name.endswith('.json'):
 		lang = value_utils.remove_suffix(file_name, '.json')
 		_TRANSLATION[lang] = file_utils.load_json(file_path)
 

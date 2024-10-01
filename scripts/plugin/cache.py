@@ -2,6 +2,7 @@ import hashlib
 import json
 import zipfile
 from io import BytesIO
+from pathlib import Path
 from typing import TYPE_CHECKING, Set
 
 from common import constants, log
@@ -15,7 +16,7 @@ if TYPE_CHECKING:
 
 
 class PluginRequestCacheManager:
-	def __init__(self, plugin: 'Plugin', cache_file_path: str):
+	def __init__(self, plugin: 'Plugin', cache_file_path: Path):
 		self.plugin = plugin
 		self.cache_file_path = cache_file_path
 

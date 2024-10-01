@@ -1,6 +1,6 @@
 import enum
-import os
 from json import JSONDecodeError
+from pathlib import Path
 from typing import Optional, List, Dict, Union
 
 from typing_extensions import Literal
@@ -105,11 +105,11 @@ class Plugin:
 	def __init__(self, plugin_id: str):
 		self.__introduction: Optional[BundledText] = None
 
-		self.__info_directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
-		if not os.path.isdir(self.__info_directory):
+		self.__info_directory = Path(constants.PLUGINS_FOLDER) / plugin_id
+		if not self.__info_directory.is_dir():
 			raise FileNotFoundError('Directory {} not found'.format(self.__info_directory))
 
-		plugin_json = file_utils.load_json(os.path.join(self.__info_directory, 'plugin_info.json'))
+		plugin_json = file_utils.load_json(self.__info_directory / 'plugin_info.json')
 		self.__plugin_info = _PluginInfoInternal(plugin_json)
 		if self.id != plugin_id:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
@@ -161,7 +161,8 @@ class Plugin:
 			path = {}
 			for lang in LANGUAGES:
 				with with_language(lang):
-					path[lang] = get_base_url(PLUGIN_CATALOGUE) + f'/plugins/{self.id}/' + get_file_name('introduction.md')
+					rel_path = (self.__info_directory / get_file_name('introduction.md')).relative_to(constants.REPOS_ROOT)
+					path[lang] = get_base_url(PLUGIN_CATALOGUE) + '/' + rel_path.as_posix()
 			return path
 
 	@property
@@ -205,8 +206,8 @@ class Plugin:
 	# ========================= Request Cache =========================
 
 	@property
-	def __request_cache_file(self) -> str:
-		return os.path.join(constants.META_FOLDER, self.id, '.request_cache.json')
+	def __request_cache_file(self) -> Path:
+		return constants.META_FOLDER / self.id / '.request_cache.json'
 
 	def save_request_cache(self):
 		file_utils.save_json(self.__cache_manager.dump_for_save(), self.__request_cache_file)
@@ -235,8 +236,8 @@ class Plugin:
 							)
 						introduction_translations[lang] = file_content
 				else:
-					introduction_tr_file_path = os.path.join(self.__info_directory, get_file_name('introduction.md'))
-					if os.path.isfile(introduction_tr_file_path):
+					introduction_tr_file_path = self.__info_directory / get_file_name('introduction.md')
+					if introduction_tr_file_path.is_file():
 						with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
 							introduction_translations[lang] = file_handler.read()
 		if not any(i for i in introduction_translations.values() if i):
@@ -265,7 +266,7 @@ class Plugin:
 
 	def save_formatted_plugin_info(self):
 		info = self.generate_formatted_plugin_info()
-		file_utils.save_json(info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'plugin.json'))
+		file_utils.save_json(info.serialize(), constants.META_FOLDER / self.id / 'plugin.json')
 
 	# ========================= MetaInfo =========================
 
@@ -282,7 +283,7 @@ class Plugin:
 
 	def save_meta_info_if_available(self):
 		if self.meta_info is not None:
-			file_utils.save_json(self.meta_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+			file_utils.save_json(self.meta_info.serialize(), constants.META_FOLDER / self.id / 'meta.json')
 		else:
 			log.warning('({}) Skipping saving meta_info due to error {}'.format(self.id, self.__meta_info_error))
 
@@ -301,7 +302,7 @@ class Plugin:
 
 	@property
 	def __release_info_file(self) -> str:
-		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
+		return constants.META_FOLDER / self.id / 'release.json'
 
 	def save_release_summary_if_available(self):
 		if self.release_summary is not None:
@@ -326,7 +327,7 @@ class Plugin:
 
 	def save_repository_info_if_available(self):
 		if self.repository_info is not None:
-			file_utils.save_json(self.repository_info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
+			file_utils.save_json(self.repository_info.serialize(), constants.META_FOLDER / self.id / 'repository.json')
 		else:
 			log.warning('({}) Skipping saving repository_info due to error {}'.format(self.id, self.__repository_info_error))
 
@@ -345,7 +346,7 @@ class Plugin:
 			release=self.release_summary,
 			repository=self.repository_info,
 		)
-		file_utils.save_json(aop.serialize(), os.path.join(constants.META_FOLDER, self.id, 'all.json'), with_gz=True)
+		file_utils.save_json(aop.serialize(), constants.META_FOLDER / self.id / 'all.json', with_gz=True)
 		return aop
 
 

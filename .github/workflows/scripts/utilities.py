@@ -126,7 +126,7 @@ class ActionList(set[Action]):
 #! ---- Workflow related ---- ##
 
 def get_changed(change_type: str) -> list[str]:
-    with open(os.path.join(REPOS_ROOT, f'.github/outputs/{change_type}.json'), 'r', encoding='utf8') as f:
+    with open(REPOS_ROOT / f'.github/outputs/{change_type}.json', 'r', encoding='utf8') as f:
         return json.load(f)
 
 
