@@ -147,11 +147,12 @@ class Plugin:
 		return self.__plugin_info
 
 	@property
-	def introduction_urls(self) -> str:
-		path = {}
+	def introduction_urls(self) -> Dict[str, str]:
 		if self.__plugin_info.external_introduction:
-			return {lang: self.repos.get_page_url_base() + '/' + path
-					for lang, path in self.__plugin_info.external_introduction.items()}
+			return {
+				lang: self.repos.get_page_url_base() + '/' + path
+				for lang, path in self.__plugin_info.external_introduction.items()
+			}
 		else:	
 			path = {}
 			for lang in LANGUAGES:
