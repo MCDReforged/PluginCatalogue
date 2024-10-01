@@ -147,8 +147,8 @@ for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reve
     elif file.startswith('.github/workflows'):
         actions.add(Action(Tag.WORKFLOW))
 
-logger.info(f'Identified actions: {', '.join(map(str, actions))}')
-logger.info(f'Identified labels: {', '.join(map(str, actions.labels))}')
+logger.info(f'Identified actions: {", ".join(map(str, actions))}')
+logger.info(f'Identified labels: {", ".join(map(str, actions.labels))}')
 
 
 #! ---- Run plugin checks and generate report ---- ##
@@ -166,7 +166,7 @@ if actions.plugins:
     plugin_list = []
     reached_limit = False
     if modified_plugins:
-        logger.info(f'Checking plugins: {', '.join(modified_plugins)}')
+        logger.info(f'Checking plugins: {", ".join(modified_plugins)}')
         reporter.record_script_start()
         reporter.record_command('pr_check')
         if len(modified_plugins) > PLUGIN_CHECK_LIMIT > 0:
