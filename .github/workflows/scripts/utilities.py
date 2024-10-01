@@ -1,4 +1,4 @@
-"""
+'''
 This file is part of scripts of MCDReforged Plugin Catalogue.
 
 This is a free software: you can redistribute it and/or modify
@@ -14,7 +14,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 in the `scripts` folder of the project root. If not, see 
 <https://www.gnu.org/licenses/>.
-"""
+'''
 
 import datetime as dt
 import json
@@ -33,7 +33,7 @@ COMMENT_SIGN = '<!-- report -->'
 #! ---- Classes ---- ##
 
 class EventType(Enum):
-    """Workflow event types that script accepts"""
+    '''Workflow event types that script accepts'''
     OPENED = 'opened'
     SYNCHRONIZE = 'synchronize'
     LABELED = 'labeled'
@@ -41,7 +41,7 @@ class EventType(Enum):
 
 
 class Tag(str, Enum):
-    """Issue (PR) tags"""
+    '''Issue (PR) tags'''
     PLG_ADD = 'plugin add'
     PLG_MODIFY = 'plugin modify'
     PLG_REMOVE = 'plugin remove'
@@ -50,17 +50,17 @@ class Tag(str, Enum):
 
     @property
     def label(self) -> str:
-        """Pull request label name from tags
+        '''Pull request label name from tags
 
         All plugin changes labels `plugins`
-        """
+        '''
         if self in (self.PLG_ADD, self.PLG_MODIFY, self.PLG_REMOVE):
             return 'plugins'
         return self.value
 
 
 class Action:
-    """PR actions"""
+    '''PR actions'''
     tag: Tag
     plugin_id: Optional[str]
 
@@ -84,7 +84,7 @@ class Action:
 
 
 class ActionList(set[Action]):
-    """PR Action list with a [plugin, tag] dict"""
+    '''PR Action list with a [plugin, tag] dict'''
 
     plugins: dict[str, Tag]
 
@@ -99,27 +99,27 @@ class ActionList(set[Action]):
 
     @property
     def tags(self) -> set[Tag]:
-        """Returns all tags of actions"""
+        '''Returns all tags of actions'''
         return {action.tag for action in self}
 
     @property
     def labels(self) -> set[str]:
-        """Returns all labels of actions"""
+        '''Returns all labels of actions'''
         return {tag.label for tag in self.tags}
 
     @property
     def modified_plugins(self) -> list[str]:
-        """Returns all modified plugins"""
+        '''Returns all modified plugins'''
         return [plugin_id for plugin_id, tag in self.plugins.items() if tag in (Tag.PLG_ADD, Tag.PLG_MODIFY)]
 
     @property
     def removed_plugins(self) -> list[str]:
-        """Returns all removed plugins"""
+        '''Returns all removed plugins'''
         return [plugin_id for plugin_id, tag in self.plugins.items() if tag == Tag.PLG_REMOVE]
 
     @property
     def plugin_ids(self) -> list[str]:
-        """Returns all plugin ids of actions"""
+        '''Returns all plugin ids of actions'''
         return self.plugins.keys()
 
 
@@ -133,7 +133,7 @@ def get_changed(change_type: str) -> list[str]:
 #! ---- Validation report ---- ##
 
 def _row(*args):
-    return f"| {' | '.join(args)} |\n"
+    return f'| {' | '.join(args)} |\n'
 
 
 def _rowval(info, value, valid, valid_icon='✅', invalid_icon='❌'):
@@ -155,39 +155,40 @@ def get_icon(tag: Tag) -> str:
 
 
 def report_removed(plugin_id: str):
-    report = f"""
+    report = f'''
 ### {get_icon(Tag.PLG_REMOVE)} `{plugin_id}`
-"""
+'''
     directory = os.path.join('plugins', plugin_id)
     try:
         if os.path.isdir(directory) and os.listdir(directory):
-            report += """
+            report += '''
 > [!WARNING]
 > - The plugin directory is still not empty.
-"""
+'''
     except Exception as e:
-        report += f"""
+        report += f'''
 > [!WARNING]
 > - Failed to check if the plugin directory cleared. {e}
-"""
+'''
     return report
 
 
 def report_plugin(plugin: Plugin, tag: Tag) -> str:
-    report = f"""
+    report = f'''
 ### {get_icon(tag)} `{plugin.id}`
 
 | Info | Value | Valid |
 | --- | --- | --- |
-"""
+'''
     failures: Optional[list[str]] = reporter.failures.get(plugin.id)
     warnings: Optional[list[str]] = reporter.warnings.get(plugin.id)
     latest_release: Optional[ReleaseInfo] = plugin.release_summary.get_latest_release()
 
-    # PluginInfo rows
+    # --- PluginInfo rows --- #
+
     report += _rowval(
         'URL',
-        # AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat
+        # `AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat`
         '[`{}@{}{}`]({})'.format(
             plugin.repos.repos_pair,
             plugin.repos.branch,
@@ -197,12 +198,23 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         _check('fetch repository', failures)
     )
     report += _row(
-        'Labels',
+        'Authors',
+        # [`Someone`](//...), `SomeoneElse`
+        ', '.join(
+            f'[`{i.name}`]({i.link})' if i.link else f'`{i.name}`'
+            for i in plugin.authors
+        ),
+        '-'
+    )
+    report += _row(
+        '[Labels](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#label)',
+        # `Tool`, `API`
         ' '.join(f'`{i}`' for i in plugin.labels),
         '-'
     )
     report += _rowval(
         'Introduction',
+        # [`en_us`](//...) [`zh_cn`](//...)
         ' '.join(f'[`{lang}`]({url})'
                  for lang, url in plugin.introduction_urls.items()),
         _check('introduction', failures)
@@ -214,18 +226,20 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     )
     report += _rowval(
         'Latest Release',
+        # [`v1.0.0`](//...) || `None`
         f'[`{latest_release.meta.version}`]({latest_release.url})' if latest_release else '`None`',
         latest_release,
         invalid_icon='⚠️'
     )
     report += '\n'
 
-    # PluginMeta rows
+    # --- PluginMeta rows --- #
+
     if plugin.meta_info:
-        report += """
+        report += '''
 | Meta | Value |
 | --- | --- |
-"""
+'''
         meta = plugin.meta_info
         report += _row(
             'Name',
@@ -241,18 +255,20 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         )
         report += _row(
             'Description',
+            # `en_us` Description content
+            # `zh_cn` 简介内容
             '<br/>'.join(f'`{lang}` {desc}'
                          for lang, desc in meta.description.items())
         )
         report += '\n'
 
     if failures:
-        report += "> [!CAUTION]\n"
+        report += '> [!CAUTION]\n'
         report += ''.join(f'> - {f}\n' for f in failures)
         report += '\n'
 
     if warnings:
-        report += "> [!WARNING]\n"
+        report += '> [!WARNING]\n'
         report += ''.join(f'> - {w}\n' for w in warnings)
         report += '\n'
 
@@ -260,7 +276,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
 
 
 def report_all(plugin_list: list[Plugin], action_list: ActionList, removed_list: list[str], reached_limit: bool) -> str:
-    time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r"%Y-%m-%d %H:%M:%S (%Z)")
+    time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r'%Y-%m-%d %H:%M:%S (%Z)')
     header = f'''{COMMENT_SIGN}
 _Last updated at: `{time}`_
 _Add label `recheck` to regenerate manually_
