@@ -207,7 +207,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         '-'
     )
     report += _row(
-        'Labels',
+        '[Labels](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#label)',
         # `Tool`, `API`
         ' '.join(f'`{i}`' for i in plugin.labels),
         '-'
