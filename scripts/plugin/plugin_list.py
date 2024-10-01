@@ -30,7 +30,7 @@ class PluginList(List[Plugin]):
 					try:
 						plugin = Plugin(folder)
 					except Exception as e:
-						log.exception('Failed to initialize plugin in folder "{}":\n {}'.format(folder, format_exc(e)))
+						log.exception('Failed to initialize plugin in folder "{}":\n {}'.format(folder, format_exc()))
 						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						continue
 					else:
