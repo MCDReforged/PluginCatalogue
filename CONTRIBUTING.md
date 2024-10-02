@@ -1,6 +1,8 @@
 **English** | [中文](CONTRIBUTING_cn.md)
 
-# Contributing Guidelines
+<div align="center">
+<h1>✨<br/>Contributing Guidelines</h1>
+</div>
 
 We are truly honored and grateful for your willingness to contribute to this project.
 
@@ -12,9 +14,9 @@ _Italic contents are **suggestions**_, while the rest are **requirements**, both
 
 We hope this guide can be a great starting point for you!
 
-## Adding or modifying plugin?
+## 🔧 Adding or modifying plugin?
 
-### Is your plugin suitable for the catalogue?
+### 🤔 Is your plugin suitable for the catalogue?
 
 Do not submit plugins in a hurry. Before creating and submitting new plugins, consider the following questions:
 
@@ -24,7 +26,7 @@ Do not submit plugins in a hurry. Before creating and submitting new plugins, co
 - _Is the plugin commonly applicable? Can new users have reasons to use your plugin? —— Do not submit self-use only or completely useless plugins_;
 - _Is your project ready for public testing (beta)? —— If it is still in an early stage, wait until it is ready. We recommend to ensure that the plugin has an available release when submitting_.
 
-### Attention to copyrights
+### ⚖️ Attention to copyrights
 
 Users submitting plugins to the plugin catalogue should be in one of the following capacities:
 - Author, maintainer, or collaborator of the plugin;
@@ -40,7 +42,7 @@ If your plugin references or uses codes from other projects:
 - **By submitting your plugin, you authorize everyone to download and use your plugin from Github Releases direct or indirectly, over and above the proprietary agreement (or license, if any)**;
 - **Your submission PR may take longer to process**.
 
-### Uniqueness and compatibility
+### 🌟 Uniqueness and compatibility
 
 - Plugin name and ID should not be **too similar** to other plugins;  
   _As a reference, a quantification standard is: the [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between the lowercase name and ID of your plugin and other's should not be less than 3_
@@ -48,7 +50,7 @@ If your plugin references or uses codes from other projects:
   _Mind if your plugin uses specific interfaces in new versions of MCDR, declare the MCDR version as necessary_;
 - Make sure that your plugin works properly on target platforms.
 
-### Write plugin information correctly
+### ✒️ Write plugin information correctly
 
 **Create or edit `plugin_info.json` as described in [documentation](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html).**
 
@@ -57,7 +59,7 @@ If your plugin references or uses codes from other projects:
 - **Plugin ID must be consistent at all places**;
 - **`description` and `introduction` fields should provide correctly, at least in one language**;
 
-### Introduce your plugin properly
+### 📢 Introduce your plugin properly
 
 A good and detailed introduction is one of the conditions for becoming an excellent plugin.
 
@@ -65,24 +67,24 @@ A good and detailed introduction is one of the conditions for becoming an excell
 - In the `description`, briefly summarise what the plugin does in one sentence;
 - Introduce the plugin's features in the `introduction`, or direct reference it to the README file.
 
-### One PR for one thing
+### 🔂 One PR for one thing
 
 - When adding plugins, please submit multiple plugins in separate PRs;
 - When modifying plugins, changes to the same fields in multiple plugins by the same author can be combined in one PR;
 - When deleting plugins, multiple plugins of the same author can be combined in one PR.
 
-### Wait patiently after submitting
+### ⏳ Wait patiently after submitting
 
 After submitting a PR, catalogue maintainers will review your plugin asap. They will base their response on the results of automatic checks, this guide, and their personal judgment. If they can not make a decision, your PR may be assigned to a higher-level maintainer. During this process, you can choose whether or not to accept their suggestions (if any). Those suggestions may help your plugin merge more smoothly into the catalogue.
 
-### Be careful when releasing
+### 📦 Be careful when releasing
 
 **Refer to the [documentation](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#release) when releasing plugin versions.**
 
 - **The Release must be tagged in correctly**, otherwise the catalogue will not be able to get that version;
 - Upload the packaged plugin (`.mcdr` or `.pyz`) as an asset.
 
-## Contributing to scripts or workflows?
+## 🛠️ Contributing to scripts or workflows?
 
 - It is recommended to create an Issue first, describing the problem or request, and then create the PR associated with it;
 - All changes should be merged into the `master` branch.
