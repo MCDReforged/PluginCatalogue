@@ -20,12 +20,12 @@ import datetime as dt
 import json
 import os
 from enum import Enum
-from typing import Optional, Iterable
+from typing import Iterable, Optional
 
 from common.constants import REPOS_ROOT
 from common.report import reporter
 from meta.release import ReleaseInfo
-from plugin.plugin import Plugin
+from plugin.plugin_list import Plugin, PluginList
 
 COMMENT_SIGN = '<!-- report -->'
 
@@ -173,6 +173,25 @@ def report_removed(plugin_id: str):
     return report
 
 
+def report_init_failed(failures: dict[str, list[str]]):
+    '''Check if there's any plugin failed to initialize. If so, report it.'''
+
+    report = ''
+    header = '''
+### 🚨 `{plugin_id}`
+
+> [!CAUTION]
+{message}
+'''
+    for plugin_id, messages in failures.items():
+        if any('Failed to initialize' in msg for msg in messages):
+            report += header.format(
+                plugin_id=plugin_id,
+                message='\n'.join(f'> - {i}' for i in messages)
+            )
+    return report
+
+
 def report_plugin(plugin: Plugin, tag: Tag) -> str:
     report = f'''
 ### {get_icon(tag)} `{plugin.id}`
@@ -275,7 +294,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
     return report
 
 
-def report_all(plugin_list: list[Plugin], action_list: ActionList, removed_list: list[str], reached_limit: bool) -> str:
+def report_all(plugin_list: PluginList, action_list: ActionList, removed_list: list[str], reached_limit: bool) -> str:
     time = dt.datetime.now(dt.timezone(dt.timedelta(hours=+8), 'UTC+8')).strftime(r'%Y-%m-%d %H:%M:%S (%Z)')
     header = f'''{COMMENT_SIGN}
 _Last updated at: `{time}`_
@@ -297,4 +316,6 @@ Add label `recheck` to regenerate without limit.
 
     removed_report = '\n'.join(report_removed(plugin) for plugin in removed_list)
 
-    return header + modified_report + removed_report
+    init_failed_report = '\n'.join(report_init_failed(reporter.failures))
+
+    return header + modified_report + removed_report + init_failed_report
