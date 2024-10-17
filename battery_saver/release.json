@@ -1,0 +1,46 @@
+{
+  "schema_version": 8,
+  "id": "battery_saver",
+  "latest_version": "0.0.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/tag/0.0.1",
+      "name": "v0.0.1",
+      "tag_name": "0.0.1",
+      "created_at": "2024-05-30T16:56:20Z",
+      "description": "初版插件，详见 README。\r\nPlease see README.",
+      "prerelease": false,
+      "asset": {
+        "id": 170981658,
+        "name": "BatterySaver.mcdr",
+        "size": 2186,
+        "download_count": 18,
+        "created_at": "2024-05-30T17:01:11Z",
+        "browser_download_url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/download/0.0.1/BatterySaver.mcdr",
+        "hash_md5": "311e9802edd751329ca37481cc0bf85b",
+        "hash_sha256": "39d13d75a4be7c39bac7f2ac142a9051c68a75a1383a6cc79f2363fb0f8150b1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "battery_saver",
+        "name": "BatterySaver",
+        "version": "0.0.1",
+        "link": "https://github.com/Mooling0602/BatterySaver-MCDR",
+        "authors": [
+          "Mooling0602"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.0"
+        },
+        "requirements": [
+          "psutil"
+        ],
+        "description": {
+          "en_us": "Check battery of host machine and automatically stop server when it's low.",
+          "zh_cn": "检查主机的电量并在其低位时自动关闭服务器。"
+        }
+      }
+    }
+  ]
+}
