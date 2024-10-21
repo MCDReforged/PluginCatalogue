@@ -1,0 +1,13 @@
+{
+  "url": "https://github.com/Aimerny/MCDRPlugins",
+  "name": "MCDRPlugins",
+  "full_name": "Aimerny/MCDRPlugins",
+  "html_url": "https://github.com/Aimerny/MCDRPlugins",
+  "description": "Aimerny's MCDR plugins repository",
+  "archived": false,
+  "stargazers_count": 5,
+  "watchers_count": 5,
+  "forks_count": 0,
+  "readme": "# WhitelistAPI - 通用白名单API\n\n---\n\n# ⭐ 功能\n**WhitelistAPI**适用于需要获取服务器白名单的场景.支持常见的白名单操作以及白名单玩家列表获取.\n本插件会自动跟踪白名单文件`whitelist.json`的变化而自动同步列表,保证通过api调用得到的白名单列表是最新的\n\n- [x] 获取白名单内所有成员\n- [x] 获取白名单内所有成员的玩家名\n- [x] 获取白名单内所有成员的uuid列表\n- [x] 开启服务器白名单功能\n- [x] 关闭服务器白名单功能\n- [x] 添加正版玩家白名单\n- [x] 添加离线玩家白名单\n- [x] 移除玩家白名单\n- [x] 根据服务器在线/离线自适应添加白名单\n\n# 📌 依赖\n| python依赖    | 版本     |\n| ----------- | ------ |\n| mcdreforged | ^2.6.0 |\n| watchdog    | ^5.0.2 |\n\n# ⌨️ 使用方式\n示例代码\n```python\n\ndef on_load(server, old):\n    whitelist_api = server.get_plugin_instance('whitelist_api') # 通过MCDR获取API实例\n    whitelist_api.get_whitelist()           # 获取白名单内所有成员\n    whitelist_api.get_whitelist_uuids()     # 获取白名单内所有成员的uuid列表\n    whitelist_api.get_whitelist_names()     # 获取白名单内所有成员的玩家名\n    whitelist_api.add_player('Aimerny')     # 根据目标server的online-mode自适应添加白名单\n    whitelist_api.add_offline_player('Aimerny')      # 添加离线玩家白名单\n    whitelist_api.add_online_player('Aimerny')       # 添加正版玩家白名单\n    whitelist_api.remove_player('Aimerny')           # 移除玩家白名单\n    whitelist_api.enable_whitelist()        # 开启服务器白名单功能\n    whitelist_api.disable_whitelist()       # 关闭服务器白名单功能\n```\n# 🎾 使用此api的插件集合\n\n1. [Offline Whitelist Reforged](https://github.com/Aimerny/MCDRPlugins/tree/main/src/whitelist_api/../offline_whitelist_reforged): 简单小巧的离线服白名单插件\n2. [KookIn](https://github.com/Aimerny/MCDRPlugins/tree/main/src/whitelist_api/../kookin): Kook平台的MC机器人\n",
+  "readme_url": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/whitelist_api/README.md"
+}
