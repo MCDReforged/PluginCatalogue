@@ -1,0 +1,645 @@
+{
+  "NOTICE": "Not public API, DO NOT use this file",
+  "release_pages": {
+    "1": {
+      "etag": "\"514048bc0aaec7790cd2e216bace9abc86ebe5be80296fc29b66ed5619998238\"",
+      "data": "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",
+      "empty": false
+    },
+    "2": {
+      "etag": "\"f5ac6239dc9c27f6431c92b538a9875ef5a02218e92d0c3324d11b1431881652\"",
+      "data": "H4sIAGMx+GYC/4uOBQApu0wNAgAAAA==",
+      "empty": true
+    }
+  },
+  "asset_data": {
+    "185100092": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.11",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30575,
+      "hash_md5": "17ce36c706782d49d2825066b5d9d333",
+      "hash_sha256": "eb1eb32a01ba28c8c9f2a62eba10a40d05bf3af7fd1443898a77d3590f64c4be"
+    },
+    "149656515": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.10",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30530,
+      "hash_md5": "2e84c37cd658bf6771b9b876ab6b43a4",
+      "hash_sha256": "5eddbb5426023dad7c5fe52ec4dd2550601f0dc5487838006c4f2df655784775"
+    },
+    "149655539": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.9",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30531,
+      "hash_md5": "2a24d32a622b841f9e302c0f6caa51a7",
+      "hash_sha256": "cd6be5526b7cec3ea9ed2e793feb5c1ea66ce2ce020d9984df7eefc018ad6d7e"
+    },
+    "149653413": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.8",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30484,
+      "hash_md5": "b9f25e447584e14ef3fc5e018a9b5bec",
+      "hash_sha256": "3b3e7480466dcf3d88d685ac94f0b48d584475cabc6474ee811c97630eb48d6d"
+    },
+    "149652911": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.7",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30464,
+      "hash_md5": "3d19d2669993b9b97993518754eb11bb",
+      "hash_sha256": "509e5df007e9f5248f90168ea892b087c761faa2ddd5efa19892e69f65b53c96"
+    },
+    "149647841": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.6",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30364,
+      "hash_md5": "cbfcc027ae1ad2a2899bfb2d978b4fbc",
+      "hash_sha256": "894ea7ac0912b1223a53f20e2d00753b1cc80257d213e7c3e8930a96b9c1f47c"
+    },
+    "149190629": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.5",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30381,
+      "hash_md5": "50672bcb21f30496acf03386fcc3be07",
+      "hash_sha256": "e66cfbcaa2b1436d3246d55b48aafc112ae44313def146d4b304818f3e193dea"
+    },
+    "138666252": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.4",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30366,
+      "hash_md5": "374e68bc844ccfa67f8f7405f831f435",
+      "hash_sha256": "a9557371219bb02aaea24d5cabd1d131cd13d6791242f1be73aff12d40d5f20f"
+    },
+    "138638271": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.3",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30332,
+      "hash_md5": "d79e082a4aef36601c75d1e0b653432b",
+      "hash_sha256": "8501323601f5621b9f97806e6c69cc977d68d3f35127f12b9505f57d96f9fa83"
+    },
+    "128725645": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.2",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30282,
+      "hash_md5": "c5a49014bb08a837d772f62744d98be4",
+      "hash_sha256": "27f2f5025dbeffc4f5dcb4646b5133fc8ef942d4929f470ec95819867b626078"
+    },
+    "111957768": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.1",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30243,
+      "hash_md5": "678302c61706f32ef40362c8dff17fb3",
+      "hash_sha256": "d1c0c6d5750dacf337f97f3168eb37bc160999cf489021d1eaa6ae21bfa346fe"
+    },
+    "111899774": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.6.0",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 30218,
+      "hash_md5": "b3d2ecc9d4adc09b216e98b5a58acc13",
+      "hash_sha256": "40b4492569e73886e1b621dd56259e07bd58ba90d96af27fe303894c562fdd12"
+    },
+    "97973157": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.5.3",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.5"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 25747,
+      "hash_md5": "7cb1f985189c93840edb38eb7db7c059",
+      "hash_sha256": "b2ac503fa13ff3a818c7c5ce5a1f85891889f550d5a93a1790f56ebd433d8269"
+    },
+    "97649259": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.5.2",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.4"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 24727,
+      "hash_md5": "42e2b09befe97b5a02caefc3c6992dc7",
+      "hash_sha256": "7051f7285807258fef7d73467237fa3c9dda1e83b510658a16903c4315880b14"
+    },
+    "89692307": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.5.1",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.3"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23609,
+      "hash_md5": "af7b1e838aa29ea3a912b0d80c075d05",
+      "hash_sha256": "a5ee2f1c9acbab010145621edf092de471292887c829145643c00614930fce1a"
+    },
+    "89582210": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.5.0",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23578,
+      "hash_md5": "6cf66d2b1dbf8da111c3ae8cb4eeb702",
+      "hash_sha256": "c79859d2b5e2530c94b2a2e3d4b19759fa9246ae5d3ec21c61d4578a7458e0cf"
+    },
+    "89350399": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.4.4",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23290,
+      "hash_md5": "b9a73bd6ddb757a73ba6bbb79b316743",
+      "hash_sha256": "6dd46fe9642baf106d85fb084f28a162f59c5ea86a039f89109c99a74a88634f"
+    },
+    "89349994": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.4.3",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23290,
+      "hash_md5": "acea3eceac3aff6499b9bb24127eae18",
+      "hash_sha256": "1aae5037ce253b82e2248c58c3e563ba585a8d4457474dc20eeef1da2a498b26"
+    },
+    "89344714": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.4.2",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23287,
+      "hash_md5": "1fdab757bf4a456442a8f5b9a007a0c5",
+      "hash_sha256": "edad3c0f3c90a8ec424d461b569c84768570be8587948dc78434891ea5f9afcc"
+    },
+    "89342537": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.4.1",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23283,
+      "hash_md5": "a2816fab14c7c4565aeee29ceb752c8c",
+      "hash_sha256": "8830328efb6f512620c3cab2bf315b4c77dc143c74b8ed94c8046c02afd4eb45"
+    },
+    "85909356": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.4.0",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23263,
+      "hash_md5": "9ab72673e172b21d3c7c51bdcb43579a",
+      "hash_sha256": "e181e06971bf8f56422bf627180246af93d475117ec1966042ee81db52763801"
+    },
+    "85337667": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.3.5",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23375,
+      "hash_md5": "bb3571dcf63e4159809a592572bc8b8e",
+      "hash_sha256": "37d9cc2caee444804b11d8aeeb6710bfd0621dc5eaefafe74a975e8c505c09fe"
+    },
+    "85335717": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.3.4",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23399,
+      "hash_md5": "ce8ea360e7c7f91c9eb925c45cdc9d19",
+      "hash_sha256": "7cd224647448eda194e487bbeb037757bb707edd1934cfe7dde7db15d4b93dd8"
+    },
+    "85333258": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.3.3",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23401,
+      "hash_md5": "520d26023b7b2a6fd69cdf7baffe8f0e",
+      "hash_sha256": "2b966ce8c212cde9b6bda31e0a64744f0c6b428ace4ba55d4191bb1fdbb054ad"
+    },
+    "85329185": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.3.2",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23280,
+      "hash_md5": "638db59dc2a45ad497e44266fbddf3f3",
+      "hash_sha256": "59d15b7f1f16406c9cd922946973b15f23421353e221930c3a39c87be45c6553"
+    },
+    "81967614": {
+      "meta": {
+        "schema_version": 4,
+        "id": "loginproxy",
+        "name": "LoginProxy",
+        "version": "0.3.1",
+        "link": "https://github.com/kmcsr/login_proxy_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft login proxy Plugin",
+          "zh_cn": "一个Minecraft服务器登录代理兼白名单插件"
+        }
+      },
+      "size": 23265,
+      "hash_md5": "250522c043da6c2419ac6b82b719d37a",
+      "hash_sha256": "f7b5006f87367359f8b142dbea76566160132724e8d26f0ea9bbff413fa398da"
+    }
+  },
+  "repos_info": {
+    "etag": "\"bd9fd4c347ff0c772c7aac3a15274f95ddd67013ce9402209e0704f566356a8b\"",
+    "data": "H4sIALKdEWcC/+2YbW/jNgyA/0qQr2vrJH25NMDhtluxYkBvLYoOAzIMhmwrsS6y5ElycqmR/34U5desyJqpXwb0SxvL4iOaoiiS5ZAlw9ng8nw6GY1H06uTwVDIhIY4OnwMV8ub+18/P96Fy6F9RTJqx7lcMhHmSn7bhlmcKPtuUXAe1hNWWaxV8NK0XLE1MXbSgnBNYURuBFXwXDpsI25noxrX5x8uLq6uJn3d7lG3z/N58QvqRgBLVFgobt+mxuR6FgRuVJ8tmUmLqNBUxVIYKsxZLLOgCGr2p/XHC0tZqorjFrFD+8ScVTSHAKQOGoVTk/F9HTqzm3kLybncgGj4anzQyLQAJpZHA0CmDKRJKRgLXu7ws5k2x6iC80v8B5ZChAarKZocAakkQBnrAbsyUDSXjlVEOlYsN0yKY9TqyVmQVEsi2DM5FgRyKG81OkYO51tBugYfO0bSCZQBno94u3Orx5StwaZH0/YkLcxsczya9x2ToHuDWLhmdBPWM/Ii4izGfWCGhiTJ8FTied290sdfPPsJbXbHyv40+PLzzeMg5wVMHeDUAbjlAEXts5Gx5M7Z1aoTMQ7bAffggBYW9m+2PMQIEGBJK7r1Aln50v6tzxB8LieRVMRI5UXugcreIy5kKMm8FkAABjwp/ayJAIz1Whf0da5+EIgc3RwoUWRRFeX82e1xIlqzpaDUC9dAyqAJxZEiIk79uDWjrH65PSdLvy0nLiZGXEZeIJgXIKQMdEqq+8eEvvpZrGX0qYouvKmW0VKN8tx1VFThrtdMuAoNeIAXtmYEZU3lRCwLsvTDNpD6kl+SZ6p8Na0oLugJo1hU+Me8ltNJIiJfZVvMfmryBti8voZBIGPG0wCI6Pv/G3Ctv/6DbQd8o2nN6AVpdw1Ur97gHnhxkaoI8PY3ywjKH3Ji0toqOVHU0ygWEZQRgXTr7OysTClx6UFGledhdgS8v1ScQoboAytrBiREGTGYwC9Q0QQyei5J4qVrA2m84g3Sgp4X5FCyejER0ENmjFNtpPDcpobSgwtp2ILFr6pmDvJ7oPKTZiKmJ4TzE/A8w2IG/gxVYnWHRJR7XiCWAB9CMlqVNZwSz8uuZpRBlTonNOdy6x2SOhg8z4oSA2UUMRY4GU0mp6Pr0/H0aTydTcaz89EcS6g86c+6wFnnT+Or2eh6dvlh7rxNp3uTpqfj0dPow+xyPBtP5nXIrtSHn68prOyn4cWk047kj63c7LBczMHPji7nmlXX4j+VgqnMaA5ZBQgKOERYaz7bp/HFtJ9nxLIQ1mRj2//ZEAN57f5onaJYLR62JnU3akp06A49jBtV0GoMFPlKY7M32kab3vCGrdieOOZCbTGKwkzHBeTytuvQvnGFZq3pCKODUrLuUVXfXQXRpCMIOBLx3pDMqai+pv12++kspkJTbJ9BIYm7n/PT87NRt193+9vvg1sqqCJ88IDV/eDOCQ7W1VSdJ9+qptftw10NOHySqsV10F2y7dB9uYmvnm751/kfl8/zp9XHoW0eENuCsjfGCiJMa1mmQ0OznPdbgxsaVQlMaAsluVhAPv93wVTPNkbmLLaG//MveFozzSLGmdn2exmuanf70LFmZcfasWqXSuiCFNyErn6ypIxoQ10Lk6qMNbtdDnsNErvLhAlDekP27Hc1Vsy5a/ue88oYOyzPszx0B9PIFRV1KxKczMjMejDoYBhqX+72+lzvrdT3Vup7K/X/0UoV1GwgLvUuiW7d2oT63XeiEDBiqRkAAA=="
+  }
+}
