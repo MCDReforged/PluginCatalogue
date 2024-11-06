@@ -42,7 +42,9 @@ import sys
 from pathlib import Path
 from typing import Optional
 
-sys.path.append('scripts')  # Make import and script runs from correct directory
+# Make import and script runs from correct directory
+# See also: https://github.com/MCDReforged/PluginCatalogue/pull/268#issuecomment-1555874245
+sys.path.append('scripts')
 
 import gh_cli as gh
 from common.log import logger
