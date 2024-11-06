@@ -1,6 +1,13 @@
 **English** | [中文](readme_cn.md)
 
-<h1 align="center"> MCDReforged Plugin Catalogue</h1>
+<div align="center">
+<img src="https://raw.githubusercontent.com/MCDReforged/MCDReforged/refs/heads/master/logo/images/logo_compact.svg" alt="MCDReforged Logo" />
+<br>
+
+<h1>MCDReforged Plugin Catalogue</h1>
+
+</div>
+
 
 <p align="center"> 
   A repository for listing <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> plugins.

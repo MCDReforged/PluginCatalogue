@@ -1,6 +1,11 @@
 [English](readme.md) | **中文**
 
-<h1 align="center">MCDReforged 插件仓库</h1>
+<div align="center">
+<img src="https://raw.githubusercontent.com/MCDReforged/MCDReforged/refs/heads/master/logo/images/logo_compact.svg" alt="MCDReforged Logo" />
+
+<h1>MCDReforged 插件仓库</h1>
+
+</div>
 
 <p align="center">
   一个用于列出 <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> 插件的仓库。
