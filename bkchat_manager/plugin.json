@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "bkchat_manager",
+  "authors": [
+    "Mooling0602"
+  ],
+  "repository": "https://github.com/Mooling0602/BukkitChatManager-MCDR",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "information",
+    "management"
+  ],
+  "introduction": {
+    "en_us": "# BukkitChatManager-MCDR\n---\n- [en_US]\n\nManage chat in game for BukkitAPI servers in MCDR.\n\n## Dependency\n- BukkitAPI Plugin: [PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.0-SNAPSHOT.jar)\n\n## Usage\nInstall need BukkitAPI plugin in **Dependency** first,\n> Install this to disable server sent chat messages to clients by default, then the MCDR plugin can manage these messages after.\n\nthen install this MCDR plugin from release.\n\n## Configuration\nLocated in `config/bkchat_manager/config.json`, default config is written by zh_CN, you can edit it to feat your language.\n\nAmong them, `%player%` represents the playername; `%message%` represents the chat content or commands player executed; `%src_prefix%` represents the command source, e.g. `MCDR`, `Server`.\n\n## NOTE\nConflicts with similar BukkitAPI chat management plugins, please do not use these same type of plugins!\n\n---\n- [zh_CN]\n\n在MCDR接管BukkitAPI服务端的游戏内聊天。\n\n## 依赖\n- BukkitAPI 插件：[PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.0-SNAPSHOT.jar)\n\n## 用法\n先安装**依赖**部分中的BukkitAPI插件，\n> 以禁止服务端默认地向客户端发送聊天消息，然后此MCDR插件就可以接管这些消息并进行处理。\n\n然后从Release中安装此MCDR插件。\n\n## 配置\n配置文件位于`config/bkchat_manager/config.json`，你可以在里面修改聊天消息的格式等。\n\n其中，`%player%`表示玩家名；`%message%`表示聊天消息内容或玩家执行的指令内容；`%src_prefix%`表示指令源。\n\n## 注意事项\n和类似的BukkitAPI插件冲突，请不要使用这些同类型的插件。\n\n另外，如果有和依赖中作用相同的替代品插件，此MCDR插件可无缝迁移到其他类型的服务端上；Mohist等支持BukkitAPI的混合端也可以使用。\n\n经过测试的服务端：Mohist、Paper\n",
+    "zh_cn": "# BukkitChatManager-MCDR\n---\n- [en_US]\n\nManage chat in game for BukkitAPI servers in MCDR.\n\n## Dependency\n- BukkitAPI Plugin: [PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.0-SNAPSHOT.jar)\n\n## Usage\nInstall need BukkitAPI plugin in **Dependency** first,\n> Install this to disable server sent chat messages to clients by default, then the MCDR plugin can manage these messages after.\n\nthen install this MCDR plugin from release.\n\n## Configuration\nLocated in `config/bkchat_manager/config.json`, default config is written by zh_CN, you can edit it to feat your language.\n\nAmong them, `%player%` represents the playername; `%message%` represents the chat content or commands player executed; `%src_prefix%` represents the command source, e.g. `MCDR`, `Server`.\n\n## NOTE\nConflicts with similar BukkitAPI chat management plugins, please do not use these same type of plugins!\n\n---\n- [zh_CN]\n\n在MCDR接管BukkitAPI服务端的游戏内聊天。\n\n## 依赖\n- BukkitAPI 插件：[PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.0-SNAPSHOT.jar)\n\n## 用法\n先安装**依赖**部分中的BukkitAPI插件，\n> 以禁止服务端默认地向客户端发送聊天消息，然后此MCDR插件就可以接管这些消息并进行处理。\n\n然后从Release中安装此MCDR插件。\n\n## 配置\n配置文件位于`config/bkchat_manager/config.json`，你可以在里面修改聊天消息的格式等。\n\n其中，`%player%`表示玩家名；`%message%`表示聊天消息内容或玩家执行的指令内容；`%src_prefix%`表示指令源。\n\n## 注意事项\n和类似的BukkitAPI插件冲突，请不要使用这些同类型的插件。\n\n另外，如果有和依赖中作用相同的替代品插件，此MCDR插件可无缝迁移到其他类型的服务端上；Mohist等支持BukkitAPI的混合端也可以使用。\n\n经过测试的服务端：Mohist、Paper\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Mooling0602/BukkitChatManager-MCDR/main/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/Mooling0602/BukkitChatManager-MCDR/main/README.md"
+  }
+}

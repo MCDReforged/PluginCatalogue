@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "multi_whitelist",
+    "name": "multi_whitelist",
+    "version": "3.0.0",
+    "link": "https://github.com/R1ckyH/multi_whitelist",
+    "authors": [
+      "Ricky"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "A plugin can control whitelist with multi servers.",
+      "zh_cn": "基于minecraft的白名单功能。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "multi_whitelist",
+    "authors": [
+      "Ricky"
+    ],
+    "repository": "https://github.com/R1ckyH/multi_whitelist",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "A whitelist plugin with multiple server\n",
+      "zh_cn": "基于minecraft的白名单功能\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/R1ckyH/multi_whitelist/master/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/R1ckyH/multi_whitelist/master/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "multi_whitelist",
+    "latest_version": "3.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/R1ckyH/multi_whitelist/releases/tag/v3.0.0",
+        "name": "v3.0",
+        "tag_name": "v3.0.0",
+        "created_at": "2021-10-26T16:07:37Z",
+        "description": "# News & Changes\r\nSupport for [MCDR2.0](https://github.com/Fallen-Breath/MCDReforged)\r\n# BUGFIX\r\nFix bugs\r\n## Known issue\r\nsome of the messages in zh_cn didn't translate\r\n## future\r\nmeight be transfer to [ChatBridgeReforged](https://github.com/R1ckyH/ChatBridgeReforged) plugin",
+        "prerelease": false,
+        "asset": {
+          "id": 47917024,
+          "name": "multi_whitelist-3.0.0.mcdr",
+          "size": 17402,
+          "download_count": 417,
+          "created_at": "2021-10-26T16:12:21Z",
+          "browser_download_url": "https://github.com/R1ckyH/multi_whitelist/releases/download/v3.0.0/multi_whitelist-3.0.0.mcdr",
+          "hash_md5": "de0dccb34b7345912520b1af7cd91518",
+          "hash_sha256": "479d63511cab74aec818c4c47fdca2dd7e7031ce20b878a74d86b0d5c865ed92"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "multi_whitelist",
+          "name": "multi_whitelist",
+          "version": "3.0.0",
+          "link": "https://github.com/R1ckyH/multi_whitelist",
+          "authors": [
+            "Ricky"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "A plugin can control whitelist with multi servers.",
+            "zh_cn": "基于minecraft的白名单功能。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/R1ckyH/multi_whitelist",
+    "name": "multi_whitelist",
+    "full_name": "R1ckyH/multi_whitelist",
+    "html_url": "https://github.com/R1ckyH/multi_whitelist",
+    "description": "A plugin for MCDReforged which can control whitelist in multi servers",
+    "archived": false,
+    "stargazers_count": 5,
+    "watchers_count": 5,
+    "forks_count": 0,
+    "readme": "# multi_whitelist\n-----\n[中文](https://github.com/R1ckyH/multi_whitelist/blob/master/README_cn.md)\n\nA plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) which can control whitelist in multi servers\n\nIt works with whitelist function in normal minecraft server\n\nTo use this plugin, you have to open rcon function of your server.\n\nType `!!whitelist` or `!!wlist` to see the help page\n\nYou have to fill configure file `MCDR/config/multi_whitelist.json`\n\n# permission\n\n`user` or above permission can use help command and check for whitelist list\n\n`helper` or above permission can use all the command\n\n# config\n-----\n| name             | type   | example       | function                                                                                      |\n| ---------------- | ------ | ------------- | --------------------------------------------------------------------------------------------- |\n| \"folder_name\"    | `str`  | `\"creative\"`  | The flooder name of mcdr server                                                               |\n| \"rcon_ip\"        | `str`  | `\"127.0.0.1\"` | The rcon ip of server                                                                         |\n| \"rcon_port\"      | `int`  | `\"12345\"`     | The rcon port of server                                                                       |\n| \"rcon_password\"  | `str`  | `\"password\"`  | The rcon password of server                                                                   |\n| \"same_directory\" | `bool` | `\"true\"`      | The server exist in same directory or not (Please use `lower case letter for true and false`) |\n",
+    "readme_url": "https://raw.githubusercontent.com/R1ckyH/multi_whitelist/master/README.md"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "carpet_tick",
+    "name": "Carpet Tick",
+    "version": "1.1.1",
+    "link": "https://github.com/Ivan-1F/CarpetTick",
+    "authors": [
+      "Ivan1F"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0-beta"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Get server status using carpet /tick command",
+      "zh_cn": "使用 Carpet Mod 的 /tick 指令获取服务器信息"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "carpet_tick",
+    "authors": [
+      "Ivan1F"
+    ],
+    "repository": "https://github.com/Ivan-1F/CarpetTick",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "CarpetTick\n-----\n\nA [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) (>=2.x) plugin\n\nGet server status using carpet `/tick` command without enabling `/tick rate` and `/tick wrap`\n\nDesigned for carpet mod for 1.13 since there's no `/profile` command\n\nIf you are using fabric-carpet, just go ahead and use `/profile` command\n\n## Config\n\nConfigure file: `config/carpet_tick/config.json`\n\n`permission`: the minimum permission level to use the command, default: `4`\n\n## Command\n\n`!!tick`: Display help message\n\n`!!tick health [ticks]`: Run `/tick health [ticks]`\n\n`!!tick entities [ticks]`: Run `/tick entities [ticks]`\n\n`!!tick h [ticks]`: Run `/tick health [ticks]`\n\n`!!tick e [ticks]`: Run `/tick entities [ticks]`\n\n---\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) (>=2.x) 插件\n\n在不启用 `/tick rate` 和 `/tick wrap` 的情况下使用 Carpet Mod 的 `/tick` 指令获取服务器信息\n\n为 1.13 的 carpet mod 设计，因为没有 `/profile` 指令\n\n如果你在使用 fabric-carpet，只需继续使用 `/profile` 命令即可\n\n## 配置\n\n配置文件: `config/carpet_tick/config.json`\n\n`permission`: 执行指令所需要的最小权限等级，默认值：`4`\n\n## Command\n\n`!!tick`: 显示帮助信息\n\n`!!tick health [ticks]`: 执行 `/tick health [ticks]`\n\n`!!tick entities [ticks]`: 执行 `/tick entities [tic`ks]\n\n`!!tick h [ticks]`: 执行 `/tick health [ticks]`\n\n`!!tick e [ticks]`: 执行 `/tick entities [ticks]`\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Ivan-1F/CarpetTick/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "carpet_tick",
+    "latest_version": "1.1.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Ivan-1F/CarpetTick/releases/tag/v1.1.1",
+        "name": "CarpetTick v1.1.1",
+        "tag_name": "v1.1.1",
+        "created_at": "2022-08-27T16:03:42Z",
+        "description": "## Fixes\r\n\r\n- Fixed the dependencies on `mcdreforged`",
+        "prerelease": false,
+        "asset": {
+          "id": 76033794,
+          "name": "CarpetTick-v1.1.1.mcdr",
+          "size": 3542,
+          "download_count": 446,
+          "created_at": "2022-08-27T16:04:57Z",
+          "browser_download_url": "https://github.com/Ivan-1F/CarpetTick/releases/download/v1.1.1/CarpetTick-v1.1.1.mcdr",
+          "hash_md5": "79985ae275f1b5e436afeccdddf4fffb",
+          "hash_sha256": "bc145ddd0462c7ef1c8a95be293f27097e36a606ec9ca01b8afd326660ac7742"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "carpet_tick",
+          "name": "Carpet Tick",
+          "version": "1.1.1",
+          "link": "https://github.com/Ivan-1F/CarpetTick",
+          "authors": [
+            "Ivan1F"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0-beta"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Get server status using carpet /tick command",
+            "zh_cn": "使用 Carpet Mod 的 /tick 指令获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Ivan-1F/CarpetTick/releases/tag/v1.1.0",
+        "name": "CarpetTick v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2022-04-07T09:27:09Z",
+        "description": "## News\r\n\r\n - `!!help` command support",
+        "prerelease": false,
+        "asset": {
+          "id": 61816215,
+          "name": "CarpetTick-v1.1.0.mcdr",
+          "size": 3559,
+          "download_count": 170,
+          "created_at": "2022-04-07T09:28:18Z",
+          "browser_download_url": "https://github.com/Ivan-1F/CarpetTick/releases/download/v1.1.0/CarpetTick-v1.1.0.mcdr",
+          "hash_md5": "de4e4df8488c21d4120b3c08e0f6b908",
+          "hash_sha256": "c7f15cb68ac5d6cfd03e784ddc38e4f75aca53c46efa5bf9ff43b08a4f7af947"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "carpet_tick",
+          "name": "Carpet Tick",
+          "version": "1.1.0",
+          "link": "https://github.com/Ivan-1F/CarpetTick",
+          "authors": [
+            "Ivan1F"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0-beta"
+          },
+          "requirements": [
+            "mcdreforged~=2.3.2"
+          ],
+          "description": {
+            "en_us": "Get server status using carpet /tick command",
+            "zh_cn": "使用 Carpet Mod 的 /tick 指令获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Ivan-1F/CarpetTick/releases/tag/v1.0.0",
+        "name": "CarpetTick v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2022-03-11T14:35:04Z",
+        "description": "It works!",
+        "prerelease": false,
+        "asset": {
+          "id": 59228264,
+          "name": "CarpetTick-v1.0.0.mcdr",
+          "size": 3426,
+          "download_count": 88,
+          "created_at": "2022-03-11T14:50:05Z",
+          "browser_download_url": "https://github.com/Ivan-1F/CarpetTick/releases/download/v1.0.0/CarpetTick-v1.0.0.mcdr",
+          "hash_md5": "ad3da582ab1fcd0c5127aa8c7e57e89a",
+          "hash_sha256": "6a87fd6d71f0763d13e2e6bacc8b030dadb44899db76ea5a24743803adfec455"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "carpet_tick",
+          "name": "Carpet Tick",
+          "version": "1.0.0",
+          "link": "https://github.com/Ivan-1F/CarpetTick",
+          "authors": [
+            "Ivan1F"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0-beta"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Get server status using carpet /tick command",
+            "zh_cn": "使用 Carpet Mod 的 /tick 指令获取服务器信息"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Ivan-1F/CarpetTick",
+    "name": "CarpetTick",
+    "full_name": "Ivan-1F/CarpetTick",
+    "html_url": "https://github.com/Ivan-1F/CarpetTick",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "CarpetTick\n-----\n\nA [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) (>=2.x) plugin\n\nGet server status using carpet `/tick` command without enabling `/tick rate` and `/tick wrap`\n\nDesigned for carpet mod for 1.13 since there's no `/profile` command\n\nIf you are using fabric-carpet, just go ahead and use `/profile` command\n\n## Config\n\nConfigure file: `config/carpet_tick/config.json`\n\n`permission`: the minimum permission level to use the command, default: `4`\n\n## Command\n\n`!!tick`: Display help message\n\n`!!tick health [ticks]`: Run `/tick health [ticks]`\n\n`!!tick entities [ticks]`: Run `/tick entities [ticks]`\n\n`!!tick h [ticks]`: Run `/tick health [ticks]`\n\n`!!tick e [ticks]`: Run `/tick entities [ticks]`\n\n---\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) (>=2.x) 插件\n\n在不启用 `/tick rate` 和 `/tick wrap` 的情况下使用 Carpet Mod 的 `/tick` 指令获取服务器信息\n\n为 1.13 的 carpet mod 设计，因为没有 `/profile` 指令\n\n如果你在使用 fabric-carpet，只需继续使用 `/profile` 命令即可\n\n## 配置\n\n配置文件: `config/carpet_tick/config.json`\n\n`permission`: 执行指令所需要的最小权限等级，默认值：`4`\n\n## Command\n\n`!!tick`: 显示帮助信息\n\n`!!tick health [ticks]`: 执行 `/tick health [ticks]`\n\n`!!tick entities [ticks]`: 执行 `/tick entities [tic`ks]\n\n`!!tick h [ticks]`: 执行 `/tick health [ticks]`\n\n`!!tick e [ticks]`: 执行 `/tick entities [ticks]`\n",
+    "readme_url": "https://raw.githubusercontent.com/Ivan-1F/CarpetTick/master/README.md"
+  }
+}
