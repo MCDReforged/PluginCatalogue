@@ -1,0 +1,102 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "just_kill_it",
+    "name": "Just Kill It",
+    "version": "1.0.0",
+    "link": "https://github.com/alex3236/just_kill_it",
+    "authors": [
+      "Alex3236"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.13.0"
+    },
+    "requirements": [
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "Kill the Minecraft server if it can't stop",
+      "zh_cn": "服务端关闭时间过长时杀死进程"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "just_kill_it",
+    "authors": [
+      "alex3236"
+    ],
+    "repository": "https://github.com/alex3236/just_kill_it",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "### Just Kill It\n-----\n\nForces the server to stop when it fails to stop gracefully after a long period of time.\n\n## Configuration\n\nConfiguration file: `config/just_kill_it/config.json`\n\n```json5\n{\n    \"stopping_pattern\": \"Stopping the server\", // Regex (fullmatch) to determine if the server is stopping\n    \"save_timeout\": 120, // Timeout before the server is forcibly stopped if saving has not completed\n    \"saved_pattern\": \".*All dimensions are saved\", // Regex (fullmatch) to determine if the server has finished saving\n    \"exit_timeout\": 10 // Timeout after saving has completed before the server is forcibly stopped\n}\n```\n",
+      "zh_cn": "Just Kill It\n-----\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件\n\n在服务端长时间无法停止时，强制结束服务端\n\n## 配置\n\n配置文件：`config/just_kill_it/config.json`\n\n```json5\n{\n    \"stopping_pattern\": \"Stopping the server\", // 正则表达式（完全匹配）用于判断服务端是否停止\n    \"save_timeout\": 120, // 存档完毕前等待时间，超时结束服务端\n    \"saved_pattern\": \".*All dimensions are saved\", // 正则表达式（完全匹配）用于判断服务端是否存档完毕\n    \"exit_timeout\": 10 // 存档完毕后等待时间，超时结束服务端\n}\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/just_kill_it/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/just_kill_it/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "just_kill_it",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/alex3236/just_kill_it/releases/tag/1.0.0",
+        "name": "1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2024-08-18T10:53:53Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 186705787,
+          "name": "JustKillIt-v1.0.0.mcdr",
+          "size": 14595,
+          "download_count": 45,
+          "created_at": "2024-08-18T11:42:56Z",
+          "browser_download_url": "https://github.com/alex3236/just_kill_it/releases/download/1.0.0/JustKillIt-v1.0.0.mcdr",
+          "hash_md5": "085225986ab1ab2af5c3f3120b876313",
+          "hash_sha256": "c14b1cd161dd34cd6572b605241f17a184cdf36f36d819d0964eaae91dbd1a7b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "just_kill_it",
+          "name": "Just Kill It",
+          "version": "1.0.0",
+          "link": "https://github.com/alex3236/just_kill_it",
+          "authors": [
+            "Alex3236"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Kill the Minecraft server if it can't stop",
+            "zh_cn": "服务端关闭时间过长时杀死进程"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/alex3236/just_kill_it",
+    "name": "just_kill_it",
+    "full_name": "alex3236/just_kill_it",
+    "html_url": "https://github.com/alex3236/just_kill_it",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "Just Kill It\n-----\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件\n\n在服务端长时间无法停止时，强制结束服务端\n\n## 配置\n\n配置文件：`config/just_kill_it/config.json`\n\n```json5\n{\n    \"stopping_pattern\": \"Stopping the server\", // 正则表达式（完全匹配）用于判断服务端是否停止\n    \"save_timeout\": 120, // 存档完毕前等待时间，超时结束服务端\n    \"saved_pattern\": \".*All dimensions are saved\", // 正则表达式（完全匹配）用于判断服务端是否存档完毕\n    \"exit_timeout\": 10 // 存档完毕后等待时间，超时结束服务端\n}\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/alex3236/just_kill_it/main/readme.md"
+  }
+}

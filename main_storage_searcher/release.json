@@ -1,0 +1,45 @@
+{
+  "schema_version": 8,
+  "id": "main_storage_searcher",
+  "latest_version": "0.2.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/LazyAlienServer/MainStorageSearcher/releases/tag/v0.2.0",
+      "name": "v0.2.0",
+      "tag_name": "v0.2.0",
+      "created_at": "2024-09-15T11:29:39Z",
+      "description": "# News\r\n- 新增命令`!!ms list` `!!ms setdefault`\r\n- 支持了命令帮助\r\n- 搜索物品时同时提示其他可能的匹配结果，并可通过点击物品名切换到高亮该物品\r\n- `load`加载失败时将会进行提示\r\n\r\n# Fixes\r\n- 修复`reload`命令需要提供`<name>`的问题\r\n- 修复部分回显",
+      "prerelease": false,
+      "asset": {
+        "id": 192746436,
+        "name": "MS-Searcher-v0.2.0.mcdr",
+        "size": 37822,
+        "download_count": 43,
+        "created_at": "2024-09-15T11:30:28Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MainStorageSearcher/releases/download/v0.2.0/MS-Searcher-v0.2.0.mcdr",
+        "hash_md5": "9178ecb19ceb418725a454e54f5bcafa",
+        "hash_sha256": "b2c8b06d84b1dbf3213aab0feea772b6dd2f62031fccc97c816c18ff58d6b0a1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "main_storage_searcher",
+        "name": "MS-Searcher",
+        "version": "0.2.0",
+        "link": "https://github.com/LazyAlienServer/MainStorageSearcher",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Help you search specific item in main storage",
+          "zh_cn": "帮助你在全物品中寻找指定物品"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 8,
+  "id": "mcdrpost",
+  "latest_version": "2.1.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Flyky/MCDRpost/releases/tag/2.1.0",
+      "name": "2.1.0 Release",
+      "tag_name": "2.1.0",
+      "created_at": "2022-06-16T16:13:23Z",
+      "description": "# Update Notes\r\n- 插件对MCDR2.0进行了重构，实现命令树，多语言等接口\r\n- 插件当前可以自己检测到服务器是否可用`item replace`命令或是1.17版本以下的`replaceitem`命令，不需要像2.0.0版本一样根据mc版本下载不用的插件\r\n\r\n# For MCDRpost2.0.0+\r\n- 依赖_[Minecraft Data API插件](https://github.com/MCDReforged/MinecraftDataAPI)_\r\n- **必须使用Rcon获取状态**，所以请务必配置好服务器和MCDR的Rcon",
+      "prerelease": false,
+      "asset": {
+        "id": 68689766,
+        "name": "MCDRpost-v2.1.0.mcdr",
+        "size": 8943,
+        "download_count": 629,
+        "created_at": "2022-06-16T16:32:20Z",
+        "browser_download_url": "https://github.com/Flyky/MCDRpost/releases/download/2.1.0/MCDRpost-v2.1.0.mcdr",
+        "hash_md5": "29e26220289503789310059c2024d110",
+        "hash_sha256": "2474e15099b20f7861cd6a8dd491b9be42697a4708c9ac3fe7945cc35e5fa0bd"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdrpost",
+        "name": "MCDRpost",
+        "version": "2.1.0",
+        "link": "https://github.com/Flyky/MCDRpost",
+        "authors": [
+          "Flyky"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.1",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin for post/teleport items",
+          "zh_cn": "一个用于邮寄/传送物品的MCDR插件"
+        }
+      }
+    }
+  ]
+}

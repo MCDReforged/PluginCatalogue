@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "chatbridgereforged_mc",
+    "name": "ChatBridgeReforged_MC",
+    "version": "0.2.7-dev032",
+    "link": "https://github.com/R1ckyH/ChatBridgeReforged",
+    "authors": [
+      "Ricky"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [
+      "mcdreforged",
+      "pycryptodomex"
+    ],
+    "description": {
+      "en_us": "Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custom clients).",
+      "zh_cn": "ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多服互联（不是）"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "chatbridgereforged_mc",
+    "authors": [
+      "Ricky"
+    ],
+    "repository": "https://github.com/R1ckyH/ChatBridgeReforged",
+    "branch": "master",
+    "related_path": "./ChatBridgeReforged_MC",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bot or other things).\n",
+      "zh_cn": "ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多物互联（不是）\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/R1ckyH/ChatBridgeReforged/master/./ChatBridgeReforged_MC/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/R1ckyH/ChatBridgeReforged/master/./ChatBridgeReforged_MC/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "chatbridgereforged_mc",
+    "latest_version": "0.2.7-dev032",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.2.7",
+        "name": "0.2.7-release",
+        "tag_name": "0.2.7",
+        "created_at": "2022-12-20T09:50:58Z",
+        "description": "# 0.2\r\n## Description\r\n- Add new event on_player_joined and on_player_left\r\n- New cqhttp client\r\n- Rtext added\r\n\r\n## Changes\r\n### Server Change\r\n- New Utility\r\n  - Rtext\r\n\r\n### BUGFIX and Improvements\r\n- better logging processing\r\n\r\n# 0.2.1\r\n### BUGFIX and Improvements\r\n- FIXED BUG of CBR sever can't reply\r\n\r\n# 0.2.2\r\n### BUGFIX and Improvements\r\n- FIXED #7 \r\n\r\n# 0.2.3\r\n### BUGFIX and Improvements\r\n- FIXED #11 \r\n- FIXED client non-string object log exception\r\n- FIXED say command in server, and patch some debug message\r\n- FIXED past help messages won't delete after reload\r\n- FIXED empty password \r\n\r\n# 0.2.4\r\n### BUGFIX and Improvements\r\n\r\n- FIXED restart guardian end after receiving stop from server\r\n- FIXED #11\r\n- FIXED CQ client restart Guardian\r\n- FIXED CQ client ping guardian\r\n- FIXED CQ client sending bug\r\n- Improved CQ client stop\r\n- Improved CQ client wording\r\n- Split network and client at .pyz Client\r\n- Split the Client Class of CBR Sever to a single .py file\r\n\r\n# 0.2.5\r\n### BUGFIX and Improvements\r\n\r\n- FIXED receiver and JSON decode error\r\n- FIXED guardian countdown error\r\n- Improved Formatter implement\r\n- Change the file structure of .pyz client\r\n- Catch OS error while sending a message through a socket of the client\r\n\r\n# 0.2.6\r\n### BUGFIX and Improvements\r\n- FIXED import error\r\n- FIXED cqhttp client message collision error\r\n- Improve error logging\r\n# 0.2.7\r\n### BUGFIX and Improvements\r\n- FIXED duplicate instance reload when creating plugin object",
+        "prerelease": false,
+        "asset": {
+          "id": 88875338,
+          "name": "ChatBridgeReforged_MC.pyz",
+          "size": 50532,
+          "download_count": 417,
+          "created_at": "2022-12-20T09:53:31Z",
+          "browser_download_url": "https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.2.7/ChatBridgeReforged_MC.pyz",
+          "hash_md5": "6271068e634f010bec9070d172b37c75",
+          "hash_sha256": "b8ac698565a05fd3250d86ef2068906a1eeea6154ab24f4832536257f79d2f09"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chatbridgereforged_mc",
+          "name": "ChatBridgeReforged_MC",
+          "version": "0.2.7-dev032",
+          "link": "https://github.com/R1ckyH/ChatBridgeReforged",
+          "authors": [
+            "Ricky"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "pycryptodomex"
+          ],
+          "description": {
+            "en_us": "Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custom clients).",
+            "zh_cn": "ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多服互联（不是）"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.1.1",
+        "name": "0.1.1-release",
+        "tag_name": "0.1.1",
+        "created_at": "2022-03-04T06:07:00Z",
+        "description": "# 0.1.0\r\n## Description\r\nAdd new event `on_player_joined` and `on_player_left`\r\nNew cqhttp client\r\n## Changes\r\n### New event\r\n- Add `on_player_joined`\r\n- Add `on_player_left`\r\n### New cqhttp client\r\n- Multi connections in one client\r\n- Can be a plugin that no need to open a new `screen` or `tmux` session now\r\n- `restart guardian` is used now\r\n#### BUGFIX\r\n- Wrong message while reload plugin\r\n- Better viewing when connecting\r\n- Some other improvements\r\n# 0.1.1\r\n#### BUGFIX\r\n- Reload error in cqhttp.py\r\n- Handle UnicodeDeocdeError in server input\r\n- #5 Update requirement.txt",
+        "prerelease": false,
+        "asset": {
+          "id": 58518201,
+          "name": "ChatBridgeReforged_MC.pyz",
+          "size": 48090,
+          "download_count": 95,
+          "created_at": "2022-03-04T06:12:36Z",
+          "browser_download_url": "https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.1.1/ChatBridgeReforged_MC.pyz",
+          "hash_md5": "8ff41f0bf3980eb687d3c3ed09a58923",
+          "hash_sha256": "827168ae64c4ad109478ef41f87582df9b1b82de2c369a3004ffc71a0540a31d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chatbridgereforged_mc",
+          "name": "ChatBridgeReforged_MC",
+          "version": "0.1.1-dev024",
+          "link": "https://github.com/R1ckyH/ChatBridgeReforged",
+          "authors": [
+            "Ricky"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "pycryptodomex"
+          ],
+          "description": {
+            "en_us": "Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custom clients).",
+            "zh_cn": "ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多服互联（不是）"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/R1ckyH/ChatBridgeReforged/releases/tag/0.0.2",
+        "name": "0.0.2-release",
+        "tag_name": "0.0.2",
+        "created_at": "2022-01-09T16:38:58Z",
+        "description": "# 0.0.1\r\n## Description\r\nFinally, I have done it.\r\n## Change between beta and release\r\n- not compatible anymore with CB and CBR beta\r\n- merge client_MC and client_MC0.9\r\n- change from GPL to LGPL\r\n# 0.0.2\r\n#### BUGFIX\r\n- restart spam when cli spam\r\n- plugin duplicate plugin id still keep load",
+        "prerelease": false,
+        "asset": {
+          "id": 54058513,
+          "name": "ChatBridgeReforged_MC.pyz",
+          "size": 45978,
+          "download_count": 80,
+          "created_at": "2022-01-15T16:33:44Z",
+          "browser_download_url": "https://github.com/R1ckyH/ChatBridgeReforged/releases/download/0.0.2/ChatBridgeReforged_MC.pyz",
+          "hash_md5": "1ce0df4ff651d1a1f5a5cc3d567396cf",
+          "hash_sha256": "e9d369fd9846d9b38526be98916d95f72f82d6fa656890b48751dd8a4f603c20"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chatbridgereforged_mc",
+          "name": "ChatBridgeReforged_MC",
+          "version": "0.0.2-dev022",
+          "link": "https://github.com/R1ckyH/ChatBridgeReforged",
+          "authors": [
+            "Ricky"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "pycryptodomex"
+          ],
+          "description": {
+            "en_us": "Reforged of ChatBridge, interaction with other clients(such as minecraft server, discord bots or other custom clients).",
+            "zh_cn": "ChatBridge 重制, 用于各个客户端（服务器或者其他bot）之间的交互桥梁，多服互联（不是）"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/R1ckyH/ChatBridgeReforged",
+    "name": "ChatBridgeReforged",
+    "full_name": "R1ckyH/ChatBridgeReforged",
+    "html_url": "https://github.com/R1ckyH/ChatBridgeReforged",
+    "description": "Reforged of ChatBridge, interaction with other clients(such as Minecraft server, discord bot, or other things).",
+    "archived": false,
+    "stargazers_count": 36,
+    "watchers_count": 36,
+    "forks_count": 4,
+    "readme": "# ChatBridgeReforged\n\n- only tested for python 3.7 and 3.8\n- python version should be 3.7+\n- `pip install -r requirements.txt` to install requirements!\n- Please give a **star** if you like this repository\n- Preview version at [ChatBridgeReforged_preview](https://github.com/R1ckyH/ChatBridgeReforged/tree/test)\n\n  ![image](https://raw.githubusercontent.com/R1ckyH/ChatBridgeReforged/master/./CBR.svg)\n\n## Compare to [ChatBridge](https://github.com/TISUnion/ChatBridge)\n\n- use [trio](https://trio.readthedocs.io/) for Asynchronous processing\n- more feature will be release in the future\n- not support to [ChatBridge](https://github.com/TISUnion/ChatBridge) clients in release\n- [Ricky](https://github.com/R1ckyH) is a suck author\n  - But he will try his best to maintain this repository\n  - Please cheer him so that he will be happy to maintain this repository\n\n## Basic\n\nuse `##help` to get plugin help command\n\nuse `##CBR` to get help command\n\n#### CBR Server setup\nPut all ChatBridgeReforged server files in a directory like\n```\nChatBridgeReforged\n-cbr\n-ChatBridgeReforged_Server.py\n```\nStart server with run `ChatBridgeReforged_Server.py`\n\nPut `ChatBridgeReforged_MC.py` in MCDR's plugins file\n\nSetup `config.yml` in previous directory and `config/ChatBridgeReforged_MC.json` in MCDR's directory\n\n\n## Config\n\n`edit config.yml for config`\n\n### server_setting\n`Dict`\n\n| config    | data type | description              |\n| --------- | --------- | ------------------------ |\n| host_name | `string`  | ip address for hosting   |\n| port      | `int`     | port for hosting         |\n| aes_key   | `string`  | key for `AES` encryption |\n\n### clients\n`list`\n\n| config   | data type | description        |\n| -------- | --------- | ------------------ |\n| name     | `string`  | name of client     |\n| password | `string`  | password of client |\n\n### log\n`Dict`\n\n| config           | data type | description                           |\n| ---------------- | --------- | ------------------------------------- |\n| size_to_zip      | `double`  | size to zip the file `latest.log`(kb) |\n| split_log        | `bool`    | split log to chat log and normal log  |\n| size_to_zip_chat | `bool`    | size to zip the file `chat.log`(kb)   |\n\n### debug\n`Dict`\n\n| config | data type | description       |\n| ------ | --------- | ----------------- |\n| all    | `bool`    | debug mode switch |\n| CBR    | `bool`    | debug mode switch |\n| plugin | `bool`    | debug mode switch |\n\n## cqhttp\n\n[cqhttp document](https://github.com/R1ckyH/ChatBridgeReforged/tree/master/./doc/cqhttp.md)\n\n## Plugin\n\n[Plugin document](https://github.com/R1ckyH/ChatBridgeReforged/tree/master/./doc/plugin.md)\n\nPlugin Catalogue will launch soon\n",
+    "readme_url": "https://raw.githubusercontent.com/R1ckyH/ChatBridgeReforged/master/README.md"
+  }
+}
