@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "hat",
+    "name": "Hat",
+    "version": "1.0.2",
+    "link": null,
+    "authors": [
+      "shuangshun",
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "minecraft_data_api": "*"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Equip the item in your hand on your head",
+      "zh_cn": "将手中的物品戴到头上"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "hat",
+    "authors": [
+      "shuangshun"
+    ],
+    "repository": "https://github.com/shuangshun/Hat",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "zh_cn": "[![](https://socialify.git.ci/shuangshun/Hat/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)](https://github.com/shuangshun/Hat)\n\n# Hat\n\n[![](https://img.shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)\n[![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)\n[![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)\n\n提供一个命令 `!!hat` , 允许玩家将手上的物品戴到头上\n\n------\n\n## 使用\n\n- 安装前置 [Minecraft Data API](https://github.com/Fallen-Breath/MinecraftDataAPI)\n\n- 安装 [Releases](https://github.com/shuangshun/Hat/releases/latest) 中的最新发行版\n\n- 重启服务端或使用 `!!MCDR plugin reloadall` 命令重载所有插件\n\n- 在游戏内拿着任意物品输入 `!!hat` 命令\n\n## 配置说明\n\n- `permission` 设置能够使用 `!!hat` 命令的最低权限等级\n> 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)\n\n- `cooldown` 设置使用 `!!hat` 命令的冷却时间(单位: 秒)\n\n```json5\n{\n    \"permission\": 1 // 默认为 1 , 即普通玩家\n    \"cooldown\": 3 // 默认为 3 秒\n}\n```\n\n------\n\n> [!Note]\n> 注意! 本插件现已基本兼容1.21之后的版本,\n> 但还存在部分物品无法正常替换等问题(如: 不详旗帜),\n> 请谨慎使用!!! (1.21 以下版本不受影响, 可放心使用)\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/shuangshun/Hat/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "hat",
+    "latest_version": "1.0.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/shuangshun/Hat/releases/tag/v1.0.2",
+        "name": "v1.0.2",
+        "tag_name": "v1.0.2",
+        "created_at": "2024-12-01T04:36:41Z",
+        "description": "- Initial compatibility with 1.21<\r\n- Added cooling system\r\n\r\n> [!Note]\r\n> This plugin is now basically compatible with versions after 1.21.\r\n> However, there are still issues with some items not being able to replace properly (e.g., Unusual Banners).\r\n> Please use with caution!!! (Versions below 1.21 are unaffected and can be used safely)\r\n\r\n> If you encounter any problems, please submit Issues.\r\n\r\n------\r\n\r\n- 初步兼容1.21<\r\n- 添加冷却系统\r\n\r\n> [!Note]\r\n> 本插件现已基本兼容1.21之后的版本\r\n> 但还存在部分物品无法正常替换等问题(如: 不详旗帜)\r\n> 请谨慎使用!!! (1.21 以下版本不受影响, 可放心使用)\r\n\r\n> 遇到问题请提 Issues\r\n\r\n**Full Changelog**: https://github.com/shuangshun/Hat/commits/v1.0.2",
+        "prerelease": false,
+        "asset": {
+          "id": 210176460,
+          "name": "Hat-v1.0.2.mcdr",
+          "size": 3515,
+          "download_count": 32,
+          "created_at": "2024-12-01T04:41:12Z",
+          "browser_download_url": "https://github.com/shuangshun/Hat/releases/download/v1.0.2/Hat-v1.0.2.mcdr",
+          "hash_md5": "375037c4268cbf5adb4c45c32ee866a1",
+          "hash_sha256": "50eed4960c2eb8ef5e8bf521e8744d4d2e57829239d75d8c3e27d34bc1102637"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hat",
+          "name": "Hat",
+          "version": "1.0.2",
+          "link": null,
+          "authors": [
+            "shuangshun",
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Equip the item in your hand on your head",
+            "zh_cn": "将手中的物品戴到头上"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/shuangshun/Hat",
+    "name": "Hat",
+    "full_name": "shuangshun/Hat",
+    "html_url": "https://github.com/shuangshun/Hat",
+    "description": "一个 MCDR 插件, 让玩家能将手上的物品戴到头上",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "[![](https://socialify.git.ci/shuangshun/Hat/image?description=1&font=Raleway&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit%20Board&pulls=1&stargazers=1&theme=Auto)](https://github.com/shuangshun/Hat)\n\n# Hat\n\n[![](https://img.shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)\n[![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)\n[![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)\n\n提供一个命令 `!!hat` , 允许玩家将手上的物品戴到头上\n\n------\n\n## 使用\n\n- 安装前置 [Minecraft Data API](https://github.com/Fallen-Breath/MinecraftDataAPI)\n\n- 安装 [Releases](https://github.com/shuangshun/Hat/releases/latest) 中的最新发行版\n\n- 重启服务端或使用 `!!MCDR plugin reloadall` 命令重载所有插件\n\n- 在游戏内拿着任意物品输入 `!!hat` 命令\n\n## 配置说明\n\n- `permission` 设置能够使用 `!!hat` 命令的最低权限等级\n> 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)\n\n- `cooldown` 设置使用 `!!hat` 命令的冷却时间(单位: 秒)\n\n```json5\n{\n    \"permission\": 1 // 默认为 1 , 即普通玩家\n    \"cooldown\": 3 // 默认为 3 秒\n}\n```\n\n------\n\n> [!Note]\n> 注意! 本插件现已基本兼容1.21之后的版本,\n> 但还存在部分物品无法正常替换等问题(如: 不详旗帜),\n> 请谨慎使用!!! (1.21 以下版本不受影响, 可放心使用)\n",
+    "readme_url": "https://raw.githubusercontent.com/shuangshun/Hat/main/README.md"
+  }
+}
