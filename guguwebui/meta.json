@@ -1,0 +1,27 @@
+{
+  "schema_version": 4,
+  "id": "guguwebui",
+  "name": "GUGU WebUI",
+  "version": "1.0.0",
+  "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+  "authors": [
+    "LoosePrince",
+    "XueK__"
+  ],
+  "dependencies": {},
+  "requirements": [
+    "argon2-cffi",
+    "fastapi",
+    "javaproperties",
+    "mcdreforged>=2.3.0",
+    "passlib",
+    "pydantic",
+    "ruamel.yaml",
+    "starlette[full]",
+    "uvicorn"
+  ],
+  "description": {
+    "en_us": "Config manerager using webui interface.",
+    "zh_cn": "使用webui来管理所有插件参数设置"
+  }
+}

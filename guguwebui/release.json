@@ -1,0 +1,53 @@
+{
+  "schema_version": 8,
+  "id": "guguwebui",
+  "latest_version": "1.0.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.0.0",
+      "name": "GUGU-WebUI_V1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2024-11-10T17:07:26Z",
+      "description": "发布 v1.0.0，未对接GUGUbot\r\n\r\n## 开发进度（快照）\r\n\r\n- 首页：90%\r\n  - 主要功能：100%\r\n  - 最近配置项：0%\r\n- GUGUbot管理：90%\r\n  - 配置：100%\r\n  - 附加功能：0%\r\n- cq-qq-api：80%\r\n  - 配置：100%\r\n  - 文档：0%\r\n  - 附加功能：0%\r\n- MC服务器配置：100%\r\n- MCDR配置：100%\r\n- 所有插件管理：90%\r\n  - 管理：100%\r\n  - 更新：10%（被推迟了）\r\n  - 配置修改：100%\r\n  - 附加功能：0%\r\n- 服务器终端：0%\r\n- Fabric（部分）：0%\r\n\r\n\r\n## What's Changed\r\n* 1.0.0 by @XueK66 in https://github.com/LoosePrince/PF-MCDR-WebUI/pull/2\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v0.1.1...v1.0.0",
+      "prerelease": false,
+      "asset": {
+        "id": 205869628,
+        "name": "guguwebui-v1.0.0-beta.mcdr",
+        "size": 115078,
+        "download_count": 43,
+        "created_at": "2024-11-12T06:31:18Z",
+        "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.0.0/guguwebui-v1.0.0-beta.mcdr",
+        "hash_md5": "0a7b71b20008f83cf6315101235839a3",
+        "hash_sha256": "35d6c7cda2f33661fd57a253e6068ee8f4a1f8f771fb60d78108bff07d9a5061"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.0.0",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "argon2-cffi",
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "ruamel.yaml",
+          "starlette[full]",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      }
+    }
+  ]
+}
