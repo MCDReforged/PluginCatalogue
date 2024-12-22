@@ -1,0 +1,1 @@
+A server announcement plug-in that supports colored text and multi-line text, as well as scheduled loop announcements.
