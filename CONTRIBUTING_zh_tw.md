@@ -82,7 +82,7 @@ _斜體部分屬於**建議**_，其餘屬於**要求**，均作為您開發過�
 **参照 [文檔](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html#release) 發布插件版本。**
 
 - **Release Tag 必須正確填寫**，否則插件庫舞法獲取版本地址；
-- 將打包插件（`.mcdr` 或 `.pyz`）作為復健上傳。
+- 將打包插件（`.mcdr` 或 `.pyz`）作為附件上傳。
 
 ## 🛠️ 貢獻腳本或工作流？
 
