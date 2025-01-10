@@ -1,4 +1,4 @@
-[English](CONTRIBUTING.md) | **中文**
+[English](CONTRIBUTING.md) | **简中** | [繁中](CONTRIBUTING_zh_tw.md)
 
 <div align="center">
 <h1>✨<br/>贡献指南</h1>
@@ -46,7 +46,7 @@ _斜体部分属于**建议**_，其余属于**要求**，均作为您开发过�
 
 - 插件名称和 ID 不要与其他插件**太过相似**；  
   _作为参考，一种量化标准为：转为小写的插件名称和 ID 与其他插件相应字段的 [莱文斯坦距离](https://zh.wikipedia.org/wiki/%E8%90%8A%E6%96%87%E6%96%AF%E5%9D%A6%E8%B7%9D%E9%9B%A2) 不应小于 3_
-- 在相应字段中显式声明前置插件和 Python 包，  
+- 在相应字段中明确声明前置插件和 Python 包，  
   _留意你的插件是否是用了新版本 MCDR 特有的接口，按需声明 MCDR 版本_；
 - 确保你的插件在目标平台上可以正常工作。
 

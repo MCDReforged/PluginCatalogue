@@ -1,4 +1,4 @@
-**English** | [中文](CONTRIBUTING_cn.md)
+**English** | [简中](CONTRIBUTING_zh_cn.md) | [繁中](CONTRIBUTING_zh_tw.md)
 
 <div align="center">
 <h1>✨<br/>Contributing Guidelines</h1>
