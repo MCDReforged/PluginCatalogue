@@ -28,6 +28,6 @@
 **舊插件目錄** 收錄早期版本 MCDR 的插件  
 這些過時的插件可能無法兼容當前版本的 MCDR，請謹慎使用
 
-如果你想添加你的插件到插件倉庫中，不妨交個 PR。查看 [文檔](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html) 和 [貢獻指南](CONTRIBUTING_cn.md) 以了解更多信息
+如果你想添加你的插件到插件倉庫中，不妨交個 PR。查看 [文檔](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html) 和 [貢獻指南](CONTRIBUTING_zh_tw.md) 以了解更多信息
 
 你可以在 [這裡](https://github.com/MCDReforged/PluginCatalogue/tree/meta) 了解到插件倉庫提供的插件數據
