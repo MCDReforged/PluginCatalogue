@@ -1,5 +1,7 @@
 from typing import Optional, Dict
 
+from pydantic import Field
+
 from common.report import reporter
 from utils import value_utils
 from utils.serializer import Serializable
@@ -20,7 +22,7 @@ class AuthorSummary(Serializable):
 	/authors.json
 	"""
 	amount: int = 0
-	authors: Dict[str, Author] = {}
+	authors: Dict[str, Author] = Field(default_factory=dict)
 
 	def __init__(self, **kwargs):
 		super().__init__(**kwargs)

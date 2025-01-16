@@ -4,6 +4,8 @@ import json
 from functools import cached_property
 from typing import Dict, Union, Optional
 
+from pydantic import Field
+
 from meta.plugin import MetaInfo
 from utils.serializer import Serializable
 
@@ -68,6 +70,6 @@ class RequestCache(Serializable):
 	"""
 	NOTICE: str = 'Not public API, DO NOT use this file'
 
-	release_pages: Dict[str, ReleasePageResponse] = {}  # page -> GitHub API response
-	asset_data: Dict[str, AssetData] = {}  # asset id -> AssetData
+	release_pages: Dict[str, ReleasePageResponse] = Field(default_factory=dict)  # page -> GitHub API response
+	asset_data: Dict[str, AssetData] = Field(default_factory=dict)  # asset id -> AssetData
 	repos_info: Optional[RepositoryResponse] = None  # GitHub API response
