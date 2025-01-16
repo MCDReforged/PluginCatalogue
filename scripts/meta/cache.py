@@ -57,11 +57,20 @@ class RepositoryResponse(_GitHubApiResponseBase):
 		return cls(etag=etag, data=cls.encode_json(data))
 
 
+ASSET_DATA_DEFAULT_TTL = 100
+
+
 class AssetData(Serializable):
 	meta: MetaInfo
 	size: int
 	hash_md5: str
 	hash_sha256: str
+
+	# We don't want to delete the AssetData from RequestCache too fast,
+	# in case of GitHub API error and return a release list with length 0,
+	# or asset re-download will happen
+	# so here's a ttl -- delete the asset data if ttl reaches 0
+	ttl: int = ASSET_DATA_DEFAULT_TTL
 
 
 class RequestCache(Serializable):

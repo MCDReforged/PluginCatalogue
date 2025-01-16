@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING, Set
 
 from common import constants, log
 from common.report import reporter
-from meta.cache import RequestCache, ReleasePageResponse, RepositoryResponse, AssetData
+from meta.cache import RequestCache, ReleasePageResponse, RepositoryResponse, AssetData, ASSET_DATA_DEFAULT_TTL
 from meta.plugin import MetaInfo
 from utils import request_utils, file_utils
 
@@ -44,8 +44,14 @@ class PluginRequestCacheManager:
 			if page not in self.__used_release_page:
 				cache.release_pages.pop(page)
 		for asset_id in list(cache.asset_data.keys()):
-			if asset_id not in self.__used_asset_data:
-				cache.asset_data.pop(asset_id)
+			asset_data = cache.asset_data[asset_id]
+			if asset_id in self.__used_asset_data:
+				asset_data.ttl = ASSET_DATA_DEFAULT_TTL
+			else:
+				asset_data.ttl -= 1
+				if asset_data.ttl <= 0:
+					cache.asset_data.pop(asset_id)
+					log.info('Deleted asset data {!r} from cache'.format(asset_data))
 		return cache.serialize()
 
 	async def fetch_release_page(self, page: int, per_page: int) -> ReleasePageResponse:
