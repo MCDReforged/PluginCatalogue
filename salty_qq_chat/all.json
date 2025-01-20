@@ -1,0 +1,331 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "salty_qq_chat",
+    "name": "SaltyQQChat",
+    "version": "1.1.8",
+    "link": null,
+    "authors": [
+      "SALTWOOD"
+    ],
+    "dependencies": {
+      "qq_api": "^1.2.0",
+      "online_player_api": "^1.0.0",
+      "python": ">=3.10"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Scalable QQ-Bot Built on QQAPI",
+      "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "salty_qq_chat",
+    "authors": [
+      "SALTWOOD"
+    ],
+    "repository": "https://github.com/SALTWOOD/SaltyQQChat",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "api",
+      "information",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "<div align=\"center\">\n\n![SaltyQQChat](https://socialify.git.ci/SALTWOOD/SaltyQQChat/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# SaltyQQChat\n✨🎉 **An Extensible QQ Bot Plugin Powered by QQAPI!** 🎉✨\n</div>\n\n> [!WARNING]  \n> Due to the f**king Tencent, the development of this plugin is temporarily suspended. The new version will be released as a web-based bot.  \n> All new features will be updated, but no availability is promised for any feature.  \n> If you decide to use it, testing is on you.\n\n# Introduction\nThis is a QQ bot plugin based on [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_api), essentially a reworked version of [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_chat). It removes many features that I consider unnecessary and optimizes the code structure.\n\nAdditionally, it supports simple bot extension through **API calls**, allowing you to add your own custom commands!\n\n**New features compared to QQChat include:**\n- [x] Supports ignoring commands from specific users via `/bot-ban` and `/bot-pardon`\n- [x] Allows the bot to execute more Minecraft native commands without using `/command` (such as `/ban`, `/pardon`)\n- [x] Allows starting and stopping the server through the bot\n- [x] Supports replying when the bot is mentioned, instead of just responding to a command\n- [x] Supports executing QQ bot commands within Minecraft\n- [x] Check bot status via `/ping` and `/info` commands\n- [x] **[Development Feature]** Remote plugin reload via `/reload`\n- [x] Customizable one-way/two-way MC <==> QQ group forwarding\n- [x] Easily extendable command tree based on regular expressions\n- [x] Automatically handle group join requests, friend requests, and group invitations.\n- [x] Verify if the Minecraft player exists when binding to a player.\n\n**Removed or modified features:**\n- [x] No \"management group\", \"main group\", or \"message sync group\" functionality. Instead, it uses multi-group synchronization (though typically, only one group is used)\n- [x] No \"MultiServer\" feature, as it leads to unpredictable bugs and has limited use\n- [x] Permissions are added to the `!!qq` command to prevent misuse, as CQ codes are not escaped, potentially allowing the bot account to send inappropriate content\n- [x] Spacing added between Chinese, numbers, and English, with a more humorous tone in the responses\n\n# Installation\n## Install via MCDR\nUse `!!MCDR plugin install salty_qq_chat` in the MCDR console, then `!!MCDR confirm`.\n\n## Install via Release\nDownload the corresponding `.mcdr` file from the [Releases page](https://github.com/SALTWOOD/SaltyQQChat/releases) and place it in the `plugins` folder, then reload the plugin.\n\n## Install via Source Code\nRun `git clone https://github.com/SALTWOOD/SaltyQQChat` or `git clone git@github.com:SALTWOOD/SaltyQQChat` in the `plugins` folder, then reload the plugin.\n\n# API\nOne of the most interesting features of this plugin is that you can extend it by adding custom commands via other MCDR plugins. Here's an example of a single-file plugin:\n\n```Python\nfrom mcdreforged.api.types import PluginServerInterface\nfrom typing import Callable, List\nimport re\n\nreply: Callable\nPLUGIN_METADATA = {\n    'id': 'sqc_extension',\n    'version': '1.0.0',\n    'name': 'SQC extension plugin',\n    'description': 'SaltyQQChat\\'s extension plugin',\n    'author': 'NONE',\n    'link': 'https://github.com',\n    'dependencies': {\n        'salty_qq_chat': '>=1.0.0'\n    }\n}\n\ndef on_load(server: PluginServerInterface, old):\n    global reply\n    sqc = server.get_plugin_instance(\"salty_qq_chat\")\n    qqapi = server.get_plugin_instance(\"qq_api\")\n\n    reply = sqc.reply\n\n    sqc.commands.add_command(re.compile(r'/your-command (.*)'), [str], handler)\n\ndef handler(server: PluginServerInterface, event, command: List[str],\n            event_type):\n    message = command[0]\n    reply(\n        event,\n        f\"[CQ:at,qq={event.user_id}] You provided the parameter: \\\"{message}\\\"\"\n    )\n```\n\n# Special Thanks\n- [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_api) - Provides a WebSocket interface to CQHttp\n- **SALTWO∅D server members** - For helping me test the bot and discovering security vulnerabilities before the release\n",
+      "zh_cn": "<div align=\"center\">\n\n![SaltyQQChat](https://socialify.git.ci/SALTWOOD/SaltyQQChat/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# SaltyQQChat\n✨🎉 **基于 QQAPI 的、可拓展的 QQ 机器人插件！** 🎉✨\n</div>\n\n> [!WARNING]\n> 因为有点大病的腾讯，此插件暂缓开发，新款插件将采用网页端机器人的形式。\n> 所有新功能都将会更新，但不保证任何功能的可用性。\n> 您要用就您自己测试吧.png\n\n# 简介\n这是一个使用 [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_api) 的 QQ 机器人插件，相当于是另一个 [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_chat)，砍掉了很多个人认为没必要的功能，优化了代码结构。\n\n同时，它还支持通过 **API 调用**的方式，简单地扩展机器人，添加属于你的命令！\n\n目前相比 QQChat 新增功能：\n- [x] 支持通过 `/bot-ban` `/bot-pardon` 拒绝响应某用户\n- [x] 支持通过机器人执行更多原版命令而不使用 `/command`（如 `/ban` `/pardon`）\n- [x] 支持通过机器人启停服务器\n- [x] 支持艾特机器人进行答复，而不是发一句什么命令就答复\n- [x] 支持 MC 内执行 QQ 机器人命令\n- [x] 通过 `/ping` 命令、`/info` 命令检查机器人状态\n- [x] **[开发特性]** 通过 `/reload` 远程重载插件\n- [x] 可自定义的单向/双向 MC <==> QQ 群转发\n- [x] 基于正则表达式的易扩展命令树\n- [x] 自动处理加群、加好友、邀请入群申请\n- [x] 绑定玩家时验证正版玩家档案是否存在\n\n同时，还去除/修改了以下功能：\n- [x] 没有“管理群”、“主群”、“消息同步群”的功能，改为多群同步（不过一般就一个群而已）\n- [x] 没有“MultiServer”特性，因为会导致难以预料的 bug 且应用面小\n- [x] 对 `!!qq` 命令做了权限限制，因为没有对 CQ 码进行转义，可能会导致机器人账号被用于发布违规信息\n- [x] 中文和数字、英文之间做了间隔，且语气更加诙谐\n\n# 使用\n## 通过 MCDR 安装\n在 MCDR 控制台使用 `!!MCDR plugin install salty_qq_chat`，然后 `!!MCDR confirm`。\n\n## 通过 Release 安装\n在 [Releases 页面](https://github.com/SALTWOOD/SaltyQQChat/releases) 下载对应版本的 `.mcdr` 文件，放入 `plugins` 文件夹重载。\n\n## 通过源代码\n在 `plugins` 下执行 `git clone https://github.com/SALTWOOD/SaltyQQChat` 或者 `git clone git@github.com:SALTWOOD/SaltyQQChat`，然后重载插件。\n\n# API\n这是这个插件最有意思的功能之一，可以通过添加其他 MCDR 插件的方式为这个插件添加自定义命令。\n这里展出一个单文件插件的代码作为示例：\n```Python\nfrom mcdreforged.api.types import PluginServerInterface\nfrom typing import Callable, List\nimport re\n\nreply: Callable\nPLUGIN_METADATA = {\n    'id': 'sqc_extension',\n    'version': '1.0.0',\n    'name': 'SQC extension plugin',\n    'description': 'SaltyQQChat\\'s extension plugin',\n    'author': 'NONE',\n    'link': 'https://github.com',\n    'dependencies': {\n        'salty_qq_chat': '>=1.0.0'\n    }\n}\n\ndef on_load(server: PluginServerInterface, old):\n    global reply\n    sqc = server.get_plugin_instance(\"salty_qq_chat\")\n    qqapi = server.get_plugin_instance(\"qq_api\")\n\n    reply = sqc.reply\n\n    sqc.commands.add_command(re.compile(r'/你的命令 (.*)'), [str], handler)\n\ndef handler(server: PluginServerInterface, event, command: List[str],\n            event_type):\n    message = command[0]\n    reply(\n        event,\n        f\"[CQ:at,qq={event.user_id}] 你提供的参数是：\\\"{message}\\\"\"\n    )\n```\n\n# 特别鸣谢\n- [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_api) - 提供正向 WebSocket 接入到 CQHttp 的接口\n- **SALTWO∅D 服务器的各位** - 帮我测试机器人，还赶在发布 Release 之前帮我发现了越权漏洞（\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/SALTWOOD/SaltyQQChat/master/README-EN.md",
+      "zh_cn": "https://raw.githubusercontent.com/SALTWOOD/SaltyQQChat/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "salty_qq_chat",
+    "latest_version": "1.1.8",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.8",
+        "name": "v1.1.8",
+        "tag_name": "v1.1.8",
+        "created_at": "2025-01-13T10:48:22Z",
+        "description": "## Bug Fixes\n- 默认配置值错误 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/df61a1238f9b788c6cc71d9a8d3bbf3711ad2aa4))\n\n## Commits\n- 删除部分不必要的栏目 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/6aaa49717e07716962fa8ccf57b0c5ac2c820cc1))\n- 7fc8470: Release v1.1.8 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 220037147,
+          "name": "SaltyQQChat-1.1.8.mcdr",
+          "size": 23289,
+          "download_count": 7,
+          "created_at": "2025-01-13T10:49:11Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.8/SaltyQQChat-1.1.8.mcdr",
+          "hash_md5": "5798f9c2eb6efc3a982c8a94a75f91b9",
+          "hash_sha256": "19f430186e6b7e257d2cad11151f925ec988393e6f8604b186af95a9115909ff"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.8",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0",
+            "python": ">=3.10"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Scalable QQ-Bot Built on QQAPI",
+            "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.7",
+        "name": "v1.1.7",
+        "tag_name": "v1.1.7",
+        "created_at": "2025-01-12T13:17:32Z",
+        "description": "## Bug Fixes\n- 没有添加 Python 版本要求 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/0de83e494f04a2852b2d03b3dbae3c28def1dab4))\n\n## Code Refactoring\n- 使用 aiocqhttp 自带的 at_sender ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/4d8b27473bc6b7e54b01bafce21c8b86658500c1))\n\n## Commits\n- 更新 Readme ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/ab23ffa21127eb2f5021c2d232ae79fd21fc5341))\n- 7a84ac9: Release v1.1.7 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 219833449,
+          "name": "SaltyQQChat-1.1.7.mcdr",
+          "size": 23287,
+          "download_count": 2,
+          "created_at": "2025-01-12T13:18:07Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.7/SaltyQQChat-1.1.7.mcdr",
+          "hash_md5": "83ada583885e005871022a3608306e4f",
+          "hash_sha256": "7d0360f9a228edcf8df15b8881311fc10369669060f096efa6484d67129ce8ff"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.7",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0",
+            "python": ">=3.10"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Scalable QQ-Bot Built on QQAPI",
+            "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.6",
+        "name": "v1.1.6",
+        "tag_name": "v1.1.6",
+        "created_at": "2025-01-12T12:16:30Z",
+        "description": "## Features\n- 自动批准加入群聊、拉入群聊、加好友 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/a569dd3fae6271d052e9917c658c65847b92c43d))\n\n## Code Refactoring\n- 移除无用的配置项 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/6aa2b387b26e6c7975b064a5fb5c5d34327e8fdb))\n\n## Commits\n- 31f4a9b: Release v1.1.6 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 219827175,
+          "name": "SaltyQQChat-1.1.6.mcdr",
+          "size": 23275,
+          "download_count": 7,
+          "created_at": "2025-01-12T12:17:00Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.6/SaltyQQChat-1.1.6.mcdr",
+          "hash_md5": "51770ab85bd77a9c2c599bd3fe471040",
+          "hash_sha256": "d16738f5e98cb86fa29a67a768044a1eb982f1d441e101506da248cf859fccda"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.6",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Scalable QQ-Bot Built on QQAPI",
+            "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.5",
+        "name": "v1.1.5",
+        "tag_name": "v1.1.5",
+        "created_at": "2025-01-05T08:35:43Z",
+        "description": "## Bug Fixes\n- 查询 ID 出现问题 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/7efe47646576937acd2c8d7293158b44f465066a))\n\n## Code Refactoring\n- CommandBuilder 添加重复命令识别 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/f2eae0a2bd9f4c52495f67c0e955b99159111367))\n\n## Commits\n- d533353: Release v1.1.5 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 218096800,
+          "name": "SaltyQQChat-1.1.5.mcdr",
+          "size": 22956,
+          "download_count": 11,
+          "created_at": "2025-01-05T08:36:13Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.5/SaltyQQChat-1.1.5.mcdr",
+          "hash_md5": "cb302c2dec43d67ebee8a4e88050d593",
+          "hash_sha256": "48bef08c6cb2640431e8c2c8c9349019209bd824f96b215510439b286c04bc60"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.5",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Scalable QQ-Bot Built on QQAPI",
+            "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.4",
+        "name": "v1.1.4",
+        "tag_name": "v1.1.4",
+        "created_at": "2025-01-04T19:37:44Z",
+        "description": "## Features\n- .packignore ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/319e79efc1b0b91e5ee73862e1d13e397485ab09))\n\n## Bug Fixes\n- handle 方法没有正确传入参数 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/5abd5007e768fe2071daf3cfaa2aadd087dd04cc))\n\n## Code Refactoring\n- 修改部分帮助信息表达 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/979aee45178688bb5b88163a8cf3cbe273b589a6))\n\n## Commits\n- 6726d95: Release v1.1.2 (SALTWOOD)\n- 11011d1: Release v1.1.3 (SALTWOOD)\n- 添加以单文件插件为示例的 API 调用 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/cf8ae031c6f91cdfdff01136f61aab4d22c58707))\n- 移除多余的依赖 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/99586e87dec395f09bb3856db42ab1f96290408d))\n-  支持英文 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/44e5e57c8cd29a014a9e5c0a728fd7c3472d1e7a))\n- 调整部分表达 ([SALTWOOD](https://github.com/SALTWOOD/SaltyQQChat/commit/d51120262e84ae91770ec6cc4a95aefb079b2af1))\n- f580529: Release v1.1.4 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 217952665,
+          "name": "SaltyQQChat-1.1.4.mcdr",
+          "size": 22863,
+          "download_count": 4,
+          "created_at": "2025-01-04T19:38:26Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.4/SaltyQQChat-1.1.4.mcdr",
+          "hash_md5": "1f2a2a5f14134c51c44b9edb9433ed50",
+          "hash_sha256": "9113cb6eba535ee71a7a350f34603f5084a75d7cef12fedb9d71ba0bdd908f1b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.4",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Scalable QQ-Bot Built on QQAPI",
+            "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.3",
+        "name": "v1.1.3",
+        "tag_name": "v1.1.3",
+        "created_at": "2025-01-04T17:01:36Z",
+        "description": "## Commits\n- daa11ef: Release v1.1.3 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 217928383,
+          "name": "SaltyQQChat-1.1.3.mcdr",
+          "size": 24802,
+          "download_count": 6,
+          "created_at": "2025-01-04T17:03:38Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.3/SaltyQQChat-1.1.3.mcdr",
+          "hash_md5": "06475c9702bbe08762c548e95105df6f",
+          "hash_sha256": "e39add39abca34a9282b5bd215e86f8c7c937ca6cfbcff27d7ffed9f4ae7f22b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.3",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [
+            "aiocqhttp"
+          ],
+          "description": {
+            "en_us": "Scalable QQ-Bot Built on QQAPI",
+            "zh_cn": "一个基于 QQAPI 的可扩展的 QQ 机器人"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SALTWOOD/SaltyQQChat/releases/tag/v1.1.2",
+        "name": "v1.1.2",
+        "tag_name": "v1.1.2",
+        "created_at": "2025-01-04T16:22:44Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 217922056,
+          "name": "SaltyQQChat-1.1.2.mcdr",
+          "size": 22727,
+          "download_count": 7,
+          "created_at": "2025-01-04T16:23:09Z",
+          "browser_download_url": "https://github.com/SALTWOOD/SaltyQQChat/releases/download/v1.1.2/SaltyQQChat-1.1.2.mcdr",
+          "hash_md5": "a139d6e6cb57ef4e1321a8a436b04c69",
+          "hash_sha256": "103282ca2ac38861717bcee5b3d3357e4fd39f903c45f27e3114eac084e1b7d5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "salty_qq_chat",
+          "name": "SaltyQQChat",
+          "version": "1.1.2",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "qq_api": "^1.2.0",
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [
+            "aiocqhttp"
+          ],
+          "description": {
+            "en_us": "",
+            "zh_cn": "Scalable QQ-Bot Built on QQAPI"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/SALTWOOD/SaltyQQChat",
+    "name": "SaltyQQChat",
+    "full_name": "SALTWOOD/SaltyQQChat",
+    "html_url": "https://github.com/SALTWOOD/SaltyQQChat",
+    "description": "Scalable QQ-Bot Built on QQAPI",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 0,
+    "readme": "<div align=\"center\">\n\n![SaltyQQChat](https://socialify.git.ci/SALTWOOD/SaltyQQChat/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# SaltyQQChat\n✨🎉 **基于 QQAPI 的、可拓展的 QQ 机器人插件！** 🎉✨\n</div>\n\n> [!WARNING]\n> 因为有点大病的腾讯，此插件暂缓开发，新款插件将采用网页端机器人的形式。\n> 所有新功能都将会更新，但不保证任何功能的可用性。\n> 您要用就您自己测试吧.png\n\n# 简介\n这是一个使用 [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_api) 的 QQ 机器人插件，相当于是另一个 [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_chat)，砍掉了很多个人认为没必要的功能，优化了代码结构。\n\n同时，它还支持通过 **API 调用**的方式，简单地扩展机器人，添加属于你的命令！\n\n目前相比 QQChat 新增功能：\n- [x] 支持通过 `/bot-ban` `/bot-pardon` 拒绝响应某用户\n- [x] 支持通过机器人执行更多原版命令而不使用 `/command`（如 `/ban` `/pardon`）\n- [x] 支持通过机器人启停服务器\n- [x] 支持艾特机器人进行答复，而不是发一句什么命令就答复\n- [x] 支持 MC 内执行 QQ 机器人命令\n- [x] 通过 `/ping` 命令、`/info` 命令检查机器人状态\n- [x] **[开发特性]** 通过 `/reload` 远程重载插件\n- [x] 可自定义的单向/双向 MC <==> QQ 群转发\n- [x] 基于正则表达式的易扩展命令树\n- [x] 自动处理加群、加好友、邀请入群申请\n- [x] 绑定玩家时验证正版玩家档案是否存在\n\n同时，还去除/修改了以下功能：\n- [x] 没有“管理群”、“主群”、“消息同步群”的功能，改为多群同步（不过一般就一个群而已）\n- [x] 没有“MultiServer”特性，因为会导致难以预料的 bug 且应用面小\n- [x] 对 `!!qq` 命令做了权限限制，因为没有对 CQ 码进行转义，可能会导致机器人账号被用于发布违规信息\n- [x] 中文和数字、英文之间做了间隔，且语气更加诙谐\n\n# 使用\n## 通过 MCDR 安装\n在 MCDR 控制台使用 `!!MCDR plugin install salty_qq_chat`，然后 `!!MCDR confirm`。\n\n## 通过 Release 安装\n在 [Releases 页面](https://github.com/SALTWOOD/SaltyQQChat/releases) 下载对应版本的 `.mcdr` 文件，放入 `plugins` 文件夹重载。\n\n## 通过源代码\n在 `plugins` 下执行 `git clone https://github.com/SALTWOOD/SaltyQQChat` 或者 `git clone git@github.com:SALTWOOD/SaltyQQChat`，然后重载插件。\n\n# API\n这是这个插件最有意思的功能之一，可以通过添加其他 MCDR 插件的方式为这个插件添加自定义命令。\n这里展出一个单文件插件的代码作为示例：\n```Python\nfrom mcdreforged.api.types import PluginServerInterface\nfrom typing import Callable, List\nimport re\n\nreply: Callable\nPLUGIN_METADATA = {\n    'id': 'sqc_extension',\n    'version': '1.0.0',\n    'name': 'SQC extension plugin',\n    'description': 'SaltyQQChat\\'s extension plugin',\n    'author': 'NONE',\n    'link': 'https://github.com',\n    'dependencies': {\n        'salty_qq_chat': '>=1.0.0'\n    }\n}\n\ndef on_load(server: PluginServerInterface, old):\n    global reply\n    sqc = server.get_plugin_instance(\"salty_qq_chat\")\n    qqapi = server.get_plugin_instance(\"qq_api\")\n\n    reply = sqc.reply\n\n    sqc.commands.add_command(re.compile(r'/你的命令 (.*)'), [str], handler)\n\ndef handler(server: PluginServerInterface, event, command: List[str],\n            event_type):\n    message = command[0]\n    reply(\n        event,\n        f\"[CQ:at,qq={event.user_id}] 你提供的参数是：\\\"{message}\\\"\"\n    )\n```\n\n# 特别鸣谢\n- [QQAPI](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_api) - 提供正向 WebSocket 接入到 CQHttp 的接口\n- **SALTWO∅D 服务器的各位** - 帮我测试机器人，还赶在发布 Release 之前帮我发现了越权漏洞（\n",
+    "readme_url": "https://raw.githubusercontent.com/SALTWOOD/SaltyQQChat/master/README.md"
+  }
+}
