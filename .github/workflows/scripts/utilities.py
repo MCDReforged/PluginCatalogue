@@ -225,6 +225,14 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         ),
         '-'
     )
+    report += _rowval(
+        'License',
+        # [`MIT`]
+        '*Not detected*' if not plugin.repository_info.license
+        else f'`{plugin.repository_info.license.spdx_id}`',
+        plugin.repository_info.license is not None,
+        invalid_icon='⚠️'
+    )
     report += _row(
         '[Labels](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#label)',
         # `Tool`, `API`
