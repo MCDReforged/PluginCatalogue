@@ -11,10 +11,10 @@ if TYPE_CHECKING:
 
 
 class LicenseInfo(Serializable):
-	key: str
-	name: str
-	spdx_id: str
-	url: str
+	key: Optional[str]
+	name: Optional[str]
+	spdx_id: Optional[str]
+	url: Optional[str]
 
 
 class RepositoryInfo(Serializable):
