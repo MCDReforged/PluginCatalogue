@@ -1,0 +1,1 @@
+A simple plugin to get any number of player heads.
