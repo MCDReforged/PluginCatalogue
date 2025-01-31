@@ -19,6 +19,7 @@ in the `scripts` folder of the project root. If not, see
 import datetime as dt
 import json
 import os
+import re
 from enum import Enum
 from typing import Iterable, Optional
 
@@ -184,7 +185,7 @@ def report_init_failed(failures: dict[str, list[str]]):
 {message}
 '''
     for plugin_id, messages in failures.items():
-        if any('Failed to initialize' in msg for msg in messages):
+        if any(re.match("Initialize plugin .+ failed", msg) for msg in messages):
             report += header.format(
                 plugin_id=plugin_id,
                 message='\n'.join(f'> - {i}' for i in messages)
