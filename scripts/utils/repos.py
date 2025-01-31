@@ -1,6 +1,14 @@
-from typing import Optional
+from typing import Optional, TYPE_CHECKING
 
+from typing_extensions import Self
+
+from common import log
+from common.constants import CATALOGUE_LINK
+from common.report import reporter
 from utils import request_utils, value_utils
+
+if TYPE_CHECKING:
+	from meta.repos import RepositoryInfo
 
 
 class GithubRepository:
@@ -21,6 +29,12 @@ class GithubRepository:
 
 		if self.repos_pair.count('/') != 1:
 			raise ValueError('Bad repository url {!r}'.format(self.repos_url))
+
+	def __set_from(self, other: Self):
+		self.repos_url = other.repos_url
+		self.repos_pair = other.repos_pair
+		self.branch = other.branch
+		self.related_path = other.related_path
 
 	def get_raw_url_base(self, tag: Optional[str] = None, in_plugin_relative: bool = True) -> str:
 		"""
@@ -69,3 +83,12 @@ class GithubRepository:
 	def api_root(self) -> str:
 		# https://api.github.com/repos/TISUnion/QuickBackupM
 		return f'https://api.github.com/repos/{self.repos_pair}'
+
+	def update_from_api(self, plugin_id: str, ri: 'RepositoryInfo'):
+		if ri.full_name != self.repos_pair:
+			log.warning('({}) Repository has been renamed from {!r} to {!r}'.format(plugin_id, self.repos_pair, ri.full_name))
+			reporter.record_warning(plugin_id, 'Repository has been renamed from {!r} to {!r}'.format(self.repos_pair, ri.full_name), None)
+			self.__set_from(GithubRepository(ri.html_url, self.branch, self.related_path))
+
+
+PLUGIN_CATALOGUE = GithubRepository(CATALOGUE_LINK, 'master', '.')

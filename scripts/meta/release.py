@@ -2,6 +2,7 @@ import contextlib
 from typing import List, Optional, Dict, TYPE_CHECKING
 
 from mcdreforged.plugin.meta.version import Version
+from pydantic import Field
 
 from common import constants, log
 from common.report import reporter
@@ -12,7 +13,7 @@ from utils.serializer import Serializable
 if TYPE_CHECKING:
 	from plugin.plugin import Plugin
 	from plugin.cache import PluginRequestCacheManager
-	from meta.cache import ReleasePageResponse
+	from meta.cache import ReleasePageResponse, AssetData
 
 
 class _GitHubAssetJson(Serializable):
@@ -59,38 +60,45 @@ class ReleaseInfo(Serializable):
 		if js.prerelease:
 			raise _InvalidReleaseError('pre-release')
 
-		info = cls()
-		info.url = js.html_url
-		info.name = js.name
-		info.tag_name = js.tag_name
-		info.created_at = js.created_at
-		info.prerelease = js.prerelease
-		info.description = js.body
-
 		tag_version = cls.__parse_version(js.tag_name, plugin.id)
 		if tag_version is None:
 			raise _InvalidReleaseError('tag {!r} is not a valid version for current plugin'.format(js.tag_name))
 		t_ver = Version(tag_version, allow_wildcard=False)
 
+		asset_info: AssetInfo
+		meta_info: MetaInfo
+
 		for asset in js.assets:
 			if asset.name.endswith('.mcdr') or asset.name.endswith('.pyz'):
-				data = await cache_manager.fetch_asset_data(asset.id, asset.browser_download_url)
+				data: AssetData = await cache_manager.fetch_asset_data(asset.id, asset.browser_download_url)
 				if data.size != asset.size:
 					# it should not happen, but just in case
 					raise AssertionError('fetched data size {} not equals to asset size {}'.format(data.size, asset.size))
-				info.meta = data.meta
-				info.asset = AssetInfo()
-				info.asset.id = asset.id
-				info.asset.name = asset.name
-				info.asset.size = asset.size
-				info.asset.download_count = asset.download_count
-				info.asset.created_at = asset.created_at
-				info.asset.browser_download_url = asset.browser_download_url
-				info.asset.hash_md5 = data.hash_md5
-				info.asset.hash_sha256 = data.hash_sha256
+				meta_info = data.meta
+				asset_info = AssetInfo(
+					id=asset.id,
+					name=asset.name,
+					size=asset.size,
+					download_count=asset.download_count,
+					created_at=asset.created_at,
+					browser_download_url=asset.browser_download_url,
+					hash_md5=data.hash_md5,
+					hash_sha256=data.hash_sha256,
+				)
 				break
 		else:
 			raise _InvalidReleaseError('no valid asset')
+
+		info = cls(
+			url=js.html_url,
+			name=js.name,
+			tag_name=js.tag_name,
+			created_at=js.created_at,
+			description=js.body,
+			prerelease=js.prerelease,
+			asset=asset_info,
+			meta=meta_info,
+		)
 
 		if info.meta.id != plugin.id:
 			log.warning('({}) Bad plugin id in tag {!r} asset {!r}, found {!r}'.format(plugin.id, js.tag_name, info.asset.name, info.meta.id))
@@ -154,17 +162,18 @@ class ReleaseSummary(Serializable):
 	"""
 	schema_version: int
 	id: str
-	latest_version: Optional[str]
-	latest_version_index: Optional[int]
-	releases: List[ReleaseInfo]
+	latest_version: Optional[str] = None
+	latest_version_index: Optional[int] = None
+	releases: List[ReleaseInfo] = Field(default_factory=list)
 
 	__latest_release: Optional[ReleaseInfo] = None
 
 	@classmethod
 	async def create_for(cls, plugin: 'Plugin', cache_manager: 'PluginRequestCacheManager') -> 'ReleaseSummary':
-		rs = cls()
-		rs.schema_version = constants.RELEASE_INFO_SCHEMA_VERSION
-		rs.id = plugin.id
+		rs = cls(
+			schema_version=constants.RELEASE_INFO_SCHEMA_VERSION,
+			id=plugin.id,
+		)
 
 		page_map: Dict[int, 'ReleasePageResponse'] = {}  # page index -> page
 
