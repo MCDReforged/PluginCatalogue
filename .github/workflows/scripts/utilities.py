@@ -199,8 +199,8 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
 | Info | Value | Valid |
 | --- | --- | --- |
 '''
-    failures: Optional[list[str]] = reporter.failures.get(plugin.id)
-    warnings: Optional[list[str]] = reporter.warnings.get(plugin.id)
+    failures: Optional[list[str]] = reporter.failures.get(plugin.id, [])
+    warnings: Optional[list[str]] = reporter.warnings.get(plugin.id, [])
     latest_release: Optional[ReleaseInfo] = plugin.release_summary.get_latest_release()
 
     # --- PluginInfo rows --- 
@@ -233,6 +233,8 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         plugin.repository_info.license is not None,
         invalid_icon='⚠️'
     )
+    if not plugin.repository_info.license:
+        warnings.append('License not detected. We recommend using an open-source license to protect your work.')
     report += _row(
         '[Labels](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#label)',
         # `Tool`, `API`
@@ -258,6 +260,8 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         latest_release,
         invalid_icon='⚠️'
     )
+    if not latest_release:
+        warnings.append('Users could not download the plugin via the catalogue before you publish a release.')
     report += '\n'
 
     # --- PluginMeta rows --- 
