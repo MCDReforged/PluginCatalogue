@@ -183,6 +183,7 @@ def report_init_failed(failures: dict[str, list[str]]):
 
 > [!CAUTION]
 {message}
+
 '''
     for plugin_id, messages in failures.items():
         if any(re.match("Initialize plugin .+ failed", msg) for msg in messages):
@@ -323,12 +324,12 @@ Add label `recheck` to regenerate without limit.
     else:
         plugins = sorted(
             [(plugin, action_list.plugins.get(plugin.id)) for plugin in plugin_list],
-            key=lambda x: x[1].value
+            key=lambda x: x[1].value  # sort by tag
         )
         modified_report = '\n'.join(report_plugin(*plugin) for plugin in plugins)
 
     removed_report = '\n'.join(report_removed(plugin) for plugin in removed_list)
 
-    init_failed_report = '\n'.join(report_init_failed(reporter.failures))
+    init_failed_report = report_init_failed(reporter.failures)
 
     return header + modified_report + removed_report + init_failed_report
