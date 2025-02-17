@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/FAS-Server/Online",
+  "name": "Online",
+  "full_name": "FAS-Server/Online",
+  "html_url": "https://github.com/FAS-Server/Online",
+  "description": "一个可以查看多个服务器在线人数的MCDReforged插件",
+  "archived": false,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 3,
+  "readme": "# Online\n\n![MCDReforged](https://img.shields.io/badge/dynamic/json?label=MCDReforged&query=dependencies.mcdreforged&url=https%3A%2F%2Fraw.githubusercontent.com%2FFAS-Server%2FOnline%2Fmaster%2Fmcdreforged.plugin.json&style=plastic) ![license](https://img.shields.io/github/license/FAS-Server/Online?style=plastic) ![build status](https://img.shields.io/github/workflow/status/FAS-Server/Online/CI%20for%20MCDR%20Plugin?label=build&style=plastic) ![Release](https://img.shields.io/github/v/release/FAS-Server/Online?style=plastic) ![total download](https://img.shields.io/github/downloads/FAS-Server/Online/total?label=total%20download&style=plastic)\n\n**简体中文** | [English](https://github.com/FAS-Server/Online/tree/master/./README_EN.md)\n\n一个可以查看多个服务器在线人数的 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件\n\n***\n## 简介\n\n借助MC服务器原版的rcon功能, 发送list指令, 获得玩家列表\n\n![image](https://raw.githubusercontent.com/FAS-Server/Online/master/./pictures/1.png)\n\n***\n## 使用方法\n\n1. 安装前置 [multi_rcon_api](https://github.com/FAS-Server/MultiRconAPI) 并配置\n\n2. 安装本插件\n\n3. 启动 MCDReforged, 插件会自动生成名为 `config/online/config.json` 的配置文件, 其默认内容如下:\n```json\n{\n    \"join\": true,\n    \"click_event\": true\n}\n```\n\n- `join`为是否开启进服提示, `true` 为开启, `false` 为关闭\n\n- `click_event` 为是否启用点击服务器名切换服务器的点击事件\n\n- 如果`click_event` 设置为 `true`, 请确保 `multi_rcon_api` 中服务器名保持与跨服配置相同的服务器名, 即 `/server` 指令后的对应名称\n\n4. 最后,使用 `!!MCDR r all` 重载你的MCDR插件, 或重启服务器来让插件工作起来\n",
+  "readme_url": "https://raw.githubusercontent.com/FAS-Server/Online/master/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/MCDReforged-Towhee-Community/ImAPI",
+  "name": "ImAPI",
+  "full_name": "MCDReforged-Towhee-Community/ImAPI",
+  "html_url": "https://github.com/MCDReforged-Towhee-Community/ImAPI",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 1,
+  "readme": "![ImAPI](https://socialify.git.ci/MCDReforged-Towhee-Community/ImAPI/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n## 概要说明\n以ImAPI作为核心插件的架构，主要有如下几个角色\n\n1. **外部系统**: 与MCDR互通且ImAPI支持的其他im平台，例如QQ，Kook，Discord，Telegram等\n2. **ImAPI**: 事件处理的核心插件，负责将所有来自各个平台的消息与事件做统一处理，并封装成统一格式的事件(Event)进行广播\n3. **Reactor**: 可扩展的、与平台协议解耦的应用层，基于ImAPI的事件进行响应与处理。在MCDR的插件关系上，Reactor插件依赖ImAPI\n\n## 插件事件\n\n`ImAPI`针对各外部系统的消息与事件进行了统一封装，封装后的事件类型为`Message`和`Event`。在`ImAPI`处理完消息与事件后，会将其封装成`Message`或`Event`并通过[MCDR自定义事件](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/event.html#default-event-listener)进行广播。下游的`Reactor`插件应当订阅相应的事件实现自己的功能和逻辑。\n\n下游如果想和平台交互，可以通过发送`ImAPI`订阅的事件到`MCDR`以通过`ImAPI`向平台发送消息或者进行操作。\n\n### 能力支持\n\n|事件\\平台|QQ|Telegram|Discord|Kook|Matrix|\n|:-:|:-:|:-:|:-:|:-:|:-:|\n|接收私聊消息|✅|✅|🚧|🚧|🚧|\n|发送私聊消息|✅|✅|🚧|🚧|🚧|\n|接收群聊消息|✅|✅|🚧|🚧|✅|\n|发送群聊消息|✅|✅|🚧|🚧|✅|\n|加入群聊通知|✅|✅|🚧|🚧|🚧|\n|退出群聊通知|✅|✅|🚧|🚧|🚧|\n\n### 平台消息(im_api.message)\n```python\nfrom mcdreforged.api.all import *\nfrom im_api.drivers.base import Platform\nfrom im_api.models.message import Event, Message\n\nserver.register_event_listener(\"im_api.message\", on_message)\n\ndef on_message(message: Message):\n    server.logger.info(f\"Received message: {message.content}\")\n```\n### 平台事件(im_api.event)\n```python\nfrom mcdreforged.api.all import *\nfrom im_api.drivers.base import Platform\nfrom im_api.models.message import Event, Message\n\nserver.register_event_listener(\"im_api.event\", on_event)\n\ndef on_event(message: Message):\n    server.logger.info(f\"Received event: {message.event}\")\n```\n### 向平台发送消息(im_api.send_message)\n```python\nfrom im_api.models.request import MessageType, SendMessageRequest, ChannelInfo\nfrom mcdreforged.api.all import *\n\ndef send_msg_to_qq():\n    request = SendMessageRequest(\n        platforms=[Platform.QQ],\n        channel=ChannelInfo(id='114514', type=MessageType.PRIVATE),\n        content='Hello, MCDR!'\n    )\n    server.dispatch_event(LiteralEvent(\"im_api.send_message\"), (request,))\n```\n\n\n\n## License\n\nCopyright © 2025 [MCDReforged-Towhee-Community](https://github.com/MCDReforged-Towhee-Community) and Contributors\n\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.\n\n本程序是自由软件：你可以再分发之和/或依照由自由软件基金会发布的 GNU 通用公共许可证修改之，无论是版本 3 许可证，还是（按你的决定）任何以后版都可以。\n",
+  "readme_url": "https://raw.githubusercontent.com/MCDReforged-Towhee-Community/ImAPI/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
