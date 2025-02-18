@@ -1,4 +1,4 @@
-'''
+"""
 Wrapper of GitHub CLI for Pull Request Actions
 
 See:
@@ -24,9 +24,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-in the `scripts` folder of the project root. If not, see 
+in the `scripts` folder of the project root. If not, see
 <https://www.gnu.org/licenses/>.
-'''
+"""
 
 import os
 import subprocess
@@ -47,11 +47,11 @@ logger.info('Initializing gh-cli with PR number: %s', PR_NUMBER)
 
 
 def pr_comment(body: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -> None:
-    '''Comment on a PR
+    """Comment on a PR
 
     Runs:
         `gh pr comment <pr_number> --body-file <body_file> [--edit-last]`
-    '''
+    """
     try:
         logger.info(f'Commenting on PR: #{pr_number}, edit_last: {edit_last}')
 
@@ -72,18 +72,18 @@ def pr_comment(body: str, edit_last: bool = False, pr_number: str = PR_NUMBER) -
 
 
 def pr_update_or_comment(user: str, body: str, pr_number: str = PR_NUMBER, sign: str = COMMENT_SIGN) -> None:
-    '''Update last comment of given user if it contains sign, otherwise add a new one
+    """Update last comment of given user if it contains sign, otherwise add a new one
 
     Checks:
         `gh pr view <pr_number> --json comments --jq <jq_query>`
         `jq_query := .comments | any(.author.login == "<user>" and (.body | contains("<sign>")))`
-    '''
+    """
     cmd = [
         EXECUTABLE, 'pr', 'view', pr_number, '--json', 'comments', '--jq',
         f'.comments | any(.author.login == "{user}" and (.body | contains("{sign}")))'
     ]
     try:
-        result = subprocess.check_output(cmd) # true\n
+        result = subprocess.check_output(cmd)  # true\n
         if result.decode('utf-8').startswith('true'):
             logger.info(f'Updating last comment of {user} on PR: #{pr_number}')
             pr_comment(pr_number=pr_number, body=body, edit_last=True)
@@ -96,13 +96,13 @@ def pr_update_or_comment(user: str, body: str, pr_number: str = PR_NUMBER, sign:
 
 
 def pr_label(add_labels: Optional[list[str]] = None, remove_labels: Optional[list[str]] = None, pr_number: str = PR_NUMBER) -> None:
-    '''Add or remove labels from a PR
+    """Add or remove labels from a PR
 
     `remove_labels` will be ignored it `add_labels` is provided
 
     Runs:
         `gh pr edit <pr_number> [--add-label|--remove-label] <add_labels|remove_labels>`
-    '''
+    """
     logger.info(f'Labeling PR: #{pr_number}, add_labels: {add_labels}, remove_labels: {remove_labels}')
     cmd = [EXECUTABLE, 'pr', 'edit', pr_number]
     if add_labels:

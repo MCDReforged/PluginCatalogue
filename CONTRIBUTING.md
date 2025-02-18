@@ -64,7 +64,13 @@ If your plugin references or uses codes from other projects:
 A good and detailed introduction is one of the conditions for becoming an excellent plugin.
 
 - In the README or documentation, explain the plugin's functions, features, usage, etc. in detail;
-- In the `description`, briefly summarise what the plugin does in one sentence;
+- In the `description`, briefly summarize what the plugin does in one sentence; _e.g._:
+  | ✅ | Gets and outputs server uptime |
+  | - | - |
+  | ❌ | An awesome MCDR plugin for you to get and output server uptime easily! |
+  - _Do not emphasize "this is an MCDR plugin" in a repository dedicated to MCDR plugins_
+  - _Avoid adding too many adjectives in the `description`_
+  
 - Introduce the plugin's features in the `introduction`, or direct reference it to the README file.
 
 ### 🔂 One PR for one thing

@@ -1,4 +1,4 @@
-'''
+"""
 This file is part of scripts of MCDReforged Plugin Catalogue.
 
 This is a free software: you can redistribute it and/or modify
@@ -12,13 +12,14 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-in the `scripts` folder of the project root. If not, see 
+in the `scripts` folder of the project root. If not, see
 <https://www.gnu.org/licenses/>.
-'''
+"""
 
 import datetime as dt
 import json
 import os
+import re
 from enum import Enum
 from typing import Iterable, Optional
 
@@ -30,10 +31,10 @@ from plugin.plugin_list import Plugin, PluginList
 COMMENT_SIGN = '<!-- report -->'
 
 
-#! ---- Classes ---- ##
+# ---- Classes ---- #
 
 class EventType(Enum):
-    '''Workflow event types that script accepts'''
+    """Workflow event types that script accepts"""
     OPENED = 'opened'
     SYNCHRONIZE = 'synchronize'
     LABELED = 'labeled'
@@ -41,7 +42,7 @@ class EventType(Enum):
 
 
 class Tag(str, Enum):
-    '''Issue (PR) tags'''
+    """Issue (PR) tags"""
     PLG_ADD = 'plugin add'
     PLG_MODIFY = 'plugin modify'
     PLG_REMOVE = 'plugin remove'
@@ -50,17 +51,17 @@ class Tag(str, Enum):
 
     @property
     def label(self) -> str:
-        '''Pull request label name from tags
+        """Pull request label name from tags
 
         All plugin changes labels `plugins`
-        '''
+        """
         if self in (self.PLG_ADD, self.PLG_MODIFY, self.PLG_REMOVE):
             return 'plugins'
         return self.value
 
 
 class Action:
-    '''PR actions'''
+    """PR actions"""
     tag: Tag
     plugin_id: Optional[str]
 
@@ -84,7 +85,7 @@ class Action:
 
 
 class ActionList(set[Action]):
-    '''PR Action list with a [plugin, tag] dict'''
+    """PR Action list with a [plugin, tag] dict"""
 
     plugins: dict[str, Tag]
 
@@ -99,44 +100,44 @@ class ActionList(set[Action]):
 
     @property
     def tags(self) -> set[Tag]:
-        '''Returns all tags of actions'''
+        """Returns all tags of actions"""
         return {action.tag for action in self}
 
     @property
     def labels(self) -> set[str]:
-        '''Returns all labels of actions'''
+        """Returns all labels of actions"""
         return {tag.label for tag in self.tags}
 
     @property
     def modified_plugins(self) -> list[str]:
-        '''Returns all modified plugins'''
+        """Returns all modified plugins"""
         return [plugin_id for plugin_id, tag in self.plugins.items() if tag in (Tag.PLG_ADD, Tag.PLG_MODIFY)]
 
     @property
     def removed_plugins(self) -> list[str]:
-        '''Returns all removed plugins'''
+        """Returns all removed plugins"""
         return [plugin_id for plugin_id, tag in self.plugins.items() if tag == Tag.PLG_REMOVE]
 
     @property
     def plugin_ids(self) -> Iterable[str]:
-        '''Returns all plugin ids of actions'''
+        """Returns all plugin ids of actions"""
         return self.plugins.keys()
 
 
-#! ---- Workflow related ---- ##
+# ---- Workflow related ---- #
 
 def get_changed(change_type: str) -> list[str]:
     with open(REPOS_ROOT / f'.github/outputs/{change_type}.json', 'r', encoding='utf8') as f:
         return json.load(f)
 
 
-#! ---- Validation report ---- ##
+# ---- Validation report ---- #
 
 def _row(*args):
     return f'| {" | ".join(args)} |\n'
 
 
-def _rowval(info, value, valid, valid_icon='✅', invalid_icon='❌'):
+def _row_val(info, value, valid, valid_icon='✅', invalid_icon='❌'):
     return _row(info, value, valid_icon if valid else invalid_icon)
 
 
@@ -144,7 +145,7 @@ def _check(value: str, src: Optional[list[str]]):
     return not src or not any(value in s for s in src)
 
 
-def get_icon(tag: Tag) -> str:
+def get_icon(tag: Tag) -> Optional[str]:
     match tag:
         case Tag.PLG_ADD:
             return '➕'
@@ -174,7 +175,7 @@ def report_removed(plugin_id: str):
 
 
 def report_init_failed(failures: dict[str, list[str]]):
-    '''Check if there's any plugin failed to initialize. If so, report it.'''
+    """Check if there's any plugin failed to initialize. If so, report it."""
 
     report = ''
     header = '''
@@ -182,9 +183,10 @@ def report_init_failed(failures: dict[str, list[str]]):
 
 > [!CAUTION]
 {message}
+
 '''
     for plugin_id, messages in failures.items():
-        if any('Failed to initialize' in msg for msg in messages):
+        if any(re.match("Initialize plugin .+ failed", msg) for msg in messages):
             report += header.format(
                 plugin_id=plugin_id,
                 message='\n'.join(f'> - {i}' for i in messages)
@@ -199,13 +201,13 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
 | Info | Value | Valid |
 | --- | --- | --- |
 '''
-    failures: Optional[list[str]] = reporter.failures.get(plugin.id)
-    warnings: Optional[list[str]] = reporter.warnings.get(plugin.id)
+    failures: Optional[list[str]] = reporter.failures.get(plugin.id, [])
+    warnings: Optional[list[str]] = reporter.warnings.get(plugin.id, [])
     latest_release: Optional[ReleaseInfo] = plugin.release_summary.get_latest_release()
 
-    # --- PluginInfo rows --- #
+    # --- PluginInfo rows --- 
 
-    report += _rowval(
+    report += _row_val(
         'URL',
         # `AnzhiZhang/MCDReforgedPlugins@master/src/qq_chat`
         '[`{}@{}{}`]({})'.format(
@@ -225,7 +227,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         ),
         '-'
     )
-    report += _rowval(
+    report += _row_val(
         'License',
         # [`MIT`]
         '*Not detected*' if not plugin.repository_info.license
@@ -233,34 +235,38 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         plugin.repository_info.license is not None,
         invalid_icon='⚠️'
     )
+    if not plugin.repository_info.license:
+        warnings.append('License not detected. We recommend using an open-source license to protect your work.')
     report += _row(
         '[Labels](https://docs.mcdreforged.com/en/latest/plugin_dev/plugin_catalogue.html#label)',
         # `Tool`, `API`
         ' '.join(f'`{i}`' for i in plugin.labels),
         '-'
     )
-    report += _rowval(
+    report += _row_val(
         'Introduction',
         # [`en_us`](//...) [`zh_cn`](//...)
         ' '.join(f'[`{lang}`]({url})'
                  for lang, url in plugin.get_introduction_urls(kind='page').items()),
         _check('introduction', failures)
     )
-    report += _rowval(
+    report += _row_val(
         'Meta',
         '`mcdreforged.plugin.json`',
         _check('meta', failures)
     )
-    report += _rowval(
+    report += _row_val(
         'Latest Release',
         # [`v1.0.0`](//...) || `None`
         f'[`{latest_release.meta.version}`]({latest_release.url})' if latest_release else '`None`',
         latest_release,
         invalid_icon='⚠️'
     )
+    if not latest_release:
+        warnings.append('Users could not download the plugin via the catalogue before you publish a release.')
     report += '\n'
 
-    # --- PluginMeta rows --- #
+    # --- PluginMeta rows --- 
 
     if plugin.meta_info:
         report += '''
@@ -318,12 +324,12 @@ Add label `recheck` to regenerate without limit.
     else:
         plugins = sorted(
             [(plugin, action_list.plugins.get(plugin.id)) for plugin in plugin_list],
-            key=lambda x: x[1].value
+            key=lambda x: x[1].value  # sort by tag
         )
         modified_report = '\n'.join(report_plugin(*plugin) for plugin in plugins)
 
     removed_report = '\n'.join(report_removed(plugin) for plugin in removed_list)
 
-    init_failed_report = '\n'.join(report_init_failed(reporter.failures))
+    init_failed_report = report_init_failed(reporter.failures)
 
     return header + modified_report + removed_report + init_failed_report

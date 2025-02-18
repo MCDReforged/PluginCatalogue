@@ -1,4 +1,4 @@
-'''
+"""
 Script for Pull Request Actions.
 
 When PR:
@@ -32,8 +32,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 in the `scripts` folder of the project root. If not, see 
 <https://www.gnu.org/licenses/>.
-'''
-
+"""
 
 import asyncio
 import logging
@@ -52,7 +51,7 @@ from common.report import reporter
 from plugin.plugin_list import get_plugin_list
 from utilities import Action, ActionList, EventType, Tag, get_changed, report_all
 
-#! ---- Gather environs and constants ---- ##
+# ---- Gather environs and constants ---- #
 # See also: .github/workflows/pull_request.yml
 
 PLUGIN_CHECK_LIMIT = 16
@@ -93,17 +92,17 @@ MSG_CHECKLIST = '''
 # https://github.com/MCDReforged/PluginCatalogue/pull/372
 logger.setLevel(logging.INFO)
 
-#! ---- On closed ---- ##
+# ---- On closed ---- #
 if EVENT_TYPE == EventType.CLOSED:
     if IS_MERGED == 'true':  # merged
         gh.pr_comment(MSG_MERGED)
     sys.exit(0)
 
-#! ---- No limit on recheck ---- ##
+# ---- No limit on recheck ---- #
 if EVENT_TYPE == EventType.LABELED:
     PLUGIN_CHECK_LIMIT = 0
 
-#! ---- Gather file changes ---- ##
+# ---- Gather file changes ---- #
 # https://github.com/marketplace/actions/changed-files#outputs-
 
 logger.info(f'Running with event type: {EVENT_TYPE}')
@@ -117,8 +116,8 @@ all_files = changed_files | deleted_files  # ACMRD
 
 logger.info(f'{len(all_files)} changes found')
 
-#! ---- Identify actions and tags ---- ##
-# In order of priority, the process shoule be:
+# ---- Identify actions and tags ---- #
+# In order of priority, the process should be:
 # 1. A(CMR)D of `plugins/<plugin_id>/plugin_info.json` == AMD of plugin
 # 2. ACMRD of `plugins/<plugin_id>/**` == Modify of plugin
 # 3. ACMRD of `scripts/**` == `scripts`
@@ -152,8 +151,7 @@ for file in sorted(all_files, key=lambda x: x.endswith('plugin_info.json'), reve
 logger.info(f'Identified actions: {", ".join(map(str, actions))}')
 logger.info(f'Identified labels: {", ".join(map(str, actions.labels))}')
 
-
-#! ---- Run plugin checks and generate report ---- ##
+# ---- Run plugin checks and generate report ---- #
 
 reply: str = MSG_HEADER
 
@@ -183,8 +181,7 @@ if actions.plugins:
 else:
     logger.info('No plugins to report, skipping')
 
-
-#! ---- Label and comment ---- ##
+# ---- Label and comment ---- #
 
 if EVENT_TYPE == EventType.OPENED:
     gh.pr_label(add_labels=sorted(actions.labels))
