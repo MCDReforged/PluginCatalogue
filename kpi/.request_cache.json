@@ -1,0 +1,605 @@
+{
+  "NOTICE": "Not public API, DO NOT use this file",
+  "release_pages": {
+    "1": {
+      "etag": "\"64a76e31bd7bb9c80ab1545486309e0531ba465da09c69b890a1abd65fcdcba8\"",
+      "data": "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",
+      "empty": false
+    },
+    "2": {
+      "etag": "\"f5ac6239dc9c27f6431c92b538a9875ef5a02218e92d0c3324d11b1431881652\"",
+      "data": "H4sIAGMx+GYC/4uOBQApu0wNAgAAAA==",
+      "empty": true
+    }
+  },
+  "asset_data": {
+    "149501487": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.9",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 26791,
+      "hash_md5": "a8c03a45786aaac3699962dee6a7513d",
+      "hash_sha256": "4a06c7f90a462ae2801ba28ca0a5fcf4869b3723ed83261d9fa41b742e449b3e",
+      "ttl": 100
+    },
+    "123249535": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.8",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 26767,
+      "hash_md5": "b0507880150f1bbcb9e1e12c685634c0",
+      "hash_sha256": "e0dfaf73b5bb811e168f9a644d7804033b42192d96ca805fb9be5d8737eeacf5",
+      "ttl": 100
+    },
+    "114644016": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.7",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "python": "^3.10"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 26768,
+      "hash_md5": "5ebe70a58e68045e43b2073fed009d3e",
+      "hash_sha256": "06c205d0c19edbc4aba61ffaf42722fd74259cd2d468aac5797a663832864447",
+      "ttl": 100
+    },
+    "111899681": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.6",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 26757,
+      "hash_md5": "827d425ba5a8f4231b3a62a6fc84c6fe",
+      "hash_sha256": "39f8b08c89d59adc60e9c0efedbdc4448c5716782b1431447efdcfefdfdbf2d3",
+      "ttl": 100
+    },
+    "97970620": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.5",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 26094,
+      "hash_md5": "6e2861cde5e847d89c4744353d6ead16",
+      "hash_sha256": "3da18eb3ffed1ff49a6ff9c3e3a02f7bda944ef27763b9a147d0dd2b6f516fbd",
+      "ttl": 100
+    },
+    "97648508": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.4",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 25415,
+      "hash_md5": "03b5e03bcedbd5fa5daeaab686a777ee",
+      "hash_sha256": "3c81442fe24f28c076225647bd8143a2dcdea3e6c94d7a1fba6a7cae66c4d63d",
+      "ttl": 100
+    },
+    "97549574": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.3",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 25388,
+      "hash_md5": "371d4771a009fcb9dac58898169c65de",
+      "hash_sha256": "10d7890e763a644848fa968367e985c04526005c24696a2df210134a698f935d",
+      "ttl": 100
+    },
+    "97207916": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.2",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "~2.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 24331,
+      "hash_md5": "91fcf759072f1ed7b53d8715385089c9",
+      "hash_sha256": "941dd782070e2875f4776b3d64849debbe8ee92684b65c43ad8a361da7d270f8",
+      "ttl": 100
+    },
+    "97203963": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.1",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 23958,
+      "hash_md5": "d5b22d4b2af89515c8358f3bcccb50d0",
+      "hash_sha256": "339013751561a24d78610b4cc68306e6f20c35b9c58767874e803ceb205a075e",
+      "ttl": 100
+    },
+    "97156755": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.0",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 22923,
+      "hash_md5": "ae9b88ffc26cd8c8a0d5dec4ab611f8e",
+      "hash_sha256": "2199724767a02f493df97d7e64bbd8cfc5c0b8967b92b038f13b9ce791b0c229",
+      "ttl": 100
+    },
+    "89692282": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.3.3",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 19661,
+      "hash_md5": "e2d02d7894e0c1aedc39c5585419f4b2",
+      "hash_sha256": "e559c4149da58ba576da94ad22926713011fa4a46aef67195a2ee4d061e30396",
+      "ttl": 100
+    },
+    "86449984": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.3.2",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 19319,
+      "hash_md5": "e68c588489bbf8eafb27c901cf4e4e60",
+      "hash_sha256": "6c5cbaca8c6ac7651f6ba4d2a93fad33417e8f0fbf92a78c070e02a45aacd3bd",
+      "ttl": 100
+    },
+    "86150216": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.3.1",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 19336,
+      "hash_md5": "724f8e6a660bac54050a6bf803c063d7",
+      "hash_sha256": "e6fe1d765543b3277c8804e0e0509a558ffb394a58953cfe5d55b822d82fd875",
+      "ttl": 100
+    },
+    "85909158": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.3.0",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 19187,
+      "hash_md5": "bcb5dd14d517e079734e667560405c6d",
+      "hash_sha256": "85bb28e40a4b8480b48846629b556a02d1830fdaec2582cf722e9623cae64d6b",
+      "ttl": 100
+    },
+    "81967583": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.2.0",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 17793,
+      "hash_md5": "28bc976090a08eca213960c02fc5c23d",
+      "hash_sha256": "020046c1c3b506a3f05e7b32b98e1a531591cd4e8cfecef1c62d478ed81f78d4",
+      "ttl": 100
+    },
+    "78505888": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.1.0",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 17456,
+      "hash_md5": "dc7c3f233e4abc3d4b1bcf18c77f8375",
+      "hash_sha256": "31e12465aa67a728c6b1535162111beb95029167f3987dc44a294aad7ba09f96",
+      "ttl": 100
+    },
+    "78281368": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.0.2",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 17445,
+      "hash_md5": "f67ac96d7832544d19864386c44a78fc",
+      "hash_sha256": "70775481a4b7f9d077f1484acdfb0ce8559ffa1e88e6d27d6e691932bdf7f567",
+      "ttl": 100
+    },
+    "78210272": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.0.1",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 17369,
+      "hash_md5": "a466b6a59f01ddfa77d9148242bc151f",
+      "hash_sha256": "2990cc4d171f1d055b4a92218546e5572152e3e44e3945900139c395ff347581",
+      "ttl": 100
+    },
+    "78206970": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.0.0",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 17359,
+      "hash_md5": "fc2446f2fa60e3a55d6ba0245ee24166",
+      "hash_sha256": "b46fbee9d4c72eaec8e059909ead091c5cdf1fa489b6a3f5a9de56ff81e95e87",
+      "ttl": 100
+    },
+    "217201498": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.10",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.14.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 27006,
+      "hash_md5": "f750bd3c21ef23fc803a2b6c26d911bd",
+      "hash_sha256": "920ba9a0656c8fcb69ae89006117f0523446b6d0bcc7e85fab3d69e95acaec82",
+      "ttl": 100
+    },
+    "218411862": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.11",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.14.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 27039,
+      "hash_md5": "ede4a6af90cb79e1103b8283e4bf1a8c",
+      "hash_sha256": "1c3dad8da012ca27d4d0b6a1f91c1ac9f27d609263665377922484b85c4116ce",
+      "ttl": 100
+    },
+    "219872247": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.4.12",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.14.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 27049,
+      "hash_md5": "302dc2e8d42d939b4056cbbd968fc04a",
+      "hash_sha256": "5a009a9f25fb27f506f227e260c512c2c729b579982600ef9bbf2d8c58747cff",
+      "ttl": 100
+    },
+    "225474413": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.5.0",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.14.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 27037,
+      "hash_md5": "3f622cd89ccc076b842c5ab8198474af",
+      "hash_sha256": "fbb8d238573ec8b13a6369fca71e29c48c3784b4691d9ef1525ddba9323916be",
+      "ttl": 100
+    },
+    "226875627": {
+      "meta": {
+        "schema_version": 4,
+        "id": "kpi",
+        "name": "KPI",
+        "version": "1.5.1",
+        "link": "https://github.com/kmcsr/kpi_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.14.0",
+          "python": "^3.11"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A MCDR plugins codes share library",
+          "zh_cn": "一个MCDR插件代码共享库"
+        }
+      },
+      "size": 27037,
+      "hash_md5": "96e94e40d4836c0732fec24736ab14c9",
+      "hash_sha256": "dfb029dfe658c94ad333d7c7a0f065850848f1e0c0e4565c6cfbd14936b360bf",
+      "ttl": 100
+    }
+  },
+  "repos_info": {
+    "etag": "\"002454aa7b8502064fd2b49c80c7b78d2d2e5dc9ed0813010c92731369508d08\"",
+    "data": "H4sIAM3apGcC/+1YW2/bNhT+K4Jfl1iO47iNgaJbEywY0C5BkWGAh0GgJFpiTZEaSdl1BP/3Hl5084wsZp4G5CWxDvl9PDw8Fx7WI5KOFsHV5bvr+ez9xeQsGDGe4shIR1+jdXZ7/9unm+832UgPoQJr+bokUZGkQstWFaVRO1AkUoT94VKQDVJ6cIWoxCDhW4YFfNcjyjPCWpiebZa9vnw3m83n06Eu90aXT8tl9avRBQEtElElqB7NlSrlIgytVI4zovIqriQWCWcKMzVOeBFWYcP9cfNhplky4XjsIlp0yFgSx2YpgFKGrcK5KuihDr3Z7bwVp5RvARq9mD5sMR0BYdnJBICpQ65yDMaCwb3ZNpHqFFXM/Nr8A0sZCglWEzg9gcQhQBntAfs6FLjklquKZSJIqQhnp6g1wGkiLjLEyBM6lQhwBq81OgVn5msg3oCPnYK0gDo08ZHs9nb1BJMN2PRktgOkJlO70oTkfc8kxr0BFm0I3kbNjLKKKUnMORCFI5QWJipNvO5f6OODmE9xeyoa80vw5eb2a1DSCsJdBgnEtAxkjgQOKIkFEjvr4GLdyxLP793Y/cjKmuS/7HYMGxqgZljjnReBxtX6bxMfCQQfirlAigsvxgFBPfg0CyiMCi9iAzTJi3M/axmgyddSVvhl7nqUyOBlGwysKmKXofw5uxBAUpKMYexF04LrsE2b4Kwsyf34GmztftkzRJnfESKbr2LKYy8CGA8NuA4hEl1NUJGvPppOY4dsAq+82TS2Y1PC8xSNYsKcYsMFZUjBiXrRNdiwbtgoYlmFMj+6FtwU1Aw9YeGrmUPb5MOUIHHln3s6fK9Ax77KdfDDcv8KurIpaTCxIMpzowY69NtX8Gl/+xenFvhmswY7SI427bqhV+Tdo+TuwuztNxob1j+VSOXN7kuo9Z6b19CwjhFcRcbjcZ1jZMtrgYVn0FmkqQ8iyeHW5ENSN1i4OBRImcvsyiiWwu2WcpR66daC21N+RVkdnGoJbZoXlwEOqApCsVSceZq/RQ9IGVdkRZIX3dyP8g4I6o+SsASfIUrPwIMUSQj4I3RCLmfHmHombI0ExaHfdVd2ipFnMWmwdeiujCkuKd95p4oe3MSdwNB4pxFSmmg6mU7PJ9fnF+8fJ5PFbL6YzpamHSjT4ayr8wlMnD9ezBazq8VkurTeI/NnJk2WTep0asPP55oEvRVTCGTeQ/zczV8cn59Q8JsXtyLtKht2UvuS8wKXUJUBwMD5TV/0pL8u5vNhnU54xbRJLkG8RQqudwfCpsDrtR92Krf1KkcysiEKciUq7GSl4N9wog6kXU4YiLdkTQ7g5ibRtVAGTGRSwU1W98fdiG2TGkUnJqaF4M1ritu1S3FpDwh0KKYDES8xc7sZMEJLiZnE5qEH2iJzxiU9vxxP+i9Jd7//EdxhhgWiwYPpQ4PPFhhs3FRZpt/d88zdw+eG4Pn4cIvLsL9k95b05TaZP97Rb8s/r56Wj+sPI93mIv1YovP5GvJEZ1kiI4WLkg4fsbY4dteESLcJfLWC2+4/FRED2yhekkQb/q+/4WtDJIkJJWo37Lpt72mt1rOmkzR+5TwqxStUURXZJkITFUgqbN/asChIe9j1aNDJ60NGhCk0EOnA7issiPXWbpxSZ4u96TmLMrJRqPgas+bNDHxM8UI7MOigiFG+3h88yLy9+b29+b29+f0/3vwYVltIS4OM3m8CG/nF/gcPBy6TQhgAAA=="
+  }
+}
