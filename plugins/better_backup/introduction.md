@@ -1,3 +1,5 @@
+⚠️ **ARCHIVED**: Use PrimeBackup instead
+
 A plugin that supports efficient backup/rollback with file deduplication
 
 Features:

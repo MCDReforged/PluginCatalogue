@@ -1,7 +1,9 @@
 import enum
-import os
 from json import JSONDecodeError
+from pathlib import Path
 from typing import Optional, List, Dict, Union
+
+from typing_extensions import Literal
 
 from common import constants, log
 from common.report import reporter
@@ -14,7 +16,7 @@ from meta.repos import RepositoryInfo
 from plugin.cache import PluginRequestCacheManager
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
-from utils.repos import GithubRepository
+from utils.repos import PLUGIN_CATALOGUE, GithubRepository
 from utils.serializer import Serializable
 
 
@@ -45,7 +47,7 @@ class _PluginInfoJson(Serializable):
 	introduction: Dict[str, str] = {}  # lang -> file path in repos
 
 
-class _PluginInfoInner:
+class _PluginInfoInternal:
 	id: str
 
 	repos: GithubRepository
@@ -93,7 +95,9 @@ class _PluginInfoInner:
 
 
 class Plugin:
-	__plugin_info: _PluginInfoInner
+	__plugin_info: _PluginInfoInternal
+
+	# might be null, if repos not found
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
 	repository_info: Optional[RepositoryInfo] = None
@@ -101,12 +105,12 @@ class Plugin:
 	def __init__(self, plugin_id: str):
 		self.__introduction: Optional[BundledText] = None
 
-		self.__info_directory = os.path.join(constants.PLUGINS_FOLDER, plugin_id)
-		if not os.path.isdir(self.__info_directory):
+		self.__info_directory = Path(constants.PLUGINS_FOLDER) / plugin_id
+		if not self.__info_directory.is_dir():
 			raise FileNotFoundError('Directory {} not found'.format(self.__info_directory))
 
-		plugin_json = file_utils.load_json(os.path.join(self.__info_directory, 'plugin_info.json'))
-		self.__plugin_info = _PluginInfoInner(plugin_json)
+		plugin_json = file_utils.load_json(self.__info_directory / 'plugin_info.json')
+		self.__plugin_info = _PluginInfoInternal(plugin_json)
 		if self.id != plugin_id:
 			raise ValueError('Inconsistent plugin id, found {} in plugin_info.json but {} expected'.format(self.id, plugin_id))
 
@@ -139,6 +143,27 @@ class Plugin:
 	@property
 	def introduction(self) -> Text:
 		return self.__introduction
+	
+	@property
+	def plugin_info(self) -> _PluginInfoInternal:
+		return self.__plugin_info
+
+	def get_introduction_urls(self, kind: Literal['page', 'raw']) -> Dict[str, str]:
+		def get_base_url(repos: GithubRepository) -> str:
+			return repos.get_page_url_base() if kind == 'page' else repos.get_raw_url_base()
+
+		if self.__plugin_info.external_introduction:
+			return {
+				lang: get_base_url(self.repos) + '/' + path
+				for lang, path in self.__plugin_info.external_introduction.items()
+			}
+		else:	
+			path = {}
+			for lang in LANGUAGES:
+				with with_language(lang):
+					rel_path = (self.__info_directory / get_file_name('introduction.md')).relative_to(constants.REPOS_ROOT)
+					path[lang] = get_base_url(PLUGIN_CATALOGUE) + '/' + rel_path.as_posix()
+			return path
 
 	@property
 	def latest_version(self) -> str:
@@ -178,20 +203,11 @@ class Plugin:
 				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
 		return resp.text
 
-	@classmethod
-	def __error_or_value(cls, value: Optional[Serializable], error: Optional[Exception]) -> dict:
-		if value is not None:
-			return value.serialize()
-		else:
-			return {
-				'_error': 'unknown' if error is None else str(error)
-			}
-
 	# ========================= Request Cache =========================
 
 	@property
-	def __request_cache_file(self) -> str:
-		return os.path.join(constants.META_FOLDER, self.id, '.request_cache.json')
+	def __request_cache_file(self) -> Path:
+		return constants.META_FOLDER / self.id / '.request_cache.json'
 
 	def save_request_cache(self):
 		file_utils.save_json(self.__cache_manager.dump_for_save(), self.__request_cache_file)
@@ -219,10 +235,15 @@ class Plugin:
 								raw_url=self.repos.get_raw_url_base(),
 							)
 						introduction_translations[lang] = file_content
-				introduction_tr_file_path = os.path.join(self.__info_directory, get_file_name('introduction.md'))
-				if os.path.isfile(introduction_tr_file_path):
-					with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
-						introduction_translations[lang] = file_handler.read()
+				else:
+					introduction_tr_file_path = self.__info_directory / get_file_name('introduction.md')
+					if introduction_tr_file_path.is_file():
+						with file_utils.open_for_read(introduction_tr_file_path) as file_handler:
+							introduction_translations[lang] = file_handler.read()
+		if not any(i for i in introduction_translations.values() if i):
+			msg = 'No introduction file in any language found for {}'.format(self)
+			log.warning(msg)
+			reporter.record_warning(self.id, msg, FileNotFoundError('Neither external or internal introduction file found'))
 		self.__introduction = BundledText(introduction_translations)
 		self.__dataset |= _PluginDataSet.introduction
 		log.info('({}) Introduction fetched'.format(self.id))
@@ -232,19 +253,20 @@ class Plugin:
 	def generate_formatted_plugin_info(self) -> PluginInfo:
 		if (_PluginDataSet.info | _PluginDataSet.introduction) not in self.__dataset:
 			raise RuntimeError('not enough info. current dataset: {}'.format(self.__dataset))
-		info = PluginInfo()
-		info.id = self.id
-		info.authors = [author.name for author in self.__plugin_info.authors]
-		info.repository = self.repos.repos_url
-		info.branch = self.repos.branch
-		info.related_path = self.repos.related_path
-		info.labels = [label.id for label in self.__plugin_info.labels]
-		info.introduction = self.__introduction.get_mapping().copy()
-		return info
+		return PluginInfo(
+			id=self.id,
+			authors=[author.name for author in self.__plugin_info.authors],
+			repository=self.repos.repos_url,
+			branch=self.repos.branch,
+			related_path=self.repos.related_path,
+			labels=[label.id for label in self.__plugin_info.labels],
+			introduction=self.__introduction.get_mapping().copy(),
+			introduction_urls=self.get_introduction_urls(kind='raw'),
+		)
 
 	def save_formatted_plugin_info(self):
 		info = self.generate_formatted_plugin_info()
-		file_utils.save_json(info.serialize(), os.path.join(constants.META_FOLDER, self.id, 'plugin.json'))
+		file_utils.save_json(info.serialize(), constants.META_FOLDER / self.id / 'plugin.json')
 
 	# ========================= MetaInfo =========================
 
@@ -259,11 +281,11 @@ class Plugin:
 		self.__dataset |= _PluginDataSet.meta
 		log.info('({}) MetaInfo fetched'.format(self.id))
 
-	def __get_meta_info_data(self) -> dict:
-		return self.__error_or_value(self.meta_info, self.__meta_info_error)
-
-	def save_meta(self):
-		file_utils.save_json(self.__get_meta_info_data(), os.path.join(constants.META_FOLDER, self.id, 'meta.json'))
+	def save_meta_info_if_available(self):
+		if self.meta_info is not None:
+			file_utils.save_json(self.meta_info.serialize(), constants.META_FOLDER / self.id / 'meta.json')
+		else:
+			log.warning('({}) Skipping saving meta_info due to error {}'.format(self.id, self.__meta_info_error))
 
 	# ========================= Release & Cache =========================
 
@@ -280,17 +302,17 @@ class Plugin:
 
 	@property
 	def __release_info_file(self) -> str:
-		return os.path.join(constants.META_FOLDER, self.id, 'release.json')
+		return constants.META_FOLDER / self.id / 'release.json'
 
-	def __get_release_summary_data(self) -> dict:
-		return self.__error_or_value(self.release_summary, self.__release_summary_error)
-
-	def save_release_summary(self):
-		file_utils.save_json(self.__get_release_summary_data(), self.__release_info_file)
+	def save_release_summary_if_available(self):
+		if self.release_summary is not None:
+			file_utils.save_json(self.release_summary.serialize(), self.__release_info_file)
+		else:
+			log.warning('({}) Skipping saving release_summary due to error {}'.format(self.id, self.__release_summary_error))
 
 	# ========================= RepositoryInfo =========================
 
-	async def fetch_repository(self):
+	async def fetch_and_update_repository(self):
 		try:
 			self.repository_info = await RepositoryInfo.create_for(self, self.__cache_manager)
 		except Exception as e:
@@ -298,14 +320,16 @@ class Plugin:
 			raise
 		else:
 			self.__repository_info_error = None
+
+		self.repos.update_from_api(self.id, self.repository_info)
 		self.__dataset |= _PluginDataSet.repository
 		log.info('({}) Repository information fetched'.format(self.id))
 
-	def __get_repository_info_data(self) -> dict:
-		return self.__error_or_value(self.repository_info, self.__repository_info_error)
-
-	def save_repository_info(self):
-		file_utils.save_json(self.__get_repository_info_data(), os.path.join(constants.META_FOLDER, self.id, 'repository.json'))
+	def save_repository_info_if_available(self):
+		if self.repository_info is not None:
+			file_utils.save_json(self.repository_info.serialize(), constants.META_FOLDER / self.id / 'repository.json')
+		else:
+			log.warning('({}) Skipping saving repository_info due to error {}'.format(self.id, self.__repository_info_error))
 
 	# ========================= AllOfAPlugin =========================
 
@@ -322,7 +346,7 @@ class Plugin:
 			release=self.release_summary,
 			repository=self.repository_info,
 		)
-		file_utils.save_json(aop.serialize(), os.path.join(constants.META_FOLDER, self.id, 'all.json'), with_gz=True)
+		file_utils.save_json(aop.serialize(), constants.META_FOLDER / self.id / 'all.json', with_gz=True)
 		return aop
 
 

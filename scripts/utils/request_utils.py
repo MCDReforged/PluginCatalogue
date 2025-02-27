@@ -73,19 +73,25 @@ async def request_github_api(url: str, *, params: dict = None, etag: str = '', r
 	headers = {
 		'If-None-Match': etag
 	}
-	if 'github_api_token' in os.environ:
-		headers['Authorization'] = 'token {}'.format(os.environ['github_api_token'])
+	if (api_token := os.environ.get('github_api_token', '')) != '':
+		headers['Authorization'] = 'token {}'.format(api_token)
 	response = await request_get(url, headers=headers, params=params, retries=retries)
+	if response.status_code != 200 and response.status_code != 304:
+		raise Exception('Un-expected status code {}: {}'.format(response.status_code, response.content))
 	try:
 		new_etag = response.headers['ETag']
 	except KeyError:
 		log.error('No ETag in response! url={}, params={} status_code={}, content={}'.format(url, params, response.status_code, response.content))
 		raise
-	remaining, limit = response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']
-	reporter.record_rate_limit(remaining, limit)
-	if constants.DEBUG.SHOW_RATE_LIMIT:
-		log.debug('\tRateLimit: {}/{}'.format(remaining, limit))
-		log.debug('\tETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
+	try:
+		remaining, limit = response.headers['X-RateLimit-Remaining'], response.headers['X-RateLimit-Limit']
+	except KeyError as e:
+		log.error('Get RateLimit headers from response failed: {}, header: {}'.format(e, response.headers))
+	else:
+		reporter.record_rate_limit(remaining, limit)
+		if constants.DEBUG.SHOW_RATE_LIMIT:
+			log.debug('\tRateLimit: {}/{}'.format(remaining, limit))
+			log.debug('\tETag: {} -> {}, url={}, params={}'.format(etag, new_etag, url, params))
 
 	# strange prefix. does not affect accuracy, but will randomly change from time to time
 	# so yeets it here in advance
@@ -93,6 +99,4 @@ async def request_github_api(url: str, *, params: dict = None, etag: str = '', r
 		new_etag = new_etag[2:]
 	if response.status_code == 304:
 		return None, new_etag
-	if response.status_code != 200:
-		raise Exception('Un-expected status code {}: {}'.format(response.status_code, response.content))
 	return response.json(), new_etag

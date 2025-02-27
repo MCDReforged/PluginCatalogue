@@ -23,6 +23,7 @@ class PluginInfo(Serializable):
 	related_path: str
 	labels: List[str]
 	introduction: Dict[str, str]  # lang -> content
+	introduction_urls: Dict[str, str]
 
 
 class MetaInfo(Serializable):
@@ -51,28 +52,29 @@ class MetaInfo(Serializable):
 	@classmethod
 	def of(cls, metadata_json: dict, requirements_str: str) -> 'MetaInfo':
 		metadata = Metadata(metadata_json)
-		meta_info = MetaInfo()
-		meta_info.id = metadata.id
-		meta_info.name = metadata.name
-		meta_info.version = str(metadata.version)
-		meta_info.link = metadata.link
-		meta_info.authors = metadata.author or []
-		meta_info.dependencies = dict(map(
-			lambda t: (str(t[0]), str(t[1])),
-			metadata.dependencies.items()
-		))
-		meta_info.requirements = list(filter(
-			lambda l: len(l) > 0, map(
-				lambda l: l.split('#', 1)[0].strip(),
-				requirements_str.splitlines()
+		meta_info = MetaInfo(
+			id=metadata.id,
+			name=metadata.name,
+			version=str(metadata.version),
+			link=metadata.link,
+			authors=metadata.author or [],
+			dependencies={str(k): str(v) for k, v in metadata.dependencies.items()},
+			requirements=[
+				line
+				for line in (
+					line.split('#', 1)[0].strip()
+					for line in requirements_str.splitlines()
+				)
+				if len(line) > 0
+			],
+			description=(
+				{DEFAULT_LANGUAGE: metadata.description} if isinstance(metadata.description, str)
+				else
+				metadata.description.copy() if isinstance(metadata.description, dict)
+				else
+				{}
 			)
-		))
-		if isinstance(metadata.description, str):
-			meta_info.description = {DEFAULT_LANGUAGE: metadata.description}
-		elif isinstance(metadata.description, dict):
-			meta_info.description = metadata.description
-		else:
-			meta_info.description = {}
+		)
 		return meta_info
 
 	@classmethod

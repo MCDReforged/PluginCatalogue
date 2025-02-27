@@ -3,6 +3,7 @@ import re
 import shutil
 import time
 from contextlib import contextmanager
+from pathlib import Path
 from typing import List, IO, Iterable, Any, Optional, Collection
 
 from common import constants, log
@@ -44,15 +45,15 @@ def formatted_time(created_at: str, precision: str) -> str:
 	return time.strftime(fmt, st)
 
 
-def get_root_readme_file_path():
-	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('readme.md'))
+def get_root_readme_file_path() -> Path:
+	return constants.CATALOGUE_FOLDER / get_file_name('readme.md')
 
 
-def get_full_index_file_path():
-	return os.path.join(constants.CATALOGUE_FOLDER, get_file_name('full.md'))
+def get_full_index_file_path() -> Path:
+	return constants.CATALOGUE_FOLDER / get_file_name('full.md')
 
 
-def get_label_list_markdown(plugin: Plugin):
+def get_label_list_markdown(plugin: Plugin) -> str:
 	return ', '.join(map(lambda label: '[`{}`]({})'.format(label, get_label_doc_link(label.id)), plugin.labels))
 
 
@@ -77,10 +78,10 @@ def write_back_to_index_nav(file: IO[str]):
 
 
 @contextmanager
-def write_nav(file_path: str):
+def write_nav(file_path: Path):
 	with file_utils.open_for_write(file_path) as file:
-		write_translation_nav(os.path.basename(file_path), file)
-		if file_path != get_root_readme_file_path():
+		write_translation_nav(file_path.name, file)
+		if file_path.absolute() != get_root_readme_file_path().absolute():
 			write_back_to_index_nav(file)
 		yield file
 
@@ -106,7 +107,7 @@ def generate_index(plugin_list: Iterable[Plugin], file: IO[str]):
 				translated_description = plugin.meta_info.translated_description
 			else:
 				name = translated_description = failed()
-			release = plugin.release_summary.get_latest_release()
+			release = plugin.release_summary.get_latest_release() if plugin.release_summary is not None else None
 			if release is not None:
 				last_update = formatted_time(release.created_at, precision='day')
 			else:
@@ -185,7 +186,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 	else:
 		file.write('- {}: {}\n'.format(Text('version'), failed()))
 
-	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads()))
+	file.write('- {}: {}\n'.format(Text('total_downloads'), plugin.release_summary.get_total_downloads() if plugin.release_summary is not None else 'N/A'))
 	file.write('- {}: {}\n'.format(Text('authors'), ', '.join(map(lambda a: a.to_markdown(), plugin.authors))))
 	file.write('- {}: {}\n'.format(Text('repository'), plugin.repos.repos_url))
 	file.write('- {}: {}\n'.format(Text('repository_plugin_page'), plugin.repos.plugin_homepage))
@@ -249,7 +250,7 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 
 
 def generate_full(plugin_list: Iterable[Plugin], file: IO[str]):
-	with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('full_header.md'))) as header:
+	with file_utils.open_for_read(constants.TEMPLATE_FOLDER / get_file_name('full_header.md')) as header:
 		file.write(header.read())
 	file.write('\n')
 	for plugin in plugin_list:
@@ -258,9 +259,9 @@ def generate_full(plugin_list: Iterable[Plugin], file: IO[str]):
 
 
 def generate_labels(plugin_list: List[Plugin]):
-	label_root = os.path.join(constants.CATALOGUE_FOLDER, 'labels')
+	label_root = constants.CATALOGUE_FOLDER / 'labels'
 	for label in get_label_set().get_label_list():
-		with write_nav(os.path.join(label_root, label.id, get_file_name('readme.md'))) as file:
+		with write_nav(label_root / label.id / get_file_name('readme.md')) as file:
 			file.write('# {}\n'.format(label))
 			file.write('\n')
 			file.write('{}\n'.format(Text('plugin_index_with_label')).format(label))
@@ -269,9 +270,9 @@ def generate_labels(plugin_list: List[Plugin]):
 
 
 def generate_plugins(plugin_list: List[Plugin]):
-	plugin_root = os.path.join(constants.CATALOGUE_FOLDER, 'plugins')
+	plugin_root = constants.CATALOGUE_FOLDER / 'plugins'
 	for plugin in plugin_list:
-		with write_nav(os.path.join(plugin_root, plugin.id, get_file_name('readme.md'))) as file:
+		with write_nav(plugin_root / plugin.id / get_file_name('readme.md')) as file:
 			write_plugin(plugin, file)
 			write_plugin_download(plugin, file, limit=-1)
 
@@ -280,13 +281,13 @@ async def generate_doc(target_ids: Optional[Collection[str]] = None):
 	log.info('Generating doc')
 	plugin_list = get_plugin_list(target_ids)
 	await plugin_list.fetch_data(fail_hard=False)
-	if os.path.isdir(constants.CATALOGUE_FOLDER):
+	if constants.CATALOGUE_FOLDER.is_dir():
 		shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)
 
 	def write_doc():
 		with write_nav(get_root_readme_file_path()) as file:
-			with file_utils.open_for_read(os.path.join(constants.TEMPLATE_FOLDER, get_file_name('index_header.md'))) as header:
+			with file_utils.open_for_read(constants.TEMPLATE_FOLDER / get_file_name('index_header.md')) as header:
 				file.write(header.read())
 			file.write('\n')
 			write_label_info(file)

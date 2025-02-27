@@ -1,0 +1,1 @@
+A custom Velocity server handler, that supports chat event provided by Velocity plugins
