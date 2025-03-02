@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "simple_op",
+    "name": "Simple OP",
+    "version": "1.2.0",
+    "link": "https://github.com/MCDReforged/SimpleOP",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0-beta"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "!!op to get op, !!restart to restart the server",
+      "zh_cn": "!!op 以获取op, !!restart 以重启服务器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "simple_op",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/TISUnion/SimpleOP",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "`!!op` give you op\n\n`!!restart` restart the server\n\nMostly used in creative servers\n\nConfig file: `config/simple_op/config.json`, for restart delay (default 5 seconds)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/TISUnion/SimpleOP/master/readme.md"
+    }
+  },
+  "release": null,
+  "repository": null
+}

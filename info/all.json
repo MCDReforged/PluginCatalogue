@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "info",
+    "name": "Info",
+    "version": "0.2.2",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/info",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "psutil",
+      "py-cpuinfo"
+    ],
+    "description": {
+      "en_us": "Get server info",
+      "zh_cn": "获取服务器信息"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "info",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/info",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "*Data fetching failed*",
+      "zh_cn": "# Info\n\n获取服务器信息\n\n## 支持功能\n\n- 系统版本\n- Python版本\n- CPU利用率\n- 内存使用量\n- 存档大小\n\n需要显示更多内容发 Issue\n\n## 使用\n\n使用 `!!info` 获取\n\n## 配置\n\n### world_names\n\n参与存档大小计算的文件夹名\n\n默认值:\n\n```json\n[\n    \"world\"\n]\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/info/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/info/readme.md"
+    }
+  },
+  "release": null,
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 95,
+    "watchers_count": 95,
+    "forks_count": 54,
+    "readme": "# Info\n\n获取服务器信息\n\n## 支持功能\n\n- 系统版本\n- Python版本\n- CPU利用率\n- 内存使用量\n- 存档大小\n\n需要显示更多内容发 Issue\n\n## 使用\n\n使用 `!!info` 获取\n\n## 配置\n\n### world_names\n\n参与存档大小计算的文件夹名\n\n默认值:\n\n```json\n[\n    \"world\"\n]\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/info/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

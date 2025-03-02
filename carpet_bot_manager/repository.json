@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/FAS-Server/CarpetBotManager",
+  "name": "CarpetBotManager",
+  "full_name": "FAS-Server/CarpetBotManager",
+  "html_url": "https://github.com/FAS-Server/CarpetBotManager",
+  "description": "An advance bot manager, with bot action manager and tis-carpet bot support",
+  "archived": false,
+  "stargazers_count": 7,
+  "watchers_count": 7,
+  "forks_count": 0,
+  "readme": "# Carpet Bot manager\n\n[![MCDReforged](https://img.shields.io/badge/dynamic/json?label=MCDReforged&query=dependencies.mcdreforged&url=https%3A%2F%2Fraw.githubusercontent.com%2FFAS-Server%2FCarpetBotManager%2Fmaster%2Fmcdreforged.plugin.json&style=plastic)](https://github.com/Fallen-Breath/MCDReforged)\n[![license](https://img.shields.io/github/license/FAS-Server/CarpetBotManager)](https://github.com/FAS-Server/CarpetBotManager/blob/main/LICENSE)\n[![build status](https://img.shields.io/github/actions/workflow/status/FAS-Server/CarpetBotManager/ci.yml?branch=main&label=build&style=plastic)](https://github.com/FAS-Server/CarpetBotManager/actions)\n[![Release](https://img.shields.io/github/v/release/FAS-Server/CarpetBotManager?style=plastic)](https://github.com/FAS-Server/CarpetBotManager/releases/latest)\n![total download](https://img.shields.io/github/downloads/FAS-Server/CarpetBotManager/total?label=total%20download&style=plastic)\n\n**中文** | [English](https://github.com/FAS-Server/CarpetBotManager/tree/main/./README_EN.md)\n\n> 一个用于管理 carpet 假人的插件，同时添加了对 [carpet-tis-addition](https://github.com/TISUnion/Carpet-TIS-Addition) 中前后缀的支持\n\n安装后在游戏内输入 `!!bot` 获取帮助信息.\n\n配置文件: 默认存储于 `config/bot_manager/BotManager.json` 中\n```json5\n{\n    \"debug\": false, // 控制是否在控制台输出debug信息\n    \"bots\": {\n        \"bot_test\": {\n            \"pos\": [0, 128, 0],\n            \"dim\": 0,\n            \"rotation\": [0, 0],\n            \"actions\": [\n                \"move forward\",\n                \"use interval 15\"\n            ],\n            \"desc\": \"Nothing here\"\n        }\n    },\n\n    // 控制分页中每页行数\n    \"page_len\": 15,\n    // 在生成bot时会添加的前缀, 配合carpet-tis-addition使用\n    \"name_prefix\": \"bot_\",\n    // 在生成bot时会添加的后缀, 配合carpet-tis-addition使用\n    \"name_suffix\": \"\"\n}\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/FAS-Server/CarpetBotManager/main/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/zhongbai2333/ConnectCore",
+  "name": "ConnectCore",
+  "full_name": "zhongbai2333/ConnectCore",
+  "html_url": "https://github.com/zhongbai2333/ConnectCore",
+  "description": "Establish a secure link between servers. Support independent use and use as MCDR plugin. Support loading sub plugins and working as pre plugins.",
+  "archived": false,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 0,
+  "readme": "# ConnectCore\n\nThis is a plugin for MCDReforged that can also be used independently. It allows you to set up your server as a plugin control group, primarily used for communication between plugins across different sub-servers, such as providing APIs and communication support for cross-server chat. It offers high security and easy configuration, making it suitable for various server environments.\n\nEnglish | [简中](https://github.com/zhongbai2333/ConnectCore/tree/master/README_zh.md)\n\n## Usage\n\n### Standalone Usage\n\n1. Place the `ConnectCore.pyz` file in an empty folder.\n2. Run the following command in the terminal:\n   `python ConnectCore.pyz server` or `python ConnectCore.pyz client` to start the server or client.\n3. Follow the prompts to configure.\n\n### Usage as an MCDR Plugin\n\n1. Place the `ConnectCore.pyz` file in the MCDR plugin directory (usually the `plugins` folder).\n2. Start the MCDR server, then use the `!!connectcore init` command to enable the initialization process.\n3. Follow the prompts to configure.\n\n## Development\n\n- A detailed English development documentation can be found on the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki/%5BDevelop%5D-API).\n- For sample plugins, please visit [ExamplePlugin](https://github.com/zhongbai2333/ExamplePlugin).\n\n## Notes\n\n- Ensure that your server and client can properly connect to the network.\n- A group of servers has only one server-side instance, but multiple clients can connect.\n- If you encounter any issues, please refer to the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki) or contact the developer.\n",
+  "readme_url": "https://raw.githubusercontent.com/zhongbai2333/ConnectCore/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
