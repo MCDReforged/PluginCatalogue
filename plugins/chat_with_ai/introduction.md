@@ -18,7 +18,21 @@ Commands
 
 `!!dsp clear`: Clear chat history
 
-`!!dsp <msg>`: Send message to AI (response will be returned after a short period)
+`!!dsp system`: View AI preset
+
+`!!dsp system <system>`: Set AI preset
+
+`!!dsp prefix`: View AI name
+
+`!!dsp prefix <prefix>`: Set AI name
+
+`!!dsp init system`: Initialize role preset
+
+`!!dsp init prefix`: Initialize role preset
+
+`!!dsp init all`: Initialize all and clear chat history
+
+`!!dsp <message>`: Chat with AI
 
 ## Acknowledgments
 
