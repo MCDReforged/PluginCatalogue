@@ -27,9 +27,9 @@ DeepSeek 恢复正常后，便尝试编写一个MCDR插件，使MC服务器能�
 
 `!!dsp prefix <prefix>`: 设置ai名称
 
-`!!dsp init system`: 初始化角色预设
+`!!dsp init system`: 初始化ai预设
 
-`!!dsp init prefix`: 初始化角色预设
+`!!dsp init prefix`: 初始化ai名称
 
 `!!dsp init all`: 全部初始化且清空历史记录
 

@@ -26,9 +26,9 @@ Commands
 
 `!!dsp prefix <prefix>`: Set AI name
 
-`!!dsp init system`: Initialize role preset
+`!!dsp init system`: Initialize AI preset
 
-`!!dsp init prefix`: Initialize role preset
+`!!dsp init prefix`: Initialize AI name
 
 `!!dsp init all`: Initialize all and clear chat history
 
