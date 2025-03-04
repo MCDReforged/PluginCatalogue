@@ -17,7 +17,7 @@ async def check(target_ids: Optional[Collection[str]]):
 
 async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
 	plugin_list = get_plugin_list(target_ids)
-	await plugin_list.fetch_data(fail_hard=False)
+	await plugin_list.fetch_data(fail_hard=False, reuse_old_on_failures=True)
 	plugin_list.store_data()
 
 
