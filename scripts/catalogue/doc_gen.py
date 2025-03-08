@@ -280,7 +280,7 @@ def generate_plugins(plugin_list: List[Plugin]):
 async def generate_doc(target_ids: Optional[Collection[str]] = None):
 	log.info('Generating doc')
 	plugin_list = get_plugin_list(target_ids)
-	await plugin_list.fetch_data(fail_hard=False)
+	await plugin_list.fetch_data(fail_hard=False, reuse_old_on_failures=True)
 	if constants.CATALOGUE_FOLDER.is_dir():
 		shutil.rmtree(constants.CATALOGUE_FOLDER)
 	os.mkdir(constants.CATALOGUE_FOLDER)
