@@ -4,6 +4,7 @@ on:
   schedule:
     # Runs at minute 15 and 45 of every hour
     - cron: '15,45 * * * *'
+  workflow_dispatch:
 
 jobs:
   update:
