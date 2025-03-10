@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "hat",
+  "authors": [
+    "shuangshun"
+  ],
+  "repository": "https://github.com/shuangshun/Hat",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "zh_cn": "# Hat\n\n[![](https://img.shields.io/github/v/release/shuangshun/Hat)](https://github.com/shuangshun/Hat/releases)\n[![](https://shields.io/github/downloads/shuangshun/Hat/total)](https://github.com/MrXiaoM/shuangshun/Hat)\n[![](https://img.shields.io/github/stars/shuangshun/Hat)](https://github.com/shuangshun/Hat)\n\n提供一个命令 `!!hat` , 允许玩家将手上的物品戴到头上\n\n------\n\n## 使用\n\n- 安装前置 [Minecraft Data API](https://github.com/Fallen-Breath/MinecraftDataAPI)\n\n- 安装 [Releases](https://github.com/shuangshun/Hat/releases/latest) 中的最新发行版\n\n- 重启服务端或使用 `!!MCDR plugin reloadall` 命令重载所有插件\n\n- 在游戏内拿着任意物品输入 `!!hat` 命令\n\n## 配置说明\n\n- `permission` 设置能够使用 `!!hat` 命令的最低权限等级\n> 仅允许输入一个整数值, 详细请看 [权限概览](https://docs.mcdreforged.com/zh-cn/latest/permission.html#overview)\n\n- `cooldown` 设置使用 `!!hat` 命令的冷却时间(单位: 秒)\n\n```json5\n{\n    \"permission\": 1, // 默认为 1 , 即普通玩家\n    \"cooldown\": 3 // 默认为 3 秒\n}\n```\n\n------\n\n> [!Note]\n> 注意! 本插件仅适用于 [1.17+](https://zh.minecraft.wiki/w/%E5%91%BD%E4%BB%A4/item#%E5%8E%86%E5%8F%B2)\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/shuangshun/Hat/main/README.md"
+  }
+}
