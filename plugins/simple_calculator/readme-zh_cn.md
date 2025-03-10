@@ -1,0 +1,38 @@
+[English](readme.md) | **中文**
+
+\>\>\> [回到索引](/readme-zh_cn.md)
+
+## simple_calculator
+
+### 基本信息
+
+- 插件 ID: `simple_calculator`
+- 版本: *数据拉取失败*
+- 总下载量: 4121
+- 作者: [Fallen_Breath](https://github.com/Fallen-Breath)
+- 仓库: https://github.com/TISUnion/Calculator
+- 仓库插件页: https://github.com/TISUnion/Calculator/tree/master
+- 标签: [`工具`](/labels/tool/readme-zh_cn.md)
+- 描述: *数据拉取失败*
+
+### 插件依赖
+
+*数据拉取失败*
+
+### 包依赖
+
+*数据拉取失败*
+
+### 介绍
+
+*Data fetching failed*
+### 下载
+
+> [!IMPORTANT]
+> 使用插件之前，先阅读仓库中的 README。
+
+| 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- | --- |
+| [SimpleCalculator-v1.2.0.mcdr](https://github.com/TISUnion/Calculator/releases/tag/v1.2.0) | 1.2.0 | 2021/08/26 13:59:56 | 15.54KB | 2699 | [下载](https://github.com/TISUnion/Calculator/releases/download/v1.2.0/SimpleCalculator-v1.2.0.mcdr) |
+| [SimpleCalculator-v1.1.0.mcdr](https://github.com/TISUnion/Calculator/releases/tag/v1.1.0) | 1.1.0 | 2021/08/21 16:39:21 | 15.5KB | 1422 | [下载](https://github.com/TISUnion/Calculator/releases/download/v1.1.0/SimpleCalculator-v1.1.0.mcdr) |
+

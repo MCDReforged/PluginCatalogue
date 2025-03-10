@@ -1,0 +1,37 @@
+[English](readme.md) | **中文**
+
+\>\>\> [回到索引](/readme-zh_cn.md)
+
+## multi_whitelist
+
+### 基本信息
+
+- 插件 ID: `multi_whitelist`
+- 版本: *数据拉取失败*
+- 总下载量: 422
+- 作者: [Ricky](https://github.com/R1ckyH)
+- 仓库: https://github.com/R1ckyH/multi_whitelist
+- 仓库插件页: https://github.com/R1ckyH/multi_whitelist/tree/master
+- 标签: [`管理`](/labels/management/readme-zh_cn.md)
+- 描述: *数据拉取失败*
+
+### 插件依赖
+
+*数据拉取失败*
+
+### 包依赖
+
+*数据拉取失败*
+
+### 介绍
+
+*数据拉取失败*
+### 下载
+
+> [!IMPORTANT]
+> 使用插件之前，先阅读仓库中的 README。
+
+| 文件 | 版本 | 上传时间 (UTC) | 大小 | 下载数 | 操作 |
+| --- | --- | --- | --- | --- | --- |
+| [multi_whitelist-3.0.0.mcdr](https://github.com/R1ckyH/multi_whitelist/releases/tag/v3.0.0) | 3.0.0 | 2021/10/26 16:12:21 | 16.99KB | 422 | [下载](https://github.com/R1ckyH/multi_whitelist/releases/download/v3.0.0/multi_whitelist-3.0.0.mcdr) |
+
