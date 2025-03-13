@@ -8,26 +8,27 @@
 </div>
 
 <p align="center">
-  <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> のプラグインを並べる倉庫です。
+  <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> のプラグインを一覧できる倉庫です。
   <br>
   <br>
-  <a href="https://mcdreforged.com/zh-CN/plugins"><strong>主要的なプラグインメニュー</strong></a>
+  <a href="https://mcdreforged.com/zh-CN/plugins"><strong>主要なプラグインリスト</strong></a>
   ·
-  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_cn.md">古いプラグインメニュー</a>
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_cn.md">旧プラグインリスト</a>
 </p>
 <br>
 
 > [!IMPORTANT]
-> **プラグインを使う前に、倉庫のREADMEを先に見ってください**
+> **プラグインを使用する前に、必ずその倉庫の README をお読みください。**
 
 <br>
 
-**主要的なプラグインメニュー** MCDReforged >=2.x のプラグインだけあります。  
-以上のURLが使えなかったら、そしてGithubで見たかったら、[ここ](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme-zh_cn.md)を見ってください。
+**主要なプラグインリスト** は MCDReforged >=2.x に対応するプラグインのみを掲載しています。  
+上記のリンクが利用できない場合、または GitHub で閲覧したい場合は、[こちら](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme-zh_cn.md) をご覧ください。
 
-**古いプラグインメニュー** 初期のプラグインがあります。
-こちらのプラグインは今のMCDRバージョンで使えませんから、ご注意ください。
+**旧プラグインリスト** には初期の MCDR プラグインが含まれています。  
+これらのプラグインは現在の MCDR バージョンでは動作しない可能性があるため、ご注意ください。
 
-如果你想添加你的插件到插件倉庫中，不妨交個 PR。查看 [文檔](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html) 和 [貢獻指南](CONTRIBUTING_zh_tw.md) 以了解更多信息
+自分のプラグインをリストに追加したい場合は、プルリクエストを作成してください。詳細については、[ドキュメント](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html) および [貢献ガイド](CONTRIBUTING_zh_tw.md) をご参照ください。
 
-你可以在 [這裡](https://github.com/MCDReforged/PluginCatalogue/tree/meta) 了解到插件倉庫提供的插件數據
+[こちら](https://github.com/MCDReforged/PluginCatalogue/tree/meta) で、プラグインカタログが提供するプラグイン情報を確認できます。
+
