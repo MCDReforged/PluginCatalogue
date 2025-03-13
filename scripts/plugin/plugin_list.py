@@ -68,7 +68,7 @@ class PluginList(List[Plugin]):
 
 		self.__fetched_stuffs.add(fetch_target_name)
 
-	async def fetch_data(self, *, fail_hard: bool, skip_release: bool = False):
+	async def fetch_data(self, *, fail_hard: bool, skip_release: bool = False, reuse_old_on_failures: bool = False):
 		log.info('Fetching data')
 
 		# fetch repos first, maybe the repos var needs some update (e.g. repos rename)
@@ -79,13 +79,29 @@ class PluginList(List[Plugin]):
 			if not skip_release:
 				tg.create_task(self.__fetch('release', lambda plg: plg.fetch_release(), fail_hard=fail_hard))
 
+		if reuse_old_on_failures:
+			self.reuse_old_data_for_plugin_failures()
+
+	def reuse_old_data_for_plugin_failures(self):
+		log.info('Loading and reusing data for fetching failures')
+		for plugin in self:
+			try:
+				plugin.load_old_request_meta()
+				plugin.load_old_meta_info()
+				plugin.load_old_release_summary()
+				plugin.load_old_repository_info()
+				plugin.reuse_old_fetch_results()
+			except Exception as e:
+				log.exception('Loading and reusing data for plugin {} failed'.format(plugin))
+				reporter.record_plugin_failure(plugin.id, 'Reuse plugin info', e)
+
 	def store_data(self):
 		log.info('Storing data into meta folder')
 
 		# prepare folder
 		if constants.META_FOLDER.is_dir():
 			# raise possible directory operation error before cleaning the meta folder content
-			old_dir = constants.META_FOLDER.parent / (constants.META_FOLDER.name + '.old')
+			old_dir = constants.META_FOLDER.with_name(constants.META_FOLDER.name + '.old')
 			os.rename(constants.META_FOLDER, old_dir)
 			shutil.rmtree(old_dir)
 		os.makedirs(constants.META_FOLDER)
@@ -111,6 +127,7 @@ class PluginList(List[Plugin]):
 				plugin.save_release_summary_if_available()
 				plugin.save_formatted_plugin_info()
 				plugin.save_repository_info_if_available()
+				plugin.save_request_meta()
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
 				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
