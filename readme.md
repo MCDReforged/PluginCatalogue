@@ -1,4 +1,4 @@
-**English** | [简中](readme_zh_cn.md) | [繁中](readme_zh_tw.md)
+**English** | [简中](readme_zh_cn.md) | [繁中](readme_zh_tw.md) | [日本語](readme_ja_jp.md)
 
 <div align="center">
 <img src="https://raw.githubusercontent.com/MCDReforged/MCDReforged/refs/heads/master/logo/images/logo_compact.svg" alt="MCDReforged Logo" />
