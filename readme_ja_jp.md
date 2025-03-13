@@ -11,9 +11,9 @@
   <a href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged</a> のプラグインを一覧できる倉庫です。
   <br>
   <br>
-  <a href="https://mcdreforged.com/zh-CN/plugins"><strong>主要なプラグインリスト</strong></a>
+  <a href="https://mcdreforged.com/zh-CN/plugins"><strong>主要なプラグイン倉庫</strong></a>
   ·
-  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_cn.md">旧プラグインリスト</a>
+  <a href="https://github.com/MCDReforged/PluginCatalogue/blob/legacy/readme_cn.md">旧プラグイン倉庫</a>
 </p>
 <br>
 
@@ -22,13 +22,13 @@
 
 <br>
 
-**主要なプラグインリスト** は MCDReforged >=2.x に対応するプラグインのみを掲載しています。  
+**主要なプラグイン倉庫** は MCDReforged >=2.x に対応するプラグインのみを掲載しています。  
 上記のリンクが利用できない場合、または GitHub で閲覧したい場合は、[こちら](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme-zh_cn.md) をご覧ください。
 
-**旧プラグインリスト** には初期の MCDR プラグインが含まれています。  
+**旧プラグイン倉庫** には初期の MCDR プラグインが含まれています。  
 これらのプラグインは現在の MCDR バージョンでは動作しない可能性があるため、ご注意ください。
 
-自分のプラグインをリストに追加したい場合は、プルリクエストを作成してください。詳細については、[ドキュメント](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html) および [貢献ガイド](CONTRIBUTING_zh_tw.md) をご参照ください。
+自分のプラグインを倉庫に追加したい場合は、プルリクエストを作成してください。詳細については、[ドキュメント](https://docs.mcdreforged.com/zh-cn/latest/plugin_dev/plugin_catalogue.html) および [貢献ガイド](CONTRIBUTING_zh_tw.md) をご参照ください。
 
 [こちら](https://github.com/MCDReforged/PluginCatalogue/tree/meta) で、プラグインカタログが提供するプラグイン情報を確認できます。
 
