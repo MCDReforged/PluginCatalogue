@@ -52,6 +52,9 @@ async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
 		reporter.record_script_end()
 		reporter.report(get_plugin_list())
 
+		from utils.request_utils import RequestClientSessionHolder
+		await RequestClientSessionHolder.get().shutdown()
+
 
 def main():
 	parser = ArgumentParser(prog='python manager', description='Plugin Catalogue Manager')
