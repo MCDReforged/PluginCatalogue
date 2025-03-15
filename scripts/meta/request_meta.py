@@ -6,7 +6,7 @@ from pydantic import Field
 from utils import date_utils
 from utils.serializer import Serializable
 
-REQUEST_META_DEFAULT_TTL = 10
+REQUEST_META_DEFAULT_TTL = 20
 
 
 def _get_github_action_id() -> Optional[int]:
