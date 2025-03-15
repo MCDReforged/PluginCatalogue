@@ -55,10 +55,17 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v41
+        uses: jitterbit/get-changed-files@v1
         with:
-          json: true
-          write_output_files: true
+          format: 'json'
+      
+      - name: Write changed files to JSON
+        run: |
+          mkdir -p .github/outputs
+          echo '${{ steps.changed-files.outputs.added }}' > .github/outputs/added_files.json
+          echo '${{ steps.changed-files.outputs.all }}' > .github/outputs/all_changed_files.json
+          echo '${{ steps.changed-files.outputs.removed }}' > .github/outputs/deleted_files.json
+        shell: bash
 
       - name: Check and Report
         run: |
