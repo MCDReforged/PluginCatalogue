@@ -55,7 +55,7 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: jitterbit/get-changed-files@v1
+        uses: lots0logs/gh-action-get-changed-files@2.2.2
         with:
           format: 'json'
       
@@ -64,7 +64,7 @@ jobs:
           mkdir -p .github/outputs
           echo '${{ steps.changed-files.outputs.added }}' > .github/outputs/added_files.json
           echo '${{ steps.changed-files.outputs.all }}' > .github/outputs/all_changed_files.json
-          echo '${{ steps.changed-files.outputs.removed }}' > .github/outputs/deleted_files.json
+          echo '${{ steps.changed-files.outputs.deleted }}' > .github/outputs/deleted_files.json
         shell: bash
 
       - name: Check and Report
