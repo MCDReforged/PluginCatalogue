@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/alex3236/just_kill_it",
+  "name": "just_kill_it",
+  "full_name": "alex3236/just_kill_it",
+  "html_url": "https://github.com/alex3236/just_kill_it",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 1,
+  "readme": "Just Kill It\n-----\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件\n\n在服务端长时间无法停止时，强制结束服务端\n\n## 配置\n\n配置文件：`config/just_kill_it/config.json`\n\n```json5\n{\n    \"stopping_pattern\": \"Stopping the server\", // 正则表达式（完全匹配）用于判断服务端是否停止\n    \"save_timeout\": 120, // 存档完毕前等待时间，超时结束服务端\n    \"saved_pattern\": \".*All dimensions are saved\", // 正则表达式（完全匹配）用于判断服务端是否存档完毕\n    \"exit_timeout\": 10 // 存档完毕后等待时间，超时结束服务端\n}\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/alex3236/just_kill_it/main/readme.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
