@@ -57,7 +57,7 @@ jobs:
         id: changed-files
         uses: lots0logs/gh-action-get-changed-files@2.2.2
         with:
-          format: 'json'
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Write changed files to JSON
         run: |
