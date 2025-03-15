@@ -110,9 +110,8 @@ logger.info('Gathering changed files')
 
 # Add, Copied, Modified, Renamed, Deleted
 added_files = set(get_changed('added_files'))  # A
-changed_files = set(get_changed('all_changed_files'))  # ACMR
 deleted_files = set(get_changed('deleted_files'))  # D
-all_files = changed_files | deleted_files  # ACMRD
+all_files = set(get_changed('all_changed_files'))  # ACMRD
 
 logger.info(f'{len(all_files)} changes found')
 
