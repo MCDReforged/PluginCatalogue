@@ -1,5 +1,5 @@
 import os
-from typing import Optional
+from typing import Optional, Dict
 
 from pydantic import Field
 
@@ -29,6 +29,7 @@ class RequestMeta(Serializable):
 		ttl: int
 		last_failure: Optional[str]
 
-	meta: Item
-	release: Item
-	repository: Item
+	introduction: Dict[str, Item] = Field(default_factory=dict)
+	meta: Optional[Item] = None
+	release: Optional[Item] = None
+	repository: Optional[Item] = None
