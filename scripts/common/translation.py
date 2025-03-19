@@ -106,6 +106,9 @@ class BundledText(Text):
 	def get_mapping(self) -> _TRANSLATION_TYPE:
 		return self.__mapping.copy()
 
+	def set(self, lang: str, msg: str) -> None:
+		self.__mapping[lang] = msg
+
 	def _key_not_found(self):
 		raise KeyError('Unknown translation key in {}'.format(repr(self)))
 

@@ -263,7 +263,7 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
         invalid_icon='⚠️'
     )
     if not latest_release:
-        warnings.append('Users could not download the plugin via the catalogue before you publish a release.')
+        warnings.append('Users could not download the plugin via the catalogue until you publish a release.')
     report += '\n'
 
     # --- PluginMeta rows --- 
