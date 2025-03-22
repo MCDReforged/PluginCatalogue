@@ -258,7 +258,7 @@ class Plugin:
 		external_introduction_langs = [lang for lang in LANGUAGES if lang in self.__plugin_info.external_introduction]
 		for lang in external_introduction_langs:
 			intro_err = self.__introduction_error.get(lang)
-			if (curr_text := self.__introduction_error.get(lang)) == self.__create_external_introduction_error_text(lang) or intro_err:
+			if (curr_text := self.__introduction.get_mapping().get(lang)) == self.__create_external_introduction_error_text(lang) or intro_err:
 				curr_text = None
 			if (prev_text := self.__old_introduction.get(lang)) == self.__create_external_introduction_error_text(lang):
 				prev_text = None
