@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "faster_transfer",
+    "name": "Faster Transfer",
+    "version": "0.1.0",
+    "link": "https://github.com/alex3236/FasterTransfer",
+    "authors": [
+      "Alex3236"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.2.0"
+    },
+    "requirements": [
+      "speedcopy"
+    ],
+    "description": {
+      "en_us": ":rocket: Make web? file transfers faster!",
+      "zh_cn": ":rocket: 让任何 MCDR 插件的网络文件传输更迅速！"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "faster_transfer",
+    "authors": [
+      "Alex3236"
+    ],
+    "repository": "https://github.com/alex3236/FasterTransfer",
+    "branch": "master",
+    "related_path": "src",
+    "labels": [
+      "tool",
+      "api"
+    ],
+    "introduction": {
+      "en_us": "Make file transfers faster!\n\n:warning: **Read README in repository before use!**\n",
+      "zh_cn": "让 **任何 MCDR 插件**，比如 QuickBackupM 的网络文件传输更迅速！\n\n:warning: **务必在使用前阅读仓库中的 README！**\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/alex3236/FasterTransfer/master/src/docs/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/alex3236/FasterTransfer/master/src/docs/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "faster_transfer",
+    "latest_version": "0.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/alex3236/FasterTransfer/releases/tag/v0.1",
+        "name": "0.1",
+        "tag_name": "v0.1",
+        "created_at": "2021-10-04T07:57:50Z",
+        "description": "## 🚀 第一次提交\r\n- 好耶！",
+        "prerelease": false,
+        "asset": {
+          "id": 46190669,
+          "name": "FasterTransfer-v0.1.0.mcdr",
+          "size": 935,
+          "download_count": 564,
+          "created_at": "2021-10-04T07:59:17Z",
+          "browser_download_url": "https://github.com/alex3236/FasterTransfer/releases/download/v0.1/FasterTransfer-v0.1.0.mcdr",
+          "hash_md5": "da5c83e1bdea71bf1beb8eebcc6af168",
+          "hash_sha256": "157261d86535461102b3f6adad8a0bf621eb917eca33f7a8e06c7959bdd063fe"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "faster_transfer",
+          "name": "Faster Transfer",
+          "version": "0.1.0",
+          "link": "https://github.com/alex3236/FasterTransfer",
+          "authors": [
+            "Alex3236"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.2.0"
+          },
+          "requirements": [
+            "speedcopy"
+          ],
+          "description": {
+            "en_us": ":rocket: Make web? file transfers faster!",
+            "zh_cn": ":rocket: 让任何 MCDR 插件的网络文件传输更迅速！"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/alex3236/FasterTransfer",
+    "name": "FasterTransfer",
+    "full_name": "alex3236/FasterTransfer",
+    "html_url": "https://github.com/alex3236/FasterTransfer",
+    "description": "A MCDR plugin",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# :rocket: FasterTransfer\n\n[![](https://pic.stackoverflow.wiki/uploadImages/117/24/20/154/2021/08/24/23/08/8cd61849-6a34-4e2d-ad3a-c6056adef05e.svg)](https://github.com/Fallen-Breath/MCDReforged)\n\n让 **任何 MCDR 插件**，比如 QuickBackupM 的网络文件传输更迅速！\n\n## :warning: 注意\n\n:earth_asia:  **此插件仅对网络传输（如备份到 NAS）的用户有效。**\n\n:gear: **此插件仅对使用 `shutil.copy*` 方法的插件有效。**\n\n:question: **理论上，此插件不会造成文件传输异常。但如果你发现其他插件出现了未知原因的文件传输异常，尝试禁用此插件。**\n\n:open_file_folder:  **只有当源文件和目标文件都在同一个 SMB1(CIFS)/2/3 文件系统上时，此插件生效。**\n\n## :door:\t\t前置\n\n- speedcopy\n\n## :page_facing_up: 使用说明\n\n1. 扔进插件文件夹\n2. `!!MCDR r plg`\n\n无需任何配置。\n\n### :stop_button: 禁用插件\n\n```plain\n!!MCDR plugin disable faster_transfer\n```\n\n### :arrow_forward:\t启用（被禁用的）插件\n\n```plain\n!!MCDR plugin enable FasterTransfer-vx.x.x.mcdr.disabled\n```\n\n## :gear: 原理\n\n使用 [speedcopy](https://github.com/antirotor/speedcopy) 库对 `shutil.copyfile` 进行补丁。speedcopy 对其的描述如下：\n\n> Patched python shutil.copyfile using native call CopyFile2 on windows to accelerate transfer on windows shares. On Linux, it issues special ioctl command CIFS_IOC_COPYCHUNK_FILE to enable server-side copy.\n\n## 🧪 测试\n\n使用 speedcopy 自带的 [benchmark.py](https://github.com/antirotor/speedcopy/blob/develop/benchmark.py) 进行测试。\n\n#### Windows 本地传输\n\n| File Size (Mb) | shutil   | speedcopy | Boost |\n| -------------- | -------- | --------- | ----- |\n| 1              | 0.001648 | 0.001188  | 1.39  |\n| 2              | 0.002469 | 0.002038  | 1.21  |\n| 4              | 0.004557 | 0.004314  | 1.06  |\n| 8              | 0.008214 | 0.007292  | 1.13  |\n| 16             | 0.014797 | 0.015179  | 0.97  |\n| 32             | 0.031783 | 0.029366  | 1.08  |\n| 64             | 0.577100 | 0.564356  | 1.02  |\n| 128            | 0.117948 | 0.110211  | 1.07  |\n| 256            | 0.289941 | 0.223379  | 1.30  |\n| 512            | 1.144847 | 1.259522  | 0.91  |\n\n#### Windows 局域网传输\n\n| File Size (Mb) | shutil    | speedcopy | Boost |\n| -------------- | --------- | --------- | ----- |\n| 1              | 0.043559  | 0.025601  | 1.70  |\n| 2              | 0.140894  | 0.068142  | 2.07  |\n| 4              | 0.317707  | 0.120199  | 2.64  |\n| 8              | 0.624333  | 0.050211  | 12.43 |\n| 16             | 1.304758  | 0.105648  | 12.35 |\n| 32             | 2.312098  | 0.066612  | 34.71 |\n| 64             | 25.437534 | 6.052502  | 4.20  |\n| 128            | 19.883221 | 0.203415  | 97.75 |\n| 256            | 63.355960 | 15.306027 | 4.14  |\n| 512            | 32.945394 | 21.032490 | 1.57  |\n\n#### Linux 本地传输\n\n| File Size (Mb) | shutil   | speedcopy | Boost |\n| -------------- | -------- | --------- | ----- |\n| 1              | 0.005928 | 0.007161  | 0.83  |\n| 2              | 0.014908 | 0.014864  | 1.00  |\n| 4              | 0.029801 | 0.029778  | 1.00  |\n| 8              | 0.060115 | 0.059993  | 1.00  |\n| 16             | 0.120967 | 0.119723  | 1.01  |\n| 32             | 0.240052 | 0.239115  | 1.00  |\n\n#### Linux 局域网传输（speedcopy 官方数据）\n\n| File Size (Mb) | shutil  | speedcopy | Boost |\n| -------------- | ------- | --------- | ----- |\n| 1              | 0.0682  | 0.0099    | 6.88  |\n| 2              | 0.0894  | 0.0105    | 8.51  |\n| 4              | 0.1337  | 0.012     | 11.14 |\n| 8              | 0.1922  | 0.0145    | 13.25 |\n| 16             | 0.2853  | 0.0193    | 14.78 |\n| 32             | 0.4724  | 0.0288    | 16.4  |\n| 64             | 8.0071  | 0.4724    | 16.94 |\n| 128            | 1.3338  | 0.2311    | 5.77  |\n| 256            | 2.6599  | 0.4788    | 5.55  |\n| 512            | 5.3798  | 0.9796    | 5.49  |\n| 1024           | 10.3328 | 2.9180    | 3.54  |\n\n### 💯 结论\n只建议使用网络文件传输（NAS 等）的用户使用。\n\n",
+    "readme_url": "https://raw.githubusercontent.com/alex3236/FasterTransfer/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

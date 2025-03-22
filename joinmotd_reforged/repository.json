@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/iXORTech/joinMOTD-Reforged",
+  "name": "joinMOTD-Reforged",
+  "full_name": "iXORTech/joinMOTD-Reforged",
+  "html_url": "https://github.com/iXORTech/joinMOTD-Reforged",
+  "description": "Yet another joinMOTD plugin for MCDReforged",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "**English** | [简体中文](https://github.com/iXORTech/joinMOTD-Reforged/tree/main/./README-zh.md)\n\n# 📝 Join MOTD Reforged\n\nYet another Join MOTD plugin for MCDR.\n\n![Built for MCDR 2.10+](https://raw.githubusercontent.com/iXORTech/joinMOTD-Reforged/main/./-BUILT%20FOR%20MCDR%202.10+-57728b.svg)\n\n## 📜 Features\n\nShow an MOTD containing an welcome message, how long the server has been opened and a sub-server list when a player joins the server.\n\n## 📖 Commands\n\n- `!!motd`: Show the MOTD and the sub-server list.\n- `!!motd reload`: Reload the configuration file.\n- `!!server`: Show the sub-server list.\n\n## ⚙️ Requirements\n\n- Python 3.9 or above (lower versions may work, but not tested)\n- MCDReforged 2.10.0 or above\n- NBTLib 2.0.0 or above\n- [DayCount NBT](https://github.com/alex3236/daycount-NBT) 2.2.1 or compatible version\n\n## 📥 Installation\n\n> [!IMPORTANT]\n> This plugin shall **ONLY** be installed on a backend server (i.e. the server connected through the proxy server like BungeeCord or Velocity)\n> and **SHALL NOT** be installed on a proxy server.\n\n1. Install NBTLib via pip:\n\n    ```shell\n    pip install nbtlib\n    ```\n\n2. Download and place [DayCount NBT](https://github.com/alex3236/daycount-NBT) plugin to MCDR plugins folder.\n3. Download and place this plugin to MCDR plugins folder.\n4. Configure this plugin in `config/joinmotd_reforged/config.json` according to the guide below.\n\n## 📖 Configuration\n\n```json5\n{\n    \"server_name\": \"Minecraft Server\", // The name of the server group.\n    \"current_server_name\": \"Survival Server\", // The name of the current connected server.\n    \"server_list\": [\n        {\n            // The name of a server in the server group. The name is the one used after the `/server` command.\n            // This is configured via proxy server configuration.\n            \"name\": \"survival\",\n            // The description of the server with the name above.\n            \"description\": \"Survival Server\"\n        },\n        {\n            // Same principle as above.\n            \"name\": \"creative\",\n            \"description\": \"Creative Server\"\n        },\n        {\n            // Same principle as above.\n            \"name\": \"mirror\",\n            \"description\": \"Mirror Server\"\n        }\n        // This list can be extended to suit your needs.\n    ],\n    \"permission\": {\n        \"motd\": 0,    // The permission level required to execute `!!motd` command.\n        \"server\": 0,  // The permission level required to execute `!!server` command.\n        \"reload\": 3   // The permission level required to execute `!!motd reload` command.\n    }\n}\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/iXORTech/joinMOTD-Reforged/main/README.md",
+  "license": {
+    "key": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "spdx_id": "AGPL-3.0",
+    "url": "https://api.github.com/licenses/agpl-3.0"
+  }
+}
