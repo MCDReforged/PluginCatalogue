@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "lbs_velocity_handler",
+    "name": "LBS Velocity Handler",
+    "version": "1.0.0",
+    "link": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.13.0-alpha.1"
+    },
+    "requirements": [
+      "mcdreforged>=2.13.0a1.dev",
+      "parse"
+    ],
+    "description": {
+      "en_us": "Better Velocity server handler",
+      "zh_cn": "更好的 Velocity 服务端处理器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "lbs_velocity_handler",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "repository": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "handler"
+    ],
+    "introduction": {
+      "en_us": "A custom Velocity server handler, that supports chat event provided by Velocity plugins",
+      "zh_cn": "一个自定义 Velocity 服务端处理器，对 Velocity 插件提供的聊天事件予以支持\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/lbs_velocity_handler/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/lbs_velocity_handler/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "lbs_velocity_handler",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR/releases/tag/1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2024-11-05T07:51:26Z",
+        "description": "Pretend to be the first release",
+        "prerelease": false,
+        "asset": {
+          "id": 204221696,
+          "name": "LBSVelocityHandler-v1.0.0.mcdr",
+          "size": 6743,
+          "download_count": 25,
+          "created_at": "2024-11-05T08:30:35Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR/releases/download/1.0.0/LBSVelocityHandler-v1.0.0.mcdr",
+          "hash_md5": "08ca696c86f1bd40e95c478d0f3d0703",
+          "hash_sha256": "b09121ba3b126776341193ff31ca49255b5955f765974a95c9aa5b20a056b175"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "lbs_velocity_handler",
+          "name": "LBS Velocity Handler",
+          "version": "1.0.0",
+          "link": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0-alpha.1"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0a1.dev",
+            "parse"
+          ],
+          "description": {
+            "en_us": "Better Velocity server handler",
+            "zh_cn": "更好的 Velocity 服务端处理器"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR",
+    "name": "LBSVelocityHandler-MCDR",
+    "full_name": "Lazy-Bing-Server/LBSVelocityHandler-MCDR",
+    "html_url": "https://github.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR",
+    "description": "An enhanced velocity handler with compatibility to VelocityMCDRCommand",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# LBS Velocity Handler\nAn enhanced velocity handler\n\n## Basic Features\n\n1. Allow MCDR to handle player chat, player chat log line format can be configured in config\n\n2. Allow ignoring or replace chat message with specified prefixes\n\n## Requirements\n\n[`parse`](https://github.com/r1chardj0n3s/parse)\n\n[`mcdreforged`](https://mcdreforged.com) >= 2.13.0-alpha.1\n\n## Usage\n\n1. Place this plugin in your MCDR plugin directory\n2. Install some Velocity plugin to print player chat to Velocity console, such as [VelocityMCDRCommand](https://github.com/Lazy-Bing-Server/MCDRCommand-Velocity/)\n3. Start MCDR\n\n## Command\n\nDefault command prefix: `!!hvl` (Can be configured in config file)\n\n`!!hvl reload` Reload handler config\n\n\n## Config\n\nConfig file path: `config/lbs_velocity_handler/config.json`\n\n1. `reload_config_prefix`\n\n   Modify this plugin config prefix\n\n   Default value: `!!hvl`\n\n\n2. `admin_permission`\n\n   Only players has this permission level or higher can run this plugin commands\n\n   Default_value: `4`\n\n\n3. `replace_prefixes_map`\n\n   Replace the prefixes defined in these keys to their corresponding values\n\n   Default value: `{\"!!MCDR\": \"!!VMCDR\", \"!!VMCDR\": \"!!MCDR\"}`\n\n   (Default value is set to avoid conflict of `!!MCDR` with MCDR on sub-servers)\n\n\n4. `ignore_prefixes`\n\n   Chat message which starts with these values will be ignored\n\n   Default value: Empty list\n\n\n5. `player_chat_log_format`\n\n   Player chat log formats which not includes Velocity regular log prefixes\n\n   Default value: `['[{server}] <{name}> {message}']`\n\n   (Default format is the same as the player chat log format of [VelocityMCDRCommand](https://github.com/Lazy-Bing-Server/MCDRCommand-Velocity/))\n",
+    "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/LBSVelocityHandler-MCDR/master/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  }
+}

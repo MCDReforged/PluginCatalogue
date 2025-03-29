@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "hooks",
+    "name": "hooks",
+    "version": "2.1.2",
+    "link": "https://github.com/OptiJava/hooks",
+    "authors": [
+      "OptiJava"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.9.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+      "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "hooks",
+    "authors": [
+      "OptiJava"
+    ],
+    "repository": "https://github.com/OptiJava/hooks",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "Provides some triggers and interfaces for various scripts, allowing MCDR to automatically trigger scripts based on certain conditions, making it more convenient to use fully automated management scripts to do various things.\n\nPursuing full automation in server management and maintenance!\n",
+      "zh_cn": "为各种脚本提供了一些触发器和接口，让mcdr自动根据某些条件触发脚本，更方便的使用全自动化管理脚本去做各种事情。\n\n追求服务器管理、维护全自动化！\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/hooks/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/hooks/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "hooks",
+    "latest_version": "2.1.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v2.1.2",
+        "name": "hooks v2.1.2",
+        "tag_name": "v2.1.2",
+        "created_at": "2024-02-07T01:46:52Z",
+        "description": "# Change Log\r\n## Fixes\r\n1.will not use deprecated method `yaml.load(...)`\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v2.1.1...v2.1.2",
+        "prerelease": false,
+        "asset": {
+          "id": 150222300,
+          "name": "hooks-v2.1.2.mcdr",
+          "size": 16567,
+          "download_count": 59,
+          "created_at": "2024-02-07T01:50:05Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v2.1.2/hooks-v2.1.2.mcdr",
+          "hash_md5": "cc1f40bda8bf7ba8d82e3ae7fbf04d53",
+          "hash_sha256": "314f516dba18323bc9bef56a2fe33248ea727e3bb4d6a1c2b190ec8825dfc4b2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "2.1.2",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.9.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v2.1.1",
+        "name": "hooks v2.1.1",
+        "tag_name": "v2.1.1",
+        "created_at": "2023-07-29T04:15:12Z",
+        "description": "# Change Log\r\n## Changes\r\n1.Ignore folder which ends with `_` when loading scripts.\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v2.1.0...v2.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 119153663,
+          "name": "hooks-v2.1.1.mcdr",
+          "size": 16521,
+          "download_count": 57,
+          "created_at": "2023-07-29T04:23:07Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v2.1.1/hooks-v2.1.1.mcdr",
+          "hash_md5": "d2b2ecd99f2d773d43e99463c24eb01e",
+          "hash_sha256": "c0c7db4ddde288ad93d3a7a85e404c3c9114aaeb75a3947fde641adfe7aadbbb"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "2.1.1",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.9.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v2.1.0",
+        "name": "hooks v2.1.0",
+        "tag_name": "v2.1.0",
+        "created_at": "2023-07-08T07:00:08Z",
+        "description": "# Change Log\r\n\r\n## Changes\r\n1.add setting debug, set it to true to print more logs\r\n2.add command run_command to run a task but don't create this task\r\n3.more suggestions!\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v2.0.2...v2.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 116083828,
+          "name": "hooks-v2.1.0.mcdr",
+          "size": 16484,
+          "download_count": 26,
+          "created_at": "2023-07-08T07:08:22Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v2.1.0/hooks-v2.1.0.mcdr",
+          "hash_md5": "ab5d0c32efc5dc8d042d4834e4d944af",
+          "hash_sha256": "a562f2c8629716fb579b0e117e3a4dbf4d70c7ea05fd10f75c9c1c7759ffa38e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "2.1.0",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.9.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v2.0.2",
+        "name": "hooks v2.0.2",
+        "tag_name": "v2.0.2",
+        "created_at": "2023-06-09T11:41:52Z",
+        "description": "# Change Log\r\n\r\n## Fix\r\n1.Fix bug: hook `on_mcdr_stopped` can't be executed\r\n2.Exception `TypeError` when execute `mcdr_command`, resolve this issue by upgrading mcdr to 2.9.0\r\n\r\n## Changes\r\n1.`python_code`: put vars just in locals   `exec(command, var_dict, {})  ->  exec(command, {}, var_dict)`\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v2.0.1...v2.0.2",
+        "prerelease": false,
+        "asset": {
+          "id": 112008671,
+          "name": "hooks-v2.0.2.mcdr",
+          "size": 13691,
+          "download_count": 25,
+          "created_at": "2023-06-09T11:55:02Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v2.0.2/hooks-v2.0.2.mcdr",
+          "hash_md5": "f8115135cc6410df15bf0c8f0d517c52",
+          "hash_sha256": "8679dd00469400fbdf10a6f9bd72bdd422aa825fe9826f9321765aa30005fcf9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "2.0.2",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.9.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v2.0.1",
+        "name": "hooks v2.0.1",
+        "tag_name": "v2.0.1",
+        "created_at": "2023-06-06T11:20:01Z",
+        "description": "# Change Log\r\n\r\n## Fix\r\n1.Fix bug: schedule task name and thread name conflict, print thread name in `!!hooks list tasks`\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v2.0.0...v2.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 111509508,
+          "name": "hooks-v2.0.1.mcdr",
+          "size": 13659,
+          "download_count": 21,
+          "created_at": "2023-06-06T11:41:48Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v2.0.1/hooks-v2.0.1.mcdr",
+          "hash_md5": "57f28516b00d364c3184d209d380f6a4",
+          "hash_sha256": "303e2785fd7dd0d738f5c8d54f995ca0b957e990603f9d368a652f5b7c8b8c0b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "2.0.1",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.8.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v2.0.0",
+        "name": "hooks v2.0.0",
+        "tag_name": "v2.0.0",
+        "created_at": "2023-06-05T10:29:46Z",
+        "description": "# Change Log\r\n\r\n## Features\r\n1.Schedule task!\r\n2.`!!hooks list scripts` list all loaded scripts\r\n\r\n## Changes\r\n1.Change script file format\r\n2.Better task list\r\n3.Requires permission level 3 to run hooks commands\r\n\r\n## Fix \r\n1.Exception when no `hooks` statement in script file\r\n2.Exception when no `tasks` statement in script file\r\n3.Print warnings when `command_file` is None\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v1.1.0...v2.0.0",
+        "prerelease": false,
+        "asset": {
+          "id": 111340181,
+          "name": "hooks-v2.0.0.mcdr",
+          "size": 13340,
+          "download_count": 20,
+          "created_at": "2023-06-05T10:46:35Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v2.0.0/hooks-v2.0.0.mcdr",
+          "hash_md5": "b2a4d1ae34e54547b2b38abc374cb028",
+          "hash_sha256": "c1e35af36bc7ce7d7b06759432e4d519be8aaf8da4b8f8636d56f53f14c5ec0b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "2.0.0",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.8.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v1.1.0",
+        "name": "hooks v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2023-05-27T12:01:25Z",
+        "description": "# Change Log\r\n\r\n## Features\r\n1.New task_type: `python_code`\r\n2.New settings: `command_file`\r\n\r\n## Fix\r\n1. mcdr_command can't be able to process vars succesfully\r\n\r\n**Full Changelog**: https://github.com/OptiJava/hooks/compare/v1.0...v1.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 110074756,
+          "name": "hooks-v1.1.0.mcdr",
+          "size": 25965,
+          "download_count": 22,
+          "created_at": "2023-05-27T12:06:27Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v1.1.0/hooks-v1.1.0.mcdr",
+          "hash_md5": "57b3f94c4749a84019909f613fb742bd",
+          "hash_sha256": "6487331096267f4746f6d8363250908211cca7c596227b008ae51a7da5a4c129"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "1.1.0",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.8.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Allow MCDR to trigger custom scripts under specific conditions.",
+            "zh_cn": "让MCDR按照指定的规则自动触发脚本，全自动执行任务"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/OptiJava/hooks/releases/tag/v1.0",
+        "name": "hooks v1.0.0",
+        "tag_name": "v1.0",
+        "created_at": "2023-05-20T10:03:42Z",
+        "description": "hopefully it works（",
+        "prerelease": false,
+        "asset": {
+          "id": 109017009,
+          "name": "hooks-v1.0.0.mcdr",
+          "size": 10156,
+          "download_count": 21,
+          "created_at": "2023-05-20T10:06:51Z",
+          "browser_download_url": "https://github.com/OptiJava/hooks/releases/download/v1.0/hooks-v1.0.0.mcdr",
+          "hash_md5": "e491c9fdef7a14d3087cd10ececc6df8",
+          "hash_sha256": "0c22fb21eee86645a63bc884d553b64d991ef28836b2e80614db46384b53a6c1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "hooks",
+          "name": "hooks",
+          "version": "1.0.0",
+          "link": "https://github.com/OptiJava/hooks",
+          "authors": [
+            "OptiJava"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Automatically run commands when server events occurred."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/OptiJava/hooks",
+    "name": "hooks",
+    "full_name": "OptiJava/hooks",
+    "html_url": "https://github.com/OptiJava/hooks",
+    "description": "A mcdr plugin that provides hooks for shell command/minecraft command/mcdr command/python command.",
+    "archived": false,
+    "stargazers_count": 5,
+    "watchers_count": 5,
+    "forks_count": 0,
+    "readme": "# hooks\n\n> 为各种脚本提供了一些触发器和接口，让mcdr自动根据某些条件触发脚本，更方便的使用全自动化管理脚本去做各种事情\n\n追求服务器管理、维护全自动化！！！ ~~其实就是懒的维护~~\n\n**_目前此插件部分功能无法在Windows上使用！如果在非posix操作系统上使用此插件，会在加载插件时收到警告。_**\n\n## 目的\n\nhooks插件可以为脚本提供一系列的“钩子”（也就是hooks），让mcdr自动根据某些条件触发脚本，还提供了许多接口，让脚本的可定制化程度更高\n\n有时，我们想要使用shell脚本管理服务器，但是不方便去让mc服务器全自动触发这些shell脚本，这个插件就是为了能更方便的使用各种脚本全自动维护/管理服务器，而无需为此特意编写一个mcdr插件，无需重复造轮子\n\n甚至还可以用这个来调试，比如说你的mcdr出bug了，此时你想查看一下`server.is_server_running()`的返回值是什么，但是编写一个插件然后`print(server.is_server_running())`太麻烦了。这时候只需要`!!hooks run_command server_command say ${server_func_is_server_running}`然后就可以看到`is_server_running()`函数的结果了\n\n总之玩法很多（\n\n## hooks脚本相比mcdr插件的优势与劣势\n\n优势：\n- 可以非常方便的热插拔各种任务以及任务被触发的条件\n- 使简单的脚本任务，编写起来更加简单，API的使用也更加简单（？\n- 原生支持多种类型的脚本，例如`shell`，使服务器管理更加方便\n\n劣势：\n- 不如mcdr插件的可扩展性高\n- 复杂的脚本任务，编写起来也更加困难，所以编写复杂的任务还不如编写mcdr插件（（\n\n## 基本用法\n\n### 几个概念\n\n1.`Task`（任务）\n\\\nTask就是一个任务，任务是可执行的（可被手动执行也可以被自动执行）。目前支持四个任务类型（task_type）`shell_command`（shell指令） `server_command`（mc指令） `mcdr_command`（mcdr命令） `python_code`（python代码）\n\n2.`Hooks`（钩子）\n\\\n插件内置了很多“钩子”，Hook是可以被触发的，一个Task可以被挂载（mount）到一个或多个Hooks下，也可以从一个hook中卸载（unmount）。一旦一个hook被触发，其下被挂载的所有Task全部会被执行（异步）。例如`on_server_started`会在mc服务端完全启动成功时被触发，其下挂载的所有任务会被异步执行\n\n3.`Mount`（挂载） `Unmount`（卸载）\n\\\n把一个`Task`挂载到一个`hook`，即代表这个`hook`被触发时，此`task`会被执行\n\n4.`Script`（脚本）\n\\\n这里说的脚本是这个插件可以识别的yaml格式的脚本文件，脚本应放在`config/hooks/scripts`文件夹中。在插件被加载时或`!!hooks reload`指令被执行时，那个文件夹及子文件夹里面的所有脚本文件全部会被加载（注意是加载不是应用）\n\n5.`Apply`（应用）\n\\\nApply和加载有区别，Apply是指：**插件创建Task、挂载Task的操作**，加载在前，应用在后\n\n手动应用就是你自己打指令`!!hooks create ...`之类的，脚本自动应用就是插件加载脚本后自动解析脚本，然后根据脚本内容自动创建task，挂载之类的\n\n两种应用方式本质上是相同的，只不过脚本自动应用手速更快（\n\n### 应用方式\n\n分为两种：手动应用和脚本自动应用\n\n#### 手动应用\n\n`!!hooks create <name> <task_type> <command>`\n\n- 创建一个任务\n\n- `name` 就是这个任务的名字\n- `task_type` 就是你要执行的脚本的类型，有以下几种选择：`shell_command`（shell脚本）、`server_command`（mc指令）、`mcdr_command`（mcdr指令）、`python_code`（python代码）\n- `command` 要执行的指令，例如`./cleanup.sh`或`echo awa`或`say hello`或`!!qb make auto_backup`（写啥指令取决于你的任务类型，注意别写错了）\n\n`!!hooks mount <task> <hook>`\n\n- 挂载一个任务到一个hook\n\n- `task` 要挂载的命令的名字\n- `hook` 要挂载到的钩子\n- 所有的合法hooks：（都是字面意思，很好理解）\n```\n    on_plugin_loaded（hooks这个插件被加载时）\n    on_plugin_unloaded（hooks这个插件被卸载时）\n\n    on_server_starting（mc服务器正在启动）\n    on_server_started（mc服务器启动成功）\n    on_server_stopped（mc服务器彻底关闭）\n    on_server_crashed（即服务器返回代码非0时触发，理论上服务器同一次关闭只会触发on_server_crashed和on_server_stopped中的其中一个）\n\n    on_mcdr_started（mcdr被启动）\n    on_mcdr_stopped（mcdr被停止）\n\n    on_player_joined\n    on_player_left\n\n    on_info（控制台info时，就是控制台输出日志时）\n    on_user_info（就是有玩家或者控制台发送了消息或mcdr指令）（这俩具体去看mcdr文档）\n```\n\n`!!hooks unmount <task> <hook>`\n\n- 从一个hook卸载一个task\n\n**注意：每一次`!!hooks reload`或者重载插件都会将所有task以及挂载信息删除，然后重新根据脚本进行应用，也就是说你手动应用的是留不住的，重载就没了，强烈建议写yaml脚本**\n\n`!!hooks schedule <name> <exec_interval> <task_type> <command>`\n\n- 创建一个定时任务\n- 定时任务就是隔一段时间执行一次的任务，每一个定时任务都会被放到一个单独的线程调度，线程名`hooks - schedule_task_daemon(<任务名>)`，可以使用`!!MCDR status`查看\n\n- `<name>`任务名字，定时任务本质上和任务一样，只不过多了执行间隔的属性\n- `<exec_interval>`执行间隔，单位秒，必须是整数\n- `<task_type>`任务类型\n- `<command>`指令\n\n#### 脚本自动应用\n\n首先要编写脚本，示例：\n``````\ntasks:  # 普通任务\n  - name: motd  # 声明task的名字，别有空格\n    task_type: shell_command  # 任务类型\n    command: date   # 要执行的指令\n    command_file: {hooks_config_path}/scripts/script.txt（脚本内容路径，如果此路径有效，插件将从command_file中读取command并执行，执行的指令即文件的所有内容（文件扩展名随意写，插件并非直接执行此文件，而是将文件内容读到内存处理后再执行）。command_file和command只用写一个，command_file如果写了command项就会被忽略）。{hooks_config_path}会被替换为hooks插件的配置文件目录，即server.get_data_folder()\n    hooks:   # 要挂载到的hook，必须是数组\n      - on_server_started\n      - on_mcdr_started\nschedule_tasks:  # 定时任务声明\n  - name: ababababa  # 名字\n    task_type: server_command  # 任务类型\n    command: say 6  # 指令\n    command_file: {hooks_config_path}/scripts/script.txt（脚本内容路径，如果此路径有效，插件将从command_file中读取command并执行，执行的指令即文件的所有内容（文件扩展名随意写，插件并非直接执行此文件，而是将文件内容读到内存处理后再执行）。command_file和command只用写一个，command_file如果写了command项就会被忽略）。{hooks_config_path}会被替换为hooks插件的配置文件目录，即server.get_data_folder()\n    hooks:\n      - on_user_info  # 定时任务也可以被挂载哟~ \n``````\n\n将其命名为`<脚本名字>.yaml`，并且放到`config/hooks/scripts`文件夹或子文件夹中（`scripts`文件夹中以`_`结尾的子文件夹会被忽略）\n\n### 其他指令\n\n`!!hooks list mount`\n- 显示挂载情况\n\n`!!hooks list task`\n- 显示所有被创建的task\n\n`!!hooks list scripts`\n- 显示所有被加载的脚本\n\n`!!hooks run <task> <env>`\n- 手动执行任务（跟挂没挂载没关系）\n- `<task>` 任务名\n- `<env>` 参数列表（具体用法往下看），必须用`json`格式\n\n`!!hooks clear`\n- 一键清除所有task（别问我有啥用\n\n## 高级用法\n\n### 获取“参数”\n\n有时，光有hook还不够，我想在执行脚本时获取服务器的信息，怎么获取？ ~~怎么感觉越来越像github actions了~~\n\n插件在触发这些脚本时，自己是知道一些包含着服务器信息的对象的，关键是如何将对象中的信息传递给脚本，不同的task_type有不同的传递方式\n\n`shell_command`：\n- 插件会把想要传递的信息放到环境变量中，假设你想执行`echo abababab`，实际上插件执行的命令是：`export xxx=xxx && export xxxx=xxxx && ... && echo abababab`\n- 注意：不同的hook传递不同类型的对象，比如`on_server_stopped`传递`server`和`return_code`两个对象，on_info传递`server`和`info`两个对象。插件会把每一个对象里面的每一个属性（函数除外）都放到各个环境变量中（除非这个对象是个基本类型，例如`on_server_stopped`的`return_code`对象），即使这个属性是一个非基本类型也会被转成str放进环境变量\n- 假设你想要访问`server`中的`mcdr`属性，那么在shell脚本中，你应该使用`$server_mcdr`访问这个属性，即`$对象名_属性名`，注意：通过这种方式无法访问函数，就算这个函数是一个无参且返回基本类型的函数也不行\n\n`server_command`：\n- 注意：不同的hook传递不同类型的对象，不同的对象有不同的属性\n- 插件在执行你指定的命令前，会对指令进行处理，例如`{$server_mcdr}`会被替换为`True`，跟shell的访问方法类似，仍然是`$对象名_属性名`访问属性，只不过多了个大括号\n\n`mcdr_command`：\n- 注意：不同的hook传递不同类型的对象\n- 跟`server_command`访问方法完全一样 ~~连代码都一样~~\n\n`python_code`：\n- 直接编写python代码即可，无需定义函数啥的\n- mcdr的所有实例、属性以及函数全都可以随意调用，在`exec()`时已经传入所有对象，例如`server`，你可以直接`server.is_server_running()`这样调用\n- 没有手动补参\n\n### “获取”函数值\n\n如果你看了mcdr源代码，你会发现，其实很多信息是要调用函数才可以获取到的，只能访问属性还不够，例如`PluginServerInterface.is_server_running()`，那怎样才能在脚本中调用无参函数并获取返回值呢？\n\n我想到的~~坏~~方法是这样的：首先在执行脚本前，先把一些关键的、常用的无参函数调用一遍，并且把他们的值缓存起来，然后把这些值绑定进入那个对象，绑定的这个属性就叫做`func_`+`函数的名字`，这样就成功的实现了函数->属性的转变。我绑定进去的这些属性会随着这个对象的其他属性一起被拆包、解析、处理然后放入对应的各个环境变量中，供脚本访问，我愿称之为“手动补参”\n\n以shell格式脚本为例：`PluginServerInterface`中有函数`is_server_running()`，你想要访问他，就需要使用`$server_func_is_server_running`访问\n\n**注意：并不是每一个对象的每一个函数的值都可以在脚本中使用**\n\n### 所有可以在脚本中访问的属性列表\n\n`server`对象：（适用于所有hooks）\n```\nserver_func_is_server_running\nserver_func_is_server_startup\nserver_func_is_rcon_running\nserver_func_get_server_pid\nserver_func_get_server_pid_all\nserver_func_get_server_information\nserver_func_get_data_folder\nserver_func_get_plugin_file_path\nserver_func_get_plugin_list\nserver_func_get_unloaded_plugin_list\nserver_func_get_disabled_plugin_list\nserver_func_get_mcdr_language\nserver_func_get_mcdr_config\n```\n\n`info`对象：（适用于`on_info``on_user_info``on_player_joined`）\n```\ninfo_id\ninfo_hour\ninfo_min\ninfo_sec\ninfo_raw_content\ninfo_content\ninfo_player\ninfo_source\ninfo_logging_level\n```\n\n`player`对象：（适用于`on_player_joined``on_player_left`）（基本类型`str`）\n\n`return_code`对象：（适用于`on_server_stopped``on_server_crashed`）（基本类型`int`）\n\n**欢迎大佬补充**\n\n粗略判定所有能访问的参数的方法：\n\n看插件源码，找到`__init__.py`，翻到最后，你会看到类似\n``````\ndef on_mcdr_start(server: PluginServerInterface):\n    trigger_hooks(Hooks.on_mcdr_started, server, {'server': process_arg_server(server)})\n``````\n这样的代码，先看函数名`on_mcdr_start`，就能大致判断这块代码负责触发`on_mcdr_started`，再看`trigger_hooks(...)`，括号里面的最后一个参数是一个`dict`，只有一个`server`键对值，说明最终脚本可以访问到的参数全都在`PluginServerInterface`类中，然后看就完了（（（（逃\n\n## 实例\n\n> 所有示例代码都在`examples`目录中\n\n### 1. 玩家非正常退出报告\n\n首先编写python代码：\n\n`config/hooks/scripts/player_connect_err_printer/script.py`\n```\nfrom mcdreforged.api.all import *\n\nif info.content.__contains__('lost connection: ') \\\n        and not info.content.endswith('Disconnected') \\\n        and not info.content.endswith('Killed'):\n    server.tell('@a', RTextList(\n        RText('检测到玩家非正常退出：', color=RColor.red),\n        RText(info.content, color=RColor.yellow).c(RAction.copy_to_clipboard, info.content).h('点击复制到剪贴板'),\n    ))\n```\n\n编写脚本声明：\n\n`config/hooks/scripts/player_connect_err_printer/player_connect_err_printer.yaml`\n```\ntasks:\n  - name: player_connect_err_printer\n    task_type: python_code\n    command_file: '{hooks_config_path}/scripts/player_connect_err_printer/script.py'\n    hooks:\n      - on_info\n```\n\n上传好脚本后，命令行输入`!!hooks reload`即可awa\n\n",
+    "readme_url": "https://raw.githubusercontent.com/OptiJava/hooks/master/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  }
+}

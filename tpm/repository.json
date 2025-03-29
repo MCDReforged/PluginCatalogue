@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/kmcsr/tpmanager_mcdr",
+  "name": "tpmanager_mcdr",
+  "full_name": "kmcsr/tpmanager_mcdr",
+  "html_url": "https://github.com/kmcsr/tpmanager_mcdr",
+  "description": "Tp commands mcdr",
+  "archived": false,
+  "stargazers_count": 10,
+  "watchers_count": 10,
+  "forks_count": 1,
+  "readme": "\n- English\n- [中文](https://github.com/kmcsr/tpmanager_mcdr/tree/master/README_zh.MD)\n\n# Tp Manager\n\n*If it's useful, please give a star :)*\n\n## Feature\n\n- Teleport between players\n- In game warp points\n\n## TODO\n\n- Linking with login_proxy?\n\n## Dependencies\n\n| ID                                       | Release Link                                 |\n| ---------------------------------------- | -------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr) | <https://github.com/kmcsr/kpi_mcdr/releases> |\n\n## Commands\n\n> [!TIP]\n> Some other plugins also registered `!!tp` as root command. To avoid conflict, you also can use `!!tpm` to replace `!!tp`\n\n| Command format                                   | Introduction                                  |\n| ------------------------------------------------ | --------------------------------------------- |\n| `!!tp help`                                      | Show help message, aka `!!tp`                 |\n| `!!tp pos <x> <y> <z>`                           | Teleport to `<x>`, `<y>`, `<z>`               |\n| `!!tp ask <name>`                                | Send an teleport request, aka `!!tpa`         |\n| `!!tp askhere <name>`                            | Send an teleport request to here, aka `!!tph` |\n| `!!tp accept`                                    | Accept the teleport request                   |\n| `!!tp reject`                                    | Reject the teleport request                   |\n| `!!tp cancel`                                    | Cancel your teleport request                  |\n| `!!tp warp <point>`                              | Teleport to the warp point, aka `!!warp`      |\n| `!!tp warps list`                                | List all warp points                          |\n| `!!tp warps add <point> <x> <y> <z> <dimension>` | Add or set a warp point                       |\n| `!!tp warps remove <point>`                      | Remove a warp point                           |\n\n## Config files\n\n#### tpm/config.json\n\n```javascript\n{\n    \"minimum_permission_level\": { // Command permissions\n        \"pos\": 2,\n        \"ask\": 1,\n        \"askhere\": 1,\n        \"accept\": 1,\n        \"reject\": 0,\n        \"cancel\": 0\n    },\n    \"teleport_cooldown\": 60, // in sec, the minimum teleport operation interval\n    \"teleport_expiration\": 10, // in sec, the teleport request expiration\n    \"teleport_commands\": [ // Command list for teleport players\n        \"say Teleporting {src} to {dst} ...\",\n        \"tp {src} {dst}\",\n    ],\n    \"teleport_xyz_command\": \"tp {name} {x} {y} {z}\" // Command for teleport position\n}\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/kmcsr/tpmanager_mcdr/master/README.MD",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
