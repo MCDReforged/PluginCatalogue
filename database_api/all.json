@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "database_api",
+    "name": "DatabaseAPI",
+    "version": "0.1.1",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/database_api",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "sqlalchemy"
+    ],
+    "description": {
+      "en_us": "Database API to access database",
+      "zh_cn": "访问数据库 API"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "database_api",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/database_api",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# DatabaseAPI\n\n> 数据库API\n> \n> 提供了数据库操作的便捷API\n\n## 环境要求\n\n### Python包\n\n- sqlalchemy\n\n## 开发文档\n\n查看 [Valut](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/database_api/../.archived/vault/vault.py) 参考使用方法\n\n提供了以下两个类:\n\n- TableBase\n- DataManager\n\n### TableBase\n\n一个数据库表的基类, 写一个你的数据库表并继承这个类来创建一张表\n\n### DataManager\n\n使用本API需要自行实例化这个类\n\n实例化: `__init__(self, file_path: str)`\n\n#### get_session\n\n获取一个数据库会话的上下文管理器, 更多信息请自行查找资料\n",
+      "zh_cn": "# DatabaseAPI\n\n> 数据库API\n> \n> 提供了数据库操作的便捷API\n\n## 环境要求\n\n### Python包\n\n- sqlalchemy\n\n## 开发文档\n\n查看 [Valut](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/database_api/../.archived/vault/vault.py) 参考使用方法\n\n提供了以下两个类:\n\n- TableBase\n- DataManager\n\n### TableBase\n\n一个数据库表的基类, 写一个你的数据库表并继承这个类来创建一张表\n\n### DataManager\n\n使用本API需要自行实例化这个类\n\n实例化: `__init__(self, file_path: str)`\n\n#### get_session\n\n获取一个数据库会话的上下文管理器, 更多信息请自行查找资料\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/database_api/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/database_api/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "database_api",
+    "latest_version": "0.1.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/database_api-v0.1.1",
+        "name": "database_api: v0.1.1",
+        "tag_name": "database_api-v0.1.1",
+        "created_at": "2022-06-30T06:30:57Z",
+        "description": "## [0.1.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/database_api-v0.1.0...database_api-v0.1.1) (2022-06-30)\n\n\n### Bug Fixes\n\n* **database_api:** ➕ add sqlalchemy to requirements ([db7123e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/db7123ef5fba2b9a206cb47f413cf39c570330e5))",
+        "prerelease": false,
+        "asset": {
+          "id": 70113270,
+          "name": "DatabaseAPI-v0.1.1.mcdr",
+          "size": 1279,
+          "download_count": 229,
+          "created_at": "2022-06-30T06:31:33Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/database_api-v0.1.1/DatabaseAPI-v0.1.1.mcdr",
+          "hash_md5": "a44b165d2814970633821fa6b6831565",
+          "hash_sha256": "79b5c7b96f5f6f439c3f125a07256f646d328d16788123c54434237aeb020c27"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "database_api",
+          "name": "DatabaseAPI",
+          "version": "0.1.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/database_api",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "sqlalchemy"
+          ],
+          "description": {
+            "en_us": "Database API to access database",
+            "zh_cn": "访问数据库 API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/database_api-v0.1.0",
+        "name": "database_api: v0.1.0",
+        "tag_name": "database_api-v0.1.0",
+        "created_at": "2022-06-30T04:16:53Z",
+        "description": "## 0.1.0 (2022-06-30)\n\n\n### Features\n\n* **database_api:** 🔖 support MCDR 2.0 ([5354048](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/53540488d0cbb7ba945b17182ac7b127753d97c8))",
+        "prerelease": false,
+        "asset": {
+          "id": 70103023,
+          "name": "DatabaseAPI-v0.1.0.mcdr",
+          "size": 1158,
+          "download_count": 92,
+          "created_at": "2022-06-30T04:17:28Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/database_api-v0.1.0/DatabaseAPI-v0.1.0.mcdr",
+          "hash_md5": "40dbd35606d56cde0363916d3a521bea",
+          "hash_sha256": "bfbb32d2fdfffff11bac8cb72dd2e51b4f84eba9be630714277925da705e9cd0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "database_api",
+          "name": "DatabaseAPI",
+          "version": "0.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/database_api",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "Database API to access database",
+            "zh_cn": "访问数据库 API"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 96,
+    "watchers_count": 96,
+    "forks_count": 54,
+    "readme": "# DatabaseAPI\n\n> 数据库API\n> \n> 提供了数据库操作的便捷API\n\n## 环境要求\n\n### Python包\n\n- sqlalchemy\n\n## 开发文档\n\n查看 [Valut](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/database_api/../.archived/vault/vault.py) 参考使用方法\n\n提供了以下两个类:\n\n- TableBase\n- DataManager\n\n### TableBase\n\n一个数据库表的基类, 写一个你的数据库表并继承这个类来创建一张表\n\n### DataManager\n\n使用本API需要自行实例化这个类\n\n实例化: `__init__(self, file_path: str)`\n\n#### get_session\n\n获取一个数据库会话的上下文管理器, 更多信息请自行查找资料\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/database_api/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

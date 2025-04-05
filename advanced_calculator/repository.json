@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "name": "MCDReforgedPlugins",
+  "full_name": "AnzhiZhang/MCDReforgedPlugins",
+  "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "description": "MCDReforged Plugins",
+  "archived": false,
+  "stargazers_count": 96,
+  "watchers_count": 96,
+  "forks_count": 54,
+  "readme": "# AdvancedCalculator\n\n> 提供游戏内多种便捷计算\n\n## 使用\n\n您可以使用 `=<expression>` 直接计算表达式，或使用 `==<count/expression>` 将物品数转换堆叠数。\n\n| 指令 | 用途 | 示例 | 结果 |\n| - | - | - | - |\n| !!calc \\<expression> | 计算表达式 | !!calc 1+1 | 1+1=2 |\n| !!calc item \\<count/expression> | 物品数转换堆叠数 | !!calc item 1794 | 1794个物品为1盒2组3个 |\n| !!calc item \\<box> \\<stack> \\<single> | 堆叠数转换物品数 | !!calc item 1 10 32 | 1盒10组32个为2400个物品 |\n| !!calc color \\<red> \\<green> \\<blue> | 10进制RGB转16进制 | !!calc color 255 0 255 | (255, 0, 255) -> #FF00FF |\n| !!calc color \\<#HEX> | 16十进制RGB转10进制 | !!calc color #00FF00 | #00FF00 -> (0, 255, 0) |\n",
+  "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/advanced_calculator/readme.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

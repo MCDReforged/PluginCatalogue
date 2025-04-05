@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/TISUnion/Here",
+  "name": "Here",
+  "full_name": "TISUnion/Here",
+  "html_url": "https://github.com/TISUnion/Here",
+  "description": "A MCDeamon plugin for broadcasting location.",
+  "archived": false,
+  "stargazers_count": 22,
+  "watchers_count": 22,
+  "forks_count": 19,
+  "readme": "Here\n-------\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 的插件\n\n适用版本：1.13 以上服务器\n\n## 命令\n\n`!!here`：显示玩家坐标并使其发光\n\n## 配置文件\n\n部分特性可由配置文件控制，默认自动生成于 `config/here.json`。\n\n修改配置文件之后需要使用`!!MCDR plg reload here`重载方可生效。\n\n`highlight_time`：整数，控制玩家是否高亮（0 即为不高亮）及高亮时长；\n\n`display_voxel_waypoint`：布尔值，为真则显示一小段文本（`[+V]`），点击以高亮坐标，Ctrl+点击以添加坐标点至 [Voxelmap](https://www.curseforge.com/minecraft/mc-mods/voxelmap)；\n\n`display_xaero_waypoint`：布尔值，为真则显示一小段文本（`[+X]`），点击以添加坐标点至 [Xaero's Minimap](https://chocolateminecraft.com/minimap2.php)；\n\n`click_to_teleport`：布尔值，为真则允许玩家点击坐标以传送到对应位置（实为放置传送命令至聊天栏，玩家回车执行，以避免非OP传送、意外传送等问题）\n\n## RCON\n\n当 MCDR 启动 rcon 时，此插件可使用 rcon 来获得玩家信息，响应更快。\n\n## 效果\n\n![example](https://raw.githubusercontent.com/TISUnion/Here/master/./img.png)\n",
+  "readme_url": "https://raw.githubusercontent.com/TISUnion/Here/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

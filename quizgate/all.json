@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "quizgate",
+    "name": "quizgate",
+    "version": "0.0.3",
+    "link": null,
+    "authors": [
+      "zhishixiang"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "websockets",
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "Automatically manage the whitelist by quizzing players.",
+      "zh_cn": "一个简单的白名单申请问卷系统，帮助新玩家在加入社区前了解服务器规则和游戏机制。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "quizgate",
+    "authors": [
+      "zhishixiang"
+    ],
+    "repository": "https://github.com/zhishixiang/QuizGate",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "A customizable quiz system to automatically manage the whitelist by quizzing players, ensuring new players understand server rules and game mechanics before joining the community.\n",
+      "zh_cn": "一个用于 Minecraft 服务器白名单申请的自定义问卷系统，帮助新玩家在加入社区前了解服务器规则和游戏机制。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/quizgate/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/quizgate/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "quizgate",
+    "latest_version": "0.0.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/zhishixiang/QuizGate/releases/tag/0.0.3",
+        "name": "0.0.3",
+        "tag_name": "0.0.3",
+        "created_at": "2024-12-12T09:10:33Z",
+        "description": "~~是的我们又改名了~~",
+        "prerelease": false,
+        "asset": {
+          "id": 212907224,
+          "name": "quizgate-0.0.3.mcdr",
+          "size": 3369,
+          "download_count": 27,
+          "created_at": "2024-12-12T15:06:10Z",
+          "browser_download_url": "https://github.com/zhishixiang/QuizGate/releases/download/0.0.3/quizgate-0.0.3.mcdr",
+          "hash_md5": "5937daa31c7fcf9b2a66c0e2cec48a7d",
+          "hash_sha256": "94d92c2c0605fe4e18322d5b6dbdbf6242150973be3eddd8438cea5f752e8069"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "quizgate",
+          "name": "quizgate",
+          "version": "0.0.3",
+          "link": null,
+          "authors": [
+            "zhishixiang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "websockets",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "一个简单的白名单申请问卷系统，帮助新玩家在加入社区前了解服务器规则和游戏机制。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/zhishixiang/QuizGate",
+    "name": "QuizGate",
+    "full_name": "zhishixiang/QuizGate",
+    "html_url": "https://github.com/zhishixiang/QuizGate",
+    "description": "通过答题自助申请mc服务器白名单",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# QuizGate\n\n## 简介\n\n想对玩家进行筛选？想防止熊孩子进村？想让玩家更熟悉你的服规？那么你一定不能错过这个插件。\n\nQuizGate是一个[MCDReforged](https://github.com/MCDReforged/MCDReforged)插件，本插件搭配指定的服务端可以让服务器管理员通过发布问卷并让玩家作答的方式自动添加白名单。\n\n## 配置方法\n\n1.安装并运行一次以生成默认配置  \n2.进入configs文件夹，找到awl.json  \n3.填写申请好的key，如果您有能力[自行搭建问卷服务器](https://github.com/zhishixiang/QuizGate-server-rust)则可修改url到自己的服务器上。  \n4.根据[示例问卷](https://github.com/zhishixiang/QuizGate-server-rust/blob/main/demo.json)的格式编写问卷并[上传](https://awl.toho.red/upload)  \n5.大功告成，再次启动服务器即可使用。\n\n为什么没地方申请key？因为页面还没做好，如果您还能看到这条消息，那么请麻烦您入群申请（\n\n## 反馈交流\n\n您可加入QQ群715519194进行交流，或者直接发送邮件至<zhishixiang@outlook.com>进行反馈。\n\n## 最后\n\n祝愿本插件能够减轻您的服务器管理负担，或增添更多丰富的玩法。  \n本插件根据MIT协议进行开源。\n",
+    "readme_url": "https://raw.githubusercontent.com/zhishixiang/QuizGate/master/README.MD",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  }
+}

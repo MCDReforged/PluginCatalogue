@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "name": "MCDReforgedPlugins",
+  "full_name": "AnzhiZhang/MCDReforgedPlugins",
+  "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "description": "MCDReforged Plugins",
+  "archived": false,
+  "stargazers_count": 96,
+  "watchers_count": 96,
+  "forks_count": 54,
+  "readme": "# MoreCommandNodes\n\n> 更多指令节点\n\n如果您想要添加更多自定义节点，欢迎提交 PR！\n\n## 节点列表\n\n```mermaid\nclassDiagram\n    class FloatsArgument\n    class Position\n    class Facing\n    class EnumeratedText\n\n    FloatsArgument : +__init__(String name, int number)\n    FloatsArgument <|-- Position\n    Position : +__init__(String name)\n    FloatsArgument <|-- Facing\n    Facing : +__init__(String name)\n\n    EnumeratedText : +__init__(String name, Type[Enum] enum_class)\n```\n\n### FloatsArgument\n\n连续的多个浮点数节点。\n\n### Position\n\n坐标节点，连续的三个浮点数。\n\n### Facing\n\n朝向节点，连续的两个浮点数。\n\n### EnumeratedText\n\n与 MCDR 的 Enumeration 类似，但是使用 Enum 的值而不是名称作为节点文本。\n",
+  "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/more_command_nodes/readme.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "mcsm_controller",
+    "name": "MCSM Controller",
+    "version": "1.0.0",
+    "link": "https://github.com/Dainsleif233/MCDR-mcsm-controller",
+    "authors": [
+      "Dainsleif"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0-alpha.1"
+    },
+    "requirements": [
+      "mcdreforged>=2.0.0a1"
+    ],
+    "description": {
+      "en_us": "Use commands to control MCSManager Instance.",
+      "zh_cn": "使用命令控制MCSM实例."
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "mcsm_controller",
+    "authors": [
+      "Dainsleif"
+    ],
+    "repository": "https://github.com/Dainsleif233/MCDR-MCSM-Controller",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# MCDR-MCSM-Controller\n\nUse commands to control MCSManager Instance.\n\n使用命令控制MCSM实例.\n\n目前支持实例的状态查询、开启、重启、停止、强制终止\n\n## 配置\n\n配置文件在`config/mcsm_controller/config.ini`\n\n    [MCSM]\n    # MCSM的api地址，例如http://demo.net/api\n    api_url = \n    #MCSM的APIKEY\n    api_key = \n    # 是否验证ssl证书，默认为false\n    verify_ssl = false\n\n    [CMD]\n    # 命令的权限等级，默认为3\n    permission = 3\n\n## 命令\n\n    !!mcsm: 欢迎\n    !!mcsm list: 列出可用节点\n    !!mcsm list <daemon_name>: 列出指定节点的实例(第一页)\n    !!mcsm list <daemon_name> <page>: 列出指定节点的实例\n    !!mcsm open <daemon_name> <instance_id>: 开启实例\n    !!mcsm stop <daemon_name> <instance_id>: 停止实例\n    !!mcsm restart <daemon_name> <instance_id>: 重启实例\n    !!mcsm kill <daemon_name> <instance_id>: 强制终止实例\n",
+      "zh_cn": "# MCDR-MCSM-Controller\n\nUse commands to control MCSManager Instance.\n\n使用命令控制MCSM实例.\n\n目前支持实例的状态查询、开启、重启、停止、强制终止\n\n## 配置\n\n配置文件在`config/mcsm_controller/config.ini`\n\n    [MCSM]\n    # MCSM的api地址，例如http://demo.net/api\n    api_url = \n    #MCSM的APIKEY\n    api_key = \n    # 是否验证ssl证书，默认为false\n    verify_ssl = false\n\n    [CMD]\n    # 命令的权限等级，默认为3\n    permission = 3\n\n## 命令\n\n    !!mcsm: 欢迎\n    !!mcsm list: 列出可用节点\n    !!mcsm list <daemon_name>: 列出指定节点的实例(第一页)\n    !!mcsm list <daemon_name> <page>: 列出指定节点的实例\n    !!mcsm open <daemon_name> <instance_id>: 开启实例\n    !!mcsm stop <daemon_name> <instance_id>: 停止实例\n    !!mcsm restart <daemon_name> <instance_id>: 重启实例\n    !!mcsm kill <daemon_name> <instance_id>: 强制终止实例\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Dainsleif233/MCDR-MCSM-Controller/master/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Dainsleif233/MCDR-MCSM-Controller/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "mcsm_controller",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Dainsleif233/MCDR-MCSM-Controller/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-02-10T05:20:40Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 227783242,
+          "name": "MCDR-MCSM-Controller-v1.0.0.mcdr",
+          "size": 18829,
+          "download_count": 9,
+          "created_at": "2025-02-10T05:29:12Z",
+          "browser_download_url": "https://github.com/Dainsleif233/MCDR-MCSM-Controller/releases/download/v1.0.0/MCDR-MCSM-Controller-v1.0.0.mcdr",
+          "hash_md5": "13884c2b5711bd117c6ab4cb9b39a1d8",
+          "hash_sha256": "cf4fbffdc4d6b624fc17ef32edce2fbde0e921a4783210b348a7423bae7fb153"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcsm_controller",
+          "name": "MCSM Controller",
+          "version": "1.0.0",
+          "link": "https://github.com/Dainsleif233/MCDR-mcsm-controller",
+          "authors": [
+            "Dainsleif"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1"
+          },
+          "requirements": [
+            "mcdreforged>=2.0.0a1"
+          ],
+          "description": {
+            "en_us": "Use commands to control MCSManager Instance.",
+            "zh_cn": "使用命令控制MCSM实例."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Dainsleif233/MCDR-MCSM-Controller",
+    "name": "MCDR-MCSM-Controller",
+    "full_name": "Dainsleif233/MCDR-MCSM-Controller",
+    "html_url": "https://github.com/Dainsleif233/MCDR-MCSM-Controller",
+    "description": "Use in-game commands to control MCSManager Instance.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# MCDR-MCSM-Controller\n\nUse commands to control MCSManager Instance.\n\n使用命令控制MCSM实例.\n\n目前支持实例的状态查询、开启、重启、停止、强制终止\n\n## 配置\n\n配置文件在`config/mcsm_controller/config.ini`\n\n    [MCSM]\n    # MCSM的api地址，例如http://demo.net/api\n    api_url = \n    #MCSM的APIKEY\n    api_key = \n    # 是否验证ssl证书，默认为false\n    verify_ssl = false\n\n    [CMD]\n    # 命令的权限等级，默认为3\n    permission = 3\n\n## 命令\n\n    !!mcsm: 欢迎\n    !!mcsm list: 列出可用节点\n    !!mcsm list <daemon_name>: 列出指定节点的实例(第一页)\n    !!mcsm list <daemon_name> <page>: 列出指定节点的实例\n    !!mcsm open <daemon_name> <instance_id>: 开启实例\n    !!mcsm stop <daemon_name> <instance_id>: 停止实例\n    !!mcsm restart <daemon_name> <instance_id>: 重启实例\n    !!mcsm kill <daemon_name> <instance_id>: 强制终止实例\n",
+    "readme_url": "https://raw.githubusercontent.com/Dainsleif233/MCDR-mcsm-controller/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

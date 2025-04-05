@@ -1,0 +1,175 @@
+{
+  "schema_version": 8,
+  "id": "region_file_updater_multi",
+  "latest_version": "1.0.3",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/tag/1.0.3",
+      "name": "v1.0.3",
+      "tag_name": "1.0.3",
+      "created_at": "2024-11-17T01:41:31Z",
+      "description": "## What's Changed\r\n* Chinese documents have been available (This should have been updated 2 months ago xD, just like the previous version)\r\n* Fixed a issue that would cause Prime Backup log parsing exception while basic log format is not matched or running with newer Python versions (#4)\r\n\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/compare/1.0.2...1.0.3",
+      "prerelease": false,
+      "asset": {
+        "id": 207045737,
+        "name": "RegionFileUpdaterMulti-v1.0.3.mcdr",
+        "size": 71438,
+        "download_count": 13,
+        "created_at": "2024-11-17T01:50:52Z",
+        "browser_download_url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/download/1.0.3/RegionFileUpdaterMulti-v1.0.3.mcdr",
+        "hash_md5": "f2ab526d3d4c1cfee7b360734cc3cc8e",
+        "hash_sha256": "5c23b89fdd2b84897883cdce95726e79d15fb116eccb6f66dad8f3619bd53554"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "region_file_updater_multi",
+        "name": "Region File Updater Multi",
+        "version": "1.0.3",
+        "link": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+        "authors": [
+          "Ra1ny_Yuki"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "mcdreforged",
+          "psutil",
+          "parse",
+          "apscheduler",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin to update region files in game from multiple locations",
+          "zh_cn": "一个从多个位置拉取 region 文件至本服存档的插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/tag/1.0.2",
+      "name": "v1.0.2",
+      "tag_name": "1.0.2",
+      "created_at": "2024-08-27T01:21:36Z",
+      "description": "This should have been released 2 months ago, but I'm lazy so this commit just kept lying in my repo for such long time xD\r\n\r\n# Fixes\r\n\r\n- Fixed a problem which could result in encoding error while extracting file from PrimeBackup databases\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/compare/1.0.1...1.0.2",
+      "prerelease": false,
+      "asset": {
+        "id": 188503099,
+        "name": "RegionFileUpdaterMulti-v1.0.2.mcdr",
+        "size": 73372,
+        "download_count": 17,
+        "created_at": "2024-08-27T01:27:28Z",
+        "browser_download_url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/download/1.0.2/RegionFileUpdaterMulti-v1.0.2.mcdr",
+        "hash_md5": "9a48e642643fc15e9465f746b865b898",
+        "hash_sha256": "30b9f09d97663920b0ab7ec3f81d841550d082b678b3e44723c6f87a4033bfa8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "region_file_updater_multi",
+        "name": "Region File Updater Multi",
+        "version": "1.0.2",
+        "link": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+        "authors": [
+          "Ra1ny_Yuki"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "mcdreforged",
+          "psutil",
+          "parse",
+          "apscheduler",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin to update region files in game from multiple locations",
+          "zh_cn": "一个从多个位置拉取 region 文件至本服存档的插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/tag/1.0.1",
+      "name": "v1.0.1",
+      "tag_name": "1.0.1",
+      "created_at": "2024-06-05T15:09:19Z",
+      "description": "- `entities` MCA files have been added to `dimension_mca_files` in `paths` section of default config files. Now provides better compatiblity to 1.19+ version.\r\n- Minecraft Data API is not a hard dependency now, but it's still required to refresh player list on plugin loaded, add or delete the region player currently in. It's still a suggested soft dependency.\r\n- Fixed a issue that help messages shows wrong plugin version.\r\n- Fixed a issue that unexpected warning will be showed when RFUMulti generate a new config file.\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/commits/1.0.1",
+      "prerelease": false,
+      "asset": {
+        "id": 172089468,
+        "name": "RegionFileUpdaterMulti-v1.0.1.mcdr",
+        "size": 70915,
+        "download_count": 30,
+        "created_at": "2024-06-05T15:20:07Z",
+        "browser_download_url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/download/1.0.1/RegionFileUpdaterMulti-v1.0.1.mcdr",
+        "hash_md5": "1029d09353d6449341f320b6507e4a00",
+        "hash_sha256": "00fc4ab212e4bceb35aa412db7e06f3ab08b01d2a0c2af1a363697973e9618bf"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "region_file_updater_multi",
+        "name": "Region File Updater Multi",
+        "version": "1.0.1",
+        "link": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+        "authors": [
+          "Ra1ny_Yuki"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "mcdreforged",
+          "psutil",
+          "parse",
+          "apscheduler"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin to update region files in game from multiple locations",
+          "zh_cn": "一个从多个位置拉取 region 文件至本服存档的插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/tag/1.0.0",
+      "name": "v1.0.0",
+      "tag_name": "1.0.0",
+      "created_at": "2024-06-04T09:16:29Z",
+      "description": "First release of RFUMulti",
+      "prerelease": false,
+      "asset": {
+        "id": 171806942,
+        "name": "RegionfileUpdaterMulti-v1.0.0.mcdr",
+        "size": 70558,
+        "download_count": 14,
+        "created_at": "2024-06-04T09:18:06Z",
+        "browser_download_url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/releases/download/1.0.0/RegionfileUpdaterMulti-v1.0.0.mcdr",
+        "hash_md5": "dfb465e65119da9a3ed56200dbf3fa8f",
+        "hash_sha256": "482d2e41a85895dccf36321a7f9f814366d7f88e7f4425e59256fead4418ea35"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "region_file_updater_multi",
+        "name": "Region file Updater Multi",
+        "version": "1.0.0",
+        "link": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+        "authors": [
+          "Ra1ny_Yuki"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "mcdreforged",
+          "psutil",
+          "parse",
+          "apscheduler"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin to update region files in game from multiple locations",
+          "zh_cn": "一个从多个位置拉取 region 文件至本服存档的插件"
+        }
+      }
+    }
+  ]
+}

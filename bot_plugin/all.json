@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "bot_plugin",
+    "name": "Bot Plugin",
+    "version": "1.1.0",
+    "link": "https://github.com/DancingSnow0517/Bot_Manager",
+    "authors": [
+      "DancingSnow"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.3.0",
+      "minecraft_data_api": ">=1.4.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "管理 carpet 机器人"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "bot_plugin",
+    "authors": [
+      "DancingSnow0517"
+    ],
+    "repository": "https://github.com/DancingSnow0517/Bot_Manager",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management",
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# A MCDR bot manager。\n\n:warning: **Read README in repository before use!**\n",
+      "zh_cn": "# 一个 MCDR bot管理器。\n\n:warning: **务必在使用前阅读仓库中的 README！**\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/DancingSnow0517/Bot_Manager/master/docs/Bot_manager.md",
+      "zh_cn": "https://raw.githubusercontent.com/DancingSnow0517/Bot_Manager/master/docs/Bot_manager-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "bot_plugin",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/DancingSnow0517/Bot_Manager/releases/tag/1.0.0",
+        "name": "Bot manager V1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2022-01-09T04:09:01Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 53525902,
+          "name": "BotPlugin-v1.0.0.mcdr",
+          "size": 17657,
+          "download_count": 856,
+          "created_at": "2022-01-09T04:38:06Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/Bot_Manager/releases/download/1.0.0/BotPlugin-v1.0.0.mcdr",
+          "hash_md5": "9c524f2166cb909794a1601e5dc8d4c0",
+          "hash_sha256": "605ef8d46a89b23b4c40292bf752d9be7c1d1f5eda3521514c9f4d61476d40f8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_plugin",
+          "name": "Bot Plugin",
+          "version": "1.0.0",
+          "link": "https://github.com/",
+          "authors": [
+            "DancingSnow"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.3.0",
+            "minecraft_data_api": ">=1.4.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "管理 carpet 机器人"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/DancingSnow0517/Bot_Manager",
+    "name": "Bot_Manager",
+    "full_name": "DancingSnow0517/Bot_Manager",
+    "html_url": "https://github.com/DancingSnow0517/Bot_Manager",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 1,
+    "readme": "# Bot Manager\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件，需要 `2.3.0` 以上\n\n依赖于fabric-carpet\n\n与FZ生存数据包有（可避让的）冲突\n\n### 命令\n\n```\n!!bot 显示本插件帮助信息\n!!bot add 添加bot\n（玩家执行时以玩家当前位置为bot生成位置，控制台执行时需指定坐标、维度和视角）\n!!bot del 删除bot\n!!bot info 查看bot详细信息\n!!bot list 查看bot列表\n!!bot move 移动bot的生成位置\n!!bot reload 重载配置文件\n!!bot rename 重命名bot，位置与命令不变\n!!bot run 运行bot的命令\n!!bot setcmd 编辑bot的命令\n!!bot setorder 编辑bot的显示顺序\n```\n\n### 配置\n\n```\n\"bots\": 储存的bot列表，默认提供一个样例bot\n\"bot_prefix\": bot的前缀，默认为无，请与fabric-carpet配置fakePlayerNamePrefix一致\n\"bot_suffix\": bot的后缀，默认为无，请与fabric-carpet配置fakePlayerNameSuffix一致\n\"display_order\": !!bot list指令中bot的顺序，可为alphabetic（名字的字典序）和numeric（自定义数值序）\n\"fz_pack_tolerate\": 与FZ生存数据包冲突的避让策略，默认为false，即不避让，保持/player指令可用\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/DancingSnow0517/Bot_Manager/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}
