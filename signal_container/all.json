@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "signal_container",
+    "name": "Signal Container",
+    "version": "1.0.1",
+    "link": "https://github.com/Lazy-Bing-Server/SingalContainer-MCDR",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "Obtain container that could output specified container"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "signal_container",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "repository": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "A MCDR plugin helps you get container that output specified redstone signal level",
+      "zh_cn": "获取输出指定红石信号强度的容器的 MCDR 插件"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/signal_container/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/signal_container/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "signal_container",
+    "latest_version": "1.0.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/releases/tag/1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "1.0.1",
+        "created_at": "2024-09-23T13:25:18Z",
+        "description": "Fixed a issue that raises ImportError when loading\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/compare/1.0.0...1.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 194368928,
+          "name": "SignalContainer-v1.0.1.mcdr",
+          "size": 11043,
+          "download_count": 13,
+          "created_at": "2024-09-23T13:26:46Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/releases/download/1.0.1/SignalContainer-v1.0.1.mcdr",
+          "hash_md5": "2b3f35bbab106646343a6777613ab994",
+          "hash_sha256": "ad495c77579af533a33765be7b59bd8d774028397cfa00b0644c6da396e464f8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "signal_container",
+          "name": "Signal Container",
+          "version": "1.0.1",
+          "link": "https://github.com/Lazy-Bing-Server/SingalContainer-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Obtain container that could output specified container"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/releases/tag/1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2024-09-23T09:18:11Z",
+        "description": "first release",
+        "prerelease": false,
+        "asset": {
+          "id": 194328985,
+          "name": "SignalContainer-v1.0.0.mcdr",
+          "size": 11053,
+          "download_count": 15,
+          "created_at": "2024-09-23T09:21:00Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/releases/download/1.0.0/SignalContainer-v1.0.0.mcdr",
+          "hash_md5": "cc7ba37271af24eb8a55585519b80712",
+          "hash_sha256": "1206dbc90bc7bfdb27a830cbbb93063be78c51f6f7141bab87ef54cb77419d9c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "signal_container",
+          "name": "Signal Container",
+          "version": "1.0.0",
+          "link": "https://github.com/Lazy-Bing-Server/SingalContainer-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Obtain container that could output specified container"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR",
+    "name": "SignalContainer-MCDR",
+    "full_name": "Lazy-Bing-Server/SignalContainer-MCDR",
+    "html_url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR",
+    "description": "Acquire the specified singal container item",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "Signal Container\n-----\n\n**English** | [中文(Chinese)](https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/tree/master/README_zh.md)\n\nA MCDR plugin helps you get container with required signal level\n\n\n# Basic Command\n\n`!!sig` Get help message\n\n`!!sig get <signal>` Get container that output specified redstone signal level\n\n`!!sig give <player> <signal> [-U]` Give someone the required container, add `-U` to use your own preference to generate the container property instead of the target player's\n\n# Customize preferences\n\nSome config items can be modified in game, and have global and personal values\n\n`!!sig cfg list` List all config items\n\n`!!sig cfg info <key>` Get config item info\n\n`!!sig cfg set <key> <value>` Set config item value for yourself\n\n`!!sig cfg set-global <key> <value>` Set config item globally\n\nAvailable in-game config items:\n\n`container_item`: Container item ID, default to barrel (`minecraft:barrel`), this only specify the id, the `max_slots` should be checked if your container has different slots count\n\n`max_slots`: Slots count that the container specified has\n\n`allow_overstack_under_15`: If this enabled, container can be filled with overstacked unstackable item in any situation\n\n`unstackable_fillings`: Set the unstackable item that will be used to fill the container\n\n`stackable_fillings`: Set the stackable item that will be used to fill the container\n\n# Plugin config\n\nPlugin config locates in `config/signal_container/config.json`\n\nPlugin config items:\n\n`permission`: If a player has lower permission level than the value in this map, the player can't execute the corresponding command\n\n`prefix`: Command prefix, default to `!!sig`, that means all the `!!sig` in the commands mentioned above can be replaced with this config value\n",
+    "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/SignalContainer-MCDR/master/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  }
+}

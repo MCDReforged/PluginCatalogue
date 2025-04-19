@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "ftp_backup",
+  "authors": [
+    "yhy-yangyang"
+  ],
+  "repository": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "zh_cn": "# MCDR-FTPBackup\n\n一个为 Minecraft 服务器提供备份与 FTP 远程同步功能的 MCDReforged 插件。\n\n---\n\n## 功能特性\n- **一键备份**：自动压缩服务器文件并支持断连保护\n- **远程同步**：将备份文件上传至远程FTP/SFTP服务器\n- **匹配编码**：自动匹配FTP服务器的编码\n- **智能清理**：保留指定数量的本地备份文件\n- **安全模式**：关闭服务器后再执行备份（可在配置文件内修改）\n- **权限管理**：可配置不同命令的权限等级\n\n---\n\n## 安装指南\n1. 将插件文件放置于 MCDR 的 `plugins` 目录\n2. 首次运行会自动生成配置文件 `config/config.json`\n3. 根据服务器环境修改配置文件（配置说明见下文）\n\n---\n\n## 配置说明\n```\n{\n  \"stop_server\": true,             // 是否在备份前停服\n  \"protocol\": \"ftp\",               // 选择协议 大小写均可\n  \"host\": \"ftp.example.com\",       // FTP/SFTP 服务器地址\n  \"port\": 21,                      // FTP/SFTP 端口\n  \"timeout\": 10                    // 超时时间  \n  \"username\": \"anonymous\",         // 登录用户名\n  \"private_key_path\": \"\",          // SFTP服务器秘钥路径\n  \"password\": \"\",                  // 登录密码\n  \"prefix\": \"!!fb\",                // 命令前缀\n  \"server_dir\": \"./server\",        // 服务器目录\n  \"keep_local_backups\": 3,         // 本地保留备份数量\n  \"required_permission\": 3,        // 操作所需权限等级\n  \"exclude_patterns\": [            // 需要排除的文件\n    \"logs\",\n    \"*.tmp\",\n    \"*.lock\"\n  ]\n}\n```\n\n---\n\n## 命令列表\n<font size=\"3\">注意:本文档假定你使用`!!fb`作为 MCDR 命令的前缀</font>\n\n- `!!fb` - 显示帮助信息\n- `!!fb test` - 测试与FTP服务器的连接\n- `!!fb make` - 创建一个备份并上传到FTP服务器\n- `!!fb inquire` - 查询备份进度\n- `!!fb reload` - 热重载配置\n---\n\n## 注意事项\n1. 首次使用前需要在`config.json`文件中修改FTP/SFTP服务器有关设置\n2. 备份完毕后会在`backups`文件夹内保留备份，保留数量可在配置文件内修改\n3. 排除的文件以unix shell风格匹配\n\n---\n\n## 许可证\n本项目基于 Apache License 2.0 发布\n\n---\n\n## 贡献\n欢迎提交 Issue 和 Pull Request！\n\n---\n\n## TODO\n- [x] 支持sftp协议\n- [ ] 添加定时备份功能\n- [x] 使用`@new_thread`实现多线程(~~不仔细看文档的后果~~)\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/yhy-yangyang/mcdr-ftpbackup/main/README.md"
+  }
+}

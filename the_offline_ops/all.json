@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "the_offline_ops",
+    "name": "The Offline ops",
+    "version": "1.1",
+    "link": "https://github.com/ltBerryshdo/the_offline_ops",
+    "authors": [
+      "ltBerryshdo"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.6.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Check the player's IP to prevent impersonation of logging into the offline server",
+      "zh_cn": "检测玩家IP以防止冒名登陆离线服务器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "the_offline_ops",
+    "authors": [
+      "ltBerryshdo"
+    ],
+    "repository": "https://github.com/ltBerryshdo/the_offline_ops",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "## :page_facing_up: Description\nCheck the player's IP to prevent impersonation of logging into the <strong><em>offline</em></strong> server<br>\n检测玩家IP以防止冒名登陆<strong><em>离线</em></strong>服务器<br>\n## :telescope: How the plugin work\nThis plugin will check player's IP when a player join the server. If the IP is NOT match the record, then kick the player and broadcast in server.<br>\n这个插件会在玩家进入服务器时检查玩家的IP地址，如果与记录不符，则将玩家踢出并全服广播<br>\n## :balloon: Lightweight, plug and play\nSimpler, lightweight, plug and play<br>\n更简单、轻量化，即插即用<br>\n## :exclamation: Warning\nOnly matches the IP address received by the server and player name, and the player original IP cannot be obtained for similar proxy connections. More details in README file<br>\n插件只匹配服务器接收到的的IP地址和玩家名，对类似代理的方式连接则没法获取玩家源IP，详见README文件<br>\n## :snake: Commands\n**All the commands need MCDR permissions at least level 2**<br>\n**所有命令都需要MCDR 2级权限**<br>\n\n| command                                      | description                                          |\n| -------------------------------------------- | ---------------------------------------------------- |\n| `!!offlineops`                               | view the commands list  查看命令列表                       |\n| `!!offlineops` `notOpsPlayerProtect`/ `nopp` | nomal player protect options  非管理员玩家保护开关             |\n| `!!offlineops` `protectPlayer`/ `pp`         | add protected player  添加受保护的玩家                       |\n| `!!offlineops` `allPlayerProtect`/ `app`     | all players protect options  全体玩家保护开关                |\n| `!!offlineops` `multi-ip`                    | get a chance to append new IP 获得追加新IP的机会             |\n| `!!offlineops` `delIP`                       | delete player's or all the IP record  清除对应或全部玩家的IP记录 |\n",
+      "zh_cn": "## :page_facing_up: Description\nCheck the player's IP to prevent impersonation of logging into the <strong><em>offline</em></strong> server<br>\n检测玩家IP以防止冒名登陆<strong><em>离线</em></strong>服务器<br>\n## :telescope: How the plugin work\nThis plugin will check player's IP when a player join the server. If the IP is NOT match the record, then kick the player and broadcast in server.<br>\n这个插件会在玩家进入服务器时检查玩家的IP地址，如果与记录不符，则将玩家踢出并全服广播<br>\n## :balloon: Lightweight, plug and play\nSimpler, lightweight, plug and play<br>\n更简单、轻量化，即插即用<br>\n## :exclamation: Warning\nOnly matches the IP address received by the server and player name, and the player original IP cannot be obtained for similar proxy connections. More details in README file<br>\n插件只匹配服务器接收到的的IP地址和玩家名，对类似代理的方式连接则没法获取玩家源IP，详见README文件<br>\n## :snake: Commands\n**All the commands need MCDR permissions at least level 2**<br>\n**所有命令都需要MCDR 2级权限**<br>\n\n| command                                      | description                                          |\n| -------------------------------------------- | ---------------------------------------------------- |\n| `!!offlineops`                               | view the commands list  查看命令列表                       |\n| `!!offlineops` `notOpsPlayerProtect`/ `nopp` | nomal player protect options  非管理员玩家保护开关             |\n| `!!offlineops` `protectPlayer`/ `pp`         | add protected player  添加受保护的玩家                       |\n| `!!offlineops` `allPlayerProtect`/ `app`     | all players protect options  全体玩家保护开关                |\n| `!!offlineops` `multi-ip`                    | get a chance to append new IP 获得追加新IP的机会             |\n| `!!offlineops` `delIP`                       | delete player's or all the IP record  清除对应或全部玩家的IP记录 |\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/ltBerryshdo/the_offline_ops/main/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/ltBerryshdo/the_offline_ops/main/introduction.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "the_offline_ops",
+    "latest_version": "1.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/ltBerryshdo/the_offline_ops/releases/tag/v1.1",
+        "name": "Update to v1.1",
+        "tag_name": "v1.1",
+        "created_at": "2023-02-04T09:53:24Z",
+        "description": "1. IP records is now in a list ---> _list()_, that means you can log in server with different IPs in different cases.\r\n2. Fix some logical mistakes.\r\n3. Add multi-ip command, use this to append IP.\r\n4. Update README and introduction files.\r\n\r\nreleased in 2/3/2023",
+        "prerelease": false,
+        "asset": {
+          "id": 94284780,
+          "name": "TheOfflineops-v1.1.mcdr",
+          "size": 5699,
+          "download_count": 348,
+          "created_at": "2023-02-04T11:32:36Z",
+          "browser_download_url": "https://github.com/ltBerryshdo/the_offline_ops/releases/download/v1.1/TheOfflineops-v1.1.mcdr",
+          "hash_md5": "5c3cbb30084affce5062fc0d0cd45a95",
+          "hash_sha256": "51034fc053ac26baec693ca4fc79a3b801e7e950139fc57b6561303ed15584d7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "the_offline_ops",
+          "name": "The Offline ops",
+          "version": "1.1",
+          "link": "https://github.com/ltBerryshdo/the_offline_ops",
+          "authors": [
+            "ltBerryshdo"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Check the player's IP to prevent impersonation of logging into the offline server",
+            "zh_cn": "检测玩家IP以防止冒名登陆离线服务器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ltBerryshdo/the_offline_ops/releases/tag/v1.0",
+        "name": "The Offline ops v1.0",
+        "tag_name": "v1.0",
+        "created_at": "2023-01-20T07:39:06Z",
+        "description": "version 1.0\r\nreleased in 1/20/2023",
+        "prerelease": false,
+        "asset": {
+          "id": 92403587,
+          "name": "TheOfflineops-v1.0.mcdr",
+          "size": 5460,
+          "download_count": 53,
+          "created_at": "2023-01-20T12:45:15Z",
+          "browser_download_url": "https://github.com/ltBerryshdo/the_offline_ops/releases/download/v1.0/TheOfflineops-v1.0.mcdr",
+          "hash_md5": "d9227d6a8689539161e344f177396dcc",
+          "hash_sha256": "e74563ecd05c517393b94fced9a53fae84ff9899e165fc9068b93c75780ac962"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "the_offline_ops",
+          "name": "The Offline ops",
+          "version": "1.0",
+          "link": "https://github.com/ltBerryshdo/the_offline_ops",
+          "authors": [
+            "ltBerryshdo"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Provides a method to protect admin and normal player's account in game server, which 'online-mode' is 'false'",
+            "zh_cn": "为未开启在线模式（正版验证）的服务器提供了管理员和普通玩家账号保护的一种方法"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/ltBerryshdo/the_offline_ops",
+    "name": "the_offline_ops",
+    "full_name": "ltBerryshdo/the_offline_ops",
+    "html_url": "https://github.com/ltBerryshdo/the_offline_ops",
+    "description": "A MCDReforged plugin. Provides a method to protect admin and normal player's account in offline game server",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 1,
+    "readme": "# the-offline-ops\nA **[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugin**<br>\nMore plugins click *[here](https://github.com/MCDReforged/PluginCatalogue)*\n\n## :page_facing_up: Description\nCheck the player's IP to prevent impersonation of logging into the <strong><em>offline</em></strong> server<br>\n检测玩家IP以防止冒名登陆<strong><em>离线</em></strong>服务器<br>\n## :telescope: How the plugin work\nThis plugin will check player's IP when a player join the server. If the IP is NOT match the record, then kick the player and broadcast in server.<br>\n这个插件会在玩家进入服务器时检查玩家的IP地址，如果与记录不符，则将玩家踢出并全服广播<br>\n![image](https://raw.githubusercontent.com/ltBerryshdo/the_offline_ops/main/image.png)\n<br>\n\nIf you don't like filling in some difficult configuration file and feel that checking the player's IP is enough, you can try this plugin<br>\n如果你不喜欢去摆弄一些让人看不懂的配置文件，并且觉得检测玩家的IP就足够的话，可以试试这个插件<br>\n<br>\n\nUse `!!offlineops` commmand to view the configuration commands and no need to change the config file by yourself<br>\n通过`!!offlineops`查看配置命令。无需动手改config文件<br>\n<br>\n\nPut the \\*.mcdr file in your MCDR plugin directories, MCDR will load it and begin to work<br>\nLightweight, plug and play<br>\n把\\*.mcdr文件丢入插件文件夹，就开始工作了<br>\n轻量化，即插即用<br>\n<br>\n\nBut if you have a higher requests for security, You can go to [Plugin Repository](https://github.com/MCDReforged/PluginCatalogue) to find plugins with higher security<br>\n但是如果你对安全性有较高的需求的话，可以去[插件仓库](https://github.com/MCDReforged/PluginCatalogue/blob/master/readme_cn.md)寻找安全性更高的插件\n## :snake: Commands\n**All the commands need MCDR permissions at least level 2**<br>\n**所有命令都需要MCDR 2级权限**<br>\n\n| command                                      | description                                          |\n| -------------------------------------------- | ---------------------------------------------------- |\n| `!!offlineops`                               | view the commands list  查看命令列表                       |\n| `!!offlineops` `notOpsPlayerProtect`/ `nopp` | nomal player protect options  非管理员玩家保护开关             |\n| `!!offlineops` `protectPlayer`/ `pp`         | add protected player  添加受保护的玩家                       |\n| `!!offlineops` `allPlayerProtect`/ `app`     | all players protect options  全体玩家保护开关                |\n| `!!offlineops` `multi-ip`                    | get a chance to append new IP 获得追加新IP的机会             |\n| `!!offlineops` `delIP`                       | delete player's or all the IP record  清除对应或全部玩家的IP记录 |\n## :wrench: Config\n``` json\n{\n    \"notOpsPlayerProtect\": true,    //nomal player protect普通玩家保护\n    \"allPlayerProtect\": false,      //all players protect所有玩家保护\n    \"protectivePlayer\": {           //protected player受保护的玩家\n        \"lightberryshdo\": [\"127.0.0.1\"]\n    }\n}\n```\n## :exclamation: Issue\nIn extreme cases (such as manually modifying the player's IP in the configuration file, etc.), the IP check may be error-prone, it is recommended to restart the plugin with the following command and try again:<br>\n有极端情况（如手动修改配置文件中玩家的IP等等）IP检查可能会出现错误，建议用以下命令将插件重启，并再次尝试：\n`!!MCDR plugin reload the_offline_ops`\n## :mag: Details\nPlayer's IP is the parsed result from the server or from the console:<br>\n玩家IP的获取是在这条服务器标准输出中获取的：\n> lightberryshdo[/127.0.0.1:54095] logged in with entity id 220 at (5.907554675563178, 64.0, 8.053519850174403)\n\nParsed code:<br>\n解析代码：\n```python\nimport re\ndef on_info(server: PluginServerInterface, info: Info):\n    if not info.is_user and re.search(r'logged in with entity id', info.content):\n        logginInfo = re.search(r'(\\w+)\\[/(\\d+.\\d+.\\d+.\\d+):(\\d+)\\] logged in with entity id', info.content)\n        if logginInfo:\n            global IPaddress\n            #playerName = logginInfo.group(1)\n            IPaddress = logginInfo.group(2)\n            #port = logginInfo.group(3)\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/ltBerryshdo/the_offline_ops/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

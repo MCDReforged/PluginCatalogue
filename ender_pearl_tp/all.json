@@ -1,0 +1,222 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "ender_pearl_tp",
+    "name": "Ender Pearl TP",
+    "version": "0.2.0",
+    "link": "https://github.com/Mooling0602/MCDRSimplePlugins",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0",
+      "minecraft_data_api": ">=1.4",
+      "more_command_nodes": ">=1.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Cost some ender pearls to teleport to anywhere!",
+      "zh_cn": "花费一定数量的末影珍珠传送到任意坐标！"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "ender_pearl_tp",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "- [中文](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/blob/main/README_zh_cn.md)\n\n# Ender Pearl TP-MCDR\nCost some ender pearls to teleport to anywhere, a xyz position, or someone.\n\nThis plugin may works fine in the server MCDR supported.\n\n## Usage\nUse `!!etp <player_name>` to teleport to someone.\n\nUse `!!etp pos <x> <y> <z>` to teleport to a xyz-like position.\n\nUse `!!etp back` to teleport back with no refunds of ender pearls you cost.\n\n## Config\nServer owners set \"cost\" to a integer num in `config/ender_pearl_tp/config.json` to decide how many ender pearls players should cost to teleport where they want.\n\nDefault \"cost\" is 4.\n",
+      "zh_cn": "- [English](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/blob/main/README.md)\n\n# Ender Pearl TP-MCDR\n花费一定数量的末影珍珠传送到任何你想去的地方，可指定到坐标或者其他玩家。\n\n本插件理论上适用于所有MCDR支持的服务端。\n\n## Usage\n使用 `!!etp <玩家名>` 以传送到其他玩家。\n> 目前使用Rcon或OnlinePlayerAPI判定玩家是否在线，若两种方法都无法检测到要传送到的目标玩家是否在线，则插件会拒绝进行传送。\n> 可能会在后续增加`!!etp confirm <玩家名>`使玩家可以强制运行传送，但仍然建议配置好MCDR环境。\n\n使用 `!!etp pos <x> <y> <z>` 以传送到指定坐标。\n\n使用 `!!etp back` 以返回传送前所在的位置，但已经花费的末影珍珠不会退还。\n\n## Config\n服主可在配置文件`config/ender_pearl_tp/config.json`中将\"cost\"设置为整数以决定玩家该花多少末影珍珠以传送到他们想去的地方。\n\n默认的花费设置为4末影珍珠。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/Ender-Pearl-TP-MCDR/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/Ender-Pearl-TP-MCDR/main/README_zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "ender_pearl_tp",
+    "latest_version": "0.2.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/tag/0.2.0",
+        "name": "v0.2.0",
+        "tag_name": "0.2.0",
+        "created_at": "2024-12-10T12:57:18Z",
+        "description": "- Add `!!etp back death` to allow player teleport to the place they died, need to enable in `config.enable_death_back` after installed and loaded plugin `death_back` (ver >=0.0.2)\r\n- 添加了`!!etp back death`以允许玩家传送到他们曾死亡的地方，需要安装并加载版本大于0.0.2的插件`death_back`并启用`config.enable_death_back`。\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/compare/0.1.1...0.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 212372080,
+          "name": "Ender-Pearl-TP-v0.2.0.mcdr",
+          "size": 24825,
+          "download_count": 45,
+          "created_at": "2024-12-10T13:04:38Z",
+          "browser_download_url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/download/0.2.0/Ender-Pearl-TP-v0.2.0.mcdr",
+          "hash_md5": "3e287e685ab5b43166c6c2573bd06196",
+          "hash_sha256": "c6ee029bf1fdf47c3f0aa7a50b4e60a13a369b421d195bdf7fbe1ac1356c09c2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ender_pearl_tp",
+          "name": "Ender Pearl TP",
+          "version": "0.2.0",
+          "link": "https://github.com/Mooling0602/MCDRSimplePlugins",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0",
+            "minecraft_data_api": ">=1.4",
+            "more_command_nodes": ">=1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Cost some ender pearls to teleport to anywhere!",
+            "zh_cn": "花费一定数量的末影珍珠传送到任意坐标！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/tag/0.1.1",
+        "name": "v0.1.1",
+        "tag_name": "0.1.1",
+        "created_at": "2024-12-07T13:16:43Z",
+        "description": "- Fix `!!etp back` will teleport you to wrong place if your dimension changed after teleport with ender pearls cost.\r\n\r\n- 修复了在所处维度发生改变时，使用`!!etp back`会传送到错误位置的问题。\r\n\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/compare/0.1.0...0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 211761192,
+          "name": "Ender-Pearl-TP-v0.1.1.mcdr",
+          "size": 16422,
+          "download_count": 7,
+          "created_at": "2024-12-07T15:30:10Z",
+          "browser_download_url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/download/0.1.1/Ender-Pearl-TP-v0.1.1.mcdr",
+          "hash_md5": "54c8380586a246a95e59fd9c58751077",
+          "hash_sha256": "d1b06366335d0aef42dfa73cd3fcc7bb36ef80d985da22dcf33342eeca767f73"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ender_pearl_tp",
+          "name": "Ender Pearl TP",
+          "version": "0.1.1",
+          "link": "https://github.com/Mooling0602/MCDRSimplePlugins",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0",
+            "minecraft_data_api": ">=1.4",
+            "more_command_nodes": ">=1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Cost some ender pearls to teleport to anywhere!",
+            "zh_cn": "花费一定数量的末影珍珠传送到任意坐标！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2024-11-21T12:23:41Z",
+        "description": "**Update to v0.1.0**\r\n- Support English and Chinese Simplified\r\n- Add player online check (when teleport to other players)\r\n- Add teleport back (`!!etp back`)\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/compare/0.0.1...0.1.0\r\n\r\n---\r\n\r\n**更新至v0.1.0**\r\n- 支持英语和简体中文\r\n- 添加玩家在线检测（传送到其他玩家时）\r\n- 添加传送回原位（`!!etp back`）\r\n\r\n**详细的变更记录**: https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/compare/0.0.1...0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 208069403,
+          "name": "Ender-Pearl-TP-v0.1.0.mcdr",
+          "size": 9042,
+          "download_count": 10,
+          "created_at": "2024-11-21T12:29:59Z",
+          "browser_download_url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/download/0.1.0/Ender-Pearl-TP-v0.1.0.mcdr",
+          "hash_md5": "c30ba2090b7b66fc3e9d298bbb372c68",
+          "hash_sha256": "0656c082f3a68f530568bd4cf9ad01b1b59daf1aed24228b30f6bf741a96bcb2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ender_pearl_tp",
+          "name": "Ender Pearl TP",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/MCDRSimplePlugins",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0",
+            "minecraft_data_api": ">=1.4",
+            "more_command_nodes": ">=1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Cost some ender pearls to teleport to anywhere!",
+            "zh_cn": "花费一定数量的末影珍珠传送到任意坐标！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2024-11-20T16:30:00Z",
+        "description": "- Init release.",
+        "prerelease": false,
+        "asset": {
+          "id": 207880563,
+          "name": "Ender-Pearl-TP-v0.0.1.mcdr",
+          "size": 1724,
+          "download_count": 3,
+          "created_at": "2024-11-20T17:35:06Z",
+          "browser_download_url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/releases/download/0.0.1/Ender-Pearl-TP-v0.0.1.mcdr",
+          "hash_md5": "f49ee2ec4000641fddf2ecd8746730fe",
+          "hash_sha256": "58f4ed7149110218908940b018dcd73ae8881836f68aadfe875eab8eb9914c1d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ender_pearl_tp",
+          "name": "Ender Pearl TP",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/MCDRSimplePlugins",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0",
+            "minecraft_data_api": ">=1.4",
+            "more_command_nodes": ">=1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Cost some ender pearls to teleport to anywhere!",
+            "zh_cn": "花费一定数量的末影珍珠传送到任意坐标！"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR",
+    "name": "Ender-Pearl-TP-MCDR",
+    "full_name": "Mooling0602/Ender-Pearl-TP-MCDR",
+    "html_url": "https://github.com/Mooling0602/Ender-Pearl-TP-MCDR",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "- [中文](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR/blob/main/README_zh_cn.md)\n\n# Ender Pearl TP-MCDR\nCost some ender pearls to teleport to anywhere, a xyz position, or someone.\n\nThis plugin may works fine in the server MCDR supported.\n\n## Usage\nUse `!!etp <player_name>` to teleport to someone.\n\nUse `!!etp pos <x> <y> <z>` to teleport to a xyz-like position.\n\nUse `!!etp back` to teleport back with no refunds of ender pearls you cost.\n\n## Config\nServer owners set \"cost\" to a integer num in `config/ender_pearl_tp/config.json` to decide how many ender pearls players should cost to teleport where they want.\n\nDefault \"cost\" is 4.\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/Ender-Pearl-TP-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

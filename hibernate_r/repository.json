@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/HIM049/MCDR_HibernateR",
+  "name": "MCDR_HibernateR",
+  "full_name": "HIM049/MCDR_HibernateR",
+  "html_url": "https://github.com/HIM049/MCDR_HibernateR",
+  "description": "一个MCDReforged插件，可以根据服务器内玩家情况自动开启或关闭服务器",
+  "archived": false,
+  "stargazers_count": 19,
+  "watchers_count": 19,
+  "forks_count": 5,
+  "readme": "# MCDR_HibernateR\n\n[English](https://github.com/HIM049/MCDR_HibernateR/tree/master/README.md) | [简体中文](https://github.com/HIM049/MCDR_HibernateR/tree/master/README_CN.md)\n\nA MCDReforged plugin. When there are no player in the server, the plugin can make it shutdown. And if someone want to visit the server, the plugin can make the server start again.\nIf you like this plugin, plesae give me a star!\n\n\n## Commends\nYou can use these commends below to control this plugin: (version >= 1.2.2)\n- Hibernate server `!!hr sleep`\n- Wakeup server `!!hr wakeup`\n- Start fakeserver `!!hr wakeup fs`\n\n## Config file comment\n**If it's the first time you use this plugin，you should make sure that `IP` and `PORT` in the file is same with your minecraft server.**\n\n- `MOTD`: The MOTD that displayed on the server list.\n- `version_text`: The text displayed on the player count position.\n- `samples`:  The text displayed when the mouse hover on `version_text`.\n- `kick_message`: The message that displayed to player who try to connect to server.\n- `server_icon`: The icon displayed on the server list.\n- `blacklist_player`: The player ignored when server try to hibernate.\n\n## Sample of blacklist\nThe `blacklist_player` in the config file can used to ingore specific players when the plugin countting. This config often used to ingnore some carpet bots.\n\nExample: `\"blacklist_player\": [\"player1\", \"player2\"]`\n\nHibernation countdown will continue even both player or any of them in server.\n\n![Sleep](https://github.com/HIM049/MCDR_HibernateR/assets/67405384/3a20a813-9bca-4e40-942c-1dbeaac225b9)\n\n## Code references\nhttps://github.com/Dark-Night-Base/Hibernate\nhttps://github.com/ZockerSK/FakeMCServer\n",
+  "readme_url": "https://raw.githubusercontent.com/HIM049/MCDR_HibernateR/master/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "ollama_chat",
+    "name": "OllamaChat",
+    "version": "1.0.0-pre2",
+    "link": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+    "authors": [
+      "xwwsdd"
+    ],
+    "dependencies": {
+      "uuid_api": ">=0.1.2"
+    },
+    "requirements": [
+      "mcdreforged",
+      "openai",
+      "requests"
+    ],
+    "description": {
+      "en_us": "Let your server chat with AI using Ollama or OpenAI",
+      "zh_cn": "让你的服务器接入 Ollama 或 OpenAI 进行AI对话"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "ollama_chat",
+    "authors": [
+      "xwwsdd"
+    ],
+    "repository": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "Some code writing techniques are inspired by reference: https://github.com/gubaiovo/MCDR_chat_with_ai\n# OllamaChat\n\n[The officially developed OllamaChat plugin MCDR version]\n\n📜 LICENSE: **GNU GPLv3** [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)\n\nA Minecraft server plugin for MCDReforged that enables players to chat with AI using either Ollama or OpenAI.\n\n## 📦 Dependencies\n- Main Dependency: [MCDReforged](https://github.com/MCDReforged/MCDReforged) v2.x\n- *Required Dependency*: [uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api) (GPLv3)\n\n## Features\n- Chat with AI in Minecraft.\n- Supports both Ollama (local) and OpenAI (API) backends.\n- Customizable AI label and setup prompts.\n- View and reset chat history.\n\n## Installation\n1. Ensure [MCDReforged](https://github.com/MCDReforged/MCDReforged) is installed on your server.\n2. Install required Python dependencies:\n   ```bash\n   pip install openai requests\n   ```\n3. Place the plugin files in the `plugins` folder of your MCDReforged server.\n4. Restart the server to generate the default configuration.\n\n## Commands\nAll commands are prefixed with `!!oc` and can only be used by players.\n\n| Command               | Description             | Example        |\n| --------------------- | ----------------------- | -------------- |\n| `!!oc guide`          | Show this command guide | `!!oc guide`   |\n| `!!oc records`        | View chat history       | `!!oc records` |\n| `!!oc reset`          | Clear chat history      | `!!oc reset`   |\n| `!!oc chat <message>` | Chat with the AI        | `!!oc chat Hi` |\n\n## Support\n- Report issues or suggest features on GitHub/[community server](https://chat.sarskin.cn/invite/iHgI6LTX)..\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/mcraftbbs/OllamaChat_MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "ollama_chat",
+    "latest_version": "1.0.0-pre2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/mcraftbbs/OllamaChat_MCDR/releases/tag/1.0.0-pre2",
+        "name": "V1.0.0-pre2",
+        "tag_name": "1.0.0-pre2",
+        "created_at": "2025-03-12T19:57:22Z",
+        "description": "V1.0.0-Pre2\r\n\r\nPreliminary changes",
+        "prerelease": false,
+        "asset": {
+          "id": 236903144,
+          "name": "ollama_chat.mcdr",
+          "size": 6529,
+          "download_count": 17,
+          "created_at": "2025-03-12T19:59:13Z",
+          "browser_download_url": "https://github.com/mcraftbbs/OllamaChat_MCDR/releases/download/1.0.0-pre2/ollama_chat.mcdr",
+          "hash_md5": "fb99cc1ef3b05392019af066656151a8",
+          "hash_sha256": "100fc832718b339f1b25ed5140b2fdde79797b3a254ed935ef921bc0b759e95d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ollama_chat",
+          "name": "OllamaChat",
+          "version": "1.0.0-pre2",
+          "link": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+          "authors": [
+            "xwwsdd"
+          ],
+          "dependencies": {
+            "uuid_api": ">=0.1.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI using Ollama or OpenAI",
+            "zh_cn": "让你的服务器接入 Ollama 或 OpenAI 进行AI对话"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/mcraftbbs/OllamaChat_MCDR/releases/tag/1.0.0-pre1",
+        "name": "V1.0.0-pre1",
+        "tag_name": "1.0.0-pre1",
+        "created_at": "2025-03-11T13:48:16Z",
+        "description": "V1.0.0-Pre1\r\n# OllamaChat Update Changelog  \r\n## 测试更新 / Test Update  \r\n**发布日期 / Release Date**: March 11, 2025  \r\n\r\n### 新功能 / New Features  \r\n- **AI名称 / AI Name**: 为插件新增AI命名功能，提升个性化体验。  \r\n  *Added AI naming functionality to the plugin, enhancing personalization.*  \r\n- **AI预设 / AI Presets**: 支持预设AI行为或配置，便于快速调整。  \r\n  *Added support for preset AI behaviors or configurations for quick adjustments.*  \r\n- **上下文显示 / Context Display**: 显示对话上下文，帮助用户追踪交互历史。  \r\n  *Added context display to show conversation history for better tracking.*  \r\n\r\n### 删除功能 / Removed Features  \r\n- **模块化启用功能 / Modular Enablement**: 本次更新移除模块化启用选项，简化插件结构。  \r\n  *Removed the modular enablement feature to streamline the plugin structure.*  \r\n\r\n### 更新说明 / Update Notes  \r\n本次更新为测试版本，基于Bukkit插件版功能进行扩展。初步测试表明插件可正常运行。尝试制作MCDR版以适配不同核心不同版本。如在使用过程中遇到任何问题，请及时通过GitHub反馈给我们，以便改进。  \r\n*This update is a test version, building upon the features of the Bukkit plugin version. Initial testing shows the plugin works as expected. An official MCDR version has been developed to support different platforms. If you encounter any issues during use, please provide feedback via GitHub promptly so we can improve.*",
+        "prerelease": false,
+        "asset": {
+          "id": 236506723,
+          "name": "ollama_chat.mcdr",
+          "size": 6781,
+          "download_count": 3,
+          "created_at": "2025-03-11T14:16:32Z",
+          "browser_download_url": "https://github.com/mcraftbbs/OllamaChat_MCDR/releases/download/1.0.0-pre1/ollama_chat.mcdr",
+          "hash_md5": "065d272d416dbabea99adf68df0cbbac",
+          "hash_sha256": "8889fd41b876c170a77b840cc767d786eeee3c4a1f03b6c2e586dc8b6a2421f1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ollama_chat",
+          "name": "OllamaChat",
+          "version": "1.0.0-pre1",
+          "link": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+          "authors": [
+            "xwwsdd"
+          ],
+          "dependencies": {
+            "uuid_api": ">=0.1.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI using Ollama or OpenAI",
+            "zh_cn": "让你的服务器接入 Ollama 或 OpenAI 进行AI对话"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+    "name": "OllamaChat_MCDR",
+    "full_name": "mcraftbbs/OllamaChat_MCDR",
+    "html_url": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+    "description": "The officially developed OllamaChat plugin MCDR version",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "Some code writing techniques are inspired by reference: https://github.com/gubaiovo/MCDR_chat_with_ai\n# OllamaChat\n\n[The officially developed OllamaChat plugin MCDR version]\n\n📜 LICENSE: **GNU GPLv3** [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)\n\nA Minecraft server plugin for MCDReforged that enables players to chat with AI using either Ollama or OpenAI.\n\n## 📦 Dependencies\n- Main Dependency: [MCDReforged](https://github.com/MCDReforged/MCDReforged) v2.x\n- *Required Dependency*: [uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api) (GPLv3)\n\n## Features\n- Chat with AI in Minecraft.\n- Supports both Ollama (local) and OpenAI (API) backends.\n- Customizable AI label and setup prompts.\n- View and reset chat history.\n\n## Installation\n1. Ensure [MCDReforged](https://github.com/MCDReforged/MCDReforged) is installed on your server.\n2. Install required Python dependencies:\n   ```bash\n   pip install openai requests\n   ```\n3. Place the plugin files in the `plugins` folder of your MCDReforged server.\n4. Restart the server to generate the default configuration.\n\n## Commands\nAll commands are prefixed with `!!oc` and can only be used by players.\n\n| Command               | Description             | Example        |\n| --------------------- | ----------------------- | -------------- |\n| `!!oc guide`          | Show this command guide | `!!oc guide`   |\n| `!!oc records`        | View chat history       | `!!oc records` |\n| `!!oc reset`          | Clear chat history      | `!!oc reset`   |\n| `!!oc chat <message>` | Chat with the AI        | `!!oc chat Hi` |\n\n## Support\n- Report issues or suggest features on GitHub/[community server](https://chat.sarskin.cn/invite/iHgI6LTX)..\n",
+    "readme_url": "https://raw.githubusercontent.com/mcraftbbs/OllamaChat_MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

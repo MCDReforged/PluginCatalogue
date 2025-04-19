@@ -1,0 +1,360 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "connect_core",
+    "name": "ConnectCore",
+    "version": "0.1.6",
+    "link": "https://github.com/zhongbai2333/ConnectCore",
+    "authors": [
+      "zhongbai233"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "cryptography>=44.0.0",
+      "mcdreforged>=2.14.4",
+      "prompt_toolkit>=3.0.50",
+      "psutil>=6.1.1",
+      "PyYAML>=6.0.2",
+      "websockets>=14.2"
+    ],
+    "description": {
+      "en_us": "Connect your Minecraft Server together and control it.",
+      "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "connect_core",
+    "authors": [
+      "zhongbai233"
+    ],
+    "repository": "https://github.com/zhongbai2333/ConnectCore",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "api",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# ConnectCore\n\nThis is a plugin for MCDReforged that can also be used independently. It allows you to set up your server as a plugin control group, primarily used for communication between plugins across different sub-servers, such as providing APIs and communication support for cross-server chat. It offers high security and easy configuration, making it suitable for various server environments.\n\nEnglish | [简中](https://github.com/zhongbai2333/ConnectCore/tree/master/README_zh.md)\n\n## Usage\n\n### Standalone Usage\n\n1. Place the `ConnectCore.pyz` file in an empty folder.\n2. Run the following command in the terminal:\n   `python ConnectCore.pyz server` or `python ConnectCore.pyz client` to start the server or client.\n3. Follow the prompts to configure.\n\n### Usage as an MCDR Plugin\n\n1. Place the `ConnectCore.pyz` file in the MCDR plugin directory (usually the `plugins` folder).\n2. Start the MCDR server, then use the `!!connectcore init` command to enable the initialization process.\n3. Follow the prompts to configure.\n\n## Development\n\n- A detailed English development documentation can be found on the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki/%5BDevelop%5D-API).\n- For sample plugins, please visit [ExamplePlugin](https://github.com/zhongbai2333/ExamplePlugin).\n\n## Notes\n\n- Ensure that your server and client can properly connect to the network.\n- A group of servers has only one server-side instance, but multiple clients can connect.\n- If you encounter any issues, please refer to the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki) or contact the developer.\n",
+      "zh_cn": "# ConnetCore\n\n这是一个MCDReforged的前置插件，也可以独立使用，用于将你的服务器建立成插件控制群组，主要用于子服务器间插件的通信，比如为跨服聊天提供API和通信支持。拥有较高的安全性和简易的配置，适合各种服务器环境。\n\n[English](https://github.com/zhongbai2333/ConnectCore/tree/master/README.md) | 简中\n\n## 使用方法\n\n### 独立使用\n\n1. 将`ConnectCore.pyz`文件放在一个空文件夹内。\n2. 在命令行中运行以下命令：\n   `python ConnectCore.pyz server` 或者 `python ConnectCore.pyz client` 以启服务端或客户端。\n3. 根据提示进行配置。\n\n### 作为MCDR插件使用\n\n1. 将`ConnectCore.pyz`文件放在MCDR的插件目录内（通常是`plugins`文件夹）。\n2. 启动MCDR服务器，然后使用`!!connectcore init`命令来启用初始化程序。\n3. 根据提示进行配置。\n\n## 开发\n\n- 详细的中文开发文档可以在[DOCS](https://github.com/zhongbai2333/ConnectCore/tree/master/doc)中找到。\n- 样例插件请前往[ExamplePlugin](https://github.com/zhongbai2333/ExamplePlugin)\n\n## 注意事项\n\n- 确保你的服务器和客户端能够正确连接到网络。\n- 一组服务器只有一个服务端，可以有多个客户端\n- 如果你遇到任何问题，请查看插件的[WIKI](https://github.com/zhongbai2333/ConnectCore/wiki)或联系开发者。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/zhongbai2333/ConnectCore/master/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/zhongbai2333/ConnectCore/master/README_zh.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "connect_core",
+    "latest_version": "0.1.6",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.6",
+        "name": "ConnectCore v0.1.6",
+        "tag_name": "v0.1.6",
+        "created_at": "2025-02-07T08:20:46Z",
+        "description": "## What's Changed\r\n* 修复：#26 'websocket_server' 没有被定义\r\n* 修复：#27 await websocket.close(reason=\"401\") 调用的close是其他loop的\r\n* 更新：#23 将PluginServerInterface接口可以被PluginControlInterface调用\r\n* PR：Fix: #26 and #27; Preparing to release v0.1.6 by @zhongbai2333 in https://github.com/zhongbai2333/ConnectCore/pull/28\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/compare/v0.1.5...v0.1.6",
+        "prerelease": false,
+        "asset": {
+          "id": 227110592,
+          "name": "ConnectCore-v0.1.6.pyz",
+          "size": 54894,
+          "download_count": 13,
+          "created_at": "2025-02-07T08:21:06Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.6/ConnectCore-v0.1.6.pyz",
+          "hash_md5": "2acffd38d6591928f6820e8ad84e0337",
+          "hash_sha256": "3bc0cb2a231e5a418b64bf38c7c0378c4145a0ac57e790418ccf0159775fcd1e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.6",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography>=44.0.0",
+            "mcdreforged>=2.14.4",
+            "prompt_toolkit>=3.0.50",
+            "psutil>=6.1.1",
+            "PyYAML>=6.0.2",
+            "websockets>=14.2"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.5",
+        "name": "ConnectCore v0.1.5",
+        "tag_name": "v0.1.5",
+        "created_at": "2025-02-06T15:15:26Z",
+        "description": "## What's Changed\r\n* 删除：[Excess code](https://github.com/zhongbai2333/ConnectCore/commit/bdb4dd1001d0c094675a7fe2d3900c3c08368fd0)\r\n* 新增：[Create:](https://github.com/zhongbai2333/ConnectCore/commit/1f300e6989018d3b22c3607d267f4bd19d56a215) https://github.com/zhongbai2333/ConnectCore/issues/16 [get_server_id 在服务端模式时可以返回 “-----”](https://github.com/zhongbai2333/ConnectCore/commit/1f300e6989018d3b22c3607d267f4bd19d56a215)\r\n* 修复：[Fix](https://github.com/zhongbai2333/ConnectCore/commit/355c46ea9cc65d2eba214bee9e8be7de6883f8a8)[:](https://github.com/zhongbai2333/ConnectCore/commit/355c46ea9cc65d2eba214bee9e8be7de6883f8a8) https://github.com/zhongbai2333/ConnectCore/issues/17 [Server 在 有子服务器断开连接时 错误的触发了插件接口 disconnect](https://github.com/zhongbai2333/ConnectCore/commit/355c46ea9cc65d2eba214bee9e8be7de6883f8a8)\r\n* 更新：[Update:](https://github.com/zhongbai2333/ConnectCore/commit/bd3ea32c55547d7d5358a8f57f4f8b85913d99ee) https://github.com/zhongbai2333/ConnectCore/issues/18 [获取config的时候添加默认项检测](https://github.com/zhongbai2333/ConnectCore/commit/bd3ea32c55547d7d5358a8f57f4f8b85913d99ee)\r\n* 修复：RuntimeWarning: coroutine 'WebsocketClient.send_data_to_other_server' was never awaited #19 \r\n* 修复：Connect触发器触发过早 #20 \r\n* 修复：AttributeError: 'NoneType' object has no attribute 'finish_close' #21 \r\n* 修复：KeyError: 'all' #22 \r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/compare/v0.1.4...v0.1.5",
+        "prerelease": false,
+        "asset": {
+          "id": 226883533,
+          "name": "ConnectCore-v0.1.5.pyz",
+          "size": 54861,
+          "download_count": 2,
+          "created_at": "2025-02-06T15:15:40Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.5/ConnectCore-v0.1.5.pyz",
+          "hash_md5": "aaf2e7507625603f878d7b7825172f33",
+          "hash_sha256": "e5b2921de203d86c0c9745b2eb0df2b63021dd82136a4ee9a49e25aec7822179"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.5",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography>=44.0.0",
+            "mcdreforged>=2.14.4",
+            "prompt_toolkit>=3.0.50",
+            "psutil>=6.1.1",
+            "PyYAML>=6.0.2",
+            "websockets>=14.2"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.4",
+        "name": "ConnectCore v0.1.4",
+        "tag_name": "v0.1.4",
+        "created_at": "2025-02-04T14:43:57Z",
+        "description": "## What's Changed\r\n* 增加：#3 独立模式任需要更多基础命令，包括Plugin，list，info等等\r\n* 修复：#13 独立版本命令无法执行\r\n* 修复：#14 独立版本加载插件时会出现冲突 \r\n* PR： https://github.com/zhongbai2333/ConnectCore/pull/15 by @zhongbai2333\r\n\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/compare/v0.1.3...v0.1.4",
+        "prerelease": false,
+        "asset": {
+          "id": 226196434,
+          "name": "ConnectCore-v0.1.4.pyz",
+          "size": 54578,
+          "download_count": 5,
+          "created_at": "2025-02-04T14:44:35Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.4/ConnectCore-v0.1.4.pyz",
+          "hash_md5": "94a217550f5f295527b72ee31fb63e76",
+          "hash_sha256": "fdf5afd59f3a8fe6e5c0758a723283b45e9015a62e01f89d6c603f7214f94495"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.4",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography>=44.0.0",
+            "mcdreforged>=2.14.4",
+            "prompt_toolkit>=3.0.50",
+            "psutil>=6.1.1",
+            "PyYAML>=6.0.2",
+            "websockets>=14.2"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.3",
+        "name": "ConnectCore v0.1.3",
+        "tag_name": "v0.1.3",
+        "created_at": "2025-02-04T07:23:37Z",
+        "description": "## What's Changed\r\n* Create: #7 Permisson Config; Fix: #8 , #9 , #10 by @zhongbai2333 in https://github.com/zhongbai2333/ConnectCore/pull/11\r\n\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/compare/v0.1.2...v0.1.3",
+        "prerelease": false,
+        "asset": {
+          "id": 226098239,
+          "name": "ConnectCore-v0.1.3.pyz",
+          "size": 53922,
+          "download_count": 2,
+          "created_at": "2025-02-04T07:24:02Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.3/ConnectCore-v0.1.3.pyz",
+          "hash_md5": "f1a13338a1f3b33243a4621e5f6c8949",
+          "hash_sha256": "8a67dfa1f205ade280474b56978e3b8ffbcd2d4d46d9176897a15a93c0d8b4e4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.3",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography>=44.0.0",
+            "mcdreforged>=2.14.4",
+            "prompt_toolkit>=3.0.50",
+            "psutil>=6.1.1",
+            "PyYAML>=6.0.2",
+            "websockets>=14.2"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.2",
+        "name": "ConnectCore v0.1.2",
+        "tag_name": "v0.1.2",
+        "created_at": "2025-02-04T01:30:00Z",
+        "description": "## What's Changed\r\n* Fix: #1 ; Create: #2 by @zhongbai2333 in https://github.com/zhongbai2333/ConnectCore/pull/5\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/compare/v0.1.1...v0.1.2",
+        "prerelease": false,
+        "asset": {
+          "id": 226036472,
+          "name": "ConnectCore-v0.1.2.pyz",
+          "size": 52354,
+          "download_count": 2,
+          "created_at": "2025-02-04T01:30:25Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.2/ConnectCore-v0.1.2.pyz",
+          "hash_md5": "c6e9349d2a8dc07dbdc7a4858da30637",
+          "hash_sha256": "7123ac91848a91fc8d6e1d0b5e3a0a23daf21cd837ae786360c10e3287fb6f8d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.2",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography>=44.0.0",
+            "mcdreforged>=2.14.4",
+            "prompt_toolkit>=3.0.50",
+            "psutil>=6.1.1",
+            "PyYAML>=6.0.2",
+            "websockets>=14.2"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.1",
+        "name": "ConnectCore v0.1.1",
+        "tag_name": "v0.1.1",
+        "created_at": "2025-02-03T15:25:12Z",
+        "description": "## What's Changed\r\n* 增加：命令行核心\r\n* 增加：API文档\r\n* 增加：README & WIKI\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/compare/v0.1.0...v0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 225905174,
+          "name": "ConnectCore-v0.1.1.pyz",
+          "size": 51791,
+          "download_count": 2,
+          "created_at": "2025-02-03T15:25:34Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.1/ConnectCore-v0.1.1.pyz",
+          "hash_md5": "59430a7aab52501c1ca796d26b1ce6c3",
+          "hash_sha256": "c4374423a0213ee6bf5c2207b034e6dc0848f7e03bec729c8ffd05527331f84d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.1",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography>=44.0.0",
+            "mcdreforged>=2.14.4",
+            "prompt_toolkit>=3.0.50",
+            "psutil>=6.1.1",
+            "PyYAML>=6.0.2",
+            "websockets>=14.2"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/ConnectCore/releases/tag/v0.1.0",
+        "name": "ConnectCore v0.1.0",
+        "tag_name": "v0.1.0",
+        "created_at": "2025-01-26T02:57:40Z",
+        "description": "已完成开发工作，发布Beta测试版本\r\n此版本为第一个发布版本\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/ConnectCore/commits/v0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 223537758,
+          "name": "ConnectCore-v0.1.0.pyz",
+          "size": 49105,
+          "download_count": 6,
+          "created_at": "2025-01-26T02:57:59Z",
+          "browser_download_url": "https://github.com/zhongbai2333/ConnectCore/releases/download/v0.1.0/ConnectCore-v0.1.0.pyz",
+          "hash_md5": "15289ef28fbdc3e41d23acaa95cce005",
+          "hash_sha256": "c0074d48ccf5d57e25ceecaf47859809eae5a0cd5d5d0304448a3d9795cacd46"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "connect_core",
+          "name": "ConnectCore",
+          "version": "0.1.0",
+          "link": "https://github.com/zhongbai2333/ConnectCore",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "websockets>=12.0",
+            "pyyaml>=6.0.1",
+            "requests>=2.32.3",
+            "cryptography>=42.0.8"
+          ],
+          "description": {
+            "en_us": "Connect your Minecraft Server together and control it.",
+            "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/zhongbai2333/ConnectCore",
+    "name": "ConnectCore",
+    "full_name": "zhongbai2333/ConnectCore",
+    "html_url": "https://github.com/zhongbai2333/ConnectCore",
+    "description": "Establish a secure link between servers. Support independent use and use as MCDR plugin. Support loading sub plugins and working as pre plugins.",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "# ConnectCore\n\nThis is a plugin for MCDReforged that can also be used independently. It allows you to set up your server as a plugin control group, primarily used for communication between plugins across different sub-servers, such as providing APIs and communication support for cross-server chat. It offers high security and easy configuration, making it suitable for various server environments.\n\nEnglish | [简中](https://github.com/zhongbai2333/ConnectCore/tree/master/README_zh.md)\n\n## Usage\n\n### Standalone Usage\n\n1. Place the `ConnectCore.pyz` file in an empty folder.\n2. Run the following command in the terminal:\n   `python ConnectCore.pyz server` or `python ConnectCore.pyz client` to start the server or client.\n3. Follow the prompts to configure.\n\n### Usage as an MCDR Plugin\n\n1. Place the `ConnectCore.pyz` file in the MCDR plugin directory (usually the `plugins` folder).\n2. Start the MCDR server, then use the `!!connectcore init` command to enable the initialization process.\n3. Follow the prompts to configure.\n\n## Development\n\n- A detailed English development documentation can be found on the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki/%5BDevelop%5D-API).\n- For sample plugins, please visit [ExamplePlugin](https://github.com/zhongbai2333/ExamplePlugin).\n\n## Notes\n\n- Ensure that your server and client can properly connect to the network.\n- A group of servers has only one server-side instance, but multiple clients can connect.\n- If you encounter any issues, please refer to the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki) or contact the developer.\n",
+    "readme_url": "https://raw.githubusercontent.com/zhongbai2333/ConnectCore/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

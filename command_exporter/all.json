@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "command_exporter",
+    "name": "MCDR Command Exporter",
+    "version": "1.2.0",
+    "link": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+    "authors": [
+      "DancingSnow"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.7.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "A plugin is used to export the MCDR command tree"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "command_exporter",
+    "authors": [
+      "DancingSnow"
+    ],
+    "repository": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+    "branch": "master",
+    "related_path": "command_exporter",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "English | [中文](https://github.com/DancingSnow0517/MCDR-Command-Exporter/tree/master/command_exporter/README-CN.MD)\n\n# MCDR Command Exporter\n\nA plugin is used to export the MCDR command tree.\n\nGet client completion with mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion).\n\n## Usage\n1. Go to [release page](https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases) download `MCDRCommandExporter-vX.X.X.mcdr` plugin\n\n   Put it in the plugins folder and reload MCDR plugins.\n\n2. Download fabric mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion/releases) and install it to `Server` and `Client`\n\n   This mod requires [fabric-api](https://modrinth.com/mod/fabric-api)\n\n3. Join the server and enjoy it!\n\n",
+      "zh_cn": "[English](https://github.com/DancingSnow0517/MCDR-Command-Exporter/tree/master/command_exporter/README.MD) | 中文\n\n# MCDR Command Exporter\n\n一个插件用于导出 MCDR 命令树。\n\n与 mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion) 配合使用获得游戏内 MCDR 命令补全。\n\n## 用法\n1. 去 [release page](https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases) 下载 `MCDRCommandExporter-vX.X.X.mcdr` 插件\n\n   将插件放入 MCDR 的插件文件夹中并重新加载\n\n2. 下载 fabric mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion/releases) 并且安装到 `服务端` 和 `客户端` 上\n\n   这个 mod 依赖 [fabric-api](https://modrinth.com/mod/fabric-api)\n\n3. 加入到服务器中并享受它！\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/DancingSnow0517/MCDR-Command-Exporter/master/command_exporter/README.MD",
+      "zh_cn": "https://raw.githubusercontent.com/DancingSnow0517/MCDR-Command-Exporter/master/command_exporter/README-CN.MD"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "command_exporter",
+    "latest_version": "1.2.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases/tag/1.2.0",
+        "name": "MCDR Command Exporter v1.2.0",
+        "tag_name": "1.2.0",
+        "created_at": "2023-02-04T17:25:00Z",
+        "description": "## What's Changed\r\n* 由于 NodeChangeWatcher 添加，不再需要手动执行命令\r\n* Change on_plugin_registry_changed function to the original one when unload plugin. by @spyeic in https://github.com/DancingSnow0517/MCDR-Command-Exporter/pull/1\r\n\r\n## New Contributors\r\n* @spyeic made their first contribution in https://github.com/DancingSnow0517/MCDR-Command-Exporter/pull/1\r\n\r\n**Full Changelog**: https://github.com/DancingSnow0517/MCDR-Command-Exporter/compare/1.1.0...1.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 94307590,
+          "name": "MCDRCommandExporter-v1.2.0.mcdr",
+          "size": 1893,
+          "download_count": 300,
+          "created_at": "2023-02-04T17:28:11Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases/download/1.2.0/MCDRCommandExporter-v1.2.0.mcdr",
+          "hash_md5": "484a41ab1330a0824635bc68cbd08217",
+          "hash_sha256": "db46df33d51028057a73e348f3be438f933d8363d674cbb8fa66d140edbda11e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "command_exporter",
+          "name": "MCDR Command Exporter",
+          "version": "1.2.0",
+          "link": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+          "authors": [
+            "DancingSnow"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin is used to export the MCDR command tree"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases/tag/1.1.0",
+        "name": "MCDR Command Exporter v1.1.0",
+        "tag_name": "1.1.0",
+        "created_at": "2023-01-22T02:21:56Z",
+        "description": "[call mod reload command when registry changed](https://github.com/DancingSnow0517/MCDR-Command-Exporter/commit/8b3972d5154ba4ec3f6bc4900edf62aba30c2525)",
+        "prerelease": false,
+        "asset": {
+          "id": 92573990,
+          "name": "MCDRCommandExporter-v1.1.0.mcdr",
+          "size": 1897,
+          "download_count": 88,
+          "created_at": "2023-01-22T02:25:45Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases/download/1.1.0/MCDRCommandExporter-v1.1.0.mcdr",
+          "hash_md5": "f301ade17a049e712491e296603a7fce",
+          "hash_sha256": "62e264607a7fbed957a4bc501480083ad29af4a889c341d7e969b3dc1fe7c1cc"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "command_exporter",
+          "name": "MCDR Command Exporter",
+          "version": "1.1.0",
+          "link": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+          "authors": [
+            "DancingSnow"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin is used to export the MCDR command tree"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases/tag/1.0.0",
+        "name": "MCDR Command Exporter V1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2023-01-18T13:19:32Z",
+        "description": "For MCDR 2.7.0",
+        "prerelease": false,
+        "asset": {
+          "id": 92147258,
+          "name": "MCDRCommandExporter-v1.0.0.mcdr",
+          "size": 1878,
+          "download_count": 97,
+          "created_at": "2023-01-18T13:25:58Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases/download/1.0.0/MCDRCommandExporter-v1.0.0.mcdr",
+          "hash_md5": "5da2b649bc285aae2e42721784a2b84c",
+          "hash_sha256": "e002f19392d6d74a681a105a64cd5cf7a4df18130334b3f88fcc4cf0bf704ea2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "command_exporter",
+          "name": "MCDR Command Exporter",
+          "version": "1.0.0",
+          "link": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+          "authors": [
+            "DancingSnow"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin is used to export the MCDR command tree"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+    "name": "MCDR-Command-Exporter",
+    "full_name": "DancingSnow0517/MCDR-Command-Exporter",
+    "html_url": "https://github.com/DancingSnow0517/MCDR-Command-Exporter",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 1,
+    "readme": "English | [中文](https://github.com/DancingSnow0517/MCDR-Command-Exporter/tree/master/command_exporter/README-CN.MD)\n\n# MCDR Command Exporter\n\nA plugin is used to export the MCDR command tree.\n\nGet client completion with mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion).\n\n## Usage\n1. Go to [release page](https://github.com/DancingSnow0517/MCDR-Command-Exporter/releases) download `MCDRCommandExporter-vX.X.X.mcdr` plugin\n\n   Put it in the plugins folder and reload MCDR plugins.\n\n2. Download fabric mod [MCDR-Completion](https://github.com/DancingSnow0517/MCDR-Completion/releases) and install it to `Server` and `Client`\n\n   This mod requires [fabric-api](https://modrinth.com/mod/fabric-api)\n\n3. Join the server and enjoy it!\n\n",
+    "readme_url": "https://raw.githubusercontent.com/DancingSnow0517/MCDR-Command-Exporter/master/command_exporter/README.MD",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "permanent_backup",
+    "name": "Permanent Backup",
+    "version": "1.0.3",
+    "link": "https://github.com/MCDReforged/PermanentBackup",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0-"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "A plugin for creating permanent zip world backups",
+      "zh_cn": "创建永久的用 zip 压缩的备份"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "permanent_backup",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/TISUnion/PermanentBackup",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "PermanentBackup\n-----\n\n一个用于创建完整备份的 \n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件。备份的存档将会被打包成 `.zip` 格式\n\n与 [QuickBackupM](https://github.com/TISUnion/QuickBackupM) 类似，PermanentBackup 可以指定备份的世界文件夹，也可以修改所需的权限等级\n\n备份的存档将会存放至 perma_backup 文件夹中\n\n## 命令格式说明\n\n`!!backup` 显示帮助信息\n\n`!!backup make [<comment>]` 创建一个备份，comment 为可选备注信息\n\n`!!backup list` 显示最近的十个备份的信息\n\n`!!backup listall` 显示所有备份的信息\n\n## 配置文件\n\n配置文件为 `config/PermanentBackup.json`\n\n具体修改方式类似 [QuickBackupM](https://github.com/TISUnion/QuickBackupM)\n\n默认配置文件：\n\n```json5\n{\n    \"turn_off_auto_save\": true,   // 备份时是否关闭 autosave\n    \"ignore_session_lock\": true,  // 是否忽略session.lock\n    \"backup_path\": \"./perma_backup\",  // 备份文件夹路径\n    \"server_path\": \"./server\",  //  服务端所在路径\n    \"world_names\": [  // 存档文件名列表。bukkit系服务端使用多个文件夹储存不同的维度\n        \"world\"\n    ],\n    \"minimum_permission_level\": {  // 指令权限需求\n        \"make\": 2,\n        \"list\": 0,\n        \"listall\": 2\n    }\n}\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/TISUnion/PermanentBackup/master/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "permanent_backup",
+    "latest_version": "1.0.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/TISUnion/PermanentBackup/releases/tag/v1.0.3",
+        "name": "Permanent Backup v1.0.3",
+        "tag_name": "v1.0.3",
+        "created_at": "2021-08-17T05:49:47Z",
+        "description": "yeets unnecessary configs",
+        "prerelease": false,
+        "asset": {
+          "id": 42612913,
+          "name": "PermanentBackup-v1.0.3.mcdr",
+          "size": 15811,
+          "download_count": 2587,
+          "created_at": "2021-08-17T05:50:35Z",
+          "browser_download_url": "https://github.com/TISUnion/PermanentBackup/releases/download/v1.0.3/PermanentBackup-v1.0.3.mcdr",
+          "hash_md5": "c5e554af7ea20aef3ec8c7ef1a62d07e",
+          "hash_sha256": "dbbeaadeebd99c479fccb248bd90a0f60f7fa4048b5fa56e295ede2579973593"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "permanent_backup",
+          "name": "Permanent Backup",
+          "version": "1.0.3",
+          "link": "https://github.com/MCDReforged/PermanentBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin for creating permanent zip world backups",
+            "zh_cn": "创建永久的用 zip 压缩的备份"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PermanentBackup/releases/tag/v1.0.2",
+        "name": "Permanent Backup v1.0.2",
+        "tag_name": "v1.0.2",
+        "created_at": "2021-08-17T05:33:19Z",
+        "description": "Fixed #1: backup failed with no comment input",
+        "prerelease": false,
+        "asset": {
+          "id": 42611592,
+          "name": "PermanentBackup-v1.0.2.mcdr",
+          "size": 15915,
+          "download_count": 1388,
+          "created_at": "2021-08-17T05:34:54Z",
+          "browser_download_url": "https://github.com/TISUnion/PermanentBackup/releases/download/v1.0.2/PermanentBackup-v1.0.2.mcdr",
+          "hash_md5": "14337bdf6b275c5db6a803a4918b4536",
+          "hash_sha256": "2df76e2d289f0b9d28af3a7687a0fdafb4cce6ad730c12cd15634f67247bffc8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "permanent_backup",
+          "name": "Permanent Backup",
+          "version": "1.0.2",
+          "link": "https://github.com/MCDReforged/PermanentBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin for creating permanent zip world backups",
+            "zh_cn": "创建永久的用 zip 压缩的备份"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PermanentBackup/releases/tag/v1.0.1",
+        "name": "",
+        "tag_name": "v1.0.1",
+        "created_at": "2021-08-16T03:01:14Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 42573079,
+          "name": "PermanentBackup-v1.0.1.mcdr",
+          "size": 15876,
+          "download_count": 1376,
+          "created_at": "2021-08-16T17:05:01Z",
+          "browser_download_url": "https://github.com/TISUnion/PermanentBackup/releases/download/v1.0.1/PermanentBackup-v1.0.1.mcdr",
+          "hash_md5": "53ed4393939a0344de3bd43be00da97b",
+          "hash_sha256": "2e97f4cd0a4b26cf720fc41334e6cd29a52428dcbff872a43efff990ae9c2bd4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "permanent_backup",
+          "name": "Permanent Backup",
+          "version": "1.0.1",
+          "link": "https://github.com/MCDReforged/PermanentBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin for creating permanent zip world backups",
+            "zh_cn": "创建永久的用 zip 压缩的备份"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/TISUnion/PermanentBackup",
+    "name": "PermanentBackup",
+    "full_name": "TISUnion/PermanentBackup",
+    "html_url": "https://github.com/TISUnion/PermanentBackup",
+    "description": "A plugin to make permanent backup",
+    "archived": false,
+    "stargazers_count": 12,
+    "watchers_count": 12,
+    "forks_count": 3,
+    "readme": "PermanentBackup\n-----\n\n一个用于创建完整备份的 \n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件。备份的存档将会被打包成 `.zip` 格式\n\n与 [QuickBackupM](https://github.com/TISUnion/QuickBackupM) 类似，PermanentBackup 可以指定备份的世界文件夹，也可以修改所需的权限等级\n\n备份的存档将会存放至 perma_backup 文件夹中\n\n## 命令格式说明\n\n`!!backup` 显示帮助信息\n\n`!!backup make [<comment>]` 创建一个备份，comment 为可选备注信息\n\n`!!backup list` 显示最近的十个备份的信息\n\n`!!backup listall` 显示所有备份的信息\n\n## 配置文件\n\n配置文件为 `config/PermanentBackup.json`\n\n具体修改方式类似 [QuickBackupM](https://github.com/TISUnion/QuickBackupM)\n\n默认配置文件：\n\n```json5\n{\n    \"turn_off_auto_save\": true,   // 备份时是否关闭 autosave\n    \"ignore_session_lock\": true,  // 是否忽略session.lock\n    \"backup_path\": \"./perma_backup\",  // 备份文件夹路径\n    \"server_path\": \"./server\",  //  服务端所在路径\n    \"world_names\": [  // 存档文件名列表。bukkit系服务端使用多个文件夹储存不同的维度\n        \"world\"\n    ],\n    \"minimum_permission_level\": {  // 指令权限需求\n        \"make\": 2,\n        \"list\": 0,\n        \"listall\": 2\n    }\n}\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/TISUnion/PermanentBackup/master/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

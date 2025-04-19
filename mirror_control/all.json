@@ -1,0 +1,252 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "mirror_control",
+    "name": "Mirror Control",
+    "version": "1.0.4",
+    "link": "https://github.com/charassss/Mirror-Control",
+    "authors": [
+      "Chara_SS"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.13.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.13.0"
+    ],
+    "description": {
+      "en_us": "A plugin to control mirror server",
+      "zh_cn": "一个控制镜像服务器的插件"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "mirror_control",
+    "authors": [
+      "Chara_SS"
+    ],
+    "repository": "https://github.com/humonia-sys/Mirror-Control",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "## Mirror Control\n\n## [中文版本](https://github.com/humonia-sys/Mirror-Control/tree/master/./readme_zh-cn.md)\n\n#### Usage\n\n- `!!mirror` Displays help message and portable management\n- `!!mirror start <server_name>` Start the mirror server (including sync operation)\n- `!!mirror restart <server_name>` Restart the mirror server (including sync operation)\n- `!!mirror stop <server_name>` Stop the mirror server\n- `!!mirror sync <server_name>` Sync the mirror server\n\n`server_name` should be similar to *default* in the configuration file\n\n#### Configuration file structure\n\nPlease modify the configuration file before using this plugin *but after you first start\n\n\\* means items you need to modify\n\n```\n\nconfig.json\n\t|- permission (int 1->4)\n\t|\t\t|- start\n\t|\t\t|- sync\n\t|\t\t|- stop\n\t|\t\t|- restart\n\t|\n    |- this_server (str dir)\n    |    \t|- work_directory *\n    |\n    |- server\n    \t\t|- default * (Change to whatever you want, just don't leave it as 'default'. It's ugly.) |       |\n    \t\t|\t\t|- name * (Any server nickname you want)\n    \t\t|\t\t|- location * (An absolute address)\n    \t\t|\t\t|- target_server_location * (Its server directory location)\n    \t\t-\t\t|- command * (Start command. Can simply be filled in with 'start.bat' or 'sh start.sh')   |\n    \t\t-\t\t|- rcon\n    \t\t|\t\t\t|- enable * (boolean true)\n    \t\t|\t\t\t|- port * \n    \t\t|\t\t\t|- passwd *\n    \t\t|\n    \t\t|- ...\n```\n",
+      "zh_cn": "Mirror Control\n-----\n[English version](https://github.com/humonia-sys/Mirror-Control/tree/master/./README.md)\n---\n\n#### 用法\n\n* `!!mirror` 显示帮助消息以及便携管理\n* `!!mirror start <server_name>` 开启镜像服(包括同步操作)\n* `!!mirror restart <server_name>` 重启镜像服(包括同步操作)\n* `!!mirror stop <server_name>` 停止镜像服\n* `!!mirror sync <server_name>` 同步镜像服\n\n`server_name` 应当是类似于在配置文件中的 *default*\n\n#### 配置文件结构\n\n请在您使用本插件前先修改配置文件 *但是得在你第一次启动后\n\n\\* 意味着你需要修改的项目\n\n```\nconfig.json\n\t|- permission (int 1->4)\n\t|\t\t|- start\n\t|\t\t|- sync\n\t|\t\t|- stop\n\t|\t\t|- restart\n\t|\n    |- this_server (str dir)\n    |    \t|- work_directory *\n    |\n    |- server\n    \t\t|- default * (想改成啥改成啥,就是别留个'default'.太丑了)\n    \t\t|\t\t|- name * (任何你想要的服务器昵称)\n    \t\t|\t\t|- location * (一个绝对地址)\n    \t\t|\t\t|- target_server_location * (他的server文件夹地址)\n    \t\t|\t\t|- command * (启动命令.可以简单地填入'start.bat'或者'sh start.sh')\n    \t\t|\t\t|- rcon\n    \t\t|\t\t\t|- enable * (boolean true)\n    \t\t|\t\t\t|- port * \n    \t\t|\t\t\t|- passwd *\n    \t\t|\n    \t\t|- ...\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/humonia-sys/Mirror-Control/master/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/humonia-sys/Mirror-Control/master/readme_zh-cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "mirror_control",
+    "latest_version": "1.0.4",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/humonia-sys/Mirror-Control/releases/tag/v1.0.4",
+        "name": "Mirror Control 1.0.4",
+        "tag_name": "v1.0.4",
+        "created_at": "2024-07-30T14:16:07Z",
+        "description": "更改了mcdr依赖版本\r\n\"mcdreforged\": \">=1.13.0\"",
+        "prerelease": false,
+        "asset": {
+          "id": 182768167,
+          "name": "MirrorControl-v1.0.4.mcdr",
+          "size": 4259,
+          "download_count": 121,
+          "created_at": "2024-07-30T14:17:51Z",
+          "browser_download_url": "https://github.com/humonia-sys/Mirror-Control/releases/download/v1.0.4/MirrorControl-v1.0.4.mcdr",
+          "hash_md5": "d5e64ecc65e87ca7032de861c67d1879",
+          "hash_sha256": "a4110df7fe81dd140aa4640c1f5cd4bf13b34aa8066e59db387930b7367d068c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mirror_control",
+          "name": "Mirror Control",
+          "version": "1.0.4",
+          "link": "https://github.com/charassss/Mirror-Control",
+          "authors": [
+            "Chara_SS"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0"
+          ],
+          "description": {
+            "en_us": "A plugin to control mirror server",
+            "zh_cn": "一个控制镜像服务器的插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/humonia-sys/Mirror-Control/releases/tag/v1.0.3",
+        "name": "Mirror Control 1.0.3",
+        "tag_name": "v1.0.3",
+        "created_at": "2022-12-13T11:01:44Z",
+        "description": "使只拉取region文件变为了拉取整个世界文件夹,修复了不会拉取末地和地狱的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 88026782,
+          "name": "MirrorControl-v1.0.3.mcdr",
+          "size": 4248,
+          "download_count": 300,
+          "created_at": "2022-12-13T11:07:37Z",
+          "browser_download_url": "https://github.com/humonia-sys/Mirror-Control/releases/download/v1.0.3/MirrorControl-v1.0.3.mcdr",
+          "hash_md5": "eb877f26282d01efc99d11d2cd0a6b2f",
+          "hash_sha256": "51cca5d61606fa0803ae4185521f01991d3926880fa9a1e9ae83e11dcf8fe449"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mirror_control",
+          "name": "Mirror Control",
+          "version": "1.0.3",
+          "link": "https://github.com/charassss/Mirror-Control",
+          "authors": [
+            "Chara_SS"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.6.0"
+          ],
+          "description": {
+            "en_us": "A plugin to control mirror server",
+            "zh_cn": "一个控制镜像服务器的插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/humonia-sys/Mirror-Control/releases/tag/v1.0.2",
+        "name": "Mirror Control 1.0.2",
+        "tag_name": "v1.0.2",
+        "created_at": "2022-12-07T09:25:23Z",
+        "description": "使用ChatGPT对语言文件以及英文版README进行了翻译",
+        "prerelease": false,
+        "asset": {
+          "id": 87308705,
+          "name": "MirrorControl-v1.0.2.mcdr",
+          "size": 4258,
+          "download_count": 70,
+          "created_at": "2022-12-07T09:26:32Z",
+          "browser_download_url": "https://github.com/humonia-sys/Mirror-Control/releases/download/v1.0.2/MirrorControl-v1.0.2.mcdr",
+          "hash_md5": "837cea18c6bf49de10d1063b9611531d",
+          "hash_sha256": "ccb59656c9cae20b50fea6a5e88633c814f62dd3f894c50225f6a4ab8c80c7d2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mirror_control",
+          "name": "Mirror Control",
+          "version": "1.0.2",
+          "link": "https://github.com/charassss/Mirror-Control",
+          "authors": [
+            "Chara_SS"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.6.0"
+          ],
+          "description": {
+            "en_us": "A plugin to control mirror server",
+            "zh_cn": "一个控制镜像服务器的插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/humonia-sys/Mirror-Control/releases/tag/v1.0.1",
+        "name": "Mirror Control 1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2022-12-06T13:55:31Z",
+        "description": "修复了一些已知错误\r\n增加了若干功能",
+        "prerelease": false,
+        "asset": {
+          "id": 87198491,
+          "name": "MirrorControl-v1.0.1.mcdr",
+          "size": 4240,
+          "download_count": 68,
+          "created_at": "2022-12-06T13:58:40Z",
+          "browser_download_url": "https://github.com/humonia-sys/Mirror-Control/releases/download/v1.0.1/MirrorControl-v1.0.1.mcdr",
+          "hash_md5": "313623c08299969aed9af57fc288201b",
+          "hash_sha256": "30823bf6a45b42527002c92fe519a958e6c98d07304955345ac1398caaccea9a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mirror_control",
+          "name": "Mirror Control",
+          "version": "1.0.1",
+          "link": "https://github.com/charassss/Mirror-Control",
+          "authors": [
+            "Chara_SS"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.6.0"
+          ],
+          "description": {
+            "en_us": "A plugin to control mirror server",
+            "zh_cn": "一个控制镜像服务器的插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/humonia-sys/Mirror-Control/releases/tag/v1.0.0",
+        "name": "Mirror Control 1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2022-12-06T09:25:10Z",
+        "description": "Published",
+        "prerelease": false,
+        "asset": {
+          "id": 87171997,
+          "name": "MirrorControl-v1.0.0.mcdr",
+          "size": 3948,
+          "download_count": 60,
+          "created_at": "2022-12-06T09:27:33Z",
+          "browser_download_url": "https://github.com/humonia-sys/Mirror-Control/releases/download/v1.0.0/MirrorControl-v1.0.0.mcdr",
+          "hash_md5": "dba35e74e3dd96cb3e91a07af40f9dd1",
+          "hash_sha256": "1cae1cbca550f27c0e8145854adafb33a3de06b9800cf32c53826b09742da6b6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mirror_control",
+          "name": "Mirror Control",
+          "version": "1.0.0",
+          "link": "https://github.com/charassss/Mirror-Control",
+          "authors": [
+            "Chara_SS"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.6.0"
+          ],
+          "description": {
+            "en_us": "A plugin to control mirror server",
+            "zh_cn": "一个控制镜像服务器的插件"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/humonia-sys/Mirror-Control",
+    "name": "Mirror-Control",
+    "full_name": "humonia-sys/Mirror-Control",
+    "html_url": "https://github.com/humonia-sys/Mirror-Control",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "## Mirror Control\n\n## [中文版本](https://github.com/charassss/Mirror-Control/tree/master/./readme_zh-cn.md)\n\n#### Usage\n\n- `!!mirror` Displays help message and portable management\n- `!!mirror start <server_name>` Start the mirror server (including sync operation)\n- `!!mirror restart <server_name>` Restart the mirror server (including sync operation)\n- `!!mirror stop <server_name>` Stop the mirror server\n- `!!mirror sync <server_name>` Sync the mirror server\n\n`server_name` should be similar to *default* in the configuration file\n\n#### Configuration file structure\n\nPlease modify the configuration file before using this plugin *but after you first start\n\n\\* means items you need to modify\n\n```\n\nconfig.json\n\t|- permission (int 1->4)\n\t|\t\t|- start\n\t|\t\t|- sync\n\t|\t\t|- stop\n\t|\t\t|- restart\n\t|\n    |- this_server (str dir)\n    |    \t|- work_directory *\n    |\n    |- server\n    \t\t|- default * (Change to whatever you want, just don't leave it as 'default'. It's ugly.) |       |\n    \t\t|\t\t|- name * (Any server nickname you want)\n    \t\t|\t\t|- location * (An absolute address)\n    \t\t|\t\t|- target_server_location * (Its server directory location)\n    \t\t-\t\t|- command * (Start command. Can simply be filled in with 'start.bat' or 'sh start.sh')   |\n    \t\t-\t\t|- rcon\n    \t\t|\t\t\t|- enable * (boolean true)\n    \t\t|\t\t\t|- port * \n    \t\t|\t\t\t|- passwd *\n    \t\t|\n    \t\t|- ...\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/charassss/Mirror-Control/master/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "simple_test",
+    "name": "simple_test",
+    "version": "3.0.0",
+    "link": "https://github.com/R1ckyH/simple_test",
+    "authors": [
+      "Ricky"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [
+      "javaproperties",
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "testing basic server problem.",
+      "zh_cn": "服务器基础自检插件。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "simple_test",
+    "authors": [
+      "Ricky"
+    ],
+    "repository": "https://github.com/R1ckyH/simple_test",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "testing basic server problem.\n",
+      "zh_cn": "服务器基础自检插件。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/R1ckyH/simple_test/master/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/R1ckyH/simple_test/master/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "simple_test",
+    "latest_version": "3.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/R1ckyH/simple_test/releases/tag/v3.0.0",
+        "name": "v3.0.0",
+        "tag_name": "v3.0.0",
+        "created_at": "2021-10-25T09:00:12Z",
+        "description": "UPDATE version to support [MCDR2.0](https://github.com/Fallen-Breath/MCDReforged)\r\nBUGFIX\r\nChange license to LGPL",
+        "prerelease": false,
+        "asset": {
+          "id": 47804230,
+          "name": "simple_test-3.0.0.mcdr",
+          "size": 6608,
+          "download_count": 604,
+          "created_at": "2021-10-25T09:03:07Z",
+          "browser_download_url": "https://github.com/R1ckyH/simple_test/releases/download/v3.0.0/simple_test-3.0.0.mcdr",
+          "hash_md5": "793ad8016e0f2bf4be34b70b69629a71",
+          "hash_sha256": "23f8bd1c27aa0eb56f0671f2e5bee390aca75e4518b25fbfbd891044fb09a165"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_test",
+          "name": "simple_test",
+          "version": "3.0.0",
+          "link": "https://github.com/R1ckyH/simple_test",
+          "authors": [
+            "Ricky"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "javaproperties",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "testing basic server problem.",
+            "zh_cn": "服务器基础自检插件。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/R1ckyH/simple_test",
+    "name": "simple_test",
+    "full_name": "R1ckyH/simple_test",
+    "html_url": "https://github.com/R1ckyH/simple_test",
+    "description": "A plugin to check MCDReforged status",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 1,
+    "readme": "# simple_test\n-----\n[中文](https://github.com/R1ckyH/simple_test/blob/master/README_cn.md)\n\nA plugin to check [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) basic issue with **Minecraft Server**\n\nYou have to install python module [javaproperties](https://pypi.org/project/javaproperties/) to use the full function of simple_test\n\nYou can execute `pip install javaproperties` to install it\n\nType `!!test` to get test information\n",
+    "readme_url": "https://raw.githubusercontent.com/R1ckyH/simple_test/master/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  }
+}

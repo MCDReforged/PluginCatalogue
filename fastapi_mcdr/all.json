@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "fastapi_mcdr",
+    "name": "FastAPI MCDR",
+    "version": "2.0.0",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "fastapi",
+      "uvicorn"
+    ],
+    "description": {
+      "en_us": "Provides HTTP API.",
+      "zh_cn": "提供 HTTP API。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "fastapi_mcdr",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/fastapi_mcdr",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# FastAPI\n\n[简体中文](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr/readme_cn.md)\n\n> Provides HTTP API\n> \n> Allows plugins to provide a unified interface by mounting [sub-application](https://fastapi.tiangolo.com/advanced/sub-applications/).\n\n## Quick Start\n\nIn general, there are two things you need to do in your plugin:\n\n1. Check FastAPI's status when loading. If it's ready, directly mount the sub-application.\n2. Register a listener for the COLLECT event to  mount the sub-application when it becomes ready.\n\nSpecifically, you need to add the following code:\n\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n\n@app.get(\"/test\")\nasync def test():\n    return \"Hello, world!\"\n\n\ndef on_load(server, prev_module):\n    # mount if fastapi_mcdr is ready\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n    if fastapi_mcdr is not None and fastapi_mcdr.is_ready():\n        mount_app(server)\n\n    # register event listener\n    server.register_event_listener(\n        fastapi_mcdr.COLLECT_EVENT,\n        mount_app\n    )\n\n\ndef on_unload(server):\n    # save plugin id and fastapi_mcdr instance\n    id_ = server.get_self_metadata().id\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n\n    # unmount app\n    fastapi_mcdr.unmount(id_)\n\n\ndef mount_app(server):\n    # save plugin id and fastapi_mcdr instance\n    id_ = server.get_self_metadata().id\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n\n    # mount app\n    fastapi_mcdr.mount(id_, app)\n```\n\nVisit <http://localhost:8080/docs> to view the API documentation, and visit <http://localhost:8080/plugin_id/docs> to view the sub application documentation for each plugin.\n\n## Technical Details\n\n### Loading\n\nIn theory, providing an HTTP API externally should be an optional feature. That's why checking FastAPI's status and registering an COLLECT event listener are necessary. The following diagram illustrates the process of loading FastAPI and custom plugins:\n\nLoad FastAPI first, then load custom plugins:\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note right of FastAPI: FastAPI Load\n    Note right of FastAPI: FastAPI Dispatch COLLECT Event\n\n    Note left of Test: Test Load\n\n    Test ->> FastAPI: Loaded?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: is_ready?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: Mount Sub-Application\n\n    Note left of Test: Test Register COLLECT Event\n```\n\nLoad custom plugins first, then load FastAPI:\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note left of Test: Test Load\n\n    Test ->> FastAPI: Loaded?\n    FastAPI ->> Test: No!\n\n    Note left of Test: Test Register COLLECT Event\n\n    Note right of FastAPI: FastAPI Load\n\n    FastAPI ->> Test: Dispatch COLLECT Event\n    Test ->> FastAPI: Mount Sub-Application\n```\n\nWith this design, you can achieve soft plugin dependency without worrying about the order of plugin loading. The following diagram shows the scenario of any plugin being reloaded:\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note right of FastAPI: FastAPI Reload\n\n    FastAPI ->> Test: Dispatch COLLECT Event\n    Test ->> FastAPI: Mount Sub-Application\n\n    Note left of Test: Test Reload\n\n    Test ->> FastAPI: Loaded?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: is_ready?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: Mount Sub-Application\n\n    Note left of Test: Test Register COLLECT Event\n```\n\n## Standards\n\n### COLLECT Event\n\nEvent name: `fastapi_mcdr.collect`\n\nAn instance of `PluginEvent` for this event is also exposed as `COLLECT_EVENT`.\n\n### Public Functions\n\n#### is_ready\n\nThe plugin's status if ready to mount. If forcefully mounted, it will raise a `RuntimeError`.\n\n#### mount\n\nArguments:\n\n- `plugin_id`: Plugin ID.\n- `app`: FastAPI App.\n\nThe sub-application will be mounted at the `/<plugin_id>` path, and the documentation can be viewed by visiting `/<plugin_id>/docs`.\n\nSee: [Sub Applications - Mounts](https://fastapi.tiangolo.com/advanced/sub-applications/)\n\n#### unmount\n\nArguments:\n\n- `plugin_id`: Plugin ID.\n\nUnmount the sub-application of the specified plugin.\n",
+      "zh_cn": "# FastAPI\n\n[English](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr/readme.md)\n\n> 提供 HTTP API。\n> \n> 允许插件通过挂载 [子应用](https://fastapi.tiangolo.com/zh/advanced/sub-applications/) 的方式，提供统一的接口。\n\n## 快速开始\n\n总地来说，您需要在您的插件中做两件事：\n\n1. 加载时检查 FastAPI 状态，如已准备好，则直接挂载子应用。\n2. 注册 COLLECT 事件的监听器，以便准备好时挂载子应用。\n\n具体地说，您需要添加以下代码：\n\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n\n@app.get(\"/test\")\nasync def test():\n    return \"Hello, world!\"\n\n\ndef on_load(server, prev_module):\n    # mount if fastapi_mcdr is ready\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n    if fastapi_mcdr is not None and fastapi_mcdr.is_ready():\n        mount_app(server)\n\n    # register event listener\n    server.register_event_listener(\n        fastapi_mcdr.COLLECT_EVENT,\n        mount_app\n    )\n\n\ndef on_unload(server):\n    # save plugin id and fastapi_mcdr instance\n    id_ = server.get_self_metadata().id\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n\n    # unmount app\n    fastapi_mcdr.unmount(id_)\n\n\ndef mount_app(server):\n    # save plugin id and fastapi_mcdr instance\n    id_ = server.get_self_metadata().id\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n\n    # mount app\n    fastapi_mcdr.mount(id_, app)\n```\n\n访问 <http://localhost:8080/docs> 即可查看 API 文档，各插件的子应用文档则需要访问 <http://localhost:8080/plugin_id/docs>。\n\n## 技术细节\n\n### 加载\n\n理论上来说，对外提供 HTTP API 应当是一种可选功能，这便是需要检查 FastAPI 状态并同时注册 COLLECT 事件监听器的原因。下图展示了 FastAPI 插件和自定义插件先后加载的流程图：\n\n先加载 FastAPI，再加载自定义插件：\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note right of FastAPI: FastAPI 加载\n    Note right of FastAPI: FastAPI 分发 COLLECT 事件\n\n    Note left of Test: Test 加载\n\n    Test ->> FastAPI: 已加载？\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: is_ready?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: 挂载子应用\n\n    Note left of Test: Test 注册 COLLECT 事件\n```\n\n先加载自定义插件，再加载 FastAPI：\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note left of Test: Test 加载\n\n    Test ->> FastAPI: 已加载？\n    FastAPI ->> Test: No!\n\n    Note left of Test: Test 注册 COLLECT 事件\n\n    Note right of FastAPI: FastAPI 加载\n\n    FastAPI ->> Test: 分发 COLLECT 事件\n    Test ->> FastAPI: 挂载子应用\n```\n\n通过这个设计，即可实现插件的软依赖，且无需考虑插件加载顺序的问题。下图展示了任意插件重载的情况：\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note right of FastAPI: FastAPI 重载\n\n    FastAPI ->> Test: 分发 COLLECT 事件\n    Test ->> FastAPI: 挂载子应用\n\n    Note left of Test: Test 重载\n\n    Test ->> FastAPI: 已加载？\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: is_ready?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: 挂载子应用\n\n    Note left of Test: Test 注册 COLLECT 事件\n```\n\n## 标准\n\n### COLLECT 事件\n\n事件名：`fastapi_mcdr.collect`\n\n该事件的 `PluginEvent` 实例也会以 `COLLECT_EVENT` 名公开。\n\n### 公开函数\n\n#### is_ready\n\n插件准备好接受挂载的状态，如强行挂载则会抛出一个 `RuntimeError`。\n\n#### mount\n\n参数：\n\n- `plugin_id`：插件 id。\n- `app`：FastAPI 应用。\n\n子应用会挂载在 `/<plugin_id>` 路径下，文档可以通过访问 `/<plugin_id>/docs` 查看。\n\n参阅：[子应用 - 挂载](https://fastapi.tiangolo.com/zh/advanced/sub-applications/)\n\n#### unmount\n\n参数：\n\n- `plugin_id`：插件 id。\n\n卸载指定插件的子应用。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/fastapi_mcdr/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/fastapi_mcdr/readme_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "fastapi_mcdr",
+    "latest_version": "2.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/fastapi_mcdr-v2.0.0",
+        "name": "fastapi_mcdr: v2.0.0",
+        "tag_name": "fastapi_mcdr-v2.0.0",
+        "created_at": "2024-09-14T16:09:50Z",
+        "description": "## [2.0.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/fastapi_mcdr-v1.0.0...fastapi_mcdr-v2.0.0) (2024-09-14)\n\n\n### ⚠ BREAKING CHANGES\n\n* **fastapi_mcdr:** api names are changed\n\n### Features\n\n* **fastapi_mcdr:** ✨ fastapi sub application (resolve [#232](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/232)) ([72b6f58](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/72b6f5875e54034894ed0c24562f06fa905c56d8))\n\n\n### Bug Fixes\n\n* **fastapi_mcdr:** 🔇 remove logs ([c0ddd93](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/c0ddd932bef421d38d68afe9f1b70ff4e95be9c8))",
+        "prerelease": false,
+        "asset": {
+          "id": 192623788,
+          "name": "FastAPIMCDR-v2.0.0.mcdr",
+          "size": 1897,
+          "download_count": 91,
+          "created_at": "2024-09-14T16:12:12Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/fastapi_mcdr-v2.0.0/FastAPIMCDR-v2.0.0.mcdr",
+          "hash_md5": "67f1891f87452def6d168aabcd124d12",
+          "hash_sha256": "458d0ab1c3b4c9ce2e0dfd8b81e08480970ae70e8464c2553f9d863ebb843764"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "fastapi_mcdr",
+          "name": "FastAPI MCDR",
+          "version": "2.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Provides HTTP API.",
+            "zh_cn": "提供 HTTP API。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/fastapi_mcdr-v1.0.0",
+        "name": "fastapi_mcdr: v1.0.0",
+        "tag_name": "fastapi_mcdr-v1.0.0",
+        "created_at": "2023-12-21T16:37:50Z",
+        "description": "## 1.0.0 (2023-12-21)\n\n\n### Features\n\n* **fastapi_mcdr:** 🎉 create fastapi_mcdr ([84247a7](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/84247a77315a248bc6489e15083352eb4559b68e))",
+        "prerelease": false,
+        "asset": {
+          "id": 141837233,
+          "name": "FastAPIMCDR-v1.0.0.mcdr",
+          "size": 2344,
+          "download_count": 65,
+          "created_at": "2023-12-21T16:38:12Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/fastapi_mcdr-v1.0.0/FastAPIMCDR-v1.0.0.mcdr",
+          "hash_md5": "bd33e16eb661704fff7f43e17d9dbff3",
+          "hash_sha256": "5bda7446df976ba0992d89a789ce900eed8ec792b23c8b580569696a587bb3d3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "fastapi_mcdr",
+          "name": "FastAPI MCDR",
+          "version": "1.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/fastapi_mcdr",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Provides HTTP API.",
+            "zh_cn": "提供 HTTP API。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 96,
+    "watchers_count": 96,
+    "forks_count": 54,
+    "readme": "# FastAPI\n\n[简体中文](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr/readme_cn.md)\n\n> Provides HTTP API\n> \n> Allows plugins to provide a unified interface by mounting [sub-application](https://fastapi.tiangolo.com/advanced/sub-applications/).\n\n## Quick Start\n\nIn general, there are two things you need to do in your plugin:\n\n1. Check FastAPI's status when loading. If it's ready, directly mount the sub-application.\n2. Register a listener for the COLLECT event to  mount the sub-application when it becomes ready.\n\nSpecifically, you need to add the following code:\n\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n\n@app.get(\"/test\")\nasync def test():\n    return \"Hello, world!\"\n\n\ndef on_load(server, prev_module):\n    # mount if fastapi_mcdr is ready\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n    if fastapi_mcdr is not None and fastapi_mcdr.is_ready():\n        mount_app(server)\n\n    # register event listener\n    server.register_event_listener(\n        fastapi_mcdr.COLLECT_EVENT,\n        mount_app\n    )\n\n\ndef on_unload(server):\n    # save plugin id and fastapi_mcdr instance\n    id_ = server.get_self_metadata().id\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n\n    # unmount app\n    fastapi_mcdr.unmount(id_)\n\n\ndef mount_app(server):\n    # save plugin id and fastapi_mcdr instance\n    id_ = server.get_self_metadata().id\n    fastapi_mcdr = server.get_plugin_instance('fastapi_mcdr')\n\n    # mount app\n    fastapi_mcdr.mount(id_, app)\n```\n\nVisit <http://localhost:8080/docs> to view the API documentation, and visit <http://localhost:8080/plugin_id/docs> to view the sub application documentation for each plugin.\n\n## Technical Details\n\n### Loading\n\nIn theory, providing an HTTP API externally should be an optional feature. That's why checking FastAPI's status and registering an COLLECT event listener are necessary. The following diagram illustrates the process of loading FastAPI and custom plugins:\n\nLoad FastAPI first, then load custom plugins:\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note right of FastAPI: FastAPI Load\n    Note right of FastAPI: FastAPI Dispatch COLLECT Event\n\n    Note left of Test: Test Load\n\n    Test ->> FastAPI: Loaded?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: is_ready?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: Mount Sub-Application\n\n    Note left of Test: Test Register COLLECT Event\n```\n\nLoad custom plugins first, then load FastAPI:\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note left of Test: Test Load\n\n    Test ->> FastAPI: Loaded?\n    FastAPI ->> Test: No!\n\n    Note left of Test: Test Register COLLECT Event\n\n    Note right of FastAPI: FastAPI Load\n\n    FastAPI ->> Test: Dispatch COLLECT Event\n    Test ->> FastAPI: Mount Sub-Application\n```\n\nWith this design, you can achieve soft plugin dependency without worrying about the order of plugin loading. The following diagram shows the scenario of any plugin being reloaded:\n\n```mermaid\nsequenceDiagram\n    participant FastAPI\n    participant Test\n\n    Note right of FastAPI: FastAPI Reload\n\n    FastAPI ->> Test: Dispatch COLLECT Event\n    Test ->> FastAPI: Mount Sub-Application\n\n    Note left of Test: Test Reload\n\n    Test ->> FastAPI: Loaded?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: is_ready?\n    FastAPI ->> Test: Yes!\n    Test ->> FastAPI: Mount Sub-Application\n\n    Note left of Test: Test Register COLLECT Event\n```\n\n## Standards\n\n### COLLECT Event\n\nEvent name: `fastapi_mcdr.collect`\n\nAn instance of `PluginEvent` for this event is also exposed as `COLLECT_EVENT`.\n\n### Public Functions\n\n#### is_ready\n\nThe plugin's status if ready to mount. If forcefully mounted, it will raise a `RuntimeError`.\n\n#### mount\n\nArguments:\n\n- `plugin_id`: Plugin ID.\n- `app`: FastAPI App.\n\nThe sub-application will be mounted at the `/<plugin_id>` path, and the documentation can be viewed by visiting `/<plugin_id>/docs`.\n\nSee: [Sub Applications - Mounts](https://fastapi.tiangolo.com/advanced/sub-applications/)\n\n#### unmount\n\nArguments:\n\n- `plugin_id`: Plugin ID.\n\nUnmount the sub-application of the specified plugin.\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/fastapi_mcdr/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

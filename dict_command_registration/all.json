@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "dict_command_registration",
+    "name": "Dict Command Registration",
+    "version": "1.1.0",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/dict_command_registration",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {
+      "mcdreforged": "^2.7.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Register your command by a python dict",
+      "zh_cn": "用 Python 字典注册您的指令"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "dict_command_registration",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/dict_command_registration",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# Dict Command Registration\n\n> Register your command with a python dict.\n\nMCDReforged implements a command system like [brigadier](https://github.com/Mojang/brigadier), but it is too difficult to use and not intuitive enough. When the tree becomes large, maintainability and readability become extremely poor. Then you have to split it into multiple child nodes, but when the child nodes become large you need to keep splitting them and end up in an infinite loop.\n\nThis plugin provides an API that allows you to register MCDR command trees with python dict, which is also a tree structure - a more intuitive structure, isn't it? It takes the python dict you provide, generates the MCDR Command Node, then register it. You do not have to bother with the huge code tree, just maintain your dict tree.\n\nIncidentally, it can register the [help message](https://mcdreforged.readthedocs.io/en/latest/code_references/PluginServerInterface.html#mcdreforged.plugin.server_interface.PluginServerInterface.register_help_message) for you.\n\n## Quick Start\n\nLet's register this example command in MCDR doc:\n\n```text\nLiteral('!!email'). \\\nthen(Literal('list')). \\\nthen(Literal('remove'). \\\n    then(Integer('email_id'))\n). \\\nthen(Literal('send'). \\\n    then(Text('player'). \\\n        then(GreedyText('message'))\n    )\n)\n```\n\nWrite the command dict and call register method.\n\n```python\nfrom dict_command_registration import NodeType, register\n\ncommand = {\n    \"name\": \"!!email\",\n    \"children\": [\n        {\n            \"name\": \"list\"\n        },\n        {\n            \"name\": \"remove\",\n            \"children\": [\n                {\n                    \"name\": \"email_id\",\n                    \"type\": NodeType.INTEGER\n                }\n            ]\n        },\n        {\n            \"name\": \"send\",\n            \"children\": [\n                {\n                    \"name\": \"player\",\n                    \"type\": NodeType.TEXT,\n                    \"children\": [\n                        {\n                            \"name\": \"email_id\",\n                            \"type\": NodeType.GREEDY_TEXT\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}\n\ndef on_load(server, prev_module):\n    register(server, command)\n```\n\nAll done!\n\nIf you want register help message together:\n\n```python\nregister(server, command, \"Email command\")\n```\n\n## Concepts\n\n### Node\n\nIn this plugin, `Node` means a dict which contains data of a MCDR\ncommand node.\n\nSee also: [Node](#node-dict)\n\n## API Reference\n\n### Exceptions\n\n#### MissingRequiredAttribute\n\nRaise when missing required attribute in [Node](#node-dict).\n\n### NodeType\n\nMCDR Origin Command Nodes.\n\n| Key | Class |\n| - | - |\n| LITERAL | [Literal](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.Literal) |\n| NUMBER | [Number](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Number) |\n| INTEGER | [Integer](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Integer) |\n| FLOAT | [Float](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Float) |\n| TEXT | [Text](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Text) |\n| QUOTABLE_TEXT | [QuotableText](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.QuotableText) |\n| GREEDY_TEXT | [GreedyText](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.GreedyText) |\n| BOOLEAN | [Boolean](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Boolean) |\n| ENUMERATION | [Enumeration](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Enumeration) |\n\n### Node (class)\n\nParse a [Node (dict)](#node-dict), and can cast to MCDR node.\n\n#### __init__(data: Dict[str, Any])\n\nAccept a dict.\n\n#### literal: Union[str, Iterable[str]]\n\nGet literal string or Iterable.\n\n#### to_mcdr_node() -> Union[Literal, ArgumentNode]\n\nTo MCDR Node.\n\n### Node (dict)\n\n#### name\n\n> Name of the node.\n\n- Type: `str`\n\nThis value is required.\n\n#### node\n\n> MCDR node if you want use exist node.\n\n- Type: [Literal](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.Literal) or [ArgumentNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.ArgumentNode)\n\n#### literal\n\n> Text of a literal node.\n\n- Type: `str` or `Iterable[str]`\n- Default: [name](#name) value\n\nYou have to set this value if you want use multiple literals (Iterable).\n\n#### type\n\n> Type of this node.\n\n- Type: [NodeType](#nodetype) or [ArgumentNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.ArgumentNode)\n- Default: [NodeType.LITERAL](#literal)\n\n#### enumeration\n\n> Value of [Enumeration](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Enumeration) node.\n\n- Type: `Dict[str, Any]`\n- Default: `[]`\n\n#### args\n\n> Args to create Node if using customize node.\n\n- Type: `List[Any]`\n- Default: `[]`\n\n#### kwargs\n\n> Kwargs to create Node if using customize node.\n\n- Type: `Dict[str, Any]`\n- Default: `{}`\n\n#### runs\n\n> Set the callback function of this node.\n\n- Type: `Callable`\n\nSee also: [AbstractNode.runs()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.runs).\n\n#### requires\n\n> Set the requirement tester callback of the node.\n\n- Type: `Union[Callable, List[Callable]]`\n\nSee also: [AbstractNode.requires()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.requires).\n\n#### redirects\n\n> Redirect all further child nodes command parsing to another given node.\n\n- Type: [AbstractNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode)\n\nSee also: [AbstractNode.redirects()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.redirects).\n\n#### suggests\n\n> Set the provider for command suggestions of this node.\n\n- Type: `Callable`\n\nSee also: [AbstractNode.suggests()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.suggests).\n\n#### on_error\n\n> When a command error occurs, the given will invoke the given handler to handle with the error.\n\n- Type: `Dict[str, Any]`\n\nSee also: [AbstractNode.on_error()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.on_error).\n\nAccept three keys in the dict, which are three arguments listed in the doc.\n\n#### on_child_error\n\n> Similar to `on_error()`, but it gets triggered only when the node receives a command error from one of the node’s direct or indirect child.\n\n- Type: `Dict[str, Any]`\n\nSee also: [AbstractNode.on_child_error()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.on_child_error).\n\nAccept three keys in the dict, which are three arguments listed in the doc.\n\n#### children\n\n> Children of this node.\n\n- Type: `List[Dict[str, Any]]`\n- Default: `[]`\n\nYou can put node in the array to add a child node.\n\n### register\n\nMethod to register command.\n\nParams:\n\n- PluginServerInterface server: the PluginServerInterface instance of your plugin, to ensure that this command is registered by your plugin.\n- dict command: Command, please find more information in the document.\n- str help_message: Provide a string value if you want register\n- int help_message_permission: The minimum permission level to see this help message. See also in MCDReforged document.\n",
+      "zh_cn": "# Dict Command Registration\n\n> Register your command with a python dict.\n\nMCDReforged implements a command system like [brigadier](https://github.com/Mojang/brigadier), but it is too difficult to use and not intuitive enough. When the tree becomes large, maintainability and readability become extremely poor. Then you have to split it into multiple child nodes, but when the child nodes become large you need to keep splitting them and end up in an infinite loop.\n\nThis plugin provides an API that allows you to register MCDR command trees with python dict, which is also a tree structure - a more intuitive structure, isn't it? It takes the python dict you provide, generates the MCDR Command Node, then register it. You do not have to bother with the huge code tree, just maintain your dict tree.\n\nIncidentally, it can register the [help message](https://mcdreforged.readthedocs.io/en/latest/code_references/PluginServerInterface.html#mcdreforged.plugin.server_interface.PluginServerInterface.register_help_message) for you.\n\n## Quick Start\n\nLet's register this example command in MCDR doc:\n\n```text\nLiteral('!!email'). \\\nthen(Literal('list')). \\\nthen(Literal('remove'). \\\n    then(Integer('email_id'))\n). \\\nthen(Literal('send'). \\\n    then(Text('player'). \\\n        then(GreedyText('message'))\n    )\n)\n```\n\nWrite the command dict and call register method.\n\n```python\nfrom dict_command_registration import NodeType, register\n\ncommand = {\n    \"name\": \"!!email\",\n    \"children\": [\n        {\n            \"name\": \"list\"\n        },\n        {\n            \"name\": \"remove\",\n            \"children\": [\n                {\n                    \"name\": \"email_id\",\n                    \"type\": NodeType.INTEGER\n                }\n            ]\n        },\n        {\n            \"name\": \"send\",\n            \"children\": [\n                {\n                    \"name\": \"player\",\n                    \"type\": NodeType.TEXT,\n                    \"children\": [\n                        {\n                            \"name\": \"email_id\",\n                            \"type\": NodeType.GREEDY_TEXT\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}\n\ndef on_load(server, prev_module):\n    register(server, command)\n```\n\nAll done!\n\nIf you want register help message together:\n\n```python\nregister(server, command, \"Email command\")\n```\n\n## Concepts\n\n### Node\n\nIn this plugin, `Node` means a dict which contains data of a MCDR\ncommand node.\n\nSee also: [Node](#node-dict)\n\n## API Reference\n\n### Exceptions\n\n#### MissingRequiredAttribute\n\nRaise when missing required attribute in [Node](#node-dict).\n\n### NodeType\n\nMCDR Origin Command Nodes.\n\n| Key | Class |\n| - | - |\n| LITERAL | [Literal](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.Literal) |\n| NUMBER | [Number](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Number) |\n| INTEGER | [Integer](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Integer) |\n| FLOAT | [Float](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Float) |\n| TEXT | [Text](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Text) |\n| QUOTABLE_TEXT | [QuotableText](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.QuotableText) |\n| GREEDY_TEXT | [GreedyText](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.GreedyText) |\n| BOOLEAN | [Boolean](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Boolean) |\n| ENUMERATION | [Enumeration](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Enumeration) |\n\n### Node (class)\n\nParse a [Node (dict)](#node-dict), and can cast to MCDR node.\n\n#### __init__(data: Dict[str, Any])\n\nAccept a dict.\n\n#### literal: Union[str, Iterable[str]]\n\nGet literal string or Iterable.\n\n#### to_mcdr_node() -> Union[Literal, ArgumentNode]\n\nTo MCDR Node.\n\n### Node (dict)\n\n#### name\n\n> Name of the node.\n\n- Type: `str`\n\nThis value is required.\n\n#### node\n\n> MCDR node if you want use exist node.\n\n- Type: [Literal](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.Literal) or [ArgumentNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.ArgumentNode)\n\n#### literal\n\n> Text of a literal node.\n\n- Type: `str` or `Iterable[str]`\n- Default: [name](#name) value\n\nYou have to set this value if you want use multiple literals (Iterable).\n\n#### type\n\n> Type of this node.\n\n- Type: [NodeType](#nodetype) or [ArgumentNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.ArgumentNode)\n- Default: [NodeType.LITERAL](#literal)\n\n#### enumeration\n\n> Value of [Enumeration](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Enumeration) node.\n\n- Type: `Dict[str, Any]`\n- Default: `[]`\n\n#### args\n\n> Args to create Node if using customize node.\n\n- Type: `List[Any]`\n- Default: `[]`\n\n#### kwargs\n\n> Kwargs to create Node if using customize node.\n\n- Type: `Dict[str, Any]`\n- Default: `{}`\n\n#### runs\n\n> Set the callback function of this node.\n\n- Type: `Callable`\n\nSee also: [AbstractNode.runs()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.runs).\n\n#### requires\n\n> Set the requirement tester callback of the node.\n\n- Type: `Union[Callable, List[Callable]]`\n\nSee also: [AbstractNode.requires()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.requires).\n\n#### redirects\n\n> Redirect all further child nodes command parsing to another given node.\n\n- Type: [AbstractNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode)\n\nSee also: [AbstractNode.redirects()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.redirects).\n\n#### suggests\n\n> Set the provider for command suggestions of this node.\n\n- Type: `Callable`\n\nSee also: [AbstractNode.suggests()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.suggests).\n\n#### on_error\n\n> When a command error occurs, the given will invoke the given handler to handle with the error.\n\n- Type: `Dict[str, Any]`\n\nSee also: [AbstractNode.on_error()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.on_error).\n\nAccept three keys in the dict, which are three arguments listed in the doc.\n\n#### on_child_error\n\n> Similar to `on_error()`, but it gets triggered only when the node receives a command error from one of the node’s direct or indirect child.\n\n- Type: `Dict[str, Any]`\n\nSee also: [AbstractNode.on_child_error()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.on_child_error).\n\nAccept three keys in the dict, which are three arguments listed in the doc.\n\n#### children\n\n> Children of this node.\n\n- Type: `List[Dict[str, Any]]`\n- Default: `[]`\n\nYou can put node in the array to add a child node.\n\n### register\n\nMethod to register command.\n\nParams:\n\n- PluginServerInterface server: the PluginServerInterface instance of your plugin, to ensure that this command is registered by your plugin.\n- dict command: Command, please find more information in the document.\n- str help_message: Provide a string value if you want register\n- int help_message_permission: The minimum permission level to see this help message. See also in MCDReforged document.\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/dict_command_registration/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/dict_command_registration/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "dict_command_registration",
+    "latest_version": "1.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/dict_command_registration-v1.1.0",
+        "name": "dict_command_registration: v1.1.0",
+        "tag_name": "dict_command_registration-v1.1.0",
+        "created_at": "2023-01-15T10:59:59Z",
+        "description": "## [1.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/dict_command_registration-v1.0.1...dict_command_registration-v1.1.0) (2023-01-15)\n\n\n### Features\n\n* **dict_command_registration:** ✨ support multiple requirements ([fe35f38](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/fe35f38118f61b7fe01a2b71555f788f47f6f19e))\n\n\n### Bug Fixes\n\n* **dict_command_registration:** 🔊 move mcdr node print tree to logger.debug ([08f8b25](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/08f8b255b22c79df706ceca550c19b8ce402acbf))",
+        "prerelease": false,
+        "asset": {
+          "id": 91760686,
+          "name": "DictCommandRegistration-v1.1.0.mcdr",
+          "size": 3189,
+          "download_count": 1025,
+          "created_at": "2023-01-15T11:00:37Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/dict_command_registration-v1.1.0/DictCommandRegistration-v1.1.0.mcdr",
+          "hash_md5": "ecd8a7340159dbd7ae2e091db37fcf9e",
+          "hash_sha256": "f32f54019ea41e4433e0f186bd915e32fcb1c7b1456097e06b590b2ca989d934"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "dict_command_registration",
+          "name": "Dict Command Registration",
+          "version": "1.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/dict_command_registration",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.7.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register your command by a python dict",
+            "zh_cn": "用 Python 字典注册您的指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/dict_command_registration-v1.0.2",
+        "name": "dict_command_registration: v1.0.2",
+        "tag_name": "dict_command_registration-v1.0.2",
+        "created_at": "2022-12-29T14:27:02Z",
+        "description": "## [1.0.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/dict_command_registration-v1.0.1...dict_command_registration-v1.0.2) (2022-12-29)\n\n\n### Bug Fixes\n\n* **dict_command_registration:** 🔊 move mcdr node print tree to logger.debug ([08f8b25](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/08f8b255b22c79df706ceca550c19b8ce402acbf))",
+        "prerelease": false,
+        "asset": {
+          "id": 89870496,
+          "name": "DictCommandRegistration-v1.0.2.mcdr",
+          "size": 3105,
+          "download_count": 193,
+          "created_at": "2022-12-29T14:27:40Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/dict_command_registration-v1.0.2/DictCommandRegistration-v1.0.2.mcdr",
+          "hash_md5": "f09348676c9137de9f3e6649526ca5c8",
+          "hash_sha256": "f75dd27c61c6f0980441ddaf97a87cb7ce182ebf2091874b1e12d2d3aae7c252"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "dict_command_registration",
+          "name": "Dict Command Registration",
+          "version": "1.0.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/dict_command_registration",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register your command by a python dict",
+            "zh_cn": "用 Python 字典注册您的指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/dict_command_registration-v1.0.1",
+        "name": "dict_command_registration: v1.0.1",
+        "tag_name": "dict_command_registration-v1.0.1",
+        "created_at": "2022-12-29T11:09:29Z",
+        "description": "## [1.0.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/dict_command_registration-v1.0.0...dict_command_registration-v1.0.1) (2022-12-29)\n\n\n### Bug Fixes\n\n* **dict_command_registration:** 🐛 support more types of help_message argument in register ([0a943c6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/0a943c626cfd7e59a1427222aa8b5f29bf83f7df))",
+        "prerelease": false,
+        "asset": {
+          "id": 89856417,
+          "name": "DictCommandRegistration-v1.0.1.mcdr",
+          "size": 3080,
+          "download_count": 92,
+          "created_at": "2022-12-29T11:10:08Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/dict_command_registration-v1.0.1/DictCommandRegistration-v1.0.1.mcdr",
+          "hash_md5": "c2098e009c555596554c5c8c947e3d1e",
+          "hash_sha256": "d91a6989fe11eef9e4684f054ecdbca43f8279ae53ff1a8baccbf34081ee71ed"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "dict_command_registration",
+          "name": "Dict Command Registration",
+          "version": "1.0.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/dict_command_registration",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register your command by a python dict",
+            "zh_cn": "用 Python 字典注册您的指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/dict_command_registration-v1.0.0",
+        "name": "dict_command_registration: v1.0.0",
+        "tag_name": "dict_command_registration-v1.0.0",
+        "created_at": "2022-12-29T03:24:21Z",
+        "description": "## 1.0.0 (2022-12-29)\n\n\n### Features\n\n* **dict_command_registration:** 🎉 new plugin `dict_command_registration` ([9f7abd2](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9f7abd230fd16968a55763d066dd1ba00478fc0d))",
+        "prerelease": false,
+        "asset": {
+          "id": 89822971,
+          "name": "DictCommandRegistration-v1.0.0.mcdr",
+          "size": 3040,
+          "download_count": 37,
+          "created_at": "2022-12-29T03:25:02Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/dict_command_registration-v1.0.0/DictCommandRegistration-v1.0.0.mcdr",
+          "hash_md5": "408c9d16e05fec73449342f4f25af0e4",
+          "hash_sha256": "1ef262001de539a15a750b92f1adb29a1ff2aa768702603c18f31f2cc5d2c104"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "dict_command_registration",
+          "name": "Dict Command Registration",
+          "version": "1.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/dict_command_registration",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register your command by a python dict",
+            "zh_cn": "用 Python 字典注册您的指令"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 96,
+    "watchers_count": 96,
+    "forks_count": 54,
+    "readme": "# Dict Command Registration\n\n> Register your command with a python dict.\n\nMCDReforged implements a command system like [brigadier](https://github.com/Mojang/brigadier), but it is too difficult to use and not intuitive enough. When the tree becomes large, maintainability and readability become extremely poor. Then you have to split it into multiple child nodes, but when the child nodes become large you need to keep splitting them and end up in an infinite loop.\n\nThis plugin provides an API that allows you to register MCDR command trees with python dict, which is also a tree structure - a more intuitive structure, isn't it? It takes the python dict you provide, generates the MCDR Command Node, then register it. You do not have to bother with the huge code tree, just maintain your dict tree.\n\nIncidentally, it can register the [help message](https://mcdreforged.readthedocs.io/en/latest/code_references/PluginServerInterface.html#mcdreforged.plugin.server_interface.PluginServerInterface.register_help_message) for you.\n\n## Quick Start\n\nLet's register this example command in MCDR doc:\n\n```text\nLiteral('!!email'). \\\nthen(Literal('list')). \\\nthen(Literal('remove'). \\\n    then(Integer('email_id'))\n). \\\nthen(Literal('send'). \\\n    then(Text('player'). \\\n        then(GreedyText('message'))\n    )\n)\n```\n\nWrite the command dict and call register method.\n\n```python\nfrom dict_command_registration import NodeType, register\n\ncommand = {\n    \"name\": \"!!email\",\n    \"children\": [\n        {\n            \"name\": \"list\"\n        },\n        {\n            \"name\": \"remove\",\n            \"children\": [\n                {\n                    \"name\": \"email_id\",\n                    \"type\": NodeType.INTEGER\n                }\n            ]\n        },\n        {\n            \"name\": \"send\",\n            \"children\": [\n                {\n                    \"name\": \"player\",\n                    \"type\": NodeType.TEXT,\n                    \"children\": [\n                        {\n                            \"name\": \"email_id\",\n                            \"type\": NodeType.GREEDY_TEXT\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}\n\ndef on_load(server, prev_module):\n    register(server, command)\n```\n\nAll done!\n\nIf you want register help message together:\n\n```python\nregister(server, command, \"Email command\")\n```\n\n## Concepts\n\n### Node\n\nIn this plugin, `Node` means a dict which contains data of a MCDR\ncommand node.\n\nSee also: [Node](#node-dict)\n\n## API Reference\n\n### Exceptions\n\n#### MissingRequiredAttribute\n\nRaise when missing required attribute in [Node](#node-dict).\n\n### NodeType\n\nMCDR Origin Command Nodes.\n\n| Key | Class |\n| - | - |\n| LITERAL | [Literal](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.Literal) |\n| NUMBER | [Number](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Number) |\n| INTEGER | [Integer](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Integer) |\n| FLOAT | [Float](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Float) |\n| TEXT | [Text](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Text) |\n| QUOTABLE_TEXT | [QuotableText](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.QuotableText) |\n| GREEDY_TEXT | [GreedyText](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.GreedyText) |\n| BOOLEAN | [Boolean](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Boolean) |\n| ENUMERATION | [Enumeration](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Enumeration) |\n\n### Node (class)\n\nParse a [Node (dict)](#node-dict), and can cast to MCDR node.\n\n#### __init__(data: Dict[str, Any])\n\nAccept a dict.\n\n#### literal: Union[str, Iterable[str]]\n\nGet literal string or Iterable.\n\n#### to_mcdr_node() -> Union[Literal, ArgumentNode]\n\nTo MCDR Node.\n\n### Node (dict)\n\n#### name\n\n> Name of the node.\n\n- Type: `str`\n\nThis value is required.\n\n#### node\n\n> MCDR node if you want use exist node.\n\n- Type: [Literal](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.Literal) or [ArgumentNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.ArgumentNode)\n\n#### literal\n\n> Text of a literal node.\n\n- Type: `str` or `Iterable[str]`\n- Default: [name](#name) value\n\nYou have to set this value if you want use multiple literals (Iterable).\n\n#### type\n\n> Type of this node.\n\n- Type: [NodeType](#nodetype) or [ArgumentNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.ArgumentNode)\n- Default: [NodeType.LITERAL](#literal)\n\n#### enumeration\n\n> Value of [Enumeration](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.Enumeration) node.\n\n- Type: `Dict[str, Any]`\n- Default: `[]`\n\n#### args\n\n> Args to create Node if using customize node.\n\n- Type: `List[Any]`\n- Default: `[]`\n\n#### kwargs\n\n> Kwargs to create Node if using customize node.\n\n- Type: `Dict[str, Any]`\n- Default: `{}`\n\n#### runs\n\n> Set the callback function of this node.\n\n- Type: `Callable`\n\nSee also: [AbstractNode.runs()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.runs).\n\n#### requires\n\n> Set the requirement tester callback of the node.\n\n- Type: `Union[Callable, List[Callable]]`\n\nSee also: [AbstractNode.requires()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.requires).\n\n#### redirects\n\n> Redirect all further child nodes command parsing to another given node.\n\n- Type: [AbstractNode](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode)\n\nSee also: [AbstractNode.redirects()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.redirects).\n\n#### suggests\n\n> Set the provider for command suggestions of this node.\n\n- Type: `Callable`\n\nSee also: [AbstractNode.suggests()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.suggests).\n\n#### on_error\n\n> When a command error occurs, the given will invoke the given handler to handle with the error.\n\n- Type: `Dict[str, Any]`\n\nSee also: [AbstractNode.on_error()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.on_error).\n\nAccept three keys in the dict, which are three arguments listed in the doc.\n\n#### on_child_error\n\n> Similar to `on_error()`, but it gets triggered only when the node receives a command error from one of the node’s direct or indirect child.\n\n- Type: `Dict[str, Any]`\n\nSee also: [AbstractNode.on_child_error()](https://mcdreforged.readthedocs.io/en/latest/code_references/command.html#mcdreforged.command.builder.nodes.basic.AbstractNode.on_child_error).\n\nAccept three keys in the dict, which are three arguments listed in the doc.\n\n#### children\n\n> Children of this node.\n\n- Type: `List[Dict[str, Any]]`\n- Default: `[]`\n\nYou can put node in the array to add a child node.\n\n### register\n\nMethod to register command.\n\nParams:\n\n- PluginServerInterface server: the PluginServerInterface instance of your plugin, to ensure that this command is registered by your plugin.\n- dict command: Command, please find more information in the document.\n- str help_message: Provide a string value if you want register\n- int help_message_permission: The minimum permission level to see this help message. See also in MCDReforged document.\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/dict_command_registration/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

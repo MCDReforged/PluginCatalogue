@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "bedrock_liteloader_handler",
+    "name": "BedrockLiteloaderHandler",
+    "version": "1.2.1",
+    "link": "https://github.com/Elec-Glacier/liteloader_handler",
+    "authors": [
+      "Elec glacier",
+      "jiangyan03"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged>=2.13.2"
+    ],
+    "description": {
+      "en_us": "A handler which allows BDS(bedrock dedicated server) to use MCDR",
+      "zh_cn": "一个让基岩版也能使用MCDR的处理器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "bedrock_liteloader_handler",
+    "authors": [
+      "Elec glacier",
+      "jiangyan"
+    ],
+    "repository": "https://github.com/Elec-Glacier/liteloader_handler",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "handler"
+    ],
+    "introduction": {
+      "en_us": "**English** | [中文](https://github.com/Elec-Glacier/liteloader_handler/blob/main/README_cn.md)\n\n# Bedrock Liteloader Handler\nA handler which allows BDS(bedrock dedicated server) to use MCDR and its plugins.\n\n## Before you use\nVanilla BDS does not have the function to print out player chat log.\nSo it is recommended to use a behavior pack or modify BDS to std out your chat log\n\n## Usage\n1. Download the latest version from [releases](https://github.com/Elec-Glacier/liteloader_handler/releases)\n2. Place this plugin in your MCDR \"plugins\" directory\n3. Start MCDR\n4. Change and choose the handler in mcdreforged \"config\" directory\n5. reload the config\n\n## Notice\nAfter LeviLamina@1.0.0, Popen() can't get stdout after server being modded. You can use a pty terminal as bridge. You can see more details in [this issue](https://github.com/Elec-Glacier/liteloader_handler/issues/13)\nAfter version 1.2.0, this handler has adapted to PrimeBackup. You can turn it off in config.\n\n## MCDR plugins installation notice\nSince Bedrock and Java edition are different in many aspects, so read the introductions of other MCDR plugins you want to use and make sure them would work correctly before you place them into plugins directory.\n\n## Attentions\nDue to a [BDS bug](https://bugs.mojang.com/browse/BDS-3791), you might need to use some server modified plugins to let MCDR work correctly, such as [UnicodeFixer](https://www.minebbs.com/resources/unicodefixer.6991/).\n",
+      "zh_cn": "[English](https://github.com/Elec-Glacier/liteloader_handler/blob/main/README.md) | **中文**\n\n# Bedrock Liteloader Handler\n一个让基岩版也能使用MCDR及其插件的服务端处理器\n\n## 使用之前\n原版的BDS是不能输出玩家聊天的。所以你可以使用行为包或者是更改服务端来实现玩家聊天输出\n\n## 使用说明\n1. 从仓库[releases](https://github.com/Elec-Glacier/liteloader_handler/releases)中现在最新版本\n2. 将下载的文件放入到MCDR的\"plugins\"文件夹里\n3. 启动MCDR\n4. 更改config文件夹中的配置文件，选择处理器（默认是原版处理器）\n5. 重载配置文件\n\n## 注意\nLeviLamina的1.0.0版本后，MCDR无法获取更改过的服务端输出。你可以使用一个支持pty的应用作为桥梁。[更多细节](https://github.com/Elec-Glacier/liteloader_handler/issues/13)\n1.2.0版本后，对PrimeBackup做了专门的适配。你可以在config里关掉。\n\n## MCDR插件安装注意\n由于基岩版和Java版判若两个游戏，所以在使用其他插件之前，确保知道其是如何工作的并保证能正常运行。\n\n## 注意事项\n由于[BDS-3791](https://bugs.mojang.com/browse/BDS-3791)，你可能需要插件修改服务端进行修复，如[UnicodeFixer](https://www.minebbs.com/resources/unicodefixer.6991/)。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Elec-Glacier/liteloader_handler/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Elec-Glacier/liteloader_handler/main/README_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "bedrock_liteloader_handler",
+    "latest_version": "1.2.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Elec-Glacier/liteloader_handler/releases/tag/1.2.1",
+        "name": "Release 1.2.1",
+        "tag_name": "1.2.1",
+        "created_at": "2025-03-12T02:57:45Z",
+        "description": "Adapt regex to LeviLamina new logger.",
+        "prerelease": false,
+        "asset": {
+          "id": 237541777,
+          "name": "BedrockLiteloaderHandler-v1.2.1.mcdr",
+          "size": 6180,
+          "download_count": 15,
+          "created_at": "2025-03-14T17:56:17Z",
+          "browser_download_url": "https://github.com/Elec-Glacier/liteloader_handler/releases/download/1.2.1/BedrockLiteloaderHandler-v1.2.1.mcdr",
+          "hash_md5": "9d3910243dd09223e0795b91b2954b09",
+          "hash_sha256": "70012314363c696b876f014145f126d240d847f2df065277e239d41118d58e53"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bedrock_liteloader_handler",
+          "name": "BedrockLiteloaderHandler",
+          "version": "1.2.1",
+          "link": "https://github.com/Elec-Glacier/liteloader_handler",
+          "authors": [
+            "Elec glacier",
+            "jiangyan03"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.13.2"
+          ],
+          "description": {
+            "en_us": "A handler which allows BDS(bedrock dedicated server) to use MCDR",
+            "zh_cn": "一个让基岩版也能使用MCDR的处理器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Elec-Glacier/liteloader_handler/releases/tag/1.2.0",
+        "name": "Add PB2Bedrock",
+        "tag_name": "1.2.0",
+        "created_at": "2025-01-30T12:59:47Z",
+        "description": "Adapted to PrimeBackup",
+        "prerelease": false,
+        "asset": {
+          "id": 225160101,
+          "name": "BedrockLiteloaderHandler-v1.2.0.mcdr",
+          "size": 6146,
+          "download_count": 8,
+          "created_at": "2025-01-31T13:07:18Z",
+          "browser_download_url": "https://github.com/Elec-Glacier/liteloader_handler/releases/download/1.2.0/BedrockLiteloaderHandler-v1.2.0.mcdr",
+          "hash_md5": "68983fef9c6385a39139954068489715",
+          "hash_sha256": "3586b255df28505bad195e02fe6f473b40bcb572e658d776045b0bc82055f717"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bedrock_liteloader_handler",
+          "name": "BedrockLiteloaderHandler",
+          "version": "1.2.0",
+          "link": "https://github.com/Elec-Glacier/liteloader_handler",
+          "authors": [
+            "Elec glacier",
+            "jiangyan03"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.13.2"
+          ],
+          "description": {
+            "en_us": "A handler which allows BDS(bedrock dedicated server) to use MCDR",
+            "zh_cn": "一个让基岩版也能使用MCDR的处理器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Elec-Glacier/liteloader_handler/releases/tag/1.1.2",
+        "name": "1.1.2 release",
+        "tag_name": "1.1.2",
+        "created_at": "2025-01-05T05:15:02Z",
+        "description": "Fix some bugs",
+        "prerelease": false,
+        "asset": {
+          "id": 218069381,
+          "name": "BedrockLiteloaderHandler-v1.1.2.mcdr",
+          "size": 5825,
+          "download_count": 16,
+          "created_at": "2025-01-05T05:21:18Z",
+          "browser_download_url": "https://github.com/Elec-Glacier/liteloader_handler/releases/download/1.1.2/BedrockLiteloaderHandler-v1.1.2.mcdr",
+          "hash_md5": "a0b4e2362f7c8ce56a6bbf9f787cf377",
+          "hash_sha256": "07507ad0eb86f94f6a4ffc3105c5eca5ada76d99a4c4418517ae712875eaeb9f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bedrock_liteloader_handler",
+          "name": "BedrockLiteloaderHandler",
+          "version": "1.1.2",
+          "link": "https://github.com/Elec-Glacier/liteloader_handler",
+          "authors": [
+            "Elec glacier",
+            "jiangyan03"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.13.2"
+          ],
+          "description": {
+            "en_us": "A handler which allows BDS(bedrock dedicated server) to use MCDR",
+            "zh_cn": "一个让基岩版也能使用MCDR的处理器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Elec-Glacier/liteloader_handler/releases/tag/1.1.1",
+        "name": "1.1.1 release",
+        "tag_name": "1.1.1",
+        "created_at": "2024-12-13T23:28:20Z",
+        "description": "# Handler support\r\n1. Added BDS and LeviLamina handlers\r\n2. Now you can Customize stdout regex to fit different Script API packs\r\n\r\n# 处理器支持\r\n1. 添加了原版和LeviLamina处理器\r\n2. 现在你可以自定义正则来适配不同的Scrip API输出",
+        "prerelease": false,
+        "asset": {
+          "id": 213312047,
+          "name": "BedrockLiteloaderHandler-v1.1.1.mcdr",
+          "size": 4428,
+          "download_count": 10,
+          "created_at": "2024-12-14T11:34:03Z",
+          "browser_download_url": "https://github.com/Elec-Glacier/liteloader_handler/releases/download/1.1.1/BedrockLiteloaderHandler-v1.1.1.mcdr",
+          "hash_md5": "21acb0cf1b2511f2397ac14d4910857e",
+          "hash_sha256": "cab7289c40f71a0270a7135222e8a5b60946f3be5fc28c2d2b967c9b01fece8f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bedrock_liteloader_handler",
+          "name": "BedrockLiteloaderHandler",
+          "version": "1.1.1",
+          "link": "https://github.com/Elec-Glacier/liteloader_handler",
+          "authors": [
+            "Elec glacier",
+            "jiangyan03"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.13.2"
+          ],
+          "description": {
+            "en_us": "A handler which allows BDS(bedrock dedicated server) to use MCDR",
+            "zh_cn": "一个让基岩版也能使用MCDR的处理器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Elec-Glacier/liteloader_handler/releases/tag/1.0.0",
+        "name": "1.0.0 release",
+        "tag_name": "1.0.0",
+        "created_at": "2024-12-07T20:33:46Z",
+        "description": "allow BDS modded with liteloader to use mcdr",
+        "prerelease": false,
+        "asset": {
+          "id": 211791591,
+          "name": "BedrockLiteloaderHandler-v1.0.0.mcdr",
+          "size": 7079,
+          "download_count": 17,
+          "created_at": "2024-12-07T20:36:24Z",
+          "browser_download_url": "https://github.com/Elec-Glacier/liteloader_handler/releases/download/1.0.0/BedrockLiteloaderHandler-v1.0.0.mcdr",
+          "hash_md5": "5ad84a8fc5d87ee4e9c04356a24a1953",
+          "hash_sha256": "52b0ddebc8828a0f37113f5c223c7bd0685066cb8dabee368351107da5888c5b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bedrock_liteloader_handler",
+          "name": "BedrockLiteloaderHandler",
+          "version": "1.0.0",
+          "link": "https://github.com/Elec-Glacier/liteloader_handler",
+          "authors": [
+            "Elec glacier",
+            "jiangyan"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.13.2"
+          ],
+          "description": {
+            "en_us": "A handler which allows BDS(bedrock dedicated server) to use MCDR",
+            "zh_cn": "一个让基岩版也能使用MCDR的处理器"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Elec-Glacier/liteloader_handler",
+    "name": "liteloader_handler",
+    "full_name": "Elec-Glacier/liteloader_handler",
+    "html_url": "https://github.com/Elec-Glacier/liteloader_handler",
+    "description": "A handler which allows BDS(bedrock dedicated server) to use MCDR and its massive plugins.",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 2,
+    "readme": "**English** | [中文](https://github.com/Elec-Glacier/liteloader_handler/blob/main/README_cn.md)\n\n# Bedrock Liteloader Handler\nA handler which allows BDS(bedrock dedicated server) to use MCDR and its plugins.\n\n## Before you use\nVanilla BDS does not have the function to print out player chat log.\nSo it is recommended to use a behavior pack or modify BDS to std out your chat log\n\n## Usage\n1. Download the latest version from [releases](https://github.com/Elec-Glacier/liteloader_handler/releases)\n2. Place this plugin in your MCDR \"plugins\" directory\n3. Start MCDR\n4. Change and choose the handler in mcdreforged \"config\" directory\n5. reload the config\n\n## Notice\nAfter LeviLamina@1.0.0, Popen() can't get stdout after server being modded. You can use a pty terminal as bridge. You can see more details in [this issue](https://github.com/Elec-Glacier/liteloader_handler/issues/13)\nAfter version 1.2.0, this handler has adapted to PrimeBackup. You can turn it off in config.\n\n## MCDR plugins installation notice\nSince Bedrock and Java edition are different in many aspects, so read the introductions of other MCDR plugins you want to use and make sure them would work correctly before you place them into plugins directory.\n\n## Attentions\nDue to a [BDS bug](https://bugs.mojang.com/browse/BDS-3791), you might need to use some server modified plugins to let MCDR work correctly, such as [UnicodeFixer](https://www.minebbs.com/resources/unicodefixer.6991/).\n",
+    "readme_url": "https://raw.githubusercontent.com/Elec-Glacier/liteloader_handler/main/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  }
+}

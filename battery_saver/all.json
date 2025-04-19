@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "battery_saver",
+    "name": "BatterySaver",
+    "version": "0.1.1",
+    "link": "https://github.com/Mooling0602/BatterySaver-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0",
+      "mutils": "==0.0.4"
+    },
+    "requirements": [
+      "psutil"
+    ],
+    "description": {
+      "en_us": "Check battery of host machine and automatically stop server when it's low.",
+      "zh_cn": "检查主机的电量并在其低位时自动关闭服务器。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "battery_saver",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/BatterySaver-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool",
+      "information"
+    ],
+    "introduction": {
+      "en_us": "*Data fetching failed*",
+      "zh_cn": "检查主机的电量并在其低位时自动关闭服务器。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/BatterySaver-MCDR/main/doc/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/BatterySaver-MCDR/main/doc/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "battery_saver",
+    "latest_version": "0.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2025-03-08T13:28:23Z",
+        "description": "**en_us**\r\n- feat: add more options for modification\r\n- feat: add i18n for English\r\n- docs: update README (just zh_cn)\r\n- NOTE: config version is updated, need to reconfigure\r\n> Old one will be backuped automatically.\r\n\r\n**zh_cn**\r\n- feat: 更多的可定制化选项\r\n- feat: 添加了适用于英语的多语言支持\r\n- docs: README（自述页面）添加了新内容\r\n- 注意：配置版本有更新，需要重新进行配置\r\n> 先前的配置将会自动备份。\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/BatterySaver-MCDR/compare/0.0.3...0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 235726099,
+          "name": "BatterySaver-v0.1.0.mcdr",
+          "size": 5979,
+          "download_count": 5,
+          "created_at": "2025-03-08T13:35:46Z",
+          "browser_download_url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/download/0.1.0/BatterySaver-v0.1.0.mcdr",
+          "hash_md5": "74d211ebcefe1c2d34fb61ecb0411fbd",
+          "hash_sha256": "20a233257386a224425a3f46641542622fb686b5a928ed2ab2aa514dfd190075"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "battery_saver",
+          "name": "BatterySaver",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/BatterySaver-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "mutils": ">=0.0.3"
+          },
+          "requirements": [
+            "psutil"
+          ],
+          "description": {
+            "en_us": "Check battery of host machine and automatically stop server when it's low.",
+            "zh_cn": "检查主机的电量并在其低位时自动关闭服务器。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/tag/0.0.3",
+        "name": "v0.0.3",
+        "tag_name": "0.0.3",
+        "created_at": "2025-03-03T07:44:21Z",
+        "description": "NOTE: zh_cn only for updates before 0.1.x, for I'm lazy.\r\n支持一些自定义配置了，你可以参考里面的注释进行修改~\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/BatterySaver-MCDR/compare/0.0.2...0.0.3",
+        "prerelease": false,
+        "asset": {
+          "id": 234413415,
+          "name": "BatterySaver-v0.0.3.mcdr",
+          "size": 2818,
+          "download_count": 5,
+          "created_at": "2025-03-04T07:35:56Z",
+          "browser_download_url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/download/0.0.3/BatterySaver-v0.0.3.mcdr",
+          "hash_md5": "e714c749731ee0f6ba2b3a73807130f0",
+          "hash_sha256": "759126ef4d0f6c2f9f85492604ac86a6eed0bf5777af6b9abca8bba14d3efe1a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "battery_saver",
+          "name": "BatterySaver",
+          "version": "0.0.3",
+          "link": "https://github.com/Mooling0602/BatterySaver-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "mutils": ">=0.0.3"
+          },
+          "requirements": [
+            "psutil"
+          ],
+          "description": {
+            "en_us": "Check battery of host machine and automatically stop server when it's low.",
+            "zh_cn": "检查主机的电量并在其低位时自动关闭服务器。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2024-05-30T16:56:20Z",
+        "description": "初版插件，详见 README。\r\nPlease see README.",
+        "prerelease": false,
+        "asset": {
+          "id": 170981658,
+          "name": "BatterySaver.mcdr",
+          "size": 2186,
+          "download_count": 23,
+          "created_at": "2024-05-30T17:01:11Z",
+          "browser_download_url": "https://github.com/Mooling0602/BatterySaver-MCDR/releases/download/0.0.1/BatterySaver.mcdr",
+          "hash_md5": "311e9802edd751329ca37481cc0bf85b",
+          "hash_sha256": "39d13d75a4be7c39bac7f2ac142a9051c68a75a1383a6cc79f2363fb0f8150b1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "battery_saver",
+          "name": "BatterySaver",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/BatterySaver-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "psutil"
+          ],
+          "description": {
+            "en_us": "Check battery of host machine and automatically stop server when it's low.",
+            "zh_cn": "检查主机的电量并在其低位时自动关闭服务器。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/BatterySaver-MCDR",
+    "name": "BatterySaver-MCDR",
+    "full_name": "Mooling0602/BatterySaver-MCDR",
+    "html_url": "https://github.com/Mooling0602/BatterySaver-MCDR",
+    "description": "Check battery of host machine and automatically stop server when it's low.",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "- 中文（简体）\n> English not supported yet, use translate tools instead, PRs for this are welcomed!\n\n# BatterySaver-MCDR\n简单的服务器电源管理插件，支持自定义配置。\n\n如果觉得好用，请给个Star~\n\n## 用法及注意事项\n修改配置，然后插件将按照预期根据主机的电量情况管理服务端的开闭。\n> 检测间隔不宜过短或过长，因此推荐使用默认值！\n\n如果你在主机低于设定电量时启动服务器，请确保主机已经连接外部供电，否则服务器仍将在启动完成后自动关闭！\n\nWindows提供的电量精度较低，因此插件可能无法及时获取电量的变化方向，对于普通用户影响不大。\n\n部分设备在特定的操作系统平台上（如小米平板5+Linux）要获取电量信息需要额外的适配工作，若有需要可以发起Issue进行反馈。\n\n## 计划\n后面会开发一个定制的扩展插件，基于此插件实现更多功能。\n> 包含提前发出提示、接入Im类插件等\n\n该扩展插件短期内不对代码质量和多语言处理方面做任何保证，也暂时没有计划上架到插件仓库，仅会在开发完成后于此说明中进行推荐。\n> 咕咕咕！\n\n## 开发\n插件会根据配置的检测频次，在每次更新电量信息时派发一个事件，你可以据此开发插件响应这个事件信息实现高度定制化。\n\n要开发MCDReforged插件，请详细阅读此官方[文档](https://docs.mcdreforged.com)\n\n下面是一些代码参考，希望能对你有所帮助：\n> 若有误，可以发起Issue反馈，我将尽快修正！\n- 插件入口点\n```python\nfrom mcdreforged.api.all import *\nfrom your_module.path import on_battery_event\n\ndef on_load(server: PluginServerInterface, prev_module):\n    pass # 自行处理\n    server.register_event_listener(\"battery_saver:battery_info\", on_battery_event)\n```\n- 响应部分\n```python\nfrom needed.module import sth\n\n# 示例\ndef on_battery_event(server, battery_info: dict):\n    server.logger.info(f\"电量（百分比）：{battery_info.get('percent', None)}\")\n    server.logger.info(f\"外部供电（布尔值）：{battery_info.get('is_charging', None)}\")\n    server.logger.info(f\"变化方向（字符串）：{battery_info.get('level_shift', None)}\")\n    if battery_info.get('is_charging', None) is True:\n        server.logger.info(\"主机充电中……\")\n    if battery_info.get('level_shift', None) == \"up\":\n        server.logger.info(\"电量正在增加！\")\n    if battery_info.get('level_shift', None) == \"down\":\n        server.logger.info(\"电量正在减少！\")\n    pass # 自行处理\n```\n- 插件元数据`mcdreforged.plugin.json`\n> 仅包括需修改的部分，其他部分自行处理\n```json\n{\n\t\"dependencies\": {\n\t\t\"mcdreforged\": \">=2.1.0\",\n\t\t\"battery_saver\": \">=0.1.0\"\n\t}\n}\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/BatterySaver-MCDR/main/README.md",
+    "license": null
+  }
+}

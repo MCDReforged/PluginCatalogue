@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/R1ckyH/ChatBridgeReforged",
+  "name": "ChatBridgeReforged",
+  "full_name": "R1ckyH/ChatBridgeReforged",
+  "html_url": "https://github.com/R1ckyH/ChatBridgeReforged",
+  "description": "Reforged of ChatBridge, interaction with other clients(such as Minecraft server, discord bot, or other things).",
+  "archived": false,
+  "stargazers_count": 35,
+  "watchers_count": 35,
+  "forks_count": 4,
+  "readme": "# ChatBridgeReforged\n\n- only tested for python 3.7 and 3.8\n- python version should be 3.7+\n- `pip install -r requirements.txt` to install requirements!\n- Please give a **star** if you like this repository\n- Preview version at [ChatBridgeReforged_preview](https://github.com/R1ckyH/ChatBridgeReforged/tree/test)\n\n  ![image](https://raw.githubusercontent.com/R1ckyH/ChatBridgeReforged/master/./CBR.svg)\n\n## Compare to [ChatBridge](https://github.com/TISUnion/ChatBridge)\n\n- use [trio](https://trio.readthedocs.io/) for Asynchronous processing\n- more feature will be release in the future\n- not support to [ChatBridge](https://github.com/TISUnion/ChatBridge) clients in release\n- [Ricky](https://github.com/R1ckyH) is a suck author\n  - But he will try his best to maintain this repository\n  - Please cheer him so that he will be happy to maintain this repository\n\n## Basic\n\nuse `##help` to get plugin help command\n\nuse `##CBR` to get help command\n\n#### CBR Server setup\nPut all ChatBridgeReforged server files in a directory like\n```\nChatBridgeReforged\n-cbr\n-ChatBridgeReforged_Server.py\n```\nStart server with run `ChatBridgeReforged_Server.py`\n\nPut `ChatBridgeReforged_MC.py` in MCDR's plugins file\n\nSetup `config.yml` in previous directory and `config/ChatBridgeReforged_MC.json` in MCDR's directory\n\n\n## Config\n\n`edit config.yml for config`\n\n### server_setting\n`Dict`\n\n| config    | data type | description              |\n| --------- | --------- | ------------------------ |\n| host_name | `string`  | ip address for hosting   |\n| port      | `int`     | port for hosting         |\n| aes_key   | `string`  | key for `AES` encryption |\n\n### clients\n`list`\n\n| config   | data type | description        |\n| -------- | --------- | ------------------ |\n| name     | `string`  | name of client     |\n| password | `string`  | password of client |\n\n### log\n`Dict`\n\n| config           | data type | description                           |\n| ---------------- | --------- | ------------------------------------- |\n| size_to_zip      | `double`  | size to zip the file `latest.log`(kb) |\n| split_log        | `bool`    | split log to chat log and normal log  |\n| size_to_zip_chat | `bool`    | size to zip the file `chat.log`(kb)   |\n\n### debug\n`Dict`\n\n| config | data type | description       |\n| ------ | --------- | ----------------- |\n| all    | `bool`    | debug mode switch |\n| CBR    | `bool`    | debug mode switch |\n| plugin | `bool`    | debug mode switch |\n\n## cqhttp\n\n[cqhttp document](https://github.com/R1ckyH/ChatBridgeReforged/tree/master/./doc/cqhttp.md)\n\n## Plugin\n\n[Plugin document](https://github.com/R1ckyH/ChatBridgeReforged/tree/master/./doc/plugin.md)\n\nPlugin Catalogue will launch soon\n",
+  "readme_url": "https://raw.githubusercontent.com/R1ckyH/ChatBridgeReforged/master/README.md",
+  "license": {
+    "key": "lgpl-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "spdx_id": "LGPL-3.0",
+    "url": "https://api.github.com/licenses/lgpl-3.0"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "ledger_cleaner",
+    "name": "Ledger Cleaner",
+    "version": "0.1.0",
+    "link": "https://github.com/UnknownBits/LedgerCleaner",
+    "authors": [
+      "UnknownBits",
+      "tanh_Heng"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.6.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Clean and free ledger.sqlite",
+      "zh_cn": "清理与释放ledger数据库"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "ledger_cleaner",
+    "authors": [
+      "UnknownBits",
+      "tanh_Heng"
+    ],
+    "repository": "https://github.com/UnknownBits/LedgerCleaner",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# LedgerCleaner\n一个MCDReforged插件，可用于**清理**与**释放**ledger数据库(ledger.sqlite)\n\n需要MCDReforged版本2.6及以上\n\n## 指令\n\n- `!!ledger` `!!ledger help` 显示插件帮助\n\n- `!!ledger size`  获取数据库大小\n\n- `!!ledger connect` 连接到数据库\n\n- `!!ledger close` 断开数据库的连接\n\n- `!!ledger clean <date>` 准备清理数据库\n\n  若未指定\\<date>，则会自动清理配置文件中`reserved_days`天前的数据(即保留最近`reserved_days`天的数据)\n\n  *只会清理Actions(行为)表中的数据*\n\n- `!!ledger clean confirm` 确认开始清理\n\n- `!!ledger free` 释放空数据的硬盘空间\n\n  sqlite删除数据后，将会把此部分空间预留给后续的数据，而所占硬盘空间不变。此指令可释放这部分的硬盘空间。\n\n  *耗时较长，原理参见sqlite vacuum指令*\n\n## 配置文件\n\n配置文件位于/plugins/ledger_cleaner/config.json\n\n- `sqlite` ledger数据库路径，默认为`\"/server/world/ledger.sqlite\"`\n\n- `reserve_days` 自动清理时，清理多少天前的数据(即保留最近多少天的数据)，默认为`30`天\n\n## 注意\n\n使用时的注意事项\n\n- `!!ledger clean` 采用二分查找，占用时间较短；使用`!!ledger clean confirm`后执行清理指令并将操作提交数据库，可能需耗费一段时间\n\n- `!!ledger free` **耗时较长**\n\n- **请勿**在未clean/free完成时卸载插件，可能会导致错误\n\n  *(虽然一般问题不大)*\n\n- clean/free操作**可能**会将ledger.sqlite锁定，不建议在此时使用qb\n\n## 效果\n\n![example](https://raw.githubusercontent.com/UnknownBits/LedgerCleaner/master/./ledgercleaner.png)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/UnknownBits/LedgerCleaner/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "ledger_cleaner",
+    "latest_version": "0.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/UnknownBits/LedgerCleaner/releases/tag/v0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "v0.1.0",
+        "created_at": "2023-07-13T05:20:02Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 116785741,
+          "name": "LedgerCleaner-v0.1.0.mcdr",
+          "size": 3394,
+          "download_count": 203,
+          "created_at": "2023-07-13T05:21:57Z",
+          "browser_download_url": "https://github.com/UnknownBits/LedgerCleaner/releases/download/v0.1.0/LedgerCleaner-v0.1.0.mcdr",
+          "hash_md5": "5bb8593cecd650aba292738221a5d80b",
+          "hash_sha256": "90d9214376d1f0958e2e2a72d1d77d0d1909ac07535d7a6a28ae4a712570f9f2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ledger_cleaner",
+          "name": "Ledger Cleaner",
+          "version": "0.1.0",
+          "link": "https://github.com/tanhHeng/LedgerCleaner",
+          "authors": [
+            "tanh_Heng"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Clean and free ledger.sqlite",
+            "zh_cn": "清理与释放ledger数据库"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/UnknownBits/LedgerCleaner",
+    "name": "LedgerCleaner",
+    "full_name": "UnknownBits/LedgerCleaner",
+    "html_url": "https://github.com/UnknownBits/LedgerCleaner",
+    "description": "一个MCDR插件，可用于清理与释放ledger数据库(ledger.sqlite)",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "# LedgerCleaner\n一个MCDReforged插件，可用于**清理**与**释放**ledger数据库(ledger.sqlite)\n\n需要MCDReforged版本2.6及以上\n\n## 指令\n\n- `!!ledger` `!!ledger help` 显示插件帮助\n\n- `!!ledger size`  获取数据库大小\n\n- `!!ledger connect` 连接到数据库\n\n- `!!ledger close` 断开数据库的连接\n\n- `!!ledger clean <date>` 准备清理数据库\n\n  若未指定\\<date>，则会自动清理配置文件中`reserved_days`天前的数据(即保留最近`reserved_days`天的数据)\n\n  *只会清理Actions(行为)表中的数据*\n\n- `!!ledger clean confirm` 确认开始清理\n\n- `!!ledger free` 释放空数据的硬盘空间\n\n  sqlite删除数据后，将会把此部分空间预留给后续的数据，而所占硬盘空间不变。此指令可释放这部分的硬盘空间。\n\n  *耗时较长，原理参见sqlite vacuum指令*\n\n## 配置文件\n\n配置文件位于/plugins/ledger_cleaner/config.json\n\n- `sqlite` ledger数据库路径，默认为`\"/server/world/ledger.sqlite\"`\n\n- `reserve_days` 自动清理时，清理多少天前的数据(即保留最近多少天的数据)，默认为`30`天\n\n## 注意\n\n使用时的注意事项\n\n- `!!ledger clean` 采用二分查找，占用时间较短；使用`!!ledger clean confirm`后执行清理指令并将操作提交数据库，可能需耗费一段时间\n\n- `!!ledger free` **耗时较长**\n\n- **请勿**在未clean/free完成时卸载插件，可能会导致错误\n\n  *(虽然一般问题不大)*\n\n- clean/free操作**可能**会将ledger.sqlite锁定，不建议在此时使用qb\n\n## 效果\n\n![example](https://raw.githubusercontent.com/UnknownBits/LedgerCleaner/master/./ledgercleaner.png)\n",
+    "readme_url": "https://raw.githubusercontent.com/UnknownBits/LedgerCleaner/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/easybot-team/easybot-mcdr",
+  "name": "easybot-mcdr",
+  "full_name": "easybot-team/easybot-mcdr",
+  "html_url": "https://github.com/easybot-team/easybot-mcdr",
+  "description": "一个工作在MCDR上的我的世界群服同步插件",
+  "archived": false,
+  "stargazers_count": 3,
+  "watchers_count": 3,
+  "forks_count": 2,
+  "readme": "# EasyBot 机器人插件\n\n> 一款支持全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!\n> 目前功能包括消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等\n\n## 文档\n\n[点我查看](https://docs.inectar.cn/docs/easybot/quick_start/plugin/mcdr/install_mcdr)\n\n## 开发环境\n\n- `Python`: `3.12.8`\n- `MCDR`: `2.14.5`\n\n## 适用服务器\n\n> 得益于 MCDR 的工作机制, 你可以在绝大部分服务器上使用 EasyBot。\n\n## 兼容性\n\n`EasyBot_MCDR`是`EasyBot`插件的一个分支,由于实现原理不同,他的特性与功能与`EasyBot-Bukkit`有所不同。\n\n\n| 特性             | 原因                             |\n| -------------- | ------------------------------ |\n| 死亡同步           | ❌ 不同服务器实现原理不同,无法稳定判断死亡原因       |\n| PlaceholderAPI | ⚠ 不完全支持: 目前只支持 `%player_name%` |\n\n| 特性       | MCDR 解决方案 |\n| -------- | --------- |\n| 消息同步     | ✅ 支持      |\n| 进入退出通知   | ✅ 支持      |\n| 强制绑定     | ✅ 支持      |\n| 使用命令绑定账号 | ✅ 支持      |\n| 命令模式消息同步 | ✅ 支持      |\n| 热重载      | ✅ 支持      |\n| 执行命令     | ✅ 支持      |\n| 绑定时执行命令  | ✅ 支持      |\n| 联动原版白名单  | ✅ 支持      |\n| 解绑时执行命令  | ✅ 支持      |\n\n## PlaceholderAPI?\n\nPlaceholderAPI 是一个用于 `Bukkit/Spigot` 服务器端的 API，它提供了许多占位符。  \n在MCDR中`EasyBot`只实现了`%player_name%`\n\n### 未来计划\n\n> ⚠ 此功能正在开发\n\n检测到服务器安装了PlaceholderAPI 时, 使用RCON执行解析变量。\n\n## 发布\n\n```bash\npython ./pack.py\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/easybot-team/easybot-mcdr/main/readme.md",
+  "license": {
+    "key": "agpl-3.0",
+    "name": "GNU Affero General Public License v3.0",
+    "spdx_id": "AGPL-3.0",
+    "url": "https://api.github.com/licenses/agpl-3.0"
+  }
+}
