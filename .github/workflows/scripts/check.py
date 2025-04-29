@@ -108,11 +108,11 @@ MSG_CHECKLIST = '''
 logger.setLevel(logging.INFO)
 
 # ---- On closed ---- #
-if EVENT_TYPE == EventType.CLOSED:
+if EVENT_TYPE == EventType.CLOSED and IS_MERGED == 'true':  # merged
     author, is_first_time = gh.check_contributor()
-    if is_first_time and IS_MERGED == 'true':  # merged
+    if is_first_time:
         gh.pr_comment(MSG_MERGED)
-    sys.exit(0)
+        sys.exit(0)
 
 # ---- No limit on recheck ---- #
 if EVENT_TYPE == EventType.LABELED:
