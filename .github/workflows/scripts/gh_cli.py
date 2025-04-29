@@ -130,7 +130,7 @@ def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[Optional[str], bool]:
 
     query = ' '.join(map(str.strip, f"""
     {{
-      repository(owner: "{REPO[0]}", name: "{REPO[1]}") {{
+      repository(owner: "{CATALOGUE_REPO[0]}", name: "{CATALOGUE_REPO[1]}") {{
         pullRequest(number: {pr_number}) {{
           author {{
             login
