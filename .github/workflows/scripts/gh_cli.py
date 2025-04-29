@@ -124,7 +124,7 @@ def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[Optional[str], bool]:
         pr_number (str): The pull request number.
 
     Returns:
-        Tuple[str, bool]: A tuple containing the author's login and a boolean indicating if they are a first-time contributor.
+        Tuple[Optional[str], bool]: A tuple containing the author's login and a boolean indicating if they are a first-time contributor.
     """
     logger.info(f'Checking contributor for PR: #{pr_number}')
 
