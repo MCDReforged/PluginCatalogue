@@ -62,13 +62,17 @@ EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
 IS_MERGED = os.environ.get('IS_MERGED', 'false')
 
 MSG_MERGED = '''
-Well done! 🎉
+{},
 
-Your pull request has been successfully merged.
+Congratulations on your first merged contribution! 🎉✨
+Thank you for joining the community — your PR is now a part of the Plugin Catalogue!
 
-We appreciate your hard work and valuable input. If you have any further questions or need additional changes, feel free to reach out.
+A few friendly reminders:
+🕒 Your changes may take a short time to appear in the catalogue.
+✅ Check back later to make sure everything displays as expected.
 
-Happy coding!
+We’re thrilled to welcome you as a contributor and hope to see more from you in the future!
+Welcome aboard, and happy coding! 🚀
 '''.strip()
 
 FIRST_TIME_HEADER = '''
@@ -111,7 +115,7 @@ logger.setLevel(logging.INFO)
 if EVENT_TYPE == EventType.CLOSED and IS_MERGED == 'true':  # merged
     author, is_first_time = gh.check_contributor()
     if is_first_time:
-        gh.pr_comment(MSG_MERGED)
+        gh.pr_comment(MSG_MERGED.format(f'@{author}' if author else 'Contributor'))
         sys.exit(0)
 
 # ---- No limit on recheck ---- #
@@ -196,7 +200,7 @@ else:
 if EVENT_TYPE == EventType.OPENED:
     author, is_first_time = gh.check_contributor()
 
-    reply = FIRST_TIME_HEADER.format(f'@{author}' if author else 'contributor') \
+    reply = FIRST_TIME_HEADER.format(f'@{author}' if author else 'Contributor') \
         if is_first_time else MSG_HEADER
 
     if Tag.PLG_ADD in actions.tags:

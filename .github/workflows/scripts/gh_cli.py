@@ -37,6 +37,7 @@ from utilities import COMMENT_SIGN
 
 EXECUTABLE = 'gh'
 PR_NUMBER = os.environ.get('PR_NUMBER')
+CATALOGUE_REPO = 'MCDReforged/PluginCatalogue'.split('/')
 
 if 'GH_TOKEN' not in os.environ:
     os.environ['GH_TOKEN'] = os.environ.get('github_api_token', '')
@@ -129,7 +130,7 @@ def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[Optional[str], bool]:
 
     query = ' '.join(map(str.strip, f"""
     {{
-      repository(owner: "MCDReforged", name: "PluginCatalogue") {{
+      repository(owner: "{REPO[0]}", name: "{REPO[1]}") {{
         pullRequest(number: {pr_number}) {{
           author {{
             login
