@@ -116,7 +116,7 @@ def pr_label(add_labels: Optional[list[str]] = None, remove_labels: Optional[lis
         logger.error(f'Failed to label: {e}')
 
 
-def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[str, bool]:
+def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[Optional[str], bool]:
     """Check if the author of a PR is a first-time contributor.
 
     Args:
