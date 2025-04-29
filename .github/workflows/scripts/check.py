@@ -71,6 +71,21 @@ We appreciate your hard work and valuable input. If you have any further questio
 Happy coding!
 '''.strip()
 
+FIRST_TIME_HEADER = '''
+**Hi, {}!**  
+This is your first contribution to the catalogue. Welcome! 🎉  
+
+To ensure a smooth review process, please:  
+- 📖 **Read the [Contribution Guidelines](https://github.com/MCDReforged/PluginCatalogue/blob/master/CONTRIBUTING.md)** (if you haven’t already).  
+- 🔍 **Check existing plugins** for reference on formatting and metadata.
+
+If you’ve added/modified plugins, a report will be generated below.
+- ✅ **Verify your changes** by reading the report.
+
+We’ll review your PR soon — thanks for your patience!
+Hope you have a great day!
+'''.strip()
+
 MSG_HEADER = '''
 Thanks for your contribution! 🎉
 Please be patient before we done checking. If you've added or modified plugins, a brief report will be generated below.
@@ -94,7 +109,8 @@ logger.setLevel(logging.INFO)
 
 # ---- On closed ---- #
 if EVENT_TYPE == EventType.CLOSED:
-    if IS_MERGED == 'true':  # merged
+    author, is_first_time = gh.check_contributor()
+    if is_first_time and IS_MERGED == 'true':  # merged
         gh.pr_comment(MSG_MERGED)
     sys.exit(0)
 
@@ -152,11 +168,6 @@ logger.info(f'Identified labels: {", ".join(map(str, actions.labels))}')
 
 # ---- Run plugin checks and generate report ---- #
 
-reply: str = MSG_HEADER
-
-if Tag.PLG_ADD in actions.tags:
-    reply += MSG_CHECKLIST
-
 report: Optional[str] = None
 
 if actions.plugins:
@@ -183,6 +194,14 @@ else:
 # ---- Label and comment ---- #
 
 if EVENT_TYPE == EventType.OPENED:
+    author, is_first_time = gh.check_contributor()
+
+    reply = FIRST_TIME_HEADER.format(f'@{author}' if author else 'contributor') \
+        if is_first_time else MSG_HEADER
+
+    if Tag.PLG_ADD in actions.tags:
+        reply += MSG_CHECKLIST
+
     gh.pr_label(add_labels=sorted(actions.labels))
     gh.pr_comment(reply)
 
