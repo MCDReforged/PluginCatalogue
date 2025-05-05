@@ -16,8 +16,6 @@ on:
   pull_request_target:
     branches:
       - master
-    paths-ignore: # Skip run for security reasons
-      - .github/workflows/**/*.py
     types:
       - opened
       - synchronize
@@ -37,6 +35,16 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      
+      - uses: actions/checkout@v4
+        with:
+          path: original-repo
+      
+      - name: Setup Scripts
+        # Always use scripts from the original repo, for latest features and security reasons
+        run: |
+          rm -rf scripts .github
+          cp -r original-repo/{scripts,.github} .
 
       - uses: actions/setup-python@v5
         with:
