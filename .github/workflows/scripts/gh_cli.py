@@ -30,6 +30,7 @@ in the `scripts` folder of the project root. If not, see
 
 import os
 import subprocess
+import json
 from typing import Optional, Tuple
 
 from common.log import logger
@@ -125,6 +126,22 @@ def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[Optional[str], bool]:
 
     Returns:
         Tuple[Optional[str], bool]: A tuple containing the author's login and a boolean indicating if they are a first-time contributor.
+
+    Data Structure:
+        ```
+        {
+            "data": {
+                "repository": {
+                    "pullRequest": {
+                        "author": {
+                            "login": "<author_login>"
+                        },
+                        "authorAssociation": "FIRST_TIME_CONTRIBUTOR"
+                    }
+                }
+            }
+        }
+        ```
     """
     logger.info(f'Checking contributor for PR: #{pr_number}')
 
@@ -142,15 +159,14 @@ def check_contributor(pr_number: str = PR_NUMBER) -> Tuple[Optional[str], bool]:
     """.split('\n')))
 
     cmd = [
-        'gh', 'api', 'graphql', '--jq',
-        r'.data.repository.pullRequest | "\(.author.login) \(.authorAssociation == "FIRST_TIME_CONTRIBUTOR")"',
-        '-F', f'query={query}']
+        'gh', 'api', 'graphql', '-F', f'query={query}']
 
     try:
         result = subprocess.check_output(cmd)   # Alex326 false
-        result = result.decode('utf-8').strip().split(' ')
-        author_login = result[0]
-        is_first_time = result[1].lower() == 'true'
+        result_json = json.loads(result.decode('utf-8'))
+
+        author_login = result_json['data']['repository']['pullRequest']['author']['login']
+        is_first_time = result_json['data']['repository']['pullRequest']['authorAssociation'].upper() == 'FIRST_TIME_CONTRIBUTOR'
 
         logger.info(f'Contributor: {author_login}, First Time: {is_first_time}')
         return author_login, is_first_time
