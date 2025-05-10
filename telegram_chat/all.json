@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "telegram_chat",
+    "name": "TelegramChat",
+    "version": "2.0.1",
+    "link": null,
+    "authors": [
+      "SALTWOOD"
+    ],
+    "dependencies": {
+      "online_player_api": "^1.0.0",
+      "python": ">=3.10"
+    },
+    "requirements": [
+      "python-telegram-bot>=21.10"
+    ],
+    "description": {
+      "en_us": "Scalable Telegram-Bot.",
+      "zh_cn": "一个可扩展的 TG 机器人"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "telegram_chat",
+    "authors": [
+      "SALTWOOD"
+    ],
+    "repository": "https://github.com/SALTWOOD/TelegramChat",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "api",
+      "information",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "<div align=\"center\">\n\n![TelegramChat](https://socialify.git.ci/SALTWOOD/TelegramChat/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# TelegramChat\n✨🎉 **An Extensible Telegram Bot Plugin Powered by python-telegram-bot!** 🎉✨\n</div>\n\n> [!WARNING]  \n> Due to f**king Tencent's issues, the entire plugin is now being developed for Telegram. QQ-based versions will no longer be supported.\n> The plugin wrote for SaltyQQChat can still be used; simply modify a little of the codes.\n\n# Introduction\nThis is a Telegram bot plugin based on [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot).\n\nAdditionally, it supports simple bot extension through **API calls**, allowing you to add your own custom commands!\n\n**Features we have:**\n- [x] Supports ignoring commands from specific users via `/ban` and `/pardon`\n- [x] Allows the bot to execute more Minecraft native commands without using `/command` (such as `/ban`, `/pardon`)\n- [x] Allows starting and stopping the server through the bot\n- [x] Supports replying when the bot is mentioned, instead of just responding to a command\n- [x] Supports executing bot commands within Minecraft\n- [x] Check bot status via `/ping` and `/info` commands\n- [x] **[Development Feature]** Remote plugin reload via `/reload`\n- [x] Customizable one-way/two-way MC <==> Telegram group forwarding\n- [x] Easily extendable command tree based on regular expressions\n- [x] Automatically handle group join requests, friend requests, and group invitations.\n- [x] Verify if the Minecraft player exists when binding to a player.\n- [x] Spacing added between Chinese, numbers, and English, with a more humorous tone in the responses\n\n**Features we don't have:**\n- [x] No \"management group\", \"main group\", or \"message sync group\" functionality. Instead, it uses multi-group synchronization (though typically, only one group is used)\n- [x] No \"MultiServer\" feature, as it leads to unpredictable bugs and has limited use\n\n# Installation\n## Install via MCDR\nUse `!!MCDR plugin install telegram_chat` in the MCDR console, then `!!MCDR confirm`.\n\n## Install via Release\nDownload the corresponding `.mcdr` file from the [Releases page](https://github.com/SALTWOOD/TelegramChat/releases) and place it in the `plugins` folder, then reload the plugin.\n\n## Install via Source Code\nRun `git clone https://github.com/SALTWOOD/TelegramChat` or `git clone git@github.com:SALTWOOD/TelegramChat` in the `plugins` folder, then reload the plugin.\n\n# API\nOne of the most interesting features of this plugin is that you can extend it by adding custom commands via other MCDR plugins. Here's an example of a single-file plugin:\n\n```Python\nfrom typing import Any, Callable, List\n\nfrom mcdreforged.api.types import PluginServerInterface\nfrom telegram import Update\nfrom telegram.ext import ContextTypes\n\nimport re\n\nPLUGIN_METADATA = {\n    'id': 'tc_extension',\n    'version': '1.0.0',\n    'name': 'TC extension plugin',\n    'description': 'TelegramChat\\'s extension plugin',\n    'author': 'NONE',\n    'link': 'https://github.com',\n    'dependencies': {\n        'telegram_chat': '>=2.0.0'\n    }\n}\n\nplugin: Any\nsend_to: Callable\n\ndef on_load(server: PluginServerInterface, old):\n    global plugin, send_to\n    plugin = server.get_plugin_instance(\"telegram_chat\")\n\n    send_to = plugin.tools.send_to\n\n    plugin.command_tree.add_command(re.compile(r'/your-command (.*)'), [str], handler)\n\nasync def handler(server: PluginServerInterface, event: Update, context: ContextTypes.DEFAULT_TYPE, command: List[str],\n                  event_type: MessageType):\n    message = command[0]\n    await send_to(\n        event,\n        context,\n        f\"You provided the parameter: \\\"{message}\\\"\"\n    )\n```\n\n# Special Thanks\n- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - Provides a way to access Telegram.\n- **SALTWO∅D server members** - For helping me test the bot and discovering security vulnerabilities before the release\n",
+      "zh_cn": "<div align=\"center\">\n\n![TelegramChat](https://socialify.git.ci/SALTWOOD/TelegramChat/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# TelegramChat\n✨🎉 **基于 python-telegram-bot 的、可拓展的 Telegram 机器人插件！** 🎉✨\n</div>\n\n> [!WARNING]\n> 因为有点大病的腾讯，所以整个插件转向 Telegram 方向进行开发，旧版本的基于 QQ 的将会被废弃。\n> 为 SaltyQQChat 编写的插件仍可以使用，只需要更改一点点代码即可。\n\n# 简介\n这是一个使用 [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) 的 Telegram 机器人插件。\n\n同时，它还支持通过 **API 调用**的方式，简单地扩展机器人，添加属于你的命令！\n\n拥有的功能：\n- [x] 支持通过 `/ban` `/pardon` 拒绝响应某用户\n- [x] 支持通过机器人执行更多原版命令而不使用 `/command`（如 `/ban` `/pardon`）\n- [x] 支持通过机器人启停服务器\n- [x] 支持艾特机器人进行答复，而不是发一句什么命令就答复\n- [x] 支持 MC 内执行机器人命令\n- [x] 通过 `/ping` 命令、`/info` 命令检查机器人状态\n- [x] **[开发特性]** 通过 `/reload` 远程重载插件\n- [x] 可自定义的单向/双向 MC <==> Telegram 群转发\n- [x] 基于正则表达式的易扩展命令树\n- [x] 自动处理加群、加好友、邀请入群申请\n- [x] 绑定玩家时验证正版玩家档案是否存在\n- [x] 中文和数字、英文之间做了间隔，且语气更加诙谐\n\n没有的功能：\n- [x] 没有“管理群”、“主群”、“消息同步群”的功能，改为多群同步（不过一般就一个群而已）\n- [x] 没有“MultiServer”特性，因为会导致难以预料的 bug 且应用面小\n\n# 使用\n## 通过 MCDR 安装\n在 MCDR 控制台使用 `!!MCDR plugin install telegram_chat`，然后 `!!MCDR confirm`。\n\n## 通过 Release 安装\n在 [Releases 页面](https://github.com/SALTWOOD/TelegramChat/releases) 下载对应版本的 `.mcdr` 文件，放入 `plugins` 文件夹重载。\n\n## 通过源代码\n在 `plugins` 下执行 `git clone https://github.com/SALTWOOD/TelegramChat` 或者 `git clone git@github.com:SALTWOOD/TelegramChat`，然后重载插件。\n\n# API\n这是这个插件最有意思的功能之一，可以通过添加其他 MCDR 插件的方式为这个插件添加自定义命令。\n这里展出一个单文件插件的代码作为示例：\n```Python\nfrom typing import Any, Callable, List\n\nfrom mcdreforged.api.types import PluginServerInterface\nfrom telegram import Update\nfrom telegram.ext import ContextTypes\n\nimport re\n\nPLUGIN_METADATA = {\n    'id': 'tc_extension',\n    'version': '1.0.0',\n    'name': 'TC extension plugin',\n    'description': 'TelegramChat\\'s extension plugin',\n    'author': 'NONE',\n    'link': 'https://github.com',\n    'dependencies': {\n        'telegram_chat': '>=2.0.0'\n    }\n}\n\nplugin: Any\nsend_to: Callable\n\ndef on_load(server: PluginServerInterface, old):\n    global plugin, send_to\n    plugin = server.get_plugin_instance(\"telegram_chat\")\n\n    send_to = plugin.tools.send_to\n\n    plugin.command_tree.add_command(re.compile(r'/你的命令 (.*)'), [str], handler)\n\nasync def handler(server: PluginServerInterface, event: Update, context: ContextTypes.DEFAULT_TYPE, command: List[str],\n                  event_type: MessageType):\n    message = command[0]\n    await send_to(\n        event,\n        context,\n        f\"你提供的参数是：\\\"{message}\\\"\"\n    )\n```\n\n# 特别鸣谢\n- [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_chat) - TelegramChat 前身的前身\n- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - 提供接入到 Telegram 的接口\n- **SALTWO∅D 服务器的各位** - 帮我测试机器人，还赶在发布 Release 之前帮我发现了越权漏洞（\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/SALTWOOD/TelegramChat/master/README-EN.md",
+      "zh_cn": "https://raw.githubusercontent.com/SALTWOOD/TelegramChat/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "telegram_chat",
+    "latest_version": "2.0.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/SALTWOOD/TelegramChat/releases/tag/v2.0.1",
+        "name": "v2.0.1",
+        "tag_name": "v2.0.1",
+        "created_at": "2025-03-24T15:08:30Z",
+        "description": "## Bug Fixes\r\n- Release 没有上传 artifact ([SALTWOOD](https://github.com/SALTWOOD/TelegramChat/commit/0d076f94b25265365d31b8e5262e291bcad2a594))\r\n\r\n## Commits\r\n- 5306ab4: Release v2.0.1 (SALTWOOD)",
+        "prerelease": false,
+        "asset": {
+          "id": 240330008,
+          "name": "TelegramChat-v2.0.1.mcdr",
+          "size": 22073,
+          "download_count": 12,
+          "created_at": "2025-03-24T15:09:04Z",
+          "browser_download_url": "https://github.com/SALTWOOD/TelegramChat/releases/download/v2.0.1/TelegramChat-v2.0.1.mcdr",
+          "hash_md5": "5b6d431d9e29d83aef6ba6e4de5763a9",
+          "hash_sha256": "a32f1bc75fd040127f4f1c3e843ea44e547fac99f8bfa429d50884e3e1706355"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "telegram_chat",
+          "name": "TelegramChat",
+          "version": "2.0.1",
+          "link": null,
+          "authors": [
+            "SALTWOOD"
+          ],
+          "dependencies": {
+            "online_player_api": "^1.0.0",
+            "python": ">=3.10"
+          },
+          "requirements": [
+            "python-telegram-bot>=21.10"
+          ],
+          "description": {
+            "en_us": "Scalable Telegram-Bot.",
+            "zh_cn": "一个可扩展的 TG 机器人"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/SALTWOOD/TelegramChat",
+    "name": "TelegramChat",
+    "full_name": "SALTWOOD/TelegramChat",
+    "html_url": "https://github.com/SALTWOOD/TelegramChat",
+    "description": "Scalable Telegram bot.",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "<div align=\"center\">\n\n![TelegramChat](https://socialify.git.ci/SALTWOOD/TelegramChat/image?description=1&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# TelegramChat\n✨🎉 **基于 python-telegram-bot 的、可拓展的 Telegram 机器人插件！** 🎉✨\n</div>\n\n> [!WARNING]\n> 因为有点大病的腾讯，所以整个插件转向 Telegram 方向进行开发，旧版本的基于 QQ 的将会被废弃。\n> 为 SaltyQQChat 编写的插件仍可以使用，只需要更改一点点代码即可。\n\n# 简介\n这是一个使用 [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) 的 Telegram 机器人插件。\n\n同时，它还支持通过 **API 调用**的方式，简单地扩展机器人，添加属于你的命令！\n\n拥有的功能：\n- [x] 支持通过 `/ban` `/pardon` 拒绝响应某用户\n- [x] 支持通过机器人执行更多原版命令而不使用 `/command`（如 `/ban` `/pardon`）\n- [x] 支持通过机器人启停服务器\n- [x] 支持艾特机器人进行答复，而不是发一句什么命令就答复\n- [x] 支持 MC 内执行机器人命令\n- [x] 通过 `/ping` 命令、`/info` 命令检查机器人状态\n- [x] **[开发特性]** 通过 `/reload` 远程重载插件\n- [x] 可自定义的单向/双向 MC <==> Telegram 群转发\n- [x] 基于正则表达式的易扩展命令树\n- [x] 自动处理加群、加好友、邀请入群申请\n- [x] 绑定玩家时验证正版玩家档案是否存在\n- [x] 中文和数字、英文之间做了间隔，且语气更加诙谐\n\n没有的功能：\n- [x] 没有“管理群”、“主群”、“消息同步群”的功能，改为多群同步（不过一般就一个群而已）\n- [x] 没有“MultiServer”特性，因为会导致难以预料的 bug 且应用面小\n\n# 使用\n## 通过 MCDR 安装\n在 MCDR 控制台使用 `!!MCDR plugin install telegram_chat`，然后 `!!MCDR confirm`。\n\n## 通过 Release 安装\n在 [Releases 页面](https://github.com/SALTWOOD/TelegramChat/releases) 下载对应版本的 `.mcdr` 文件，放入 `plugins` 文件夹重载。\n\n## 通过源代码\n在 `plugins` 下执行 `git clone https://github.com/SALTWOOD/TelegramChat` 或者 `git clone git@github.com:SALTWOOD/TelegramChat`，然后重载插件。\n\n# API\n这是这个插件最有意思的功能之一，可以通过添加其他 MCDR 插件的方式为这个插件添加自定义命令。\n这里展出一个单文件插件的代码作为示例：\n```Python\nfrom typing import Any, Callable, List\n\nfrom mcdreforged.api.types import PluginServerInterface\nfrom telegram import Update\nfrom telegram.ext import ContextTypes\n\nimport re\n\nPLUGIN_METADATA = {\n    'id': 'tc_extension',\n    'version': '1.0.0',\n    'name': 'TC extension plugin',\n    'description': 'TelegramChat\\'s extension plugin',\n    'author': 'NONE',\n    'link': 'https://github.com',\n    'dependencies': {\n        'telegram_chat': '>=2.0.0'\n    }\n}\n\nplugin: Any\nsend_to: Callable\n\ndef on_load(server: PluginServerInterface, old):\n    global plugin, send_to\n    plugin = server.get_plugin_instance(\"telegram_chat\")\n\n    send_to = plugin.tools.send_to\n\n    plugin.command_tree.add_command(re.compile(r'/你的命令 (.*)'), [str], handler)\n\nasync def handler(server: PluginServerInterface, event: Update, context: ContextTypes.DEFAULT_TYPE, command: List[str],\n                  event_type: MessageType):\n    message = command[0]\n    await send_to(\n        event,\n        context,\n        f\"你提供的参数是：\\\"{message}\\\"\"\n    )\n```\n\n# 特别鸣谢\n- [QQChat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_chat) - TelegramChat 前身的前身\n- [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) - 提供接入到 Telegram 的接口\n- **SALTWO∅D 服务器的各位** - 帮我测试机器人，还赶在发布 Release 之前帮我发现了越权漏洞（\n",
+    "readme_url": "https://raw.githubusercontent.com/SALTWOOD/TelegramChat/master/README.md",
+    "license": {
+      "key": "mpl-2.0",
+      "name": "Mozilla Public License 2.0",
+      "spdx_id": "MPL-2.0",
+      "url": "https://api.github.com/licenses/mpl-2.0"
+    }
+  }
+}

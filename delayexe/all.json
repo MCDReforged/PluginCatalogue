@@ -1,0 +1,502 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "delayexe",
+    "name": "Delay Exe",
+    "version": "1.4.1",
+    "link": "https://github.com/kmcsr/delayexe_mcdr/",
+    "authors": [
+      "zyxkad"
+    ],
+    "dependencies": {
+      "mcdreforged": "^2.14.0",
+      "kpi": "~1.5.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Delay execute command until all player have left",
+      "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "delayexe",
+    "authors": [
+      "zyxkad"
+    ],
+    "repository": "https://github.com/kmcsr/delayexe_mcdr",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool",
+      "api"
+    ],
+    "introduction": {
+      "en_us": "\n- English\n- [中文](https://github.com/kmcsr/delayexe_mcdr/tree/master/README_zh.MD)\n\n# Delay ExE\n\n- A plugin for delay execute command until all player have left\n- You can use it as a API\n\n### Example for API\n\n```python\n\nimport delayexe\n\ndef a_method():\n\tdelayexe.add_delay_task('say There are no player online') # run minecraft command\n\tdelayexe.add_delay_task('kill @a') # Must nothing to kill\n\tdelayexe.add_delay_task(lambda: print('There are no player online')) # run python method\n\n\t# ...\n\n\tdelayexe.clear_delay_task() # clear all delay tasks, the top of three commands will never run, if any player is online\n\n# ...\n\na_method()\n\n# ...\n\n```\n\n",
+      "zh_cn": "\n- [English](https://github.com/kmcsr/delayexe_mcdr/tree/master/README.MD)\n- 中文\n\n# Delay ExE\n\n- 一个延迟直到服务器**没有玩家**后执行指定命令的插件\n- 可以当做*API*用\n- ~~原理非常简单, 就不多介绍了~~\n\n### API示例\n\n```python\n\nimport delayexe\n\ndef a_method():\n\tdelayexe.add_delay_task('say There are no player online') # 执行minecraft命令\n\tdelayexe.add_delay_task('kill @a') # 不会有任何东西被杀死, 在任何时候\n\tdelayexe.add_delay_task(lambda: print('There are no player online')) # 可以执行python无参函数\n\n\t# ...\n\n\tdelayexe.clear_delay_task() # 清除所有任务\n\n# ...\n\na_method()\n\n# ...\n\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/kmcsr/delayexe_mcdr/master/README.MD",
+      "zh_cn": "https://raw.githubusercontent.com/kmcsr/delayexe_mcdr/master/README_zh.MD"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "delayexe",
+    "latest_version": "1.4.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.4.1",
+        "name": "v1.4.1",
+        "tag_name": "v1.4.1",
+        "created_at": "2025-02-01T20:19:08Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 225476408,
+          "name": "DelayExe-v1.4.1.mcdr",
+          "size": 5038,
+          "download_count": 17,
+          "created_at": "2025-02-01T20:19:10Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.4.1/DelayExe-v1.4.1.mcdr",
+          "hash_md5": "e5392b5b58b4639aa722adbce0065195",
+          "hash_sha256": "513c4bb0349af74a4c5866b71589bce92ce429dd0783cfd0abd9b9ecb2e0b44b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.4.1",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.14.0",
+            "kpi": "~1.5.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.4.0",
+        "name": "v1.4.0",
+        "tag_name": "v1.4.0",
+        "created_at": "2025-02-01T20:18:15Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 225476289,
+          "name": "DelayExe-v1.4.0.mcdr",
+          "size": 5031,
+          "download_count": 4,
+          "created_at": "2025-02-01T20:18:20Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.4.0/DelayExe-v1.4.0.mcdr",
+          "hash_md5": "8ae8ba1d35828771efe64144d148842b",
+          "hash_sha256": "6bb8913891c588daef6c861ee36d52cd7dae1ab40632c3d4e0ea6fc7c00a3a85"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.4.0",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.14.0",
+            "kpi": "~1.5.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.3.2",
+        "name": "v1.3.2",
+        "tag_name": "v1.3.2",
+        "created_at": "2023-08-27T01:27:16Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 123276670,
+          "name": "DelayExe-v1.3.2.mcdr",
+          "size": 4882,
+          "download_count": 149,
+          "created_at": "2023-08-27T01:27:19Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.3.2/DelayExe-v1.3.2.mcdr",
+          "hash_md5": "a35cc542adff1f1d39101c30ebf11169",
+          "hash_sha256": "44d52835d96d9b3373bf00f9d136e6be17c5332c2d7b08a6dd7ee3b80af015b0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.3.2",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": "~1.4.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.3.0",
+        "name": "v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2022-11-25T07:59:54Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 85909332,
+          "name": "DelayExe-v1.3.0.mcdr",
+          "size": 4886,
+          "download_count": 226,
+          "created_at": "2022-11-25T07:59:57Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.3.0/DelayExe-v1.3.0.mcdr",
+          "hash_md5": "167d29c8eb2d5f5deb30a5d67de19ddc",
+          "hash_sha256": "6df65e1f44a1696de40521aef4053d918145630e1234e94fa9a3ac0fb9ab56a2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.3.0",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.2.2",
+        "name": "v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2022-10-23T06:19:16Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 81966552,
+          "name": "DelayExe-v1.2.2.mcdr",
+          "size": 4891,
+          "download_count": 50,
+          "created_at": "2022-10-23T06:19:23Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.2.2/DelayExe-v1.2.2.mcdr",
+          "hash_md5": "4e3d1a94de5db79ad7defd462a396e5b",
+          "hash_sha256": "8be39ad039f4a4a3fa3f25b068fa0d28f45c142dfbb84d92986f48dd56046cf5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.2.2",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.0.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.2.1",
+        "name": "v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2022-09-18T02:03:12Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 78210276,
+          "name": "DelayExe-v1.2.1.mcdr",
+          "size": 4884,
+          "download_count": 49,
+          "created_at": "2022-09-18T02:03:14Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.2.1/DelayExe-v1.2.1.mcdr",
+          "hash_md5": "acfe2d134edd19b6bc600112592f454e",
+          "hash_sha256": "5f3243dae0a45a7adfafcba04c8411dc5fc38c0eac4b7de18978de999ea01d78"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.2.1",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.0.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.2.0",
+        "name": "v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2022-09-18T00:48:44Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 78207043,
+          "name": "DelayExe-v1.2.0.mcdr",
+          "size": 4874,
+          "download_count": 19,
+          "created_at": "2022-09-18T00:48:47Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.2.0/DelayExe-v1.2.0.mcdr",
+          "hash_md5": "265effef8d28715c1958b1d5c1e34c0e",
+          "hash_sha256": "77f4dc28e053fec788938b3d8955898f68d928d0149267edabd52f82b6e529b0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.2.0",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2022-05-09T23:46:08Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 64996117,
+          "name": "DelayExe-v1.1.0.mcdr",
+          "size": 4989,
+          "download_count": 130,
+          "created_at": "2022-05-09T23:51:26Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.1.0/DelayExe-v1.1.0.mcdr",
+          "hash_md5": "c304f4ab593bb3bccfd2ff1e82c7b334",
+          "hash_sha256": "597a989d8677d6118a9f204057eb2f86cd5530a4012adf6e5c8b3a7e010a6661"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.1.0",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.0.3",
+        "name": "v1.0.3",
+        "tag_name": "v1.0.3",
+        "created_at": "2022-01-07T05:38:54Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 53391263,
+          "name": "DelayExe-v1.0.3.mcdr",
+          "size": 3673,
+          "download_count": 39,
+          "created_at": "2022-01-07T05:38:57Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.0.3/DelayExe-v1.0.3.mcdr",
+          "hash_md5": "0cfb17f6cae7cff15fb573ce73946481",
+          "hash_sha256": "7a6d0533331fc5e35402be9b462fda47fe4c56b73a16862df450bcd44821adb1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.0.3",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.0.2",
+        "name": "v1.0.2",
+        "tag_name": "v1.0.2",
+        "created_at": "2022-01-07T01:30:08Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 53379716,
+          "name": "DelayExe-v1.0.2.mcdr",
+          "size": 3666,
+          "download_count": 15,
+          "created_at": "2022-01-07T01:30:16Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.0.2/DelayExe-v1.0.2.mcdr",
+          "hash_md5": "1e8ce0f5ac29f00f6a00ef40f62e2243",
+          "hash_sha256": "32ba5d6b8745ab1fccf5288965990db0cbad44f758597fec6891e63a72265f51"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.0.2",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command until all player have left",
+            "zh_cn": "延迟执行命令, 直到所有玩家都离开游戏"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2022-01-05T23:36:40Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 53297686,
+          "name": "DelayExe-v1.0.1.mcdr",
+          "size": 3447,
+          "download_count": 16,
+          "created_at": "2022-01-05T23:36:47Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.0.1/DelayExe-v1.0.1.mcdr",
+          "hash_md5": "6fec413c3c78419131317ef4bb9422cf",
+          "hash_sha256": "05591f0cc25eaddbab03949e20cf79a0492ceb278de805e1f290cf956339fd2b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.0.1",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command when all player was leave"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/delayexe_mcdr/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2022-01-05T22:42:22Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 53294729,
+          "name": "DelayExe-v1.0.0.mcdr",
+          "size": 3397,
+          "download_count": 19,
+          "created_at": "2022-01-05T22:42:57Z",
+          "browser_download_url": "https://github.com/kmcsr/delayexe_mcdr/releases/download/v1.0.0/DelayExe-v1.0.0.mcdr",
+          "hash_md5": "8665979a90deb57c9765fae371088e7a",
+          "hash_sha256": "e601c050d06d8fbc6d91d3abe9af3cf4e30f1fa760431842bce6c26e14d2752e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "delayexe",
+          "name": "Delay Exe",
+          "version": "1.0.0",
+          "link": "https://github.com/kmcsr/delayexe_mcdr/",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Delay execute command when all player was leave"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/kmcsr/delayexe_mcdr",
+    "name": "delayexe_mcdr",
+    "full_name": "kmcsr/delayexe_mcdr",
+    "html_url": "https://github.com/kmcsr/delayexe_mcdr",
+    "description": "A plugin for MCDReforged",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 0,
+    "readme": "\n- English\n- [中文](https://github.com/kmcsr/delayexe_mcdr/tree/master/README_zh.MD)\n\n# Delay ExE\n\n- A plugin for delay execute command until all player have left\n- You can use it as a API\n\n### Example for API\n\n```python\n\nimport delayexe\n\ndef a_method():\n\tdelayexe.add_delay_task('say There are no player online') # run minecraft command\n\tdelayexe.add_delay_task('kill @a') # Must nothing to kill\n\tdelayexe.add_delay_task(lambda: print('There are no player online')) # run python method\n\n\t# ...\n\n\tdelayexe.clear_delay_task() # clear all delay tasks, the top of three commands will never run, if any player is online\n\n# ...\n\na_method()\n\n# ...\n\n```\n\n",
+    "readme_url": "https://raw.githubusercontent.com/kmcsr/delayexe_mcdr/master/README.MD",
+    "license": null
+  }
+}

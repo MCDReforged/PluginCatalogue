@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "im_share_chat",
+  "authors": [
+    "Mooling0602",
+    "XueK66"
+  ],
+  "repository": "https://github.com/Mooling0602/ImShareChat",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "tool",
+    "information"
+  ],
+  "introduction": {
+    "en_us": "# ImShareChat\n一个跨平台共享即时消息的MCDReforged插件。\n\n## 前置\n**im_api>0.1.0**或[**ImAPI-MatrixDriver**](https://github.com/Mooling0602/ImAPI-MatrixDriver)\n\n用于连接到外部IM平台或其他MCDReforged实例。\n\n后续随着插件功能的增加和开发需要，将会引入更多前置。\n\n## 用法\n在配置文件设置你想共享消息的目标平台的频道（群聊/房间）识别信息，例如QQ群号码或者Matrix房间ID。\n\n## 警告\n此插件不考虑兼容其他同类插件（消息互通类插件），包括仅支持单外部IM平台的插件，如果同时使用可能会出现消息重复等体验问题，请选择弃用此插件或其他同类插件，或者自行解决！\n\n此类问题不要在Issues或者其他任何渠道进行反馈！\n\n## 功能\n### 已实现\n- 平台之间消息双向同步\n- 服务器状态同步到外部IM平台\n- 可配置消息转发格式\n> 包括服务器启停消息、玩家上下线消息、聊天消息\n- 同步玩家死亡和达成进度时的消息到外部IM平台（需要额外安装MoreGameEvents后启用相关配置）\n\n### 开发中\n- 可配置消息转发方向\n> 高级配置功能，预计将于v0.1.x版本更新\n- 为外部IM平台添加基于聊天消息的指令功能\n> 综合性功能，预计将于v1.x版本开始开发进程\n- 玩家上线时同步其IP归属地到外部IM平台\n- 支持跨服互通游戏消息\n> 需要上游提供相关的API支持，目前没有明确的预期时间\n\n### 未计划\n- 基于人工智能接口的服务\n> 接受PR\n- 私聊功能\n> 不接受PR\n- 推送功能（Webhook等）\n> 接受PR\n- 外部IM平台频道（群聊/房间）内成员管理功能\n> 包括邀请/同意他人加入和踢出指定成员，不接受PR\n- 面板（网页、GUI等）支持\n> 不接受PR\n- 其他\n",
+    "zh_cn": "# ImShareChat\n一个跨平台共享即时消息的MCDReforged插件。\n\n## 前置\n**im_api>0.1.0**或[**ImAPI-MatrixDriver**](https://github.com/Mooling0602/ImAPI-MatrixDriver)\n\n用于连接到外部IM平台或其他MCDReforged实例。\n\n后续随着插件功能的增加和开发需要，将会引入更多前置。\n\n## 用法\n在配置文件设置你想共享消息的目标平台的频道（群聊/房间）识别信息，例如QQ群号码或者Matrix房间ID。\n\n## 警告\n此插件不考虑兼容其他同类插件（消息互通类插件），包括仅支持单外部IM平台的插件，如果同时使用可能会出现消息重复等体验问题，请选择弃用此插件或其他同类插件，或者自行解决！\n\n此类问题不要在Issues或者其他任何渠道进行反馈！\n\n## 功能\n### 已实现\n- 平台之间消息双向同步\n- 服务器状态同步到外部IM平台\n- 可配置消息转发格式\n> 包括服务器启停消息、玩家上下线消息、聊天消息\n- 同步玩家死亡和达成进度时的消息到外部IM平台（需要额外安装MoreGameEvents后启用相关配置）\n\n### 开发中\n- 可配置消息转发方向\n> 高级配置功能，预计将于v0.1.x版本更新\n- 为外部IM平台添加基于聊天消息的指令功能\n> 综合性功能，预计将于v1.x版本开始开发进程\n- 玩家上线时同步其IP归属地到外部IM平台\n- 支持跨服互通游戏消息\n> 需要上游提供相关的API支持，目前没有明确的预期时间\n\n### 未计划\n- 基于人工智能接口的服务\n> 接受PR\n- 私聊功能\n> 不接受PR\n- 推送功能（Webhook等）\n> 接受PR\n- 外部IM平台频道（群聊/房间）内成员管理功能\n> 包括邀请/同意他人加入和踢出指定成员，不接受PR\n- 面板（网页、GUI等）支持\n> 不接受PR\n- 其他\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Mooling0602/ImShareChat/main/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/Mooling0602/ImShareChat/main/README.md"
+  }
+}

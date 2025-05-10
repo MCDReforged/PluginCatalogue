@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/kmcsr/pcc_mcdr",
+  "name": "pcc_mcdr",
+  "full_name": "kmcsr/pcc_mcdr",
+  "html_url": "https://github.com/kmcsr/pcc_mcdr",
+  "description": "Proxied Chat Connection",
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 0,
+  "readme": "\n- English\n- [中文](https://github.com/kmcsr/pcc_mcdr/tree/main/README_zh.MD)\n\n# PCC\n\nA MCDR plugin allows you send MCDR commands privately.  \nIt also support to autocomplete MCDR commands in game without any mods install in the client.\n\nRequire `enable_packet_proxy` set to `true` in `loginproxy/config.json`\n\nDoes not support Minecraft earier than 1.19.2.\n\nTested version: 1.19.2, 1.21.1\n\n## Dependencies\n\n| ID                                                      | Release Link                                         |\n| ------------------------------------------------------- | ---------------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr)                | <https://github.com/kmcsr/kpi_mcdr/releases>         |\n| [loginproxy](https://github.com/kmcsr/login_proxy_mcdr) | <https://github.com/kmcsr/login_proxy_mcdr/releases> |\n\n## Usage\n\nThis plugin will register MCDR commands to Minecraft command tree after player login,\nYou can use `/!!` as the prefix to be able to autocomplete MCDR commands.\n\nPCC assume all the texts that starts with `!!` or `/!!` is MCDR commands. The commands that not begin with `!!` will not be proxied by PCC.\n\n## Options\n\n### `register_vanilla_command`\n\nWhen enabling, PCC will register a dynamic command node which is called `<!!MCDR-command>` to autocomlete MCDR commands that sent in Minecraft command form.  \nEnabled by default\n\n### `proxy_mcdr_chat_command`\n\nWhen enabling, PCC will proxy MCDR commands which sent in chat form, and prevent it from being send to the Minecraft server.\nThis might cause some plugins cannot parse its commands.  \nEnabled by default\n\n### `chat_preview_suggestion`\n\nWhen enabling, PCC will request the clients send its chat preview to this plugin, which make PCC be able to parse MCDR commands and returns suggestions.  \nDisabled by default\n\n",
+  "readme_url": "https://raw.githubusercontent.com/kmcsr/pcc_mcdr/main/README.MD",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

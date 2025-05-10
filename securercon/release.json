@@ -1,0 +1,49 @@
+{
+  "schema_version": 8,
+  "id": "securercon",
+  "latest_version": "1.0.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/wang-yupu/SecureRCON/releases/tag/v1.0.1",
+      "name": "v1.0.1 BETA",
+      "tag_name": "v1.0.1",
+      "created_at": "2025-05-01T04:47:27Z",
+      "description": "可以加密RCON连接，不确定还有哪些Bug",
+      "prerelease": false,
+      "asset": {
+        "id": 250944428,
+        "name": "SecureRCON-v1.0.1.mcdr",
+        "size": 11883,
+        "download_count": 5,
+        "created_at": "2025-05-01T04:48:52Z",
+        "browser_download_url": "https://github.com/wang-yupu/SecureRCON/releases/download/v1.0.1/SecureRCON-v1.0.1.mcdr",
+        "hash_md5": "6afb85a0019cfedcf5627ae68b258cc5",
+        "hash_sha256": "db08e92e658a42bb22dd7581a4a7f0996d0edca2b2e42b7473d173b64fe8d95f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "securercon",
+        "name": "SecureRCON",
+        "version": "1.0.1",
+        "link": "https://github.com/wang-yupu/SecureRCON",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.0",
+          "python": ">=3.10.0"
+        },
+        "requirements": [
+          "cryptography>=44.0.0",
+          "javaproperties>=0.8.0",
+          "pydantic>=2.10.0",
+          "pyyaml>=6.0.0"
+        ],
+        "description": {
+          "en_us": "Encrypt your RCON connection"
+        }
+      }
+    }
+  ]
+}
