@@ -1,6 +1,6 @@
 # ReplayHelper
 
-一个简单的[ReplayServer](https://modrinth.com/mod/server-replay) Mod，以 `.mcpr` 格式录制玩家的一举一动。
+一个简单的[ReplayServer](https://modrinth.com/mod/server-replay) Mod，以 `.mcpr` 为每位玩家单独录制并自动切断。
 
 ## 功能特点
 
