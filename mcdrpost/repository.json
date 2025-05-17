@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Flyky/MCDRpost",
+  "name": "MCDRpost",
+  "full_name": "Flyky/MCDRpost",
+  "html_url": "https://github.com/Flyky/MCDRpost",
+  "description": "A MCDR plugin for post items",
+  "archived": false,
+  "stargazers_count": 8,
+  "watchers_count": 8,
+  "forks_count": 0,
+  "readme": "# MCDRpost\n\nA MCDR plugin for post/teleport items  \n一个用于邮寄/传送物品的MCDR插件\n\n[-> MCDReforged <-](https://github.com/Fallen-Breath/MCDReforged)\n\n![MCDRpost help](https://s1.ax1x.com/2020/04/16/Jk8ysP.png)\n\n# Install\n\n将`MCDRpost.mcdr`放入plugins目录下重载插件即可  \n**当前必须使用Rcon获取信息，请一定配置好服务器和MCDR的Rcon**  \n*MCDRpost(ver1.0.0+)依赖[Minecraft Data API插件](https://github.com/MCDReforged/MinecraftDataAPI)，请先安装[Minecraft Data API插件](https://github.com/MCDReforged/MinecraftDataAPI)*  \n*旧版本依赖[PlayerInfoAPI插件](https://github.com/TISUnion/PlayerInfoAPI)*\n# Feature\n\n**使用该插件可以将副手的物品发送给别的玩家**  \n也可以发送给离线玩家（但该玩家必须曾经进过服务器）  \n*不可以发送给自己哦~*\n\n- 玩家发出物品后，物品(订单)将会存放在【中转站】\n- 需要收件人收取订单才能收到物品，之后【中转站】会删除该订单\n- 还未查收的订单可以取消，物品会从【中转站】退回，并删除订单\n- 每人存放【中转站】的订单数有上限（防止作为储存箱等的滥用），默认为 5\n- 如果你要问为啥一定是副手用replaceitem传送接收呢 ，因为\n  - 用give传到身上任意栏位，如果身上东西多的话，传回来还要找一下，比较麻烦，还不容易找到传回来的是哪个东西\n  - 如果身上东西满了的话give是拿不到物品的，防止粗心大意的小天才\n  - 该插件传送和接收前均会检查并提示副手物品，不用担心会直接replace掉原本副手的物品\n  - 当然为什么不传送当前主手所持栏位进行传送呢？ 因为我懒2333\n  - minecraft ver1.17之后移除了`replaceitem`命令，改为了`item replace`\n\n## Usage\n\n- `!!po` 显示帮助信息\n- `!!po p [收件人id] [备注]` 将副手物品发送给[收件人]，[备注]为可选项\n- `!!po rl` 列出收件列表。包括[发件人]，[寄件时间]，[备注消息]和[单号]\n- `!!po r [单号]` 确认收取该单号的物品到副手(收取前将副手清空)\n- `!!po pl` 列出发件(待收取)列表，包括[收件人]，[寄件时间]，[备注消息]和[单号]\n- `!!po c [单号]` 取消传送物品(收件人还未收件前)，该单号物品退回到副手(取消前将副手清空)\n- `!!po ls players` 查看可被寄送的注册玩家列表\n- `!!po ls orders` 查看当前中转站内所有订单 [helper以上权限可用]\n- `!!po player add [玩家id]` 手动注册玩家到可寄送玩家列表 [admin以上权限可用]\n- `!!po player remove [玩家id]` 删除某注册的玩家 [admin以上权限可用]\n\n*上面命令中的`r`表示`receive`，`p`表示`post`，`l`表示`list`，`c`表示`cancel`*\n\n## ATTENTIONS!!\n\n- 可能会有部分带有特殊复杂NBT标签的物品无法传送，会提示检测不到可传送的物品，所以尝试一下即可\n- **切勿传送原版非法堆叠数的物品**，例如使用carpet地毯堆叠的空潜影盒，会导致该物品无法接收\n\n## known issues\n~~因引用的`PlayerInfoAPI插件`在查询不到数据时的默认响应时间timeout较长，即在收寄时的检测副手为空的响应时间较长  ~~\n~~所以在收寄过程时可能需要稍作等待~~\n**~~但服务器开启并设置好MCDR可连接的rcon则不会出现此问题~~**~~，所以墙裂建议配置rcon~~  \n**必须使用Rcon获取信息，请一定配置好服务器和MCDR的Rcon**\n\n# pics\n\n![po rl](https://s1.ax1x.com/2020/04/16/Jk0WnJ.png)  \n![po r](https://s1.ax1x.com/2020/04/16/Jk0fB9.png)  \n![po p](https://s1.ax1x.com/2020/04/16/Jk02X4.png)\n",
+  "readme_url": "https://raw.githubusercontent.com/Flyky/MCDRpost/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

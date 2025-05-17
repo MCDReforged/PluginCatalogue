@@ -1,0 +1,646 @@
+{
+  "NOTICE": "Not public API, DO NOT use this file",
+  "release_pages": {
+    "1": {
+      "etag": "\"e7bdd67a297272010637628a6c16eece20dbfac611dc32f551fdafa7a549ea59\"",
+      "data": "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",
+      "empty": false
+    },
+    "2": {
+      "etag": "\"ef0b200f23451d4ed211633c01a706cfe75afc0b3512842a3194480bf1ab7599\"",
+      "data": "H4sIAPV61WcC/4uOBQApu0wNAgAAAA==",
+      "empty": true
+    }
+  },
+  "asset_data": {
+    "205869628": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.0.0",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "argon2-cffi",
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "ruamel.yaml",
+          "starlette[full]",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 115078,
+      "hash_md5": "0a7b71b20008f83cf6315101235839a3",
+      "hash_sha256": "35d6c7cda2f33661fd57a253e6068ee8f4a1f8f771fb60d78108bff07d9a5061",
+      "ttl": 100
+    },
+    "221380060": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.1.0",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "argon2-cffi",
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "ruamel.yaml",
+          "starlette[full]",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 91264,
+      "hash_md5": "4b553afd92bc4b60015f4f66e8e2bc0c",
+      "hash_sha256": "717560301736f071648547f56521b9e87c8ab8533c7eb2300aae7d44ba76aec3",
+      "ttl": 100
+    },
+    "221576361": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.2.0",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "argon2-cffi",
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "ruamel.yaml",
+          "starlette[full]",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 126131,
+      "hash_md5": "62c0171bc09f21d8837904206ccfe80a",
+      "hash_sha256": "9112b192121ef2d9c5a2f093da6cf499ddb3d1ce935eac98170e50d48ccf4a10",
+      "ttl": 100
+    },
+    "221748157": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.2.0",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "argon2-cffi",
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "ruamel.yaml",
+          "starlette[full]",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 93493,
+      "hash_md5": "9c7e4b3b2840fc11cd3d4b91c3b45ea1",
+      "hash_sha256": "90fe355a537cf1f42cfc288f262b1edc05898c4b94ab1a31fa9e4e3503087140",
+      "ttl": 100
+    },
+    "222073949": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.2.2",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "argon2-cffi",
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "ruamel.yaml",
+          "starlette[full]",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 95182,
+      "hash_md5": "ffbcbb421fa11bd89642277e4c746066",
+      "hash_sha256": "071ec59f33bc0d446625de46108b377e88df116abd35b9be6dc001c411bac4b4",
+      "ttl": 100
+    },
+    "222457418": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.2.3",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 100111,
+      "hash_md5": "1a194c70026ac64f86f0851ee4e62a31",
+      "hash_sha256": "e2b17fbb45cd2cf1a9602635dd053dc580fb7f095193dbe24e8014ebfb6834f5",
+      "ttl": 100
+    },
+    "223371824": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.2.4",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 107965,
+      "hash_md5": "dacbd51c9350d736fca101919342615f",
+      "hash_sha256": "0f5946e68e97819616f0786fb65bd55a5330f477946ced8eeff0fc0641cf2d72",
+      "ttl": 100
+    },
+    "236665285": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.2.5",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn",
+          "itsdangerous",
+          "jinja2"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 110110,
+      "hash_md5": "3c735b2773132d7eae70ed2251c1e847",
+      "hash_sha256": "488acbbfc30b92d4a8fb2ce9c55c1666b3448064f535906bf380e8b6a1a5c6ae",
+      "ttl": 100
+    },
+    "243444127": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.0",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp"
+        ],
+        "description": {
+          "en_us": "Config manerager using webui interface.",
+          "zh_cn": "使用webui来管理所有插件参数设置"
+        }
+      },
+      "size": 134536,
+      "hash_md5": "851e5db08e575965b95bf20041bc934a",
+      "hash_sha256": "6a518702fed7004872807de4baf5cf23aff6e7e661134b77ac145fe4ae35875a",
+      "ttl": 100
+    },
+    "244193859": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.1",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 183679,
+      "hash_md5": "d693faa62ed1fc52d4e0346482658501",
+      "hash_sha256": "4741be887cbb150b34938bfd441362c09e55808b8ece70df50d78a5dce244ba2",
+      "ttl": 100
+    },
+    "244413178": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.2",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 192086,
+      "hash_md5": "3e8a2384cb1877ad7ed9fbfb908233e5",
+      "hash_sha256": "b8f2f94152d6646294305e432e13647bf9f4b670b9e0ef4dc9bd65b682fb444b",
+      "ttl": 100
+    },
+    "246553644": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.3",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 201799,
+      "hash_md5": "55abb50194cd7c28336535a610a3ef57",
+      "hash_sha256": "c947307b055fa62443885257f648484139a6a637e17739a78d94a52eae98979d",
+      "ttl": 100
+    },
+    "248717006": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.4",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 228721,
+      "hash_md5": "1e0aad47ac0228d5422602d4bc8e1cf0",
+      "hash_sha256": "7be863201faa460f7410495c2f7e023158ef1f64cee0e170354166df1a0cf05f",
+      "ttl": 100
+    },
+    "251704410": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.5",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 231983,
+      "hash_md5": "17d5c63c6e1661abcec0823a6bcbaa69",
+      "hash_sha256": "400e8fcb965339485e972aded183c2ca43781b2e97c9b53c76eeb1c1008c8c29",
+      "ttl": 100
+    },
+    "251756800": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.6",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 246812,
+      "hash_md5": "9b33c6dcb0d1ecc06d8069a53f6c1ad9",
+      "hash_sha256": "0bfafddee6529c229522f0666d2b7cd8c922067f7cf7a8568599484529a29acd",
+      "ttl": 100
+    },
+    "251959619": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.7",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 253399,
+      "hash_md5": "f2bb0bf876bbcef0ec27477870b8d3c9",
+      "hash_sha256": "c6c5569f45e9458fb7a6713d51201d1c9a627c096de3aced815363be80cb64c9",
+      "ttl": 100
+    },
+    "254221153": {
+      "meta": {
+        "schema_version": 4,
+        "id": "guguwebui",
+        "name": "GUGU WebUI",
+        "version": "1.3.8",
+        "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+        "authors": [
+          "LoosePrince",
+          "XueK__"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "fastapi>=0.68.0",
+          "javaproperties",
+          "mcdreforged>=2.3.0",
+          "passlib",
+          "pydantic",
+          "Requests",
+          "ruamel.yaml",
+          "starlette",
+          "uvicorn>=0.15.0",
+          "itsdangerous",
+          "jinja2",
+          "argon2_cffi",
+          "python-multipart",
+          "typing-extensions",
+          "aiohttp",
+          "uvicorn[standard]"
+        ],
+        "description": {
+          "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+          "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+        }
+      },
+      "size": 254869,
+      "hash_md5": "c545e5eae09eadc6b2e1072b2172a424",
+      "hash_sha256": "4be314a60e8609f0f3f0ac5bde87353f9694e41b024cf615db406d671dd4ff1b",
+      "ttl": 100
+    }
+  },
+  "repos_info": {
+    "etag": "\"979a9e6edf70389cbcd5a350c5d9df64dc806d44e7bfd7352647efa502981fdd\"",
+    "data": "H4sIAOfkJWgC/62YbW/bNhCA/4rhr4sty3HixEDRYQuWDUjaLHBQLO0gUNJZYk2RKknZcwT/9/FFr86WxJGAILaPvIen0/F4x3yIw+FicDG/PJ1NXHdyMhhSFoJnpMN7bx1dff50nfxYRkM9hBLQ8rvfRre/Xt2PvoD/8IceWGWEeOXoDWMC7jimATjPZqYcb5DU81aICFAStqXA1e98SFiE6QFB6xhj3Ml8fjmbX5y1TXwwJv6SPN3/9aeeixQdcS/jRI/GUqZi4ThWKsYRlnHmZwJ4wKgEKscBS5zMqeAfNx9mGhPxAmRX0aJDZIoLnGUopnAODI9lQg5NaegczF4xQthWYbwjl3IqzRqDafROjNLMHSZjUF5UU/bGHVjI480yWrn5UH40IKF8yiE8GlXoKcN0tOxzh0PKLDHzRcBxKjGjx5vY0tY4xiNE8RN6H05pG4q27nhto6XVYaNC83h9q5Y7Zo8Fu721JAC8UR5/J/NAXyPlLjX7/EFNNhtDfXobDFuvHEkzn+DAvB0swUNhYva12fH7o/bF8wQSQvXCbCoa6PFv2fz8YlbnI8bXjRTz8kMbt7+8qOa95rtXMI5haNgadl1ZGpHr/+W+CtTWRT7jSDLeFd5i5a2fZi0JKOm6hmGYFMlYZ88ahjkohMjgbZH+GtOgRLWlaJb4RS7sBV/vJiQEjihAV2LFyZ0qbfsc0SDujC4xefHNRgGKOgcBstnSJ8zvylJTHcPJHRGj4tCSXg9WarLGtMEcVn2ANaYGS949Doy53MRBiVWHp1Qx0ZVcYpy8BBNEowxFnckVpywRIvQEvAd7C5DNkFRy7Ge9JMga1ShB/B5MrkmHtU0/ZHtuGnckCZbdPWEo7a3RD1rH8TO8FvSQfUtMK6/bw6MY6uf0+M91is6jjyDUGCf/KUUyLt2TIg7dvaMpTu4jVa6Nx+M8BmTLjAR4991uIebs40GsisuOvLzEqAorQdI0Bytjbqi6BcJQ2NXiilPFST/lRSsuUtVDd8UaRouaYAJCMtr9rVWgFp8yiVc4eFO/9NoSLVb+UegpJ4iQExWOEgdYxblqTouTxwfS/djREPU4KIGiWSKAuh+UJSZ3iuo8hJSwXR+Zq0EyG54Dkqo5Q1Izp5PpbORORtP50j1fzGaL0+mjadDSsD3rbDQ5G7mnS9ddTC4X7sWjjT8R/88k9XfmPpb5vXgC9fWNbZt+QHOcibih/HOtunhVNSAq8t7TMlZrb+h7O86YJZCq6qSpm65UJCKqlW2b+6SHp/NTt13BBCyj2qHnSrxFUlXRB8Ky9NHw35e3N2ZBJDybIJRU8gwKWcrZdwjkgbROTi3xFq/xgbqpsOqu2ChjEWSqc9C3H/WIbXdLM6cmjXDOyms1qrJMnb3DhqLCIZ+0RCwFWjxNi0hwAFSAufhTjawJipSMTseT5k3j9aeHwTVQ4IgM7sytwuDGKg42xVSRhv8U13TXdzcl4OVtViwunOaS9aXi7VVwvrwm3x+/nD09LtcfhvrSAunLMX3GrNWrrz2LhSchSUn7UnMLflEHebotY6uV6hh+ZJi3fCNZigPt+K9/q18bLLCPCZa79h2KvTiwXmt4s5CUUVXEUwgrlBHp2U5NgxKETcWXAk9w9arzYetW5sTOk6gl0imhaS7HNlLrcUIKT+zNxUCSenanSrYGWt6cUpBb9Qyt19+smUu5u/8X+AL3N48WAAA="
+  }
+}

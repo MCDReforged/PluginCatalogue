@@ -1,0 +1,549 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "region_backup",
+    "name": "Region BackUp",
+    "version": "1.9.3",
+    "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+    "authors": [
+      "FRUITS_CANDY",
+      "Bexerlmao",
+      "SeeU_SAMA"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.7.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.7.0"
+    ],
+    "description": {
+      "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+      "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "region_backup",
+    "authors": [
+      "FRUITS_CANDY"
+    ],
+    "repository": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# Region_BackUp\n一个以区域为单位备份或回档的MCDR插件\n\n> [!NOTE]\n> Region BackUp 已停止更新，后续不会有任何维护\n> \n> 请使用功能更多的 [Chunk Backup](https://github.com/Passion-Never-Dissipate/Chunk_BackUp) 插件，它基于Region_BackUp开发，\n> \n> 支持区块备份，不管从哪个方面来说都是区域备份比不上的。\n\n\n> [!TIP]\n> \n> 尽可能的使用最新版本，以避免潜藏的问题\n> \n> 发现bug先看看插件是不是有新版本，新版本大概率会修复问题\n> \n> 升级版本后虽然配置文件能自动升级，但最好检查下\n> \n> 发现问题请提交issue，如果您想为本项目做出贡献，欢迎提交pr\n\nREADME部分内容参考了[MCDR文档](https://docs.mcdreforged.com/zh-cn/latest/quick_start/index.html)\n\n需要 `v2.7.0` 以上的 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n\n## 升级前需知\n如果您是第一次使用使用本插件，你可以跳过这部分。\n\n在您将插件升级到最新版本后(推荐这么做)，由于对自定义维度添加了支持，不再局限于原版的三个维度，以及对spigot，paper一类将world拆分为多个世界的服务端提供了支持，因此备份文件夹的结构被改变。\n\n为了保证1.8.4版本及之前创建的备份能够继续被使用，您需要运行!!rb update_slot指令来将备份升级到新格式以确保能继续使用。\n\n## 用前需知\n一个区域文件存储的范围被称为区域（Region），一个区域的大小是32×32区块。\n\n本插件所能操控的最小单位为一个区域，即32x32区块，512x512范围的方块，因此在备份或回档时，最小范围为一个区域\n\n坐标换算 区域x,z坐标=区块x,z坐标除32向下取整 区块x,z坐标=x,z坐标除16向下取整 区域x,z坐标=x,z坐标除512向下取整\n\n本插件旨在提供一种新的备份回档方案，在使用时，应注意以下几点。\n\n1.由于插件备份回档的范围为区域，因此在使用时，明明我只想备份5x5大小的区块，但备份了一个区域，这就导致备份了多余的范围，相应的，在回档时，这多余的范围也会跟着回档。\n\n2.由于上一点，因此该插件产生的备份不建议长时间保存，以下为推荐插件使用场景：\n\n(1)新建造好了机器，准备测试，服务器有可能因此频繁备份回档时。\n\n(2)服务器在线玩家较多，某个区域正在进行机器测试等可能导致全服回档的操作，如果使用全局备份，回档会导致全体玩家进度还原，这时可以使用本插件，影响范围只针对几片区域。\n\n(3)任何你只希望局部备份的地方。\n\n(4) 使用静态备份功能为某块区域内的建筑或机器提供长期备份，便于随时回档\n\n3.插件目前有两种备份模式(动态备份，静态备份)，三种备份指令(半径备份，坐标备份，维度备份)，两种回档指令(槽位回档，撤回回档)，具体见指令说明。除维度备份外，实际使用时备份的范围往往会比你想要的大。\n\n4.在v1.8.4版本插件新增了静态备份功能(即短时间内不会被替换的备份)，静态备份采用独立文件夹存储在```./rb_static```，与之相对的动态备份存储在```./rb_multi```，具体见指令说明。\n\n5.在v1.9.1版本插件新增了多维度支持，原版环境下，0对应主世界，-1对应下界，1对应末地，在您的服务器有其他世界的情况下，您可以自定义一个整数来对应新的维度，这使得您的其他维度能够被插件识别，这个\n整数与对应的维度名不能与其他维度的重复。\n\n维度名不能随便填，一个不被minecraft承认的非法维度名将会导致插件无法获取玩家在使用```!!rb make```指令时所对应的维度，导致备份超时，要获取一个维度所对应的维度名有几种方法：\n\n(1) 使用F3调试屏幕：在游戏中按下F3键，可以打开调试屏幕。在调试屏幕的左上角部分，可以看到当前所在维度的信息。\n\n![图片加载失败](https://raw.githubusercontent.com/Passion-Never-Dissipate/Region_BackUp/master/images/before_use1.png)\n\n由此可知该玩家所在维度的合法维度名为```twilightforest:twilight_forest```\n\n(2) 使用/data get entity 玩家id Dimension指令来获取玩家当前所在维度名\n\n![图片加载失败](https://raw.githubusercontent.com/Passion-Never-Dissipate/Region_BackUp/master/images/before_use2.png)\n\n由此可知该玩家所在维度的合法维度名为```twilightforest:twilight_forest```\n\n以下是一个添加其他维度的例子：\n\n```\n\"dimension_info\": {\n        \"-2\": {\n            \"dimension\": \"twilightforest:twilight_forest\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"dimensions/twilightforest/twilight_forest/poi\",\n                \"dimensions/twilightforest/twilight_forest/entities\",\n                \"dimensions/twilightforest/twilight_forest/region\"\n            ]\n        },\n        \"0\": {\n            \"dimension\": \"minecraft:overworld\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"poi\",\n                \"entities\",\n                \"region\"\n            ]\n        },\n        \"-1\": {\n            \"dimension\": \"minecraft:the_nether\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"DIM-1/poi\",\n                \"DIM-1/entities\",\n                \"DIM-1/region\"\n            ]\n        },\n        \"1\": {\n            \"dimension\": \"minecraft:the_end\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"DIM1/poi\",\n                \"DIM1/entities\",\n                \"DIM1/region\"\n            ]\n        }\n```\n\n由上例可知，```-2```与```twilightforest:twilight_forest```是新增加的一对维度,现在你也可以对该维度使用备份功能了！\n\n我们注意到一个维度数字对应的维度信息包含维度名(```dimension```参数),该维度所在的世界文件夹(```world_name```参数),该维度的区域文件(```r.x.z.mca```)所在的文件夹(```region_folder```参数)\n\n参数说明具体见下文的配置文件说明\n\n因此，该维度的区域文件所在路径应为：\n\n```\n./server_path参数/world_name参数/region_folder参数中的任一文件夹/r.x.z.mca\n```\n\n根据以上格式，您可以准确的的获取到某个维度的所有参数\n\n对于使用多世界文件夹的服务端，如spigot，paper等，使用插件前应在```region_backup.json```配置文件里将```bukkit_mode```参数设置为true\n\n多世界文件夹服务器端使用的dimension_info与单世界文件夹服务端的不同，见配置文件里的```dimension_info_for_bukkit```\n\n该参数编辑方法与上文的无本质区别，仅是不同维度对应的```world_name```不同\n\n6.插件在非原版端或fabric端上运行时，您需要修改MCDR的配置文件```config.yml```中的服务端处理器```handler```参数选择适合您服务端的处理器，错误的处理器将导致MCDR无法处理来自该服务端的消息。它位于，也应位于 MCDR 的工作目录中。\n\n内置的处理器及其适用的服务端见[服务端处理器列表](https://docs.mcdreforged.com/zh-cn/latest/configuration.html#handler)\n\n7.插件使用时，如果出现乱码，您可能需要保证与服务端相关的一切编解码都用上 UTF-8，具体方法见下：\n\n(1) 让 MCDR 使用 UTF-8 与 Minecraft 服务端通信，即在 MCDR 配置中将```encoding```和```decoding```设置为```utf8```\n\n```\nencoding: utf8\ndecoding: utf8\n```\n\n(2) 确保启动 Minecraft 的 JVM 也使用 UTF-8 作为默认字符集。你可以通过以下任一操作来实现：\n\n在MCDR配置文件中```start_command```中的```-jar```参数前面加一个诸如```-Dfile.encoding=UTF-8```的 JVM 属性，以确保服务端运行在一个 UTF-8 的环境中，具体见下\n\nJava >= 19: ```-Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8```\n\nJava = 18: ```-Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8```\n\nJava <= 17: ```-Dfile.encoding=UTF-8```\n\n最后重新加载MCDR的配置文件就可以了\n\n8.如果您的服务端加入了改变消息输出格式的插件或mod导致MCDR无法解析控制台消息或插件功能无法使用，请不要在本仓库发起issue，因为这个问题的发生与MCDR和插件无关，你可以自己写一个服务端处理器。\n\n9.由于插件在备份时会保存区域的方块数据、实体数据和兴趣点数据，因此可能会有玩家用此来刷取物品，因为插件只会备份与区域有关的数据，而不会与其他数据产生交互。\n\n10.尽量不要在插件进行备份回档升级操作时重载插件。\n\n11.备份时会在槽位里创建一个```info.json```文件，该文件存储着槽位的所有信息，请不要删除它，否则该槽位会被认定为无效槽位\n\n12.如果在回档后你想撤销本次回档，你可以使用```!!rb restore```指令，也可以在```./rb_multi```里的```overwrite```文件夹里将回档前的区域文件放到存档里的对应文件夹里来进行还原，注意在还原时不要忘记你想还原的是哪个维度的区域。\n\n## 命令格式说明\n\n`!!rb` 显示帮助信息\n\n`!!rb help` 显示全部指令\n\n`!!rb make <区块半径> <注释>` 以玩家所在区块为中心,备份边长为2倍半径+1的区块所在区域\n\n`!!rb make -s <区块半径> <注释>` 同上,只是创建的备份为静态备份(即永久备份)\n\n`!!rb dim_make <维度:0主世界,-1地狱,1末地> <注释>` 备份给定维度的所有区域,维度间用,做区分 例 0 或 0,-1\n\n`!!rb dim_make -s <维度:0主世界,-1地狱,1末地> <注释>` 同上,只是创建的备份为静态备份(即永久备份)\n\n`!!rb pos_make <x1坐标> <z1坐标> <x2坐标> <z2坐标> <维度> <注释>` 给定两个坐标点，备份以两坐标点对应的区域坐标为顶点形成的矩形区域\n\n`!!rb pos_make -s <x1坐标> <z1坐标> <x2坐标> <z2坐标> <维度> <注释>` 同上,只是创建的备份为静态备份(即永久备份)\n\n`!!rb back <slot>` 回档指定槽位所对应的区域\n\n`!!rb back -s <slot>` 同上,只是回档的对象为静态备份(即永久备份)\n\n`!!rb restore` 使存档还原到回档前状态\n\n`!!rb del <slot>` 删除某槽位\n\n`!!rb del -s <slot>` 同上,只是删除的备份为静态备份(即永久备份)\n\n`!!rb confirm` 再次确认是否回档\n\n`!!rb abort` 在任何时候键入此指令可中断回档\n\n`!!rb list <page>` 显示备份槽位信息\n\n`!!rb list -s <page>` 同上,只是查看的备份为静态备份(即永久备份)\n\n`!!rb update_slot` 将1.8.4版本及之前生成的备份升级到新版本\n\n`!!rb reload` 重载插件\n\n## 配置文件选项说明\n\n配置文件为 `config/region_backup.json`。它会在第一次运行时自动生成\n\n当你修改了配置文件后，记得输入!!rb reload来重载配置文件\n\n### server_path\n\n默认值：`./server`\n\n服务端文件夹的路径。`./server` 即为 MCDR 的默认服务端文件夹路径\n\n### backup_path\n\n默认值：`./rb_multi`\n\n存储动态备份文件的路径\n\n### static_backup_path\n\n默认值：`./rb_static`\n\n存储静态备份文件的路径\n\n### overwrite_backup_folder\n\n默认值: `overwrite`\n\n被覆盖的区域备份的备份位置，在配置文件均为默认值的情况下路径为 `./rb_multi/overwrite`\n\n### bukkit_mode\n\n默认值: `false`\n\n服务端是否为多世界文件夹的服务端，如spigot，paper等插件服务端\n\n### dimension_info\n\n默认值：\n```\n     {\n        \"0\": {\"dimension\": \"minecraft:overworld\",\n              \"world_name\": \"world\",\n              \"region_folder\": [\n                  \"poi\",\n                  \"entities\",\n                  \"region\"\n              ]\n              },\n        \"-1\": {\"dimension\": \"minecraft:the_nether\",\n               \"world_name\": \"world\",\n               \"region_folder\": [\n                   \"DIM-1/poi\",\n                   \"DIM-1/entities\",\n                   \"DIM-1/region\"\n               ]\n               },\n        \"1\": {\"dimension\": \"minecraft:the_end\",\n              \"world_name\": \"world\",\n              \"region_folder\": [\n                  \"DIM1/poi\",\n                  \"DIM1/entities\",\n                  \"DIM1/region\"\n              ]\n              }\n     }\n```\n`单世界`文件夹服务端所对应的维度信息\n\n### dimension_info_for_bukkit\n\n默认值：\n\n```\n     {\n        \"0\": {\"dimension\": \"minecraft:overworld\",\n              \"world_name\": \"world\",\n              \"region_folder\": [\n                  \"poi\",\n                  \"entities\",\n                  \"region\"\n              ]\n              },\n        \"-1\": {\"dimension\": \"minecraft:the_nether\",\n               \"world_name\": \"world_the_nether\",\n               \"region_folder\": [\n                   \"DIM-1/poi\",\n                   \"DIM-1/entities\",\n                   \"DIM-1/region\"\n               ]\n               },\n        \"1\": {\"dimension\": \"minecraft:the_end\",\n              \"world_name\": \"world_the_end\",\n              \"region_folder\": [\n                  \"DIM1/poi\",\n                  \"DIM1/entities\",\n                  \"DIM1/region\"\n              ]\n              }\n     }\n```\n`多世界`文件夹服务端所对应的维度信息\n\n### minimum_permission_level\n\n默认值：\n\n``` \n   {\n        \"make\": 1,\n        \"pos_make\": 1,\n        \"dim_make\": 1,\n        \"back\": 2,\n        \"restore\": 2,\n        \"del\": 2,\n        \"confirm\": 1,\n        \"abort\": 1,\n        \"reload\": 2,\n        \"list\": 0\n    }\n```\n一个字典，代表使用不同类型指令需要权限等级。数值含义见[此处](https://mcdreforged.readthedocs.io/zh_CN/latest/permission.html)\n\n把所有数值设置成 `0` 以让所有人均可操作\n\n### slot\n普通备份(即动态备份)的槽位数量\n\n默认值：10\n\n动态槽位数量满了在新创建备份时，会删除最后一个槽位来为新槽位腾出空间\n\n### static_slot\n\n静态备份的槽位数量\n\n默认值：50\n\n静态槽位数量满了在新创建备份时，会撤销此次备份\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/Passion-Never-Dissipate/Region_BackUp/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "region_backup",
+    "latest_version": "1.9.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.9.3",
+        "name": "Region_BackUp-v1.9.3",
+        "tag_name": "v1.9.3",
+        "created_at": "2025-03-03T08:52:55Z",
+        "description": "修复了在帮助信息界面!!rb pos_make 指令用法不全的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 234116725,
+          "name": "Region-BackUp-v1.9.3.mcdr",
+          "size": 25125,
+          "download_count": 39,
+          "created_at": "2025-03-03T08:55:05Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.9.3/Region-BackUp-v1.9.3.mcdr",
+          "hash_md5": "af1e9a62e3f789f604936c82c33a3072",
+          "hash_sha256": "f98cb61ff44c295dce43052300821ebb09e9e5fc86ba9fd48b2c20c6004a61b7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.9.3",
+          "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.9.2",
+        "name": "Region_BackUp-v1.9.2",
+        "tag_name": "v1.9.2",
+        "created_at": "2025-02-18T09:31:57Z",
+        "description": "对静态备份与动态备份满槽位的情况分别做了优化：动态槽位只有槽位数>最大槽位数时才会撤销此次备份，静态槽位只要槽位数等于最大槽位数就会撤销此次备份。并且修复了一些翻译键失效的问题。",
+        "prerelease": false,
+        "asset": {
+          "id": 230232994,
+          "name": "Region-BackUp-v1.9.2.mcdr",
+          "size": 25117,
+          "download_count": 25,
+          "created_at": "2025-02-18T12:39:47Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.9.2/Region-BackUp-v1.9.2.mcdr",
+          "hash_md5": "b5e98a3e3372b5a33c953252d2859822",
+          "hash_sha256": "6861b3e170483322451613af6f869ad022d7ffaf7feebc697238a4ea40fd14d9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.9.2",
+          "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/1.9.1",
+        "name": "Region_BackUp-v1.9.1",
+        "tag_name": "1.9.1",
+        "created_at": "2025-02-17T12:18:06Z",
+        "description": "修复了1.9.0版本里多维度支持无效的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 229911252,
+          "name": "Region-BackUp-v1.9.1.mcdr",
+          "size": 24961,
+          "download_count": 14,
+          "created_at": "2025-02-17T13:25:48Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/1.9.1/Region-BackUp-v1.9.1.mcdr",
+          "hash_md5": "e6073f5319ea68cc3865783a7afef735",
+          "hash_sha256": "00e0e3ade125989f72ac7f5439bb5d08e8f4434052efe32d1d33f1665e641b20"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.9.1",
+          "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.9.0",
+        "name": "Region_BackUp-v1.9.0",
+        "tag_name": "v1.9.0",
+        "created_at": "2025-02-17T11:41:17Z",
+        "description": "建议还在使用1.8.4及之前版本的用户升级到1.9.0！1.9.0对插件进行了重构,修复了一系列潜藏的问题，增加了鲁棒性，对自定义维度添加了支持，不再局限于原版的三个维度，以及对spigot，paper一类将world拆分为多个世界的服务端提供了支持，具体内容请见readme",
+        "prerelease": false,
+        "asset": {
+          "id": 229879980,
+          "name": "Region-BackUp-v1.9.0.mcdr",
+          "size": 24966,
+          "download_count": 4,
+          "created_at": "2025-02-17T12:01:56Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.9.0/Region-BackUp-v1.9.0.mcdr",
+          "hash_md5": "9f1822e184083bfda7e7422d5ea5ef7d",
+          "hash_sha256": "c3e9bf209202ef0879b4946845a7711ef4c15eb2f9ba42b4bb7e4a1810e2434f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.9.0",
+          "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.8.4",
+        "name": "Region_BackUp-v1.8.4",
+        "tag_name": "v1.8.4",
+        "created_at": "2025-02-07T11:05:59Z",
+        "description": "自1.7.0版本以后的第一个正式发布版本，修复了1.8.0-1.8.3版本无法读取老版本数据的问题,请还在使用1.8.0-1.8.3版本的用户务必更新\r\nv1.8.4添加了静态备份功能（即永久备份，详见readme），优化了显示UI，修复了一些老bug，由于懒，这次没做英文版",
+        "prerelease": false,
+        "asset": {
+          "id": 227145843,
+          "name": "Region-BackUp-v1.8.4.mcdr",
+          "size": 23672,
+          "download_count": 29,
+          "created_at": "2025-02-07T11:11:24Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.8.4/Region-BackUp-v1.8.4.mcdr",
+          "hash_md5": "98ce82b7603f26091f1bba7669207e6f",
+          "hash_sha256": "ab96b6ad86fcc4dafa5cc6cf2e73db6858c99a08e57d97ba386691f1f3c9ced1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.8.4",
+          "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.8.3",
+        "name": "Region_BackUp-v1.8.3",
+        "tag_name": "v1.8.3",
+        "created_at": "2025-02-07T04:11:40Z",
+        "description": "修复了1.8.0版本无法读取老版本数据的问题,添加静态备份功能（即永久备份，详见readme），优化了显示UI，修复了一些老bug，由于懒，这次没做英文版",
+        "prerelease": false,
+        "asset": {
+          "id": 227088413,
+          "name": "Region-BackUp-v1.8.3.mcdr",
+          "size": 23749,
+          "download_count": 5,
+          "created_at": "2025-02-07T06:03:40Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.8.3/Region-BackUp-v1.8.3.mcdr",
+          "hash_md5": "20eb67767ba5b5d5ba2e36239381f9b0",
+          "hash_sha256": "1578c2fa4673aa1a37e9a370940dc4ded0daf0378285ce55c39823b1f6911717"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.8.3",
+          "link": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.7.0",
+        "name": "Region_BackUp-v1.7.0",
+        "tag_name": "v1.7.0",
+        "created_at": "2024-03-26T04:38:20Z",
+        "description": "将回复消息独立出代码，使用单独文件夹存储，并增加英语支持，根据mcdr的语言，插件也会自动切换语言",
+        "prerelease": false,
+        "asset": {
+          "id": 158699566,
+          "name": "Region-BackUp-v1.7.0.mcdr",
+          "size": 23959,
+          "download_count": 186,
+          "created_at": "2024-03-26T14:05:49Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.7.0/Region-BackUp-v1.7.0.mcdr",
+          "hash_md5": "8c69ee57e089c6c4dca4e23550bc7070",
+          "hash_sha256": "3c8170e71333b8be04af96d93efb07deb22bd41178738b9e7606b2a6bc2a8c93"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.7.0",
+          "link": "https://github.com/GHS-Official/Region-BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao",
+            "mc_doge_",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.6.1",
+        "name": "Region_BackUp-v1.6.1",
+        "tag_name": "v1.6.1",
+        "created_at": "2024-03-24T13:01:37Z",
+        "description": "修复了v1.6.0的恶性bug，在地狱或末地使用!!rb back回档不成功，请务必将插件更新到v1.6.1版本",
+        "prerelease": false,
+        "asset": {
+          "id": 158700030,
+          "name": "Region_BackUp-v1.6.1.mcdr",
+          "size": 21286,
+          "download_count": 15,
+          "created_at": "2024-03-26T14:08:57Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.6.1/Region_BackUp-v1.6.1.mcdr",
+          "hash_md5": "60753bb6be9438627a93ce00e03a5743",
+          "hash_sha256": "0f5d3b7fdccb4d9d49388fd0f1123621a930f4c4afef5aea89d2fc3430986a53"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region-BackUp",
+          "version": "1.6.1",
+          "link": "https://github.com/GHS-Official/Region-BackUp",
+          "authors": [
+            "GHS-Official"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.6.0",
+        "name": "Region_BackUp-v1.6.0",
+        "tag_name": "v1.6.0",
+        "created_at": "2024-03-21T13:22:41Z",
+        "description": "增加了多维度备份",
+        "prerelease": false,
+        "asset": {
+          "id": 158700134,
+          "name": "Region-BackUp-v1.6.0.mcdr",
+          "size": 21238,
+          "download_count": 13,
+          "created_at": "2024-03-26T14:09:43Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.6.0/Region-BackUp-v1.6.0.mcdr",
+          "hash_md5": "9a176524a080e8c5f301cdf26a5be064",
+          "hash_sha256": "7296d07700d7eb5b3167f91380e5c26b7119ee8b2cb1f7edc7f34e7e66fece66"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.6.0",
+          "link": "https://github.com/GHS-Official/Region-BackUp",
+          "authors": [
+            "GHS-Official",
+            "Bexerlmao",
+            "mc_doge_"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.5.0",
+        "name": "Region_BackUp-v1.5.0",
+        "tag_name": "v1.5.0",
+        "created_at": "2024-02-27T04:33:09Z",
+        "description": "v1.5.0更新，请重新生成配置文件",
+        "prerelease": false,
+        "asset": {
+          "id": 158700637,
+          "name": "Region-BackUp-v1.5.0.mcdr",
+          "size": 21064,
+          "download_count": 14,
+          "created_at": "2024-03-26T14:12:12Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.5.0/Region-BackUp-v1.5.0.mcdr",
+          "hash_md5": "aa00e7467eaebc39645fd254f62c9e78",
+          "hash_sha256": "610f7ff047cf782f74f0706ea8f02445cb4e77c41f0f77ac5b3591c202294cb3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.5.0",
+          "link": "https://github.com/GHS-Official/Region-BackUp",
+          "authors": [
+            "GHS-Official",
+            "Bexerlmao",
+            "mc_doge_"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.1.0",
+        "name": "Region_BackUp-v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2024-02-14T05:00:30Z",
+        "description": "修复了一些bug，增加了!!rb显示槽位的功能",
+        "prerelease": false,
+        "asset": {
+          "id": 158700861,
+          "name": "Region-BackUp-v1.1.0.mcdr",
+          "size": 20609,
+          "download_count": 13,
+          "created_at": "2024-03-26T14:13:24Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.1.0/Region-BackUp-v1.1.0.mcdr",
+          "hash_md5": "28eda7b26a08ee4c636c70ea23e8bec9",
+          "hash_sha256": "0d409c4076a9ca75cf6853ba42b6fa0cdbefec06cd42ecb3698d3a564428823b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.1.0",
+          "link": "https://github.com/GHS-Official/Region-BackUp",
+          "authors": [
+            "GHS-Official",
+            "Bexerlmao",
+            "mc_doge_"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/tag/v1.0.0",
+        "name": "Region_BackUp-v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2024-02-04T14:39:33Z",
+        "description": "第一个release,不算太好，但能用",
+        "prerelease": false,
+        "asset": {
+          "id": 158700989,
+          "name": "Region-BackUp-v1.0.0.mcdr",
+          "size": 20494,
+          "download_count": 22,
+          "created_at": "2024-03-26T14:13:55Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp/releases/download/v1.0.0/Region-BackUp-v1.0.0.mcdr",
+          "hash_md5": "da1bd4823125424c2c5bf98b4c373ed7",
+          "hash_sha256": "67ea345da6825ecc6fc890ef0d0c837dda9980140ecf6cb73e1e1f3b2305f1f7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "region_backup",
+          "name": "Region BackUp",
+          "version": "1.0.0",
+          "link": "https://github.com/GHS-Official/Region-BackUp",
+          "authors": [
+            "GHS-Official",
+            "Bexerlmao",
+            "mc_doge_"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "An MCDR plugin that backs up or backs up files on a regional basis",
+            "zh_cn": "一个以区域为单位备份或回档的MCDR插件"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+    "name": "Region_BackUp",
+    "full_name": "Passion-Never-Dissipate/Region_BackUp",
+    "html_url": "https://github.com/Passion-Never-Dissipate/Region_BackUp",
+    "description": "一个以区域为单位备份或回档的MCDR插件",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "# Region_BackUp\n一个以区域为单位备份或回档的MCDR插件\n\n> [!NOTE]\n> Region BackUp 已停止更新，后续不会有任何维护\n> \n> 请使用功能更多的 [Chunk Backup](https://github.com/Passion-Never-Dissipate/Chunk_BackUp) 插件，它基于Region_BackUp开发，\n> \n> 支持区块备份，不管从哪个方面来说都是区域备份比不上的。\n\n\n> [!TIP]\n> \n> 尽可能的使用最新版本，以避免潜藏的问题\n> \n> 发现bug先看看插件是不是有新版本，新版本大概率会修复问题\n> \n> 升级版本后虽然配置文件能自动升级，但最好检查下\n> \n> 发现问题请提交issue，如果您想为本项目做出贡献，欢迎提交pr\n\nREADME部分内容参考了[MCDR文档](https://docs.mcdreforged.com/zh-cn/latest/quick_start/index.html)\n\n需要 `v2.7.0` 以上的 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n\n## 升级前需知\n如果您是第一次使用使用本插件，你可以跳过这部分。\n\n在您将插件升级到最新版本后(推荐这么做)，由于对自定义维度添加了支持，不再局限于原版的三个维度，以及对spigot，paper一类将world拆分为多个世界的服务端提供了支持，因此备份文件夹的结构被改变。\n\n为了保证1.8.4版本及之前创建的备份能够继续被使用，您需要运行!!rb update_slot指令来将备份升级到新格式以确保能继续使用。\n\n## 用前需知\n一个区域文件存储的范围被称为区域（Region），一个区域的大小是32×32区块。\n\n本插件所能操控的最小单位为一个区域，即32x32区块，512x512范围的方块，因此在备份或回档时，最小范围为一个区域\n\n坐标换算 区域x,z坐标=区块x,z坐标除32向下取整 区块x,z坐标=x,z坐标除16向下取整 区域x,z坐标=x,z坐标除512向下取整\n\n本插件旨在提供一种新的备份回档方案，在使用时，应注意以下几点。\n\n1.由于插件备份回档的范围为区域，因此在使用时，明明我只想备份5x5大小的区块，但备份了一个区域，这就导致备份了多余的范围，相应的，在回档时，这多余的范围也会跟着回档。\n\n2.由于上一点，因此该插件产生的备份不建议长时间保存，以下为推荐插件使用场景：\n\n(1)新建造好了机器，准备测试，服务器有可能因此频繁备份回档时。\n\n(2)服务器在线玩家较多，某个区域正在进行机器测试等可能导致全服回档的操作，如果使用全局备份，回档会导致全体玩家进度还原，这时可以使用本插件，影响范围只针对几片区域。\n\n(3)任何你只希望局部备份的地方。\n\n(4) 使用静态备份功能为某块区域内的建筑或机器提供长期备份，便于随时回档\n\n3.插件目前有两种备份模式(动态备份，静态备份)，三种备份指令(半径备份，坐标备份，维度备份)，两种回档指令(槽位回档，撤回回档)，具体见指令说明。除维度备份外，实际使用时备份的范围往往会比你想要的大。\n\n4.在v1.8.4版本插件新增了静态备份功能(即短时间内不会被替换的备份)，静态备份采用独立文件夹存储在```./rb_static```，与之相对的动态备份存储在```./rb_multi```，具体见指令说明。\n\n5.在v1.9.1版本插件新增了多维度支持，原版环境下，0对应主世界，-1对应下界，1对应末地，在您的服务器有其他世界的情况下，您可以自定义一个整数来对应新的维度，这使得您的其他维度能够被插件识别，这个\n整数与对应的维度名不能与其他维度的重复。\n\n维度名不能随便填，一个不被minecraft承认的非法维度名将会导致插件无法获取玩家在使用```!!rb make```指令时所对应的维度，导致备份超时，要获取一个维度所对应的维度名有几种方法：\n\n(1) 使用F3调试屏幕：在游戏中按下F3键，可以打开调试屏幕。在调试屏幕的左上角部分，可以看到当前所在维度的信息。\n\n![图片加载失败](https://raw.githubusercontent.com/Passion-Never-Dissipate/Region_BackUp/master/images/before_use1.png)\n\n由此可知该玩家所在维度的合法维度名为```twilightforest:twilight_forest```\n\n(2) 使用/data get entity 玩家id Dimension指令来获取玩家当前所在维度名\n\n![图片加载失败](https://raw.githubusercontent.com/Passion-Never-Dissipate/Region_BackUp/master/images/before_use2.png)\n\n由此可知该玩家所在维度的合法维度名为```twilightforest:twilight_forest```\n\n以下是一个添加其他维度的例子：\n\n```\n\"dimension_info\": {\n        \"-2\": {\n            \"dimension\": \"twilightforest:twilight_forest\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"dimensions/twilightforest/twilight_forest/poi\",\n                \"dimensions/twilightforest/twilight_forest/entities\",\n                \"dimensions/twilightforest/twilight_forest/region\"\n            ]\n        },\n        \"0\": {\n            \"dimension\": \"minecraft:overworld\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"poi\",\n                \"entities\",\n                \"region\"\n            ]\n        },\n        \"-1\": {\n            \"dimension\": \"minecraft:the_nether\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"DIM-1/poi\",\n                \"DIM-1/entities\",\n                \"DIM-1/region\"\n            ]\n        },\n        \"1\": {\n            \"dimension\": \"minecraft:the_end\",\n            \"world_name\": \"world\",\n            \"region_folder\": [\n                \"DIM1/poi\",\n                \"DIM1/entities\",\n                \"DIM1/region\"\n            ]\n        }\n```\n\n由上例可知，```-2```与```twilightforest:twilight_forest```是新增加的一对维度,现在你也可以对该维度使用备份功能了！\n\n我们注意到一个维度数字对应的维度信息包含维度名(```dimension```参数),该维度所在的世界文件夹(```world_name```参数),该维度的区域文件(```r.x.z.mca```)所在的文件夹(```region_folder```参数)\n\n参数说明具体见下文的配置文件说明\n\n因此，该维度的区域文件所在路径应为：\n\n```\n./server_path参数/world_name参数/region_folder参数中的任一文件夹/r.x.z.mca\n```\n\n根据以上格式，您可以准确的的获取到某个维度的所有参数\n\n对于使用多世界文件夹的服务端，如spigot，paper等，使用插件前应在```region_backup.json```配置文件里将```bukkit_mode```参数设置为true\n\n多世界文件夹服务器端使用的dimension_info与单世界文件夹服务端的不同，见配置文件里的```dimension_info_for_bukkit```\n\n该参数编辑方法与上文的无本质区别，仅是不同维度对应的```world_name```不同\n\n6.插件在非原版端或fabric端上运行时，您需要修改MCDR的配置文件```config.yml```中的服务端处理器```handler```参数选择适合您服务端的处理器，错误的处理器将导致MCDR无法处理来自该服务端的消息。它位于，也应位于 MCDR 的工作目录中。\n\n内置的处理器及其适用的服务端见[服务端处理器列表](https://docs.mcdreforged.com/zh-cn/latest/configuration.html#handler)\n\n7.插件使用时，如果出现乱码，您可能需要保证与服务端相关的一切编解码都用上 UTF-8，具体方法见下：\n\n(1) 让 MCDR 使用 UTF-8 与 Minecraft 服务端通信，即在 MCDR 配置中将```encoding```和```decoding```设置为```utf8```\n\n```\nencoding: utf8\ndecoding: utf8\n```\n\n(2) 确保启动 Minecraft 的 JVM 也使用 UTF-8 作为默认字符集。你可以通过以下任一操作来实现：\n\n在MCDR配置文件中```start_command```中的```-jar```参数前面加一个诸如```-Dfile.encoding=UTF-8```的 JVM 属性，以确保服务端运行在一个 UTF-8 的环境中，具体见下\n\nJava >= 19: ```-Dfile.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8```\n\nJava = 18: ```-Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8```\n\nJava <= 17: ```-Dfile.encoding=UTF-8```\n\n最后重新加载MCDR的配置文件就可以了\n\n8.如果您的服务端加入了改变消息输出格式的插件或mod导致MCDR无法解析控制台消息或插件功能无法使用，请不要在本仓库发起issue，因为这个问题的发生与MCDR和插件无关，你可以自己写一个服务端处理器。\n\n9.由于插件在备份时会保存区域的方块数据、实体数据和兴趣点数据，因此可能会有玩家用此来刷取物品，因为插件只会备份与区域有关的数据，而不会与其他数据产生交互。\n\n10.尽量不要在插件进行备份回档升级操作时重载插件。\n\n11.备份时会在槽位里创建一个```info.json```文件，该文件存储着槽位的所有信息，请不要删除它，否则该槽位会被认定为无效槽位\n\n12.如果在回档后你想撤销本次回档，你可以使用```!!rb restore```指令，也可以在```./rb_multi```里的```overwrite```文件夹里将回档前的区域文件放到存档里的对应文件夹里来进行还原，注意在还原时不要忘记你想还原的是哪个维度的区域。\n\n## 命令格式说明\n\n`!!rb` 显示帮助信息\n\n`!!rb help` 显示全部指令\n\n`!!rb make <区块半径> <注释>` 以玩家所在区块为中心,备份边长为2倍半径+1的区块所在区域\n\n`!!rb make -s <区块半径> <注释>` 同上,只是创建的备份为静态备份(即永久备份)\n\n`!!rb dim_make <维度:0主世界,-1地狱,1末地> <注释>` 备份给定维度的所有区域,维度间用,做区分 例 0 或 0,-1\n\n`!!rb dim_make -s <维度:0主世界,-1地狱,1末地> <注释>` 同上,只是创建的备份为静态备份(即永久备份)\n\n`!!rb pos_make <x1坐标> <z1坐标> <x2坐标> <z2坐标> <维度> <注释>` 给定两个坐标点，备份以两坐标点对应的区域坐标为顶点形成的矩形区域\n\n`!!rb pos_make -s <x1坐标> <z1坐标> <x2坐标> <z2坐标> <维度> <注释>` 同上,只是创建的备份为静态备份(即永久备份)\n\n`!!rb back <slot>` 回档指定槽位所对应的区域\n\n`!!rb back -s <slot>` 同上,只是回档的对象为静态备份(即永久备份)\n\n`!!rb restore` 使存档还原到回档前状态\n\n`!!rb del <slot>` 删除某槽位\n\n`!!rb del -s <slot>` 同上,只是删除的备份为静态备份(即永久备份)\n\n`!!rb confirm` 再次确认是否回档\n\n`!!rb abort` 在任何时候键入此指令可中断回档\n\n`!!rb list <page>` 显示备份槽位信息\n\n`!!rb list -s <page>` 同上,只是查看的备份为静态备份(即永久备份)\n\n`!!rb update_slot` 将1.8.4版本及之前生成的备份升级到新版本\n\n`!!rb reload` 重载插件\n\n## 配置文件选项说明\n\n配置文件为 `config/region_backup.json`。它会在第一次运行时自动生成\n\n当你修改了配置文件后，记得输入!!rb reload来重载配置文件\n\n### server_path\n\n默认值：`./server`\n\n服务端文件夹的路径。`./server` 即为 MCDR 的默认服务端文件夹路径\n\n### backup_path\n\n默认值：`./rb_multi`\n\n存储动态备份文件的路径\n\n### static_backup_path\n\n默认值：`./rb_static`\n\n存储静态备份文件的路径\n\n### overwrite_backup_folder\n\n默认值: `overwrite`\n\n被覆盖的区域备份的备份位置，在配置文件均为默认值的情况下路径为 `./rb_multi/overwrite`\n\n### bukkit_mode\n\n默认值: `false`\n\n服务端是否为多世界文件夹的服务端，如spigot，paper等插件服务端\n\n### dimension_info\n\n默认值：\n```\n     {\n        \"0\": {\"dimension\": \"minecraft:overworld\",\n              \"world_name\": \"world\",\n              \"region_folder\": [\n                  \"poi\",\n                  \"entities\",\n                  \"region\"\n              ]\n              },\n        \"-1\": {\"dimension\": \"minecraft:the_nether\",\n               \"world_name\": \"world\",\n               \"region_folder\": [\n                   \"DIM-1/poi\",\n                   \"DIM-1/entities\",\n                   \"DIM-1/region\"\n               ]\n               },\n        \"1\": {\"dimension\": \"minecraft:the_end\",\n              \"world_name\": \"world\",\n              \"region_folder\": [\n                  \"DIM1/poi\",\n                  \"DIM1/entities\",\n                  \"DIM1/region\"\n              ]\n              }\n     }\n```\n`单世界`文件夹服务端所对应的维度信息\n\n### dimension_info_for_bukkit\n\n默认值：\n\n```\n     {\n        \"0\": {\"dimension\": \"minecraft:overworld\",\n              \"world_name\": \"world\",\n              \"region_folder\": [\n                  \"poi\",\n                  \"entities\",\n                  \"region\"\n              ]\n              },\n        \"-1\": {\"dimension\": \"minecraft:the_nether\",\n               \"world_name\": \"world_the_nether\",\n               \"region_folder\": [\n                   \"DIM-1/poi\",\n                   \"DIM-1/entities\",\n                   \"DIM-1/region\"\n               ]\n               },\n        \"1\": {\"dimension\": \"minecraft:the_end\",\n              \"world_name\": \"world_the_end\",\n              \"region_folder\": [\n                  \"DIM1/poi\",\n                  \"DIM1/entities\",\n                  \"DIM1/region\"\n              ]\n              }\n     }\n```\n`多世界`文件夹服务端所对应的维度信息\n\n### minimum_permission_level\n\n默认值：\n\n``` \n   {\n        \"make\": 1,\n        \"pos_make\": 1,\n        \"dim_make\": 1,\n        \"back\": 2,\n        \"restore\": 2,\n        \"del\": 2,\n        \"confirm\": 1,\n        \"abort\": 1,\n        \"reload\": 2,\n        \"list\": 0\n    }\n```\n一个字典，代表使用不同类型指令需要权限等级。数值含义见[此处](https://mcdreforged.readthedocs.io/zh_CN/latest/permission.html)\n\n把所有数值设置成 `0` 以让所有人均可操作\n\n### slot\n普通备份(即动态备份)的槽位数量\n\n默认值：10\n\n动态槽位数量满了在新创建备份时，会删除最后一个槽位来为新槽位腾出空间\n\n### static_slot\n\n静态备份的槽位数量\n\n默认值：50\n\n静态槽位数量满了在新创建备份时，会撤销此次备份\n",
+    "readme_url": "https://raw.githubusercontent.com/Passion-Never-Dissipate/Region_BackUp/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}
