@@ -57,6 +57,7 @@ If your plugin references or uses codes from other projects:
 - _Check the `label` field is appropriate by referring to existing plugins and the documentation_;
 - _The plugin README should be placed in `related_path` and named `README.md` (case insensitive)_.
 - **Plugin ID must be consistent at all places**;
+- **Plugin ID should be at least 3 characters long, unless there is a special reason;**
 - **`description` and `introduction` fields should provide correctly, at least in one language**;
 
 ### 📢 Introduce your plugin properly
