@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+  "name": "MCDR_uuid_api_remake",
+  "full_name": "gubaiovo/MCDR_uuid_api_remake",
+  "html_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+  "description": "Get UUID of players",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# UUID API REMAKE\nThis plugin is a remade version of the UUID API. [Original UUID API link: https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api)\n\nThis plugin utilizes all code from the original API for obtaining UUIDs in **premium/offline** servers.\n\n### Additional Features in the Remake:\n\n1. Added more commands for easier UUID management.\n2. All obtained UUIDs are stored and centrally managed in the `uuid.json` data file.\n3. Added the `get_name(uuid)` function to retrieve player names from UUIDs (sourced from `uuid.json` and `usercache.json`).\n\n### UUID Retrieval Workflow (proceeds to next step if failed):\n\n1. Read the plugin data file `uuid.json`.\n2. Read `usercache.json`. If successful, store results in `uuid.json`.\n3. Call the original API. If successful, store results in `uuid.json`.\n4. Generate a pseudo-UUID using the SHA-256 hash of `playername + timestamp`, take the first 50 bits, and store it in `uuid.json`.\n\n### Configuration\n\n```json\n{\n    \"mojang_online_mode\": true,\n    \"online_api\": \"https://api.mojang.com/users/profiles/minecraft/\",\n    \"use_offline_api\": true,\n    \"offline_api\": \"http://tools.glowingmines.eu/convertor/nick/\"\n}\n```\n**mojang_online_mode**: Indicates whether the server is an official (authenticated) server. When set to true, it uses the official Mojang API to obtain UUIDs\n\n**online_api**: The endpoint URL for the official authentication API. Defaults to `https://api.mojang.com/users/profiles/minecraft/`\n\n**use_offline_api**: Determines whether to use offline API for UUID retrieval. This setting becomes active only when mojang_online_mode is set to false. Defaults to true\n\n**offline_api**: Offline API URL, defaults to `http://tools.glowingmines.eu/convertor/nick/`\n\n**Note**: Ensure these four configuration items remain complete in the file. If using custom APIs, please remember to include the trailing `/`\n\n### Commands\n\nExcept for `!!uar` and `!!uar help`, all other commands can only be used in the **console**.\n\nFor detailed usage, run `!!uar` or `!!uar help`.\n\n### API Usage\n\n**Obtain UUID from player name:**\n\n```python\nimport uuid_api_remake\n\nname = ... # str\nuuid = uuid_api_remake.get_uuid(name)\nprint(uuid)\n```\n\n**Obtain player name from UUID (sourced from `uuid.json` and `usercache.json`):**\n\n```python\nimport uuid_api_remake\n\nuuid = ... # str\nname = uuid_api_remake.get_name(uuid)\nprint(name)\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/gubaiovo/MCDR_uuid_api_remake/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

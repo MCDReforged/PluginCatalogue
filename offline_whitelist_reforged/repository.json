@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Aimerny/MCDRPlugins",
+  "name": "MCDRPlugins",
+  "full_name": "Aimerny/MCDRPlugins",
+  "html_url": "https://github.com/Aimerny/MCDRPlugins",
+  "description": "Aimerny's MCDR plugins repository",
+  "archived": false,
+  "stargazers_count": 7,
+  "watchers_count": 7,
+  "forks_count": 1,
+  "readme": "# OfflineWhiteListReforged\n\n简单小巧的离线服白名单管理插件\n\n> [!IMPORTANT]\n> 自v2.0.0起,此插件增加依赖: [Whitelist API](https://github.com/Aimerny/MCDRPlugins/tree/main/src/offline_whitelist_reforged/../whitelist_api)\n\n## 使用方式\n```\n!!wr help - 显示帮助消息\n!!wr list - 显示全部玩家的白名单\n!!wr add <player> - 为<player>添加白名单\n!!wr remove <player> - 移除<player>的白名单\n!!wr on - 打开白名单\n!!wr off - 关闭白名单\n```\n\n## 权限要求\n\n使用MCDR的权限系统,权限要求由配置文件配置,默认如下\n```json5\n{\n    \"perms\": {\n        \"on\": 4, // owner\n        \"off\": 4, // owner\n        \"list\": 2, // helper\n        \"add\": 3, // admin\n        \"remove\": 3 //admin\n    }\n}\n```\n`help`: 无权限要求\n\n`list`: helper及以上\n\n`add`,`remove`: admin及以上\n\n`off, on`: 仅owner(控制台权限等同于owner)\n",
+  "readme_url": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/offline_whitelist_reforged/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

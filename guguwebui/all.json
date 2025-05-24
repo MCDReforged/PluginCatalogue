@@ -1,0 +1,920 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "guguwebui",
+    "name": "GUGU WebUI",
+    "version": "1.3.9",
+    "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+    "authors": [
+      "LoosePrince",
+      "XueK__"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "fastapi>=0.68.0",
+      "javaproperties",
+      "mcdreforged>=2.3.0",
+      "passlib",
+      "pydantic",
+      "Requests",
+      "ruamel.yaml",
+      "starlette",
+      "uvicorn>=0.15.0",
+      "itsdangerous",
+      "jinja2",
+      "argon2_cffi",
+      "python-multipart",
+      "typing-extensions",
+      "aiohttp",
+      "uvicorn[standard]"
+    ],
+    "description": {
+      "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+      "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "guguwebui",
+    "authors": [
+      "XueK66",
+      "LoosePrince"
+    ],
+    "repository": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+    "branch": "main",
+    "related_path": "src",
+    "labels": [
+      "information",
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# PF-MCDR-WebUI\n为 MCDR 开发的在线 WebUI 插件\n\n[![页面浏览量计数](https://badges.toozhao.com/badges/01JC0ZMB6718E924N6H2FEZRC5/green.svg)](https://github.com/LoosePrince/PF-MCDR-WebUI/tree/main/src//) \n[![查看次数起始时间](https://img.shields.io/badge/查看次数统计起始于-2024%2F11%2F06-2?style=flat-square)](https://github.com/LoosePrince/PF-MCDR-WebUI/tree/main/src//)\n[![仓库大小](https://img.shields.io/github/repo-size/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=仓库占用)](https://github.com/LoosePrince/PF-MCDR-WebUI/tree/main/src//) \n[![最新版](https://img.shields.io/github/v/release/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=最新版)](https://github.com/LoosePrince/PF-MCDR-WebUI/releases/latest/)\n[![议题](https://img.shields.io/github/issues/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=Issues)](https://github.com/LoosePrince/PF-MCDR-WebUI/issues) \n[![已关闭issues](https://img.shields.io/github/issues-closed/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=已关闭%20Issues)](https://github.com/LoosePrince/PF-MCDR-WebUI/issues?q=is%3Aissue+is%3Aclosed)\n[![下载量](https://img.shields.io/github/downloads/LoosePrince/PF-MCDR-WebUI/total?style=flat-square&label=下载量)](https://github.com/LoosePrince/PF-MCDR-WebUI/releases)\n[![最新发布下载量](https://img.shields.io/github/downloads/LoosePrince/PF-MCDR-WebUI/latest/total?style=flat-square&label=最新版本下载量)](https://github.com/LoosePrince/PF-MCDR-WebUI/releases/latest)\n\n> [!NOTE]\n> 由于 **GUGUbot** 和 **WebUI** 项目庞大，但迄今为止仅有开发者一名，所以我们从现在开始招募有志者加入我们！<br>\n> 有意者请加 QQ[1377820366](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 或 QQ群[726741344](https://qm.qq.com/q/TqmRHmTmcU)\n\n## 插件说明\n\nWebUI 文档：[WebUI 文档](https://pf-doc.pfingan.com/main.html?root=PF-webui&path=PF-webui)\n\n### 主要功能\n> 为MCDR提供一个 `在线WebUI管理界面` 和 `MCDR插件管理` 和 `表单配置功能`（可选使用在线编辑器）。\n\n#### pip包管理\n\n#### 本地插件管理\n\n- 列出全部插件\n- 一键更新\n- 启动插件\n- 停止插件\n- 重载插件\n- 切换插件版本（第三方仓库不支持）\n- 插件配置文件的在线编辑器\n- 插件配置文件的在线表单\n\n#### 表单配置功能\n\n- [x] **配置修改:**\n  - 使用在线表单 **或** 在线编辑器进行配置文件的修改（在 **`所有插件`** 选项卡处修改）。\n- [x] **支持的配置:**\n  - `yml文件` 识别每项上一行注释作为中文标题，使用 `::` 分割，第二项为副标题，例 `标题::副标题` ，请注意，使用的是英文的符号；\n  - `json文件` 需要创建同级文件 `需要加标题的配置文件名_lang.josn` 例如 `abc_lang.json` 则会为 `abc.json` 创建中文标题，使用 `[标题,副标题]` 创建标题和副标题，参考示例: [config_lang.json](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/config_lang.json)\n  - `html格式`, 使用 `main.json` 在其中使用键对值的方式指定每个配置文件对应的 `html文件` ，届时加载时会加载 `html文件内容` ，如果您有样式请不要使用外链式加载本地css和js，请使用 `style` 和 `script` 标签。\n\n#### 服务器终端\n\n- 提供服务器命令执行界面\n- 支持RCON实时反馈和命令历史记录。\n\n#### AI辅助\n\n- 终端集成DeepSeek AI接口\n- 支持日志分析和问题解答，减少您的反复横跳。\n\n#### 主题切换\n\n- 支持`浅色主题`、`深色主题`，默认为浅色，您可以在右上角切换显示模式\n\n#### 在线插件安装仓库\n\n- 提供一个插件安装管理器\n- 插件搜索、安装、卸载、更新、查看插件信息。\n- 多仓库支持，您可以添加多个仓库，并选择不同的仓库进行插件安装，不过请您注意风险。（v1.3.4）\n\n> [!IMPORTANT]\n> **关于数据:** 重载插件 *本插件* **会** 自动更新 `guguwebui_static` 文件夹中的内容，如果您修改过内部的文件请自行保存，以防您的数据丢失。\n\n> [!IMPORTANT]\n> **关于V1.3.0版本:** 本项目于v1.3.0版本重构前端，如您是从v1.3.0版本之前升级的，请删除 `guguwebui_static` 文件夹中的内容，保留 `db.json` 即可。\n\n\n## 依赖配置\n\n**Python 包:** 请确保已安装 [Python™](https://www.python.org/) 和 [pip](https://pypi.org/project/pip/) (pip通常在安装完python后会默认安装)。\n\n**Python 模块:** 参考插件目录内的 `requirements.txt` 文件，使用命令 `pip install -r requirements.txt` 进行安装。\n\n**前置插件:** PIM插件，已内置WebUI，如有需要可以在设置页面将其安装到外部以为其它可能需要的插件提供帮助。\n\n## 使用方式\n\n> 目前未对接GUGUbot账号系统；当账号为QQ号时会显示QQ头像和昵称作为管理员名称和头像。\n\n**创建账户**\n\n```bash\n!!webui create <username> <password>\n```\n\n**更改密码**\n\n```bash\n!!webui change <username> <old password> <newpassword>\n```\n\n**临时密码**\n\n```bash\n!!webui temp\n```\n\n## Q&A 问答\n\nQ:为什么要开发这个插件。<br>\nA:因为我乐意。\n\nQ:会支持MC服务器管理的功能吗？如模组管理，玩家管理，白名单等等..<br>\nA:并不会深入涉及管理MC服务器，如有这方面的需求请查询MC服务器面板，仅可能会支持很小一部分，例如终端、重启服务器，更多的不在我们的范畴中。\n\nQ:可以加入开发吗？<br>\nA:当然可以，您可以提交 [pr](https://github.com/LoosePrince/PF-MCDR-WebUI/pulls) 或者 参与交流 来参与开发。\n\nQ:会支持多语言吗。<br>\nA:我只会中文，你要是愿意可以参与。\n\nQ:为什么有私货（有未使用的插件，如gugubot等）。<br>\nA:因为这就是为它所开发（虽然GUGUbot的配置一直不完善[doge]）。\n\nQ:如何获取实时最新版<br>\nA:自己打包`src`中的文件到`zip`，修改后缀为`.mcdr`，或者前往 [actions](https://github.com/LoosePrince/PF-MCDR-WebUI/actions/workflows/package-src.yml) 下载，解压提取其中的mcdr文件即可。\n\nQ:我有个插件，我觉得很适合WebUI，可以作为WebUI的前置吗？<br>\nA:WebUI不打算使用任何插件前置，如果有好的方案我们会考虑直接加入WebUI并在关于页感谢贡献。\n\nQ:[PIM插件](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/src/guguwebui/utils/PIM.py)是什么？<br>\nA:[PIM插件](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/src/guguwebui/utils/PIM.py)是WebUI的插件安装管理器，它可以帮助您安装、卸载、更新插件，并且可以查看插件信息。\n\n## 示例图\n\n> 截图来源v1.3.4本地测试(部分未改动截图为v1.3.0)\n\n登录页![image](https://github.com/user-attachments/assets/3439beb0-4325-406f-9443-9a6015edb2c6)\n仪表盘![image](https://github.com/user-attachments/assets/2fe582f2-7d51-4666-9e0e-f8314fe27520)\nMCDR配置![image](https://github.com/user-attachments/assets/141c1416-33ca-4a62-83ef-574cd494ba70)\nMC服务器配置![image](https://github.com/user-attachments/assets/08b3bdd5-ba33-48f6-926c-96333df622d8)\n本地插件![image](https://github.com/user-attachments/assets/252941b6-f1f1-4b4b-9736-eb75324c09f6)\n插件配置![image](https://github.com/user-attachments/assets/bf04660b-03a1-4b6e-ac82-03821c273989)\n插件仓库![image](https://github.com/user-attachments/assets/b7c41f92-1b4c-4a37-82e9-4b865af365bf)\n插件安装![image](https://github.com/user-attachments/assets/eb701e46-9e09-4b2d-b4f3-685b74792bb2)\n终端![image](https://github.com/user-attachments/assets/66b1db2c-ef36-4639-95ef-b685cc64692a)\nAI分析![image](https://github.com/user-attachments/assets/91276765-ec5b-47eb-8a85-d5faf6629fbb)\n设置![image](https://github.com/user-attachments/assets/eb333411-3e59-4939-a957-c2e956f70f2f)\n浅色模式![image](https://github.com/user-attachments/assets/e514d1e4-09f7-41c4-ad27-5b46a8245513)\n\n# TODO\n\n- [ ] [[更新] 关于后续（饼）](https://github.com/LoosePrince/PF-MCDR-WebUI/issues/8) #8\n\n# 有BUG或是新的IDEA\n\n如果需要更多联动或提交想法和问题请提交 [issues](https://github.com/LoosePrince/PF-MCDR-WebUI/issues) 或 QQ [树梢 (1377820366)](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 提交！ <br />\n如需要帮助或者交流请通过 QQ群 [726741344](https://qm.qq.com/q/TqmRHmTmcU) 进行询问或者交流 <br />\n视情况添加，请勿联系他人。\n\n# 贡献\n\n| 贡献人                                                | 说明                   |\n| -------------------------------------------------- | -------------------- |\n| [树梢 (LoosePrince)](https://github.com/LoosePrince) | 功能设计、文档编写、Web设计、前端编写 |\n| [雪开 (XueK66)](https://github.com/XueK66)           | 代码开发、维护、功能设计         |\n\n\n| 贡献项目                                                                 | 功能                       | 备注      |\n| -------------------------------------------------------------------- | ------------------------ | ------- |\n| [Ace Editor](https://ace.c9.io/)                                     | 在线编辑器                    | 已不再使用   |\n| [CodeMirror](https://codemirror.net/)                                | 在线编辑器                    | 目前使用    |\n| [MC-Server-Info](https://github.com/Spark-Code-China/MC-Server-Info) | Python Minecraft 服务器信息查询 | 仓库被作者删除 |\n| [DeepSeek AI](https://deepseek.com/)                                 | AI辅助功能接口支持               |         |\n| [Vditor](https://vditor.b3log.org/)                                  | Markdown编辑器              |         |\n| [TailwindCSS](https://tailwindcss.com/)                              | CSS框架                    |         |\n| [Alpine.js](https://alpinejs.dev/)                                   | JS框架                     |         |\n| [Font Awesome](https://fontawesome.com/)                             | 图标库                      |         |\n\n\n| 特别鸣谢                           | 说明          |\n| ------------------------------ | ----------- |\n| 反馈者                            | 感谢你们的反馈     |\n| [ChatGPT](https://chatgpt.com) | ChatGPT协助编写 |\n| [Cursor](https://cursor.com/)  | Cursor协助编写  |\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/LoosePrince/PF-MCDR-WebUI/main/src/../README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "guguwebui",
+    "latest_version": "1.3.9",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.9",
+        "name": "v1.3.9",
+        "tag_name": "v1.3.9",
+        "created_at": "2025-05-19T11:51:02Z",
+        "description": "添加HTTPS支持，允许用户配置SSL证书和密钥文件。 8bcc86f197a7308ede0983c2c3c7a16b3f084f01\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.8...v1.3.9",
+        "prerelease": false,
+        "asset": {
+          "id": 255999928,
+          "name": "guguwebui-v1.3.9.mcdr",
+          "size": 260421,
+          "download_count": 29,
+          "created_at": "2025-05-19T11:54:00Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.9/guguwebui-v1.3.9.mcdr",
+          "hash_md5": "106c22092891c21794322910d607b946",
+          "hash_sha256": "39e50ef8b7fa6468ec7f6962a8db737a675142b78440bcfc61a43c684fa0c593"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.9",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.8",
+        "name": "v1.3.8",
+        "tag_name": "v1.3.8",
+        "created_at": "2025-05-13T11:09:05Z",
+        "description": "优化PIM模块初始化；\r\n添加插件仓库缓存检查功能，启动自动下载仓库数据，失败后15分钟内不会再次下载；\r\n移除Webui本身的缓存，改为依靠PIM；\r\n改进日志记录；\r\n\r\n2f0433e29230c1d39d3b1fac26ddb6c82ff50288\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.7...v1.3.8",
+        "prerelease": false,
+        "asset": {
+          "id": 254221153,
+          "name": "guguwebui-v1.3.8.mcdr",
+          "size": 254869,
+          "download_count": 51,
+          "created_at": "2025-05-13T11:10:29Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.8/guguwebui-v1.3.8.mcdr",
+          "hash_md5": "c545e5eae09eadc6b2e1072b2172a424",
+          "hash_sha256": "4be314a60e8609f0f3f0ac5bde87353f9694e41b024cf615db406d671dd4ff1b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.8",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.7",
+        "name": "GUGU-WebUI v1.3.7",
+        "tag_name": "v1.3.7",
+        "created_at": "2025-05-05T09:05:20Z",
+        "description": "- 统一PIM的缓存，优化加载（解决Linux无法下载插件的问题） d331a3c9f9c7aff89d004c757db4ffb08160fda9\r\n- 日志降级 991f99be9cbf799aedf9e82b1d1ed41d250531fe\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.6...v1.3.7",
+        "prerelease": false,
+        "asset": {
+          "id": 251959619,
+          "name": "guguwebui-v1.3.7.mcdr",
+          "size": 253399,
+          "download_count": 27,
+          "created_at": "2025-05-05T09:15:31Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.7/guguwebui-v1.3.7.mcdr",
+          "hash_md5": "f2bb0bf876bbcef0ec27477870b8d3c9",
+          "hash_sha256": "c6c5569f45e9458fb7a6713d51201d1c9a627c096de3aced815363be80cb64c9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.7",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.6",
+        "name": "GUGU-WebUI v1.3.6",
+        "tag_name": "v1.3.6",
+        "created_at": "2025-05-04T12:40:59Z",
+        "description": "- 添加GUGUbot插件的配置页，主配置和各个json配置\r\n- 修复表单模式更新配置时不能删除项的问题\r\n\r\n62a0e65ed7ac1fc6b480dd8e806fa05edb7be2b1\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.5...v1.3.6",
+        "prerelease": false,
+        "asset": {
+          "id": 251756800,
+          "name": "guguwebui-v1.3.6.mcdr",
+          "size": 246812,
+          "download_count": 5,
+          "created_at": "2025-05-04T14:45:18Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.6/guguwebui-v1.3.6.mcdr",
+          "hash_md5": "9b33c6dcb0d1ecc06d8069a53f6c1ad9",
+          "hash_sha256": "0bfafddee6529c229522f0666d2b7cd8c922067f7cf7a8568599484529a29acd"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.6",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.5",
+        "name": "GUGU-WebUI v1.3.5",
+        "tag_name": "v1.3.5",
+        "created_at": "2025-05-04T05:54:22Z",
+        "description": "- 修改为从MCDR配置加载服务器路径的 b482912a466c95ff545fde9b5af712a6c92171a9\r\n- 优化头像更新逻辑，增加对非QQ号的处理，使用随机模糊图片作为备用头像。 84524ad53b3232789bacc4e9fc2f9b0b4d45f4a4\r\n- 优化插件配置路径查找逻辑，支持不区分大小写的目录和文件匹配（解决Linux的路径问题） 99f2fd5e112a677d3121b98c5bad08971ffb3438\r\n- 重构AI配置管理，添加自定义模型api链接，迁移旧的DeepSeek配置，优化配置保存逻辑。 e73b916c2180d492fca2d08aa81353ee6371c9ea\r\n- 修复依赖检查和自动安装功能，确保插件加载成功并处理缺失依赖的情况。 891b2145f880d5ce59c51f00b98f0f249db0045e\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.4...v1.3.5",
+        "prerelease": false,
+        "asset": {
+          "id": 251704410,
+          "name": "guguwebui-v1.3.5.mcdr",
+          "size": 231983,
+          "download_count": 11,
+          "created_at": "2025-05-04T06:01:21Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.5/guguwebui-v1.3.5.mcdr",
+          "hash_md5": "17d5c63c6e1661abcec0823a6bcbaa69",
+          "hash_sha256": "400e8fcb965339485e972aded183c2ca43781b2e97c9b53c76eeb1c1008c8c29"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.5",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.4",
+        "name": "GUGU-WebUI v1.3.4",
+        "tag_name": "v1.3.4",
+        "created_at": "2025-04-23T08:40:25Z",
+        "description": "- [优化插件卸载功能，支持同时卸载已加载和未加载的插件；更新本地插件信息获取逻辑，增加对禁用插件的支持；改进插件文件查找逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/1ff224ecac12730237bfbc9cd9b21bc127bbd6bf)\r\n- [新增外部资源加载状态检查功能；将Alpine.js的引用方式从CDN更改为本地文件。](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/e1a5367050246ca39490e1998376f5ff87fb1c1e)\r\n- [删除404页面主题切换按钮；在about页面中增加插件版本未安装的提示逻辑。](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/fe811a5b158676f08f95808d9a5ab10f431299ef)\r\n- [删除无效的preloader脚本](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/6377ba05d9e4647d5c4258079dbf60cd3a8188c7)\r\n- [优化终端日志显示，增加文本换行支持；重构PIMHelper类，改进插件管理逻辑，使用公共API获取插件实例，增强依赖检查和安装功能。](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/6253b87932d671cbe446a58a18160a3264571457)\r\n- [添加备选qq昵称获取api](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/684864037111325f79a520037a4a5862758ae289) （可能仍然无效）[修改，昵称获取失败不影响qq头像的显示](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/0582b7f774fc4447bc40f670a7ad595b5fc10413)\r\n- [更新版本至1.3.4，优化插件管理功能，支持多仓库配置，添加仓库选择和警告提示](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/e47aafddde8089a4600d79eaf667a92b4848176a)\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.3...v1.3.4",
+        "prerelease": false,
+        "asset": {
+          "id": 248717006,
+          "name": "guguwebui-v1.3.4.mcdr",
+          "size": 228721,
+          "download_count": 50,
+          "created_at": "2025-04-23T08:46:34Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.4/guguwebui-v1.3.4.mcdr",
+          "hash_md5": "1e0aad47ac0228d5422602d4bc8e1cf0",
+          "hash_sha256": "7be863201faa460f7410495c2f7e023158ef1f64cee0e170354166df1a0cf05f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.4",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.3",
+        "name": "GUGU-WebUI v1.3.3",
+        "tag_name": "v1.3.3",
+        "created_at": "2025-04-15T10:02:04Z",
+        "description": "- 新增pip包管理功能，包括安装、卸载和状态查询接口\r\n- 优化前端界面以支持pip包的显示和操作\r\n- 改进PIMHelper类以处理缺失pip包的错误并自动安装缺失的依赖\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.2...v1.3.3",
+        "prerelease": false,
+        "asset": {
+          "id": 246553644,
+          "name": "guguwebui-v1.3.3.mcdr",
+          "size": 201799,
+          "download_count": 28,
+          "created_at": "2025-04-15T10:05:53Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.3/guguwebui-v1.3.3.mcdr",
+          "hash_md5": "55abb50194cd7c28336535a610a3ef57",
+          "hash_sha256": "c947307b055fa62443885257f648484139a6a637e17739a78d94a52eae98979d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.3",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.2",
+        "name": "GUGU-WebUI v1.3.2",
+        "tag_name": "v1.3.2",
+        "created_at": "2025-04-08T01:02:50Z",
+        "description": "更新\r\n-\r\n\r\n- 在 修改在线插件 获取逻辑，使用官方仓库数据\r\n- 在 本地插件 中添加版本切换功能；\r\n- 在模板中添加 README 文档查看功能\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.1...v1.3.2",
+        "prerelease": false,
+        "asset": {
+          "id": 244413178,
+          "name": "guguwebui-v1.3.2.mcdr",
+          "size": 192086,
+          "download_count": 36,
+          "created_at": "2025-04-08T01:04:38Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.2/guguwebui-v1.3.2.mcdr",
+          "hash_md5": "3e8a2384cb1877ad7ed9fbfb908233e5",
+          "hash_sha256": "b8f2f94152d6646294305e432e13647bf9f4b670b9e0ef4dc9bd65b682fb444b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.2",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.1",
+        "name": "GUGU-WebUI v1.3.1",
+        "tag_name": "v1.3.1",
+        "created_at": "2025-04-07T09:04:10Z",
+        "description": "更新：\r\n- \r\n\r\n- 新增功能: 全新的基于PIM的插件安装器：[PIM.py](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/src/guguwebui/utils/PIM.py)，提供完整的安装日志输出体验\r\n- 新增功能: 现在支持通过PIM插件安装器卸载本地插件，将同时删除插件文件（如果卸载的插件被依赖，则会一并卸载）\r\n- 状态显示: 对于已安装且为最新版本的插件，显示\"已安装\"标签，不再显示安装按钮\r\n- 不再读取日志文件：不再读取日志文件，而是通过捕获MCDR的日志，无需关闭高级控制台，不与其它插件冲突，日志不再区分MCDR和MC\r\n- 新增功能: 命令补全功能，支持命令补全，支持参数补全，支持子命令补全\r\n- 修改在线仓库: 使用官方数据来源，可在设置页配置\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.3.0...v1.3.1",
+        "prerelease": false,
+        "asset": {
+          "id": 244193859,
+          "name": "guguwebui-v1.3.1.mcdr",
+          "size": 183679,
+          "download_count": 5,
+          "created_at": "2025-04-07T09:01:56Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.1/guguwebui-v1.3.1.mcdr",
+          "hash_md5": "d693faa62ed1fc52d4e0346482658501",
+          "hash_sha256": "4741be887cbb150b34938bfd441362c09e55808b8ece70df50d78a5dce244ba2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.1",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp",
+            "uvicorn[standard]"
+          ],
+          "description": {
+            "en_us": "WebUI for managing all plugins, MCDR configurations, online installation, terminals, and more.",
+            "zh_cn": "通过webui来管理所有插件、MCDR配置、在线安装、终端等多种功能"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.3.0",
+        "name": "GUGU-WebUI v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2025-04-04T05:46:20Z",
+        "description": "# v1.3.0 更新日志\r\n\r\n## 前端UI全面重构（已实现）\r\n\r\n### 现代化界面设计\r\n- 全新高级时尚风格的现代化管理界面，使用卡片式布局\r\n- 引入Tailwind CSS和Alpine.js技术栈\r\n- 支持深色/亮色主题切换，自动适应系统主题偏好\r\n- 优化页面加载性能和视觉一致性，消除主题切换闪烁\r\n\r\n### 用户体验提升\r\n- 重新设计登录页面，支持账号密码和临时码登录，添加平滑过渡动画\r\n- 集成QQ头像和昵称显示功能，提升用户个人化体验\r\n- 新增现代化通知系统，替代传统alert弹窗，提供更友好的反馈\r\n- 优化表单控件，引入下拉选择框、标签式输入等高级组件\r\n- 实现配置分组和层级显示，提高可读性和操作便捷性\r\n\r\n### 代码架构优化\r\n- 统一设计规范和样式变量，确保界面一致性\r\n- 使用CSS变量实现主题切换，提供完整的深色模式支持\r\n- 优化前端资源结构，提高页面加载性能\r\n- 添加本地缓存机制，优化数据加载和用户偏好存储\r\n\r\n## 终端功能新增\r\n\r\n### 全新终端界面\r\n- 添加专用终端页面，提供类控制台的操作体验\r\n- 实现服务器命令输入和执行功能，支持历史命令查看\r\n- 集成RCON功能支持，以\"/\"开头的命令优先通过RCON发送并获取实时反馈\r\n- 提供命令历史记录和自动完成功能，提高输入效率\r\n\r\n### 智能AI辅助\r\n- 集成DeepSeek AI接口，支持直接分析日志和解答问题\r\n- 在设置页面添加DeepSeek API配置选项，可自定义API密钥和模型\r\n- 支持连续对话功能，保留上下文提高AI理解能力\r\n- 通过选择日志文本触发AI分析，快速解决问题\r\n\r\n## 服务器和插件管理增强\r\n\r\n### MCDR配置管理\r\n- 创建完整的MCDR配置图形化界面，支持config.yml和permission.yml配置\r\n- 提供表单式配置编辑，简化复杂配置的修改过程\r\n- 添加权限用户标签管理，支持直接添加和删除单个玩家\r\n- 支持多层嵌套JSON对象的编辑，最高支持4层嵌套结构\r\n\r\n### Minecraft服务器配置\r\n- 添加Minecraft服务器配置页面，支持编辑server.properties\r\n- 提供配置分类和搜索功能，便于快速查找和修改\r\n- 支持中文显示配置项名称和描述，提升易用性\r\n- 根据配置类型提供相应的控件（开关、选择框、文本框）\r\n\r\n### 插件管理优化\r\n- 全新插件管理界面，卡片式展示插件信息\r\n- 支持插件状态的实时更新和可视化展示\r\n- 插件配置编辑功能，支持表单模式和代码模式\r\n- 支持HTML类型配置的安全隔离加载，提供更丰富的配置体验\r\n\r\n## 系统设置与安全性\r\n\r\n### WebUI设置\r\n- 创建专门的WebUI系统设置页面，提供图形化配置方式\r\n- 支持修改Web服务的主机地址和端口设置\r\n- 可配置超级管理员账号和安全选项\r\n- 提供DeepSeek AI配置选项，支持API密钥和模型选择\r\n\r\n### 安全性增强\r\n- 使用iframe隔离HTML类型配置内容，提供沙箱环境\r\n- 优化插件权限控制，防止意外操作\r\n- 改进错误处理和异常情况下的用户反馈\r\n- 为API操作添加会话检查，确保安全访问\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.2.5...v1.3.0",
+        "prerelease": false,
+        "asset": {
+          "id": 243444127,
+          "name": "guguwebui-v1.3.0.mcdr",
+          "size": 134536,
+          "download_count": 9,
+          "created_at": "2025-04-04T05:44:22Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.3.0/guguwebui-v1.3.0.mcdr",
+          "hash_md5": "851e5db08e575965b95bf20041bc934a",
+          "hash_sha256": "6a518702fed7004872807de4baf5cf23aff6e7e661134b77ac145fe4ae35875a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.3.0",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi>=0.68.0",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn>=0.15.0",
+            "itsdangerous",
+            "jinja2",
+            "argon2_cffi",
+            "python-multipart",
+            "typing-extensions",
+            "aiohttp"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.2.5",
+        "name": "GUGU-WebUI v1.2.5",
+        "tag_name": "v1.2.5",
+        "created_at": "2025-01-30T09:15:52Z",
+        "description": "# 更新日志\r\ntime: 2025-01-29 ~ 2025-01-30\r\n## v1.2.5\r\n> 更新后请删除 `guguwebui_static` 中 `custom` 的数据以更新！\r\n\r\n### 新增\r\n- [feat(core): 添加插件更新时间和排序功能](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/bbb49bdb962919ed1d4be0515c4f310af3c925a2)\r\n- [refactor: 在线插件名称添加链接](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/24888e5c59a8e3366c46ff19348fcfbdb3b8293a)\r\n- [feat(ui): 添加终端页面空白页](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/934c03df83d94e0efa642386bed2e83696a75f9f)\r\n- [fix(to): 增加配置文件加载和保存时的错误处理](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/6f0c55e47c6bc87edbc2c4d3f13fca52cf2caf81)\r\n- [feat(config): 添加加载HTML配置的功能](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/bcfc04a379874cdca48da7bcfcb8610bc1eb586b)\r\n- [feat: 增加配置加载类型参数](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/486e81af67d253110ac07bb096b33ac1c7dff2a4)\r\n- [feat: 添加iframe主题变化通知](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/8defc1d4943ad71e560c8fe98f4d954bd2f80813)\r\n\r\n### 修改\r\n- [style: 移除调试打印](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/9a830ddaf37ed52be5e1863499796b327a4f67ce)\r\n- [fix: 增加请求超时时间设置](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/efeb6177d742a76361d1b0d734c4a137d759f2f2)\r\n- [feat: 引入yaml配置读取服务器路径](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/269908a5d4b0fe14d839646e7070c52d309bcba8)\r\n- [fix: 更新插件描述格式（支持MD链接）和更新时间显示](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/0a07c6fcfc88f3ad69c178b4167a50cfd4145e6e)\r\n- [style: 添加悬停效果和样式调整](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/8c74a0c434daae7b12cd9e3ea7a06af370ba0402)\r\n- [style: 添加新的颜色变量并更新样式](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/549cb0f07684a8800be6abfccd3d7e0c12b780db)\r\n- [fix: 增加在线插件请求超时时间](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/ef79e5e5a5d7cc0abb5022ecd57e4b4025c691c0)\r\n- [style: 添加文字换行样式](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/13316c83cecead505a5dee7743a472e2cb173533)\r\n\r\n\r\n### 修复\r\n- [fix(constant.py): 更新配置文件读取方式以支持 ruamel.yaml](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/a16678fe2638678ebe1d9b1912acabc7a2ae0d18)\r\n- [style: 添加和修改溢出属性](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/6da25505bf1197aeee534a066e2e1c667be6f4f9)\r\n- [refactor: 优化保存配置按钮和popup逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/aaea3dd70ae94b484c8e0a1dafbbaf983306effd)\r\n- [fix: 修正加载配置时的逻辑错误和响应状态码](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/59562063372ed6c14555565d7a0fb7e966cdc662)\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.2.4...v1.2.5",
+        "prerelease": false,
+        "asset": {
+          "id": 236665285,
+          "name": "guguwebui-v1.2.5.mcdr",
+          "size": 110110,
+          "download_count": 48,
+          "created_at": "2025-03-12T00:44:19Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.2.5/guguwebui-v1.2.5.mcdr",
+          "hash_md5": "3c735b2773132d7eae70ed2251c1e847",
+          "hash_sha256": "488acbbfc30b92d4a8fb2ce9c55c1666b3448064f535906bf380e8b6a1a5c6ae"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.2.5",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn",
+            "itsdangerous",
+            "jinja2"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.2.4",
+        "name": "GUGU-WebUI v1.2.4",
+        "tag_name": "v1.2.4",
+        "created_at": "2025-01-25T12:39:55Z",
+        "description": "# 更新日志\r\ntime: 2025-01-25\r\n## v1.2.4\r\n\r\n### 新增\r\n- 新增文件 `online-plugins.html` `online-plugins.js`文件\r\n- 添加在线插件搜索和分页功能\r\n- 新增在线插件功能\r\n\r\n### 修改\r\n- [feat: 添加在线插件功能及页面](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/a6cab11bcc19742dd261dcd97f86686692a57a73)\r\n- 修改插件页面标题及提示信息\r\n- 优化插件安装逻辑并添加日志监控\r\n\r\n\r\n### 修复\r\n- [fix: 修复登出后跳转逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/35f0b94055aa7fc1a585f40ee261deca7ff9e80b)\r\n- [refactor: 优化插件安装和取消逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/d743aa910ce0b07cd80af2f1ed44c955223db09f)\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v1.2.3...v1.2.4",
+        "prerelease": false,
+        "asset": {
+          "id": 223371824,
+          "name": "guguwebui-v1.2.4.mcdr",
+          "size": 107965,
+          "download_count": 11,
+          "created_at": "2025-01-25T12:56:01Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.2.4/guguwebui-v1.2.4.mcdr",
+          "hash_md5": "dacbd51c9350d736fca101919342615f",
+          "hash_sha256": "0f5946e68e97819616f0786fb65bd55a5330f477946ced8eeff0fc0641cf2d72"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.2.4",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.2.3",
+        "name": "GUGU-WebUI v1.2.3",
+        "tag_name": "v1.2.3",
+        "created_at": "2025-01-22T14:52:19Z",
+        "description": "# 更新日志\r\ntime: 2025-01-21 ~ 2025-01-22\r\n## v1.2.3\r\n\r\n### 新增\r\n- 新增 `utils/log_watcher.py` ，用于监听日志变化，和获取指定内容\r\n- [feat: 新增计算JSON对象项数的功能并优化加载警告条件](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/c6e1b52da7ac86dbc44a0477a01520c5baa35389)\r\n- [feat: 增加日志监听功能并优化插件更新逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/dfd7153d8a39309128917c231d118fd7a5e76761) | [refactor: 重构日志监控逻辑和方法](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/ebf82fd1b5f1ba1cf63455c2b6132f18a65ada8e)\r\n- [fix(ui): 增加错误提示和确认](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/0a1b4945002fcfe2de5ed3a9a9df6de0f5e7c0fe)\r\n\r\n### 修改\r\n- [fix(ui): 调整弹窗样式和按钮文本，增加内容长度检查](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/b478731ee2342139c3ae4cf38f5dea6290544d71)\r\n- [style: 修改消息框颜色，适配主题模式](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/643eadf713664347bde543f575b71735b9931e47)\r\n- [refactor: 增加文件扩展名映射以设置编辑器模式](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/7c283b45a1e00bdbb76cf3fef1664f8e82c30c36)\r\n- [style: 修改样式](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/41564e0acaf986c134217d7ef100db602bd34e51)\r\n- [refactor: 移除重复主题变化监听并集中处理](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/92e594b8c044c532e6d186a03411392b2fad5e27)\r\n- [fix: 更新插件时增加插件ID提示与错误信息详情，添加PIM的en_us响应](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/d40bda8ffda1af4b409624004bf77fc86ee0b700)\r\n- [fix: 添加对自身插件处理的错误返回](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/6b8c0ae6c6e72817bf2d52892da2f9bfe21de854) | [fix(api): 添加保存配置文件错误处理和禁止修改特定配置文件](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/a1055c0b3c1175c6f828d1bc081d7a6d583a2473)\r\n\r\n### 修复\r\n- [fix(ui): 修复编辑器滚动溢出问题](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/8bd8cf5dd0cac5c5ed8d222a0d280c504fbff074)\r\n- [feat: 添加插件版本检查和更新确认功能，恢复一键更新功能](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/3f3e92c9cdcf646554a5c792f904b621032ef785) | [refactor: 添加线程支持和优化版本缓存逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/16fc05b8fb0786625fb19737b076ff2911a5e79b)",
+        "prerelease": false,
+        "asset": {
+          "id": 222457418,
+          "name": "guguwebui-v1.2.3.mcdr",
+          "size": 100111,
+          "download_count": 38,
+          "created_at": "2025-01-22T15:03:59Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.2.3/guguwebui-v1.2.3.mcdr",
+          "hash_md5": "1a194c70026ac64f86f0851ee4e62a31",
+          "hash_sha256": "e2b17fbb45cd2cf1a9602635dd053dc580fb7f095193dbe24e8014ebfb6834f5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.2.3",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "Requests",
+            "ruamel.yaml",
+            "starlette",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.2.2",
+        "name": "GUGU-WebUI v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2025-01-21T10:38:29Z",
+        "description": "# 更新日志\r\ntime: 2025-01-21\r\n## v1.2.2\r\n\r\n### 新增\r\n- 新增 `js/overall.js` ，储存全局函数\r\n\r\n### 修改\r\n- [style: 调整暗色模式下的颜色](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/c25a5c99c5931300b269e5503526bec12de91c0a)\r\n- [style: 调整颜色和尺寸样式](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/efdb2b1fc670f2acb6d52af59f8e8bb2691d5cb3)\r\n- [refactor(ui): 重构消息显示逻辑，提示消息会在主页面显示而不是子页面](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/983eb4f69f245e7f5cbb174e7fd9bd15eebbb3d8)\r\n- [refactor: 优化消息弹窗功能，添加返回值处理](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/8b552da014e3de4283fef1c052be88c4f93b0065)\r\n- [refactor(ui): 添加非自动关闭时的遮罩层逻辑](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/14fc92cb426fdb83642eb84d5938cf9cf394b2d2)",
+        "prerelease": false,
+        "asset": {
+          "id": 222073949,
+          "name": "guguwebui-v1.2.2.mcdr",
+          "size": 95182,
+          "download_count": 12,
+          "created_at": "2025-01-21T10:46:29Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.2.2/guguwebui-v1.2.2.mcdr",
+          "hash_md5": "ffbcbb421fa11bd89642277e4c746066",
+          "hash_sha256": "071ec59f33bc0d446625de46108b377e88df116abd35b9be6dc001c411bac4b4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.2.2",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "argon2-cffi",
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "ruamel.yaml",
+            "starlette[full]",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.2.0",
+        "name": "GUGU-WebUI v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2025-01-19T12:28:12Z",
+        "description": "# 更新日志\r\n\r\n## v1.2.0 - 2025-01-19\r\n> 更新后请删除 `guguwebui_static` 文件夹中的除`db.json`以外的数据文件\r\n\r\n### 修改\r\n- 统一未登录提示\r\n- Webui在插件列表中不再显示配置按钮\r\n- [使用CSS变量优化颜色管理](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/0922554881c2db7d5484590d33c2cb073ae34515)\r\n- 小优化\r\n\r\n### 新增\r\n- [添加主题切换功能](https://github.com/LoosePrince/PF-MCDR-WebUI/commit/0922554881c2db7d5484590d33c2cb073ae34515)\r\n  - 支持`浅色主题`、`深色主题`、`自动`",
+        "prerelease": false,
+        "asset": {
+          "id": 221576361,
+          "name": "guguwebui-v1.2.0.mcdr",
+          "size": 126131,
+          "download_count": 18,
+          "created_at": "2025-01-19T12:34:03Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.2.0/guguwebui-v1.2.0.mcdr",
+          "hash_md5": "62c0171bc09f21d8837904206ccfe80a",
+          "hash_sha256": "9112b192121ef2d9c5a2f093da6cf499ddb3d1ce935eac98170e50d48ccf4a10"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.2.0",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "argon2-cffi",
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "ruamel.yaml",
+            "starlette[full]",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.1.0",
+        "name": "GUGU-WebUI v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2025-01-18T11:04:01Z",
+        "description": "# 更新日志\r\n\r\n## 1.1.0 - 2025-01-18\r\n\r\n### 新增\r\n- 添加了完整的API文档，包含所有接口的中文说明和调用示例\r\n- 新增[web_server_api_docs.md](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/src/web_server_api_docs.md)文件，详细记录了所有API接口的使用方法\r\n\r\n### 变更\r\n- 更新版本号至1.1.0。\r\n- 登录页和首页的版本号使用读取配置显示。\r\n\r\n### 修复\r\n- 修复权限校验，现在api的调用需要权限验证，登录不再形同虚设。\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 221380060,
+          "name": "guguwebui-v1.1.0.mcdr",
+          "size": 91264,
+          "download_count": 9,
+          "created_at": "2025-01-18T11:07:05Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.1.0/guguwebui-v1.1.0.mcdr",
+          "hash_md5": "4b553afd92bc4b60015f4f66e8e2bc0c",
+          "hash_sha256": "717560301736f071648547f56521b9e87c8ab8533c7eb2300aae7d44ba76aec3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.1.0",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "argon2-cffi",
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "ruamel.yaml",
+            "starlette[full]",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/tag/v1.0.0",
+        "name": "GUGU-WebUI_V1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2024-11-10T17:07:26Z",
+        "description": "发布 v1.0.0，未对接GUGUbot\r\n\r\n## 开发进度（快照）\r\n\r\n- 首页：90%\r\n  - 主要功能：100%\r\n  - 最近配置项：0%\r\n- GUGUbot管理：90%\r\n  - 配置：100%\r\n  - 附加功能：0%\r\n- cq-qq-api：80%\r\n  - 配置：100%\r\n  - 文档：0%\r\n  - 附加功能：0%\r\n- MC服务器配置：100%\r\n- MCDR配置：100%\r\n- 所有插件管理：90%\r\n  - 管理：100%\r\n  - 更新：10%（被推迟了）\r\n  - 配置修改：100%\r\n  - 附加功能：0%\r\n- 服务器终端：0%\r\n- Fabric（部分）：0%\r\n\r\n\r\n## What's Changed\r\n* 1.0.0 by @XueK66 in https://github.com/LoosePrince/PF-MCDR-WebUI/pull/2\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-MCDR-WebUI/compare/v0.1.1...v1.0.0",
+        "prerelease": false,
+        "asset": {
+          "id": 205869628,
+          "name": "guguwebui-v1.0.0-beta.mcdr",
+          "size": 115078,
+          "download_count": 78,
+          "created_at": "2024-11-12T06:31:18Z",
+          "browser_download_url": "https://github.com/LoosePrince/PF-MCDR-WebUI/releases/download/v1.0.0/guguwebui-v1.0.0-beta.mcdr",
+          "hash_md5": "0a7b71b20008f83cf6315101235839a3",
+          "hash_sha256": "35d6c7cda2f33661fd57a253e6068ee8f4a1f8f771fb60d78108bff07d9a5061"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "guguwebui",
+          "name": "GUGU WebUI",
+          "version": "1.0.0",
+          "link": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+          "authors": [
+            "LoosePrince",
+            "XueK__"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "argon2-cffi",
+            "fastapi",
+            "javaproperties",
+            "mcdreforged>=2.3.0",
+            "passlib",
+            "pydantic",
+            "ruamel.yaml",
+            "starlette[full]",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "Config manerager using webui interface.",
+            "zh_cn": "使用webui来管理所有插件参数设置"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+    "name": "PF-MCDR-WebUI",
+    "full_name": "LoosePrince/PF-MCDR-WebUI",
+    "html_url": "https://github.com/LoosePrince/PF-MCDR-WebUI",
+    "description": "PF MCDR的WebUI",
+    "archived": false,
+    "stargazers_count": 6,
+    "watchers_count": 6,
+    "forks_count": 2,
+    "readme": "# PF-MCDR-WebUI\n为 MCDR 开发的在线 WebUI 插件\n\n[![页面浏览量计数](https://badges.toozhao.com/badges/01JC0ZMB6718E924N6H2FEZRC5/green.svg)](https://github.com/LoosePrince/PF-MCDR-WebUI/tree/main//) \n[![查看次数起始时间](https://img.shields.io/badge/查看次数统计起始于-2024%2F11%2F06-2?style=flat-square)](https://github.com/LoosePrince/PF-MCDR-WebUI/tree/main//)\n[![仓库大小](https://img.shields.io/github/repo-size/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=仓库占用)](https://github.com/LoosePrince/PF-MCDR-WebUI/tree/main//) \n[![最新版](https://img.shields.io/github/v/release/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=最新版)](https://github.com/LoosePrince/PF-MCDR-WebUI/releases/latest/)\n[![议题](https://img.shields.io/github/issues/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=Issues)](https://github.com/LoosePrince/PF-MCDR-WebUI/issues) \n[![已关闭issues](https://img.shields.io/github/issues-closed/LoosePrince/PF-MCDR-WebUI?style=flat-square&label=已关闭%20Issues)](https://github.com/LoosePrince/PF-MCDR-WebUI/issues?q=is%3Aissue+is%3Aclosed)\n[![下载量](https://img.shields.io/github/downloads/LoosePrince/PF-MCDR-WebUI/total?style=flat-square&label=下载量)](https://github.com/LoosePrince/PF-MCDR-WebUI/releases)\n[![最新发布下载量](https://img.shields.io/github/downloads/LoosePrince/PF-MCDR-WebUI/latest/total?style=flat-square&label=最新版本下载量)](https://github.com/LoosePrince/PF-MCDR-WebUI/releases/latest)\n\n> [!NOTE]\n> 由于 **GUGUbot** 和 **WebUI** 项目庞大，但迄今为止仅有开发者一名，所以我们从现在开始招募有志者加入我们！<br>\n> 有意者请加 QQ[1377820366](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 或 QQ群[726741344](https://qm.qq.com/q/TqmRHmTmcU)\n\n## 插件说明\n\nWebUI 文档：[WebUI 文档](https://pf-doc.pfingan.com/main.html?root=PF-webui&path=PF-webui)\n\n### 主要功能\n> 为MCDR提供一个 `在线WebUI管理界面` 和 `MCDR插件管理` 和 `表单配置功能`（可选使用在线编辑器）。\n\n#### pip包管理\n\n#### 本地插件管理\n\n- 列出全部插件\n- 一键更新\n- 启动插件\n- 停止插件\n- 重载插件\n- 切换插件版本（第三方仓库不支持）\n- 插件配置文件的在线编辑器\n- 插件配置文件的在线表单\n\n#### 表单配置功能\n\n- [x] **配置修改:**\n  - 使用在线表单 **或** 在线编辑器进行配置文件的修改（在 **`所有插件`** 选项卡处修改）。\n- [x] **支持的配置:**\n  - `yml文件` 识别每项上一行注释作为中文标题，使用 `::` 分割，第二项为副标题，例 `标题::副标题` ，请注意，使用的是英文的符号；\n  - `json文件` 需要创建同级文件 `需要加标题的配置文件名_lang.josn` 例如 `abc_lang.json` 则会为 `abc.json` 创建中文标题，使用 `[标题,副标题]` 创建标题和副标题，参考示例: [config_lang.json](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/config_lang.json)\n  - `html格式`, 使用 `main.json` 在其中使用键对值的方式指定每个配置文件对应的 `html文件` ，届时加载时会加载 `html文件内容` ，如果您有样式请不要使用外链式加载本地css和js，请使用 `style` 和 `script` 标签。\n\n#### 服务器终端\n\n- 提供服务器命令执行界面\n- 支持RCON实时反馈和命令历史记录。\n\n#### AI辅助\n\n- 终端集成DeepSeek AI接口\n- 支持日志分析和问题解答，减少您的反复横跳。\n\n#### 主题切换\n\n- 支持`浅色主题`、`深色主题`，默认为浅色，您可以在右上角切换显示模式\n\n#### 在线插件安装仓库\n\n- 提供一个插件安装管理器\n- 插件搜索、安装、卸载、更新、查看插件信息。\n- 多仓库支持，您可以添加多个仓库，并选择不同的仓库进行插件安装，不过请您注意风险。（v1.3.4）\n\n> [!IMPORTANT]\n> **关于数据:** 重载插件 *本插件* **会** 自动更新 `guguwebui_static` 文件夹中的内容，如果您修改过内部的文件请自行保存，以防您的数据丢失。\n\n> [!IMPORTANT]\n> **关于V1.3.0版本:** 本项目于v1.3.0版本重构前端，如您是从v1.3.0版本之前升级的，请删除 `guguwebui_static` 文件夹中的内容，保留 `db.json` 即可。\n\n\n## 依赖配置\n\n**Python 包:** 请确保已安装 [Python™](https://www.python.org/) 和 [pip](https://pypi.org/project/pip/) (pip通常在安装完python后会默认安装)。\n\n**Python 模块:** 参考插件目录内的 `requirements.txt` 文件，使用命令 `pip install -r requirements.txt` 进行安装。\n\n**前置插件:** PIM插件，已内置WebUI，如有需要可以在设置页面将其安装到外部以为其它可能需要的插件提供帮助。\n\n## 使用方式\n\n> 目前未对接GUGUbot账号系统；当账号为QQ号时会显示QQ头像和昵称作为管理员名称和头像。\n\n**创建账户**\n\n```bash\n!!webui create <username> <password>\n```\n\n**更改密码**\n\n```bash\n!!webui change <username> <old password> <newpassword>\n```\n\n**临时密码**\n\n```bash\n!!webui temp\n```\n\n## Q&A 问答\n\nQ:为什么要开发这个插件。<br>\nA:因为我乐意。\n\nQ:会支持MC服务器管理的功能吗？如模组管理，玩家管理，白名单等等..<br>\nA:并不会深入涉及管理MC服务器，如有这方面的需求请查询MC服务器面板，仅可能会支持很小一部分，例如终端、重启服务器，更多的不在我们的范畴中。\n\nQ:可以加入开发吗？<br>\nA:当然可以，您可以提交 [pr](https://github.com/LoosePrince/PF-MCDR-WebUI/pulls) 或者 参与交流 来参与开发。\n\nQ:会支持多语言吗。<br>\nA:我只会中文，你要是愿意可以参与。\n\nQ:为什么有私货（有未使用的插件，如gugubot等）。<br>\nA:因为这就是为它所开发（虽然GUGUbot的配置一直不完善[doge]）。\n\nQ:如何获取实时最新版<br>\nA:自己打包`src`中的文件到`zip`，修改后缀为`.mcdr`，或者前往 [actions](https://github.com/LoosePrince/PF-MCDR-WebUI/actions/workflows/package-src.yml) 下载，解压提取其中的mcdr文件即可。\n\nQ:我有个插件，我觉得很适合WebUI，可以作为WebUI的前置吗？<br>\nA:WebUI不打算使用任何插件前置，如果有好的方案我们会考虑直接加入WebUI并在关于页感谢贡献。\n\nQ:[PIM插件](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/src/guguwebui/utils/PIM.py)是什么？<br>\nA:[PIM插件](https://github.com/LoosePrince/PF-MCDR-WebUI/blob/main/src/guguwebui/utils/PIM.py)是WebUI的插件安装管理器，它可以帮助您安装、卸载、更新插件，并且可以查看插件信息。\n\n## 示例图\n\n> 截图来源v1.3.4本地测试(部分未改动截图为v1.3.0)\n\n登录页![image](https://github.com/user-attachments/assets/3439beb0-4325-406f-9443-9a6015edb2c6)\n仪表盘![image](https://github.com/user-attachments/assets/2fe582f2-7d51-4666-9e0e-f8314fe27520)\nMCDR配置![image](https://github.com/user-attachments/assets/141c1416-33ca-4a62-83ef-574cd494ba70)\nMC服务器配置![image](https://github.com/user-attachments/assets/08b3bdd5-ba33-48f6-926c-96333df622d8)\n本地插件![image](https://github.com/user-attachments/assets/252941b6-f1f1-4b4b-9736-eb75324c09f6)\n插件配置![image](https://github.com/user-attachments/assets/bf04660b-03a1-4b6e-ac82-03821c273989)\n插件仓库![image](https://github.com/user-attachments/assets/b7c41f92-1b4c-4a37-82e9-4b865af365bf)\n插件安装![image](https://github.com/user-attachments/assets/eb701e46-9e09-4b2d-b4f3-685b74792bb2)\n终端![image](https://github.com/user-attachments/assets/66b1db2c-ef36-4639-95ef-b685cc64692a)\nAI分析![image](https://github.com/user-attachments/assets/91276765-ec5b-47eb-8a85-d5faf6629fbb)\n设置![image](https://github.com/user-attachments/assets/eb333411-3e59-4939-a957-c2e956f70f2f)\n浅色模式![image](https://github.com/user-attachments/assets/e514d1e4-09f7-41c4-ad27-5b46a8245513)\n\n# TODO\n\n- [ ] [[更新] 关于后续（饼）](https://github.com/LoosePrince/PF-MCDR-WebUI/issues/8) #8\n\n# 有BUG或是新的IDEA\n\n如果需要更多联动或提交想法和问题请提交 [issues](https://github.com/LoosePrince/PF-MCDR-WebUI/issues) 或 QQ [树梢 (1377820366)](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 提交！ <br />\n如需要帮助或者交流请通过 QQ群 [726741344](https://qm.qq.com/q/TqmRHmTmcU) 进行询问或者交流 <br />\n视情况添加，请勿联系他人。\n\n# 贡献\n\n| 贡献人                                                | 说明                   |\n| -------------------------------------------------- | -------------------- |\n| [树梢 (LoosePrince)](https://github.com/LoosePrince) | 功能设计、文档编写、Web设计、前端编写 |\n| [雪开 (XueK66)](https://github.com/XueK66)           | 代码开发、维护、功能设计         |\n\n\n| 贡献项目                                                                 | 功能                       | 备注      |\n| -------------------------------------------------------------------- | ------------------------ | ------- |\n| [Ace Editor](https://ace.c9.io/)                                     | 在线编辑器                    | 已不再使用   |\n| [CodeMirror](https://codemirror.net/)                                | 在线编辑器                    | 目前使用    |\n| [MC-Server-Info](https://github.com/Spark-Code-China/MC-Server-Info) | Python Minecraft 服务器信息查询 | 仓库被作者删除 |\n| [DeepSeek AI](https://deepseek.com/)                                 | AI辅助功能接口支持               |         |\n| [Vditor](https://vditor.b3log.org/)                                  | Markdown编辑器              |         |\n| [TailwindCSS](https://tailwindcss.com/)                              | CSS框架                    |         |\n| [Alpine.js](https://alpinejs.dev/)                                   | JS框架                     |         |\n| [Font Awesome](https://fontawesome.com/)                             | 图标库                      |         |\n\n\n| 特别鸣谢                           | 说明          |\n| ------------------------------ | ----------- |\n| 反馈者                            | 感谢你们的反馈     |\n| [ChatGPT](https://chatgpt.com) | ChatGPT协助编写 |\n| [Cursor](https://cursor.com/)  | Cursor协助编写  |\n",
+    "readme_url": "https://raw.githubusercontent.com/LoosePrince/PF-MCDR-WebUI/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

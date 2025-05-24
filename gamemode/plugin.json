@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "gamemode",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/gamemode",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# Gamemode\n\n> 高级版灵魂出窍(切旁观, 切回生存传送回原位置)\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` / `!s` 旁观/生存切换\n\n`!!tp <dimension> [position]` 传送至指定地点\n\n`!!back` 返回上个地点\n\n## 配置\n\n### short_command\n\n默认值: `True`\n\n是否启用短命令\n\n### 其他数字配置是权限\n\n`spec`\n\n默认值: `1`\n\n使用 `!!spec` 的最低权限\n\n`spec_other`\n\n默认值: `2`\n\n使用 `!!spec <player` 的最低权限\n\n`tp`\n\n默认值: `1`\n\n使用 `!!tp <dimension> [position]` 的最低权限\n\n`back`\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n",
+    "zh_cn": "# Gamemode\n\n> 高级版灵魂出窍(切旁观, 切回生存传送回原位置)\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` / `!s` 旁观/生存切换\n\n`!!tp <dimension> [position]` 传送至指定地点\n\n`!!back` 返回上个地点\n\n## 配置\n\n### short_command\n\n默认值: `True`\n\n是否启用短命令\n\n### 其他数字配置是权限\n\n`spec`\n\n默认值: `1`\n\n使用 `!!spec` 的最低权限\n\n`spec_other`\n\n默认值: `2`\n\n使用 `!!spec <player` 的最低权限\n\n`tp`\n\n默认值: `1`\n\n使用 `!!tp <dimension> [position]` 的最低权限\n\n`back`\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md"
+  }
+}
