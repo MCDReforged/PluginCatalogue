@@ -133,6 +133,10 @@ added_files = set(get_changed('added_files'))  # A
 deleted_files = set(get_changed('deleted_files'))  # D
 all_files = set(get_changed('all_changed_files'))  # ACMRD
 
+# This is a workaround for `lots0logs/gh-action-get-changed-files`
+# See https://github.com/MCDReforged/PluginCatalogue/issues/524
+all_files = all_files.union(deleted_files)
+
 logger.info(f'{len(all_files)} changes found')
 
 # ---- Identify actions and tags ---- #
