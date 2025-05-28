@@ -111,6 +111,9 @@ def pr_label(add_labels: Optional[list[str]] = None, remove_labels: Optional[lis
         cmd.extend(['--add-label', ','.join(add_labels)])
     elif remove_labels:
         cmd.extend(['--remove-label', ','.join(remove_labels)])
+    else:
+        logger.info('No labels to add or remove, skipping')
+        return
     try:
         result = subprocess.check_output(cmd)
         logger.info(result.decode('utf-8'))
