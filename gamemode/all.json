@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "gamemode",
+    "name": "Gamemode",
+    "version": "1.1.0",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {
+      "minecraft_data_api": ">=1.4"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+      "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "gamemode",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/gamemode",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# Gamemode\n\n> 高级版灵魂出窍(切旁观, 切回生存传送回原位置)\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` / `!s` 旁观/生存切换\n\n`!!tp <dimension> [position]` 传送至指定地点\n\n`!!back` 返回上个地点\n\n## 配置\n\n### short_command\n\n默认值: `True`\n\n是否启用短命令\n\n### 其他数字配置是权限\n\n`spec`\n\n默认值: `1`\n\n使用 `!!spec` 的最低权限\n\n`spec_other`\n\n默认值: `2`\n\n使用 `!!spec <player` 的最低权限\n\n`tp`\n\n默认值: `1`\n\n使用 `!!tp <dimension> [position]` 的最低权限\n\n`back`\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n",
+      "zh_cn": "# Gamemode\n\n> 高级版灵魂出窍(切旁观, 切回生存传送回原位置)\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` / `!s` 旁观/生存切换\n\n`!!tp <dimension> [position]` 传送至指定地点\n\n`!!back` 返回上个地点\n\n## 配置\n\n### short_command\n\n默认值: `True`\n\n是否启用短命令\n\n### 其他数字配置是权限\n\n`spec`\n\n默认值: `1`\n\n使用 `!!spec` 的最低权限\n\n`spec_other`\n\n默认值: `2`\n\n使用 `!!spec <player` 的最低权限\n\n`tp`\n\n默认值: `1`\n\n使用 `!!tp <dimension> [position]` 的最低权限\n\n`back`\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "gamemode",
+    "latest_version": "1.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.1.0",
+        "name": "gamemode: v1.1.0",
+        "tag_name": "gamemode-v1.1.0",
+        "created_at": "2023-12-26T11:40:23Z",
+        "description": "## [1.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.0.1...gamemode-v1.1.0) (2023-12-26)\n\n\n### Features\n\n* **gamemode:** ✨ add shorter command !s ([5ac0725](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/5ac0725dc950478e5d21d275eb8d6a2c6dbc0e81))\n* **gamemode:** ✨ update help messsage ([015850e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/015850ea4c8c9faa54872b7e927ef9ac707b9625))",
+        "prerelease": false,
+        "asset": {
+          "id": 142481189,
+          "name": "Gamemode-v1.1.0.mcdr",
+          "size": 3243,
+          "download_count": 1731,
+          "created_at": "2023-12-26T11:40:57Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.1.0/Gamemode-v1.1.0.mcdr",
+          "hash_md5": "3ae360d6df16ba34029b65047665c6b3",
+          "hash_sha256": "a2194c0f9e177a34981c0149641521b528a60035078503566ca0b6aacd847476"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "gamemode",
+          "name": "Gamemode",
+          "version": "1.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "minecraft_data_api": ">=1.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+            "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.0.1",
+        "name": "gamemode: v1.0.1",
+        "tag_name": "gamemode-v1.0.1",
+        "created_at": "2023-03-18T15:37:46Z",
+        "description": "## [1.0.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.0.0...gamemode-v1.0.1) (2023-03-18)\n\n\n### Bug Fixes\n\n* **gamemode:** 👽️ fix config api issue (fix [#114](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/114)) ([2ed962f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2ed962f914adfc9184e228bf7b80161482136968))",
+        "prerelease": false,
+        "asset": {
+          "id": 99936961,
+          "name": "Gamemode-v1.0.1.mcdr",
+          "size": 3175,
+          "download_count": 943,
+          "created_at": "2023-03-18T15:38:32Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.0.1/Gamemode-v1.0.1.mcdr",
+          "hash_md5": "d908265459ceffe1cb763d63926c1b80",
+          "hash_sha256": "87e4a0edd630aa9e8798539b9f6fad612ce02e18f3fe440d73166512d71ef621"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "gamemode",
+          "name": "Gamemode",
+          "version": "1.0.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "minecraft_data_api": ">=1.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+            "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.0.0",
+        "name": "gamemode: v1.0.0",
+        "tag_name": "gamemode-v1.0.0",
+        "created_at": "2022-12-02T14:11:00Z",
+        "description": "## [1.0.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v0.1.0...gamemode-v1.0.0) (2022-12-02)\n\n\n### Bug Fixes\n\n* **gamemode:** 🐛 fix load_config_simple as MCDR api changed (fix [#68](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/68)) ([2dd500e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2dd500edf5978cff513e2aa5c638276f7e2963cb))\n\n\n### Miscellaneous Chores\n\n* **gamemode:** 🔖 1.0.0 ([1369ad8](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/1369ad83260f3b5a99ab1a5ada387f5f7042e755))",
+        "prerelease": false,
+        "asset": {
+          "id": 86758525,
+          "name": "Gamemode-v1.0.0.mcdr",
+          "size": 3132,
+          "download_count": 439,
+          "created_at": "2022-12-02T14:11:43Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.0.0/Gamemode-v1.0.0.mcdr",
+          "hash_md5": "381fac7103090337751106d0436c186c",
+          "hash_sha256": "31813271bbcd9f1961259fdb4e2ffa766d3e2a2d1ca4fdcfc4e9eddc1a84d399"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "gamemode",
+          "name": "Gamemode",
+          "version": "1.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "minecraft_data_api": ">=1.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+            "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v0.1.0",
+        "name": "gamemode: v0.1.0",
+        "tag_name": "gamemode-v0.1.0",
+        "created_at": "2022-06-30T09:28:12Z",
+        "description": "## 0.1.0 (2022-06-30)\n\n\n### Features\n\n* **gamemode:** ✨ support MCDR 2.0 ([d999f4a](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/d999f4aa3ea606dd26c98643f18ed5cf47d64664))",
+        "prerelease": false,
+        "asset": {
+          "id": 70132164,
+          "name": "Gamemode-v0.1.0.mcdr",
+          "size": 3097,
+          "download_count": 375,
+          "created_at": "2022-06-30T09:29:07Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v0.1.0/Gamemode-v0.1.0.mcdr",
+          "hash_md5": "524bf63efbfe85cd70a766cbfb9bab5c",
+          "hash_sha256": "dcdcf8c366f1886a91657064be8ac23abe8e09af750a19bcde0e1b4c4816a669"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "gamemode",
+          "name": "Gamemode",
+          "version": "0.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "minecraft_data_api": ">=1.4.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+            "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 97,
+    "watchers_count": 97,
+    "forks_count": 52,
+    "readme": "# Gamemode\n\n> 高级版灵魂出窍(切旁观, 切回生存传送回原位置)\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` / `!s` 旁观/生存切换\n\n`!!tp <dimension> [position]` 传送至指定地点\n\n`!!back` 返回上个地点\n\n## 配置\n\n### short_command\n\n默认值: `True`\n\n是否启用短命令\n\n### 其他数字配置是权限\n\n`spec`\n\n默认值: `1`\n\n使用 `!!spec` 的最低权限\n\n`spec_other`\n\n默认值: `2`\n\n使用 `!!spec <player` 的最低权限\n\n`tp`\n\n默认值: `1`\n\n使用 `!!tp <dimension> [position]` 的最低权限\n\n`back`\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}
