@@ -1,0 +1,172 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "uuid_api",
+    "name": "UUIDAPI",
+    "version": "0.1.2",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "requests"
+    ],
+    "description": {
+      "en_us": "UUID API",
+      "zh_cn": "UUID API"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "uuid_api",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/uuid_api",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# UUIDAPI\n\n> 玩家UUIDAPI\n\n## 依赖的Python模块\n\n- requests\n\n## 使用方法\n\n使用 `get_uuid(name: str)` 获取玩家UUID, 未查到返回 `None`\n\n你不需要考虑服务器正盗版问题, 会自己判断\n\n如果使用了 `BungeeCord` 并开启了正版验证, 或实际的UUID与 `server.properties` 中的 `online-mode` 并不匹配\n\n将插件的 `manual_mode` 手动模式设置为一个布尔值即可覆盖 `server.properties` 的在线模式\n",
+      "zh_cn": "# UUIDAPI\n\n> 玩家UUIDAPI\n\n## 依赖的Python模块\n\n- requests\n\n## 使用方法\n\n使用 `get_uuid(name: str)` 获取玩家UUID, 未查到返回 `None`\n\n你不需要考虑服务器正盗版问题, 会自己判断\n\n如果使用了 `BungeeCord` 并开启了正版验证, 或实际的UUID与 `server.properties` 中的 `online-mode` 并不匹配\n\n将插件的 `manual_mode` 手动模式设置为一个布尔值即可覆盖 `server.properties` 的在线模式\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "uuid_api",
+    "latest_version": "0.1.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/uuid_api-v0.1.2",
+        "name": "uuid_api: v0.1.2",
+        "tag_name": "uuid_api-v0.1.2",
+        "created_at": "2023-07-18T13:53:03Z",
+        "description": "## [0.1.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/uuid_api-v0.1.1...uuid_api-v0.1.2) (2023-07-18)\n\n\n### Miscellaneous Chores\n\n* **uuid_api:** 🔖 0.1.2 ([dcee746](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/dcee746e2a20b6d6a8d97edf24ccfe4415dac1f2))",
+        "prerelease": false,
+        "asset": {
+          "id": 117526817,
+          "name": "UUIDAPI-v0.1.2.mcdr",
+          "size": 1562,
+          "download_count": 240,
+          "created_at": "2023-07-18T13:53:49Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/uuid_api-v0.1.2/UUIDAPI-v0.1.2.mcdr",
+          "hash_md5": "259db4176679b58e6211f9fd09a9cea1",
+          "hash_sha256": "a092d73ad36e912ea07fc62d6408ae7e4835bc5d19afa1b6e326b1a3b14c05d0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api",
+          "name": "UUIDAPI",
+          "version": "0.1.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/uuid_api",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "UUID API",
+            "zh_cn": "UUID API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/uuid_api-v0.1.1",
+        "name": "uuid_api: v0.1.1",
+        "tag_name": "uuid_api-v0.1.1",
+        "created_at": "2022-06-30T12:08:05Z",
+        "description": "## [0.1.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/uuid_api-v0.1.0...uuid_api-v0.1.1) (2022-06-30)\n\n\n### Bug Fixes\n\n* **uuid_api:** 🐛 fix import path ([ec63aa7](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/ec63aa74b3efa78d55c8700595aa32186054116d))",
+        "prerelease": false,
+        "asset": {
+          "id": 70146454,
+          "name": "UUIDAPI-v0.1.1.mcdr",
+          "size": 1444,
+          "download_count": 183,
+          "created_at": "2022-06-30T12:08:40Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/uuid_api-v0.1.1/UUIDAPI-v0.1.1.mcdr",
+          "hash_md5": "4544f231907dcb38ac9517273c743cf7",
+          "hash_sha256": "b84a88e360a900c4cc1bbf59c81061ba6bfa8de746661ecb2b546b358aaf15e7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api",
+          "name": "UUIDAPI",
+          "version": "0.1.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/uuid_api",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "UUID API",
+            "zh_cn": "UUID API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/uuid_api-v0.1.0",
+        "name": "uuid_api: v0.1.0",
+        "tag_name": "uuid_api-v0.1.0",
+        "created_at": "2022-06-30T10:02:09Z",
+        "description": "## 0.1.0 (2022-06-30)\n\n\n### Features\n\n* **uuid_api:** ✨ use Serializable for config ([c7ada5a](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/c7ada5af1de67f513b0f5f0c263b44f630f19ebf))",
+        "prerelease": false,
+        "asset": {
+          "id": 70136083,
+          "name": "UUIDAPI-v0.1.0.mcdr",
+          "size": 1450,
+          "download_count": 113,
+          "created_at": "2022-06-30T10:03:54Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/uuid_api-v0.1.0/UUIDAPI-v0.1.0.mcdr",
+          "hash_md5": "66d308d8df4900a6f23db6f983164b54",
+          "hash_sha256": "daa2b220dd4dc0cac621c4b5f5c1001a2ca4e9fe91597190948e4e50ba3b5e07"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api",
+          "name": "UUIDAPI",
+          "version": "0.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/uuid_api",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "UUID API",
+            "zh_cn": "UUID API"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 97,
+    "watchers_count": 97,
+    "forks_count": 52,
+    "readme": "# UUIDAPI\n\n> 玩家UUIDAPI\n\n## 依赖的Python模块\n\n- requests\n\n## 使用方法\n\n使用 `get_uuid(name: str)` 获取玩家UUID, 未查到返回 `None`\n\n你不需要考虑服务器正盗版问题, 会自己判断\n\n如果使用了 `BungeeCord` 并开启了正版验证, 或实际的UUID与 `server.properties` 中的 `online-mode` 并不匹配\n\n将插件的 `manual_mode` 手动模式设置为一个布尔值即可覆盖 `server.properties` 的在线模式\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

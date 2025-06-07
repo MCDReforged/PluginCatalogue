@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/XueK66/PF-cq_qq_api",
+  "name": "PF-cq_qq_api",
+  "full_name": "XueK66/PF-cq_qq_api",
+  "html_url": "https://github.com/XueK66/PF-cq_qq_api",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 0,
+  "readme": "\n# PF-cq_qq_api\n\n[![仓库大小](https://img.shields.io/github/repo-size/XueK66/PF-cq_qq_api?style=flat-square&label=仓库占用)](https://github.com/XueK66/PF-cq_qq_api/tree/master/src//)\n[![最新版](https://img.shields.io/github/v/release/XueK66/PF-cq_qq_api?style=flat-square&label=最新版)](https://github.com/XueK66/PF-cq_qq_api/releases/latest/download/YourRepoName.mcdr)\n[![Issues](https://img.shields.io/github/issues/XueK66/PF-cq_qq_api?style=flat-square&label=Issues)](https://github.com/XueK66/PF-cq_qq_api/issues)\n[![已关闭issues](https://img.shields.io/github/issues-closed/XueK66/PF-cq_qq_api?style=flat-square&label=已关闭%20Issues)](https://github.com/XueK66/PF-cq_qq_api/issues?q=is%3Aissue+is%3Aclosed)\n[![下载量](https://img.shields.io/github/downloads/XueK66/PF-cq_qq_api/total?style=flat-square&label=下载量)](https://github.com/XueK66/PF-cq_qq_api/releases)\n[![最新发布下载量](https://img.shields.io/github/downloads/XueK66/PF-cq_qq_api/latest/total?style=flat-square&label=最新版本下载量)](https://github.com/XueK66/PF-cq_qq_api/releases/latest)\n\n\n> PFingan服务器MCDRQQ机器人插件\n> \n> 基于CQ码的**正向Websocket**QQ连接机器人\n> \n> 提供MCDR机器人插件接口，方便聊天类机器人的构建\n\n技术支持：XueK__ [前往主页](https://github.com/XueK66)\n\n使用方式：\n* 将Release里面的cq_qq_api.mcdr放入`/plugins`\n* 加载后，在`/config/cq_qq_api/config.yml`中配置机器人\n\n## 依赖\n#### Python\n- [Python™](https://www.python.org/)\n#### Python模块\n- 已存储在插件对应的文件夹内的 [requirements.txt](https://github.com/XueK66/PF-cq_qq_api/tree/master/src/requirements.txt) 中, 可以使用 `pip install -r requirements.txt` 安装\n\n基本功能：聊天互相转发\n\n## 使用方式\n#### 调用机器人\n```\nbot = server.get_plugin_instance(\"cq_qq_api\").get_bot()\n```\n\n#### 调用例子 - 发送群聊消息\n更多接口详情可查看`bot.py`或查看[Onebot_11_API_标准](https://github.com/botuniverse/onebot-11/blob/master/api/public.md)\n```\nbot = server.get_plugin_instance(\"cq_qq_api\").get_bot()\nbot.send_group_msg(group_id, message)\n```\n\n\n## 配置\n\n#### 服务端配置 - Server\n- config.json\n\n> | 配置项 | 默认值 | 说明 |\n> | - | - | - |\n> | host | `127.0.0.1` | 接收数据上报的地址 |\n> | port | `8080` | 对应数据上报的端口 | \n> | post_path | \"\" | 对应数据上报的终点名 |\n> | token | \"\" | 对应数据上报的token，用于加密信息 |\n> | language | \"zh\" | 语言包[zh/en] |\n> | max_wait_time | 10 | 最长等待QQAPI的时间（秒） |\n```\n{\n    \"host\": \"127.0.0.1\",\n    \"port\": 8080,\n    \"post_path\": \"\",\n    \"token\": \"\",\n    \"language\": \"zh\",\n    \"max_wait_time\": 10\n}\n```\n\n#### QQ机器人配置\n**以下为必要配置！**\n> | 配置项 | 默认值 | 说明 |\n> | - | - | - |\n> | 正向websocket服务端口 | `8080` | 接收数据上报的端口 |\n> | 消息上报格式 | CQ码 | 机器人基于CQ码进行解析 |\n\n# 有BUG或是新的IDEA\n如果需要更多联动或提交想法和问题请提交 [issues](https://github.com/LoosePrince/PF-GUGUBot/issues) 或 QQ [1377820366](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 提交！ <br />\n视情况添加，请勿联系他人（开发者：[雪开](https://github.com/XueK66)）\n\n# 致谢\n- 消息格式参考 from [go-cqhttp](https://docs.go-cqhttp.org/)\n- 接口参考 from [Onebot_11_API](https://github.com/botuniverse/onebot-11/blob/master/api/public.md)\n- 消息解析参考 from [qq_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/6049c6a6808383b2d5fb219598a79b975905fa84/qq_api) 作者 [AnzhiZhang](https://github.com/AnzhiZhang)\n",
+  "readme_url": "https://raw.githubusercontent.com/XueK66/PF-cq_qq_api/master/src/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

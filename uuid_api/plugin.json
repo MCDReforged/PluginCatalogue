@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "uuid_api",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/uuid_api",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "# UUIDAPI\n\n> 玩家UUIDAPI\n\n## 依赖的Python模块\n\n- requests\n\n## 使用方法\n\n使用 `get_uuid(name: str)` 获取玩家UUID, 未查到返回 `None`\n\n你不需要考虑服务器正盗版问题, 会自己判断\n\n如果使用了 `BungeeCord` 并开启了正版验证, 或实际的UUID与 `server.properties` 中的 `online-mode` 并不匹配\n\n将插件的 `manual_mode` 手动模式设置为一个布尔值即可覆盖 `server.properties` 的在线模式\n",
+    "zh_cn": "# UUIDAPI\n\n> 玩家UUIDAPI\n\n## 依赖的Python模块\n\n- requests\n\n## 使用方法\n\n使用 `get_uuid(name: str)` 获取玩家UUID, 未查到返回 `None`\n\n你不需要考虑服务器正盗版问题, 会自己判断\n\n如果使用了 `BungeeCord` 并开启了正版验证, 或实际的UUID与 `server.properties` 中的 `online-mode` 并不匹配\n\n将插件的 `manual_mode` 手动模式设置为一个布尔值即可覆盖 `server.properties` 的在线模式\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/readme.md"
+  }
+}
