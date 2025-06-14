@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "securercon",
+  "authors": [
+    "wangyupu"
+  ],
+  "repository": "https://github.com/wang-yupu/SecureRCON",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "\n> Translated by ChatGPT-4o\n\n---\n\n# SecureRCON\n\nAn MCDR plugin that encrypts your RCON access and extends RCON functionality.\n\n## Why?\n\nThe vanilla RCON protocol transmits data in plain text (including the password and commands), so encrypting RCON is useful. With extended RCON functionality, you can execute MCDR commands and send chat messages.\n\n## Encryption Method and Access Instructions\n\nAfter installing this plugin, if any ports on your machine are exposed to the internet, please use a firewall (e.g., ufw / firewalled / iptables) to block access. Also, set a strong RCON password. This plugin will automatically read the RCON password and listen on a port (default is 25576). The protocol on this port is compatible with the original RCON, so if you're using a vanilla RCON client, you can still connect using a fixed strong password or a dynamic one.\n\n### SecureMCRCON Python Package\n\n> Run `pip install securemcrcon` to install, then use the `smcrcon` command  \n> [Repo](https://github.com/wang-yupu/SecureMCRCON)  \n> [PyPI](https://pypi.org/project/securemcrcon/)\n\nA CLI client.\n\n### MCRCON App\n\n> Coming soon (second priority)\n\n<!-- [GitHub](https://github.com/wang-yupu/)\nThis app will support Windows / macOS (Coming Soon) / Linux (Coming Soon) / Android. It allows encrypted RCON connections and is also a feature-rich graphical RCON client. -->\n",
+    "zh_cn": "\n# SecureRCON\n\n一个MCDR插件，加密你的RCON访问，扩展RCON功能\n\n## Why?\n\n原版的RCON是明文传输的（包括密钥与内容），因此加密RCON是有用的。扩展RCON后，可以执行MCDR指令和聊天。\n\n## 加密方法和访问方法\n\n此MCDR插件安装后会作为原始RCON的一个*代理*，替代鉴权部分，同时提供加密支持。  \n安装此插件后，如果机器的任意端口都暴露到网络，请使用防火墙进行拦截(e.g. ufw / firewalled / iptables)，同时设定一个较强的RCON密码。本插件会自动读取RCON密码，并监听一个端口(默认25576)，此端口的协议兼容原始RCON，若依然使用原版RCON客户端，可以使用固定强密码或者动态密码。\n\n### SecureMCRCON Python Package\n\n> 执行 `pip install securemcrcon` 以安装，然后使用`smcrcon`命令  \n> [Repo](https://github.com/wang-yupu/SecureMCRCON)  \n> [PyPI](https://pypi.org/project/securemcrcon/)\n\nCLI客户端\n\n### MCRCON App\n\n> Coming soon (第二优先级)\n\n<!-- [GitHub](https://github.com/wang-yupu/)\n此应用支持Windows / macOS(Coming Soon) / Linux(Coming Soon) / Android，可以用此应用进行加密RCON连接，本身也是一个不错的RCON图形化客户端 -->\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/wang-yupu/SecureRCON/main/README.md",
+    "en_us": "https://raw.githubusercontent.com/wang-yupu/SecureRCON/main/README_en.md"
+  }
+}
