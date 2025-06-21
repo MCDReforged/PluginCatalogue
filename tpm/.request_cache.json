@@ -1,0 +1,496 @@
+{
+  "NOTICE": "Not public API, DO NOT use this file",
+  "release_pages": {
+    "1": {
+      "etag": "\"9e2a5835ac8f090c0502971a33e72a53a46957e963335765af184ed8deaa9db5\"",
+      "data": "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",
+      "empty": false
+    },
+    "2": {
+      "etag": "\"ef0b200f23451d4ed211633c01a706cfe75afc0b3512842a3194480bf1ab7599\"",
+      "data": "H4sIAPV61WcC/4uOBQApu0wNAgAAAA==",
+      "empty": true
+    }
+  },
+  "asset_data": {
+    "191088404": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.5.0",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 19202,
+      "hash_md5": "e8824d2d3b1c3e782d5a8ae70dcf7fdb",
+      "hash_sha256": "c868ed7fd8dd1ec66f1e02d429366ad22137eb3fdd7b89bcc82b6b3dea7f9b7b",
+      "ttl": 100
+    },
+    "155823597": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.6",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17419,
+      "hash_md5": "ee2f67645e66115cd599af07b5d5cc89",
+      "hash_sha256": "8bbd4c6fac004ed3bcbf864bdc58a4bb93d498be80d34eba2dff0134634c9082",
+      "ttl": 100
+    },
+    "153748060": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.5",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17410,
+      "hash_md5": "85f0b70fc178cc985788aaaca5ff115b",
+      "hash_sha256": "2ff352ec10df8df8d35b7921cb40d0077add217e570764011c9f3211e86a9367",
+      "ttl": 100
+    },
+    "149813610": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.4",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17425,
+      "hash_md5": "f4b308d01635cee85c1ecf2da449b4d0",
+      "hash_sha256": "4de1c21af34921f30509e362c4282e3a591d59be950bfddcddf070e4c0520072",
+      "ttl": 100
+    },
+    "149520359": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.3",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17419,
+      "hash_md5": "f6dca60106514b6a9a58604b411c0966",
+      "hash_sha256": "cb20fb1f7e5d2ba57d2de311ba5131daed62ad266f7f20bc5ce8b14308faf180",
+      "ttl": 100
+    },
+    "149520022": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.2",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17418,
+      "hash_md5": "52ba6e0cbc1306350ca9fe1677251860",
+      "hash_sha256": "1d737a8fc410ea77e94be5c527b27dd9b1e29033b7e7b26c29a9a4effd75f08b",
+      "ttl": 100
+    },
+    "149502152": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.1",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17412,
+      "hash_md5": "16291930e0ba2bea2be1da28b2a81331",
+      "hash_sha256": "4a36dfc5110f6a402d63eb25bdd77d0bc6b8dd676bf31e444fa63778d4c0c56f",
+      "ttl": 100
+    },
+    "149499283": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.4.0",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.6"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17412,
+      "hash_md5": "6108e6516e33a168a5fc0429f2d9c25c",
+      "hash_sha256": "f55fba6c383c078a7d5d8b88317b738c8832020546b163da84ca7db1fd04543a",
+      "ttl": 100
+    },
+    "109149534": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.3.4",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.4.3"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17146,
+      "hash_md5": "1de9df72284092cac178786a6310bec6",
+      "hash_sha256": "a283790495f3e2251fc13e92ada582e34f2cc61fe82dc65eb10ec593b8781c89",
+      "ttl": 100
+    },
+    "97207921": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.3.3",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "~2.3.0",
+          "kpi": "~1.4.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17034,
+      "hash_md5": "8aecb2a5b08d5e85d2a7f5316d9101b7",
+      "hash_sha256": "5b035c6c9180a0d4dd9535a923d386205646729c015981aeb20a61f9c1aa4406",
+      "ttl": 100
+    },
+    "97204001": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.3.2",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": "~1.4.1"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17043,
+      "hash_md5": "cab85d5087edc09948facccb21bdde7f",
+      "hash_sha256": "fd8336c29ee4fdee374b56464f611438ca0446de2fcc7b4653d6aade1243ebf6",
+      "ttl": 100
+    },
+    "97203975": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.3.1",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": "~1.4.1"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17054,
+      "hash_md5": "aec92f073314fe88202a936d5a8ea1cb",
+      "hash_sha256": "207da85703badd6dc4cd6220d2270d8e6a37fc680c7b60ff7caca8eb6c29471b",
+      "ttl": 100
+    },
+    "97156862": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.3.0",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": "~1.4.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 17094,
+      "hash_md5": "e4cd4c04a1d65d4400a926da5544b2c4",
+      "hash_sha256": "207208f41bb3ab09d004d30d2bd430a6ecf5986edd06f8a13fce666436d10c92",
+      "ttl": 100
+    },
+    "86177857": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.2.1",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 16802,
+      "hash_md5": "aded2f606eabb8fb1b3777cc4bdd654f",
+      "hash_sha256": "cd09d679ad72bf00da326ff99ff9480f40c5cc4c62da0f137511442fc6301262",
+      "ttl": 100
+    },
+    "86162839": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.2.0",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 16804,
+      "hash_md5": "b4d38d979733e2bc306b56244a55781b",
+      "hash_sha256": "871ba5b86281fc1019d6c3a89edeb81d277e0b374d6c9b7ce2cb78ded86390ae",
+      "ttl": 100
+    },
+    "86147287": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.1.0",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "kpi": ">=1.3.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 16566,
+      "hash_md5": "20743f268a6faf28e53f69214ac74234",
+      "hash_sha256": "81da7d73b28b44ac332949111217a27e89afd441bde294f02831abb77cc7e97a",
+      "ttl": 100
+    },
+    "225474316": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.5.1",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "~1.5.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 19207,
+      "hash_md5": "ba2ceca8f0d17571b9e049ba1ad9c6b9",
+      "hash_sha256": "8673dd5ceae70b8dd88de365775f8622da6b27f9c0bb4a488a6a76e1a9272ee8",
+      "ttl": 100
+    },
+    "236830889": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.5.3",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "^1.5.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 19619,
+      "hash_md5": "41092142411ab29b115d0f8280604ed3",
+      "hash_sha256": "25147877c03c708d2e5ef2396b20568e8eeee30804742037736ce7f7d5d50a42",
+      "ttl": 100
+    },
+    "236828041": {
+      "meta": {
+        "schema_version": 4,
+        "id": "tpm",
+        "name": "TpManager",
+        "version": "0.5.2",
+        "link": "https://github.com/kmcsr/tpmanager_mcdr",
+        "authors": [
+          "zyxkad"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.3.0",
+          "kpi": "^1.5.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A Minecraft teleport manager",
+          "zh_cn": "一个Minecraft服务器传送管理"
+        }
+      },
+      "size": 19547,
+      "hash_md5": "3f948cbb2351ed91b6a41db7c4416c9b",
+      "hash_sha256": "38c0ab0c0f3842b72daf318b1bcf33a816d4cfc25c655831663289b08e633706",
+      "ttl": 100
+    }
+  },
+  "repos_info": {
+    "etag": "\"870ee90289d29f40ffe0a048af7327709656d45cce3bff6edf7a8e402e497b6f\"",
+    "data": "H4sIABVBQ2gC/+2Y62/bNhDA/xXDX5dYfuThGii6DcWCAd0aDBkGeBgESqIl1hTJkZRdR/D/vuNDL7dJ4/LTgHxJLJL345G8O/KuHpNsvBpd387my+VycX0xGjOe4di2jv+It/n7j7/mU/3Tfmy6UIlNuxYlYijHMi7TTJqeTUVp3HRvy1TJ6MtBQpId0mbIBlGFoYXvGZbwXY8pzwlrhc1oq8Kbxe3V1c3NfKjXR6vXz+t19UtuhiLAIhlXkpreQmuhVlHkWtUkJ7qokkphmXKmMdOTlJdRFTXsd7u3V4aSS89xk5imU6IgnuYQgFRRq3ChS3qqQ290O27DKeV7EI1fjI9amQ5AWH42AGTqiOsCDsV0Hu2yidLnqGLH1/Yf7JRFKNg1ibMzIF4ClDEWcKwjiQV3rCpRqSRCE87OUWsgZ0Bc5oiRR3QuCOSsvNHoHDk73gjiHdjYOZJOoI6sf6SHo5s9xWQHe3o27UTSwPRBWMf82NsSa94gFu8I3sfNCFEllKT2HIjGMcpK65XWX48vtPGveH6G27Mxkg9iBKNhUKZGbQThctuLDM+v1+71k7MZ1Ld27GlCZMUNZ4sPARgjXZu/jZek4IIo4RJpLgO4A0w9+LTTaIzKALwVt+GM85BdtOI2jitV4ZeZ8TM4S1Gtq7CqTHz8CiV3boKUIjnDOADWIuqoDbCJRCwtQqgNofa/3DmjPOSYkYtyCeVJAAZGRRZRR6pA/j7RcZhuBmoIQ6bEm0CmIXRMLYNO2iop7Uk3RLjUNJx6ALQhRHXDpIjlFQwIgLaI5qrO0SOWYVp6hgtrTEuSVKFRraP0ngFJmKId5PRpEQwVzSVqbjKig5ZuAUNrD6Ya+/yCbBrComVDGIRgF+J9V3CM/+oU/ukeaGGGENU/CKSLZj8EkjhoOwwgqhMED6TJZFIXGLnrvsQyyG2dvL2XZFrAi+77UXVDgKdNibR9bm+skhm8vylHWYCeLaK1hOBrfnDyAlLLAKIVHwBLQrHSnAUdTssYoBnXZEPSF+Ucz9AHmPqdIizFF4jSC7A1TVIC9guZnL8fEkyDLgcjD4uA3N0nHhSjoEusIdSRf/hmWFB+CAw8PYj1XImRhiQHaYObT+fzy9nscn77MFuurher+c3aJjgiG466vpwuLmfzh9nVar5YzWZrZ2GqeHrQdLlugrJXHn5+O+0xy7KXjip6cj92UqvnpFIKtnVmotXOuGPfkaIVvMQCWkCMgcvYDPDRfL1ZDp8NKa+Y2anZFNr3SMPD9LS1eXEYFe4PunAXZYFU7Pwb2rWssG8Tkn/CqT5p7cLKoHlPtuRE3D5tuszRChOVVvAUN6WArsflhY2mcxsKpORN4cgv28fKrCcIOJTQQRMXmPnVtES7dJJiprCtaUHuZ49d0MvFZNovoN39/ufoDjMsER3d25R79MEJjnZ+qBLZZ1+Jurv/0ACedx8/uYr6U3Zls9/epzcPd/TT+q/rx/XD9u3YZPTI1IXMxbCFkNLtLFGxxqWgw3rdHif+ZRKbPIdvNvAs/7cicrA3mguSmo3/+x/42hFFEkKJPgwLDC7NdufQ202/j41hNSaV4Q2qqI5dAmRIJVIau7oiliVpT7seD6oW5pQRYRoNmozL9zWWxJlr10+p34yjzalLETuf1HyLWVMfBCPTvDQWDDpoYrWvjyfFp9f65mt987W++f+obzKs9xCXBpdEPxVtr7njfzN/t8o6GQAA"
+  }
+}
