@@ -1,0 +1,191 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "ndp",
+    "name": "NDP",
+    "version": "1.7.2",
+    "link": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+    "authors": [
+      "EXE_autumnwind"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0",
+      "online_player_api": ">=1.0.0",
+      "player_ip_logger": ">=1.0.0",
+      "minecraft_data_api": ">=1.6.0"
+    },
+    "requirements": [
+      "requests>=2.26.0"
+    ],
+    "description": {
+      "en_us": "NDP Joint Ban System client",
+      "zh_cn": "NDP联合封禁系统客户端"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "ndp",
+    "authors": [
+      "EXE_autumnwind"
+    ],
+    "repository": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management",
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "​No Danger Player (NDP)​​ is an open-source cross-server ban synchronization plugin designed to maintain real-time ban list synchronization across multiple servers, preventing malicious players from accessing any connected server. Centralized ban management significantly enhances server network security and administrative efficiency.\n\n#TIPS: If your server or home city is a plugin side, it is strongly recommended that you install [NDP-plugin](https://modrinth.com/plugin/ndp-plugins)(NO MCDR Plugin).\n",
+      "zh_cn": "No Danger Player(NDP) 是一款开源的跨服务器封禁插件，旨在实时同步多个服务器之间的封禁名单，防止恶意玩家进入任何已连接的服务器。通过集中管理玩家封禁数据，显著提升服务器网络的安全性和管理效率。\n\n#TIPS:如果你的服务端或主城为插件端,那么强烈建议你安装[NDP-plugin](https://modrinth.com/plugin/ndp-plugins)(不是MCDR插件)。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/ndp/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/ndp/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "ndp",
+    "latest_version": "1.7.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/No-Danger-Player-Project/NDP-MCDR/releases/tag/v1.7.3",
+        "name": "1.7.3",
+        "tag_name": "v1.7.3",
+        "created_at": "2025-04-26T11:35:53Z",
+        "description": "稳定性未知，谨慎更新\r\n修复封禁bug",
+        "prerelease": false,
+        "asset": {
+          "id": 250329235,
+          "name": "ndp.mcdr",
+          "size": 6846,
+          "download_count": 16,
+          "created_at": "2025-04-29T05:55:46Z",
+          "browser_download_url": "https://github.com/No-Danger-Player-Project/NDP-MCDR/releases/download/v1.7.3/ndp.mcdr",
+          "hash_md5": "95d1d6cc0e59122a47a4dbfc0b38b4b6",
+          "hash_sha256": "087d47399123149128cb2753ef06208dea4eb1b9baaa28f6c9acaf4185810b24"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ndp",
+          "name": "NDP",
+          "version": "1.7.3",
+          "link": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+          "authors": [
+            "EXE_autumnwind"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "online_player_api": ">=1.0.0",
+            "player_ip_logger": ">=1.0.0",
+            "minecraft_data_api": ">=1.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "NDP Joint Ban System client",
+            "zh_cn": "NDP联合封禁系统客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/No-Danger-Player-Project/NDP-MCDR/releases/tag/v1.7.2",
+        "name": "",
+        "tag_name": "v1.7.2",
+        "created_at": "2025-04-25T04:15:18Z",
+        "description": "增加更新检查，增加指令别名，更改同步策略",
+        "prerelease": false,
+        "asset": {
+          "id": 249670099,
+          "name": "ndp.mcdr",
+          "size": 6525,
+          "download_count": 7,
+          "created_at": "2025-04-26T11:20:51Z",
+          "browser_download_url": "https://github.com/No-Danger-Player-Project/NDP-MCDR/releases/download/v1.7.2/ndp.mcdr",
+          "hash_md5": "35982d18a13dea81a7ea835dcab8b6d5",
+          "hash_sha256": "09d921f271ffc251a72a16f5b826920ccd02a5536b1f6d47ae91414137471e4b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ndp",
+          "name": "NDP",
+          "version": "1.7.2",
+          "link": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+          "authors": [
+            "EXE_autumnwind"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "online_player_api": ">=1.0.0",
+            "player_ip_logger": ">=1.0.0",
+            "minecraft_data_api": ">=1.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "NDP Joint Ban System client",
+            "zh_cn": "NDP联合封禁系统客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/No-Danger-Player-Project/NDP-MCDR/releases/tag/v1.7.1",
+        "name": "NDP for MCDR v1.7.1",
+        "tag_name": "v1.7.1",
+        "created_at": "2025-04-24T04:25:59Z",
+        "description": "修正",
+        "prerelease": false,
+        "asset": {
+          "id": 249345427,
+          "name": "ndp.mcdr",
+          "size": 5072,
+          "download_count": 10,
+          "created_at": "2025-04-25T04:16:21Z",
+          "browser_download_url": "https://github.com/No-Danger-Player-Project/NDP-MCDR/releases/download/v1.7.1/ndp.mcdr",
+          "hash_md5": "ebfbfa5c4aeddb7c6751d8857e50fc00",
+          "hash_sha256": "c27771197e50db6f5d4313f4a7fa2a82d0d67b32e76a493531912c0f146cbcd2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ndp",
+          "name": "NDP",
+          "version": "1.7.1",
+          "link": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+          "authors": [
+            "EXE_autumnwind"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "online_player_api": ">=1.0.0",
+            "player_ip_logger": ">=1.0.0",
+            "minecraft_data_api": ">=1.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "NDP Joint Ban System client",
+            "zh_cn": "NDP联合封禁系统客户端"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+    "name": "NDP-MCDR",
+    "full_name": "No-Danger-Player-Project/NDP-MCDR",
+    "html_url": "https://github.com/No-Danger-Player-Project/NDP-MCDR",
+    "description": "适用于MCDR的NDP客户端",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# No Danger Player Project MCDR Client (NDP-MCDR) - 多服务器联合封禁系统\n\n中文|[English](https://github.com/No-Danger-Player-Project/NDP-MCDR/blob/main/README_EN.md)\n\n## 项目概述\n**No Danger Player Project MCDR Client (NDP-MCDR)** 是一款开源的跨服务器封禁插件，旨在实时同步多个服务器之间的封禁名单，防止恶意玩家进入任何已连接的服务器。通过集中管理玩家封禁数据，显著提升服务器网络的安全性和管理效率。\n\nQQ群组:[232760327](https://qm.qq.com/q/mggyhfL6KI)\n\n## 核心功能\n**实时封禁同步**\n- 当玩家在一个服务器被封禁时，该封禁会立即同步到所有安装了NDP插件/模组的服务器\n- 强制绑定**IP地址**和**玩家名称**，防止通过小号或代理逃避封禁\n\n## 工作原理\n玩家加入服务器A → 插件检查本地/中央封禁名单 → 如果被封禁则拒绝访问 → 将封禁同步至服务器B/C/D...\n\n## 快速开始\n**安装**\n- 下载对应版本的MCDR文件到服务器的`plugins`文件夹\n- 重启服务器生成`ndp_config.json`配置文件\n\n**命令**\n- `!!ndp help 显示帮助信息`\n- `!!ndp ban <玩家> <原因> 请求封禁玩家`\n- `!!ndp pardon <玩家> 请求解封玩家`\n- `!!ndp sync 同步封禁数据`\n- `!!ndp status 查看系统状态`\n",
+    "readme_url": "https://raw.githubusercontent.com/No-Danger-Player-Project/NDP-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

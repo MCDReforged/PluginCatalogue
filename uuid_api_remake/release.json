@@ -1,0 +1,82 @@
+{
+  "schema_version": 8,
+  "id": "uuid_api_remake",
+  "latest_version": "1.1.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v1.1.0",
+      "name": "uuid_api_remake-v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2025-03-14T08:15:51Z",
+      "description": "1. 更新配置文件，具体参考readme说明\r\n2. 修复在控制台中获取玩家信息时，由于返回值错误导致的 `too many values to unpack` 报错\r\n3. 增加uuid自动去重。调用 `get_uuid` 时，若欲获取 `uuid` 的 `new_name` 不存在于 `uuid.json` ，且该`name`对应的 `uuid` 存在于 `uuid.json`，则自动更换 `uuid.json` 中 key 为 `old_name` 的键为 `name`",
+      "prerelease": false,
+      "asset": {
+        "id": 237409609,
+        "name": "uuid_api_remake.mcdr",
+        "size": 10039,
+        "download_count": 43,
+        "created_at": "2025-03-14T08:24:12Z",
+        "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v1.1.0/uuid_api_remake.mcdr",
+        "hash_md5": "80a2b6be8d4a57ec12850fc2dd265e55",
+        "hash_sha256": "7877a7622db2bf098e2a5ae77cb95101577597772bc6ee4c59692ce24d15f708"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "uuid_api_remake",
+        "name": "UUID API Remake",
+        "version": "1.1.0",
+        "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+        "authors": [
+          "gubai"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "mcdreforged",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Get UUID of players",
+          "zh_cn": "获取玩家的UUID"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v1.0.0",
+      "name": "uuid_api_remake-v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2025-03-13T13:09:45Z",
+      "description": "",
+      "prerelease": false,
+      "asset": {
+        "id": 237131609,
+        "name": "uuid_api_remake.mcdr",
+        "size": 9605,
+        "download_count": 10,
+        "created_at": "2025-03-13T13:12:08Z",
+        "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v1.0.0/uuid_api_remake.mcdr",
+        "hash_md5": "a4537652bb7e5a50eb08c81b196677ee",
+        "hash_sha256": "8d2aaeeeb50c5fdbae616cff2f56423b51cd9613efe4ad309ae6a7028a84e6c7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "uuid_api_remake",
+        "name": "UUID API Remake",
+        "version": "1.0.0",
+        "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+        "authors": [
+          "gubai"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "mcdreforged",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Get UUID of players",
+          "zh_cn": "获取玩家的UUID"
+        }
+      }
+    }
+  ]
+}
