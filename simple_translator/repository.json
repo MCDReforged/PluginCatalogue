@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/skuzow/simple-translator",
+  "name": "simple-translator",
+  "full_name": "skuzow/simple-translator",
+  "html_url": "https://github.com/skuzow/simple-translator",
+  "description": "🌐 MCDReforged in-game translator plugin",
+  "archived": false,
+  "stargazers_count": 6,
+  "watchers_count": 6,
+  "forks_count": 0,
+  "readme": "# 🌐 Simple Translator\n\n[![license](https://img.shields.io/github/license/skuzow/simple-translator.svg)](https://github.com/skuzow/simple-translator/blob/master/LICENSE)\n[![package](https://github.com/skuzow/simple-translator/actions/workflows/package.yml/badge.svg?branch=master)](https://github.com/skuzow/simple-translator/actions/workflows/package.yml)\n[![python versions](https://img.shields.io/badge/python->=%203.6%20-blue)](https://www.python.org/downloads)\n\nReally simple [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) in-game translator plugin.\n\nMore plugins in [MCDReforgedPluginsCatalogue](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme.md).\n\n## 🗿 How it works?\n\nBasically translates from `global_language` to `secondary_language` & all languages to `global_language`.\n\nTo use it simply type: `t what you want to translate`\n\n<img src=\"https://user-images.githubusercontent.com/61398114/177015561-606cfec3-78be-4a16-9846-40388561618e.png\" alt=\"example\" width=\"650\"/>\n\n## 💾 Config\n\nLocation: `config/simple_translator.json`\n\n```json\n{\n    \"global_language\": \"en\",\n    \"secondary_language\": \"es\"\n}\n```\n\n## 🗂️ Required Python libraries\n\n- [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.0.0\n- [googletrans](https://pypi.org/project/googletrans/4.0.0rc1) == 4.0.0rc1\n\nTo install them execute:\n\n```bash\n  pip install -r requirements.txt\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/skuzow/simple-translator/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

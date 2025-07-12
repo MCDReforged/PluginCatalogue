@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/LazyAlienServer/MainStorageSearcher",
+  "name": "MainStorageSearcher",
+  "full_name": "LazyAlienServer/MainStorageSearcher",
+  "html_url": "https://github.com/LazyAlienServer/MainStorageSearcher",
+  "description": "一个MCDR插件，帮助你在全物品中寻找指定物品",
+  "archived": false,
+  "stargazers_count": 5,
+  "watchers_count": 5,
+  "forks_count": 0,
+  "readme": "# MainStorageSearcher\n\n中文 | [English](https://github.com/LazyAlienServer/MainStorageSearcher/tree/main/./README_en.md)\n\n一个MCDR插件，帮助你在全物品中寻找指定物品~\n\n## 命令\n\n`!!ms` 查看命令帮助\n\n`!!ms create <name>` 识别全物品样式，目前支持常规非混储非编码全物品。详见[识别全物品](#识别全物品)\n\n`!!ms search <name>` 在加载的全物品样式中搜索指定物品并高亮\n\n`!!ms setdefault` 将当前加载的全物品样式设为默认加载，若未加载则取消默认加载\n\n`!!ms list` 列出存储的全物品样式\n\n`!!ms load <name>` 加载全物品样式\n\n`!!ms reload` 重载全物品样式\n\n`!!ms unload` 卸载已加载的全物品样式\n\n## 依赖\n\n**Python**\n\n- `python >= 3.10`\n\n**插件**\n\n- `minecraft_data_api`\n\n## 识别全物品\n\n完整原理说明参见[原理](https://github.com/LazyAlienServer/MainStorageSearcher/tree/main//docs/theory.md)\n\n站在全物品普通单片正中央的通道上使用`!!ms create <name>`后，插件会检测玩家`(x ± 16, y-5 ~ y+16, z ± 16)`的范围，搜索*五个槽位都有物品且第一个槽位的物品数<64，且上方不是漏斗的*漏斗，并按照物品可能的传输顺序找到对应的存储箱子，自动完成全物品识别。\n\n然后，一个存储了这个全物品信息的文件会被保存在`/config/main_storage_searcher/msdata-<name>.json`中。\n\n使用`!!ms load <name>`以加载你刚刚创建的全物品\n\n## ToDo\n\n- [ ] `en_us`语言文件\n- [ ] 识别并加载大宗，创建全物品样式组`group`\n- [ ] 更优的提示和回显\n- [x] 命令权限限制\n- [x] 命令帮助\n- [x] 自动加载默认全物品配置\n",
+  "readme_url": "https://raw.githubusercontent.com/LazyAlienServer/MainStorageSearcher/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
