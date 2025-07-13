@@ -59,6 +59,14 @@ class Reporter:
 			self.__rate_limit_remaining = remaining
 			self.__rate_limit_limit = limit
 
+	@property
+	def failures(self):
+		return self.__failures
+	
+	@property
+	def warnings(self):
+		return self.__warnings
+
 	def __dump(self, plugin_list: 'PluginList', f: IO[str]):
 		f.write('---------------------------------------\n\n')
 		f.write('# Report for command "{}"\n\n'.format(self.__command))

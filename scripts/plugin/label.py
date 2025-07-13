@@ -6,9 +6,9 @@ from utils import file_utils
 
 
 class Label(Text):
-	def __init__(self, id: str):
-		super().__init__('label.{}'.format(id))
-		self.id = id
+	def __init__(self, id_: str):
+		super().__init__('label.{}'.format(id_))
+		self.id = id_
 
 	def __repr__(self):
 		return 'Label[id={}]'.format(self.id)

@@ -1,0 +1,80 @@
+# Check Pull Requests
+# See also: .github/workflows/scripts
+
+name: PR Check and Report
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+on:
+  pull_request_target:
+    branches:
+      - master
+    paths-ignore: # Skip run for security reasons
+      - .github/workflows/**/*.py
+    types:
+      - opened
+      - synchronize
+      - closed
+      - labeled
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest 
+
+    # To reduce useless runs
+    if: |
+      (github.event.action != 'closed' || github.event.pull_request.merged) &&
+      (github.event.action != 'labeled' || github.event.label.name == 'recheck')
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-:
+
+      - name: Setup Requirements
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Get changed files
+        id: changed-files
+        uses: lots0logs/gh-action-get-changed-files@2.2.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Write changed files to JSON
+        run: |
+          mkdir -p .github/outputs
+          echo '${{ steps.changed-files.outputs.added }}' > .github/outputs/added_files.json
+          echo '${{ steps.changed-files.outputs.all }}' > .github/outputs/all_changed_files.json
+          echo '${{ steps.changed-files.outputs.deleted }}' > .github/outputs/deleted_files.json
+        shell: bash
+
+      - name: Check and Report
+        run: |
+          python .github/workflows/scripts/check.py
+        env:
+          # scripts
+          github_api_token: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_TYPE: ${{ github.event.action }}
+          IS_MERGED: ${{ github.event.pull_request.merged }}
+
+          # gh_cli
+          PR_NUMBER: ${{ github.event.number }}

@@ -3,6 +3,7 @@ from typing import Optional, TYPE_CHECKING
 from typing_extensions import Self
 
 from common import log
+from common.constants import CATALOGUE_LINK
 from common.report import reporter
 from utils import request_utils, value_utils
 
@@ -88,3 +89,6 @@ class GithubRepository:
 			log.warning('({}) Repository has been renamed from {!r} to {!r}'.format(plugin_id, self.repos_pair, ri.full_name))
 			reporter.record_warning(plugin_id, 'Repository has been renamed from {!r} to {!r}'.format(self.repos_pair, ri.full_name), None)
 			self.__set_from(GithubRepository(ri.html_url, self.branch, self.related_path))
+
+
+PLUGIN_CATALOGUE = GithubRepository(CATALOGUE_LINK, 'master', '.')

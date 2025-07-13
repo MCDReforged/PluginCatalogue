@@ -10,6 +10,13 @@ if TYPE_CHECKING:
 	from plugin.plugin import Plugin
 
 
+class LicenseInfo(Serializable):
+	key: Optional[str]
+	name: Optional[str]
+	spdx_id: Optional[str]
+	url: Optional[str]
+
+
 class RepositoryInfo(Serializable):
 	url: str
 	name: str
@@ -24,6 +31,8 @@ class RepositoryInfo(Serializable):
 
 	readme: Optional[str] = None
 	readme_url: Optional[str] = None
+
+	license: Optional[LicenseInfo] = None
 
 	@classmethod
 	async def create_for(cls, plugin: 'Plugin', plugin_cache_manager: 'PluginRequestCacheManager') -> 'RepositoryInfo':

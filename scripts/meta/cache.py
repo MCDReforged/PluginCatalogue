@@ -4,6 +4,8 @@ import json
 from functools import cached_property
 from typing import Dict, Union, Optional
 
+from pydantic import Field
+
 from meta.plugin import MetaInfo
 from utils.serializer import Serializable
 
@@ -55,11 +57,20 @@ class RepositoryResponse(_GitHubApiResponseBase):
 		return cls(etag=etag, data=cls.encode_json(data))
 
 
+ASSET_DATA_DEFAULT_TTL = 100
+
+
 class AssetData(Serializable):
 	meta: MetaInfo
 	size: int
 	hash_md5: str
 	hash_sha256: str
+
+	# We don't want to delete the AssetData from RequestCache too fast,
+	# in case of GitHub API error and return a release list with length 0,
+	# or asset re-download will happen
+	# so here's a ttl -- delete the asset data if ttl reaches 0
+	ttl: int = ASSET_DATA_DEFAULT_TTL
 
 
 class RequestCache(Serializable):
@@ -68,6 +79,6 @@ class RequestCache(Serializable):
 	"""
 	NOTICE: str = 'Not public API, DO NOT use this file'
 
-	release_pages: Dict[str, ReleasePageResponse] = {}  # page -> GitHub API response
-	asset_data: Dict[str, AssetData] = {}  # asset id -> AssetData
+	release_pages: Dict[str, ReleasePageResponse] = Field(default_factory=dict)  # page -> GitHub API response
+	asset_data: Dict[str, AssetData] = Field(default_factory=dict)  # asset id -> AssetData
 	repos_info: Optional[RepositoryResponse] = None  # GitHub API response

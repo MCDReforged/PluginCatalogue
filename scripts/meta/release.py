@@ -2,6 +2,7 @@ import contextlib
 from typing import List, Optional, Dict, TYPE_CHECKING
 
 from mcdreforged.plugin.meta.version import Version
+from pydantic import Field
 
 from common import constants, log
 from common.report import reporter
@@ -163,7 +164,7 @@ class ReleaseSummary(Serializable):
 	id: str
 	latest_version: Optional[str] = None
 	latest_version_index: Optional[int] = None
-	releases: List[ReleaseInfo] = []
+	releases: List[ReleaseInfo] = Field(default_factory=list)
 
 	__latest_release: Optional[ReleaseInfo] = None
 
