@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "zip_backup",
+  "authors": [
+    "XRain666"
+  ],
+  "repository": "https://github.com/XRain66/mcdr-zipbackup",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "zh_cn": "# MCDR-ZipBackup\n\n> 本插件由 [PermanentBackup](https://github.com/TISUnion/PermanentBackup) 修改而来\n\n![Version](https://img.shields.io/badge/version-1.0.28-blue)\n![License](https://img.shields.io/github/license/XRain66/mcdr-zipbackup)\n![MCDR Version](https://img.shields.io/badge/mcdr-2.0%2B-green)\n\n一个可以带有定时的可以以压缩包形式备份的MCDR插件\n\n纳西妲好可爱呀(◍•ᴗ•◍)✧*！\n\n## ✨ 特性\n\n- 🔄 多种备份模式\n  - ⏱️ 间隔模式：自定义时间间隔（秒/分/时）\n  - 📅 日期模式：每日/每周/每月定时备份\n- 💾 压缩选项\n  - 🚀 极速模式：最快的压缩速度\n  - 📦 最佳模式：最高的压缩比\n- 📝 备份管理\n  - 支持备份注释\n  - 备份列表查看\n  - 实时进度显示\n  - 备份完成后备份文件移动到其他目录\n- ⚙️ 高级配置\n  - 自定义备份路径\n  - 多级权限控制\n  - 自动保存控制\n  - 自定义移动目标路径\n\n## 🚀 安装/使用\n\n1. 安装依赖\n```bash\npip install mcdreforged>=2.0.0\npip install apscheduler>=3.6.3\npip install tqdm>=4.65.0\n```\n\n2. 下载插件并放入 plugins 文件夹\n\n3. 基本命令\n```\n!!zb help             # 显示帮助信息\n!!zb make            # 创建备份\n!!zb make <注释>     # 创建带注释的备份\n!!zb list            # 查看最近的备份\n!!zb listall         # 查看所有备份\n```\n\n## ⚙️ 配置\n\n插件会在首次运行时自动创建配置文件，你可以在配置文件中修改以下选项：\n\n```json\n{\n    \"turn_off_auto_save\": false, # 是否关闭自动保存\n    \"ignore_session_lock\": true, # 是否忽略session.lock\n    \"backup_path\": \"./zip_backup\", # 备份路径\n    \"server_path\": \"./server\", # 服务器路径\n    \"world_names\": [\"world\"], # 世界名称\n    \"auto_backup_enabled\": false, # 是否启用自动备份\n    \"auto_backup_mode\": \"interval\", # 自动备份模式\n    \"auto_backup_interval\": 3600, # 自动备份间隔\n    \"auto_backup_unit\": \"s\", # 自动备份单位\n    \"auto_backup_date_type\": \"daily\", # 自动备份日期类型\n    \"compression_level\": \"best\", # 压缩等级\n    \"move_after_backup\": false, # 是否备份后移动\n    \"move_to_path\": \"./backup_archive\", # 移动目标路径\n    \"delete_after_move\": false, # 是否移动后删除原文件\n    \"check_auto_save_status\": true # 是否监测自动保存状态\n}\n```\n\n## 📝 命令列表\n\n### 基础命令\n- `!!zb make [注释]` - 创建备份\n- `!!zb list [数量]` - 查看备份列表（默认显示最近10个）\n- `!!zb listall` - 查看所有备份\n- `!!zb stats` - 查看当前状态\n\n### 定时备份设置\n- `!!zb time enable` - 开启自动备份\n- `!!zb time disable` - 关闭自动备份\n- `!!zb time change interval` - 切换到间隔模式\n- `!!zb time change date` - 切换到日期模式\n- `!!zb time interval <时间> <单位>` - 设置备份间隔（单位：s秒/m分/h时/d天）\n- `!!zb time date <类型>` - 设置备份日期类型 (daily/weekly/monthly)\n\n### 高级设置\n- `!!zb ziplevel <level>` - 设置压缩等级 (speed/best)\n- `!!zb move enable` - 启用备份后移动功能\n- `!!zb move disable` - 禁用备份后移动功能\n- `!!zb move path <路径>` - 设置备份移动目标路径\n- `!!zb move delete enable` - 启用移动后删除功能\n- `!!zb move delete disable` - 禁用移动后删除功能\n\n## 📄 许可证\n\n[MIT License](https://github.com/XRain66/mcdr-zipbackup/tree/master/LICENSE)\n\n## 🤝 贡献\n\n欢迎提交 Issue 和 Pull Request！\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/XRain66/mcdr-zipbackup/master/README.md"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 8,
+  "id": "simple_tp",
+  "latest_version": "1.1.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.1.1",
+      "name": "v1.1.1",
+      "tag_name": "v1.1.1",
+      "created_at": "2025-08-02T14:28:19Z",
+      "description": "新增功能：\r\n记录传送点所在维度（包括Mod中的异维度）\r\n跨维度传送权限配置\r\n定时保存传送点数据\r\n\r\n修复：\r\n传送点权限要求错误（TP传送点不需要权限）",
+      "prerelease": false,
+      "asset": {
+        "id": 278735409,
+        "name": "SimpleTP-v1.1.1.pyz",
+        "size": 6296,
+        "download_count": 1,
+        "created_at": "2025-08-02T14:28:38Z",
+        "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.1.1/SimpleTP-v1.1.1.pyz",
+        "hash_md5": "8ad90d9e37785ec88df0fce8d6c64e5d",
+        "hash_sha256": "bb36580e96a600ef6e830f4b3a40eeebfae1289ad90650270045b8b386894d68"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "simple_tp",
+        "name": "Simple TP",
+        "version": "1.1.1",
+        "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+        "authors": [
+          "PairZhu"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0",
+          "minecraft_data_api": "*",
+          "mg_events": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged==2.14.7",
+          "readerwriterlock==1.0.9"
+        ],
+        "description": {
+          "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+          "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.0.0",
+      "name": "v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2025-08-01T03:39:46Z",
+      "description": "初始功能：\r\n全局/个人 坐标点\r\n聊天框点击操作\r\n回到上一位置&死前位置",
+      "prerelease": false,
+      "asset": {
+        "id": 278313884,
+        "name": "SimpleTP-v1.0.0.pyz",
+        "size": 4261,
+        "download_count": 7,
+        "created_at": "2025-08-01T03:41:47Z",
+        "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.0.0/SimpleTP-v1.0.0.pyz",
+        "hash_md5": "64bc000bae7347470b5976e2fabb3db2",
+        "hash_sha256": "215a1d1e3ebbea6f2da82575aaf5ed8a01646b539bc0dea330f643650c3b8c54"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "simple_tp",
+        "name": "Simple TP",
+        "version": "1.0.0",
+        "link": null,
+        "authors": [
+          "PairZhu"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0",
+          "minecraft_data_api": "*",
+          "mg_events": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged==2.14.7",
+          "readerwriterlock==1.0.9"
+        ],
+        "description": {
+          "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+          "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+        }
+      }
+    }
+  ]
+}

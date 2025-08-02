@@ -1,0 +1,237 @@
+{
+  "schema_version": 8,
+  "id": "easybot_mcdr",
+  "latest_version": "1.1.4",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/easybot-team/easybot-mcdr/releases/tag/v1.1.4",
+      "name": "V1.1.4",
+      "tag_name": "v1.1.4",
+      "created_at": "2025-07-26T10:40:29Z",
+      "description": "1.修复 修复了RCON连接问题\r\n2.修改 对离线uuid的获取方法进行了修改，但未经严格测试，可能出现问题\r\n\r\n\r\n如有异常情况请提交issue或者发邮件给lby@123165.xyz",
+      "prerelease": false,
+      "asset": {
+        "id": 276553893,
+        "name": "EasyBot-MCDR.V1.1.4.mcdr",
+        "size": 25904,
+        "download_count": 10,
+        "created_at": "2025-07-26T10:44:52Z",
+        "browser_download_url": "https://github.com/easybot-team/easybot-mcdr/releases/download/v1.1.4/EasyBot-MCDR.V1.1.4.mcdr",
+        "hash_md5": "f775873444307b2656b9718fa5d03e6c",
+        "hash_sha256": "0578c19e5d77b37e57a2f4f25f9c50d483c7ec851756748835264a2122fd2c20"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "easybot_mcdr",
+        "name": "EasyBot",
+        "version": "1.1.4",
+        "link": "https://github.com/easybot-team/easybot-mcdr",
+        "authors": [
+          "MiuxuE",
+          "LBY123165"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14"
+        },
+        "requirements": [
+          "websockets~=14.2",
+          "requests~=2.32.3"
+        ],
+        "description": {
+          "en_us": "一款集消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/easybot-team/easybot-mcdr/releases/tag/v1.1.3-pre1",
+      "name": "V1.1.3 pre1",
+      "tag_name": "v1.1.3-pre1",
+      "created_at": "2025-06-10T06:38:47Z",
+      "description": "1. 更新 更新版本号为1.1.3（有人之前发更新的时候没改版本号，我不说是谁）\r\n2. 修复 修复了在获取服务器信息时的两个编码问题\r\n3. 修改 修改了当无法获取玩家信息时的通知方法\r\n\r\n\r\n（本来打算当pre发的，但是pre在mcdr的插件仓库貌似不检测，遂改之）",
+      "prerelease": false,
+      "asset": {
+        "id": 262621791,
+        "name": "EasyBot-MCDR.V1.1.3pre1.mcdr",
+        "size": 24722,
+        "download_count": 88,
+        "created_at": "2025-06-10T12:06:02Z",
+        "browser_download_url": "https://github.com/easybot-team/easybot-mcdr/releases/download/v1.1.3-pre1/EasyBot-MCDR.V1.1.3pre1.mcdr",
+        "hash_md5": "39a11bc0269dd66eaf2d56e3fdfe412c",
+        "hash_sha256": "bf10896cb563e0ea1d33144e141e451dcc69e4b60887f5697ff8c5a26a3734da"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "easybot_mcdr",
+        "name": "EasyBot",
+        "version": "1.1.3",
+        "link": "https://github.com/easybot-team/easybot-mcdr",
+        "authors": [
+          "MiuxuE"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14"
+        },
+        "requirements": [
+          "websockets~=14.2",
+          "requests~=2.32.3"
+        ],
+        "description": {
+          "en_us": "一款集消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/easybot-team/easybot-mcdr/releases/tag/v1.1.0",
+      "name": "v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2025-05-05T06:33:37Z",
+      "description": "感谢\r\n - @LBY123165 \r\n\r\n更新内容：\r\n\r\n1.升级 升级版本号为1.1.0\r\n2.修改 将默认假人过滤设置为开\r\n3.修改 修改获取服务器信息的方法\r\n4.修改 更换了ws连接方法\r\n5.修复 再次修复插件卸载不干净的问题，且修复了在连接时多次弹出连接通知的现象\r\n6.修复 修复了假人死亡或退出后仍会被记录消息的现象\r\n7.修复 在加入或退出服务器时仍会出现\"处理 exec_op=SEND_TO_CHAT 时出错: 'NoneType' object is not iterable\"现象（实际上，该问题是由跨服聊天异常导致的）\r\n\r\n尝试性修复：\r\n1.跨服聊天目前处于一种不确定状态，在测试时，相同设置的情况下，测试服务器1的信息可以传送到测试服务器2，但测试服务器2的消息没办法传送到测试服务器1，目前原因不确定，具体能不能用请用户自行实验",
+      "prerelease": false,
+      "asset": {
+        "id": 252291674,
+        "name": "easybot_mcdr_V1.1.0.mcdr",
+        "size": 22467,
+        "download_count": 63,
+        "created_at": "2025-05-06T12:10:08Z",
+        "browser_download_url": "https://github.com/easybot-team/easybot-mcdr/releases/download/v1.1.0/easybot_mcdr_V1.1.0.mcdr",
+        "hash_md5": "21eaaa334970da2b12e4f586ffd60762",
+        "hash_sha256": "a4c757ffb3e4434f1987cd9a773c7edb436cb27ed1fd6c6056ee6c228729a71d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "easybot_mcdr",
+        "name": "EasyBot",
+        "version": "1.1.0",
+        "link": "https://github.com/easybot-team/easybot-mcdr",
+        "authors": [
+          "MiuxuE"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14"
+        },
+        "requirements": [
+          "websockets~=14.2",
+          "requests~=2.32.3"
+        ],
+        "description": {
+          "en_us": "一款集消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/easybot-team/easybot-mcdr/releases/tag/v1.0.4",
+      "name": "v1.0.4",
+      "tag_name": "v1.0.4",
+      "created_at": "2025-03-24T01:10:26Z",
+      "description": "- 感谢 @daa0v0  #6 \r\n\r\n更新内容:\r\n\r\n1. 修复 全部权限组的代码编写错误问题\r\n2. 修复了在重新加载插件后会丢失在线玩家状态导致服务端经常出现\"玩家 XXX 不在缓存中，可能已离线或未正确加入\"，需玩家重新进服刷新的问题\r\n\r\n尝试修复:\r\n- 目前跨服聊天无法使用\r\n\r\n暂未修复与目前已知异常:\r\n- 在加入或退出服务器时仍会出现\"处理 exec_op=SEND_TO_CHAT 时出错: 'NoneType' object is not iterable\"现象",
+      "prerelease": false,
+      "asset": {
+        "id": 240895040,
+        "name": "EasyBot-v1.0.4.mcdr",
+        "size": 19566,
+        "download_count": 85,
+        "created_at": "2025-03-26T09:17:07Z",
+        "browser_download_url": "https://github.com/easybot-team/easybot-mcdr/releases/download/v1.0.4/EasyBot-v1.0.4.mcdr",
+        "hash_md5": "abd000b6ff148eeb781585f154b68bbf",
+        "hash_sha256": "fe455a46d3020e7ef038e579d68fe394baf8ff49402104f6535559483c4bc2c3"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "easybot_mcdr",
+        "name": "EasyBot",
+        "version": "1.0.4",
+        "link": "https://github.com/easybot-team/easybot-mcdr",
+        "authors": [
+          "MiuxuE"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14"
+        },
+        "requirements": [
+          "websockets~=14.2",
+          "requests~=2.32.3"
+        ],
+        "description": {
+          "en_us": "一款集消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/easybot-team/easybot-mcdr/releases/tag/v1.0.3",
+      "name": "v1.0.3",
+      "tag_name": "v1.0.3",
+      "created_at": "2025-03-23T11:39:36Z",
+      "description": "- 感谢 @LBY123165 #3 \r\n- 感谢 @daa0v0 #5 \r\n\r\n更新内容:\r\n1. 调整 修改carpet假人过滤方法，新增自定义前缀的设置命令，防止因前缀问题导致的遗漏\r\n2. 修复 插件经常性与EasyBot主程序进行重连\r\n3. 新增 帮助菜单，使用\"!!ez\"或\"!!ez help\"查看\r\n4. 修复权限检查逻辑错误 #5 \r\n\r\n尝试性修复：\r\n1. 在重新加载插件后会丢失在线玩家状态导致服务端经常出现\"玩家 XXX 不在缓存中，可能已离线或未正确加入\"，需玩家重新进服刷新的问题\r\n\r\n暂未修复与目前已知异常:\r\n1. 在加入或退出服务器时仍会出现\"处理 exec_op=SEND_TO_CHAT 时出错: 'NoneType' object is not iterable\"现象\r\n2. 目前跨服聊天无法使用",
+      "prerelease": false,
+      "asset": {
+        "id": 240018136,
+        "name": "EasyBot-v1.0.3.mcdr",
+        "size": 18145,
+        "download_count": 18,
+        "created_at": "2025-03-23T11:44:45Z",
+        "browser_download_url": "https://github.com/easybot-team/easybot-mcdr/releases/download/v1.0.3/EasyBot-v1.0.3.mcdr",
+        "hash_md5": "cc90858f8d8b6d2b604b51b18c74f06e",
+        "hash_sha256": "33d910c7b108bdd167e2a695bc74d574ef617fc972d96f67baddbc2edaad7f55"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "easybot_mcdr",
+        "name": "EasyBot",
+        "version": "1.0.3",
+        "link": "https://github.com/easybot-team/easybot-mcdr",
+        "authors": [
+          "MiuxuE"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14"
+        },
+        "requirements": [
+          "websockets~=14.2",
+          "requests~=2.32.3"
+        ],
+        "description": {
+          "en_us": "一款集消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/easybot-team/easybot-mcdr/releases/tag/v1.0.2",
+      "name": "v1.0.2",
+      "tag_name": "v1.0.2",
+      "created_at": "2025-03-15T15:04:50Z",
+      "description": "感谢 @LBY123165 #1\r\n\r\n更新内容:\r\n\r\n1. 升级 版本号升级为1.0.2，MCDR要求版本为更新>=2.14\r\n2. 新增 carpet假人过滤功能\r\n3. 修复 在使用!!MCDR plg unload命令后插件仍在执行的问题\r\n4. 修复 在玩家加入及退出时显示“玩家不在线”的问题\r\n5. 修复 在EasyBot管理面板中服务器显示“支持命令：False”的问题\r\n\r\n新增问题：\r\n\r\n1. 在重新加载插件后会导致玩家在线状态丢失，在服务器中的玩家需要重新进入来避免服务器输出“玩家 XXX 不在缓存中，可能已离线或未正确加入”，预计在下个版本中修复",
+      "prerelease": false,
+      "asset": {
+        "id": 237960738,
+        "name": "EasyBot-v1.0.2.mcdr",
+        "size": 17557,
+        "download_count": 25,
+        "created_at": "2025-03-16T15:59:16Z",
+        "browser_download_url": "https://github.com/easybot-team/easybot-mcdr/releases/download/v1.0.2/EasyBot-v1.0.2.mcdr",
+        "hash_md5": "e0284152ce686693a6e2fa60a9cdc0a8",
+        "hash_sha256": "50294af1635ef60ee6f42414a25e573d2dc548eafb5ff016dae87e0f323bbd89"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "easybot_mcdr",
+        "name": "EasyBot",
+        "version": "1.0.2",
+        "link": "https://github.com/easybot-team/easybot-mcdr",
+        "authors": [
+          "MiuxuE"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14"
+        },
+        "requirements": [
+          "websockets~=14.2",
+          "requests~=2.32.3"
+        ],
+        "description": {
+          "en_us": "一款集消息同步、自定义命令、绑定管理、高级权限控制、群组互动、自定义模板支持以及自定义插件支持等全方位功能于一体的服务器管理工具，全方位优化游戏社区体验!"
+        }
+      }
+    }
+  ]
+}
