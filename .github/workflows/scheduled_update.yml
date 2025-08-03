@@ -1,5 +1,8 @@
 name: Scheduled update
 
+concurrency:
+  group: update
+
 on:
   schedule:
     # Runs at minute 15 and 45 of every hour
