@@ -1,5 +1,9 @@
 name: Catalogue CI
 
+concurrency:
+  group: update
+  cancel-in-progress: true
+
 on:
   push:
     branches:

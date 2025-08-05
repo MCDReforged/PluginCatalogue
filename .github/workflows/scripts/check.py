@@ -62,13 +62,32 @@ EVENT_TYPE = EventType(os.environ.get('EVENT_TYPE'))
 IS_MERGED = os.environ.get('IS_MERGED', 'false')
 
 MSG_MERGED = '''
-Well done! 🎉
+{},
 
-Your pull request has been successfully merged.
+Congratulations on your first merged contribution! 🎉✨
+Thank you for joining the community — your PR is now a part of the Plugin Catalogue!
 
-We appreciate your hard work and valuable input. If you have any further questions or need additional changes, feel free to reach out.
+A few friendly reminders:
+🕒 Your changes may take a short time to appear in the catalogue.
+✅ Check back later to make sure everything displays as expected.
 
-Happy coding!
+We’re thrilled to welcome you as a contributor and hope to see more from you in the future!
+Welcome aboard, and happy coding! 🚀
+'''.strip()
+
+FIRST_TIME_HEADER = '''
+**Hi, {}!**  
+This is your first contribution to the catalogue. Welcome! 🎉  
+
+To ensure a smooth review process, please:  
+- 📖 **Read the [Contribution Guidelines](https://github.com/MCDReforged/PluginCatalogue/blob/master/CONTRIBUTING.md)** (if you haven’t already).  
+- 🔍 **Check existing plugins** for reference on formatting and metadata.
+
+If you’ve added/modified plugins, a report will be generated below.
+- ✅ **Verify your changes** by reading the report.
+
+We’ll review your PR soon — thanks for your patience!
+Hope you have a great day!
 '''.strip()
 
 MSG_HEADER = '''
@@ -93,10 +112,11 @@ MSG_CHECKLIST = '''
 logger.setLevel(logging.INFO)
 
 # ---- On closed ---- #
-if EVENT_TYPE == EventType.CLOSED:
-    if IS_MERGED == 'true':  # merged
-        gh.pr_comment(MSG_MERGED)
-    sys.exit(0)
+if EVENT_TYPE == EventType.CLOSED and IS_MERGED == 'true':  # merged
+    author, is_first_time = gh.check_contributor()
+    if is_first_time:
+        gh.pr_comment(MSG_MERGED.format(f'@{author}' if author else 'Contributor'))
+        sys.exit(0)
 
 # ---- No limit on recheck ---- #
 if EVENT_TYPE == EventType.LABELED:
@@ -110,9 +130,12 @@ logger.info('Gathering changed files')
 
 # Add, Copied, Modified, Renamed, Deleted
 added_files = set(get_changed('added_files'))  # A
-changed_files = set(get_changed('all_changed_files'))  # ACMR
 deleted_files = set(get_changed('deleted_files'))  # D
-all_files = changed_files | deleted_files  # ACMRD
+all_files = set(get_changed('all_changed_files'))  # ACMRD
+
+# This is a workaround for `lots0logs/gh-action-get-changed-files`
+# See https://github.com/MCDReforged/PluginCatalogue/issues/524
+all_files = all_files.union(deleted_files)
 
 logger.info(f'{len(all_files)} changes found')
 
@@ -153,11 +176,6 @@ logger.info(f'Identified labels: {", ".join(map(str, actions.labels))}')
 
 # ---- Run plugin checks and generate report ---- #
 
-reply: str = MSG_HEADER
-
-if Tag.PLG_ADD in actions.tags:
-    reply += MSG_CHECKLIST
-
 report: Optional[str] = None
 
 if actions.plugins:
@@ -184,6 +202,14 @@ else:
 # ---- Label and comment ---- #
 
 if EVENT_TYPE == EventType.OPENED:
+    author, is_first_time = gh.check_contributor()
+
+    reply = FIRST_TIME_HEADER.format(f'@{author}' if author else 'Contributor') \
+        if is_first_time else MSG_HEADER
+
+    if Tag.PLG_ADD in actions.tags:
+        reply += MSG_CHECKLIST
+
     gh.pr_label(add_labels=sorted(actions.labels))
     gh.pr_comment(reply)
 

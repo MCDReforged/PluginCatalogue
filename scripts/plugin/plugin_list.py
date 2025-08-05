@@ -87,6 +87,7 @@ class PluginList(List[Plugin]):
 		for plugin in self:
 			try:
 				plugin.load_old_request_meta()
+				plugin.load_old_introduction()
 				plugin.load_old_meta_info()
 				plugin.load_old_release_summary()
 				plugin.load_old_repository_info()
