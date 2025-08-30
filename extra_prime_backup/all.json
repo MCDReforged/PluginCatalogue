@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "extra_prime_backup",
+    "name": "Extra Prime Backup",
+    "version": "0.0.2",
+    "link": "https://github.com/esuny/ExtraPrimeBackup",
+    "authors": [
+      "esuny"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.12.0",
+      "prime_backup": ">=1.5",
+      "minecraft_data_api": "*"
+    },
+    "requirements": [],
+    "description": {
+      "zh_cn": "一个简单的PrimeBackup拓展插件，用于在备份前监测机器是否开启"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "extra_prime_backup",
+    "authors": [
+      "esunyao"
+    ],
+    "repository": "https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# 🧱 ExtraPrimeBackup - Minecraft 机器状态备份管理器\n\n<p align=\"center\">\n  <strong>✨ 确保您的红石机器在备份前正确关闭 ✨</strong>\n</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/MCDReforged-2.x-blue\" alt=\"MCDReforged\">\n  <img src=\"https://img.shields.io/badge/PrimeBackup-Required-green\" alt=\"PrimeBackup Required\">\n  <img src=\"https://img.shields.io/badge/minecraft__data__api-Required-orange\" alt=\"minecraft_data_api Required\">\n</p>\n\n## 🚀 概述\n\nExtraPrimeBackup 是一个强大的 MCDReforged 插件，专为 Minecraft 服务器管理员设计。它扩展了 PrimeBackup 的功能，通过智能监控方块状态，确保在执行备份前所有重要红石机器都已正确关闭。\n\n~~这是一个全部由AI写的项目~~\n\n> 💡 **核心价值**：防止备份包含正在运行的机器，避免恢复后出现物品复制或机器故障问题\n\n## 🌟 功能亮点\n\n- 🗂️ **树状检查点管理** - 支持多级分组结构\n- 🌍 **多维度支持** - 主世界、下界、末地全覆盖\n- 📊 **可视化状态检查** - 精美树状格式显示状态详情\n- ⚡ **无缝集成** - 完美兼容 PrimeBackup\n- 🔄 **自动迁移** - 无缝升级旧版本数据\n- ⏱️ **智能检测** - 自动识别玩家所在维度\n- 🛡️ **双重模式** - 线程守护/事件触发可选\n- 🚨 **异常预警** - 实时广播未关机机器\n\n## 📦 安装要求\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 2.x 或更高版本\n- [PrimeBackup](https://github.com/TISUnion/PrimeBackup) 插件\n- [minecraft_data_api](https://github.com/Fallen-Breath/MinecraftDataAPI) 插件\n\n## ⚙️ 配置说明\n\n```json\n// config/check_point.json\n{\n  \"tree\": {\n    \"factory\": {\n      \"type\": \"group\",\n      \"description\": \"主要工厂区域\",\n      \"children\": {\n        \"redstone\": {\n          \"type\": \"group\",\n          \"description\": \"红石机器\",\n          \"children\": {\n            \"piston_door\": {\n              \"type\": \"checkpoint\",\n              \"x\": 150,\n              \"y\": 64,\n              \"z\": 250,\n              \"world\": \"overworld\",\n              \"block\": \"minecraft:piston\",\n              \"data\": {\"extended\": \"false\"}\n            }\n          }\n        }\n      }\n    }\n  },\n  \"override_mode\": \"event\",\n  \"check_point\": {},\n  \"groups\": {}\n}\n```\n\n### 🔧 配置选项\n\n| 参数              | 类型     | 默认值       | 说明                                                             |\n| --------------- | ------ | --------- | -------------------------------------------------------------- |\n| `override_mode` | string | `\"event\"` | PrimeBackup 覆写模式：<br>`\"thread\"` - 线程守护模式<br>`\"event\"` - 事件触发模式 |\n| `tree`          | object | `{}`      | 树状结构存储检查点和分组                                                   |\n| `check_point`   | object | `{}`      | 旧版检查点数据（兼容）                                                    |\n| `groups`        | object | `{}`      | 旧版分组数据（兼容）                                                     |\n\n## ⌨️ 指令大全\n\n### 🆘 帮助指令\n| 指令                       | 说明         |\n| ------------------------ | ---------- |\n| `!!pb cp help`           | 显示完整帮助信息   |\n| `!!pb cp help <command>` | 显示特定指令详细帮助 |\n\n### 🌳 树状管理\n| 指令             | 说明        |\n| -------------- | --------- |\n| `!!pb cp list` | 显示检查点树状结构 |\n| `!!pb cp ls`   | 列表形式显示检查点 |\n\n### 📍 检查点操作\n| 指令                                       | 说明      |\n| ---------------------------------------- | ------- |\n| `!!pb cp add <x> <y> <z> <name> [world]` | 添加根级检查点 |\n| `!!pb cp status <name>`                  | 查看检查点状态 |\n| `!!pb cp update <name>`                  | 更新检查点状态 |\n| `!!pb cp del <name>`                     | 删除检查点   |\n\n### 📂 分组管理\n| 指令                                                      | 说明        |\n| ------------------------------------------------------- | --------- |\n| `!!pb cp add g <group_path>`                            | 创建新分组     |\n| `!!pb cp add g <group_path> <x> <y> <z> <name> [world]` | 在分组中添加检查点 |\n\n### ⚡ 备份操作\n| 指令                 | 说明           |\n| ------------------ | ------------ |\n| `!!pb make [备注]`   | 正常备份（检查机器状态） |\n| `!!pb ignore [备注]` | 强制备份（忽略机器状态） |\n\n## 🎯 使用示例\n\n### 创建检查点\n```bash\n# 自动检测维度添加检查点\n!!pb cp add 100 64 200 wheat_farm\n\n# 指定下界维度添加检查点\n!!pb cp add 50 80 -100 nether_portal the_nether\n```\n\n### 创建分组结构\n```bash\n# 创建主分组\n!!pb cp add g industrial_area\n\n# 创建子分组\n!!pb cp add g industrial_area.factories\n\n# 在子分组中添加检查点\n!!pb cp add g industrial_area.factories 120 65 180 auto_smelter\n```\n\n### 检查状态\n```bash\n# 列出所有检查点\n!!pb cp list\n\n# 查看具体检查点状态\n!!pb cp status industrial_area.factories.auto_smelter\n\n# 更新检查点状态\n!!pb cp update industrial_area.factories.auto_smelter\n```\n\n### 执行备份\n```bash\n# 正常备份（检查机器状态）\n!!pb make \"每日例行备份\"\n\n# 强制备份（忽略机器状态）\n!!pb ignore \"紧急故障修复备份\"\n```\n\n## 🌐 支持的世界\n\n| 世界名称         | 对应维度 | 备注   |\n| ------------ | ---- | ---- |\n| `overworld`  | 主世界  | 默认维度 |\n| `the_nether` | 下界   | 地狱维度 |\n| `the_end`    | 末地   | 末地维度 |\n\n## 🔍 状态显示示例\n\n```\n§a=== 检查点状态：factory.redstone.piston ===\n§6├─ 🧭 基本信息\n§7│  ├─ 📍 坐标: §e(150, 64, 250)\n§7│  ├─ 🌍 世界: §eoverworld\n§7│  └─ ✅ 获取状态: §a成功\n§6├─ ⚙️ 配置数据\n§7│  ├─ 🧱 方块类型: §eminecraft:piston\n§7│  └─ 🔧 方块属性:\n§7│     └─ §bextended§7: §efalse\n§6├─ 🔍 实际数据\n§7│  ├─ 🧱 方块类型: §eminecraft:piston\n§7│  └─ 🔧 方块属性:\n§7│     └─ §bextended§7: §efalse\n§6├─ 📊 状态分析\n§7│  ├─ 🧱 方块类型匹配: §a✔️ 是\n§7│  ├─ 🔧 方块属性匹配: §a✔️ 是\n§7│  └─ 💡 整体状态: §a🛑 机器已关闭\n§6└─ ⚡ 操作选项\n§7   🔴 [删除] 🟡 [更新]\n```\n\n## ⚠️ 注意事项\n\n1. 确保已安装所有依赖插件\n2. 方块状态检查需要服务器支持 `/info block` 命令\n3. 建议在服务器低负载时更新检查点\n4. 强制备份会在备注中标注未关机机器\n5. 首次使用会自动迁移旧版数据\n\n## 📜 开源许可\n\n本项目采用 [GNU General Public License v3.0](https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/tree/master/LICENSE) 开源\n\n## 🤝 贡献指南\n\n欢迎通过以下方式参与项目：\n1. 提交 Issue 报告问题或建议\n2. 发起 Pull Request 贡献代码\n3. 分享使用经验和配置技巧\n\n---\n\n**让您的每一次备份都安心无忧！** 🛡️\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "extra_prime_backup",
+    "latest_version": "0.0.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/releases/tag/v0.0.2",
+        "name": "v0.0.2",
+        "tag_name": "v0.0.2",
+        "created_at": "2025-07-10T22:04:13Z",
+        "description": "# v0.0.2\r\n# 🧱 ExtraPrimeBackup - Minecraft 机器状态备份管理器\r\n\r\n<p align=\"center\">\r\n  <strong>✨ 确保您的红石机器在备份前正确关闭 ✨</strong>\r\n</p>\r\n\r\n<p align=\"center\">\r\n  <img src=\"https://img.shields.io/badge/MCDReforged-2.x-blue\" alt=\"MCDReforged\">\r\n  <img src=\"https://img.shields.io/badge/PrimeBackup-Required-green\" alt=\"PrimeBackup Required\">\r\n  <img src=\"https://img.shields.io/badge/minecraft__data__api-Required-orange\" alt=\"minecraft_data_api Required\">\r\n</p>\r\n\r\n## 🚀 概述\r\n\r\nExtraPrimeBackup 是一个强大的 MCDReforged 插件，专为 Minecraft 服务器管理员设计。它扩展了 PrimeBackup 的功能，通过智能监控方块状态，确保在执行备份前所有重要红石机器都已正确关闭。\r\n\r\n~~这是一个全部由AI写的项目~~\r\n\r\n> 💡 **核心价值**：防止备份包含正在运行的机器，避免恢复后出现物品复制或机器故障问题\r\n\r\n## 🌟 功能亮点\r\n\r\n- 🗂️ **树状检查点管理** - 支持多级分组结构\r\n- 🌍 **多维度支持** - 主世界、下界、末地全覆盖\r\n- 📊 **可视化状态检查** - 精美树状格式显示状态详情\r\n- ⚡ **无缝集成** - 完美兼容 PrimeBackup\r\n- 🔄 **自动迁移** - 无缝升级旧版本数据\r\n- ⏱️ **智能检测** - 自动识别玩家所在维度\r\n- 🛡️ **双重模式** - 线程守护/事件触发可选\r\n- 🚨 **异常预警** - 实时广播未关机机器\r\n\r\n## 📦 安装要求\r\n\r\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 2.x 或更高版本\r\n- [PrimeBackup](https://github.com/TISUnion/PrimeBackup) 插件\r\n- [minecraft_data_api](https://github.com/MCDReforged/minecraft-data-api) 插件\r\n\r\n## ⚙️ 配置说明\r\n\r\n```json\r\n// config/check_point.json\r\n{\r\n  \"tree\": {\r\n    \"factory\": {\r\n      \"type\": \"group\",\r\n      \"description\": \"主要工厂区域\",\r\n      \"children\": {\r\n        \"redstone\": {\r\n          \"type\": \"group\",\r\n          \"description\": \"红石机器\",\r\n          \"children\": {\r\n            \"piston_door\": {\r\n              \"type\": \"checkpoint\",\r\n              \"x\": 150,\r\n              \"y\": 64,\r\n              \"z\": 250,\r\n              \"world\": \"overworld\",\r\n              \"block\": \"minecraft:piston\",\r\n              \"data\": {\"extended\": \"false\"}\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  },\r\n  \"override_mode\": \"event\",\r\n  \"check_point\": {},\r\n  \"groups\": {}\r\n}\r\n```\r\n\r\n### 🔧 配置选项\r\n\r\n| 参数 | 类型 | 默认值 | 说明 |\r\n|------|------|---------|------|\r\n| `override_mode` | string | `\"event\"` | PrimeBackup 覆写模式：<br>`\"thread\"` - 线程守护模式<br>`\"event\"` - 事件触发模式 |\r\n| `tree` | object | `{}` | 树状结构存储检查点和分组 |\r\n| `check_point` | object | `{}` | 旧版检查点数据（兼容） |\r\n| `groups` | object | `{}` | 旧版分组数据（兼容） |\r\n\r\n## ⌨️ 指令大全\r\n\r\n### 🆘 帮助指令\r\n| 指令 | 说明 |\r\n|------|------|\r\n| `!!pb cp help` | 显示完整帮助信息 |\r\n| `!!pb cp help <command>` | 显示特定指令详细帮助 |\r\n\r\n### 🌳 树状管理\r\n| 指令 | 说明 |\r\n|------|------|\r\n| `!!pb cp list` | 显示检查点树状结构 |\r\n| `!!pb cp ls` | 列表形式显示检查点 |\r\n\r\n### 📍 检查点操作\r\n| 指令 | 说明 |\r\n|------|------|\r\n| `!!pb cp add <x> <y> <z> <name> [world]` | 添加根级检查点 |\r\n| `!!pb cp status <name>` | 查看检查点状态 |\r\n| `!!pb cp update <name>` | 更新检查点状态 |\r\n| `!!pb cp del <name>` | 删除检查点 |\r\n\r\n### 📂 分组管理\r\n| 指令 | 说明 |\r\n|------|------|\r\n| `!!pb cp add g <group_path>` | 创建新分组 |\r\n| `!!pb cp add g <group_path> <x> <y> <z> <name> [world]` | 在分组中添加检查点 |\r\n\r\n### ⚡ 备份操作\r\n| 指令 | 说明 |\r\n|------|------|\r\n| `!!pb make [备注]` | 正常备份（检查机器状态） |\r\n| `!!pb ignore [备注]` | 强制备份（忽略机器状态） |\r\n\r\n## 🎯 使用示例\r\n\r\n### 创建检查点\r\n```bash\r\n# 自动检测维度添加检查点\r\n!!pb cp add 100 64 200 wheat_farm\r\n\r\n# 指定下界维度添加检查点\r\n!!pb cp add 50 80 -100 nether_portal the_nether\r\n```\r\n\r\n### 创建分组结构\r\n```bash\r\n# 创建主分组\r\n!!pb cp add g industrial_area\r\n\r\n# 创建子分组\r\n!!pb cp add g industrial_area.factories\r\n\r\n# 在子分组中添加检查点\r\n!!pb cp add g industrial_area.factories 120 65 180 auto_smelter\r\n```\r\n\r\n### 检查状态\r\n```bash\r\n# 列出所有检查点\r\n!!pb cp list\r\n\r\n# 查看具体检查点状态\r\n!!pb cp status industrial_area.factories.auto_smelter\r\n\r\n# 更新检查点状态\r\n!!pb cp update industrial_area.factories.auto_smelter\r\n```\r\n\r\n### 执行备份\r\n```bash\r\n# 正常备份（检查机器状态）\r\n!!pb make \"每日例行备份\"\r\n\r\n# 强制备份（忽略机器状态）\r\n!!pb ignore \"紧急故障修复备份\"\r\n```\r\n\r\n## 🌐 支持的世界\r\n\r\n| 世界名称 | 对应维度 | 备注 |\r\n|----------|----------|------|\r\n| `overworld` | 主世界 | 默认维度 |\r\n| `the_nether` | 下界 | 地狱维度 |\r\n| `the_end` | 末地 | 末地维度 |\r\n\r\n## 🔍 状态显示示例\r\n\r\n```\r\n§a=== 检查点状态：factory.redstone.piston ===\r\n§6├─ 🧭 基本信息\r\n§7│  ├─ 📍 坐标: §e(150, 64, 250)\r\n§7│  ├─ 🌍 世界: §eoverworld\r\n§7│  └─ ✅ 获取状态: §a成功\r\n§6├─ ⚙️ 配置数据\r\n§7│  ├─ 🧱 方块类型: §eminecraft:piston\r\n§7│  └─ 🔧 方块属性:\r\n§7│     └─ §bextended§7: §efalse\r\n§6├─ 🔍 实际数据\r\n§7│  ├─ 🧱 方块类型: §eminecraft:piston\r\n§7│  └─ 🔧 方块属性:\r\n§7│     └─ §bextended§7: §efalse\r\n§6├─ 📊 状态分析\r\n§7│  ├─ 🧱 方块类型匹配: §a✔️ 是\r\n§7│  ├─ 🔧 方块属性匹配: §a✔️ 是\r\n§7│  └─ 💡 整体状态: §a🛑 机器已关闭\r\n§6└─ ⚡ 操作选项\r\n§7   🔴 [删除] 🟡 [更新]\r\n```\r\n\r\n## ⚠️ 注意事项\r\n\r\n1. 确保已安装所有依赖插件\r\n2. 方块状态检查需要服务器支持 `/info block` 命令\r\n3. 建议在服务器低负载时更新检查点\r\n4. 强制备份会在备注中标注未关机机器\r\n5. 首次使用会自动迁移旧版数据\r\n\r\n## 📜 开源许可\r\n\r\n本项目采用 [MIT License](LICENSE) 开源，欢迎自由使用和贡献代码！\r\n\r\n## 🤝 贡献指南\r\n\r\n欢迎通过以下方式参与项目：\r\n1. 提交 Issue 报告问题或建议\r\n2. 发起 Pull Request 贡献代码\r\n3. 分享使用经验和配置技巧\r\n\r\n---\r\n\r\n**让您的每一次备份都安心无忧！** 🛡️\r\n\r\n**Full Changelog**: https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/compare/v0.0.1...v0.0.2",
+        "prerelease": false,
+        "asset": {
+          "id": 271915478,
+          "name": "ExtraPrimeBackup-v0.0.2.mcdr",
+          "size": 11105,
+          "download_count": 48,
+          "created_at": "2025-07-11T04:59:38Z",
+          "browser_download_url": "https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/releases/download/v0.0.2/ExtraPrimeBackup-v0.0.2.mcdr",
+          "hash_md5": "f3525b56281347a37cf4f44cb2fa483e",
+          "hash_sha256": "eebb6df497f44316052f39defacdfc690113f6b6f48a97f9a6928ed6908ff1fd"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "extra_prime_backup",
+          "name": "Extra Prime Backup",
+          "version": "0.0.2",
+          "link": "https://github.com/esuny/ExtraPrimeBackup",
+          "authors": [
+            "esuny"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "prime_backup": ">=1.5",
+            "minecraft_data_api": "*"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "一个简单的PrimeBackup拓展插件，用于在备份前监测机器是否开启"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup",
+    "name": "MCDR-ExtraPrimeBackup",
+    "full_name": "GloryRedstoneUnion/MCDR-ExtraPrimeBackup",
+    "html_url": "https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup",
+    "description": "ExtraPrimeBackup - 智能检测机器状态的 Minecraft 服务器备份拓展插件，防止异常复制与故障。",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# 🧱 ExtraPrimeBackup - Minecraft 机器状态备份管理器\n\n<p align=\"center\">\n  <strong>✨ 确保您的红石机器在备份前正确关闭 ✨</strong>\n</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/MCDReforged-2.x-blue\" alt=\"MCDReforged\">\n  <img src=\"https://img.shields.io/badge/PrimeBackup-Required-green\" alt=\"PrimeBackup Required\">\n  <img src=\"https://img.shields.io/badge/minecraft__data__api-Required-orange\" alt=\"minecraft_data_api Required\">\n</p>\n\n## 🚀 概述\n\nExtraPrimeBackup 是一个强大的 MCDReforged 插件，专为 Minecraft 服务器管理员设计。它扩展了 PrimeBackup 的功能，通过智能监控方块状态，确保在执行备份前所有重要红石机器都已正确关闭。\n\n~~这是一个全部由AI写的项目~~\n\n> 💡 **核心价值**：防止备份包含正在运行的机器，避免恢复后出现物品复制或机器故障问题\n\n## 🌟 功能亮点\n\n- 🗂️ **树状检查点管理** - 支持多级分组结构\n- 🌍 **多维度支持** - 主世界、下界、末地全覆盖\n- 📊 **可视化状态检查** - 精美树状格式显示状态详情\n- ⚡ **无缝集成** - 完美兼容 PrimeBackup\n- 🔄 **自动迁移** - 无缝升级旧版本数据\n- ⏱️ **智能检测** - 自动识别玩家所在维度\n- 🛡️ **双重模式** - 线程守护/事件触发可选\n- 🚨 **异常预警** - 实时广播未关机机器\n\n## 📦 安装要求\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 2.x 或更高版本\n- [PrimeBackup](https://github.com/TISUnion/PrimeBackup) 插件\n- [minecraft_data_api](https://github.com/Fallen-Breath/MinecraftDataAPI) 插件\n\n## ⚙️ 配置说明\n\n```json\n// config/check_point.json\n{\n  \"tree\": {\n    \"factory\": {\n      \"type\": \"group\",\n      \"description\": \"主要工厂区域\",\n      \"children\": {\n        \"redstone\": {\n          \"type\": \"group\",\n          \"description\": \"红石机器\",\n          \"children\": {\n            \"piston_door\": {\n              \"type\": \"checkpoint\",\n              \"x\": 150,\n              \"y\": 64,\n              \"z\": 250,\n              \"world\": \"overworld\",\n              \"block\": \"minecraft:piston\",\n              \"data\": {\"extended\": \"false\"}\n            }\n          }\n        }\n      }\n    }\n  },\n  \"override_mode\": \"event\",\n  \"check_point\": {},\n  \"groups\": {}\n}\n```\n\n### 🔧 配置选项\n\n| 参数              | 类型     | 默认值       | 说明                                                             |\n| --------------- | ------ | --------- | -------------------------------------------------------------- |\n| `override_mode` | string | `\"event\"` | PrimeBackup 覆写模式：<br>`\"thread\"` - 线程守护模式<br>`\"event\"` - 事件触发模式 |\n| `tree`          | object | `{}`      | 树状结构存储检查点和分组                                                   |\n| `check_point`   | object | `{}`      | 旧版检查点数据（兼容）                                                    |\n| `groups`        | object | `{}`      | 旧版分组数据（兼容）                                                     |\n\n## ⌨️ 指令大全\n\n### 🆘 帮助指令\n| 指令                       | 说明         |\n| ------------------------ | ---------- |\n| `!!pb cp help`           | 显示完整帮助信息   |\n| `!!pb cp help <command>` | 显示特定指令详细帮助 |\n\n### 🌳 树状管理\n| 指令             | 说明        |\n| -------------- | --------- |\n| `!!pb cp list` | 显示检查点树状结构 |\n| `!!pb cp ls`   | 列表形式显示检查点 |\n\n### 📍 检查点操作\n| 指令                                       | 说明      |\n| ---------------------------------------- | ------- |\n| `!!pb cp add <x> <y> <z> <name> [world]` | 添加根级检查点 |\n| `!!pb cp status <name>`                  | 查看检查点状态 |\n| `!!pb cp update <name>`                  | 更新检查点状态 |\n| `!!pb cp del <name>`                     | 删除检查点   |\n\n### 📂 分组管理\n| 指令                                                      | 说明        |\n| ------------------------------------------------------- | --------- |\n| `!!pb cp add g <group_path>`                            | 创建新分组     |\n| `!!pb cp add g <group_path> <x> <y> <z> <name> [world]` | 在分组中添加检查点 |\n\n### ⚡ 备份操作\n| 指令                 | 说明           |\n| ------------------ | ------------ |\n| `!!pb make [备注]`   | 正常备份（检查机器状态） |\n| `!!pb ignore [备注]` | 强制备份（忽略机器状态） |\n\n## 🎯 使用示例\n\n### 创建检查点\n```bash\n# 自动检测维度添加检查点\n!!pb cp add 100 64 200 wheat_farm\n\n# 指定下界维度添加检查点\n!!pb cp add 50 80 -100 nether_portal the_nether\n```\n\n### 创建分组结构\n```bash\n# 创建主分组\n!!pb cp add g industrial_area\n\n# 创建子分组\n!!pb cp add g industrial_area.factories\n\n# 在子分组中添加检查点\n!!pb cp add g industrial_area.factories 120 65 180 auto_smelter\n```\n\n### 检查状态\n```bash\n# 列出所有检查点\n!!pb cp list\n\n# 查看具体检查点状态\n!!pb cp status industrial_area.factories.auto_smelter\n\n# 更新检查点状态\n!!pb cp update industrial_area.factories.auto_smelter\n```\n\n### 执行备份\n```bash\n# 正常备份（检查机器状态）\n!!pb make \"每日例行备份\"\n\n# 强制备份（忽略机器状态）\n!!pb ignore \"紧急故障修复备份\"\n```\n\n## 🌐 支持的世界\n\n| 世界名称         | 对应维度 | 备注   |\n| ------------ | ---- | ---- |\n| `overworld`  | 主世界  | 默认维度 |\n| `the_nether` | 下界   | 地狱维度 |\n| `the_end`    | 末地   | 末地维度 |\n\n## 🔍 状态显示示例\n\n```\n§a=== 检查点状态：factory.redstone.piston ===\n§6├─ 🧭 基本信息\n§7│  ├─ 📍 坐标: §e(150, 64, 250)\n§7│  ├─ 🌍 世界: §eoverworld\n§7│  └─ ✅ 获取状态: §a成功\n§6├─ ⚙️ 配置数据\n§7│  ├─ 🧱 方块类型: §eminecraft:piston\n§7│  └─ 🔧 方块属性:\n§7│     └─ §bextended§7: §efalse\n§6├─ 🔍 实际数据\n§7│  ├─ 🧱 方块类型: §eminecraft:piston\n§7│  └─ 🔧 方块属性:\n§7│     └─ §bextended§7: §efalse\n§6├─ 📊 状态分析\n§7│  ├─ 🧱 方块类型匹配: §a✔️ 是\n§7│  ├─ 🔧 方块属性匹配: §a✔️ 是\n§7│  └─ 💡 整体状态: §a🛑 机器已关闭\n§6└─ ⚡ 操作选项\n§7   🔴 [删除] 🟡 [更新]\n```\n\n## ⚠️ 注意事项\n\n1. 确保已安装所有依赖插件\n2. 方块状态检查需要服务器支持 `/info block` 命令\n3. 建议在服务器低负载时更新检查点\n4. 强制备份会在备注中标注未关机机器\n5. 首次使用会自动迁移旧版数据\n\n## 📜 开源许可\n\n本项目采用 [GNU General Public License v3.0](https://github.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/tree/master/LICENSE) 开源\n\n## 🤝 贡献指南\n\n欢迎通过以下方式参与项目：\n1. 提交 Issue 报告问题或建议\n2. 发起 Pull Request 贡献代码\n3. 分享使用经验和配置技巧\n\n---\n\n**让您的每一次备份都安心无忧！** 🛡️\n",
+    "readme_url": "https://raw.githubusercontent.com/GloryRedstoneUnion/MCDR-ExtraPrimeBackup/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

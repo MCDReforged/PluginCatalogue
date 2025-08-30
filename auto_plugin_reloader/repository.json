@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/TISUnion/AutoPluginReloader",
+  "name": "AutoPluginReloader",
+  "full_name": "TISUnion/AutoPluginReloader",
+  "html_url": "https://github.com/TISUnion/AutoPluginReloader",
+  "description": "Automatically reload plugins when file changes",
+  "archived": false,
+  "stargazers_count": 3,
+  "watchers_count": 3,
+  "forks_count": 2,
+  "readme": "**English** | [中文](https://github.com/TISUnion/AutoPluginReloader/tree/master/readme_cn.md)\n\nAuto Plugin Reloader\n-----\n\nA [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) (>=2.13.0) plugin\n\nAutomatically trigger plugin reloading when any plugin file (files with extension `.py` and `.mcdr`) in MCDR plugin directories changes\n\n## Config\n\nConfiguration file: `config/auto_plugin_reloader/config.json`\n\n`enabled`, if the reloader is enabled, default: `true`\n\n`permission`, the minimum permission level to use the command, default: `4`\n\n`detection_interval_sec`, the time interval between file change detections in seconds, default: `10`\n\n`reload_delay_sec`, the time delay after file changes detected and before plugin reload gets triggered in seconds, default: `1`\n\n`blacklist`, a list of string, contains name of files in the plugin directories that will be ignored by this plugin\n\n## Command\n\n`!!apr`: Display help message\n\n`!!apr status`: Display the status of the reloader\n\n`!!apr enable`: Enabled the reloader\n\n`!!apr disable`: Disabled the reloader\n\n`!!apr set_interval <interval_sec>`: Set the detection interval, unit: seconds\n",
+  "readme_url": "https://raw.githubusercontent.com/TISUnion/AutoPluginReloader/master/readme.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

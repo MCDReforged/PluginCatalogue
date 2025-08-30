@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/Harry-zklcdc/MCDR-Cato",
+  "name": "MCDR-Cato",
+  "full_name": "Harry-zklcdc/MCDR-Cato",
+  "html_url": "https://github.com/Harry-zklcdc/MCDR-Cato",
+  "description": "MCDR Support Start Cato by Onekey",
+  "archived": false,
+  "stargazers_count": 4,
+  "watchers_count": 4,
+  "forks_count": 0,
+  "readme": "# MCDR-Cato\n\n## MCDR 插件\n\n使服务器启动时, 自动使用 `cato` 进行端口映射, 并支持生成 `HMCL` 联机码\n\nCato 的介绍可以看[这里](https://noin.cn/71.html)\n\n# 简单介绍\n\n> 你是否在为开服而烦恼?\n> \n> 你是否为服务器不能端口映射而苦恼?\n> \n> 你是否为服务器使用流量转发映射软件而为延迟感到担忧?\n> \n> 来吧, Cato 欢迎你的使用!\n> \n> Cato, 全新一代 P2P 传输工具\n> \n> 让你的延迟急速降低\n> \n> 并配合 HMCL 使用, 让你无感 P2P 连接\n\n# 特性:\n\n* Cato 官方支持\n* 无感 P2P 连接\n* HMCl 多人游戏支持\n* Cato 崩溃/临时 ID 到期自动重启\n* API 接口获取 Cato 连接 ID、HMCL 联机码\n* Cato Token 动态更换\n* 游戏内获取 Cato 连接 ID、HMCL 联机码\n\n# TODO\n\n* PCL2 联机支持 (坐等龙猫更新 Cato 版 PCL(在催了.jpg))\n* BakaXL 联机支持 (坐等 TT 支持联机(在催了.jpg))\n\n# 食用方法\n\n1. 下载插件后, 放至 [`MCDR`](https://github.com/Fallen-Breath/MCDReforged) 的 `plugins` 文件夹\n\n2. 下载适合你系统版本的 Cato 本体, 放至 [`MCDR`](https://github.com/Fallen-Breath/MCDReforged) 的 `plugins` 文件夹, 下载地址在[这里](https://noin.cn/71.html)\n\n3. 启动服务器\n\n### OK, 你已完成插件安装\n\n## API 接口\n\n| API 接口               | 功能            |\n| -------------------- | ------------- |\n| http://ip:26666/     | 查看 Cato 状态    |\n| http://ip:26666/id   | 查看 Cato 连接 ID |\n| http://ip:26666/code | 查看 HMCL 联机码   |\n\n## 指令\n\n| 指令                   | 功能                                                                    |\n| -------------------- | --------------------------------------------------------------------- |\n| !!cato id            | 查看 Cato 连接 ID                                                         |\n| !!cato code          | 查看 HMCL 联机码                                                           |\n| !!cato token <token> | <token> 可以填静态 Token（需要到[这里](https://noin.cn/)申请）, 也可以填 `new`, 即为临时 ID |\n\n### ※PS: 临时 ID 有效期为三个小时, 三个小时需获取新的临时 ID, 本插件支持自动重启 Cato 以获取新的临时 ID\n\n# 配置文件说明\n\n### 配置文件位置: config/cato/config.json\n\n| 配置项   | 注释                                            |\n| ----- | --------------------------------------------- |\n| token | Cato 静态 Token, 可填 `new`/不填 获取临时 ID, 默认值`None` |\n| name  | HMCl 中房间名, 默认值为 `A Minecraft Server`          |\n| port  | 服务器的端口, 默认值为 `25565`                          |\n\n",
+  "readme_url": "https://raw.githubusercontent.com/Harry-zklcdc/MCDR-Cato/main/README.md",
+  "license": null
+}
