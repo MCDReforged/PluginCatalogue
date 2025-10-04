@@ -1,0 +1,48 @@
+{
+  "schema_version": 8,
+  "id": "command_suggest",
+  "latest_version": "1.0.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/tag/v1.0.0",
+      "name": "v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2025-09-11T11:42:03Z",
+      "description": "",
+      "prerelease": false,
+      "asset": {
+        "id": 292116228,
+        "name": "CommandSuggest-v1.0.0.mcdr",
+        "size": 15960,
+        "download_count": 47,
+        "created_at": "2025-09-11T11:42:26Z",
+        "browser_download_url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/download/v1.0.0/CommandSuggest-v1.0.0.mcdr",
+        "hash_md5": "5206c94c754d2b4d1d12fa90f1b466d6",
+        "hash_sha256": "1965646c89ce7076daba272771e836b7fcb73c68132a0cebfc1ce37a7261508b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "command_suggest",
+        "name": "CommandSuggest",
+        "version": "1.0.0",
+        "link": "https://github.com/PairZhu/CommandSuggest-MCDR",
+        "authors": [
+          "PairZhu"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "uvicorn",
+          "fastapi",
+          "mcdreforged"
+        ],
+        "description": {
+          "en_us": "MCDR command completion plugin supporting parameter suggestions.",
+          "zh_cn": "支持参数提示的MCDR命令补全插件。"
+        }
+      }
+    }
+  ]
+}

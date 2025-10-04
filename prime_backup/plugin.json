@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "prime_backup",
+  "authors": [
+    "Fallen_Breath"
+  ],
+  "repository": "https://github.com/TISUnion/PrimeBackup",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "# Prime Backup\n\n**English** | [中文](https://github.com/TISUnion/PrimeBackup/tree/master/README.zh.md)\n\nA powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world\n\nDocument: https://tisunion.github.io/PrimeBackup/\n\n## Features\n\n- Only stores files with changes with the hash-based file pool. Supports unlimited number of backup\n- Comprehensive backup operations, including backup/restore, list/delete, import/export, etc\n- Smooth in-game interaction, with most operations achievable through mouse clicks\n- Highly customizable backup pruning strategies, similar to the strategy use by [PBS](https://pbs.proxmox.com/docs/prune-simulator/)\n- Crontab jobs, including automatic backup, automatic pruning, etc.\n- Supports use as a command-line tool. Manage the backups without MCDR\n\n![!!pb command](https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/docs/img/pb_welcome.png)\n\n## Requirements\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) requirement: `>=2.12.0`\n\nPython package requirements: See [requirements.txt](https://github.com/TISUnion/PrimeBackup/tree/master/requirements.txt)\n\n## Usages\n\nSee the document: https://tisunion.github.io/PrimeBackup/\n\n## How it works\n\nPrime Backup maintains a custom file pool to store the backup files. Every file in the pool is identified with the hash value of its content.\nWith that, Prime Backup can deduplicate files with same content, and only stores 1 copy of them, greatly reduces the burden on disk usage.\n\nBesides that, Prime Backup also supports compression on the stored files, which reduces the disk usage further more\n\nPrimeBackup is capable of storing various of common file types, including regular files, directories, and symbolic links. For these 3 types:\n\n- Regular file: Prime Backup calculates its hash values first. If the hash does not exist in the file pool, \n  Prime backup will (compress and) store its content into a new blob in the file pool.\n  The file status, including mode, uid, mtime etc., will be stored in the database\n- Directory: Prime Backup will store its information in the database\n- Symlink: Prime Backup will store the symlink itself, instead of the linked target\n\n## Thanks\n\nThe idea for the hash-based file pool is inspired by https://github.com/z0z0r4/better_backup\n",
+    "zh_cn": "# Prime Backup\n\n[English](https://github.com/TISUnion/PrimeBackup/tree/master/README.md) | **中文**\n\n一个强大的 MCDR 备份插件，一套先进的 Minecraft 存档备份解决方案\n\n中文文档：https://tisunion.github.io/PrimeBackup/zh/\n\n## Features\n\n- 基于哈希的文件池，只储存有变化的文件。支持无限数量的备份\n- 完善的备份操作，包括备份回档、展示删除、导入导出等\n- 流畅的游戏内交互，大部分操作都能点点点\n- 高可自定义备份清理策略，是 [PBS](https://pbs.proxmox.com/docs/prune-simulator/) 所用策略的同款\n- 定时任务，包括自动备份、自动清理等\n- 支持作为命令行工具使用，无需 MCDR 即可管理备份\n\n![!!pb command](https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/docs/img/pb_welcome.zh.png)\n\n## 依赖\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 依赖：`>=2.12.0`\n\nPython 包要求：见 [requirements.txt](https://github.com/TISUnion/PrimeBackup/tree/master/requirements.txt)\n\n## 使用方法\n\n参见文档：https://tisunion.github.io/PrimeBackup/zh/\n\n## 工作原理\n\nPrime Backup 维护了一个自定义的文件池来储存备份文件，池中的每个文件都以其内容的哈希值作为其唯一标识符。\n借此，Prime Backup 可以对那些内容相同的文件进行去重，并只存储它们的一份副本，从而有效地减少了磁盘占用的负担\n\n除此之外，Prime Backup 还支持对存储的文件进行压缩，从而进一步减少磁盘占用\n\nPrime Backup 可以存储常见集中的文件类型，包括普通文件、目录和符号链接。对于这三种文件类型：\n\n- 普通文件：Prime Backup 会先计算其哈希值。如果文件池里不存在这个哈希，\n  就在池里新建一个数据对象，（压缩）储存该文件的内容。\n  对于文件的状态信息，包括 mode、uid、mtime 等，将存储在数据库中\n- 文件夹：Prime Backup 将其信息存储在数据库中\n- 符号链接：Prime Backup 将存储符号链接本身，而非其所链接的目标对象\n\n## 致谢\n\n基于哈希的文件池这个想法来自 https://github.com/z0z0r4/better_backup\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/README.zh.md"
+  }
+}

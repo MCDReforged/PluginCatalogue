@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/uerhu/MCDR-UnlockRecipe",
+  "name": "MCDR-UnlockRecipe",
+  "full_name": "uerhu/MCDR-UnlockRecipe",
+  "html_url": "https://github.com/uerhu/MCDR-UnlockRecipe",
+  "description": "A MCDR plugin to allow player to unlock recipe.",
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 0,
+  "readme": "# UnlockRecipe\n[中文](https://github.com/uerhu/MCDR-UnlockRecipe/tree/master/README_cn.md)\n\n---\n## Introduction\n* JEI, REI and other mods cannot view locked recipes when browsing recipes\n* Use this plugin to unlock recipes for non-op players\n---\n## Command\n* `!!recipe`unlock recipes for oneself（Only for player）\n---\n## Configuration\nconfig.json （default configuration file）\n```json5\n{\n    \"permission\": 1,  // player permission level\n    \"announce\": true,  // whether to notify players when they enter the game\n    \"announce_once\": true  // whether to notify only once\n}\n```\nannounced_players.json (record notified players)\n```json5\n{\n  \"announced_players\": [\n    \"player1\",\n    \"player2\"\n    ]\n}\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/uerhu/MCDR-UnlockRecipe/master/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

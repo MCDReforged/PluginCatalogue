@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/AsyncRconClient",
+  "name": "AsyncRconClient",
+  "full_name": "Mooling0602/AsyncRconClient",
+  "html_url": "https://github.com/Mooling0602/AsyncRconClient",
+  "description": "A simple async rcon client.",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# AsyncRconClient\nA simple async rcon client.\n\n## Usage\nRun `async_rcon/__init__.py` directly.\n\n### With MCDR\nInstall plugin from release.\n> After plugin submitted to MCDR PluginCatalogue, you can install by  `!!MCDR plg install async_rcon [--confirm]`\n\nRcon client will start automatically when plugin is loading.\n\nUse `@rcon <command>` to execute commands and get responses from target rcon server.\n\nUse `@rcon connect` to start rcon client, use  `@rcon disconnect` to close it.\n\nUse `@rcon reload` to reload plugin, equal to `!!MCDR plg reload async_rcon`\n\n## API\nCan be imported in MCDR plugins. If you want to use this module without MCDR, you should just import from `async_rcon/__init__.py`.\n```python\nimport async_rcon.entry as rcon\n\nfrom mcdreforged.api.all import *\n\n\ndef on_load(server: PluginServerInterface, _prev_module):\n    pass\n\n\nasync def main(server: PluginServerInterface):\n    if rcon.rcon_task:\n        response = rcon.loop.create_task(rcon.client.send_command(\"list\"))\n        await response\n        server.logger.info(f\"[Response] \\n{response.result()}\")\n\n    # Following is some safe way to control rcon client\n    server.execute_command(\"@rcon disconnect\", ConsoleCommandSource) # Disconnect rcon client if you want.\n    server.execute_command(\"@rcon connect\", ConsoleCommandSource) # Reconnect rcon client if you want.\n```\n\nIf you want to connect or disconnect rcon client by directly call the functions in async_rcon.entry, you should read source code carefully because it may dangerous.\n\nAnd if any bugs found plz issue them, I'll be glad to fix.\n\n## License & Credits\nThis project is licensed under the GPL-3.0 License.\n\nUsed projects:\n- [RconConnection](https://docs.mcdreforged.com/zh-cn/latest/code_references/minecraft_tools.html#mcdreforged.minecraft.rcon.rcon_connection.RconConnection): LGPL-3.0\n> A built-in module in MCDReforged.\n\nThanks the following projects for documentation support\n- [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Mooling0602/AsyncRconClient)\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/AsyncRconClient/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

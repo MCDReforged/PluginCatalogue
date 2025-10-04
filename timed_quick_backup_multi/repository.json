@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/TISUnion/TimedQBM",
+  "name": "TimedQBM",
+  "full_name": "TISUnion/TimedQBM",
+  "html_url": "https://github.com/TISUnion/TimedQBM",
+  "description": "A Quick-Backup-Multi extension for automatically trigger QBM at given interval",
+  "archived": false,
+  "stargazers_count": 15,
+  "watchers_count": 15,
+  "forks_count": 5,
+  "readme": "Timed QuickBackupM\n-------\n\n[English](https://github.com/TISUnion/TimedQBM/blob/master/README_en.md) | 中文\n\n一个 [QuickBackupM](https://github.com/TISUnion/QuickBackupM) 插件的扩展，用于定时触发 QBM 从而进行自动备份\n\n备份定时器会在 QBM 备份结束、定时器被手动启动/关闭/重置时，重置上次备份时间为当前时间\n\n每当离上次备份的时间间隔大于了配置文件指定的备份时间间隔，TQBM 会触发一次 QBM 的备份\n\n可配合 QBM 插件配置文件的 `delete_protection` 数值来避免 TQBM 覆盖过多备份\n\n## 需求\n\n- [MCDR](https://github.com/Fallen-Breath/MCDReforged) >=2.0.0\n\n- [QuickBackupM](https://github.com/TISUnion/QuickBackupM) >=1.1.0\n\n## 配置\n\n配置文件为 `config/timed_quick_backup_multi.json`\n\n```json\n{\n  \"enabled\": true,\n  \"interval\": 30.0,\n  \"permission_requirement\": 2,\n  \"require_online_players\": false\n}\n```\n\n- `enable`: TQBM 备份定时器总开关\n- `interval`: TQBM 备份定时器的间隔，单位为分钟\n- `permission_requirement`: 使用 `!!tqb` 指令的最小权限需求\n- `require_online_players`: 当设为 true 时，TQBM 仅在服务器中存在玩家时启用。这需要 TQBM 在服务端启动的时候处于已加载状态，否则 TQBM 将会停止工作\n\n## 指令\n\n- `!!tqb`: 显示 TQBM 帮助信息\n- `!!tqb enable`: 启动 TQBM 备份定时器\n- `!!tqb disable`: 关闭 TQBM 备份定时器\n- `!!tqb set_interval <minutes>`: 设置 TQBM 备份定时器时间间隔，单位分钟\n- `!!tqb reset_timer`: 重置 TQBM 备份定时器\n- `!!tqb status`: 查看 TQBM 状态\n",
+  "readme_url": "https://raw.githubusercontent.com/TISUnion/TimedQBM/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
