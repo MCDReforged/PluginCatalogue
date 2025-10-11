@@ -1,0 +1,524 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "simple_tp",
+    "name": "Simple TP",
+    "version": "1.3.3",
+    "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+    "authors": [
+      "PairZhu"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.12.0",
+      "minecraft_data_api": "*",
+      "mg_events": ">=1.0.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.14.7",
+      "readerwriterlock==1.0.9"
+    ],
+    "description": {
+      "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+      "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "simple_tp",
+    "authors": [
+      "PairZhu"
+    ],
+    "repository": "https://github.com/PairZhu/SimpleTP-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# SimpleTP\n**English** | [简体中文](https://github.com/PairZhu/SimpleTP-MCDR/tree/master/README.zh.md)\n\nA simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.\n\n## Preview\n![help](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README/1757133291389.png)\n![list](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README/1757133317304.png)\n![back](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README/1757133375310.png)\n\n## Features\n- Support for personal waypoints that players can create and manage, visible only to themselves\n- Support for global waypoints (public waypoints) visible to all players, suitable for public areas\n- Configurable enabled dimensions with support for modded dimensions (like Twilight Forest, Eternal Starlight, etc.)\n- Support for returning to death location and previous location before teleporting\n- Most commands support clickable operations for convenience\n- Easytp syntax sugar: `stp xxx` is equivalent to `stp tpp/tpg/tp/tpa xxx`, automatically recognizing waypoints and players, with priority `Personal Waypoint > Global Waypoint > Player`\n- Support for comprehensive command argument completion, allowing the use of the Tab key to complete waypoint names and player names (requires the [command_suggest](https://mcdreforged.com/en/plugin/command_suggest) plugin)\n\n## Commands\nThe following examples use the default prefix \"!!stp\". Adjust according to your configuration file.\n- !!stp help View help information\n\nPreview commands can be found in the [language file](https://github.com/PairZhu/SimpleTP-MCDR/tree/master/./lang/en_us.yml) under the help section.\n\n## Configuration File\nThe configuration file is located at `config/SimpleTP/config.json`\n- **prefix**: Command prefix, default is `!!stp`\n- **back_on_death**: Whether to automatically record the position upon player death, default is `true`\n- **save_interval**: Interval for scheduled saving of waypoint data, in seconds, default is `30` seconds\n- **permissions**: Permission configuration\n- **worlds**: List of supported dimensions (including mod dimensions), default is `[\"minecraft:overworld\", \"minecraft:the_nether\", \"minecraft:the_end\"]`. Teleportation will not work in dimensions not in this list. To disable teleportation in a dimension, simply remove it from the list.\n- **extra_dimensions**: ***Only required for Minecraft versions before 1.16***, configuration format is `{<dimension_id>: \"<dimension_name>\"}`, for example `{0: \"minecraft:overworld\", 1: \"minecraft:the_nether\", 2: \"minecraft:the_end\"}`. This configuration is used to support mod dimensions in older Minecraft versions.\n- **easy_tp**: Whether to enable easytp syntax sugar, default is `true`.\n\n### Permission Configuration\n- **back**: Permission to use `!!stp back` command\n- **tpa**: Permission to use `!!stp tpa` command\n- **tpahere**: Permission to use `!!stp tpahere` command\n- **tp**: Permission to use `!!stp tp <player>` command\n- **tphere**: Permission to use `!!stp tphere <player>` command\n- **personal_waypoint**: Permission to set/delete personal waypoint related commands\n- **global_waypoint**: Permission to set/delete global waypoint related commands\n- **cross_world_tp**: Permission for cross-dimension teleportation\n\n## Dependencies\n- **minecraft_data_api**: Used for retrieving player information\n- **mg_events**: Used for listening to player death events\n\n## Common Issues\n- **Clickable Teleport Button Not Responding**\n  MCDR has issues with click execution support in higher MC versions. Install [LetMeClickAndSendForServer](https://github.com/Fallen-Breath/LetMeClickAndSendForServer) (server-side) or [LetMeClickAndSend](https://github.com/Fallen-Breath/LetMeClickAndSend) (client-side).\n- **Sometimes `back` Command Doesn't Return to Previous Location After Death**\n  Some mod death messages are special and may not be detected by mg_events. You need to manually add corresponding death messages in mg_events language files. For example, for the [Eternal Starlight](https://www.curseforge.com/minecraft/mc-mods/eternal-starlight) mod, when players die in the Ether, add `\"death.attack.ether\": \"%1$s drifts away\"` to `config/mg_events/lang/en_us.json`, and `\"death.attack.ether\": \"%1$s飘然而去\"` to `config/mg_events/lang/zh_cn.json`.\n- **Log Shows \"Player {player} is in a dimension not enabled in config: {dimension}\"**\n  This indicates the player is in a dimension not enabled in the configuration. Check the `worlds` configuration in `config/SimpleTP/config.json` to ensure the dimension is included.\n- **Log Shows \"Player {player} is in an unknown dimension with ID {dimension}\"**\n  This error may occur when the server Minecraft version is before 1.16 and mod dimensions are installed. Check the `extra_dimensions` configuration in `config/SimpleTP/config.json` to ensure the dimension is included. You can get the dimension ID using the `/data get entity <player> Dimension` command.\n\n## TODO\nIf you have more feature requests or are interested in any planned features, feel free to raise them in the issues section 🚀\nSorted by priority:\n- [x] Support clickable waypoints\n- [x] `back` command supports round-trip teleportation\n- [x] Record player's dimension in waypoints (Nether, Overworld, End)\n- [x] Configuration for cross-dimension teleportation\n- [x] Scheduled saving of waypoint data (to prevent loss on crash)\n- [x] `tp`/`tphere` functionality\n- [x] `tpa`/`tpahere` functionality\n- [x] Multi-language support\n- [x] Help information\n- [ ] Record player's orientation in waypoints\n- [ ] Add description information for waypoints\n- [ ] Teleport cooldown configuration\n- [ ] Maximum number of waypoints configuration\n- [ ] Waypoint name length limit configuration\n- [ ] Waypoint safety check, prompting confirmation or teleporting to nearby safe location if the waypoint is in a dangerous position\n- [ ] Teleport cost configuration (consume custom items or experience) (base cost + distance cost)\n",
+      "zh_cn": "# SimpleTP\n[English](https://github.com/PairZhu/SimpleTP-MCDR/tree/master/README.md) | **简体中文**\n\n一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。\n\n## 预览\n![help](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README.zh/1757132558004.png)\n![list](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README.zh/1757133070580.png)\n![back](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README.zh/1757133504026.png)\n\n## 特点\n- 支持个人传送点，玩家可以创建和管理自己的传送点，仅对自己可见\n- 支持全局传送点（公共传送点），所有玩家可见，适用于公共区域\n- 可配置插件启用的维度，支持Mod中的异维度世界（暮色森林、永恒星光等）\n- 支持死亡后返回死亡位置和回到传送前的位置\n- 支持大部分命令的点击操作，方便快捷\n- easytp语法糖，自动识别传送目标，优先级为`个人传送点 > 公共传送点 > 玩家`\n- 支持完善的命令参数补全，可以使用Tab键补全传送点名称和玩家名称（需要配合插件 [command_suggest](https://mcdreforged.com/zh-CN/plugin/command_suggest) 使用）\n\n## 命令\n下文以默认前缀\"!!stp\"为例，实际使用时请根据配置文件中的前缀进行调整。\n- !!stp help 查看帮助信息\n\n预览命令请查看 [语言文件](https://github.com/PairZhu/SimpleTP-MCDR/tree/master/./lang/zh_cn.yml) 中的 help 部分。\n\n\n\n## 配置文件\n配置文件位于`config/SimpleTP/config.json`\n- **prefix**: 命令前缀，默认为`!!stp`\n- **back_on_death**: 是否在玩家死亡后自动记录位置，默认为`true`\n- **save_interval**: 定时保存传送点数据的间隔时间，单位为秒，默认为`30`秒\n- **permissions**: 权限配置\n- **worlds**: 支持的维度列表（支持Mod中的异维度世界），默认为`[\"minecraft:overworld\", \"minecraft:the_nether\", \"minecraft:the_end\"]`，不在此列表中的维度将无法使用传送功能，如要禁用某个维度的传送功能，将其从列表中移除即可。\n- **extra_dimensions**: ***仅 1.16以前的 Minecraft 版本需要配置此项***，配置格式为`{<dimension_id>: \"<dimension_name>\"}`，例如`{0: \"minecraft:overworld\", 1: \"minecraft:the_nether\", 2: \"minecraft:the_end\"}`。此配置用于支持旧版 Minecraft 中Mod中的异维度世界。\n- **easy_tp**: 是否启用 easytp 语法糖，默认为`true`。\n\n### 权限配置\n- **back**: 使用`!!stp back`命令的权限\n- **tpa**: 使用`!!stp tpa`命令的权限\n- **tpahere**: 使用`!!stp tpahere`命令的权限\n- **tp**: 使用`!!stp tp <player>`命令的权限\n- **tphere**: 使用`!!stp tphere <player>`命令的权限\n- **personal_waypoint**: 设置/删除 个人传送点相关命令的权限\n- **global_waypoint**: 设置/删除 全局传送点相关命令的权限\n- **cross_world_tp**: 跨维度传送的权限\n\n## 依赖插件\n- **minecraft_data_api**: 用于获取玩家信息\n- **mg_events**: 用于监听玩家死亡事件\n\n## 常见问题\n- **点击传送按钮没有反应**\n  MCDR对高版本MC的点击执行支持有问题，需要安装 [LetMeClickAndSendForServer](https://github.com/Fallen-Breath/LetMeClickAndSendForServer)(服务端) 或 [LetMeClickAndSend](https://github.com/Fallen-Breath/LetMeClickAndSend)(客户端)。\n- **有时死亡后back指令无法回到上一个位置**\n  一些Mod的死亡消息比较特殊，可能无法被mg_events监听到。需要手动在mg_events的语言文件中添加对应的死亡消息。例如 [永恒星光](https://www.curseforge.com/minecraft/mc-mods/eternal-starlight) Mod 中，玩家在以太中死亡需要在 `config/mg_events/lang/zh_cn.json` 中添加 `\"death.attack.ether\": \"%1$s飘然而去\",`, 在 `config/mg_events/lang/en_us.json` 中添加 `\"death.attack.ether\": \"%1$s drifts away\"`。\n- **日志输出Player {player} is in a dimension not enabled in config: {dimension}**\n  这表示玩家处于一个未在配置文件中启用的维度。请检查 `config/SimpleTP/config.json` 中的 `worlds` 配置，确保包含了此维度。\n- **日志输出Player {player} is in an unknown dimension with ID {dimension}**\n  服务端 Minecraft 版本为 1.16 以前且安装了异维度 Mod 时，可能会出现此错误。请检查 `config/SimpleTP/config.json` 中的 `extra_dimensions` 配置，确保包含了此维度。维度ID可以通过 `/data get entity <player> Dimension` 命令获取。\n\n## TODO\n如有更多功能需求或对某个计划中的功能有兴趣，可以在 issues 中提出🚀\n按照优先级排序：\n- [x] 支持传送点的点击操作\n- [x] back 命令支持往返传送\n- [x] 传送点记录玩家的维度（下界、主世界、末地）\n- [x] 是否允许跨维度传送配置\n- [x] 定时保存传送点数据（防崩溃丢失）\n- [x] tp/tphere 功能\n- [x] tpa/tpahere 功能\n- [x] 多语言支持\n- [x] 帮助信息\n- [ ] 传送点记录玩家的朝向\n- [ ] 添加传送点的描述信息\n- [ ] 传送冷却配置\n- [ ] 传送点的最大数量限制配置\n- [ ] 传送点的名称长度限制配置\n- [ ] 传送点安全检测，如传送点在危险位置则提示确认或传送到附近安全位置\n- [ ] 传送代价配置 (消耗自定义的物品或经验)(基础消耗+距离消耗)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/README.zh.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "simple_tp",
+    "latest_version": "1.3.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.3.3",
+        "name": "v1.3.3",
+        "tag_name": "v1.3.3",
+        "created_at": "2025-09-10T05:47:38Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 291629758,
+          "name": "SimpleTP-v1.3.3.mcdr",
+          "size": 16357,
+          "download_count": 61,
+          "created_at": "2025-09-10T05:48:09Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.3.3/SimpleTP-v1.3.3.mcdr",
+          "hash_md5": "dacb959cc8b43276ae170559be97ec55",
+          "hash_sha256": "ef5c8a2e40f54371ffb7659ecb1d1edba6124b859a11f9fb26637fcdf84f5ae1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.3.3",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+            "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.3.2",
+        "name": "v1.3.2",
+        "tag_name": "v1.3.2",
+        "created_at": "2025-09-06T10:11:05Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 290308942,
+          "name": "SimpleTP-v1.3.2.mcdr",
+          "size": 16305,
+          "download_count": 28,
+          "created_at": "2025-09-06T10:11:37Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.3.2/SimpleTP-v1.3.2.mcdr",
+          "hash_md5": "50d3937eb25ca961cbdf91cdac8ed4cd",
+          "hash_sha256": "937997085d95d723b745db0b2d8c6aea26ee53a287ca7ac405b6511bda5e269a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.3.2",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+            "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.3.1",
+        "name": "v1.3.1",
+        "tag_name": "v1.3.1",
+        "created_at": "2025-09-04T09:31:22Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 289557260,
+          "name": "SimpleTP-v1.3.1.mcdr",
+          "size": 16248,
+          "download_count": 15,
+          "created_at": "2025-09-04T09:31:42Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.3.1/SimpleTP-v1.3.1.mcdr",
+          "hash_md5": "7b312d1d82ba2ef75984c064c6bf876b",
+          "hash_sha256": "958b5b7e1a5cb52deb1283bbcea8d3159d367d1bf0187bca645a7231e03be05c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.3.1",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+            "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.3.0",
+        "name": "v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2025-09-03T04:22:35Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 289072470,
+          "name": "SimpleTP-v1.3.0.mcdr",
+          "size": 16189,
+          "download_count": 16,
+          "created_at": "2025-09-03T04:22:54Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.3.0/SimpleTP-v1.3.0.mcdr",
+          "hash_md5": "670e2a45cb7e82000efefdf3ddcbc086",
+          "hash_sha256": "e778aac12f01514a7ef6d40ee7cd4332106ca953b22bd7ce47dc4346e377c31a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.3.0",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+            "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.2.1",
+        "name": "v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2025-08-26T08:49:14Z",
+        "description": "变化:\r\n1. setg setp命令不再默认覆盖坐标，需要加上-f\r\n2. 优化提示语\r\n3. 优化定时保存逻辑，减少不必要的磁盘写入\r\n\r\n修复:\r\n1. listg权限要求错误",
+        "prerelease": false,
+        "asset": {
+          "id": 286324431,
+          "name": "SimpleTP-v1.2.1.pyz",
+          "size": 9822,
+          "download_count": 35,
+          "created_at": "2025-08-26T08:49:38Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.2.1/SimpleTP-v1.2.1.pyz",
+          "hash_md5": "cb9f9b0f6b05142a6a9b8e7d22b6d14f",
+          "hash_sha256": "3f3a02c8516808157d9a45c2e7b538b41d85c3c94617027a8760c604d477c662"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.2.1",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+            "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.2.0",
+        "name": "v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2025-08-09T10:07:38Z",
+        "description": "新增功能：\r\n增加tp, tphere, tpa, tpahere, cancel, accept, deny等命令",
+        "prerelease": false,
+        "asset": {
+          "id": 280887623,
+          "name": "SimpleTP-v1.2.0.pyz",
+          "size": 9637,
+          "download_count": 40,
+          "created_at": "2025-08-09T10:07:57Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.2.0/SimpleTP-v1.2.0.pyz",
+          "hash_md5": "a7a96478d80e5b0609c5889a25bf4a5c",
+          "hash_sha256": "9405d8707d716718244d365c5e0677c45aba589cce26b857301a84f81518d567"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.2.0",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.",
+            "zh_cn": "一个简单的传送插件，用于创建传送点并实现EssentialsX的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.1.4",
+        "name": "v1.1.4",
+        "tag_name": "v1.1.4",
+        "created_at": "2025-08-03T05:02:47Z",
+        "description": "新增功能：\r\n增加back点击按钮\r\n非法维度禁止使用任何传送点指令",
+        "prerelease": false,
+        "asset": {
+          "id": 278882640,
+          "name": "SimpleTP-v1.1.4.pyz",
+          "size": 6851,
+          "download_count": 31,
+          "created_at": "2025-08-03T05:03:13Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.1.4/SimpleTP-v1.1.4.pyz",
+          "hash_md5": "7bde7422036e8b5b677051d020ac6f20",
+          "hash_sha256": "e0a82acac615450ab29fa980f567800a5c9356a0ac0565cfcc34fd5fb89784d3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.1.4",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+            "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.1.3",
+        "name": "v1.1.3",
+        "tag_name": "v1.1.3",
+        "created_at": "2025-08-02T18:35:06Z",
+        "description": "修复：\r\n`config.json` worlds中对应维度删除后仍可传送的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 278771519,
+          "name": "SimpleTP-v1.1.3.pyz",
+          "size": 6683,
+          "download_count": 17,
+          "created_at": "2025-08-02T18:35:33Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.1.3/SimpleTP-v1.1.3.pyz",
+          "hash_md5": "82d714e102454d502e87f23115de7501",
+          "hash_sha256": "63881e0e7c5170f12dc5df3d164277420e7d7db5b9a5dc51865c78472b623de0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.1.3",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+            "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.1.2",
+        "name": "v1.1.2",
+        "tag_name": "v1.1.2",
+        "created_at": "2025-08-02T18:26:51Z",
+        "description": "修复：\r\n`config.json` worlds中维度的顺序变化或增减内容时导致传送点维度意外改变的问题\r\n\r\n兼容：\r\n1.16 之前的 Minecraft 版本的异维度Mod",
+        "prerelease": false,
+        "asset": {
+          "id": 278769815,
+          "name": "SimpleTP-v1.1.2.pyz",
+          "size": 6628,
+          "download_count": 14,
+          "created_at": "2025-08-02T18:27:15Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.1.2/SimpleTP-v1.1.2.pyz",
+          "hash_md5": "98d735468b4e7a1702708e35b4c4aabf",
+          "hash_sha256": "f1420befe3041490b30d417e762ed3336d7affcf76db3591fed7aca15e6fd108"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.1.2",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+            "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.1.1",
+        "name": "v1.1.1",
+        "tag_name": "v1.1.1",
+        "created_at": "2025-08-02T14:28:19Z",
+        "description": "新增功能：\r\n记录传送点所在维度（包括Mod中的异维度）\r\n跨维度传送权限配置\r\n定时保存传送点数据\r\n\r\n修复：\r\n传送点权限要求错误（TP传送点不需要权限）",
+        "prerelease": false,
+        "asset": {
+          "id": 278735409,
+          "name": "SimpleTP-v1.1.1.pyz",
+          "size": 6296,
+          "download_count": 14,
+          "created_at": "2025-08-02T14:28:38Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.1.1/SimpleTP-v1.1.1.pyz",
+          "hash_md5": "8ad90d9e37785ec88df0fce8d6c64e5d",
+          "hash_sha256": "bb36580e96a600ef6e830f4b3a40eeebfae1289ad90650270045b8b386894d68"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.1.1",
+          "link": "https://github.com/PairZhu/SimpleTP-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+            "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-08-01T03:39:46Z",
+        "description": "初始功能：\r\n全局/个人 坐标点\r\n聊天框点击操作\r\n回到上一位置&死前位置",
+        "prerelease": false,
+        "asset": {
+          "id": 278313884,
+          "name": "SimpleTP-v1.0.0.pyz",
+          "size": 4261,
+          "download_count": 21,
+          "created_at": "2025-08-01T03:41:47Z",
+          "browser_download_url": "https://github.com/PairZhu/SimpleTP-MCDR/releases/download/v1.0.0/SimpleTP-v1.0.0.pyz",
+          "hash_md5": "64bc000bae7347470b5976e2fabb3db2",
+          "hash_sha256": "215a1d1e3ebbea6f2da82575aaf5ed8a01646b539bc0dea330f643650c3b8c54"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_tp",
+          "name": "Simple TP",
+          "version": "1.0.0",
+          "link": null,
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0",
+            "minecraft_data_api": "*",
+            "mg_events": ">=1.0.0"
+          },
+          "requirements": [
+            "mcdreforged==2.14.7",
+            "readerwriterlock==1.0.9"
+          ],
+          "description": {
+            "en_us": "A simple teleport plugin aiming to match and extend EssentialsX teleport features.",
+            "zh_cn": "一个简单的传送插件，尽量实现和扩展essentialsx的传送功能。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/PairZhu/SimpleTP-MCDR",
+    "name": "SimpleTP-MCDR",
+    "full_name": "PairZhu/SimpleTP-MCDR",
+    "html_url": "https://github.com/PairZhu/SimpleTP-MCDR",
+    "description": "A simple teleport plugin for MCDR aiming to match and extend EssentialsX teleport features.",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 1,
+    "readme": "# SimpleTP\n**English** | [简体中文](https://github.com/PairZhu/SimpleTP-MCDR/tree/master/README.zh.md)\n\nA simple teleportation plugin designed to create waypoints and implement the teleportation features of EssentialsX.\n\n## Preview\n![help](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README/1757133291389.png)\n![list](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README/1757133317304.png)\n![back](https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/image/README/1757133375310.png)\n\n## Features\n- Support for personal waypoints that players can create and manage, visible only to themselves\n- Support for global waypoints (public waypoints) visible to all players, suitable for public areas\n- Configurable enabled dimensions with support for modded dimensions (like Twilight Forest, Eternal Starlight, etc.)\n- Support for returning to death location and previous location before teleporting\n- Most commands support clickable operations for convenience\n- Easytp syntax sugar: `stp xxx` is equivalent to `stp tpp/tpg/tp/tpa xxx`, automatically recognizing waypoints and players, with priority `Personal Waypoint > Global Waypoint > Player`\n- Support for comprehensive command argument completion, allowing the use of the Tab key to complete waypoint names and player names (requires the [command_suggest](https://mcdreforged.com/en/plugin/command_suggest) plugin)\n\n## Commands\nThe following examples use the default prefix \"!!stp\". Adjust according to your configuration file.\n- !!stp help View help information\n\nPreview commands can be found in the [language file](https://github.com/PairZhu/SimpleTP-MCDR/tree/master/./lang/en_us.yml) under the help section.\n\n## Configuration File\nThe configuration file is located at `config/SimpleTP/config.json`\n- **prefix**: Command prefix, default is `!!stp`\n- **back_on_death**: Whether to automatically record the position upon player death, default is `true`\n- **save_interval**: Interval for scheduled saving of waypoint data, in seconds, default is `30` seconds\n- **permissions**: Permission configuration\n- **worlds**: List of supported dimensions (including mod dimensions), default is `[\"minecraft:overworld\", \"minecraft:the_nether\", \"minecraft:the_end\"]`. Teleportation will not work in dimensions not in this list. To disable teleportation in a dimension, simply remove it from the list.\n- **extra_dimensions**: ***Only required for Minecraft versions before 1.16***, configuration format is `{<dimension_id>: \"<dimension_name>\"}`, for example `{0: \"minecraft:overworld\", 1: \"minecraft:the_nether\", 2: \"minecraft:the_end\"}`. This configuration is used to support mod dimensions in older Minecraft versions.\n- **easy_tp**: Whether to enable easytp syntax sugar, default is `true`.\n\n### Permission Configuration\n- **back**: Permission to use `!!stp back` command\n- **tpa**: Permission to use `!!stp tpa` command\n- **tpahere**: Permission to use `!!stp tpahere` command\n- **tp**: Permission to use `!!stp tp <player>` command\n- **tphere**: Permission to use `!!stp tphere <player>` command\n- **personal_waypoint**: Permission to set/delete personal waypoint related commands\n- **global_waypoint**: Permission to set/delete global waypoint related commands\n- **cross_world_tp**: Permission for cross-dimension teleportation\n\n## Dependencies\n- **minecraft_data_api**: Used for retrieving player information\n- **mg_events**: Used for listening to player death events\n\n## Common Issues\n- **Clickable Teleport Button Not Responding**\n  MCDR has issues with click execution support in higher MC versions. Install [LetMeClickAndSendForServer](https://github.com/Fallen-Breath/LetMeClickAndSendForServer) (server-side) or [LetMeClickAndSend](https://github.com/Fallen-Breath/LetMeClickAndSend) (client-side).\n- **Sometimes `back` Command Doesn't Return to Previous Location After Death**\n  Some mod death messages are special and may not be detected by mg_events. You need to manually add corresponding death messages in mg_events language files. For example, for the [Eternal Starlight](https://www.curseforge.com/minecraft/mc-mods/eternal-starlight) mod, when players die in the Ether, add `\"death.attack.ether\": \"%1$s drifts away\"` to `config/mg_events/lang/en_us.json`, and `\"death.attack.ether\": \"%1$s飘然而去\"` to `config/mg_events/lang/zh_cn.json`.\n- **Log Shows \"Player {player} is in a dimension not enabled in config: {dimension}\"**\n  This indicates the player is in a dimension not enabled in the configuration. Check the `worlds` configuration in `config/SimpleTP/config.json` to ensure the dimension is included.\n- **Log Shows \"Player {player} is in an unknown dimension with ID {dimension}\"**\n  This error may occur when the server Minecraft version is before 1.16 and mod dimensions are installed. Check the `extra_dimensions` configuration in `config/SimpleTP/config.json` to ensure the dimension is included. You can get the dimension ID using the `/data get entity <player> Dimension` command.\n\n## TODO\nIf you have more feature requests or are interested in any planned features, feel free to raise them in the issues section 🚀\nSorted by priority:\n- [x] Support clickable waypoints\n- [x] `back` command supports round-trip teleportation\n- [x] Record player's dimension in waypoints (Nether, Overworld, End)\n- [x] Configuration for cross-dimension teleportation\n- [x] Scheduled saving of waypoint data (to prevent loss on crash)\n- [x] `tp`/`tphere` functionality\n- [x] `tpa`/`tpahere` functionality\n- [x] Multi-language support\n- [x] Help information\n- [ ] Record player's orientation in waypoints\n- [ ] Add description information for waypoints\n- [ ] Teleport cooldown configuration\n- [ ] Maximum number of waypoints configuration\n- [ ] Waypoint name length limit configuration\n- [ ] Waypoint safety check, prompting confirmation or teleporting to nearby safe location if the waypoint is in a dangerous position\n- [ ] Teleport cost configuration (consume custom items or experience) (base cost + distance cost)\n",
+    "readme_url": "https://raw.githubusercontent.com/PairZhu/SimpleTP-MCDR/master/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  }
+}

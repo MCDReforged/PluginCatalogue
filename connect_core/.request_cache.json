@@ -1,0 +1,513 @@
+{
+  "NOTICE": "Not public API, DO NOT use this file",
+  "release_pages": {
+    "1": {
+      "etag": "\"1ca5cf250f6e2c3a8f0a699216d7ce44871025d66e17cf8e2e9eb34c0b54044b\"",
+      "data": "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",
+      "empty": false
+    },
+    "2": {
+      "etag": "\"ef0b200f23451d4ed211633c01a706cfe75afc0b3512842a3194480bf1ab7599\"",
+      "data": "H4sIAIxfm2gC/4uOBQApu0wNAgAAAA==",
+      "empty": true
+    }
+  },
+  "asset_data": {
+    "226196434": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.4",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 54578,
+      "hash_md5": "94a217550f5f295527b72ee31fb63e76",
+      "hash_sha256": "fdf5afd59f3a8fe6e5c0758a723283b45e9015a62e01f89d6c603f7214f94495",
+      "ttl": 100
+    },
+    "226098239": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.3",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 53922,
+      "hash_md5": "f1a13338a1f3b33243a4621e5f6c8949",
+      "hash_sha256": "8a67dfa1f205ade280474b56978e3b8ffbcd2d4d46d9176897a15a93c0d8b4e4",
+      "ttl": 100
+    },
+    "226036472": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.2",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 52354,
+      "hash_md5": "c6e9349d2a8dc07dbdc7a4858da30637",
+      "hash_sha256": "7123ac91848a91fc8d6e1d0b5e3a0a23daf21cd837ae786360c10e3287fb6f8d",
+      "ttl": 100
+    },
+    "225905174": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.1",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 51791,
+      "hash_md5": "59430a7aab52501c1ca796d26b1ce6c3",
+      "hash_sha256": "c4374423a0213ee6bf5c2207b034e6dc0848f7e03bec729c8ffd05527331f84d",
+      "ttl": 100
+    },
+    "223537758": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.0",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "mcdreforged>=2.12.0",
+          "websockets>=12.0",
+          "pyyaml>=6.0.1",
+          "requests>=2.32.3",
+          "cryptography>=42.0.8"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 49105,
+      "hash_md5": "15289ef28fbdc3e41d23acaa95cce005",
+      "hash_sha256": "c0074d48ccf5d57e25ceecaf47859809eae5a0cd5d5d0304448a3d9795cacd46",
+      "ttl": 100
+    },
+    "226883533": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.5",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 54861,
+      "hash_md5": "aaf2e7507625603f878d7b7825172f33",
+      "hash_sha256": "e5b2921de203d86c0c9745b2eb0df2b63021dd82136a4ee9a49e25aec7822179",
+      "ttl": 100
+    },
+    "227110592": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.6",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 54894,
+      "hash_md5": "2acffd38d6591928f6820e8ad84e0337",
+      "hash_sha256": "3bc0cb2a231e5a418b64bf38c7c0378c4145a0ac57e790418ccf0159775fcd1e",
+      "ttl": 100
+    },
+    "249570445": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.7",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 54961,
+      "hash_md5": "cfec970d0918aa4a70fbdcfd741bb4eb",
+      "hash_sha256": "610b0f5338ac908f10138f01253c9c9180ef37b0fe02f7f6b9e8df14f2742fee",
+      "ttl": 100
+    },
+    "249662881": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.8",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 55405,
+      "hash_md5": "fd74f6e164949817dce5456da7f3179d",
+      "hash_sha256": "f481af6cae46f7d0c49abd0abb97c8e2a6c8ab49aa6a01fe5f3d52d054acd693",
+      "ttl": 100
+    },
+    "249896343": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.9",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 55784,
+      "hash_md5": "0c3f2875ace0ec55c82e1ffa0fa1b02e",
+      "hash_sha256": "341ad12d890542a4061496a2c70a4914fd6c973df581442b6ed5a7f2bfde6c2a",
+      "ttl": 100
+    },
+    "250155360": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.1.10",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 55783,
+      "hash_md5": "e7a0593ba55971899a583c4df4b60e03",
+      "hash_sha256": "78b36c759ee368ee58bd0e0b337326632acd5d5a8f15095d72aea9a39099515c",
+      "ttl": 100
+    },
+    "250403217": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.2.0",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 56002,
+      "hash_md5": "5a44aaf4f62f98add0053a5986e761ca",
+      "hash_sha256": "bddde00ec549c1020317f6b051a7ffd91e817cf7ef76eed4b46cf60981e8ca60",
+      "ttl": 100
+    },
+    "250865044": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.2.1",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 56023,
+      "hash_md5": "d6f02ebf58b4e86333810bb05751cdae",
+      "hash_sha256": "1ff086f4ed51c4123223d7c22f34b31c8d3251beb9320d0f2c377a6ceb859036",
+      "ttl": 100
+    },
+    "251509340": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.2.2",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 56483,
+      "hash_md5": "c1c83e33743e9bde9b2e5d88d46be5d1",
+      "hash_sha256": "79a08ed25f40283d1ee8f0d7454b5758a5e9f417629f1b749bf710f4bb27d8ec",
+      "ttl": 100
+    },
+    "251699886": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.2.3",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 59027,
+      "hash_md5": "899154f5428a4f02dec4f92befff2719",
+      "hash_sha256": "9793cd4fc43f654a27379c2eb5aaf979541d89f30aa2a98f8c5d186cc0b2573b",
+      "ttl": 100
+    },
+    "251773768": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.2.4",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography>=44.0.0",
+          "mcdreforged>=2.14.4",
+          "prompt_toolkit>=3.0.50",
+          "psutil>=6.1.1",
+          "PyYAML>=6.0.2",
+          "websockets>=14.2"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 59105,
+      "hash_md5": "e31f902d4194a9b69556041bdcf9a01a",
+      "hash_sha256": "e9a07994ca8fb623ece714fb90157254e8ecbb204ce179635806032cc139afd7",
+      "ttl": 100
+    },
+    "267451263": {
+      "meta": {
+        "schema_version": 4,
+        "id": "connect_core",
+        "name": "ConnectCore",
+        "version": "0.2.6",
+        "link": "https://github.com/zhongbai2333/ConnectCore",
+        "authors": [
+          "zhongbai233"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "mcdreforged",
+          "prompt_toolkit",
+          "psutil",
+          "PyYAML",
+          "websockets"
+        ],
+        "description": {
+          "en_us": "Connect your Minecraft Server together and control it.",
+          "zh_cn": "将你的Minecraft Server连接到一起并控制。"
+        }
+      },
+      "size": 60100,
+      "hash_md5": "77d56847474c4c8d0c7153a2b819529a",
+      "hash_sha256": "a2dc6bb99a4015fc4240d48c7c97e423c7775dec54808f2149b1f91c2ec155ec",
+      "ttl": 100
+    }
+  },
+  "repos_info": {
+    "etag": "\"1d538b14b1f0767c784021a2cc47e7941c84ae8d3f0c9f9d8864b6c338ff866d\"",
+    "data": "H4sIAMAM6mgC/62YbW/jNgyA/4qRr2vjNGnSLsDhNrRDh+F6627tNnQYDNlmbF1kyZPkZI3R/z7qxU6cDX2J8yUvsviIpkiKVD2g6WAeXJ5NL85G48nlSTDgIoXIjg6+RMvs+ufbny6+/zEbmEekADN+JTiHRF8JCWZ4UTEWNc82ueBZTOh4MpmEexNLSVdEm2kLwhTgiFhzkPi/HjCRUb4PMEJWlen5ZDq7uLzo6nd7/cvstz8+s+Trw+h28zD+vMmsCMFViIwqycysXOtSzcPQjaphRnVexZUCmQiugethIoqwCps1Pq4+nBtKJj3HLWaG9okl9TSHQKQK9/XPdcH2VdkR2p++EIyJNYKi9y4WtqJbDuXZoRwUrUOhc0BD4pxnaxKq9AGKWbHafqExLUmhYSWk72d5QVTNuM5zHUoohUNWsUokLTUV/AAlO+KGJ2RGON2QA3kobjFGvwPErZiRhxW66AEAJ1eHNuiSp2enSwJ0hWY/FLoHMEz9VNrAf8DZNkbwO1pRWEfNk7KKGU3sFlENEUkLG+k2Bzy/L0L2M0oK7Z4Z6R/QO3AtlQckUJBUEgJG+TKIQa8BOI7JFb7TMPi1KkshdUB5CiXgB9cBKh4QnrpvFdxeXX8JSlZhWtrOZ4KkGBgBOot/pqzMWsilGUe5Ehf1j4YuEOVyJ+O9bHK76y++scG9tnEvU0KLMKwlPPVEGUJtPpu4TjB3kFhIooXsye6g6s5fu5QGUvRcwiJskhair1Utwh5YSlXwtgh7BWlJqo1kXhWxT8THoG9DmChFMw7QE9hi6rA9MWJJeJL3JTeU2v9y+0+yvttPXIqOmYh7onBmaDF1qHLiD0sd9dfRgA2ly5WwOALXULZcLXt7gFVWWg9oqJiRNXpDT3BDCeuGywjPKpL1BbeYpijJyAZkf209x6VEriWNq2NkxC1pp+KJ+yu8Be1XUkcBuwPa2qIoqO5tBgvpRsRRyMZ//0M3A/2zbUPppHF3VPhHRzkr/ncZ3+ccwfsMJay/KYnOG9uUREJv0xhIWMcEC8LhcFjnQFw5UYDsHeKOYc85meRYvfbD1Q0Fy6iCaNuBLKyyKbYkpkDsqW+LaT3kKGVExyNKbNl7Ui2iAy0oA6UF771hLaeD50LTBU3e1I+9skIHVX9UlCdwQhg7QT/UNKHo31jN+3MmBtb7kDEMfBlSgO/DGJDeh2JDqUNffGMvw8TTEZLVDshGuQSisekj2iDHo/H56Wh2eja9H0/mo7P59OLRNn5l2p01NbPGs/vRt/PxbD49f3Sep/IXJl0+NgndvwD+fFs7aF7PHl4q35H9bis5f00yYehzBzSi7corfmAbm4sCSqxCUJRjWNlOeWP+TWbn3bokERU3ppvg8JpoLIr3BpuCxmhx96Rzd+7mREUuDeC4lhX4sVKKr6jH3ug2A3WG13RJ98Rt5bRtbq0wVUmFnYC5Rdk+cW1ro+jIZgspRXNJ59/ap9Z0RxBx2NJ3hgR27P5tWuKZfXeaAFdg7xOxJ7UuULLTyXC0e3t58/khuAEOkrDgzl5NBJ+cYLDyU1WZ/uOv/W7uPjWAl0PKL67C3SV37yqT2f0N+/r4+3TzeL/8MDA3H8RctJmDxFwebE1LVaShKFn3rnQNsa9yItNnicUC24C/Kyo7xtGipImx/J9/4b8VVTSmjOqn7kWMuwJwG7FjzsaQjWd5n0phQSqmI9d8GVJBlHbXPSXIgrbbXQ86tztmmwnlmnSGTArY1VhS56/b54x5YzzbPr8oIxebWiyBN5exHLS5duk41W5F3LrG87/RMpCm5hYAAA=="
+  }
+}
