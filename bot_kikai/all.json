@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "bot_kikai",
+    "name": "BotKikai",
+    "version": "0.5.0",
+    "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+    "authors": [
+      "Jerry-FaGe"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0",
+      "minecraft_data_api": ">=1.1.0"
+    },
+    "requirements": [],
+    "description": {
+      "zh_cn": "使用中文名称即可将假人精准召唤到任意位置，支持多种动作。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "bot_kikai",
+    "authors": [
+      "Jerry_FaGe",
+      "RayanceKing"
+    ],
+    "repository": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool",
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# MCDR-BotKikai（Bot機械）\n\n一个基于 [MCDR](https://github.com/Fallen-Breath/MCDReforged) 的 Minecraft 假人管理插件，专注于简化 [Carpet](https://github.com/gnembon/fabric-carpet) 假人的管理和操作。\n\n> 君は道具ではなく、その名が似合う人になろんだ\n\n## 📝 简介\n\n本插件旨在解决以下问题：\n\n- 记不住每个机器的假人名字？\n- 不习惯输入英文指令？\n- 想在家里快速开关远处、其他维度的机器？\n\n只需为每个假人设置中文别名，就能通过简单的中文名字来操控它们。比如，对于一个叫 `SandBot` 的假人，你可以给它起个别名叫\"刷沙机\"，这样 `!!bk SandBot spawn` 和 `!!bk 刷沙机 spawn` 的效果是完全一样的！也就是说你不需要记住哪个假人控制哪个机器，只需要确认你想开关哪个机器。\n\n你可以在世界的任意位置输入指令 `!!bk 刷沙机 use` 即可让假人 `SandBot` 自动在刷沙机处上线，并右键开关来开启刷沙机（顺便挂机）。\n\n> 上古版本的[介绍视频](https://www.bilibili.com/video/BV1Rf4y1C776) By: [Nachuan川川](https://space.bilibili.com/107251863)\n\n## 🚀 特性\n\n- 支持假人别名系统（中文、拼音等都可以）\n- 方便的假人位置和朝向记录\n- 交互式的操作界面\n- 支持假人前后缀\n- 支持权限管理\n- 配置文件热重载\n\n## ⚙️ 依赖\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.0.0\n- [MinecraftDataAPI](https://github.com/Fallen-Breath/MinecraftDataAPI) >= 1.1.0\n- Minecraft 服务端需要安装 [Carpet](https://github.com/gnembon/fabric-carpet) 模组\n\n## 📖 命令说明\n\n基础命令（可于配置文件中自定义）：\n\n```minecraft\n!!bk\n```\n\n所有可用命令：\n\n| 命令                                             | 说明              | 权限等级  |\n| ---------------------------------------------- | --------------- | ----- |\n| !!bk                                           | 显示帮助信息          | 所有人   |\n| !!bk list [online|offline]                     | 显示假人列表，可筛选在线或离线 | 所有人   |\n| !!bk reload                                    | 重载插件配置          | admin |\n| !!bk add <name\\> <kikai\\>                      | 使用当前玩家位置添加假人    | admin |\n| !!bk add <name\\> <kikai\\> [dim] [pos] [facing] | 使用自定义参数添加假人     | admin |\n| !!bk del <kikai\\>                              | 删除指定假人          | admin |\n| !!bk <kikai\\>                                  | 显示假人详细信息和操作界面   | user  |\n\n假人操作命令：\n\n| 命令                               | 说明                | 权限等级 |\n| -------------------------------- | ----------------- | ---- |\n| !!bk <kikai\\> spawn              | 在对应位置生成假人         | user |\n| !!bk <kikai\\> kill               | 移除假人              | user |\n| !!bk <kikai\\> where              | 显示假人位置（会让假人发光2分钟） | user |\n| !!bk <kikai\\> use                | 假人右键一次            | user |\n| !!bk <kikai\\> huse [<interval\\>] | 假人持续右键，可选间隔时间（gt） | user |\n| !!bk <kikai\\> atk                | 假人左键一次            | user |\n| !!bk <kikai\\> hatk [<interval\\>] | 假人持续左键，可选间隔时间（gt） | user |\n| !!bk <kikai\\> stop               | 停止假人的所有动作         | user |\n\n## ⚡ 快速上手\n\n1. 为刷沙机添加一个假人并设置位置：\n\n    ```minecraft\n    !!bk add SandBot 刷沙机\n    ```\n\n   玩家站在期望的位置和朝向执行此命令，假人的位置和朝向会被自动记录。\n\n   你也可以手动指定位置（不建议，挺麻烦的）：\n\n    ```minecraft\n    !!bk add SandBot 刷沙机 minecraft:overworld 0 64 0 -154.43 3.90\n    ```\n\n2. 使用假人：\n\n    ```minecraft\n    !!bk 刷沙机           # 显示假人信息和操作界面\n    !!bk 刷沙机 spawn     # 召唤假人到记录的位置\n    !!bk 刷沙机 use       # 让假人右键一次\n    !!bk 刷沙机 hatk 12   # 让假人每 12gt 左键一次\n    !!bk 刷沙机 stop      # 让假人停止动作\n    !!bk 刷沙机 kill      # 让假人下线\n    ```\n\n## ⚙️ 配置文件\n\n插件会在 `MCDR/config/bot_kikai` 目录下创建两个配置文件：\n\n1. `config.json` - 插件基础配置：\n\n    ```json\n    {\n        \"prefix_short\": \"!!bk\",\n        \"spawn_max_wait_time\": 10.0,\n        \"spawn_check_interval\": 0.5,\n        \"bot_name_prefix\": \"\",\n        \"bot_name_suffix\": \"\",\n        \"permission\": {\n            \"bot\": 1,\n            \"list\": 3\n        }\n    }\n    ```\n\n   配置项说明：\n\n   - prefix_short: 命令前缀\n   - spawn_max_wait_time: 等待假人生成的最大时间（秒）\n   - spawn_check_interval: 检查假人是否生成的间隔（秒）\n   - bot_name_prefix: 在 Carpet 中设置的假人前缀\n   - bot_name_suffix: 在 Carpet 中设置的假人后缀\n   - permission.bot: 操作假人的最低权限等级\n   - permission.list: 管理假人的最低权限等级\n\n2. `bots.json` - 假人数据：\n\n    ```json\n    {\n        \"SandBot\": {\n            \"nicknames\": [\"SandBot\", \"刷沙机\", \"shuashaji\"],\n            \"dimension\": \"minecraft:overworld\",\n            \"position\": [-2.44, 7.0, -5.05],\n            \"facing\": [180.59, 29.55]\n        }\n    }\n    ```\n\n   配置项说明：\n\n   - nicknames: 假人的所有别名列表\n   - dimension: 假人所在维度\n   - position: 假人的位置坐标 [x, y, z]\n   - facing: 假人的朝向角度 [水平角, 垂直角]\n\n## 🔒 权限系统\n\n插件使用 MCDR 的[权限](https://docs.mcdreforged.com/zh-cn/latest/permission.html#permission-file)系统，默认配置：\n\n- 假人操作权限（spawn、use、kill 等）：需要 user 及以上权限\n- 假人管理权限（add、remove 等）：需要 admin 及以上权限\n\n权限等级对应关系：\n\n- guest = 0\n- user = 1\n- helper = 2\n- admin = 3\n- owner = 4\n\n## 📝 注意事项\n\n- **关于前后缀配置**：\n  - 如果服务器开启了假人前后缀，请务必在本插件配置文件中配置相同的前后缀，以防止预期之外的情况发生；\n  - 如果服务器没有开启假人前后缀，您依然可以配置本插件的前后缀，这样由本插件创建的假人都会带有配置的前后缀。\n- **关于命令点击执行**：\n  - 自 Minecraft 1.19.1-rc1 起，由于游戏安全性更新，点击聊天框中的命令按钮将无法直接执行非 `/` 开头的命令\n  - 这影响了 MCDR 插件的交互体验，包括本插件在内的绝大部分插件都改用了 `suggest_command`（命令建议）模式\n  - 点击命令按钮后，命令会被填充到聊天框中，需要玩家手动按回车执行\n  - 这也带来了一个好处：对于类似 `!!bk <kikai> huse [间隔gt]` 这样需要自定义参数的命令，玩家可以在发送前修改参数\n  - 具体详见 [MCDReforged #203](https://github.com/MCDReforged/MCDReforged/issues/203)\n- 对于某些版本的 Carpet 模组，假人可能无法操作拉杆，建议替换成音符盒式开关或其他支持假人右键的方式。\n\n## ⚠️ 声明\n\n本插件实现的功能只要是装了 Carpet Mod 能召唤假人的服务端都可以实现，即便是这样也仍有可能引发**不香草**争议。烦请想装本插件的腐竹实装前务必了解下成员们的意愿。\n\n## 🤝 致谢\n\n- 感谢 [Fallen_Breath](https://github.com/Fallen-Breath) 开发的 [MCDR](https://github.com/Fallen-Breath/MCDReforged) 框架\n- 感谢 [Carpet](https://github.com/gnembon/fabric-carpet) 模组提供的假人功能\n- 感谢 [AnzhiZhang](https://github.com/AnzhiZhang) 的 [Bot](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot) 插件提供的灵感\n\n## 📄 开源协议\n\n[GPL-3.0 License](https://github.com/Jerry-FaGe/MCDR-BotKikai/tree/master/LICENSE)\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/Jerry-FaGe/MCDR-BotKikai/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "bot_kikai",
+    "latest_version": "0.5.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.5.0",
+        "name": "v0.5.0",
+        "tag_name": "v0.5.0",
+        "created_at": "2025-09-03T08:48:14Z",
+        "description": "## 📦 Other\n\n- ✨ 添加假人前后缀支持 (#4)\n- 📝 更新文档，添加关于命令点击执行的说明\n- 🔖 发布 v0.5.0\n\n",
+        "prerelease": false,
+        "asset": {
+          "id": 289134709,
+          "name": "BotKikai-v0.5.0.mcdr",
+          "size": 22277,
+          "download_count": 70,
+          "created_at": "2025-09-03T08:49:34Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.5.0/BotKikai-v0.5.0.mcdr",
+          "hash_md5": "3b6a862163bac4b3d4a11d426b44925b",
+          "hash_sha256": "655904ebe93dcbbc8b746c1dedd1f18e0ee5d0db102840d81cc4f61b8966f751"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.5.0",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "使用中文名称即可将假人精准召唤到任意位置，支持多种动作。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.4.0",
+        "name": "v0.4.0",
+        "tag_name": "v0.4.0",
+        "created_at": "2025-08-29T09:56:25Z",
+        "description": "## 📦 Other\n\n- ✨ 提取主要配置到配置文件\n- 📝 重构文档\n- 🔖 发布 v0.4.0\n\n",
+        "prerelease": false,
+        "asset": {
+          "id": 287481703,
+          "name": "BotKikai-v0.4.0.mcdr",
+          "size": 22132,
+          "download_count": 30,
+          "created_at": "2025-08-29T09:58:15Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.4.0/BotKikai-v0.4.0.mcdr",
+          "hash_md5": "41db4b9d6e294d0ba64cbd89167baf32",
+          "hash_sha256": "0c299099a5560944aaf07a630fffcb2c6206323c4140f62cb02bf1b682eb2e30"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.4.0",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "使用中文名称即可将假人精准召唤到任意位置，支持多种动作。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.3.1",
+        "name": "v0.3.1",
+        "tag_name": "v0.3.1",
+        "created_at": "2025-08-21T09:59:32Z",
+        "description": "## 📦 Other\n\n- 🐛 修复假人指令名与真实名大小写不同时不能判断其在线状态\n- 👷 继续改自动  Release Notes\n- 🔖 发布 v0.3.1\n\n",
+        "prerelease": false,
+        "asset": {
+          "id": 284746490,
+          "name": "BotKikai-v0.3.1.mcdr",
+          "size": 21195,
+          "download_count": 32,
+          "created_at": "2025-08-21T10:00:20Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.3.1/BotKikai-v0.3.1.mcdr",
+          "hash_md5": "04078ad873b4639b317d398d6d1e9888",
+          "hash_sha256": "6e0cd010966792d5e3e71f3156f403d702b3ef187a3d22214748c75d3140b5aa"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.3.1",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "使用中文名称即可将假人精准召唤到任意位置，支持多种动作。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.3.0",
+        "name": "v0.3.0",
+        "tag_name": "v0.3.0",
+        "created_at": "2025-08-20T09:41:51Z",
+        "description": "✨ 假人完全上线后才会执行后续动作\r\n\r\n**Full Changelog**: https://github.com/Jerry-FaGe/MCDR-BotKikai/compare/v0.2.1...v0.3.0",
+        "prerelease": false,
+        "asset": {
+          "id": 284365961,
+          "name": "BotKikai-v0.3.0.mcdr",
+          "size": 21036,
+          "download_count": 23,
+          "created_at": "2025-08-20T09:42:58Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.3.0/BotKikai-v0.3.0.mcdr",
+          "hash_md5": "e01b2302474c4f582ee947aaba7b36f0",
+          "hash_sha256": "c2b98227afd95fdab33f83fec733ed51d990eaf4026e108010346929544d660c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.3.0",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "使用中文名称即可将假人精准召唤到任意位置，支持多种动作。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.2.1",
+        "name": "v0.2.1",
+        "tag_name": "v0.2.1",
+        "created_at": "2025-08-18T08:26:58Z",
+        "description": "**Full Changelog**: https://github.com/Jerry-FaGe/MCDR-BotKikai/compare/v0.2.0...v0.2.1",
+        "prerelease": false,
+        "asset": {
+          "id": 283607430,
+          "name": "BotKikai-v0.2.1.mcdr",
+          "size": 20858,
+          "download_count": 20,
+          "created_at": "2025-08-18T08:27:53Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.2.1/BotKikai-v0.2.1.mcdr",
+          "hash_md5": "bc7a51efbf53ec5ca306ba49c41b81ac",
+          "hash_sha256": "0aa48d5c4be0105b96ead53e34ff8e41b5b32ca21b02b6f9c382c53fb77504aa"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.2.1",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "适用于 MCDR 的将假人存储至列表并提供指令映射，便捷放置，操作界面等功能的插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.2.0",
+        "name": "v0.2.0",
+        "tag_name": "v0.2.0",
+        "created_at": "2025-08-15T11:48:08Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 282819321,
+          "name": "BotKikai-v0.2.0.mcdr",
+          "size": 20837,
+          "download_count": 25,
+          "created_at": "2025-08-15T11:52:11Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.2.0/BotKikai-v0.2.0.mcdr",
+          "hash_md5": "0ed5df0f4d0e5db9aa19f8044da0ec80",
+          "hash_sha256": "50ae312bf648dbc133f47a89f98a5133fbfcb93b2883847acf662bd26048495d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.2.0",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "适用于 MCDR 的将假人存储至列表并提供指令映射，便捷放置，操作界面等功能的插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/tag/v0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "v0.1.0",
+        "created_at": "2025-07-14T08:01:35Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 272670564,
+          "name": "BotKikai-v0.1.0.mcdr",
+          "size": 20667,
+          "download_count": 77,
+          "created_at": "2025-07-14T08:14:12Z",
+          "browser_download_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai/releases/download/v0.1.0/BotKikai-v0.1.0.mcdr",
+          "hash_md5": "cfd95fd2f0b43018ab0504b0d8bf4989",
+          "hash_sha256": "c34f794673f6ba4e960b94d9658d189b663f14aa3ba09cb9452799eb17bebd71"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_kikai",
+          "name": "BotKikai",
+          "version": "0.1.0",
+          "link": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+          "authors": [
+            "Jerry-FaGe"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "适用于 MCDR 的将假人存储至列表并提供指令映射，便捷放置，操作界面等功能的插件。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+    "name": "MCDR-BotKikai",
+    "full_name": "Jerry-FaGe/MCDR-BotKikai",
+    "html_url": "https://github.com/Jerry-FaGe/MCDR-BotKikai",
+    "description": "适用于MCDR的将假人位置朝向等信息存储至列表并提供指令映射，便捷放置，操作界面等功能的插件",
+    "archived": false,
+    "stargazers_count": 11,
+    "watchers_count": 11,
+    "forks_count": 5,
+    "readme": "# MCDR-BotKikai（Bot機械）\n\n一个基于 [MCDR](https://github.com/Fallen-Breath/MCDReforged) 的 Minecraft 假人管理插件，专注于简化 [Carpet](https://github.com/gnembon/fabric-carpet) 假人的管理和操作。\n\n> 君は道具ではなく、その名が似合う人になろんだ\n\n## 📝 简介\n\n本插件旨在解决以下问题：\n\n- 记不住每个机器的假人名字？\n- 不习惯输入英文指令？\n- 想在家里快速开关远处、其他维度的机器？\n\n只需为每个假人设置中文别名，就能通过简单的中文名字来操控它们。比如，对于一个叫 `SandBot` 的假人，你可以给它起个别名叫\"刷沙机\"，这样 `!!bk SandBot spawn` 和 `!!bk 刷沙机 spawn` 的效果是完全一样的！也就是说你不需要记住哪个假人控制哪个机器，只需要确认你想开关哪个机器。\n\n你可以在世界的任意位置输入指令 `!!bk 刷沙机 use` 即可让假人 `SandBot` 自动在刷沙机处上线，并右键开关来开启刷沙机（顺便挂机）。\n\n> 上古版本的[介绍视频](https://www.bilibili.com/video/BV1Rf4y1C776) By: [Nachuan川川](https://space.bilibili.com/107251863)\n\n## 🚀 特性\n\n- 支持假人别名系统（中文、拼音等都可以）\n- 方便的假人位置和朝向记录\n- 交互式的操作界面\n- 支持假人前后缀\n- 支持权限管理\n- 配置文件热重载\n\n## ⚙️ 依赖\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.0.0\n- [MinecraftDataAPI](https://github.com/Fallen-Breath/MinecraftDataAPI) >= 1.1.0\n- Minecraft 服务端需要安装 [Carpet](https://github.com/gnembon/fabric-carpet) 模组\n\n## 📖 命令说明\n\n基础命令（可于配置文件中自定义）：\n\n```minecraft\n!!bk\n```\n\n所有可用命令：\n\n| 命令                                             | 说明              | 权限等级  |\n| ---------------------------------------------- | --------------- | ----- |\n| !!bk                                           | 显示帮助信息          | 所有人   |\n| !!bk list [online|offline]                     | 显示假人列表，可筛选在线或离线 | 所有人   |\n| !!bk reload                                    | 重载插件配置          | admin |\n| !!bk add <name\\> <kikai\\>                      | 使用当前玩家位置添加假人    | admin |\n| !!bk add <name\\> <kikai\\> [dim] [pos] [facing] | 使用自定义参数添加假人     | admin |\n| !!bk del <kikai\\>                              | 删除指定假人          | admin |\n| !!bk <kikai\\>                                  | 显示假人详细信息和操作界面   | user  |\n\n假人操作命令：\n\n| 命令                               | 说明                | 权限等级 |\n| -------------------------------- | ----------------- | ---- |\n| !!bk <kikai\\> spawn              | 在对应位置生成假人         | user |\n| !!bk <kikai\\> kill               | 移除假人              | user |\n| !!bk <kikai\\> where              | 显示假人位置（会让假人发光2分钟） | user |\n| !!bk <kikai\\> use                | 假人右键一次            | user |\n| !!bk <kikai\\> huse [<interval\\>] | 假人持续右键，可选间隔时间（gt） | user |\n| !!bk <kikai\\> atk                | 假人左键一次            | user |\n| !!bk <kikai\\> hatk [<interval\\>] | 假人持续左键，可选间隔时间（gt） | user |\n| !!bk <kikai\\> stop               | 停止假人的所有动作         | user |\n\n## ⚡ 快速上手\n\n1. 为刷沙机添加一个假人并设置位置：\n\n    ```minecraft\n    !!bk add SandBot 刷沙机\n    ```\n\n   玩家站在期望的位置和朝向执行此命令，假人的位置和朝向会被自动记录。\n\n   你也可以手动指定位置（不建议，挺麻烦的）：\n\n    ```minecraft\n    !!bk add SandBot 刷沙机 minecraft:overworld 0 64 0 -154.43 3.90\n    ```\n\n2. 使用假人：\n\n    ```minecraft\n    !!bk 刷沙机           # 显示假人信息和操作界面\n    !!bk 刷沙机 spawn     # 召唤假人到记录的位置\n    !!bk 刷沙机 use       # 让假人右键一次\n    !!bk 刷沙机 hatk 12   # 让假人每 12gt 左键一次\n    !!bk 刷沙机 stop      # 让假人停止动作\n    !!bk 刷沙机 kill      # 让假人下线\n    ```\n\n## ⚙️ 配置文件\n\n插件会在 `MCDR/config/bot_kikai` 目录下创建两个配置文件：\n\n1. `config.json` - 插件基础配置：\n\n    ```json\n    {\n        \"prefix_short\": \"!!bk\",\n        \"spawn_max_wait_time\": 10.0,\n        \"spawn_check_interval\": 0.5,\n        \"bot_name_prefix\": \"\",\n        \"bot_name_suffix\": \"\",\n        \"permission\": {\n            \"bot\": 1,\n            \"list\": 3\n        }\n    }\n    ```\n\n   配置项说明：\n\n   - prefix_short: 命令前缀\n   - spawn_max_wait_time: 等待假人生成的最大时间（秒）\n   - spawn_check_interval: 检查假人是否生成的间隔（秒）\n   - bot_name_prefix: 在 Carpet 中设置的假人前缀\n   - bot_name_suffix: 在 Carpet 中设置的假人后缀\n   - permission.bot: 操作假人的最低权限等级\n   - permission.list: 管理假人的最低权限等级\n\n2. `bots.json` - 假人数据：\n\n    ```json\n    {\n        \"SandBot\": {\n            \"nicknames\": [\"SandBot\", \"刷沙机\", \"shuashaji\"],\n            \"dimension\": \"minecraft:overworld\",\n            \"position\": [-2.44, 7.0, -5.05],\n            \"facing\": [180.59, 29.55]\n        }\n    }\n    ```\n\n   配置项说明：\n\n   - nicknames: 假人的所有别名列表\n   - dimension: 假人所在维度\n   - position: 假人的位置坐标 [x, y, z]\n   - facing: 假人的朝向角度 [水平角, 垂直角]\n\n## 🔒 权限系统\n\n插件使用 MCDR 的[权限](https://docs.mcdreforged.com/zh-cn/latest/permission.html#permission-file)系统，默认配置：\n\n- 假人操作权限（spawn、use、kill 等）：需要 user 及以上权限\n- 假人管理权限（add、remove 等）：需要 admin 及以上权限\n\n权限等级对应关系：\n\n- guest = 0\n- user = 1\n- helper = 2\n- admin = 3\n- owner = 4\n\n## 📝 注意事项\n\n- **关于前后缀配置**：\n  - 如果服务器开启了假人前后缀，请务必在本插件配置文件中配置相同的前后缀，以防止预期之外的情况发生；\n  - 如果服务器没有开启假人前后缀，您依然可以配置本插件的前后缀，这样由本插件创建的假人都会带有配置的前后缀。\n- **关于命令点击执行**：\n  - 自 Minecraft 1.19.1-rc1 起，由于游戏安全性更新，点击聊天框中的命令按钮将无法直接执行非 `/` 开头的命令\n  - 这影响了 MCDR 插件的交互体验，包括本插件在内的绝大部分插件都改用了 `suggest_command`（命令建议）模式\n  - 点击命令按钮后，命令会被填充到聊天框中，需要玩家手动按回车执行\n  - 这也带来了一个好处：对于类似 `!!bk <kikai> huse [间隔gt]` 这样需要自定义参数的命令，玩家可以在发送前修改参数\n  - 具体详见 [MCDReforged #203](https://github.com/MCDReforged/MCDReforged/issues/203)\n- 对于某些版本的 Carpet 模组，假人可能无法操作拉杆，建议替换成音符盒式开关或其他支持假人右键的方式。\n\n## ⚠️ 声明\n\n本插件实现的功能只要是装了 Carpet Mod 能召唤假人的服务端都可以实现，即便是这样也仍有可能引发**不香草**争议。烦请想装本插件的腐竹实装前务必了解下成员们的意愿。\n\n## 🤝 致谢\n\n- 感谢 [Fallen_Breath](https://github.com/Fallen-Breath) 开发的 [MCDR](https://github.com/Fallen-Breath/MCDReforged) 框架\n- 感谢 [Carpet](https://github.com/gnembon/fabric-carpet) 模组提供的假人功能\n- 感谢 [AnzhiZhang](https://github.com/AnzhiZhang) 的 [Bot](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot) 插件提供的灵感\n\n## 📄 开源协议\n\n[GPL-3.0 License](https://github.com/Jerry-FaGe/MCDR-BotKikai/tree/master/LICENSE)\n",
+    "readme_url": "https://raw.githubusercontent.com/Jerry-FaGe/MCDR-BotKikai/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

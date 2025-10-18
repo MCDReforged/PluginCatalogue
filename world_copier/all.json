@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "world_copier",
+    "name": "World Copier",
+    "version": "0.1.0",
+    "link": "https://github.com/MCDReforged/WorldCopier",
+    "authors": [
+      "Alex3236"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.2.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Sync your mirror server with main server.",
+      "zh_cn": "同步生存服和镜像服"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "world_copier",
+    "authors": [
+      "Alex3236"
+    ],
+    "repository": "https://github.com/alex3236/WorldCopier",
+    "branch": "main",
+    "related_path": "src",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "🔄 Sync mirror server with main server.\n",
+      "zh_cn": "🔄 将镜像服与生存服同步。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/alex3236/WorldCopier/main/src/docs/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/alex3236/WorldCopier/main/src/docs/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "world_copier",
+    "latest_version": "0.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/alex3236/WorldCopier/releases/tag/v0.1.0",
+        "name": "0.1.0",
+        "tag_name": "v0.1.0",
+        "created_at": "2022-04-03T07:40:13Z",
+        "description": "awa",
+        "prerelease": false,
+        "asset": {
+          "id": 61406433,
+          "name": "WorldCopier-v0.1.0.mcdr",
+          "size": 3144,
+          "download_count": 454,
+          "created_at": "2022-04-03T07:41:35Z",
+          "browser_download_url": "https://github.com/alex3236/WorldCopier/releases/download/v0.1.0/WorldCopier-v0.1.0.mcdr",
+          "hash_md5": "af13b90a586becc45a69a61dc1a6ed90",
+          "hash_sha256": "f2b423f92af04bbe0b2c76550e77ce5d7be6a32acca13beed2c1814dbe1b7218"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "world_copier",
+          "name": "World Copier",
+          "version": "0.1.0",
+          "link": "https://github.com/MCDReforged/WorldCopier",
+          "authors": [
+            "Alex3236"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.2.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Sync your mirror server with main server.",
+            "zh_cn": "同步生存服和镜像服"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/alex3236/WorldCopier",
+    "name": "WorldCopier",
+    "full_name": "alex3236/WorldCopier",
+    "html_url": "https://github.com/alex3236/WorldCopier",
+    "description": "同步生存服和镜像服",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 1,
+    "readme": "# WorldCopier\n\n[![](https://img.shields.io/badge/for-mcdr2-9cf?style=for-the-badge&labelColor=blue)](https://github.com/Fallen-Breath/MCDReforged)\n\n将镜像服与生存服同步。\n\n> ⚠️ 仅支持同步整个存档，需要部分同步请用 [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater)\n\n## ❤️ 特别感谢\n\n这个插件的大部分代码来自 [`TISUnion/QuickBackupM`](https://github.com/TISUnion/QuickBackupM)。\n\n## 🚪 前置\n\n- MCDReforged >= 2.2.0\n\n## 💻 指令\n\n`!!sync`: 立即同步\n\n`!!sync abort`: 取消同步\n\n## 📄 配置文件\n\n第一次运行时，插件会生成配置文件 **config/world_cpier/config.json**。该文件内容如下：\n\n```json5\n{\n    \"command\": \"!!sync\", // 命令前缀\n    \"permission\": 0, // 权限\n    \"source_path\": \"/foo/bar/qb_multi/slot1\", // 同步来源，建议设置为主服 QBM 槽位 1\n    \"world_list\": [\n        \"world\" // 存档文件夹名称\n    ],\n    \"server_path\": \"./server\", // 需要同步的世界文件夹列表，原版服务端只会有一个世界\n    \"backup\": false, // 同步前是否进行一次备份以避免小天才\n    \"backup_path\": \"./sync_backup\", // 备份路径\n    \"timed_sync\": -1, // 定时同步，单位为分钟，<=0 为禁用\n    \"ignored_files\": [\n        \"seesion.lock\" // 同步时忽略的文件。可以 * 作为通配符匹配以某些字符开头或结尾的文件\n    ]\n}\n```\n> ⚠️ 此处使用 json5 格式高亮以对配置项进行解释，实际配置格式为 json, 不可使用注释。\n",
+    "readme_url": "https://raw.githubusercontent.com/MCDReforged/WorldCopier/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

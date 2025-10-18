@@ -1,0 +1,192 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "command_suggest",
+    "name": "CommandSuggest",
+    "version": "1.0.2",
+    "link": "https://github.com/PairZhu/CommandSuggest-MCDR",
+    "authors": [
+      "PairZhu"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.12.0"
+    },
+    "requirements": [
+      "uvicorn",
+      "fastapi",
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "MCDR command completion plugin supporting parameter suggestions.",
+      "zh_cn": "支持参数提示的MCDR命令补全插件。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "command_suggest",
+    "authors": [
+      "PairZhu"
+    ],
+    "repository": "https://github.com/PairZhu/CommandSuggest-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# 🚀 CommandSuggest-MCDR\n\n**English | [简体中文](https://github.com/PairZhu/CommandSuggest-MCDR/tree/master/./README.md)**\n\n[![Modrinth Downloads](https://img.shields.io/modrinth/dt/mcdrcmdsuggest?logo=modrinth&label=Modrinth)\n](https://modrinth.com/mod/mcdrcmdsuggest)\n\n## ✨ A More Elegant MCDR Command Completion\n\nThis plugin requires the use of the [McdrCmdSuggest](https://modrinth.com/mod/mcdrcmdsuggest) server-side mod.\n\nCommandSuggest-MCDR is an MCDR plugin that provides a more elegant command completion feature for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged). By registering MCDR commands on the Minecraft server and sending them to the client, players can enjoy a native command completion experience.\n\n![1757522576816](https://raw.githubusercontent.com/PairZhu/CommandSuggest-MCDR/master/image/1757522576816.png)\n\n## 🛠️ Features\n\n- ⚡ Native command completion: Registers MCDR commands as native Minecraft commands, allowing silent execution of MCDR commands.\n- 💡 Supports argument suggestion completion (the `suggests` method in MCDR plugins).\n- 🖥️ Pure server-side mod: No client installation required, compatible with vanilla clients.\n- 🛡️ Does not rely on mixins, making it easier to maintain across multiple versions, with full support for official versions **1.14 ~ 1.21.8**.\n- ⚙️ Fully automatic default configuration: Works out of the box without manual setup.\n\n## 📦 Installation\n\n1. Download the latest version of McdrCmdSuggest from [Modrinth](https://modrinth.com/mod/mcdrcmdsuggest) or [GitHub Releases](https://github.com/PairZhu/McdrCmdSuggest/releases).\n2. Place the downloaded jar file into the `mods` folder of your Minecraft server.\n3. Install this plugin on the server using `!!MCDR plugin install command_suggest`.\n4. Restart the server.\n\n## ⚙️ Configuration\n| Configuration Item | Description                                                                             | Default Value |\n| ------------------ | --------------------------------------------------------------------------------------- | ------------- |\n| `mode`             | Communication mode, currently only supports `http`                                      | `http`        |\n| `host`             | Host address for the HTTP server to listen on                                           | `localhost`   |\n| `port`             | Port number for the HTTP server to listen on; set to 0 to auto-select an available port | `0`           |\n\n\n## 📝 Usage\n\nEnter existing MCDR commands in the standard Minecraft command format starting with `/`, then use the Tab key in-game for command completion. For example, `/!!help`, `/!!MCDR xxx` (no need to configure other plugins or modify plugin code).\n\n## 🔍 Comparison with Other Mods\n\nCompared to other MCDR command completion mods, McdrCmdSuggest offers the following advantages:\n\n- **More elegant implementation**: Directly utilizes Minecraft's native command system for a smoother user experience.\n- **More comprehensive features**: Supports argument suggestion completion, suitable for more complex command structures.\n- **Better compatibility**: MCDR commands can be completed even if they don't start with \"!\" or \"!!\", compatible with more plugins.\n- **Fewer dependencies**: No mixin dependency, reducing potential maintenance costs, and no client mod required.\n\n## 🧩 Technical Details\n\nMcdrCmdSuggest implements command completion as follows:\n\n1. Registers a special command `__mcdrcmdsuggest_register` to receive command registration information from the server.\n2. Dynamically registers Minecraft commands based on the received information.\n3. If a command includes argument suggestions (`suggests`), a suggests method is added to query the corresponding MCDR plugin for suggestions (uses HTTP by default, only local communication between server and MCDR, no need to expose ports). Client suggestions are transmitted via Minecraft's native protocol.\n\n## 🤝 Contributing\n\nIssues and feature requests are welcome!\n\n## 🙏 Acknowledgements\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) - Powerful Minecraft server management framework.\n- [ZhuRuoLing/MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) - Provided reference implementation.\n- [AnzhiZhang/MCDRCommandFabric](https://github.com/AnzhiZhang/MCDRCommandFabric) - Provided reference implementation.\n\n## 📄 Statement\n\nThis mod heavily references the code and implementation of [ZhuRuoLing/MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) and [AnzhiZhang/MCDRCommandFabric](https://github.com/AnzhiZhang/MCDRCommandFabric). Without their work, this mod would not have been possible.\n",
+      "zh_cn": "# 🚀 CommandSuggest-MCDR\n\n**[English](https://github.com/PairZhu/CommandSuggest-MCDR/tree/master/./README.en.md) | 简体中文**\n\n[![Modrinth Downloads](https://img.shields.io/modrinth/dt/mcdrcmdsuggest?logo=modrinth&label=Modrinth)\n](https://modrinth.com/mod/mcdrcmdsuggest)\n\n## ✨ 更优雅的MCDR命令补全实现\n\n需要配合[McdrCmdSuggest](https://modrinth.com/mod/mcdrcmdsuggest)服务端Mod使用。\n\nCommandSuggest-MCDR是一个MCDR插件，为[MCDReforged](https://github.com/Fallen-Breath/MCDReforged)提供更优雅的命令补全功能。通过在Minecraft服务端中注册MCDR命令并发送到客户端，使玩家可以获得原生的命令补全体验。\n\n![1757522576816](https://raw.githubusercontent.com/PairZhu/CommandSuggest-MCDR/master/image/1757522576816.png)\n\n## 🛠️ 特性\n\n- ⚡ 原生命令补全体验：将MCDR命令注册为Minecraft原生命令，允许静默发送MCDR命令\n- 💡 支持参数建议补全（MCDR插件中的suggests方法）\n- 🖥️ 纯服务端Mod，客户端无需安装，支持原版客户端\n- 🛡️ 不依赖mixins，更易于维护多版本，**1.14 ~ 1.21.8**正式版全版本支持\n- ⚙️ 默认配置全自动，无需手动配置也可开箱即用\n\n## 📦 安装\n\n1. 从[Modrinth](https://modrinth.com/mod/mcdrcmdsuggest)或[GitHub Releases](https://github.com/PairZhu/McdrCmdSuggest/releases)下载最新版本的McdrCmdSuggest\n2. 将下载的jar文件放入Minecraft服务端的mods文件夹中\n3. 在服务器端安装此插件`!!MCDR plugin install command_suggest`\n4. 重启服务器\n\n## ⚙️ 配置\n| 配置项    | 描述                            | 默认值         |\n| ------ | ----------------------------- | ----------- |\n| `mode` | 通信模式，目前仅支持`http`              | `http`      |\n| `host` | http服务器监听的主机地址                | `localhost` |\n| `port` | http服务器监听的端口号，设置为0则自动选择一个可用端口 | `0`         |\n\n\n## 📝 使用方法\n\n将原有的MCDR命令以`/`开头的Minecraft标准命令形式输入，然后在游戏中使用Tab键进行命令补全即可。例如`/!!help`, `/!!MCDR xxx`（无需配置其它插件或修改插件代码）。\n\n## 🔍 与其他模组的比较\n\n与其他MCDR命令补全模组相比，McdrCmdSuggest提供了以下优势：\n\n- **更优雅的实现**：直接利用Minecraft原生的命令系统，提供更流畅的用户体验\n- **更全面的功能**：支持参数建议补全，适应更多复杂的命令结构\n- **更好的兼容性**：MCDR命令不以\"!\"或\"!!\"开头也可补全，兼容更多的插件\n- **更少的依赖项**：不依赖mixins，减少潜在的维护成本，无需客户端Mod\n\n## 🧩 技术细节\n\nMcdrCmdSuggest通过以下方式实现命令补全：\n\n1. 注册一个特殊的命令`__mcdrcmdsuggest_register`，用于接收服务器发送的命令注册信息\n2. 根据接收到的信息，动态注册Minecraft命令\n3. 如果命令包含参数建议（suggests），则将为其添加suggests方法，向配套的MCDR插件查询建议结果（默认使用http，仅服务端和MCDR进行本地通讯，无需暴露端口），客户端的建议由Minecraft自带的通讯协议传输\n\n## 🤝 贡献\n\n欢迎提交问题报告和功能请求！\n\n## 🙏 致谢\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) - 强大的Minecraft服务器管理框架\n- [ZhuRuoLing/MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) - 提供了参考实现\n- [AnzhiZhang/MCDRCommandFabric](https://github.com/AnzhiZhang/MCDRCommandFabric) - 提供了参考实现\n\n## 📄 声明\n\n本模组大量参考了 [ZhuRuoLing/MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) 和 [AnzhiZhang/MCDRCommandFabric](https://github.com/AnzhiZhang/MCDRCommandFabric) 的代码和实现。没有他们的工作，这个模组不可能实现。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/PairZhu/CommandSuggest-MCDR/master/README.en.md",
+      "zh_cn": "https://raw.githubusercontent.com/PairZhu/CommandSuggest-MCDR/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "command_suggest",
+    "latest_version": "1.0.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/tag/v1.0.2",
+        "name": "v1.0.2",
+        "tag_name": "v1.0.2",
+        "created_at": "2025-10-07T03:51:23Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 301370565,
+          "name": "CommandSuggest-v1.0.2.mcdr",
+          "size": 16902,
+          "download_count": 27,
+          "created_at": "2025-10-07T03:51:56Z",
+          "browser_download_url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/download/v1.0.2/CommandSuggest-v1.0.2.mcdr",
+          "hash_md5": "21db6199ec099853c1a16b854edf1bd0",
+          "hash_sha256": "3081781a97c8624db307f77b8bf1d5627f5b484619176b1c7fd8de14fa954859"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "command_suggest",
+          "name": "CommandSuggest",
+          "version": "1.0.2",
+          "link": "https://github.com/PairZhu/CommandSuggest-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "uvicorn",
+            "fastapi",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "MCDR command completion plugin supporting parameter suggestions.",
+            "zh_cn": "支持参数提示的MCDR命令补全插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/tag/v1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2025-10-06T16:56:56Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 301173097,
+          "name": "CommandSuggest-v1.0.1.mcdr",
+          "size": 16813,
+          "download_count": 2,
+          "created_at": "2025-10-06T16:57:41Z",
+          "browser_download_url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/download/v1.0.1/CommandSuggest-v1.0.1.mcdr",
+          "hash_md5": "e06ab305ebd36581afc6b92a8e02ffe5",
+          "hash_sha256": "4227dd695ec356f1a1ca88563616a796088753207772b23a15666f2523e46626"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "command_suggest",
+          "name": "CommandSuggest",
+          "version": "1.0.1",
+          "link": "https://github.com/PairZhu/CommandSuggest-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "uvicorn",
+            "fastapi",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "MCDR command completion plugin supporting parameter suggestions.",
+            "zh_cn": "支持参数提示的MCDR命令补全插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-09-11T11:42:03Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 292116228,
+          "name": "CommandSuggest-v1.0.0.mcdr",
+          "size": 15960,
+          "download_count": 53,
+          "created_at": "2025-09-11T11:42:26Z",
+          "browser_download_url": "https://github.com/PairZhu/CommandSuggest-MCDR/releases/download/v1.0.0/CommandSuggest-v1.0.0.mcdr",
+          "hash_md5": "5206c94c754d2b4d1d12fa90f1b466d6",
+          "hash_sha256": "1965646c89ce7076daba272771e836b7fcb73c68132a0cebfc1ce37a7261508b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "command_suggest",
+          "name": "CommandSuggest",
+          "version": "1.0.0",
+          "link": "https://github.com/PairZhu/CommandSuggest-MCDR",
+          "authors": [
+            "PairZhu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "uvicorn",
+            "fastapi",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "MCDR command completion plugin supporting parameter suggestions.",
+            "zh_cn": "支持参数提示的MCDR命令补全插件。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/PairZhu/CommandSuggest-MCDR",
+    "name": "CommandSuggest-MCDR",
+    "full_name": "PairZhu/CommandSuggest-MCDR",
+    "html_url": "https://github.com/PairZhu/CommandSuggest-MCDR",
+    "description": "MCDR Command Completion Plugin Supporting Parameter Suggestions. 支持参数建议的MCDR命令补全插件。",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# 🚀 CommandSuggest-MCDR\n\n**[English](https://github.com/PairZhu/CommandSuggest-MCDR/tree/master/./README.en.md) | 简体中文**\n\n[![Modrinth Downloads](https://img.shields.io/modrinth/dt/mcdrcmdsuggest?logo=modrinth&label=Modrinth)\n](https://modrinth.com/mod/mcdrcmdsuggest)\n\n## ✨ 更优雅的MCDR命令补全实现\n\n需要配合[McdrCmdSuggest](https://modrinth.com/mod/mcdrcmdsuggest)服务端Mod使用。\n\nCommandSuggest-MCDR是一个MCDR插件，为[MCDReforged](https://github.com/Fallen-Breath/MCDReforged)提供更优雅的命令补全功能。通过在Minecraft服务端中注册MCDR命令并发送到客户端，使玩家可以获得原生的命令补全体验。\n\n![1757522576816](https://raw.githubusercontent.com/PairZhu/CommandSuggest-MCDR/master/image/1757522576816.png)\n\n## 🛠️ 特性\n\n- ⚡ 原生命令补全体验：将MCDR命令注册为Minecraft原生命令，允许静默发送MCDR命令\n- 💡 支持参数建议补全（MCDR插件中的suggests方法）\n- 🖥️ 纯服务端Mod，客户端无需安装，支持原版客户端\n- 🛡️ 不依赖mixins，更易于维护多版本，**1.14 ~ 1.21.8**正式版全版本支持\n- ⚙️ 默认配置全自动，无需手动配置也可开箱即用\n\n## 📦 安装\n\n1. 从[Modrinth](https://modrinth.com/mod/mcdrcmdsuggest)或[GitHub Releases](https://github.com/PairZhu/McdrCmdSuggest/releases)下载最新版本的McdrCmdSuggest\n2. 将下载的jar文件放入Minecraft服务端的mods文件夹中\n3. 在服务器端安装此插件`!!MCDR plugin install command_suggest`\n4. 重启服务器\n\n## ⚙️ 配置\n| 配置项    | 描述                            | 默认值         |\n| ------ | ----------------------------- | ----------- |\n| `mode` | 通信模式，目前仅支持`http`              | `http`      |\n| `host` | http服务器监听的主机地址                | `localhost` |\n| `port` | http服务器监听的端口号，设置为0则自动选择一个可用端口 | `0`         |\n\n\n## 📝 使用方法\n\n将原有的MCDR命令以`/`开头的Minecraft标准命令形式输入，然后在游戏中使用Tab键进行命令补全即可。例如`/!!help`, `/!!MCDR xxx`（无需配置其它插件或修改插件代码）。\n\n## 🔍 与其他模组的比较\n\n与其他MCDR命令补全模组相比，McdrCmdSuggest提供了以下优势：\n\n- **更优雅的实现**：直接利用Minecraft原生的命令系统，提供更流畅的用户体验\n- **更全面的功能**：支持参数建议补全，适应更多复杂的命令结构\n- **更好的兼容性**：MCDR命令不以\"!\"或\"!!\"开头也可补全，兼容更多的插件\n- **更少的依赖项**：不依赖mixins，减少潜在的维护成本，无需客户端Mod\n\n## 🧩 技术细节\n\nMcdrCmdSuggest通过以下方式实现命令补全：\n\n1. 注册一个特殊的命令`__mcdrcmdsuggest_register`，用于接收服务器发送的命令注册信息\n2. 根据接收到的信息，动态注册Minecraft命令\n3. 如果命令包含参数建议（suggests），则将为其添加suggests方法，向配套的MCDR插件查询建议结果（默认使用http，仅服务端和MCDR进行本地通讯，无需暴露端口），客户端的建议由Minecraft自带的通讯协议传输\n\n## 🤝 贡献\n\n欢迎提交问题报告和功能请求！\n\n## 🙏 致谢\n\n- [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) - 强大的Minecraft服务器管理框架\n- [ZhuRuoLing/MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) - 提供了参考实现\n- [AnzhiZhang/MCDRCommandFabric](https://github.com/AnzhiZhang/MCDRCommandFabric) - 提供了参考实现\n\n## 📄 声明\n\n本模组大量参考了 [ZhuRuoLing/MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) 和 [AnzhiZhang/MCDRCommandFabric](https://github.com/AnzhiZhang/MCDRCommandFabric) 的代码和实现。没有他们的工作，这个模组不可能实现。\n",
+    "readme_url": "https://raw.githubusercontent.com/PairZhu/CommandSuggest-MCDR/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}
