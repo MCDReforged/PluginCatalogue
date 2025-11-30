@@ -1,0 +1,129 @@
+{
+  "schema_version": 8,
+  "id": "mcdrpost",
+  "latest_version": "3.3.3",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/mcdrpost-v3.3.3",
+      "name": "MCDRpost v3.3.3",
+      "tag_name": "mcdrpost-v3.3.3",
+      "created_at": "2025-10-02T16:08:53Z",
+      "description": "> [!IMPORTANT]\r\n> 此版本强烈建议更新！除非你没有更新3.3.2\r\n\r\n## ChangeLog\r\n\r\n### Added\r\n\r\n- 提供自定义音效的 API\r\n    - 删除了原本的 play_sound 模块\r\n    - 添加抽象类: AbstractSoundPlayer\r\n    - 添加实现类: NewSoundPlayer 并暴露至 API\r\n    - 添加实现类: OldSoundPlayer 并暴露至 API\r\n    - 添加 property: AbstractVersionHandler.play_sound\r\n- 添加了一些注释和类型注解\r\n\r\n### Changed\r\n\r\n- 新的翻译使用方式\r\n    - 原来的 `tr(Tags.xxx)` 使用方法还是不够方便，换成 `TranslationKeys.xxx.tr()` 就不用再在外面套一层 `tr()` 了\r\n- 修改了部分变量/属性的名称\r\n\r\n### Fixed\r\n\r\n- 修复了 player 命令没有回复的问题\r\n- （**严重**）修复了无法发送/接受物品的 BUG\r\n\r\n### Removed\r\n\r\n- 放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 299783501,
+        "name": "MCDRpost-v3.3.3.mcdr",
+        "size": 27098,
+        "download_count": 27,
+        "created_at": "2025-10-02T16:14:43Z",
+        "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/mcdrpost-v3.3.3/MCDRpost-v3.3.3.mcdr",
+        "hash_md5": "7343d74054ff9eadfc336d359644506c",
+        "hash_sha256": "cb3c497ee0896fdbc82016a121ed0c56d8638efa5e46b3158d89fd2147aa21c2"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdrpost",
+        "name": "MCDRpost",
+        "version": "3.3.3",
+        "link": "https://github.com/xieyuen/MCDR-Plugins/tree/master/src/MCDRpost",
+        "authors": [
+          "Flyky",
+          "xieyuen"
+        ],
+        "dependencies": {
+          "python": ">=3.10",
+          "mcdreforged": ">=2.15.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "mcdreforged>=2.15.0"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin for post/teleport items",
+          "zh_cn": "一个用于邮寄/传送物品的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/mcdrpost-v3.3.1",
+      "name": "MCDRpost 3.3.1",
+      "tag_name": "mcdrpost-v3.3.1",
+      "created_at": "2025-08-27T17:27:48Z",
+      "description": "## What's Changed\r\n* 同步MCDRpost开发进度 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/4\r\n* 删除多余的文件 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/5\r\n* MCDRpost 3.3.1 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/6\r\n\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/Scripts...mcdrpost-v3.3.1",
+      "prerelease": false,
+      "asset": {
+        "id": 286837224,
+        "name": "MCDRpost-v3.3.1.mcdr",
+        "size": 22044,
+        "download_count": 20,
+        "created_at": "2025-08-27T17:33:29Z",
+        "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/mcdrpost-v3.3.1/MCDRpost-v3.3.1.mcdr",
+        "hash_md5": "a11abb53d5764ab159046d468b09583c",
+        "hash_sha256": "fc901e472fb984398e5f3d066e5027ecc37631f3ddacce7360e10d9a2d3aab3b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdrpost",
+        "name": "MCDRpost",
+        "version": "3.3.1",
+        "link": "https://github.com/xieyuen/MCDRpost/",
+        "authors": [
+          "Flyky",
+          "xieyuen"
+        ],
+        "dependencies": {
+          "python": ">=3.11",
+          "mcdreforged": ">=2.15.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "mcdreforged>=2.10"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin for post/teleport items",
+          "zh_cn": "一个用于邮寄/传送物品的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/mcdrpost-v2.1.1",
+      "name": "[补档] MCDRpost 2.1.1",
+      "tag_name": "mcdrpost-v2.1.1",
+      "created_at": "2025-08-25T11:59:28Z",
+      "description": "## Changes\r\n修复不能正确导入2.1.0版本的问题（Flyky/MCDRpost#8 ）",
+      "prerelease": false,
+      "asset": {
+        "id": 287583337,
+        "name": "MCDRpost-v2.1.1.mcdr",
+        "size": 8940,
+        "download_count": 17,
+        "created_at": "2025-08-29T16:12:00Z",
+        "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/mcdrpost-v2.1.1/MCDRpost-v2.1.1.mcdr",
+        "hash_md5": "6e3042c510314b5793152281fe7b0a7c",
+        "hash_sha256": "af1e4fd72e135a937e9740619a5400fce0281030e1a2829e13fa7385c397a437"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdrpost",
+        "name": "MCDRpost",
+        "version": "2.1.1",
+        "link": "https://github.com/Flyky/MCDRpost",
+        "authors": [
+          "Flyky"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.1",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A MCDR plugin for post/teleport items",
+          "zh_cn": "一个用于邮寄/传送物品的MCDR插件"
+        }
+      }
+    }
+  ]
+}

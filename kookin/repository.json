@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Aimerny/MCDRPlugins",
+  "name": "MCDRPlugins",
+  "full_name": "Aimerny/MCDRPlugins",
+  "html_url": "https://github.com/Aimerny/MCDRPlugins",
+  "description": "Aimerny's MCDR plugins repository",
+  "archived": false,
+  "stargazers_count": 7,
+  "watchers_count": 7,
+  "forks_count": 1,
+  "readme": "# KookIn\n\n~~使用[KookAPI](https://github.com/Aimerny/KookAPI)实现的MCDR服务器管理插件~~\n\n> [!IMPORTANT]\n> 自v1.0.0起,此插件增加依赖: [Whitelist API](https://github.com/Aimerny/MCDRPlugins/tree/main/src/kookin/../whitelist_api),移除对[Kook API](https://github.com/Aimerny/MCDRPlugins/tree/main/src/kookin/../kook_api)的依赖\n> \n> 更新亮点: v1.0.0摒弃了v0.x版本冗长的链路,从与kook网关的交互到对消息事件的处理全都内聚在Kookin插件中\n\n\n> 该插件的功能移植自[QQ Chat](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/qq_chat)插件\n\n## 功能介绍\n\n### MCDR端\n\n1. 发送消息到指定Kook频道组\n2. 将所有MC的聊天消息同步到指定Kook频道组中\n\n### Kook端\n\n- [x] 查看MC服务器中在线玩家列表\n- [x] 离线时向服务器中发送消息\n- [x] 管理服务器白名单(仅管理员可用)\n- [x] 远程执行服务端指令(仅管理员可用)\n- [x] 远程执行MCDR指令(仅管理员可用)\n\n#### TODO\n- [ ] 支持配置离线/在线服以支持自动加白名单\n- [ ] 一套基于Kook的审核,加白,绑定流程\n- [ ] 其他小功能(等脑洞打开ing)\n\n## Tips\nQ: 如何获取频道ID?\n\nA: 如图,打开网页端Kook,进入指定频道后,这一串数字就是对应的Kook服务器ID(guild_id)和频道ID(channel_id)\n![](https://cdn.jsdelivr.net/gh/aimerny/picgo@main/image-20241002012416938.png)\n例如: `https://www.kookapp.cn/app/channels/8474959284287105/3168870203890905` 中\n* guild_id: 8474959284287105\n* channel_id: 3168870203890905\n\n> [!NOTE]\n> 当前的Kookin配置中,只需要用到`channel_id`,也就是说,可以跨多个Kook服务器使用同一个Kookin实例\n\n\n## 配置项\n\n`$MCDR/config/kookin/conf.json`\n\n| 配置项               | 配置说明       | 类型                 | 示例                 |\n| ----------------- | ---------- | ------------------ | ------------------ |\n| token             | 机器人Token   | string             | 从Kook开发者中心的机器人页面获取 |\n| prefixes          | 指令的前缀      | Array[string]      | [\"/\"]              |\n| admin_channel     | 服务器管理频道    | Array[channelInfo] | -                  |\n| public_channel    | 服务器公共频道    | Array[channelInfo] | -                  |\n| sync_chat_channel | 服务器消息同步频道  | Array[channelInfo] | -                  |\n| channel_name      | 频道名称备注     | string             | 频道A                |\n| channel_id        | 频道ID       | string             | 获取方式见上             |\n| admins            | 管理员        | Array[string]      | [\"Aimerny#0476\"]   |\n| server_name       | Kook展示服务器名 | string             | Survival           |\n\n\n> 1. 只有使用`!!kk` 指令的消息才会被发送到服务器公共频道中\n> 2. 在服务器公共频道中的消息只有使用/mc指令的消息才会发送到服务器中\n> 3. 所有游戏内消息都会被发送至消息同步频道中,在消息同步频道中发送任何消息也会同步到游戏中,指令除外\n\n## 指令预览\n\n### MCDR端指令\n\n```\n!!kk <msg> #发送消息到对应Kook服务器\n```\n\n### Kook端指令\n\n```\n/help      =>   查询指令\n/bind      =>   成员绑定\n/whitelist =>   白名单管理\n/list      =>   在线玩家列表\n```\n> 可以使用`/help`查询其他指令的帮助,例如: `/help whitelist`\n\n#### 离线消息\n\n```\n/mc <msg> => 发送消息到服务器(需要先绑定账号)\n```\n\n#### 执行服务器指令\n\n```\n/execute <command> => 执行服务器指令(管理员可用) # 例如: /execute ban Aimerny 或者 /execute whitelist add Aimerny\n/mcdr <mcdr_cmd> => 执行mcdr指令(管理员可用) # 例如: /mcdr !!kk 这是通过kook令服务器发送的消息 | /mcdr !!pb make 存档\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/kookin/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "location_api",
+    "name": "LocationAPI",
+    "version": "0.2.2",
+    "link": "https://github.com/Mooling0602/LocationAPI-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0",
+      "python": ">=3.11"
+    },
+    "requirements": [
+      "mcdreforged>=2.1.0",
+      "beartype>=0.20.0"
+    ],
+    "description": {
+      "en_us": "An API to define location or positon points.",
+      "zh_cn": "一个用于定义路标和位置点的API。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "location_api",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/LocationAPI-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "> Translations are still in progress...\n\n# LocationAPI-MCDR\n\nAn API to define location or positon points.\n\n## 描述\n\nLocationAPI是一个用于定义Minecraft中位置点的API。它提供了Point2D、Point3D、MCPosition和Location类，可以方便地表示游戏中的坐标和位置信息。\n\nLocationAPI同时也是ModernTeleport（现代化传送）插件的核心依赖。\n\n测试内容如下：\n```fish\n(locationapi-mcdr) mooling@localhost /path/to/LocationAPI-MCDR (main)> .venv/bin/python location_api/__init__.py\nType coord x: 45\nType coord z: 456\nType coord y: 64\nType dimension: minecraft:the_end\nType location name: 小黑塔\nType location description: 末影人刷怪塔\nType other attributes by json string here: \nLocation generating...\nLocation(position=MCPosition(point=x: 45.0, y: 64.0, z: 456.0, dimension=minecraft:the_end), name=小黑塔, description=末影人刷怪塔, other=None)\n```\n",
+      "zh_cn": "# LocationAPI-MCDR\n\nAn API to define location or positon points.\n\n## 描述\n\nLocationAPI是一个用于定义Minecraft中位置点的API。它提供了Point2D、Point3D、MCPosition和Location类，可以方便地表示游戏中的坐标和位置信息。\n\nLocationAPI同时也是ModernTeleport（现代化传送）插件的核心依赖。\n\n测试内容如下：\n```fish\n(locationapi-mcdr) mooling@localhost /path/to/LocationAPI-MCDR (main)> .venv/bin/python location_api/__init__.py\nType coord x: 45\nType coord z: 456\nType coord y: 64\nType dimension: minecraft:the_end\nType location name: 小黑塔\nType location description: 末影人刷怪塔\nType other attributes by json string here: \nLocation generating...\nLocation(position=MCPosition(point=x: 45.0, y: 64.0, z: 456.0, dimension=minecraft:the_end), name=小黑塔, description=末影人刷怪塔, other=None)\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/LocationAPI-MCDR/main/README_en.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/LocationAPI-MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "location_api",
+    "latest_version": "0.2.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/tag/0.2.2",
+        "name": "v0.2.2",
+        "tag_name": "0.2.2",
+        "created_at": "2025-10-08T14:53:06Z",
+        "description": "- fix: change point format\n\n**Full Changelog**: https://github.com/Mooling0602/LocationAPI-MCDR/compare/0.2.1...0.2.2",
+        "prerelease": false,
+        "asset": {
+          "id": 301958684,
+          "name": "LocationAPI-v0.2.2.mcdr",
+          "size": 2558,
+          "download_count": 13,
+          "created_at": "2025-10-08T14:56:39Z",
+          "browser_download_url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/download/0.2.2/LocationAPI-v0.2.2.mcdr",
+          "hash_md5": "a7a20e8b1d3671c707a9ad152195c5db",
+          "hash_sha256": "2476bfe33b6dfd65efeee1ffa80e14355cff056f8640b6634a3c0ff1a96101cc"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "location_api",
+          "name": "LocationAPI",
+          "version": "0.2.2",
+          "link": "https://github.com/Mooling0602/LocationAPI-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "python": ">=3.11"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0",
+            "beartype>=0.20.0"
+          ],
+          "description": {
+            "en_us": "An API to define location or positon points.",
+            "zh_cn": "一个用于定义路标和位置点的API。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/tag/0.2.1",
+        "name": "v0.2.1",
+        "tag_name": "0.2.1",
+        "created_at": "2025-09-26T10:09:09Z",
+        "description": "- fix: f-string usage\n\n**Full Changelog**: https://github.com/Mooling0602/LocationAPI-MCDR/compare/0.2.0...0.2.1",
+        "prerelease": false,
+        "asset": {
+          "id": 297499565,
+          "name": "LocationAPI-v0.2.1.mcdr",
+          "size": 2429,
+          "download_count": 4,
+          "created_at": "2025-09-26T10:10:33Z",
+          "browser_download_url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/download/0.2.1/LocationAPI-v0.2.1.mcdr",
+          "hash_md5": "fbf3eb68aaad9b52de899843fd95712d",
+          "hash_sha256": "85a41c391243b9fed6c1ceff2899e0f28b9751d59351c7ad3aa97b9dec6a5c95"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "location_api",
+          "name": "LocationAPI",
+          "version": "0.2.1",
+          "link": "https://github.com/Mooling0602/LocationAPI-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "python": ">=3.11"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0",
+            "beartype>=0.20.0"
+          ],
+          "description": {
+            "en_us": "An API to define location or positon points.",
+            "zh_cn": "一个用于定义路标和位置点的API。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/tag/0.2.0",
+        "name": "v0.2.0",
+        "tag_name": "0.2.0",
+        "created_at": "2025-09-25T07:25:28Z",
+        "description": "- fix: usage of `@beartype`\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/LocationAPI-MCDR/compare/0.1.0...0.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 297069608,
+          "name": "LocationAPI-v0.2.0.mcdr",
+          "size": 2437,
+          "download_count": 8,
+          "created_at": "2025-09-25T07:27:36Z",
+          "browser_download_url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/download/0.2.0/LocationAPI-v0.2.0.mcdr",
+          "hash_md5": "b9e5d05bd5b63bc1a3f803364116cffc",
+          "hash_sha256": "32998cda1a98e2c83132ab260792a0fe8b69610ce1342edd5c2d323249cd61d5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "location_api",
+          "name": "LocationAPI",
+          "version": "0.2.0",
+          "link": "https://github.com/Mooling0602/LocationAPI-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "python": ">=3.11"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0",
+            "beartype>=0.20.0"
+          ],
+          "description": {
+            "en_us": "An API to define location or positon points.",
+            "zh_cn": "一个用于定义路标和位置点的API。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2025-09-21T14:19:53Z",
+        "description": "- feat: add util methods to Point3D, Point2D\r\n> Now you can calculate distance(distance2d) and height with two points, use one point's method. Requires correct argument type.\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/LocationAPI-MCDR/compare/0.0.1...0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 295660655,
+          "name": "LocationAPI-v0.1.0.mcdr",
+          "size": 2437,
+          "download_count": 5,
+          "created_at": "2025-09-21T14:24:49Z",
+          "browser_download_url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/download/0.1.0/LocationAPI-v0.1.0.mcdr",
+          "hash_md5": "94e34288fc6d040bc9157f93fc197069",
+          "hash_sha256": "4cd7a227d12224486a1ddc16d8e781dd217d67d1bad365425b28735eb8ca9c5f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "location_api",
+          "name": "LocationAPI",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/LocationAPI-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "python": ">=3.11"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0",
+            "beartype>=0.20.0"
+          ],
+          "description": {
+            "en_us": "An API to define location or positon points.",
+            "zh_cn": "一个用于定义路标和位置点的API。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2025-09-20T09:31:51Z",
+        "description": "Initial release.",
+        "prerelease": false,
+        "asset": {
+          "id": 295339607,
+          "name": "LocationAPI-v0.0.1.mcdr",
+          "size": 2365,
+          "download_count": 6,
+          "created_at": "2025-09-20T09:35:34Z",
+          "browser_download_url": "https://github.com/Mooling0602/LocationAPI-MCDR/releases/download/0.0.1/LocationAPI-v0.0.1.mcdr",
+          "hash_md5": "6eacfe9333a0907443409fc56d6c7334",
+          "hash_sha256": "4c39ec3e1b311916f30909a01a009f5f695b32102bed1045f7e787c83fad5567"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "location_api",
+          "name": "LocationAPI",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/LocationAPI-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "python": ">=3.11"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0"
+          ],
+          "description": {
+            "en_us": "An API to define location or positon points.",
+            "zh_cn": "一个用于定义路标和位置点的API。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/LocationAPI-MCDR",
+    "name": "LocationAPI-MCDR",
+    "full_name": "Mooling0602/LocationAPI-MCDR",
+    "html_url": "https://github.com/Mooling0602/LocationAPI-MCDR",
+    "description": "An API to define location or positon points.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# LocationAPI-MCDR\n\nAn API to define location or positon points.\n\n## 描述\n\nLocationAPI是一个用于定义Minecraft中位置点的API。它提供了Point2D、Point3D、MCPosition和Location类，可以方便地表示游戏中的坐标和位置信息。\n\nLocationAPI同时也是ModernTeleport（现代化传送）插件的核心依赖。\n\n测试内容如下：\n```fish\n(locationapi-mcdr) mooling@localhost /path/to/LocationAPI-MCDR (main)> .venv/bin/python location_api/__init__.py\nType coord x: 45\nType coord z: 456\nType coord y: 64\nType dimension: minecraft:the_end\nType location name: 小黑塔\nType location description: 末影人刷怪塔\nType other attributes by json string here: \nLocation generating...\nLocation(position=MCPosition(point=x: 45.0, y: 64.0, z: 456.0, dimension=minecraft:the_end), name=小黑塔, description=末影人刷怪塔, other=None)\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/LocationAPI-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

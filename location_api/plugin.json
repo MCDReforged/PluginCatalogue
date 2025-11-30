@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "location_api",
+  "authors": [
+    "Mooling0602"
+  ],
+  "repository": "https://github.com/Mooling0602/LocationAPI-MCDR",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "> Translations are still in progress...\n\n# LocationAPI-MCDR\n\nAn API to define location or positon points.\n\n## 描述\n\nLocationAPI是一个用于定义Minecraft中位置点的API。它提供了Point2D、Point3D、MCPosition和Location类，可以方便地表示游戏中的坐标和位置信息。\n\nLocationAPI同时也是ModernTeleport（现代化传送）插件的核心依赖。\n\n测试内容如下：\n```fish\n(locationapi-mcdr) mooling@localhost /path/to/LocationAPI-MCDR (main)> .venv/bin/python location_api/__init__.py\nType coord x: 45\nType coord z: 456\nType coord y: 64\nType dimension: minecraft:the_end\nType location name: 小黑塔\nType location description: 末影人刷怪塔\nType other attributes by json string here: \nLocation generating...\nLocation(position=MCPosition(point=x: 45.0, y: 64.0, z: 456.0, dimension=minecraft:the_end), name=小黑塔, description=末影人刷怪塔, other=None)\n```\n",
+    "zh_cn": "# LocationAPI-MCDR\n\nAn API to define location or positon points.\n\n## 描述\n\nLocationAPI是一个用于定义Minecraft中位置点的API。它提供了Point2D、Point3D、MCPosition和Location类，可以方便地表示游戏中的坐标和位置信息。\n\nLocationAPI同时也是ModernTeleport（现代化传送）插件的核心依赖。\n\n测试内容如下：\n```fish\n(locationapi-mcdr) mooling@localhost /path/to/LocationAPI-MCDR (main)> .venv/bin/python location_api/__init__.py\nType coord x: 45\nType coord z: 456\nType coord y: 64\nType dimension: minecraft:the_end\nType location name: 小黑塔\nType location description: 末影人刷怪塔\nType other attributes by json string here: \nLocation generating...\nLocation(position=MCPosition(point=x: 45.0, y: 64.0, z: 456.0, dimension=minecraft:the_end), name=小黑塔, description=末影人刷怪塔, other=None)\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Mooling0602/LocationAPI-MCDR/main/README_en.md",
+    "zh_cn": "https://raw.githubusercontent.com/Mooling0602/LocationAPI-MCDR/main/README.md"
+  }
+}
