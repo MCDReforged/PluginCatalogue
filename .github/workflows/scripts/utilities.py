@@ -286,12 +286,18 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
             'Authors',
             ', '.join(meta.authors)
         )
+        
+        # `en_us` Description content
+        # `zh_cn` 简介内容
+        descs = meta.description
+        if len(descs) == 1:
+            lang, desc = next(iter(descs.items()))
+            desc_text = f'`*` {desc}'
+        else:
+            desc_text = '<br/>'.join(f'`{lang}` {desc}' for lang, desc in descs.items())
         report += _row(
             'Description',
-            # `en_us` Description content
-            # `zh_cn` 简介内容
-            '<br/>'.join(f'`{lang}` {desc}'
-                         for lang, desc in meta.description.items())
+            desc_text
         )
         report += '\n'
 
