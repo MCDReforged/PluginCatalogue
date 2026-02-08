@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "chat_sync",
+    "name": "ChatSync",
+    "version": "1.2.0",
+    "link": "https://github.com/sedatemickey/MCDR-ChatSync",
+    "authors": [
+      "sedatemickey"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.6.0",
+      "online_player_api": ">=1.0.0",
+      "mg_events": ">=1.1.0"
+    },
+    "requirements": [
+      "nonebot2>=2.4.0",
+      "nonebot-adapter-onebot>=2.4.0",
+      "nonebot2[httpx]"
+    ],
+    "description": {
+      "en_us": "将你所有的mcdr服务器消息+QQ群消息全部同步"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "chat_sync",
+    "authors": [
+      "sedatemickey"
+    ],
+    "repository": "https://github.com/sedatemickey/MCDR-ChatSync",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# MCDR-ChatSync\n一个将你所有的mcdr服务器消息+QQ群消息全部同步的插件\n\n当你在一个mcdr服务器内发送信息/触发死亡或成就等事件时，其他mcdr服务器和QQ群内的用户都能同步看到，当你在QQ群内发送信息时，所有mcdr服务器内的用户也都能看到\n\n在QQ群内使用 `/list` 指令可查看所有mcdr服务器的在线玩家列表\n\n\n# 使用方法\n## 一键安装（推荐）\n0. 在你的一堆mcdr服务器中任意选择一个作为主服务器，主服务器要一直处于启动状态才能使消息同步服务正常运行\n1. 启动mcdreforged，运行指令 `!!MCDR plugin install chat_sync`\n2. 按照下方说明修改 `config\\chat_sync\\config.json` 中的配置\n3. 重启mcdreforged或重载插件\n\n## 手动安装\n0. 在你的一堆mcdr服务器中任意选择一个作为主服务器，主服务器要一直处于启动状态才能使消息同步服务正常运行\n1. 在 [release](https://github.com/sedatemickey/MCDR-ChatSync/releases) 中下载最新版本的插件，放到 `plugins` 文件夹内\n2. 安装前置插件 [online_player_api](https://mcdreforged.com/zh-CN/plugin/online_player_api) 和 [mg_events](https://mcdreforged.com/zh-CN/plugin/mg_events)\n3. 运行一次mcdreforged，生成配置文件\n4. 按照下方说明修改 `config\\chat_sync\\config.json` 中的配置\n5. 重启mcdreforged或重载插件\n\n# 配置文件说明\n~~没标注释的地方还在开发中，暂时不用管~~\n```json\n{\n    \"main_server\": true, // 是否为主服务器\n    \"main_server_host\": \"127.0.0.1\", // 主服务器IP地址\n    \"main_server_port\": 29530, // 主服务器端口\n    \"main_server_password\": \"123\", // 主服务器连接秘钥，请自己设置，所有服务器必须相同\n    \"qq_bot_enabled\": false, // 是否启用QQ机器人功能\n    \"onebot_ws_host\": \"127.0.0.1\", // WebSocket 服务器地址\n    \"onebot_ws_port\": 8080, // WebSocket 服务器端口\n    \"onebot_access_token\": \"\", // WebSocket 访问令牌（可选）\n    \"qq_group_id\": [123456, 234567], // 要同步的QQ群ID，多个群用逗号分隔\n    \"mc_server_name\": \"我的mc服务器\", // 该服务器名称，用于在消息中显示\n    \"mc_chat_format\": \"[{server}] <{player}> {message}\", // mc中同步玩家聊天消息的格式\n    \"mc_event_format\": \"[{server}] {message}\", // mc中同步事件消息的格式\n    \"qq_chat_format\": \"[QQ] <{player}> {message}\", // qq群中同步玩家聊天消息的格式\n    \"sync_mc_to_qq\": true, // 是否同步MC消息到QQ群\n    \"sync_qq_to_mc\": true, // 是否同步QQ消息到MC服务器\n    \"sync_mc_to_mc\": true,\n    \"sync_qq_to_qq\": true, // 是否同步QQ消息到其他QQ群\n    \"sync_player_join_leave\": true, // 是否同步玩家加入/离开事件\n    \"sync_player_death\": true, // 是否同步玩家死亡事件\n    \"sync_player_advancement\": true, // 是否同步玩家成就事件\n    \"filter_commands\": true, // 是否开启消息过滤功能\n    \"filter_prefixes\": [ // 过滤包含下列任意前缀的消息\n        \"/\",\n        \"!\",\n        \".\",\n        \"#\"\n    ],\n    \"max_message_length\": 200 // 最大允许转发的消息长度\n}\n```\n\n# QQ机器人框架 连接说明\n\n本插件使用Onebot协议，WebSocket 服务器模式，ChatSync作为 WebSocket 服务器，QQ机器人框架作为客户端连接\n\n## 连接地址\n- WebSocket 地址：`ws://127.0.0.1:8080/onebot/v11/ws`\n- 如果设置了Websocket访问令牌，需要在QQ机器人框架里配置相同令牌\n\n# TODO\n- [x] 添加对QQ群消息同步的支持\n- [ ] 使用心跳信息维持连接\n- [ ] 支持MCDR指令\n- [ ] 优化配置文件\n",
+      "zh_cn": "# MCDR-ChatSync\n一个将你所有的mcdr服务器消息+QQ群消息全部同步的插件\n\n当你在一个mcdr服务器内发送信息/触发死亡或成就等事件时，其他mcdr服务器和QQ群内的用户都能同步看到，当你在QQ群内发送信息时，所有mcdr服务器内的用户也都能看到\n\n在QQ群内使用 `/list` 指令可查看所有mcdr服务器的在线玩家列表\n\n\n# 使用方法\n## 一键安装（推荐）\n0. 在你的一堆mcdr服务器中任意选择一个作为主服务器，主服务器要一直处于启动状态才能使消息同步服务正常运行\n1. 启动mcdreforged，运行指令 `!!MCDR plugin install chat_sync`\n2. 按照下方说明修改 `config\\chat_sync\\config.json` 中的配置\n3. 重启mcdreforged或重载插件\n\n## 手动安装\n0. 在你的一堆mcdr服务器中任意选择一个作为主服务器，主服务器要一直处于启动状态才能使消息同步服务正常运行\n1. 在 [release](https://github.com/sedatemickey/MCDR-ChatSync/releases) 中下载最新版本的插件，放到 `plugins` 文件夹内\n2. 安装前置插件 [online_player_api](https://mcdreforged.com/zh-CN/plugin/online_player_api) 和 [mg_events](https://mcdreforged.com/zh-CN/plugin/mg_events)\n3. 运行一次mcdreforged，生成配置文件\n4. 按照下方说明修改 `config\\chat_sync\\config.json` 中的配置\n5. 重启mcdreforged或重载插件\n\n# 配置文件说明\n~~没标注释的地方还在开发中，暂时不用管~~\n```json\n{\n    \"main_server\": true, // 是否为主服务器\n    \"main_server_host\": \"127.0.0.1\", // 主服务器IP地址\n    \"main_server_port\": 29530, // 主服务器端口\n    \"main_server_password\": \"123\", // 主服务器连接秘钥，请自己设置，所有服务器必须相同\n    \"qq_bot_enabled\": false, // 是否启用QQ机器人功能\n    \"onebot_ws_host\": \"127.0.0.1\", // WebSocket 服务器地址\n    \"onebot_ws_port\": 8080, // WebSocket 服务器端口\n    \"onebot_access_token\": \"\", // WebSocket 访问令牌（可选）\n    \"qq_group_id\": [123456, 234567], // 要同步的QQ群ID，多个群用逗号分隔\n    \"mc_server_name\": \"我的mc服务器\", // 该服务器名称，用于在消息中显示\n    \"mc_chat_format\": \"[{server}] <{player}> {message}\", // mc中同步玩家聊天消息的格式\n    \"mc_event_format\": \"[{server}] {message}\", // mc中同步事件消息的格式\n    \"qq_chat_format\": \"[QQ] <{player}> {message}\", // qq群中同步玩家聊天消息的格式\n    \"sync_mc_to_qq\": true, // 是否同步MC消息到QQ群\n    \"sync_qq_to_mc\": true, // 是否同步QQ消息到MC服务器\n    \"sync_mc_to_mc\": true,\n    \"sync_qq_to_qq\": true, // 是否同步QQ消息到其他QQ群\n    \"sync_player_join_leave\": true, // 是否同步玩家加入/离开事件\n    \"sync_player_death\": true, // 是否同步玩家死亡事件\n    \"sync_player_advancement\": true, // 是否同步玩家成就事件\n    \"filter_commands\": true, // 是否开启消息过滤功能\n    \"filter_prefixes\": [ // 过滤包含下列任意前缀的消息\n        \"/\",\n        \"!\",\n        \".\",\n        \"#\"\n    ],\n    \"max_message_length\": 200 // 最大允许转发的消息长度\n}\n```\n\n# QQ机器人框架 连接说明\n\n本插件使用Onebot协议，WebSocket 服务器模式，ChatSync作为 WebSocket 服务器，QQ机器人框架作为客户端连接\n\n## 连接地址\n- WebSocket 地址：`ws://127.0.0.1:8080/onebot/v11/ws`\n- 如果设置了Websocket访问令牌，需要在QQ机器人框架里配置相同令牌\n\n# TODO\n- [x] 添加对QQ群消息同步的支持\n- [ ] 使用心跳信息维持连接\n- [ ] 支持MCDR指令\n- [ ] 优化配置文件\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/sedatemickey/MCDR-ChatSync/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/sedatemickey/MCDR-ChatSync/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "chat_sync",
+    "latest_version": "1.2.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/tag/v1.2.0",
+        "name": "v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2025-08-07T13:34:05Z",
+        "description": "新增: /list查询在线玩家指令\r\n修复: 重载插件时不注销监听器的bug",
+        "prerelease": false,
+        "asset": {
+          "id": 280281036,
+          "name": "ChatSync-v1.2.0.mcdr",
+          "size": 20373,
+          "download_count": 74,
+          "created_at": "2025-08-07T13:36:57Z",
+          "browser_download_url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/download/v1.2.0/ChatSync-v1.2.0.mcdr",
+          "hash_md5": "f3934a4c1e5b351afa8c2397cf4742da",
+          "hash_sha256": "715719b48bf6acafd282adf5ad17215f2678733fdc966f31203eebf898d9faa8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_sync",
+          "name": "ChatSync",
+          "version": "1.2.0",
+          "link": "https://github.com/sedatemickey/MCDR-ChatSync",
+          "authors": [
+            "sedatemickey"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0",
+            "online_player_api": ">=1.0.0",
+            "mg_events": ">=1.1.0"
+          },
+          "requirements": [
+            "nonebot2>=2.4.0",
+            "nonebot-adapter-onebot>=2.4.0",
+            "nonebot2[httpx]"
+          ],
+          "description": {
+            "en_us": "将你所有的mcdr服务器消息+QQ群消息全部同步"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/tag/v1.1.1",
+        "name": "v1.1.1",
+        "tag_name": "v1.1.1",
+        "created_at": "2025-08-04T13:01:32Z",
+        "description": "修复：多个副服务器同时在线时，消息会被重复显示多次",
+        "prerelease": false,
+        "asset": {
+          "id": 279229179,
+          "name": "ChatSync-v1.1.1.mcdr",
+          "size": 17560,
+          "download_count": 15,
+          "created_at": "2025-08-04T13:17:06Z",
+          "browser_download_url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/download/v1.1.1/ChatSync-v1.1.1.mcdr",
+          "hash_md5": "d15d6305df69e344b2c25039384389c9",
+          "hash_sha256": "46b7c71c297ed27d27f3d83ded380b1afd4ec96aa957011f1a3d64b6702b2681"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_sync",
+          "name": "ChatSync",
+          "version": "1.1.1",
+          "link": "https://github.com/sedatemickey/MCDR-ChatSync",
+          "authors": [
+            "sedatemickey"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0",
+            "online_player_api": ">=1.0.0",
+            "mg_events": ">=1.1.0"
+          },
+          "requirements": [
+            "nonebot2>=2.4.0",
+            "nonebot-adapter-onebot>=2.4.0",
+            "nonebot2[httpx]"
+          ],
+          "description": {
+            "en_us": "将你所有的mcdr服务器消息+QQ群消息全部同步"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/tag/v1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2025-08-04T09:19:34Z",
+        "description": "新增对qq群消息同步的功能",
+        "prerelease": false,
+        "asset": {
+          "id": 279173980,
+          "name": "ChatSync-v1.1.0.mcdr",
+          "size": 17201,
+          "download_count": 13,
+          "created_at": "2025-08-04T09:23:05Z",
+          "browser_download_url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/download/v1.1.0/ChatSync-v1.1.0.mcdr",
+          "hash_md5": "89de29ed591ece3c60c5a3d523ef9178",
+          "hash_sha256": "e39fa07ab14ad9a83f4f9527029c885e0f9d8e078ea9e406fba2eec88ddd9449"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_sync",
+          "name": "ChatSync",
+          "version": "1.1.0",
+          "link": "https://github.com/sedatemickey/MCDR-ChatSync",
+          "authors": [
+            "sedatemickey"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0",
+            "online_player_api": ">=1.0.0",
+            "mg_events": ">=1.1.0"
+          },
+          "requirements": [
+            "nonebot2>=2.4.0",
+            "nonebot-adapter-onebot>=2.4.0",
+            "nonebot2[httpx]"
+          ],
+          "description": {
+            "en_us": "将你所有的mcdr服务器消息+QQ群消息全部同步"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/tag/v1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2025-08-03T18:10:17Z",
+        "description": "插件更名为ChatSync",
+        "prerelease": false,
+        "asset": {
+          "id": 279103407,
+          "name": "ChatSync-v1.0.1.mcdr",
+          "size": 8342,
+          "download_count": 18,
+          "created_at": "2025-08-04T03:40:14Z",
+          "browser_download_url": "https://github.com/sedatemickey/MCDR-ChatSync/releases/download/v1.0.1/ChatSync-v1.0.1.mcdr",
+          "hash_md5": "d05dd73555df45361886321984aad86b",
+          "hash_sha256": "15b7a0bf726c204d1a8ce6551aeb5e222a7b981d8e829e9d9b6b4b448d6d2760"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_sync",
+          "name": "ChatSync",
+          "version": "1.0.1",
+          "link": "https://github.com/sedatemickey/MCDR-ChatSync",
+          "authors": [
+            "sedatemickey"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0",
+            "online_player_api": ">=1.0.0",
+            "mg_events": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "将你所有的mcdr服务器消息+QQ群消息全部同步"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/sedatemickey/MCDR-ChatSync",
+    "name": "MCDR-ChatSync",
+    "full_name": "sedatemickey/MCDR-ChatSync",
+    "html_url": "https://github.com/sedatemickey/MCDR-ChatSync",
+    "description": "让你的所有MCDR服务器+QQ群实现聊天互通",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "# MCDR-ChatSync\n一个将你所有的mcdr服务器消息+QQ群消息全部同步的插件\n\n当你在一个mcdr服务器内发送信息/触发死亡或成就等事件时，其他mcdr服务器和QQ群内的用户都能同步看到，当你在QQ群内发送信息时，所有mcdr服务器内的用户也都能看到\n\n在QQ群内使用 `/list` 指令可查看所有mcdr服务器的在线玩家列表\n\n\n# 使用方法\n## 一键安装（推荐）\n0. 在你的一堆mcdr服务器中任意选择一个作为主服务器，主服务器要一直处于启动状态才能使消息同步服务正常运行\n1. 启动mcdreforged，运行指令 `!!MCDR plugin install chat_sync`\n2. 按照下方说明修改 `config\\chat_sync\\config.json` 中的配置\n3. 重启mcdreforged或重载插件\n\n## 手动安装\n0. 在你的一堆mcdr服务器中任意选择一个作为主服务器，主服务器要一直处于启动状态才能使消息同步服务正常运行\n1. 在 [release](https://github.com/sedatemickey/MCDR-ChatSync/releases) 中下载最新版本的插件，放到 `plugins` 文件夹内\n2. 安装前置插件 [online_player_api](https://mcdreforged.com/zh-CN/plugin/online_player_api) 和 [mg_events](https://mcdreforged.com/zh-CN/plugin/mg_events)\n3. 运行一次mcdreforged，生成配置文件\n4. 按照下方说明修改 `config\\chat_sync\\config.json` 中的配置\n5. 重启mcdreforged或重载插件\n\n# 配置文件说明\n~~没标注释的地方还在开发中，暂时不用管~~\n```json\n{\n    \"main_server\": true, // 是否为主服务器\n    \"main_server_host\": \"127.0.0.1\", // 主服务器IP地址\n    \"main_server_port\": 29530, // 主服务器端口\n    \"main_server_password\": \"123\", // 主服务器连接秘钥，请自己设置，所有服务器必须相同\n    \"qq_bot_enabled\": false, // 是否启用QQ机器人功能\n    \"onebot_ws_host\": \"127.0.0.1\", // WebSocket 服务器地址\n    \"onebot_ws_port\": 8080, // WebSocket 服务器端口\n    \"onebot_access_token\": \"\", // WebSocket 访问令牌（可选）\n    \"qq_group_id\": [123456, 234567], // 要同步的QQ群ID，多个群用逗号分隔\n    \"mc_server_name\": \"我的mc服务器\", // 该服务器名称，用于在消息中显示\n    \"mc_chat_format\": \"[{server}] <{player}> {message}\", // mc中同步玩家聊天消息的格式\n    \"mc_event_format\": \"[{server}] {message}\", // mc中同步事件消息的格式\n    \"qq_chat_format\": \"[QQ] <{player}> {message}\", // qq群中同步玩家聊天消息的格式\n    \"sync_mc_to_qq\": true, // 是否同步MC消息到QQ群\n    \"sync_qq_to_mc\": true, // 是否同步QQ消息到MC服务器\n    \"sync_mc_to_mc\": true,\n    \"sync_qq_to_qq\": true, // 是否同步QQ消息到其他QQ群\n    \"sync_player_join_leave\": true, // 是否同步玩家加入/离开事件\n    \"sync_player_death\": true, // 是否同步玩家死亡事件\n    \"sync_player_advancement\": true, // 是否同步玩家成就事件\n    \"filter_commands\": true, // 是否开启消息过滤功能\n    \"filter_prefixes\": [ // 过滤包含下列任意前缀的消息\n        \"/\",\n        \"!\",\n        \".\",\n        \"#\"\n    ],\n    \"max_message_length\": 200 // 最大允许转发的消息长度\n}\n```\n\n# QQ机器人框架 连接说明\n\n本插件使用Onebot协议，WebSocket 服务器模式，ChatSync作为 WebSocket 服务器，QQ机器人框架作为客户端连接\n\n## 连接地址\n- WebSocket 地址：`ws://127.0.0.1:8080/onebot/v11/ws`\n- 如果设置了Websocket访问令牌，需要在QQ机器人框架里配置相同令牌\n\n# TODO\n- [x] 添加对QQ群消息同步的支持\n- [ ] 使用心跳信息维持连接\n- [ ] 支持MCDR指令\n- [ ] 优化配置文件\n",
+    "readme_url": "https://raw.githubusercontent.com/sedatemickey/MCDR-ChatSync/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

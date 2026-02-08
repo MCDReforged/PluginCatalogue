@@ -1,0 +1,164 @@
+{
+  "schema_version": 8,
+  "id": "telegram_chat",
+  "latest_version": "2.0.4",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/SALTWOOD/TelegramChat/releases/tag/v2.0.4",
+      "name": "v2.0.4",
+      "tag_name": "v2.0.4",
+      "created_at": "2025-07-19T12:43:06Z",
+      "description": "## Features\n- 手动保存配置 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/f8661c246353fbe64a4ffd5a6e5067033fd3796f))\n\n## Bug Fixes\n- 配置保存部分失败 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/0cc29f3722998bd2a1732989ebd2dc8a7165411a))\n- 不应保存主配置文件 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/183a332a34d61b981ab94d9b5b11622fa4d9ba04))\n\n## Commits\n- /save 命令的说明 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/78eedf35f0c15d0c850bcbc8b02f9411fe1f29f8))\n- d0c94bf: Release v2.0.4 (SaltWood_233)",
+      "prerelease": false,
+      "asset": {
+        "id": 274361587,
+        "name": "TelegramChat-v2.0.4.mcdr",
+        "size": 22623,
+        "download_count": 37,
+        "created_at": "2025-07-19T12:43:38Z",
+        "browser_download_url": "https://github.com/SALTWOOD/TelegramChat/releases/download/v2.0.4/TelegramChat-v2.0.4.mcdr",
+        "hash_md5": "9a49c0e9a69e9c055a6bc11eadeec45f",
+        "hash_sha256": "e05a27ecc2ff67c07cc35122ac254cdb7782d6dd0ae319ed475a9180372ab2e8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "telegram_chat",
+        "name": "TelegramChat",
+        "version": "2.0.4",
+        "link": null,
+        "authors": [
+          "SALTWOOD"
+        ],
+        "dependencies": {
+          "online_player_api": "^1.0.0",
+          "python": ">=3.10"
+        },
+        "requirements": [
+          "python-telegram-bot>=21.10"
+        ],
+        "description": {
+          "en_us": "Scalable Telegram-Bot.",
+          "zh_cn": "一个可扩展的 TG 机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/SALTWOOD/TelegramChat/releases/tag/v2.0.3",
+      "name": "v2.0.3",
+      "tag_name": "v2.0.3",
+      "created_at": "2025-07-18T11:35:58Z",
+      "description": "## Bug Fixes\n- Python 3.11 的 f-string 不能包含反斜杠 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/d306fb0cd2be6cce4e0f644ac35bd41fbbad07ca))\n\n## Commits\n- 3136eaf: Release v2.0.3 (SaltWood_233)",
+      "prerelease": false,
+      "asset": {
+        "id": 274096687,
+        "name": "TelegramChat-v2.0.3.mcdr",
+        "size": 22520,
+        "download_count": 26,
+        "created_at": "2025-07-18T11:36:32Z",
+        "browser_download_url": "https://github.com/SALTWOOD/TelegramChat/releases/download/v2.0.3/TelegramChat-v2.0.3.mcdr",
+        "hash_md5": "b32a2936dab301d70278470fe4d69cc9",
+        "hash_sha256": "f87ee9a023fc96488c2f9c4f156f0ae21d1be720b9ef6469b98e0c2411218074"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "telegram_chat",
+        "name": "TelegramChat",
+        "version": "2.0.3",
+        "link": null,
+        "authors": [
+          "SALTWOOD"
+        ],
+        "dependencies": {
+          "online_player_api": "^1.0.0",
+          "python": ">=3.10"
+        },
+        "requirements": [
+          "python-telegram-bot>=21.10"
+        ],
+        "description": {
+          "en_us": "Scalable Telegram-Bot.",
+          "zh_cn": "一个可扩展的 TG 机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/SALTWOOD/TelegramChat/releases/tag/v2.0.2",
+      "name": "v2.0.2",
+      "tag_name": "v2.0.2",
+      "created_at": "2025-07-15T10:23:15Z",
+      "description": "## Bug Fixes\n- params 可能返回 none ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/6c7d22d647cb6e94b17276f392ab1a456695926f))\n- 修复循环依赖 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/110efa80d9b477f4bc202ba396fa4ecd53cd5564))\n- 修复配置相关问题 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/37c7ebd4516673b26b6fb4e0d35881499d8e2cb2))\n- 引用错误导致无法获取最新数据 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/556451009cffa36f6c3187ca6137972f2f4e5024))\n- global 导致的错误引用 ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/65d9d86f1a3bd4e790ff32afde4a82b25b19a526))\n- command_tree is not defined ([SaltWood_233](https://github.com/SALTWOOD/TelegramChat/commit/11a842145a68aa738079cbc4bb29ec5101bb491e))\n\n## Commits\n- 995fab9: Release v2.0.2 (SaltWood_233)",
+      "prerelease": false,
+      "asset": {
+        "id": 273017098,
+        "name": "TelegramChat-v2.0.2.mcdr",
+        "size": 22509,
+        "download_count": 25,
+        "created_at": "2025-07-15T10:23:48Z",
+        "browser_download_url": "https://github.com/SALTWOOD/TelegramChat/releases/download/v2.0.2/TelegramChat-v2.0.2.mcdr",
+        "hash_md5": "40b8689e2b74a209f47203460f8dfc37",
+        "hash_sha256": "f1d64133b1dfd7cf238be459910115214cadd3d538914d41d9a3d0e4086593f9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "telegram_chat",
+        "name": "TelegramChat",
+        "version": "2.0.2",
+        "link": null,
+        "authors": [
+          "SALTWOOD"
+        ],
+        "dependencies": {
+          "online_player_api": "^1.0.0",
+          "python": ">=3.10"
+        },
+        "requirements": [
+          "python-telegram-bot>=21.10"
+        ],
+        "description": {
+          "en_us": "Scalable Telegram-Bot.",
+          "zh_cn": "一个可扩展的 TG 机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/SALTWOOD/TelegramChat/releases/tag/v2.0.1",
+      "name": "v2.0.1",
+      "tag_name": "v2.0.1",
+      "created_at": "2025-03-24T15:08:30Z",
+      "description": "## Bug Fixes\r\n- Release 没有上传 artifact ([SALTWOOD](https://github.com/SALTWOOD/TelegramChat/commit/0d076f94b25265365d31b8e5262e291bcad2a594))\r\n\r\n## Commits\r\n- 5306ab4: Release v2.0.1 (SALTWOOD)",
+      "prerelease": false,
+      "asset": {
+        "id": 240330008,
+        "name": "TelegramChat-v2.0.1.mcdr",
+        "size": 22073,
+        "download_count": 40,
+        "created_at": "2025-03-24T15:09:04Z",
+        "browser_download_url": "https://github.com/SALTWOOD/TelegramChat/releases/download/v2.0.1/TelegramChat-v2.0.1.mcdr",
+        "hash_md5": "5b6d431d9e29d83aef6ba6e4de5763a9",
+        "hash_sha256": "a32f1bc75fd040127f4f1c3e843ea44e547fac99f8bfa429d50884e3e1706355"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "telegram_chat",
+        "name": "TelegramChat",
+        "version": "2.0.1",
+        "link": null,
+        "authors": [
+          "SALTWOOD"
+        ],
+        "dependencies": {
+          "online_player_api": "^1.0.0",
+          "python": ">=3.10"
+        },
+        "requirements": [
+          "python-telegram-bot>=21.10"
+        ],
+        "description": {
+          "en_us": "Scalable Telegram-Bot.",
+          "zh_cn": "一个可扩展的 TG 机器人"
+        }
+      }
+    }
+  ]
+}
