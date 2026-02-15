@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "init_server",
+    "name": "InitServer",
+    "version": "0.1.0",
+    "link": "https://github.com/Mooling0602/InitServer-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0"
+    },
+    "requirements": [
+      "javaproperties"
+    ],
+    "description": {
+      "en_us": "Init your Minecraft server with MCDReforged quickly.",
+      "zh_cn": "在MCDR下快速初始化你的MC服务器。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "init_server",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/InitServer-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "Init your Minecraft server with MCDReforged quickly.\n",
+      "zh_cn": "在MCDR下快速初始化你的MC服务器。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/InitServer-MCDR/main/doc/description_en_us.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/InitServer-MCDR/main/doc/description_zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "init_server",
+    "latest_version": "0.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/InitServer-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2025-03-01T20:31:04Z",
+        "description": "**`en_us`**\r\n- Support and enabled by default: EULA auto-agree and Rcon auto-set\r\n> If the TCP port is already in use, a random port available will be used instead\r\n- Support i18n for English and Chinese Simplified\r\n\r\n---\r\n\r\n**`zh_cn`**\r\n- 默认启用并支持自动同意EULA和自动设置Rcon\r\n> 若TCP端口被占用会自动换一个随机的可用端口\r\n- 支持多语言包括英语和简体中文\r\n\r\n---\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/InitServer-MCDR/commits/0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 233739721,
+          "name": "InitServer-v0.1.0.mcdr",
+          "size": 11138,
+          "download_count": 85,
+          "created_at": "2025-03-01T20:42:38Z",
+          "browser_download_url": "https://github.com/Mooling0602/InitServer-MCDR/releases/download/0.1.0/InitServer-v0.1.0.mcdr",
+          "hash_md5": "4565384f06f44a8c0512151b024a95bb",
+          "hash_sha256": "1143fef6e46144862ab6d90cfbae92f795549b8d37209767c186e29d4c0ea8ff"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "init_server",
+          "name": "InitServer",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/InitServer-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "javaproperties"
+          ],
+          "description": {
+            "en_us": "Init your Minecraft server with MCDReforged quickly.",
+            "zh_cn": "在MCDR下快速初始化你的MC服务器。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/InitServer-MCDR",
+    "name": "InitServer-MCDR",
+    "full_name": "Mooling0602/InitServer-MCDR",
+    "html_url": "https://github.com/Mooling0602/InitServer-MCDR",
+    "description": "Init your Minecraft server with MCDReforged quickly.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "- 中文（简体）\n- [English](https://github.com/Mooling0602/InitServer-MCDR/tree/main/README_en_us.md)\n\n# InitServer-MCDR\n在MCDR下快速初始化你的MC服务器。\n\n## 功能特性\n- 自动化配置你刚开的MC服务器，懒人福音\n> 不过目前功能不多没省下多少步骤就是了\n\n- 默认启用的自动同意EULA和自动设置Rcon\n> 设置Rcon时支持绕开TCP端口占用并自动更新配置\n\n\n- 多语言支持简体中文和英语\n\n- 除读取服务端配置文件必要的pypi库`javaproperties`外，没有其他必需依赖\n\n## 用法\n装上就能跑，更多信息详阅：https://www.yuque.com/clemooling/personal_note/init_server\n\n## Bug\n你告诉我（用Issues）\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/InitServer-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

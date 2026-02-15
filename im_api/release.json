@@ -1,0 +1,96 @@
+{
+  "schema_version": 8,
+  "id": "im_api",
+  "latest_version": "0.2.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/MCDReforged-Towhee-Community/ImAPI/releases/tag/im_api-v0.2.0",
+      "name": "im_api: v0.2.0",
+      "tag_name": "im_api-v0.2.0",
+      "created_at": "2025-02-13T06:30:09Z",
+      "description": "## [0.2.0](https://github.com/MCDReforged-Towhee-Community/ImAPI/compare/im_api-v0.1.0...im_api-v0.2.0) (2025-02-20)\n\n\n### Features\n\n* add matrix driver support ([#8](https://github.com/MCDReforged-Towhee-Community/ImAPI/issues/8)) ([99b214f](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/99b214fca6a35531c94c65da62ce81d6c855ae0f))\n\n\n### Bug Fixes\n\n* fix dependency and export ([e8f6a23](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/e8f6a236e2f5da99b1ba7949aecee9779297fabd))\n* version fix ([2e8e4ab](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/2e8e4ab4f97412262de476a1d3466e85a84aba1c))",
+      "prerelease": false,
+      "asset": {
+        "id": 230882925,
+        "name": "ImAPI-v0.2.0.mcdr",
+        "size": 22552,
+        "download_count": 229,
+        "created_at": "2025-02-20T07:07:40Z",
+        "browser_download_url": "https://github.com/MCDReforged-Towhee-Community/ImAPI/releases/download/im_api-v0.2.0/ImAPI-v0.2.0.mcdr",
+        "hash_md5": "9f1d09a38d12e50b06db637c54bbb5e4",
+        "hash_sha256": "809d23d3f827f71e9d1107895e991721c7939d48d7da18ec6a312040b1da289a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "im_api",
+        "name": "ImAPI",
+        "version": "0.2.0",
+        "link": "https://github.com/MCDReforged-Towhee-Community/IMAPI",
+        "authors": [
+          "Andy Zhang",
+          "Aimerny"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [
+          "setuptools>=68.2.0",
+          "mcdreforged>=2.13.0",
+          "aiocqhttp>=1.4.4",
+          "aiohttp>=3.8.0",
+          "matrix-nio>=0.25.2",
+          "pyyaml>=6.0.1",
+          "python-telegram-bot>=21.10"
+        ],
+        "description": {
+          "en_us": "Cross-platform instant messaging API",
+          "zh_cn": "跨平台即时通信API"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/MCDReforged-Towhee-Community/ImAPI/releases/tag/im_api-v0.1.0",
+      "name": "im_api: v0.1.0",
+      "tag_name": "im_api-v0.1.0",
+      "created_at": "2025-02-06T15:30:24Z",
+      "description": "## [0.1.0](https://github.com/MCDReforged-Towhee-Community/ImAPI/compare/im_api-v0.0.1...im_api-v0.1.0) (2025-02-06)\r\n\r\n\r\n### Features\r\n\r\n* :tada: init plugin with core framework and qq driver ([d32b0a5](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/d32b0a5431bdfe14ca5e600a443d21490fe1c9ce))\r\n* add Platform enum and SendMessageReq ([bc15728](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/bc157286ce6f10aa0b809b3bffae5e2429ebd3be))\r\n* support message receive and send for telegram driver ([#2](https://github.com/MCDReforged-Towhee-Community/ImAPI/issues/2)) ([ca38141](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/ca3814183e554ae93da310db4c2da43cc204e0a8))\r\n* use yaml config && support onebot ws connect ([a71b918](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/a71b918e4750fc2ab96ff493189df8afbbddded7))\r\n\r\n\r\n### Bug Fixes\r\n\r\n* fix file name and class position ([fed0d27](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/fed0d2746c71d7000a56a0b7310397b750fde0a3))\r\n* fix qq ws_client process callback ([9091481](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/90914813f769e04102543072871e781ea33983be))\r\n* fix url_prefix for ws_client ([2cf9a26](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/2cf9a26c8dbd1931d8a9af2ae3f448578fe1ec6d))\r\n* remove some useless feature for mcdr events ([43c7751](https://github.com/MCDReforged-Towhee-Community/ImAPI/commit/43c7751659892f92365789cbaf365693009cbdfb))",
+      "prerelease": false,
+      "asset": {
+        "id": 226896980,
+        "name": "ImAPI-v0.1.0.mcdr",
+        "size": 21113,
+        "download_count": 77,
+        "created_at": "2025-02-06T16:13:15Z",
+        "browser_download_url": "https://github.com/MCDReforged-Towhee-Community/ImAPI/releases/download/im_api-v0.1.0/ImAPI-v0.1.0.mcdr",
+        "hash_md5": "c039e1430704e5b216ccefe1ee4f0ff9",
+        "hash_sha256": "9e90979315275813392a56eb3c00ff74c77a53e7d000a12ae101bbfd65c064e0"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "im_api",
+        "name": "ImAPI",
+        "version": "0.1.0",
+        "link": "https://github.com/MCDReforged-Towhee-Community/IMAPI",
+        "authors": [
+          "Andy Zhang",
+          "Aimerny"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.13.0",
+          "aiocqhttp>=1.4.4",
+          "aiohttp>=3.8.0",
+          "pyyaml>=6.0.1",
+          "python-telegram-bot>=21.10"
+        ],
+        "description": {
+          "en_us": "Cross-platform instant messaging API",
+          "zh_cn": "跨平台即时通信API"
+        }
+      }
+    }
+  ]
+}

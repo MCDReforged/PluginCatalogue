@@ -1,0 +1,377 @@
+{
+  "schema_version": 8,
+  "id": "pcrc",
+  "latest_version": "1.4.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.4.1",
+      "name": "PCRC v1.4.1",
+      "tag_name": "v1.4.1",
+      "created_at": "2024-04-23T03:38:02Z",
+      "description": "- Fixed mcdr packages import path to ensure it works in new MCDR versions\r\n- Use python3.11 for `.exe` packaging\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 163678182,
+        "name": "PCRC.pyz",
+        "size": 105437,
+        "download_count": 242,
+        "created_at": "2024-04-23T03:48:16Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.4.1/PCRC.pyz",
+        "hash_md5": "135011f2f2a26af6b3a2cda2074d744b",
+        "hash_sha256": "cc2b14322a3691471ccacefd63b06de77a2a9d4c69f48da6fffee5c6e1ab92c0"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.4.1",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.4.0",
+      "name": "PCRC v1.4.0",
+      "tag_name": "v1.4.0",
+      "created_at": "2022-09-30T14:18:00Z",
+      "description": "- Added hot reload support for PCRC config. Notes that not all config entries support hot-reload, e.g. `authenticate_type` is not hot-reload-able\r\n- Added config entry `on_joined_commands` (#22). With that you can make PCRC bot executing custom commands (or even custom chat messages) when joining the game\r\n- Fixed daytime overriding feature not working (#31)\r\n- Fixed entity filtering features not working\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 79543686,
+        "name": "PCRC.pyz",
+        "size": 105502,
+        "download_count": 721,
+        "created_at": "2022-09-30T15:07:46Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.4.0/PCRC.pyz",
+        "hash_md5": "eaef5d7849d125fca8398a488c9d1775",
+        "hash_sha256": "cdbef2c0a0342bf861db63615b0a8248db974f4f0d5d95caf062487253f3bd69"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.4.0",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.3.0",
+      "name": "PCRC v1.3.0",
+      "tag_name": "v1.3.0",
+      "created_at": "2022-06-19T10:28:12Z",
+      "description": "- Added the ability to save and load MSA token to / from file\r\n  - Switchable via config entry `store_token`, with default value `false` for safety\r\n- Added config entry `debug_packet` for debugging packet recording",
+      "prerelease": false,
+      "asset": {
+        "id": 68934077,
+        "name": "PCRC.pyz",
+        "size": 104809,
+        "download_count": 352,
+        "created_at": "2022-06-19T10:33:00Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.3.0/PCRC.pyz",
+        "hash_md5": "a4cab203e699e85827d2709756507c92",
+        "hash_sha256": "2e4956ba95a9c938475a014349129607beee20b929727b8d02d74e48176aca17"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.3.0",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.3",
+      "name": "PCRC v1.2.3",
+      "tag_name": "v1.2.3",
+      "created_at": "2022-03-28T06:55:57Z",
+      "description": "- Fixed issues with small value of option `delay_before_afk_second` including crashing with value 0\r\n- Removed duplicated entry \"Working: <bool>\" in cli `status` command",
+      "prerelease": false,
+      "asset": {
+        "id": 60805098,
+        "name": "PCRC.pyz",
+        "size": 103995,
+        "download_count": 216,
+        "created_at": "2022-03-28T07:00:16Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.3/PCRC.pyz",
+        "hash_md5": "4a13ccf5070b2194531f38acdd9768a4",
+        "hash_sha256": "c8c383ef7b8ec7f4c2d4e489004b840991694b40a94776b7b9b037add349fc6d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.2.3",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.2",
+      "name": "PCRC v1.2.2",
+      "tag_name": "v1.2.2",
+      "created_at": "2022-03-11T19:39:43Z",
+      "description": "## News & Changes\r\n\r\n- Added CLI `auth`, `help` command\r\n- Added CLI `list` command to show player list\r\n- Improved CLI `status` command\r\n- Added config option `afk_ignore_spectator`, with which spectator flying around will keep pcrc afking\r\n- Now PCRC will do Minecraft authentication at startup, and constantly refresh the token every 3 hours after a successful authentication\r\n\r\n## Fixes\r\n\r\n- Fixed some stored information not reset after reconnecting to the server\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.1.0...v1.2.0\r\n\r\n## Patches\r\n\r\n### v1.2.1\r\n\r\n- Fixed pcrc records nothing\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.2.0...v1.2.1\r\n\r\n### v1.2.2\r\n\r\n- Fixed CLI `stop` command does not interrupt auto-restart\r\n- Fixed some pycraft packets don't recognized as entity packet\r\n  - So player standing still doing nothing will not trigger pcrc recording pausing every 15s\r\n- Fixed wrong exception type displaying on_connection_exception\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.2.1...v1.2.2",
+      "prerelease": false,
+      "asset": {
+        "id": 59251856,
+        "name": "PCRC.pyz",
+        "size": 103952,
+        "download_count": 87,
+        "created_at": "2022-03-11T19:45:35Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.2/PCRC.pyz",
+        "hash_md5": "14b060b593b8f99db3a9dd0ef6897d78",
+        "hash_sha256": "f0f54e3e2cd3c3b7e4da48e05b3f4afa93d0efcbf951b29d9c89f63be6256cea"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.2.2",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.1",
+      "name": "PCRC v1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2022-03-10T08:53:53Z",
+      "description": "## News & Changes\r\n\r\n- Added CLI `auth`, `help` command\r\n- Added CLI `list` command to show player list\r\n- Improved CLI `status` command\r\n- Added config option `afk_ignore_spectator`, with which spectator flying around will keep pcrc afking\r\n- Now PCRC will do Minecraft authentication at startup, and constantly refresh the token every 3 hours after a successful authentication\r\n\r\n## Fixes\r\n\r\n- Fixed some stored information not reset after reconnecting to the server\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.1.0...v1.2.0\r\n\r\n## Patches\r\n\r\n### v1.2.1\r\n\r\n- Fixed pcrc records nothing\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.2.0...v1.2.1",
+      "prerelease": false,
+      "asset": {
+        "id": 59093086,
+        "name": "PCRC.pyz",
+        "size": 103667,
+        "download_count": 57,
+        "created_at": "2022-03-10T08:58:34Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.1/PCRC.pyz",
+        "hash_md5": "796bea080bd6c4af3a3ff6063a660909",
+        "hash_sha256": "6fc603019f2b6948affcd7a5fec18bf6d7d72fcd313cddbaca37275ab8f46a38"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.2.1",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.0",
+      "name": "PCRC v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2022-03-09T08:20:57Z",
+      "description": "## News & Changes\r\n\r\n- Added CLI `auth`, `help` command\r\n- Added CLI `list` command to show player list\r\n- Improved CLI `status` command\r\n- Added config option `afk_ignore_spectator`, with which spectator flying around will keep pcrc afking\r\n- Now PCRC will do Minecraft authentication at startup, and constantly refresh the token every 3 hours after a successful authentication\r\n\r\n## Fixes\r\n\r\n- Fixed some stored information not reset after reconnecting to the server\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.1.0...v1.2.0",
+      "prerelease": false,
+      "asset": {
+        "id": 58980104,
+        "name": "PCRC.pyz",
+        "size": 103664,
+        "download_count": 49,
+        "created_at": "2022-03-09T08:25:26Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.0/PCRC.pyz",
+        "hash_md5": "e5512ffa039d149924837516dea4adec",
+        "hash_sha256": "6972a719e870bdbe276c629a8d2431736cf06e51e21e8ac56e5fd49ac0abacf6"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.2.0",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.1.0",
+      "name": "PCRC v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2022-03-08T12:44:12Z",
+      "description": "## News\r\n\r\n- Added config option `auto_relogin_attempts` to limit auto re-login attempts\r\n- Added command `!!PCRC respawn` for respawning the bot\r\n\r\n## Fixes\r\n\r\n- Fixed some pycraft patches not applied correcly\r\n- Fixed `!!PCRC spec` does not work\r\n- Fixed unorder message sending\r\n- (MCDR) Fixed complaining unknown command for in-game bot commands\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 58895591,
+        "name": "PCRC.pyz",
+        "size": 101036,
+        "download_count": 49,
+        "created_at": "2022-03-08T12:51:16Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.1.0/PCRC.pyz",
+        "hash_md5": "c5eeb4bac830b49df7e30c7fa19846a2",
+        "hash_sha256": "c12b5093d85a8cf2a03e4fef473c7e1334eb9a2e351080f071c9aafcc8645cf3"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.1.0",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.0.0",
+      "name": "PCRC v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2022-03-07T17:29:32Z",
+      "description": "- Almost rewritten everything\r\n  - Patches upstream PyCraft in run time instead of maintaing an own folk\r\n  - Use PyCraft's way to handle packet logics\r\n- Minecraft 1.18.2 supports\r\n- Microsoft account supports (#21)\r\n- Pack sources into a .pyz for easier executing\r\n  - Works as a MCDReforged plugin too",
+      "prerelease": false,
+      "asset": {
+        "id": 58818127,
+        "name": "PCRC.pyz",
+        "size": 100302,
+        "download_count": 52,
+        "created_at": "2022-03-07T17:37:24Z",
+        "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.0.0/PCRC.pyz",
+        "hash_md5": "ca7183e2171e2b409f00cf6212ac7623",
+        "hash_sha256": "0aabd9aa9a49c3c3c5a7c27a9ab287006c2d2d282aa171c139d85608aad62370"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pcrc",
+        "name": "PCRC",
+        "version": "1.0.0",
+        "link": "https://github.com/Fallen-Breath/PCRC",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "cryptography",
+          "requests",
+          "pynbt",
+          "redbaron",
+          "colorlog",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "PyCraft based Replay Client",
+          "zh_cn": "基于PyCraft的Replay客户端"
+        }
+      }
+    }
+  ]
+}

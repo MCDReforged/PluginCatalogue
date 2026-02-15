@@ -1,0 +1,448 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "meowtiwhitelist",
+    "name": "MeowtiWhitelist",
+    "version": "2.4.0",
+    "link": "https://github.com/MliroLirrorsIngenuity",
+    "authors": [
+      "Lemon-miaow"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged>=2.12.0",
+      "requests>=2.31.0",
+      "PyYAML>=6.0.2"
+    ],
+    "description": {
+      "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+      "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "meowtiwhitelist",
+    "authors": [
+      "MliroLirrorsIngenuity"
+    ],
+    "repository": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "<div align=\"center\">\n  <h1 align=\"center\">MeowtiWhitelist</h1>\n  <p align=\"center\">\n        A multiple verification service whitelist management plugin based on <a href=\"https://mcdreforged.com/\"><strong>MCDReforged</strong></a>, solving whitelist issues in a multi-verification service environment.\n    <br />\n    <br />\n    <a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/blob/main/README.md\">简体中文</a>\n    |\n    <a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/blob/main/README_EN.md\">English (You Are Here.)</a>\n  </p>\n</div>\n\n<details>\n  <summary>Table of Contents</summary>\n\n- [Features](#features)\n- [Usage](#usage)\n  - [Requirements](#requirements)\n  - [Installation](#installation)\n  - [Configuration & Commands & API](#configuration--commands--api)\n- [Before Asking Questions](#before-asking-questions)\n- [Contributors](#contributors)\n- [Acknowledgements](#acknowledgements)\n\n</details>\n\n## Features\n\n- Resolves UUID conflicts or incorrect UUIDs caused by multiple **Yggdrasil** authentication services.\n- Manage whitelists from different **Yggdrasil** sources with simple commands.\n- No manual editing of the correct UUID from the corresponding authentication source in `whitelist.json` required (~~Who tf edited `whitelist.json` again?~~)\n\n## Usage\n\n### Requirements\n\n`MCDReforged`>=2.12.0\n\n`requests`>=2.31.0\n\n`PyYAML`>=6.0.2\n\n### Installation\n\nRun the following command in your running MCDReforged instance and follow the prompts to install.\n\n```\n!!MCDR plugin install meowtiwhitelist\n```\n\nIf the server's network environment has difficulty accessing the installation source or for other reasons, you can try the manual installation below.\n\n<details>\n  <summary>Manual Installation</summary>\n\n\n1. Download the latest version of MeowtiWhitelist from [GitHub Releases](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases).\n2. Place the plugin into MCDR’s `plugins` folder.\n3. Install the [requirements](#requirements).\n4. [Start the server with MCDReforged](https://docs.mcdreforged.com/zh-cn/latest/quick_start/first_run.html#run).\n\n</details>\n\n### Configuration & Commands & API\nSee [Wiki](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/wiki).\n\n## Before Asking Questions\n\nPlease confirm:\n\n- You have tried all possible solutions.\n- You have searched for answers (like checking [Issues](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/issues)).\n- You have provided enough info to help developers find the issue (logs, config files, plugin lists, and version details).\n- Explanation of Question Submission Channels\n  - **Usage Issues/Configuration Questions/Other Issues** → [Discussions](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/discussions)\n  - **Bug/Feature Request** → [Issues](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/issues)\n\n## Contributors\n<a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=MliroLirrorsIngenuity/MeowtiWhitelist&\" alt=\"Contributors\" />\n</a>\n\n## Acknowledgements\n\n[Lazy-Bing-Server/MCDR-offline-whitelist-manager](https://github.com/Lazy-Bing-Server/MCDR-offline-whitelist-manager): Provided the base idea.\n\n[CaaMoe/MultiLogin](https://github.com/CaaMoe/MultiLogin): Inspired the configuration approach.\n",
+      "zh_cn": "<div align=\"center\">\n  <h1 align=\"center\">MeowtiWhitelist</h1>\n  <p align=\"center\">\n    一款基于 <a href=\"https://mcdreforged.com/\"><strong>MCDReforged</strong></a> 开发的多验证服务白名单管理插件，解决多验证服务环境下的白名单问题。\n    <br />\n    <br />\n    <a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/blob/main/README.md\">简体中文</a>\n    |\n    <a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/blob/main/README_EN.md\">English</a>\n  </p>\n</div>\n\n<details>\n  <summary>目录</summary>\n\n- [特性](#特性)\n- [使用方式](#使用方式)\n  - [依赖](#依赖)\n  - [安装](#安装)\n  - [配置&指令&API](#配置指令api)\n- [提问前必看](#提问前必看)\n- [贡献者](#贡献者)\n- [致谢](#致谢)\n\n</details>\n\n## 特性\n\n- 解决使用多个不同 **Yggdrasil** 验证服务导致的UUID冲突或不正确的问题。\n- 使用简单命令，管理来自不同 **Yggdrasil** 验证来源的白名单添加。\n- 不再需要手动添加对应验证来源的正确UUID到 `whitelist.json` 。 ~~不是哥们谁又手动改`whitelist.json`~~\n- 我们提供了一系列API供开发者调用，你可以使用本插件来管理并获取多个来源的UUID。\n\n## 使用方式\n\n### 依赖\n\n`MCDReforged`>=2.12.0\n\n`requests`>=2.31.0\n\n`PyYAML`>=6.0.2\n\n### 安装\n\n在运行的 MCDReforged 实例中执行以下命令，根据提示引导进行安装。\n```\n!!MCDR plugin install meowtiwhitelist\n```\n\n如果服务端网络环境访问安装源存在困难或出于其他原因，可以尝试下面的手动安装\n\n<details>\n  <summary>手动安装</summary>\n\n1. 从 [GitHub Releases](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases)中下载最新版本的 MeowtiWhitelist\n2. 将下载的插件放入MCDR的`plugins`目录中\n3. 安装所需的[依赖](#依赖)\n4. [通过MCDReforged启动服务器](https://docs.mcdreforged.com/zh-cn/latest/quick_start/first_run.html#run)\n\n</details>\n\n## 配置&指令&API\n详见 [Wiki](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/wiki)\n\n## 提问前必看\n\n在提问之前，请确保：\n\n- 已经尝试了所有可能的解决方案\n\n- 已经尝试搜索了解决方案（包括但不限于本仓库的[Issues](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/issues)）\n\n- 你提供了**足够的信息**帮助开发人员定位问题，包括但不限于下列：\n\n  - 服务端日志（MCDR日志、服务端日志等）\n\n  - 插件配置文件\n\n  - 插件列表\n\n  - MCDR 版本号、Minecraft 服务端版本号和插件版本号\n\n- 提问渠道说明\n  - **使用问题/配置疑问/其他问题** → [Discussions](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/discussions)\n  - **Bug/功能请求** → [Issues](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/issues)\n\n## 贡献者\n<a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=MliroLirrorsIngenuity/MeowtiWhitelist&\" alt=\"Contributors\" />\n</a>\n\n## 致谢\n\n[Lazy-Bing-Server/MCDR-offline-whitelist-manager](https://github.com/Lazy-Bing-Server/MCDR-offline-whitelist-manager)：提供了插件主体构建思路\n\n[CaaMoe/MultiLogin](https://github.com/CaaMoe/MultiLogin)：提供了配置插件的方案灵感\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MliroLirrorsIngenuity/MeowtiWhitelist/main/README_EN.md",
+      "zh_cn": "https://raw.githubusercontent.com/MliroLirrorsIngenuity/MeowtiWhitelist/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "meowtiwhitelist",
+    "latest_version": "2.4.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.4.0",
+        "name": "MeowtiWhitelist v2.4.0",
+        "tag_name": "v2.4.0",
+        "created_at": "2025-10-16T19:33:57Z",
+        "description": "## What's Changed\r\n* feat: Supports Ely.by\r\n* fix: Error translate key\r\n* refactor: Sanitize api_root trailing slash\r\n* feat: Reverse whitelist list order\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.3.1...v2.4.0",
+        "prerelease": false,
+        "asset": {
+          "id": 305168115,
+          "name": "MeowtiWhitelist-v2.4.0.mcdr",
+          "size": 11960,
+          "download_count": 52,
+          "created_at": "2025-10-16T19:41:27Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.4.0/MeowtiWhitelist-v2.4.0.mcdr",
+          "hash_md5": "486611121575e225efa3c295eeffb917",
+          "hash_sha256": "95fb4a9d00f53dc619a8db8089939d565d6e52de7b6b447ae6542cf9fe9525de"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.4.0",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.3.1",
+        "name": "MeowtiWhitelist v2.3.1",
+        "tag_name": "v2.3.1",
+        "created_at": "2025-10-05T10:31:02Z",
+        "description": "## What's Changed\r\n* Fix: Compatibility with MCDReforged v2.15+ (#13)\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.3.0...v2.3.1",
+        "prerelease": false,
+        "asset": {
+          "id": 300728020,
+          "name": "MeowtiWhitelist-v2.3.1.mcdr",
+          "size": 11679,
+          "download_count": 19,
+          "created_at": "2025-10-05T10:34:13Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.3.1/MeowtiWhitelist-v2.3.1.mcdr",
+          "hash_md5": "64afcc93ba1f813420bcb8c457db0342",
+          "hash_sha256": "51af3e87cc8c38d3a72ee9cd6fd6d35a4edf5096624c67738df9dcf2d2c86b63"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.3.1",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.3.0",
+        "name": "MeowtiWhitelist v2.3.0",
+        "tag_name": "v2.3.0",
+        "created_at": "2025-06-26T16:21:59Z",
+        "description": "## What's Changed\r\n* feat: Add interactive pagination to list command by @Lemon-miaow in https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/pull/10\r\n* refactor: enhance configuration handling\r\n* feat: allow selecting disabled backups\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.2.0...v2.3.0",
+        "prerelease": false,
+        "asset": {
+          "id": 267563092,
+          "name": "MeowtiWhitelist-v2.3.0.mcdr",
+          "size": 11755,
+          "download_count": 80,
+          "created_at": "2025-06-26T16:24:12Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.3.0/MeowtiWhitelist-v2.3.0.mcdr",
+          "hash_md5": "e53d684b957341dfaff266b3c5f7a9cc",
+          "hash_sha256": "56c163561ca8c32e4a218bc5cacfe81bf7a3fcbf6731d0e5eaf80dca00c44211"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.3.0",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.2.0",
+        "name": "MeowtiWhitelist v2.2.0",
+        "tag_name": "v2.2.0",
+        "created_at": "2025-03-22T14:25:22Z",
+        "description": "## What's Changed\r\n* New API: Player UUID lookup and whitelist management. (#6) — [Usage Guide](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/wiki#API)\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.1.2...v2.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 239826633,
+          "name": "MeowtiWhitelist-v2.2.0.mcdr",
+          "size": 10363,
+          "download_count": 60,
+          "created_at": "2025-03-22T14:27:05Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.2.0/MeowtiWhitelist-v2.2.0.mcdr",
+          "hash_md5": "cff13dde36a3b632612b181e35ad39ed",
+          "hash_sha256": "57927e72cb5fd93ef54455d245ec29aef5936ddc2a2cb1ba479ae8eaf8278790"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.2.0",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.1.2",
+        "name": "MeowtiWhitelist v2.1.2",
+        "tag_name": "v2.1.2",
+        "created_at": "2025-03-11T15:58:24Z",
+        "description": "## What's Changed\r\n* chore: Add support for Python 3.9\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.1.1...v2.1.2",
+        "prerelease": false,
+        "asset": {
+          "id": 236534331,
+          "name": "MeowtiWhitelist-v2.1.2.mcdr",
+          "size": 9709,
+          "download_count": 36,
+          "created_at": "2025-03-11T15:59:39Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.1.2/MeowtiWhitelist-v2.1.2.mcdr",
+          "hash_md5": "d4e298573a48a75d7e18e4bbbe9b56f9",
+          "hash_sha256": "c22cc7fda7c68008a783fe2da2d729fa9afd5c7c91bd9b696f661a63cc3238de"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.1.2",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.1.1",
+        "name": "MeowtiWhitelist v2.1.1",
+        "tag_name": "v2.1.1",
+        "created_at": "2025-03-08T14:59:56Z",
+        "description": "## What's Changed\r\n* fix: resolve errors caused by servers not supporting \"/\" in commands (#5) \r\n* feat: sort API configurations by ID\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.1.0...v2.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 235735417,
+          "name": "MeowtiWhitelist-v2.1.1.mcdr",
+          "size": 9706,
+          "download_count": 35,
+          "created_at": "2025-03-08T15:03:12Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.1.1/MeowtiWhitelist-v2.1.1.mcdr",
+          "hash_md5": "5d53130fc1f5bf107f2ff3e35541a8c8",
+          "hash_sha256": "839ff52bd507666bea9e046ebb7cb1717f38f7f422ffec650fccbaf11e658ef5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.1.1",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.1.0",
+        "name": "MeowtiWhitelist v2.1.0",
+        "tag_name": "v2.1.0",
+        "created_at": "2025-03-06T18:24:40Z",
+        "description": "## What's Changed\r\n* feat: add reload command\r\n* feat: add conflict detection for API configurations\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.0.3...v2.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 235205530,
+          "name": "MeowtiWhitelist-v2.1.0.mcdr",
+          "size": 9685,
+          "download_count": 27,
+          "created_at": "2025-03-06T18:27:06Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.1.0/MeowtiWhitelist-v2.1.0.mcdr",
+          "hash_md5": "666c00da9e5785e32fe337d629057a4a",
+          "hash_sha256": "1758ee2c93a748dd5d9d7c25565ec97c1c76c6d0d16d9dd2cb907b34fa63bd0a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.1.0",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.0.3",
+        "name": "MeowtiWhitelist v2.0.3",
+        "tag_name": "v2.0.3",
+        "created_at": "2025-03-04T18:56:36Z",
+        "description": "## What's Changed\r\n* refactor: update plugin description to support i18n\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.0.2...v2.0.3",
+        "prerelease": false,
+        "asset": {
+          "id": 234593869,
+          "name": "MeowtiWhitelist-v2.0.3.mcdr",
+          "size": 9091,
+          "download_count": 32,
+          "created_at": "2025-03-04T18:57:26Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.0.3/MeowtiWhitelist-v2.0.3.mcdr",
+          "hash_md5": "9e37dc21566f83cf92c6f987bdf3db03",
+          "hash_sha256": "127bd7450efae935af8c609bc5670d93ce13d0ddd58bc23bcd6359c0c88b7ab4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.0.3",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A plugin that can manage the whitelist with multiple Yggdrasil APIs.",
+            "zh_cn": "一个多验证服务(Yggdrasil)白名单管理插件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.0.2",
+        "name": "MeowtiWhitelist v2.0.2",
+        "tag_name": "v2.0.2",
+        "created_at": "2025-03-04T16:25:59Z",
+        "description": "## What's Changed\r\n* refactor: change log function to reply instead of broadcast\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.0.1...v2.0.2",
+        "prerelease": false,
+        "asset": {
+          "id": 234555159,
+          "name": "MeowtiWhitelist-v2.0.2.mcdr",
+          "size": 9022,
+          "download_count": 40,
+          "created_at": "2025-03-04T16:27:08Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.0.2/MeowtiWhitelist-v2.0.2.mcdr",
+          "hash_md5": "afcac73a07fa0901ef0b38910f434f6b",
+          "hash_sha256": "f40419eaf0ab73118d36142f4e58b1617c34fe3e6a00b9fff82b20ce98cdab74"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.0.2",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that can manage the whitelist of a Minecraft server using the multiple Yggdrasil API."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/tag/v2.0.1",
+        "name": "MeowtiWhitelist v2.0.1",
+        "tag_name": "v2.0.1",
+        "created_at": "2025-03-03T19:07:31Z",
+        "description": "## What's Changed\r\n* feat: include version in help message\r\n* refactor: clarity help message format\r\n\r\n**Full Changelog**: https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/compare/v2.0.0...v2.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 234254728,
+          "name": "MeowtiWhitelist-v2.0.1.mcdr",
+          "size": 9030,
+          "download_count": 29,
+          "created_at": "2025-03-03T19:08:45Z",
+          "browser_download_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases/download/v2.0.1/MeowtiWhitelist-v2.0.1.mcdr",
+          "hash_md5": "2a58eed9296cb15a331a84fb63371b8e",
+          "hash_sha256": "8239532de5d2e4d2ede2a33b64665c3c0333dbf85fce50d0c17e1c19a10fc2ba"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "meowtiwhitelist",
+          "name": "MeowtiWhitelist",
+          "version": "2.0.1",
+          "link": "https://github.com/MliroLirrorsIngenuity",
+          "authors": [
+            "Lemon-miaow"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "requests>=2.31.0",
+            "PyYAML>=6.0.2"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that can manage the whitelist of a Minecraft server using the multiple Yggdrasil API."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist",
+    "name": "MeowtiWhitelist",
+    "full_name": "MliroLirrorsIngenuity/MeowtiWhitelist",
+    "html_url": "https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist",
+    "description": "一款基于 MCDReforged 开发的多验证服务白名单管理插件。",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 2,
+    "readme": "<div align=\"center\">\n  <h1 align=\"center\">MeowtiWhitelist</h1>\n  <p align=\"center\">\n    一款基于 <a href=\"https://mcdreforged.com/\"><strong>MCDReforged</strong></a> 开发的多验证服务白名单管理插件，解决多验证服务环境下的白名单问题。\n    <br />\n    <br />\n    <a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/blob/main/README.md\">简体中文</a>\n    |\n    <a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/blob/main/README_EN.md\">English</a>\n  </p>\n</div>\n\n<details>\n  <summary>目录</summary>\n\n- [特性](#特性)\n- [使用方式](#使用方式)\n  - [依赖](#依赖)\n  - [安装](#安装)\n  - [配置&指令&API](#配置指令api)\n- [提问前必看](#提问前必看)\n- [贡献者](#贡献者)\n- [致谢](#致谢)\n\n</details>\n\n## 特性\n\n- 解决使用多个不同 **Yggdrasil** 验证服务导致的UUID冲突或不正确的问题。\n- 使用简单命令，管理来自不同 **Yggdrasil** 验证来源的白名单添加。\n- 不再需要手动添加对应验证来源的正确UUID到 `whitelist.json` 。 ~~不是哥们谁又手动改`whitelist.json`~~\n- 我们提供了一系列API供开发者调用，你可以使用本插件来管理并获取多个来源的UUID。\n\n## 使用方式\n\n### 依赖\n\n`MCDReforged`>=2.12.0\n\n`requests`>=2.31.0\n\n`PyYAML`>=6.0.2\n\n### 安装\n\n在运行的 MCDReforged 实例中执行以下命令，根据提示引导进行安装。\n```\n!!MCDR plugin install meowtiwhitelist\n```\n\n如果服务端网络环境访问安装源存在困难或出于其他原因，可以尝试下面的手动安装\n\n<details>\n  <summary>手动安装</summary>\n\n1. 从 [GitHub Releases](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/releases)中下载最新版本的 MeowtiWhitelist\n2. 将下载的插件放入MCDR的`plugins`目录中\n3. 安装所需的[依赖](#依赖)\n4. [通过MCDReforged启动服务器](https://docs.mcdreforged.com/zh-cn/latest/quick_start/first_run.html#run)\n\n</details>\n\n## 配置&指令&API\n详见 [Wiki](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/wiki)\n\n## 提问前必看\n\n在提问之前，请确保：\n\n- 已经尝试了所有可能的解决方案\n\n- 已经尝试搜索了解决方案（包括但不限于本仓库的[Issues](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/issues)）\n\n- 你提供了**足够的信息**帮助开发人员定位问题，包括但不限于下列：\n\n  - 服务端日志（MCDR日志、服务端日志等）\n\n  - 插件配置文件\n\n  - 插件列表\n\n  - MCDR 版本号、Minecraft 服务端版本号和插件版本号\n\n- 提问渠道说明\n  - **使用问题/配置疑问/其他问题** → [Discussions](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/discussions)\n  - **Bug/功能请求** → [Issues](https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/issues)\n\n## 贡献者\n<a href=\"https://github.com/MliroLirrorsIngenuity/MeowtiWhitelist/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=MliroLirrorsIngenuity/MeowtiWhitelist&\" alt=\"Contributors\" />\n</a>\n\n## 致谢\n\n[Lazy-Bing-Server/MCDR-offline-whitelist-manager](https://github.com/Lazy-Bing-Server/MCDR-offline-whitelist-manager)：提供了插件主体构建思路\n\n[CaaMoe/MultiLogin](https://github.com/CaaMoe/MultiLogin)：提供了配置插件的方案灵感\n",
+    "readme_url": "https://raw.githubusercontent.com/MliroLirrorsIngenuity/MeowtiWhitelist/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

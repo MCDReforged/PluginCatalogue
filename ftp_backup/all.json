@@ -1,0 +1,225 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "ftp_backup",
+    "name": "ftp Backup",
+    "version": "0.0.4",
+    "link": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+    "authors": [
+      "yhy-yangyang"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.7.0"
+    },
+    "requirements": [
+      "mcdreforged",
+      "chardet",
+      "paramiko",
+      "apscheduler"
+    ],
+    "description": {
+      "en_us": "A backup plugin for MCDR"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "ftp_backup",
+    "authors": [
+      "yhy-yangyang"
+    ],
+    "repository": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# MCDR-FTPBackup\n\n一个为 Minecraft 服务器提供备份与 FTP 远程同步功能的 MCDReforged 插件。\n\n---\n\n## 功能特性\n- **一键备份**：自动压缩服务器文件并支持断连保护\n- **远程同步**：将备份文件上传至远程FTP/SFTP服务器\n- **匹配编码**：自动匹配FTP服务器的编码\n- **智能清理**：保留指定数量的本地备份文件\n- **安全模式**：关闭服务器后再执行备份（可在配置文件内修改）\n- **权限管理**：可配置不同命令的权限等级\n\n---\n\n## 安装指南\n1. 将插件文件放置于 MCDR 的 `plugins` 目录\n2. 首次运行会自动生成配置文件 `config/config.json`\n3. 根据服务器环境修改配置文件（配置说明见下文）\n\n---\n\n## 配置说明\n```\n{\n    \"stop_server\": true,                // 是否在备份前停服\n    \"protocol\": \"ftp\",                  // 选择协议 大小写均可\n    \"host\": \"ftp.example.com\",          // FTP/SFTP 服务器地址\n    \"port\": 21,                         // FTP/SFTP 端口\n    \"timeout\": 10,                      // 超时时间  \n    \"username\": \"anonymous\",            // 登录用户名\n    \"private_key_path\": \"\",             // SFTP服务器秘钥路径\n    \"password\": \"\",                     // 登录密码\n    \"prefix\": \"!!fb\",                   // 命令前缀\n    \"server_dir\": \"./server\",           // 服务器目录\n    \"keep_local_backups\": 3,            // 本地保留备份数量\n    \"required_permission\": 3,           // 操作所需权限等级\n    \"exclude_patterns\": [               // 需要排除的文件\n        \"logs\",\n        \"*.tmp\",\n        \"*.lock\"\n    ]\n    remote_path : str = '/'             // 指定远程备份路径\n    local_path: str = './backups'       // 指定本地备份路径\n    auto_backup: bool = False           // 是否开启定时备份功能\n    cron_expression: str = '0 0 * * *'  // 定时备份时间\n}\n```\n\n---\n\n## 命令列表\n<font size=\"3\">注意:本文档假定你使用`!!fb`作为 MCDR 命令的前缀</font>\n\n- `!!fb` - 显示帮助信息\n- `!!fb test` - 测试与FTP服务器的连接\n- `!!fb make` - 创建一个备份并上传到FTP服务器\n- `!!fb inquire` - 查询备份进度\n- `!!fb reload` - 热重载配置\n- `!!fb abort` - 终止备份\n---\n\n## 注意事项\n1. 首次使用前需要在`config.json`文件中修改FTP/SFTP服务器有关设置\n2. 备份完毕后会在`backups`文件夹内保留备份，保留数量可在配置文件内修改\n3. 排除的文件以unix shell风格匹配\n4. 定时备份表达式为一个 crontab 字符串，可以使用 <https://crontab.guru/> 来创建一个 crontab 字符串\n\n---\n\n## 许可证\n本项目基于 Apache License 2.0 发布\n\n---\n\n## 贡献\n欢迎提交 Issue 和 Pull Request！\n\n---\n\n## TODO\n- [x] 支持sftp协议\n- [x] 添加定时备份功能\n- [x] 使用`@new_thread`实现多线程(~~不仔细看文档的后果~~)\n\n---\n\n## 友商项目\n- [八宝粥 (多)MC服务端管理面板](https://github.com/babaozhouO/BBZ-MCServers-Manager)\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/yhy-yangyang/mcdr-ftpbackup/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "ftp_backup",
+    "latest_version": "0.0.4",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/tag/v0.0.4",
+        "name": "v0.0.4",
+        "tag_name": "v0.0.4",
+        "created_at": "2025-05-01T07:27:32Z",
+        "description": "新功能\r\n---\r\n1. 添加`!!fb abort`命令终止备份 - #1 \r\n2. 添加定时备份功能\r\n3. 可以通过修改配置自定义上传到目标服务器的路径和备份到本地的路径 - #1 \r\n\r\n修复\r\n---\r\n1. 修复重复执行备份任务的bug - #2",
+        "prerelease": false,
+        "asset": {
+          "id": 250967614,
+          "name": "ftp_backup-v0.0.4.mcdr",
+          "size": 23209,
+          "download_count": 68,
+          "created_at": "2025-05-01T07:33:30Z",
+          "browser_download_url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/download/v0.0.4/ftp_backup-v0.0.4.mcdr",
+          "hash_md5": "ab173ad0be0c15efb9da4b98971f80f8",
+          "hash_sha256": "3afae81625d60bf6a385a4ac337571475d870b6ae355ff046cc0cfc7f1bea43b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ftp_backup",
+          "name": "ftp Backup",
+          "version": "0.0.4",
+          "link": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+          "authors": [
+            "yhy-yangyang"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "chardet",
+            "paramiko",
+            "apscheduler"
+          ],
+          "description": {
+            "en_us": "A backup plugin for MCDR"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/tag/v0.0.3",
+        "name": "v0.0.3",
+        "tag_name": "v0.0.3",
+        "created_at": "2025-04-19T12:06:41Z",
+        "description": "1. 支持了SFTP协议\r\n2. 使用`@new_thread`实现了多线程\r\n3. 将`!!fb help`命令转到`!!fb`命令\r\n4. 添加`!!fb reload`命令\r\n5. 添加配置项`stop_server`，可自由决定是否停服再备份\r\n6. 修复了一些bug",
+        "prerelease": false,
+        "asset": {
+          "id": 247719753,
+          "name": "ftp_backup-v0.0.3.mcdr",
+          "size": 7758,
+          "download_count": 32,
+          "created_at": "2025-04-19T12:07:08Z",
+          "browser_download_url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/download/v0.0.3/ftp_backup-v0.0.3.mcdr",
+          "hash_md5": "aef9c9419f7ec13cb6c6b4434538a54c",
+          "hash_sha256": "64b4f5f90801c9aeeab3460f5538664203b0309c14a49caf16d090445ce609b8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ftp_backup",
+          "name": "ftp Backup",
+          "version": "0.0.3",
+          "link": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+          "authors": [
+            "yhy-yangyang"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "chardet",
+            "paramiko"
+          ],
+          "description": {
+            "en_us": "A backup plugin for MCDR"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/tag/v0.0.2",
+        "name": "",
+        "tag_name": "v0.0.2",
+        "created_at": "2025-04-16T13:56:12Z",
+        "description": "1. 添加指令`!!fb inquire`查询备份进度\r\n2. 添加配置项`timeout`设置ftp连接超时时间\r\n3. 取消在插件加载时测试连接，避免阻塞其他插件加载",
+        "prerelease": false,
+        "asset": {
+          "id": 247686692,
+          "name": "ftp_backup-v0.0.2.mcdr",
+          "size": 7174,
+          "download_count": 28,
+          "created_at": "2025-04-19T07:14:00Z",
+          "browser_download_url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/download/v0.0.2/ftp_backup-v0.0.2.mcdr",
+          "hash_md5": "a0307ba0c38d4da7b544c1d88ec98b19",
+          "hash_sha256": "1216ad78f9b625e4bad48ba67f859c2915dbf91173bbdee6b086e7ca068c9762"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ftp_backup",
+          "name": "ftp Backup",
+          "version": "0.0.2",
+          "link": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+          "authors": [
+            "yhy-yangyang"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "chardet"
+          ],
+          "description": {
+            "en_us": "A backup plugin for MCDR"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/tag/v0.0.1",
+        "name": "FTPBackup-v0.0.1",
+        "tag_name": "v0.0.1",
+        "created_at": "2025-04-16T13:56:12Z",
+        "description": "FTPBackup的第一个版本，可能会存在许多问题，可以的话还请多多反馈。\r\n作者是初三生，修BUG/更新可能不及时，请多多谅解",
+        "prerelease": false,
+        "asset": {
+          "id": 245981231,
+          "name": "ftp_backup.mcdr",
+          "size": 13257,
+          "download_count": 26,
+          "created_at": "2025-04-13T08:11:24Z",
+          "browser_download_url": "https://github.com/yhy-yangyang/mcdr-ftpbackup/releases/download/v0.0.1/ftp_backup.mcdr",
+          "hash_md5": "1560c3c0b47edddb8bea8d7c80d98665",
+          "hash_sha256": "7d55888d118e6f7769fc2455ae1e1aef4f092a31c103e2cdb93b3bcc44e1115d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "ftp_backup",
+          "name": "ftp Backup",
+          "version": "0.0.1",
+          "link": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+          "authors": [
+            "yhy-yangyang"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged",
+            "chardet"
+          ],
+          "description": {
+            "en_us": "A backup plugin for MCDR"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+    "name": "mcdr-ftpbackup",
+    "full_name": "yhy-yangyang/mcdr-ftpbackup",
+    "html_url": "https://github.com/yhy-yangyang/mcdr-ftpbackup",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 1,
+    "readme": "# MCDR-FTPBackup\n\n一个为 Minecraft 服务器提供备份与 FTP 远程同步功能的 MCDReforged 插件。\n\n---\n\n## 功能特性\n- **一键备份**：自动压缩服务器文件并支持断连保护\n- **远程同步**：将备份文件上传至远程FTP/SFTP服务器\n- **匹配编码**：自动匹配FTP服务器的编码\n- **智能清理**：保留指定数量的本地备份文件\n- **安全模式**：关闭服务器后再执行备份（可在配置文件内修改）\n- **权限管理**：可配置不同命令的权限等级\n\n---\n\n## 安装指南\n1. 将插件文件放置于 MCDR 的 `plugins` 目录\n2. 首次运行会自动生成配置文件 `config/config.json`\n3. 根据服务器环境修改配置文件（配置说明见下文）\n\n---\n\n## 配置说明\n```\n{\n    \"stop_server\": true,                // 是否在备份前停服\n    \"protocol\": \"ftp\",                  // 选择协议 大小写均可\n    \"host\": \"ftp.example.com\",          // FTP/SFTP 服务器地址\n    \"port\": 21,                         // FTP/SFTP 端口\n    \"timeout\": 10,                      // 超时时间  \n    \"username\": \"anonymous\",            // 登录用户名\n    \"private_key_path\": \"\",             // SFTP服务器秘钥路径\n    \"password\": \"\",                     // 登录密码\n    \"prefix\": \"!!fb\",                   // 命令前缀\n    \"server_dir\": \"./server\",           // 服务器目录\n    \"keep_local_backups\": 3,            // 本地保留备份数量\n    \"required_permission\": 3,           // 操作所需权限等级\n    \"exclude_patterns\": [               // 需要排除的文件\n        \"logs\",\n        \"*.tmp\",\n        \"*.lock\"\n    ]\n    remote_path : str = '/'             // 指定远程备份路径\n    local_path: str = './backups'       // 指定本地备份路径\n    auto_backup: bool = False           // 是否开启定时备份功能\n    cron_expression: str = '0 0 * * *'  // 定时备份时间\n}\n```\n\n---\n\n## 命令列表\n<font size=\"3\">注意:本文档假定你使用`!!fb`作为 MCDR 命令的前缀</font>\n\n- `!!fb` - 显示帮助信息\n- `!!fb test` - 测试与FTP服务器的连接\n- `!!fb make` - 创建一个备份并上传到FTP服务器\n- `!!fb inquire` - 查询备份进度\n- `!!fb reload` - 热重载配置\n- `!!fb abort` - 终止备份\n---\n\n## 注意事项\n1. 首次使用前需要在`config.json`文件中修改FTP/SFTP服务器有关设置\n2. 备份完毕后会在`backups`文件夹内保留备份，保留数量可在配置文件内修改\n3. 排除的文件以unix shell风格匹配\n4. 定时备份表达式为一个 crontab 字符串，可以使用 <https://crontab.guru/> 来创建一个 crontab 字符串\n\n---\n\n## 许可证\n本项目基于 Apache License 2.0 发布\n\n---\n\n## 贡献\n欢迎提交 Issue 和 Pull Request！\n\n---\n\n## TODO\n- [x] 支持sftp协议\n- [x] 添加定时备份功能\n- [x] 使用`@new_thread`实现多线程(~~不仔细看文档的后果~~)\n\n---\n\n## 友商项目\n- [八宝粥 (多)MC服务端管理面板](https://github.com/babaozhouO/BBZ-MCServers-Manager)\n",
+    "readme_url": "https://raw.githubusercontent.com/yhy-yangyang/mcdr-ftpbackup/main/README.md",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0"
+    }
+  }
+}

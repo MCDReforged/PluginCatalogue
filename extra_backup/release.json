@@ -1,0 +1,86 @@
+{
+  "schema_version": 8,
+  "id": "extra_backup",
+  "latest_version": "1.0.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/AVJANO/ExtraBackup/releases/tag/v1.0.1",
+      "name": "ExtraBackup-v1.0.1-beta",
+      "tag_name": "v1.0.1",
+      "created_at": "2025-11-18T02:14:12Z",
+      "description": "修复了已知问题",
+      "prerelease": false,
+      "asset": {
+        "id": 319015572,
+        "name": "ExtraBackup-v1.0.1.pyz",
+        "size": 99894,
+        "download_count": 39,
+        "created_at": "2025-11-21T01:09:59Z",
+        "browser_download_url": "https://github.com/AVJANO/ExtraBackup/releases/download/v1.0.1/ExtraBackup-v1.0.1.pyz",
+        "hash_md5": "16e02da1590b0d4e8204a4c66ea834e8",
+        "hash_sha256": "187e785564e66d267322d85d26310f2d8a829c64b7abaa64251f5927c561dde2"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "extra_backup",
+        "name": "Extra Backup",
+        "version": "1.0.1",
+        "link": "https://github.com/AVJANO/ExtraBackup",
+        "authors": [
+          "avjano"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.7",
+          "prime_backup": ">=1.10.3"
+        },
+        "requirements": [
+          "schedule>=1.2.2"
+        ],
+        "description": {
+          "zh_cn": "分布式存档备份插件，可以自动备份存档到不同位置",
+          "en_us": "Distributed archive backup plugin, which can automatically back up archives to different locations."
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AVJANO/ExtraBackup/releases/tag/v0.1.7",
+      "name": "ExtraBackup v0.1.7-alpha",
+      "tag_name": "v0.1.7",
+      "created_at": "2025-09-02T13:33:39Z",
+      "description": "----------------------------------------------------------------------------\r\nExtrabackup-v1.0已经发布，功能更加完善。请使用最新版插件！\r\nv0.x将不再更新且不兼容v1.x ，请使用最新版插件！\r\n----------------------------------------------------------------------------\r\n新增定时清理备份和手动清理备份功能\r\n新增多语言支持（目前支持语言：简体中文，英文）\r\n修复了重载插件但定时任务无法重载的BUG\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 288809398,
+        "name": "ExtraBackup-v0.1.7-alpha.pyz",
+        "size": 112313,
+        "download_count": 14,
+        "created_at": "2025-09-02T13:38:38Z",
+        "browser_download_url": "https://github.com/AVJANO/ExtraBackup/releases/download/v0.1.7/ExtraBackup-v0.1.7-alpha.pyz",
+        "hash_md5": "a30b320173f87ff6cc9deea2aad7ddbe",
+        "hash_sha256": "1594f02f7471d2ee99388f969f00c8281b83ee58bc8c3245a8188c1e219c243b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "extra_backup",
+        "name": "Extra Backup",
+        "version": "0.1.7",
+        "link": "https://github.com/AVJANO/ExtraBackup",
+        "authors": [
+          "avjano"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.7",
+          "prime_backup": ">=1.7.4"
+        },
+        "requirements": [
+          "schedule>=1.2.2"
+        ],
+        "description": {
+          "zh_cn": "全新分布式备份插件，为您的珍贵存档增添一份安心！",
+          "en_us": "A new distributed backup plugin which adds peace of mind to your valuable archives!"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "file_manager",
+    "name": "FileManager",
+    "version": "1.0.0",
+    "link": "https://github.com/Eason120806/FileManager-MCDR/",
+    "authors": [
+      "Eason120806"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [],
+    "description": {
+      "zh_cn": "游戏内服务器文件管理器",
+      "en_us": "In-Game Server File Manager"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "file_manager",
+    "authors": [
+      "Eason120806"
+    ],
+    "repository": "https://github.com/Eason120806/FileManager-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information",
+      "tool",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# MCDR File Manager Plugin\n\n![License](https://img.shields.io/badge/License-GPLv3-blue)\n![MCDR](https://img.shields.io/badge/MCDR-2.1.0%2B-blue)\n\nA powerful MCDR plugin that allows admins to browse, view, edit, and delete server files directly within Minecraft.\n\n## Features\n\n- 🗂️ **Interactive File Browsing** - Browse server directory structure with pagination\n- 📄 **File Content Viewing** - View large files with line numbers and pagination\n- ✏️ **Line-Level Editing** - Precisely edit specific lines in files\n- 🗑️ **Safe File Deletion** - Prevent accidental deletion of protected files\n- 🛡️ **Permission Management** - Configurable list of allowed players\n- 🔒 **File Protection** - Prevent modification/deletion of critical config files\n- 🖱️ **Click Operations** - Most actions can be performed through clickable text\n\n## Installation\n\n1. Ensure [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) is installed\n2. Place `FileManager.mcdr` in your server's `plugins` folder\n3. Restart server or reload plugin with `!!MCDR plugin reload file_manager`\n\n### Type `!!fm` to display help menu\n### Due to chatbox mechanism issues, editing or previewing indented lines is not currently supported\n",
+      "zh_cn": "\n# MCDR 文件管理器插件\n\n![License](https://img.shields.io/badge/License-GPLv3-blue)\n![MCDR](https://img.shields.io/badge/MCDR-2.1.0%2B-blue)\n\n一个功能强大的MCDR插件，允许管理员在Minecraft游戏中直接浏览、查看、编辑和删除服务器文件。\n\n## 功能特性\n\n- 🗂️ **交互式文件浏览** - 以分页方式浏览服务器目录结构\n- 📄 **文件内容查看** - 支持行号高亮和分页查看大型文件\n- ✏️ **行级文件编辑** - 精确编辑文件的特定行\n- 🗑️ **安全文件删除** - 防止误删受保护文件\n- 🛡️ **权限管理** - 可配置允许操作的玩家名单\n- 🔒 **文件保护** - 防止修改或删除重要配置文件\n- 🖱️ **点击操作** - 大部分操作可通过点击文本完成\n\n## 安装方法\n\n1. 确保已安装 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n2. 将 `FileManager.mcdr` 放入服务器的 `plugins` 文件夹\n3. 重启服务器或使用 `!!MCDR plugin reload file_manager` 重载插件\n\n### 输入!!fm显示帮助菜单\n### 由于聊天框机制问题，目前不支持编辑或预览带缩进的行\n\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Eason120806/FileManager-MCDR/main/README_us.md",
+      "zh_cn": "https://raw.githubusercontent.com/Eason120806/FileManager-MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "file_manager",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Eason120806/FileManager-MCDR/releases/tag/1.0.0",
+        "name": "1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2025-06-20T14:53:02Z",
+        "description": "#添加了文件浏览和编辑功能",
+        "prerelease": false,
+        "asset": {
+          "id": 265977369,
+          "name": "FileManager.mcdr",
+          "size": 4901,
+          "download_count": 98,
+          "created_at": "2025-06-21T09:13:55Z",
+          "browser_download_url": "https://github.com/Eason120806/FileManager-MCDR/releases/download/1.0.0/FileManager.mcdr",
+          "hash_md5": "6d5553c85884ab37a2edb13ed24eb675",
+          "hash_sha256": "ec3ff54599ac7a1414effd07c356992be565b177d80b85341e18e7a83b127d3d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "file_manager",
+          "name": "FileManager",
+          "version": "1.0.0",
+          "link": "https://github.com/Eason120806/FileManager-MCDR/",
+          "authors": [
+            "Eason120806"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "游戏内服务器文件管理器",
+            "en_us": "In-Game Server File Manager"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Eason120806/FileManager-MCDR",
+    "name": "FileManager-MCDR",
+    "full_name": "Eason120806/FileManager-MCDR",
+    "html_url": "https://github.com/Eason120806/FileManager-MCDR",
+    "description": "游戏内服务器文件管理器",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "\n# MCDR 文件管理器插件\n\n![License](https://img.shields.io/badge/License-GPLv3-blue)\n![MCDR](https://img.shields.io/badge/MCDR-2.1.0%2B-blue)\n\n一个功能强大的MCDR插件，允许管理员在Minecraft游戏中直接浏览、查看、编辑和删除服务器文件。\n\n## 功能特性\n\n- 🗂️ **交互式文件浏览** - 以分页方式浏览服务器目录结构\n- 📄 **文件内容查看** - 支持行号高亮和分页查看大型文件\n- ✏️ **行级文件编辑** - 精确编辑文件的特定行\n- 🗑️ **安全文件删除** - 防止误删受保护文件\n- 🛡️ **权限管理** - 可配置允许操作的玩家名单\n- 🔒 **文件保护** - 防止修改或删除重要配置文件\n- 🖱️ **点击操作** - 大部分操作可通过点击文本完成\n\n## 安装方法\n\n1. 确保已安装 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n2. 将 `FileManager.mcdr` 放入服务器的 `plugins` 文件夹\n3. 重启服务器或使用 `!!MCDR plugin reload file_manager` 重载插件\n\n### 输入!!fm显示帮助菜单\n### 由于聊天框机制问题，目前不支持编辑或预览带缩进的行\n\n",
+    "readme_url": "https://raw.githubusercontent.com/Eason120806/FileManager-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}
