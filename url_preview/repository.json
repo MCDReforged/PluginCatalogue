@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/URLPreviewAPI-MCDR",
+  "name": "URLPreviewAPI-MCDR",
+  "full_name": "Mooling0602/URLPreviewAPI-MCDR",
+  "html_url": "https://github.com/Mooling0602/URLPreviewAPI-MCDR",
+  "description": "Preview the text or image content of the URLs in game chat.",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# URLPreviewAPI-MCDR\nPreview the text or image content of the URLs in game chat.\n\nThis plugin need Minecraft: Java Edition client, click link to open browser is impossible to support Geyser!\n\n## Usage\nExecute `!!url <url>` in the game, and a formatted URL text will be sent to the game chat.\n> All players can see it in the game client. If http prefix not added, 'https://' will be added as a prefix.\n\n## Docs\nIf you want to use this plugin as an API to format url in chat messages, just do this:\n```python\nfrom mcdreforged.api.all import *\nfrom url_preview import RTextURL \n\ndef main(server: PluginServerInterface):\n    url = \"https://example.com\"\n    rtext_url = RTextURL()\n    url_text = rtext_url(url) # is a RText obj with formatted URL with previewed info.\n    server.say(\"...\" + url_text + \"...\") # just an example.\n```\n> Remember to add `url_preview` as a dependency in your plugin's meta file(mcdreforged.plugin.json).\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/URLPreviewAPI-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

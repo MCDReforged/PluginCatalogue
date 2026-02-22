@@ -1,0 +1,103 @@
+{
+  "schema_version": 8,
+  "id": "player_watchdog",
+  "latest_version": "1.0.2",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/releases/tag/v1.0.2",
+      "name": "v1.0.2 - CSV 物品记录",
+      "tag_name": "v1.0.2",
+      "created_at": "2025-08-29T18:37:17Z",
+      "description": "### 新功能\r\n- 玩家物品记录改为 CSV 格式，替代原日志.txt\r\n- CSV 文件体积更小，可直接用 Excel 打开查看、筛选、排序\r\n- 记录字段：时间、玩家、维度、X、Y、Z、物品\r\n\r\n### 其他\r\n- 非 RCON 模式支持\r\n- 优化代码结构\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 287784826,
+        "name": "player_watchdog.mcdr",
+        "size": 92211,
+        "download_count": 38,
+        "created_at": "2025-08-30T05:53:28Z",
+        "browser_download_url": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/releases/download/v1.0.2/player_watchdog.mcdr",
+        "hash_md5": "50a610cdb5442129baead1af4c89c5a5",
+        "hash_sha256": "ab96d07a126b0c7bd93fd6c60a2f82116c115b0bc15470f3fe3f77c1941bfb60"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "player_watchdog",
+        "name": "Watch_dog_online_players_with_coords_and_dim",
+        "version": "1.0.2",
+        "link": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim",
+        "authors": [
+          "LinHouyu"
+        ],
+        "dependencies": {
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {}
+      }
+    },
+    {
+      "url": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/releases/tag/v1.0.1",
+      "name": "v1.0.1 - 修复版",
+      "tag_name": "v1.0.1",
+      "created_at": "2025-08-25T03:46:53Z",
+      "description": "### 新功能\r\n- 定时记录在线玩家的坐标和所在维度\r\n- 将数据写入独立日志文件，方便查询\r\n\r\n### 使用方法\r\n1. 将 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录\r\n2. 重启 MCDR 或执行 `!!MCDR reload plugin` （推荐直接stop在重启服务器）",
+      "prerelease": false,
+      "asset": {
+        "id": 285904754,
+        "name": "player_watchdog.mcdr",
+        "size": 5809,
+        "download_count": 11,
+        "created_at": "2025-08-25T04:08:28Z",
+        "browser_download_url": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/releases/download/v1.0.1/player_watchdog.mcdr",
+        "hash_md5": "1e2ff616511230f005ff2df562762419",
+        "hash_sha256": "05e4982eeb374b6a949cab6b2b3ca9cb163cc9b571cac0d49b641da9b43207be"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "player_watchdog",
+        "name": "Watch_dog_online_players_with_coords_and_dim",
+        "version": "1.0.1",
+        "link": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim",
+        "authors": [
+          "LinHouyu"
+        ],
+        "dependencies": {},
+        "requirements": [],
+        "description": {}
+      }
+    },
+    {
+      "url": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/releases/tag/v1.0.0",
+      "name": "v1.0.0 - 首次发布",
+      "tag_name": "v1.0.0",
+      "created_at": "2025-08-16T22:43:17Z",
+      "description": "### 新功能\r\n- 定时记录在线玩家的坐标和所在维度\r\n- 将数据写入独立日志文件，方便查询\r\n\r\n### 使用方法\r\n1. 将 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录\r\n2. 重启 MCDR 或执行 `!!MCDR reload plugin` （推荐直接stop在重启服务器）\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 285899845,
+        "name": "player_watchdog.mcdr",
+        "size": 5777,
+        "download_count": 8,
+        "created_at": "2025-08-25T03:46:34Z",
+        "browser_download_url": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/releases/download/v1.0.0/player_watchdog.mcdr",
+        "hash_md5": "57cbbd7c13d111fa563ee316947a7b14",
+        "hash_sha256": "938ee0f6df27f8f035f667b397cc4059ecb216682e3d5292519d5d790394af4d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "player_watchdog",
+        "name": "Watch_dog_online_players_with_coords_and_dim",
+        "version": "1.0.0",
+        "link": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim",
+        "authors": [
+          "LinHouyu"
+        ],
+        "dependencies": {},
+        "requirements": [],
+        "description": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "mccr",
+    "name": "MCDR Command Completer Reforged",
+    "version": "1.1.1",
+    "link": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+    "authors": [
+      "DancingSnow",
+      "ZhuRuoLing"
+    ],
+    "dependencies": {
+      "mcdreforged": ">2.14.0"
+    },
+    "requirements": [
+      "fastapi",
+      "uvicorn"
+    ],
+    "description": {
+      "en_us": "MCDR Command Completer"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "mccr",
+    "authors": [
+      "DancingSnow",
+      "ZhuRuoLing"
+    ],
+    "repository": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "<div align=\"center\">\n\n# MCDRCommandCompletion Reforged\n_✨ Another wonderful implementation of client-side MCDR command completion ✨_\n\n</div>\n\n[Readme zh_CN](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/tree/master//README.md)\n\n> [!WARNING]  \n> Requires [FabricMod-MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) to work\n\n## Usage\n- Download the latest release of this plugin from [Release](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases) and install it.\n- Ensure that the server you join has this mod and the corresponding plugin installed.\n- Use `!` in the chat bar to trigger completion.\n\n## Configuration\nConfiguration file can be found at `config/mccr/config.json`\n\n* ### http_port\n  #### `http_port` represents the port used by the HTTP server, this value will be automatically configured to the `server mod` by the command\n  - Type: `int`\n  - Any integer between `1-65535`\n  - Default value: `8080`\n\n## License\nThis project follows the GNU LGPL V3 license\n",
+      "zh_cn": "<div align=\"center\">\n\n# MCDRCommandCompletion Reforged\n_✨ 另一种奇妙实现的客户端MCDR命令补全 ✨_\n\n</div>\n\n[Readme en_US](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/tree/master//README_en.md)\n\n> [!WARNING]  \n> 需要搭配 [FabricMod-MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) 使用\n\n## 使用\n- 从 [Release](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases) 处下载本插件的最新发布版并安装。\n- 确保阁下加入的服务器安装了本模组以及本模组配套插件\n- 在聊天栏中使用`!`触发补全。\n\n## 配置\n配置文件从 `config/mccr/config.json` 找到\n\n* ### http_port\n  #### `http_port` 代表着 http 服务器所使用的端口, 该值会自动使用命令自动配置到 `服务端mod` 上\n  - 类型: `int`\n  - 任意 `1-65535` 的整数\n  - 默认值: `8080`\n\n## 许可\n本项目遵循 GNU LGPL V3 许可\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/DancingSnow0517/MCDRCommandCompleterReforged/master/README_en.md",
+      "zh_cn": "https://raw.githubusercontent.com/DancingSnow0517/MCDRCommandCompleterReforged/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "mccr",
+    "latest_version": "1.1.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases/tag/1.1.1",
+        "name": "MCDR Command Completer Reforged V1.1.1",
+        "tag_name": "1.1.1",
+        "created_at": "2025-03-20T02:28:32Z",
+        "description": "## What's Changed\r\n* fix when mcdr_server or command_manager is None, payload is wrong by @DancingSnow0517 in https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/pull/1\r\n\r\n\r\n**Full Changelog**: https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/compare/1.1.0...1.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 239107413,
+          "name": "MCDRCommandCompleterReforged-v1.1.1.mcdr",
+          "size": 4777,
+          "download_count": 140,
+          "created_at": "2025-03-20T02:29:54Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases/download/1.1.1/MCDRCommandCompleterReforged-v1.1.1.mcdr",
+          "hash_md5": "8cdc04eb696fbc3fea23ec1130b78cf2",
+          "hash_sha256": "e55fe8ca277864dd28ba0222e1f6da2c7ef2289fe34f8b7fd97297c79a8cbd6f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mccr",
+          "name": "MCDR Command Completer Reforged",
+          "version": "1.1.1",
+          "link": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+          "authors": [
+            "DancingSnow",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": ">2.14.0"
+          },
+          "requirements": [
+            "fastapi",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "MCDR Command Completer"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases/tag/1.1.0",
+        "name": "Implemented Command Hints",
+        "tag_name": "1.1.0",
+        "created_at": "2025-03-19T11:31:01Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 238852665,
+          "name": "MCDRCommandCompleterReforged-v1.1.0.mcdr",
+          "size": 4766,
+          "download_count": 28,
+          "created_at": "2025-03-19T11:32:09Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases/download/1.1.0/MCDRCommandCompleterReforged-v1.1.0.mcdr",
+          "hash_md5": "fbf1da27bbdcdc7eed37f52682d0fdec",
+          "hash_sha256": "bdf93ae20c030b51dcf210190236bca299e4f0c55b7fe162a99c6ec3b0c8c2c5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mccr",
+          "name": "MCDR Command Completer Reforged",
+          "version": "1.1.0",
+          "link": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+          "authors": [
+            "DancingSnow",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": ">2.14.0"
+          },
+          "requirements": [
+            "fastapi",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "MCDR Command Completer"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases/tag/1.0.0",
+        "name": "MCDR Command Completer Reforged V1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2025-03-18T18:12:14Z",
+        "description": "# It Works!!!!",
+        "prerelease": false,
+        "asset": {
+          "id": 238624589,
+          "name": "MCDRCommandCompleterReforged-v1.0.0.mcdr",
+          "size": 4737,
+          "download_count": 33,
+          "created_at": "2025-03-18T18:13:33Z",
+          "browser_download_url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases/download/1.0.0/MCDRCommandCompleterReforged-v1.0.0.mcdr",
+          "hash_md5": "967d8b097c73c1fc49d9523fdbf16d17",
+          "hash_sha256": "20bb7519c263475b8466a0567449042161626a955f9c2c0c227f91804922c9d2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mccr",
+          "name": "MCDR Command Completer Reforged",
+          "version": "1.0.0",
+          "link": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+          "authors": [
+            "DancingSnow",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": ">2.14.0"
+          },
+          "requirements": [
+            "fastapi",
+            "uvicorn"
+          ],
+          "description": {
+            "en_us": "MCDR Command Completer"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+    "name": "MCDRCommandCompleterReforged",
+    "full_name": "DancingSnow0517/MCDRCommandCompleterReforged",
+    "html_url": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 1,
+    "readme": "<div align=\"center\">\n\n# MCDRCommandCompletion Reforged\n_✨ 另一种奇妙实现的客户端MCDR命令补全 ✨_\n\n</div>\n\n[Readme en_US](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/tree/master//README_en.md)\n\n> [!WARNING]  \n> 需要搭配 [FabricMod-MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) 使用\n\n## 使用\n- 从 [Release](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases) 处下载本插件的最新发布版并安装。\n- 确保阁下加入的服务器安装了本模组以及本模组配套插件\n- 在聊天栏中使用`!`触发补全。\n\n## 配置\n配置文件从 `config/mccr/config.json` 找到\n\n* ### http_port\n  #### `http_port` 代表着 http 服务器所使用的端口, 该值会自动使用命令自动配置到 `服务端mod` 上\n  - 类型: `int`\n  - 任意 `1-65535` 的整数\n  - 默认值: `8080`\n\n## 许可\n本项目遵循 GNU LGPL V3 许可\n",
+    "readme_url": "https://raw.githubusercontent.com/DancingSnow0517/MCDRCommandCompleterReforged/master/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  }
+}

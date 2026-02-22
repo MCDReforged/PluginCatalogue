@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "simple_calculator",
+    "name": "Simple in-game calculator",
+    "version": "1.2.0",
+    "link": "https://github.com/TISUnion/Calculator",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0-beta"
+    },
+    "requirements": [
+      "simpleeval"
+    ],
+    "description": {
+      "en_us": "A Simple in-game calculator",
+      "zh_cn": "一个简单的游戏内计算器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "simple_calculator",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/TISUnion/Calculator",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "Simple Calculator\n------\n\nA simple in game calculator plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= `2.1.0`\n\nRequires [simpleeval](https://pypi.org/project/simpleeval/) module\n\nConfigure file: `config/simple_calculator/config.json`\n\n## Usage\n\nIt will calculate the expression with an extra prefix `==` such as `==1+1`. All unrelated chars will be ignored\n\nTry input `==3**4-(1+3.0)` or `==sin(0.5*pi) + (0x1A >> 1)` in game chat and that's it\n\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/TISUnion/Calculator/master/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "simple_calculator",
+    "latest_version": "1.2.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/TISUnion/Calculator/releases/tag/v1.2.0",
+        "name": "Simple Calculator v1.2",
+        "tag_name": "v1.2.0",
+        "created_at": "2021-08-26T04:32:24Z",
+        "description": "- Upgraded to MCDR 2.1+ better translation logic\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 43348942,
+          "name": "SimpleCalculator-v1.2.0.mcdr",
+          "size": 15912,
+          "download_count": 3007,
+          "created_at": "2021-08-26T13:59:56Z",
+          "browser_download_url": "https://github.com/TISUnion/Calculator/releases/download/v1.2.0/SimpleCalculator-v1.2.0.mcdr",
+          "hash_md5": "1023b62cf3766291993506bd36773c38",
+          "hash_sha256": "8df239b761e9bdfd7444a7c774ed95ec647fa714fae67b6608e284add70b2c28"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_calculator",
+          "name": "Simple in-game calculator",
+          "version": "1.2.0",
+          "link": "https://github.com/TISUnion/Calculator",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0-beta"
+          },
+          "requirements": [
+            "simpleeval"
+          ],
+          "description": {
+            "en_us": "A Simple in-game calculator",
+            "zh_cn": "一个简单的游戏内计算器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/Calculator/releases/tag/v1.1.0",
+        "name": "Simple Calculator v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2021-08-21T16:34:34Z",
+        "description": "MCDR 2.0 packed plugin format with result display imporved\r\n\r\n![image](https://user-images.githubusercontent.com/28978806/130328889-1174ef5c-5a28-46e3-b361-58c4c576abeb.png)\r\n\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 42972328,
+          "name": "SimpleCalculator-v1.1.0.mcdr",
+          "size": 15876,
+          "download_count": 1466,
+          "created_at": "2021-08-21T16:39:21Z",
+          "browser_download_url": "https://github.com/TISUnion/Calculator/releases/download/v1.1.0/SimpleCalculator-v1.1.0.mcdr",
+          "hash_md5": "02590994805efad2dd42de148c126f8f",
+          "hash_sha256": "2c3db089423b131aa96698eeaa36a2a61ed2b88d9f8f61b5b939b5d0c319c3f8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_calculator",
+          "name": "Simple in-game calculator",
+          "version": "1.1.0",
+          "link": "https://github.com/TISUnion/Calculator",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "simpleeval"
+          ],
+          "description": {
+            "en_us": "A Simple in-game calculator",
+            "zh_cn": "一个简单的游戏内计算器"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/TISUnion/Calculator",
+    "name": "Calculator",
+    "full_name": "TISUnion/Calculator",
+    "html_url": "https://github.com/TISUnion/Calculator",
+    "description": "A simple ingame calculator",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 3,
+    "readme": "Simple Calculator\n------\n\nA simple in game calculator plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= `2.1.0`\n\nRequires [simpleeval](https://pypi.org/project/simpleeval/) module\n\nConfigure file: `config/simple_calculator/config.json`\n\n## Usage\n\nIt will calculate the expression with an extra prefix `==` such as `==1+1`. All unrelated chars will be ignored\n\nTry input `==3**4-(1+3.0)` or `==sin(0.5*pi) + (0x1A >> 1)` in game chat and that's it\n\n",
+    "readme_url": "https://raw.githubusercontent.com/TISUnion/Calculator/master/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

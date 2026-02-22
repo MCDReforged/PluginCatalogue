@@ -1,0 +1,112 @@
+{
+  "schema_version": 8,
+  "id": "join_motd",
+  "latest_version": "1.4.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/TISUnion/joinMOTD/releases/tag/v1.4.0",
+      "name": "",
+      "tag_name": "v1.4.0",
+      "created_at": "2025-06-19T17:46:47Z",
+      "description": "- Support custom display text with the `serverList[*].display` field\r\n- Added config option `commonJsonDataPath` to share common parts of the config file between multiple servers\r\n- Added config option `auto_reload_interval` to auto-reload the config files",
+      "prerelease": false,
+      "asset": {
+        "id": 269713567,
+        "name": "JoinMOTD-v1.4.0.mcdr",
+        "size": 2426,
+        "download_count": 675,
+        "created_at": "2025-07-03T17:52:18Z",
+        "browser_download_url": "https://github.com/TISUnion/joinMOTD/releases/download/v1.4.0/JoinMOTD-v1.4.0.mcdr",
+        "hash_md5": "a9957725e18ae6941178eab9d6b6ab3b",
+        "hash_sha256": "6be6a69d3254cc35351471dc0f54b175825e4fc4b1c2b5fce8eda1a3027ce1ff"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "join_motd",
+        "name": "Join MOTD",
+        "version": "1.4.0",
+        "link": "https://github.com/TISUnion/joinMOTD",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.9.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Send player a MOTD when he joins",
+          "zh_cn": "当玩家加入游戏时向其发送欢迎信息"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/joinMOTD/releases/tag/v1.3.0",
+      "name": "",
+      "tag_name": "v1.3.0",
+      "created_at": "2022-05-22T11:02:58Z",
+      "description": "- More detailed server info entry support\r\n\r\n  In the `serverList` entry in the config, you can use an object to indicate a server entry for more detailed information, e.g.\r\n\r\n```json\r\n\"serverList\": [\r\n  {\r\n    \"name\": \"creative1\",\r\n    \"description\": \"CMP Server#1\",\r\n    \"category\": \"CMP\"\r\n  },\r\n  {\r\n    \"name\": \"creative2\",\r\n    \"description\": \"CMP Server#2\",\r\n    \"category\": \"CMP\"\r\n  }\r\n]\r\n```\r\n\r\n  with the settings above, server jump buttons will be displayed in separate rows according to the category, and the description will be attached to the hover text\r\n\r\n  - Compats with former config file which uses single string as server info entry",
+      "prerelease": false,
+      "asset": {
+        "id": 66269360,
+        "name": "JoinMOTD-v1.3.0.mcdr",
+        "size": 1873,
+        "download_count": 2965,
+        "created_at": "2022-05-22T11:07:50Z",
+        "browser_download_url": "https://github.com/TISUnion/joinMOTD/releases/download/v1.3.0/JoinMOTD-v1.3.0.mcdr",
+        "hash_md5": "2a680d4e855da3dd991ce70c21d10e18",
+        "hash_sha256": "2fb9546b6b4ee441563c5c79fe9f51abdb1d1704c7ca7051c5f0a7358772f2e5"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "join_motd",
+        "name": "Join MOTD",
+        "version": "1.3.0",
+        "link": "https://github.com/TISUnion/joinMOTD",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [],
+        "description": {
+          "en_us": "Send player a MOTD when he joins",
+          "zh_cn": "当玩家加入游戏时向其发送欢迎信息"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/joinMOTD/releases/tag/v1.2.0",
+      "name": " joinMOTD v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2021-08-22T04:14:05Z",
+      "description": "MCDR2 plugin format, better config support",
+      "prerelease": false,
+      "asset": {
+        "id": 42998260,
+        "name": "JoinMOTD-v1.2.0.mcdr",
+        "size": 1564,
+        "download_count": 1965,
+        "created_at": "2021-08-22T04:18:37Z",
+        "browser_download_url": "https://github.com/TISUnion/joinMOTD/releases/download/v1.2.0/JoinMOTD-v1.2.0.mcdr",
+        "hash_md5": "bf5fa4f4d53b78b705ba2eb7beccbc85",
+        "hash_sha256": "0f0120d2e8aeb2aa9cc5268caa9cce31d2ee8f56249ff2af6bae8513618ebbe7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "join_motd",
+        "name": "Join MOTD",
+        "version": "1.2.0",
+        "link": "https://github.com/TISUnion/joinMOTD",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {},
+        "requirements": [],
+        "description": {
+          "en_us": "Send player a MOTD when he joins",
+          "zh_cn": "当玩家加入游戏时向其发送欢迎信息"
+        }
+      }
+    }
+  ]
+}

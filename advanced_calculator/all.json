@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "advanced_calculator",
+    "name": "AdvancedCalculator",
+    "version": "0.3.1",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/advanced_calculator",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {},
+    "requirements": [],
+    "description": {
+      "en_us": "Provides multiple convenient in-game calculations",
+      "zh_cn": "提供游戏内多种便捷计算"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "advanced_calculator",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/advanced_calculator",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# AdvancedCalculator\n\n> 提供游戏内多种便捷计算\n\n## 使用\n\n您可以使用 `=<expression>` 直接计算表达式，或使用 `==<count/expression>` 将物品数转换堆叠数。\n\n| 指令 | 用途 | 示例 | 结果 |\n| - | - | - | - |\n| !!calc \\<expression> | 计算表达式 | !!calc 1+1 | 1+1=2 |\n| !!calc item \\<count/expression> | 物品数转换堆叠数 | !!calc item 1794 | 1794个物品为1盒2组3个 |\n| !!calc item \\<box> \\<stack> \\<single> | 堆叠数转换物品数 | !!calc item 1 10 32 | 1盒10组32个为2400个物品 |\n| !!calc color \\<red> \\<green> \\<blue> | 10进制RGB转16进制 | !!calc color 255 0 255 | (255, 0, 255) -> #FF00FF |\n| !!calc color \\<#HEX> | 16十进制RGB转10进制 | !!calc color #00FF00 | #00FF00 -> (0, 255, 0) |\n",
+      "zh_cn": "# AdvancedCalculator\n\n> 提供游戏内多种便捷计算\n\n## 使用\n\n您可以使用 `=<expression>` 直接计算表达式，或使用 `==<count/expression>` 将物品数转换堆叠数。\n\n| 指令 | 用途 | 示例 | 结果 |\n| - | - | - | - |\n| !!calc \\<expression> | 计算表达式 | !!calc 1+1 | 1+1=2 |\n| !!calc item \\<count/expression> | 物品数转换堆叠数 | !!calc item 1794 | 1794个物品为1盒2组3个 |\n| !!calc item \\<box> \\<stack> \\<single> | 堆叠数转换物品数 | !!calc item 1 10 32 | 1盒10组32个为2400个物品 |\n| !!calc color \\<red> \\<green> \\<blue> | 10进制RGB转16进制 | !!calc color 255 0 255 | (255, 0, 255) -> #FF00FF |\n| !!calc color \\<#HEX> | 16十进制RGB转10进制 | !!calc color #00FF00 | #00FF00 -> (0, 255, 0) |\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/advanced_calculator/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/advanced_calculator/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "advanced_calculator",
+    "latest_version": "0.3.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/advanced_calculator-v0.3.1",
+        "name": "advanced_calculator: v0.3.1",
+        "tag_name": "advanced_calculator-v0.3.1",
+        "created_at": "2023-01-19T16:59:59Z",
+        "description": "## [0.3.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/advanced_calculator-v0.3.0...advanced_calculator-v0.3.1) (2023-01-19)\n\n\n### Bug Fixes\n\n* **advanced_calculator:** 🐛 fix double \"*\" too expensive to eval ([ceec10e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/ceec10ea57e1887f998f3e3f6abdb0634d2f8e60))",
+        "prerelease": false,
+        "asset": {
+          "id": 92299861,
+          "name": "AdvancedCalculator-v0.3.1.mcdr",
+          "size": 2518,
+          "download_count": 1652,
+          "created_at": "2023-01-19T17:01:07Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/advanced_calculator-v0.3.1/AdvancedCalculator-v0.3.1.mcdr",
+          "hash_md5": "23c82ee951d1d0525eaf89b1cd313f80",
+          "hash_sha256": "abc0d9a75de66808e58071d6e983487d38432c54e691351df16ba77c31c14a1b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "advanced_calculator",
+          "name": "AdvancedCalculator",
+          "version": "0.3.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/advanced_calculator",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "Provides multiple convenient in-game calculations",
+            "zh_cn": "提供游戏内多种便捷计算"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/advanced_calculator-v0.3.0",
+        "name": "advanced_calculator: v0.3.0",
+        "tag_name": "advanced_calculator-v0.3.0",
+        "created_at": "2022-10-21T20:02:55Z",
+        "description": "## [0.3.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/advanced_calculator-v0.2.1...advanced_calculator-v0.3.0) (2022-10-21)\n\n\n### Features\n\n* **advanced_calculator:** ✨ set `==` as `!!calc item` ([9f7e0da](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9f7e0da8e8a54b04a1afa0c85b668a9dbdaabedd))",
+        "prerelease": false,
+        "asset": {
+          "id": 81840918,
+          "name": "AdvancedCalculator-v0.3.0.mcdr",
+          "size": 2476,
+          "download_count": 331,
+          "created_at": "2022-10-21T20:03:33Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/advanced_calculator-v0.3.0/AdvancedCalculator-v0.3.0.mcdr",
+          "hash_md5": "7fd8bb689489430200b32d778d144f68",
+          "hash_sha256": "e1570835acda24f126bf7cf6ae92ed572ee314c41fd5710ca578212126e7e62f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "advanced_calculator",
+          "name": "AdvancedCalculator",
+          "version": "0.3.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/advanced_calculator",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "Provides multiple convenient in-game calculations",
+            "zh_cn": "提供游戏内多种便捷计算"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/advanced_calculator-v0.2.1",
+        "name": "advanced_calculator: v0.2.1",
+        "tag_name": "advanced_calculator-v0.2.1",
+        "created_at": "2022-07-21T13:19:23Z",
+        "description": "## [0.2.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/advanced_calculator-v0.2.0...advanced_calculator-v0.2.1) (2022-07-21)\n\n\n### Bug Fixes\n\n* **advanced_calculator:** 🔒️ add security eval check in !!calc item command (fix [#54](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/54)) ([444dd85](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/444dd859a7c8a9fc65c612027893689ae9d7e314))",
+        "prerelease": false,
+        "asset": {
+          "id": 72252591,
+          "name": "AdvancedCalculator-v0.2.1.mcdr",
+          "size": 2433,
+          "download_count": 265,
+          "created_at": "2022-07-21T13:20:06Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/advanced_calculator-v0.2.1/AdvancedCalculator-v0.2.1.mcdr",
+          "hash_md5": "8b180a375888c7f95c47ebec46e93076",
+          "hash_sha256": "d2fca24b7c4ff1a089643c57bd3132829342f47a22edaaa09fd1ae532d1e6c02"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "advanced_calculator",
+          "name": "AdvancedCalculator",
+          "version": "0.2.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/advanced_calculator",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "Provides multiple convenient in-game calculations",
+            "zh_cn": "提供游戏内多种便捷计算"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/advanced_calculator-v0.2.0",
+        "name": "advanced_calculator: v0.2.0",
+        "tag_name": "advanced_calculator-v0.2.0",
+        "created_at": "2022-07-18T11:46:42Z",
+        "description": "## [0.2.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/advanced_calculator-0.1.0...advanced_calculator-v0.2.0) (2022-07-18)\n\n\n### Features\n\n* **advanced_calculator:** 🔒️ add expression characters whitelist (resolve [#48](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/48)) ([aec8b6d](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/aec8b6d2826de53c5d941b62d1f5c117199a5d76))\n\n\n### Bug Fixes\n\n* **advanced_calculator:** 🐛 fix reply exception info error ([b4e178f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b4e178f488ff8bbc824eb57b3757c9c4ac067997))",
+        "prerelease": false,
+        "asset": {
+          "id": 71917239,
+          "name": "AdvancedCalculator-v0.2.0.mcdr",
+          "size": 2323,
+          "download_count": 136,
+          "created_at": "2022-07-18T11:47:23Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/advanced_calculator-v0.2.0/AdvancedCalculator-v0.2.0.mcdr",
+          "hash_md5": "55ba58ae4ed1aeaa37ef325e64cee6be",
+          "hash_sha256": "95ca7fa0ab04e661db2c0d933bc77be19c923f4fdaee2eea435641571737d5b0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "advanced_calculator",
+          "name": "AdvancedCalculator",
+          "version": "0.2.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/advanced_calculator",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "Provides multiple convenient in-game calculations",
+            "zh_cn": "提供游戏内多种便捷计算"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 99,
+    "watchers_count": 99,
+    "forks_count": 51,
+    "readme": "# AdvancedCalculator\n\n> 提供游戏内多种便捷计算\n\n## 使用\n\n您可以使用 `=<expression>` 直接计算表达式，或使用 `==<count/expression>` 将物品数转换堆叠数。\n\n| 指令 | 用途 | 示例 | 结果 |\n| - | - | - | - |\n| !!calc \\<expression> | 计算表达式 | !!calc 1+1 | 1+1=2 |\n| !!calc item \\<count/expression> | 物品数转换堆叠数 | !!calc item 1794 | 1794个物品为1盒2组3个 |\n| !!calc item \\<box> \\<stack> \\<single> | 堆叠数转换物品数 | !!calc item 1 10 32 | 1盒10组32个为2400个物品 |\n| !!calc color \\<red> \\<green> \\<blue> | 10进制RGB转16进制 | !!calc color 255 0 255 | (255, 0, 255) -> #FF00FF |\n| !!calc color \\<#HEX> | 16十进制RGB转10进制 | !!calc color #00FF00 | #00FF00 -> (0, 255, 0) |\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/advanced_calculator/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

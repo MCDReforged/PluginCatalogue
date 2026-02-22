@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "extra_backup",
+    "name": "Extra Backup",
+    "version": "1.1.0",
+    "link": "https://github.com/AVJANO/ExtraBackup",
+    "authors": [
+      "avjano"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.14.7",
+      "prime_backup": ">=1.10.3"
+    },
+    "requirements": [
+      "schedule>=1.2.2"
+    ],
+    "description": {
+      "zh_cn": "一个基于PrimeBackup的分布式存档备份插件，可以自动导出存档并备份到不同位置",
+      "en_us": "A distributed archive backup plugin based on PrimeBackup that can automatically export archives and back them up to different locations"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "extra_backup",
+    "authors": [
+      "AVJANO"
+    ],
+    "repository": "https://github.com/AVJANO/ExtraBackup",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# ExtraBackup\n\n> **ExtraBackup------为你的存档找一个（好几个）温馨的家**\\\n> 基于 MCDR\n> 实现的分布式备份插件，可将备份自动上传至本地硬盘、NAS、甚至百度网盘（未来），用于防止服务器硬盘突然暴毙\n> :P\n\n> 注意：需要搭配PrimeBackup插件使用，没有Fallen的前置工作，这个插件不可能实现\n\n当前版本仅实现了**本地硬盘备份**的功能；FTP 等模式仍在开发中。\n\n------------------------------------------------------------------------\n\n## 📦 功能简介\n\n- 自动上传并导出 PrimeBackup 的备份文件\n- 分布式存储（支持多个备份路径）\n- 自动跳过重复文件\n- 支持下载、删除、清理、语言切换\n- 支持按时间间隔的定时任务（上传 & 清理）\n\n------------------------------------------------------------------------\n\n## 🧭 指令教程\n\n### `!!exb upload <id> [tag]`\n\n上传备份文件夹（通常是 `pb_files/export`）中的指定文件\n- `id` 支持 `latest`、`~3` 等 PrimeBackup 特殊 ID\n- `tag` 为备份文件的自定义标签（可不写）\n\n------------------------------------------------------------------------\n\n### `!!exb uploadall`\n\n上传备份文件夹中的 **所有备份文件**，自动跳过重复文件。\n\n------------------------------------------------------------------------\n\n### `!!exb download <file_name> [from]`\n\n从指定备份路径下载文件到本地\n- `file_name`: 备份文件名\n- `from`: 备份路径名称（可留空，留空则从任意可用路径随机下载）\n\n------------------------------------------------------------------------\n\n### `!!exb list [location]`\n\n列出指定备份路径下的所有文件\n- `location` 留空 → 列出本地备份文件\n\n------------------------------------------------------------------------\n\n### `!!exb prune [id]`\n\n清理过时文件\n- 指定 `id` → 清理该备份（无视是否过时）\n- 留空 → 清理所有过时文件\n- 过时时间由配置文件设定\n\n------------------------------------------------------------------------\n\n### `!!exb delete <file_name> <location>`\n\n删除指定备份路径下的指定备份。\n\n------------------------------------------------------------------------\n\n### `!!exb lang <language>`\n\n切换语言。\\\n支持：\n\n- `zh_cn`（中文）\n- `en_us`（英文）\n\n------------------------------------------------------------------------\n\n## ⚙️ 配置教程\n\n### 主配置 `config.json`\n\n``` jsonc\n{\n    \"enable\": \"false\",            // 是否启用该插件\n    \"language\": \"zh_cn\",          // 默认语言\n    \"max_thread\": \"-1\",           // 上传/下载最大线程数，-1 为无限制\n\n    \"schedule_backup\": {\n        \"enable\": \"false\",        // 是否启用定时上传备份\n        \"interval\": \"30m\"         // 上传时间间隔\n    },\n\n    \"schedule_prune\": {\n        \"enable\": \"false\",        // 是否启用定时清理\n        \"interval\": \"1d\",         // 定时清理时间间隔\n        \"max_lifetime\": \"3d\",     // 文件最大生命时间\n\n        \"prune_downloads\": \"true\", // 是否清理 exb_downloads 文件夹\n        \"prune_exports\": \"true\"   // 是否清理 pb 导出文件夹\n    }\n}\n```\n\n------------------------------------------------------------------------\n\n## 📁 备份路径配置 `backup_path.json`\n\n``` jsonc\n{\n    \"Name1\": {                          // 备份路径名称（支持中文）\n        \"enable\": \"false\",              // 是否启用这个备份路径\n        \"mode\": \"ftp\",                  // 备份模式：\"local\" = 本地路径；\"ftp\" = FTP 远程模式\n        \"address\": \"ftp://example.com/folder\", // local: 写本地路径；ftp: 写服务器地址\n        \"username\": \"username\",         // FTP 用户名；local 模式留空（保留双引号）\n        \"password\": \"123456\"            // FTP 密码；local 模式留空（保留双引号）\n    },\n\n    \"Name2\": {\n        \"enable\": \"true\",\n        \"mode\": \"local\",\n        \"address\": \"/folder/example\",   // 本地地址\n        \"username\": \"\",                 // local 留空（但双引号必须保留）\n        \"password\": \"\"                  // local 留空\n    }\n}\n                                        // 可自行扩展更多备份路径\n```\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/AVJANO/ExtraBackup/main/README_zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "extra_backup",
+    "latest_version": "1.0.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AVJANO/ExtraBackup/releases/tag/v1.0.1",
+        "name": "ExtraBackup-v1.0.1-beta",
+        "tag_name": "v1.0.1",
+        "created_at": "2025-11-18T02:14:12Z",
+        "description": "修复了已知问题",
+        "prerelease": false,
+        "asset": {
+          "id": 319015572,
+          "name": "ExtraBackup-v1.0.1.pyz",
+          "size": 99894,
+          "download_count": 39,
+          "created_at": "2025-11-21T01:09:59Z",
+          "browser_download_url": "https://github.com/AVJANO/ExtraBackup/releases/download/v1.0.1/ExtraBackup-v1.0.1.pyz",
+          "hash_md5": "16e02da1590b0d4e8204a4c66ea834e8",
+          "hash_sha256": "187e785564e66d267322d85d26310f2d8a829c64b7abaa64251f5927c561dde2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "extra_backup",
+          "name": "Extra Backup",
+          "version": "1.0.1",
+          "link": "https://github.com/AVJANO/ExtraBackup",
+          "authors": [
+            "avjano"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.7",
+            "prime_backup": ">=1.10.3"
+          },
+          "requirements": [
+            "schedule>=1.2.2"
+          ],
+          "description": {
+            "zh_cn": "分布式存档备份插件，可以自动备份存档到不同位置",
+            "en_us": "Distributed archive backup plugin, which can automatically back up archives to different locations."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AVJANO/ExtraBackup/releases/tag/v0.1.7",
+        "name": "ExtraBackup v0.1.7-alpha",
+        "tag_name": "v0.1.7",
+        "created_at": "2025-09-02T13:33:39Z",
+        "description": "----------------------------------------------------------------------------\r\nExtrabackup-v1.0已经发布，功能更加完善。请使用最新版插件！\r\nv0.x将不再更新且不兼容v1.x ，请使用最新版插件！\r\n----------------------------------------------------------------------------\r\n新增定时清理备份和手动清理备份功能\r\n新增多语言支持（目前支持语言：简体中文，英文）\r\n修复了重载插件但定时任务无法重载的BUG\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 288809398,
+          "name": "ExtraBackup-v0.1.7-alpha.pyz",
+          "size": 112313,
+          "download_count": 14,
+          "created_at": "2025-09-02T13:38:38Z",
+          "browser_download_url": "https://github.com/AVJANO/ExtraBackup/releases/download/v0.1.7/ExtraBackup-v0.1.7-alpha.pyz",
+          "hash_md5": "a30b320173f87ff6cc9deea2aad7ddbe",
+          "hash_sha256": "1594f02f7471d2ee99388f969f00c8281b83ee58bc8c3245a8188c1e219c243b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "extra_backup",
+          "name": "Extra Backup",
+          "version": "0.1.7",
+          "link": "https://github.com/AVJANO/ExtraBackup",
+          "authors": [
+            "avjano"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.7",
+            "prime_backup": ">=1.7.4"
+          },
+          "requirements": [
+            "schedule>=1.2.2"
+          ],
+          "description": {
+            "zh_cn": "全新分布式备份插件，为您的珍贵存档增添一份安心！",
+            "en_us": "A new distributed backup plugin which adds peace of mind to your valuable archives!"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AVJANO/ExtraBackup",
+    "name": "ExtraBackup",
+    "full_name": "AVJANO/ExtraBackup",
+    "html_url": "https://github.com/AVJANO/ExtraBackup",
+    "description": "ExtraBackup——为你的存档找一个（好几个）温馨的家",
+    "archived": false,
+    "stargazers_count": 4,
+    "watchers_count": 4,
+    "forks_count": 0,
+    "readme": "# ExtraBackup\n\n> **ExtraBackup — Give your backups a warm (or multiple) home.**  \n> A distributed backup plugin for **MCDR** that automatically uploads PrimeBackup backups to local disks, NAS, and (in the future) cloud storage (e.g., Baidu Netdisk). Keep your world safe from sudden disk failures. :)\n\n> **Note:** ExtraBackup requires **PrimeBackup**. Huge thanks to Fallen — without that groundwork, this plugin wouldn’t exist.\n\nThe current version supports **local-disk backup only**. FTP and other storage modes are under active development.\n\n---\n\n## 📦 What It Does\n\n- Automatically exports and uploads PrimeBackup backups\n- Distributed storage (use multiple backup locations)\n- Skips duplicate files automatically\n- Download, delete, prune, and language switch built in\n- Scheduled tasks for upload & prune (time-interval based)\n\n---\n\n## 🧭 Commands\n\n### `!!exb upload <id> [tag]`\nUpload a specific backup from your backup folder (usually `pb_files/export`).\n- `id` supports PrimeBackup special IDs like `latest`, `~3`, etc.\n- `tag` is an optional custom label for the backup.\n\n---\n\n### `!!exb uploadall`\nUpload **all backups** found in the backup folder, automatically skipping duplicates.\n\n---\n\n### `!!exb download <file_name> [from]`\nDownload a file from a specified backup path back to the server.\n- `file_name`: the backup file name\n- `from`: the name of the backup path (optional; if omitted, a random available path is used)\n\n---\n\n### `!!exb list [location]`\nList backups stored in a given backup path.\n- If `location` is omitted → lists backups stored locally.\n\n---\n\n### `!!exb prune [id]`\nRemove outdated backup files.\n- Provide an `id` → prune that backup directly (ignores expiration)\n- Leave it empty → prune **all** outdated backups\n- The expiration window is configured in the config file.\n\n---\n\n### `!!exb delete <file_name> <location>`\nDelete a specific backup file from a specific backup path.\n\n---\n\n### `!!exb lang <language>`\nSwitch the plugin language.  \nSupported:\n- `zh_cn` (Chinese)\n- `en_us` (English)\n\n---\n\n## ⚙️ Configuration\n\n### Main Config — `config.json`\n\n```jsonc\n{\n  \"enable\": \"false\",            // Enable this plugin\n  \"language\": \"zh_cn\",          // Default language\n  \"max_thread\": \"-1\",           // Max threads for upload/download (-1 = unlimited)\n\n  \"schedule_backup\": {\n    \"enable\": \"false\",          // Enable scheduled uploads\n    \"interval\": \"30m\"           // Upload interval\n  },\n\n  \"schedule_prune\": {\n    \"enable\": \"false\",          // Enable scheduled pruning\n    \"interval\": \"1d\",           // Pruning interval\n    \"max_lifetime\": \"3d\",       // Max file lifetime before considered outdated\n\n    \"prune_downloads\": \"true\",  // Prune the exb_downloads folder\n    \"prune_exports\": \"true\"     // Prune the PrimeBackup export folder\n  }\n}\n```\n\n---\n\n## 📁 Backup Paths — `backup_path.json`\n\n```jsonc\n{\n  \"Name1\": {                           // Backup path name (Chinese allowed)\n    \"enable\": \"false\",                 // Enable this path\n    \"mode\": \"ftp\",                     // Mode: \"local\" (local path) or \"ftp\" (remote FTP)\n    \"address\": \"ftp://example.com/folder\", // local: local path; ftp: server address\n    \"username\": \"username\",            // FTP username; leave empty for local (keep quotes)\n    \"password\": \"123456\"               // FTP password; leave empty for local (keep quotes)\n  },\n\n  \"Name2\": {\n    \"enable\": \"true\",\n    \"mode\": \"local\",\n    \"address\": \"/folder/example\",      // Local directory\n    \"username\": \"\",                    // Must be empty but quoted in local mode\n    \"password\": \"\"                     // Must be empty but quoted in local mode\n  }\n}\n// Add more backup paths as needed\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/AVJANO/ExtraBackup/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

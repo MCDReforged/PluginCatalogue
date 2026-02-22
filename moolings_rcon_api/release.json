@@ -1,0 +1,214 @@
+{
+  "schema_version": 8,
+  "id": "moolings_rcon_api",
+  "latest_version": "0.1.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/tag/v0.1.0",
+      "name": "v0.1.0",
+      "tag_name": "v0.1.0",
+      "created_at": "2026-02-01T14:06:03Z",
+      "description": "- feat: implement auto detection, change apis\r\n\r\n**NOTE**: you should better remove the old config file, it should be in the `config/moolings_rcon_api` directory.\r\n\r\n> 中文翻译：请注意，最好删除在`config/moolings_rcon_api`目录下的旧的配置文件。\r\n\r\n**Breaking Changes**:\r\n- Removed `rcon_get_auto`, `rcon_get_async` in `moolings_rcon_api.api`,\r\n  pub `rcon_get` directly.\r\n- Changed configuration file format, removed class `IgnoreOptions`.\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/MoolingsRconAPI-MCDR/compare/v0.0.4...v0.1.0",
+      "prerelease": false,
+      "asset": {
+        "id": 349094518,
+        "name": "MoolingsRconAPI-v0.1.0.mcdr",
+        "size": 8037,
+        "download_count": 11,
+        "created_at": "2026-02-01T14:10:45Z",
+        "browser_download_url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/download/v0.1.0/MoolingsRconAPI-v0.1.0.mcdr",
+        "hash_md5": "5eeaed0880fab1e9fd88d83d6b42ed7c",
+        "hash_sha256": "cf074b023408a97768572832df60b18c13b84b2cdd0d2191cc3e45f8b40aec4e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "moolings_rcon_api",
+        "name": "MoolingsRconAPI",
+        "version": "0.1.0",
+        "link": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR",
+        "authors": [
+          "Mooling0602"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.1",
+          "python": ">=3.11"
+        },
+        "requirements": [
+          "mcdreforged>=2.14.1",
+          "asyncrcon",
+          "returns",
+          "javaproperties"
+        ],
+        "description": {
+          "en_us": "Mooling's Rcon API for MCDReforged.",
+          "zh_cn": "木泠编写的MCDR Rcon接口。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/tag/v0.0.4",
+      "name": "v0.0.4",
+      "tag_name": "v0.0.4",
+      "created_at": "2026-01-29T08:40:00Z",
+      "description": "- feat: export stable apis\r\n\r\n**What's new**: new stable api (for future v0.1.0)\r\n- `rcon_get_auto`: Auto select a best available interface to execute rcon query.\r\n- `rcon_get_async`(recommended): Use python package `asyncrcon` to execute rcon query.\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/MoolingsRconAPI-MCDR/compare/v0.0.3...v0.0.4",
+      "prerelease": false,
+      "asset": {
+        "id": 347581171,
+        "name": "MoolingsRconAPI-v0.0.4.mcdr",
+        "size": 5656,
+        "download_count": 4,
+        "created_at": "2026-01-29T08:47:54Z",
+        "browser_download_url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/download/v0.0.4/MoolingsRconAPI-v0.0.4.mcdr",
+        "hash_md5": "5c2c54242b3b6e983f9b3296ee3cc549",
+        "hash_sha256": "8de00ad3c08a5e43f7475102cf9f4d6283de0cc124c5bcc97f3137e24f9910da"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "moolings_rcon_api",
+        "name": "MoolingsRconAPI",
+        "version": "0.0.4",
+        "link": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR",
+        "authors": [
+          "Mooling0602"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.1",
+          "python": ">=3.11"
+        },
+        "requirements": [
+          "mcdreforged>=2.14.1",
+          "asyncrcon",
+          "returns"
+        ],
+        "description": {
+          "en_us": "Mooling's Rcon API for MCDReforged.",
+          "zh_cn": "木泠编写的MCDR Rcon接口。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/tag/v0.0.3",
+      "name": "v0.0.3",
+      "tag_name": "v0.0.3",
+      "created_at": "2026-01-29T04:43:09Z",
+      "description": "- feat: add i18n, debug commands\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/MoolingsRconAPI-MCDR/compare/v0.0.2...v0.0.3",
+      "prerelease": false,
+      "asset": {
+        "id": 347507459,
+        "name": "MoolingsRconAPI-v0.0.3.mcdr",
+        "size": 5458,
+        "download_count": 4,
+        "created_at": "2026-01-29T04:45:09Z",
+        "browser_download_url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/download/v0.0.3/MoolingsRconAPI-v0.0.3.mcdr",
+        "hash_md5": "c9083136a240631ad82ee0fcf627e0d5",
+        "hash_sha256": "84a61034a9aa2663d60660246e1df6305e36cc61bbb1c802718875aaff129dcf"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "moolings_rcon_api",
+        "name": "MoolingsRconAPI",
+        "version": "0.0.3",
+        "link": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR",
+        "authors": [
+          "Mooling0602"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.1",
+          "python": ">=3.11"
+        },
+        "requirements": [
+          "mcdreforged>=2.14.1",
+          "asyncrcon",
+          "returns"
+        ],
+        "description": {
+          "en_us": "Mooling's Rcon API for MCDReforged.",
+          "zh_cn": "木泠编写的MCDR Rcon接口。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/tag/v0.0.2",
+      "name": "v0.0.2",
+      "tag_name": "v0.0.2",
+      "created_at": "2026-01-28T15:03:27Z",
+      "description": "- fix: could not use MCDR built-in rcon.\r\n> Moved reconnect mcdr rcon to a seperated interface, see https://github.com/Mooling0602/MoolingsRconAPI-MCDR/commit/3e7e384e34ec12a6c5d594de1ac3b71655888ed2\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/MoolingsRconAPI-MCDR/compare/v0.0.1...v0.0.2",
+      "prerelease": false,
+      "asset": {
+        "id": 347190930,
+        "name": "MoolingsRconAPI-v0.0.2.mcdr",
+        "size": 3282,
+        "download_count": 4,
+        "created_at": "2026-01-28T15:06:57Z",
+        "browser_download_url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/download/v0.0.2/MoolingsRconAPI-v0.0.2.mcdr",
+        "hash_md5": "2848b37010e01b5e471081dafb45ade2",
+        "hash_sha256": "634fe9e0618988c7c527b11be7b3021b4f32f385a67943759c546302a931a795"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "moolings_rcon_api",
+        "name": "MoolingsRconAPI",
+        "version": "0.0.2",
+        "link": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR",
+        "authors": [
+          "Mooling0602"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.1",
+          "python": ">=3.11"
+        },
+        "requirements": [
+          "mcdreforged>=2.14.1",
+          "asyncrcon",
+          "returns"
+        ],
+        "description": {
+          "en_us": "Mooling's Rcon API for MCDReforged.",
+          "zh_cn": "木泠编写的MCDR Rcon接口。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/tag/v0.0.1",
+      "name": "v0.0.1",
+      "tag_name": "v0.0.1",
+      "created_at": "2026-01-28T14:27:52Z",
+      "description": "First release! Using async interfaces.\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/MoolingsRconAPI-MCDR/commits/v0.0.1",
+      "prerelease": false,
+      "asset": {
+        "id": 347177526,
+        "name": "MoolingsRconAPI-v0.0.1.mcdr",
+        "size": 3262,
+        "download_count": 5,
+        "created_at": "2026-01-28T14:30:00Z",
+        "browser_download_url": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR/releases/download/v0.0.1/MoolingsRconAPI-v0.0.1.mcdr",
+        "hash_md5": "9598c340c3884e68de196108ee9c7adf",
+        "hash_sha256": "24d57bc89369cbf76c68ac5a31a0116233896c124bcdeba5eeb6f559ddbdb604"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "moolings_rcon_api",
+        "name": "MoolingsRconAPI",
+        "version": "0.0.1",
+        "link": "https://github.com/Mooling0602/MoolingsRconAPI-MCDR",
+        "authors": [
+          "Mooling0602"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.1",
+          "python": ">=3.11"
+        },
+        "requirements": [
+          "mcdreforged>=2.14.1",
+          "asyncrcon",
+          "returns"
+        ],
+        "description": {
+          "en_us": "Mooling's Rcon API for MCDReforged.",
+          "zh_cn": "木泠编写的MCDR Rcon接口。"
+        }
+      }
+    }
+  ]
+}

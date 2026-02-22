@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "joinmotd_reforged",
+    "name": "Join MOTD Reforged",
+    "version": "1.0.0",
+    "link": "https://github.com/iXORTech/joinMOTD-Reforged",
+    "authors": [
+      "iXOR Technology",
+      "Qian Qian \"Cubik\" (Cubik65536) <cubik65536@cubik65536.top>"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.10.0",
+      "daycount_nbt": "^2.2.1"
+    },
+    "requirements": [
+      "mcdreforged >= 2.10.0",
+      "nbtlib >= 2.0.0"
+    ],
+    "description": {
+      "en_us": "Send player a MOTD when he joins",
+      "zh_cn": "当玩家加入游戏时向其发送欢迎信息"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "joinmotd_reforged",
+    "authors": [
+      "iXOR Technology",
+      "Cubik65536"
+    ],
+    "repository": "https://github.com/iXORTech/joinMOTD-Reforged",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "Yet another Join MOTD plugin for MCDR, built for MCDR 2.10+. Reforged from [joinMOTD++](https://github.com/alex3236/joinMOTD_Plus).\n\nFeatures include:\n\n- Customizable welcome message\n- Get server day count from DayCount NBT plugin\n- Command permission customization\n",
+      "zh_cn": "又一个 MCDR 的 MOTD 插件，为 MCDR 2.10+ 构建。基于 [joinMOTD++](https://github.com/alex3236/joinMOTD_Plus) 重置。\n\n特性包括：\n\n- 可自定义的欢迎信息\n- 从 DayCount NBT 插件获取服务器天数\n- 设置命令执行权限\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/joinmotd_reforged/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/joinmotd_reforged/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "joinmotd_reforged",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/iXORTech/joinMOTD-Reforged/releases/tag/v1.0.0",
+        "name": "Version 1.0.0 (B93F2EC)",
+        "tag_name": "v1.0.0",
+        "created_at": "2023-12-17T23:07:06Z",
+        "description": "<!--\nTemplate for changes, <mandatory> [optional]\n- <New feature/Improvements/Bug fix> - [(Pull Request Number) \\[@GitHubUsername\\]]\n-->\n\n------\n\n# The First Official Release\n\n> [!NOTE]\n> This version is identical compared to the `v1.0.0-rc.1` version code and feature wise,\n> and the only difference is that the version number has been changed to `v1.0.0`.\n> However, it is still recommended to update to this official version.\n\n## BREAKING CHANGES\n\n`There is nothing to display yet.`\n\n## New features\n\n- Add `!!motd` command to show the MOTD and the server list.\n- Add `!!motd reload` command to reload the config file.\n- Add `!!server` to show the server list.\n- Show automatically the MOTD and the server list when a player joins the server.\n- Show the name of the currently connected server in the MOTD.\n- Allow server operators to configure the permissions of the commands.\n- Add i18n support.\n- Add English and Simplified Chinese translations.\n- Use Python library `nbtlib` and MCDR plugin [DayCount NBT (`daycount_nbt`)](https://github.com/alex3236/daycount-NBT) to automatically get the day count of the server.\n\n## Improvements\n\n`There is nothing to display yet.`\n\n## Bug fixes\n\n`There is nothing to display yet.`\n\n## Known Bugs\n\n`There is nothing to display yet.`\n\n------\n\n# 首个正式版本\n\n> [!NOTE]\n> 本版本与 `v1.0.0-rc.1` 版本在代码和功能上完全相同，\n> 唯一的区别是版本号已经被修改为 `v1.0.0`。\n> 但是，我们仍然建议更新到本正式版本。\n\n## 破坏性变更\n\n`暂时没有可以显示的内容`\n\n## 新增功能\n\n- 添加 `!!motd` 命令以显示 MOTD 和服务器列表。\n- 添加 `!!motd reload` 命令以重新加载配置文件。\n- 添加 `!!server` 命令以显示服务器列表。\n- 玩家加入服务器时自动显示 MOTD 和服务器列表。\n- 在 MOTD 中显示当前连接的服务器的名称。\n- 允许服务器管理员配置命令的权限。\n- 添加国际化支持。\n- 添加英文和简体中文翻译。\n- 依赖 Python 库 `nbtlib` 和 MCDR 插件 [DayCount NBT (`daycount_nbt`)](https://github.com/alex3236/daycount-NBT) 来自动获取服务器的开服天数。\n\n## 优化与改进\n\n`暂时没有可以显示的内容`\n\n## 错误修复\n\n`暂时没有可以显示的内容`\n\n## 已知错误\n\n`暂时没有可以显示的内容`\n\n------\n\n**Full Changelog**: https://github.com/iXORTech/joinMOTD-Reforged/commits/v1.0.0\n**完整的更新日志**: https://github.com/iXORTech/joinMOTD-Reforged/commits/v1.0.0\n",
+        "prerelease": false,
+        "asset": {
+          "id": 141181754,
+          "name": "joinMOTD-Reforged-v1.0.0+b93f2ec.mcdr",
+          "size": 5652,
+          "download_count": 830,
+          "created_at": "2023-12-17T23:07:43Z",
+          "browser_download_url": "https://github.com/iXORTech/joinMOTD-Reforged/releases/download/v1.0.0/joinMOTD-Reforged-v1.0.0%2Bb93f2ec.mcdr",
+          "hash_md5": "a3d8666c4b46156b30e29005c8f36af3",
+          "hash_sha256": "5097af3bbcd4f17ee20d44fd00bb8041c8d6befc7903ab43f74306b5dfff8c69"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "joinmotd_reforged",
+          "name": "Join MOTD Reforged",
+          "version": "1.0.0",
+          "link": "https://github.com/iXORTech/joinMOTD-Reforged",
+          "authors": [
+            "iXOR Technology",
+            "Qian Qian \"Cubik\" (Cubik65536) <cubik65536@cubik65536.top>"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.10.0",
+            "daycount_nbt": "^2.2.1"
+          },
+          "requirements": [
+            "mcdreforged >= 2.10.0",
+            "nbtlib >= 2.0.0"
+          ],
+          "description": {
+            "en_us": "Send player a MOTD when he joins",
+            "zh_cn": "当玩家加入游戏时向其发送欢迎信息"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/iXORTech/joinMOTD-Reforged",
+    "name": "joinMOTD-Reforged",
+    "full_name": "iXORTech/joinMOTD-Reforged",
+    "html_url": "https://github.com/iXORTech/joinMOTD-Reforged",
+    "description": "Yet another joinMOTD plugin for MCDReforged",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 1,
+    "readme": "**English** | [简体中文](https://github.com/iXORTech/joinMOTD-Reforged/tree/main/./README-zh.md)\n\n# 📝 Join MOTD Reforged\n\nYet another Join MOTD plugin for MCDR.\n\n![Built for MCDR 2.10+](https://raw.githubusercontent.com/iXORTech/joinMOTD-Reforged/main/./-BUILT%20FOR%20MCDR%202.10+-57728b.svg)\n\n## 📜 Features\n\nShow an MOTD containing an welcome message, how long the server has been opened and a sub-server list when a player joins the server.\n\n## 📖 Commands\n\n- `!!motd`: Show the MOTD and the sub-server list.\n- `!!motd reload`: Reload the configuration file.\n- `!!server`: Show the sub-server list.\n\n## ⚙️ Requirements\n\n- Python 3.9 or above (lower versions may work, but not tested)\n- MCDReforged 2.10.0 or above\n- NBTLib 2.0.0 or above\n- [DayCount NBT](https://github.com/alex3236/daycount-NBT) 2.2.1 or compatible version\n\n## 📥 Installation\n\n> [!IMPORTANT]\n> This plugin shall **ONLY** be installed on a backend server (i.e. the server connected through the proxy server like BungeeCord or Velocity)\n> and **SHALL NOT** be installed on a proxy server.\n\n1. Install NBTLib via pip:\n\n    ```shell\n    pip install nbtlib\n    ```\n\n2. Download and place [DayCount NBT](https://github.com/alex3236/daycount-NBT) plugin to MCDR plugins folder.\n3. Download and place this plugin to MCDR plugins folder.\n4. Configure this plugin in `config/joinmotd_reforged/config.json` according to the guide below.\n\n## 📖 Configuration\n\n```json5\n{\n    \"server_name\": \"Minecraft Server\", // The name of the server group.\n    \"current_server_name\": \"Survival Server\", // The name of the current connected server.\n    \"server_list\": [\n        {\n            // The name of a server in the server group. The name is the one used after the `/server` command.\n            // This is configured via proxy server configuration.\n            \"name\": \"survival\",\n            // The description of the server with the name above.\n            \"description\": \"Survival Server\"\n        },\n        {\n            // Same principle as above.\n            \"name\": \"creative\",\n            \"description\": \"Creative Server\"\n        },\n        {\n            // Same principle as above.\n            \"name\": \"mirror\",\n            \"description\": \"Mirror Server\"\n        }\n        // This list can be extended to suit your needs.\n    ],\n    \"permission\": {\n        \"motd\": 0,    // The permission level required to execute `!!motd` command.\n        \"server\": 0,  // The permission level required to execute `!!server` command.\n        \"reload\": 3   // The permission level required to execute `!!motd reload` command.\n    }\n}\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/iXORTech/joinMOTD-Reforged/main/README.md",
+    "license": {
+      "key": "agpl-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "spdx_id": "AGPL-3.0",
+      "url": "https://api.github.com/licenses/agpl-3.0"
+    }
+  }
+}

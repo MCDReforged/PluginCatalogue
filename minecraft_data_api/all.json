@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "minecraft_data_api",
+    "name": "Minecraft Data API",
+    "version": "1.5.0",
+    "link": "https://github.com/MCDReforged/MinecraftDataAPI",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.0.0b3",
+      "hjson",
+      "parse"
+    ],
+    "description": {
+      "en_us": "A MCDReforged api plugin to get player data information and more",
+      "zh_cn": "一个用获得玩家信息等数据的的 API"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "minecraft_data_api",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/Fallen-Breath/MinecraftDataAPI",
+    "branch": "next",
+    "related_path": ".",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "A MCDReforged api plugin to get player data information and more\n",
+      "zh_cn": "一个用获得玩家信息等数据的的 API\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/minecraft_data_api/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/minecraft_data_api/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "minecraft_data_api",
+    "latest_version": "1.6.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/tag/v1.6.1",
+        "name": "MinecraftDataAPI v1.6.1",
+        "tag_name": "v1.6.1",
+        "created_at": "2024-08-20T08:07:37Z",
+        "description": "- Fix incompatibility with the old entrypoint api importing method (#16)\r\n- `get_dimension_translation_text` use 1.19+ translation key for overworld dimension\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 188544628,
+          "name": "MinecraftDataAPI-v1.6.1.mcdr",
+          "size": 19043,
+          "download_count": 5182,
+          "created_at": "2024-08-27T06:30:15Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/download/v1.6.1/MinecraftDataAPI-v1.6.1.mcdr",
+          "hash_md5": "444996c1bdbb2251acdff80e9a5e15a5",
+          "hash_sha256": "f01669bb4a5dfe41ba46772a0c9a3eb5dfc1d76ad8e1dac482c62eb54100e9a6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_data_api",
+          "name": "Minecraft Data API",
+          "version": "1.6.1",
+          "link": "https://github.com/MCDReforged/MinecraftDataAPI",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.0.0b3",
+            "hjson",
+            "parse"
+          ],
+          "description": {
+            "en_us": "A MCDReforged api plugin to get player data information and more",
+            "zh_cn": "一个用获得玩家信息等数据的的 API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/tag/v1.6.0",
+        "name": "MinecraftDataAPI v1.6.0",
+        "tag_name": "v1.6.0",
+        "created_at": "2024-07-10T16:04:28Z",
+        "description": "- Added support for `FOLDED` tag from mc 1.20.5-pre2 (#13)\r\n- Added config support for custom command and parsing logic (#11)",
+        "prerelease": false,
+        "asset": {
+          "id": 188544586,
+          "name": "MinecraftDataAPI-v1.6.0.mcdr",
+          "size": 18834,
+          "download_count": 69,
+          "created_at": "2024-08-27T06:30:00Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/download/v1.6.0/MinecraftDataAPI-v1.6.0.mcdr",
+          "hash_md5": "705c57671475aece56c952ad676a447c",
+          "hash_sha256": "7f2f7e163f34f2c68378794d71f1a0c6ab6ef55d16b0e4a49b5f99041cac5596"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_data_api",
+          "name": "Minecraft Data API",
+          "version": "1.6.0",
+          "link": "https://github.com/MCDReforged/MinecraftDataAPI",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.0.0b3",
+            "hjson",
+            "parse"
+          ],
+          "description": {
+            "en_us": "A MCDReforged api plugin to get player data information and more",
+            "zh_cn": "一个用获得玩家信息等数据的的 API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/tag/v1.5.0",
+        "name": "MinecraftDataAPI v1.5.0",
+        "tag_name": "v1.5.0",
+        "created_at": "2023-07-10T18:27:31Z",
+        "description": "- Performance improved\r\n- More precise and more proper entity data parsing\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 116393185,
+          "name": "MinecraftDataAPI-v1.5.0.mcdr",
+          "size": 18178,
+          "download_count": 3453,
+          "created_at": "2023-07-10T18:29:01Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/download/v1.5.0/MinecraftDataAPI-v1.5.0.mcdr",
+          "hash_md5": "d3f14cf8d1b3dbfda07a25414339a7f7",
+          "hash_sha256": "04268f7bb80a3ba385cd710de58c23cc0f2c5dc3846893706258383aad06ff33"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_data_api",
+          "name": "Minecraft Data API",
+          "version": "1.5.0",
+          "link": "https://github.com/MCDReforged/MinecraftDataAPI",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.0.0b3",
+            "hjson",
+            "parse"
+          ],
+          "description": {
+            "en_us": "A MCDReforged api plugin to get player data information and more",
+            "zh_cn": "一个用获得玩家信息等数据的的 API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/tag/v1.4.1",
+        "name": "MinecraftDataAPI v1.4.1",
+        "tag_name": "v1.4.1",
+        "created_at": "2021-08-16T17:13:30Z",
+        "description": "Release for MCDR 2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 42573502,
+          "name": "MinecraftDataAPI-v1.4.1.mcdr",
+          "size": 17831,
+          "download_count": 6097,
+          "created_at": "2021-08-16T17:14:55Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/MinecraftDataAPI/releases/download/v1.4.1/MinecraftDataAPI-v1.4.1.mcdr",
+          "hash_md5": "96812857446286357f0e0e4b67813636",
+          "hash_sha256": "3e0f8dd164859c07aa82df1d6a17940ceadcd66696827d31b6115a248b3758a2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_data_api",
+          "name": "Minecraft Data API",
+          "version": "1.4.1",
+          "link": "https://github.com/MCDReforged/MinecraftDataAPI",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-beta.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.0.0b3",
+            "hjson",
+            "parse"
+          ],
+          "description": {
+            "en_us": "A MCDReforged api plugin to get player data information and more",
+            "zh_cn": "一个用获得玩家信息等数据的的 API"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Fallen-Breath/MinecraftDataAPI",
+    "name": "MinecraftDataAPI",
+    "full_name": "Fallen-Breath/MinecraftDataAPI",
+    "html_url": "https://github.com/Fallen-Breath/MinecraftDataAPI",
+    "description": "A MCDReforged api plugin to get player data information and more",
+    "archived": false,
+    "stargazers_count": 20,
+    "watchers_count": 20,
+    "forks_count": 9,
+    "readme": "# Minecraft Data API\n-------------\n\n[中文](https://github.com/MCDReforged/MinecraftDataAPI/blob/master/README_cn.md)\n\nA MCDReforged api plugin to get player data information and more\n\n## Dependency\n\n- `hjson` module\n\n## Usage\n\nDirectly `import` MinecraftDataAPI and just use it:\n\n```python\nimport minecraft_data_api as api\n\npos = api.get_player_info('Steve', 'Pos')\n```\n\nSuggestion: declare the dependency of MinecraftDataAPI in your plugin metadata:\n\n```python\nPLUGIN_METADATA = {\n\t'dependencies': {\n\t\t'minecraft_data_api': '*',\n\t}\n}\n```\n\n## Function list\n\nCheck the example plugin in the `examples` folder or read the code to get a more comprehensive understanding\n\n### convert_minecraft_json\n\n```python\ndef convert_minecraft_json(text: str)\n```\n\nConvert Minecraft style json format into a python object\n\nMinecraft style json format is something like these:\n\n- `Steve has the following entity data: [-227.5d, 64.0d, 12.3E4d]`\n- `[-227.5d, 64.0d, 231.5d]`\n- `Alex has the following entity data: {HurtByTimestamp: 0, SleepTimer: 0s, ..., Inventory: [], foodTickTimer: 0}`\n\nIt will automatically detect if there is a `<name> has the following entity data: `. If there is, it will erase it before converting\n\nArgs:\n- text: A data get entity or other command result that use Minecraft style json format\n\nReturn:\n- A parsed json result. It can be a `dict` / `list` / `int` / `float`\n\nExamples:\n\n- Input `Steve has the following entity data: [-227.5d, 64.0d, 231.5d]`, output `[-227.5, 64.0, 123000.0]`\n\n- Input `{HurtByTimestamp: 0, SleepTimer: 0s, Inventory: [], foodTickTimer: 0}`, output `{'HurtByTimestamp': 0, 'SleepTimer': 0, 'Inventory': [], 'foodTickTimer': 0}`\n\n### get_player_info\n\n```python\ndef get_player_info(player: str, data_path: str = '', *, timeout: Optional[float] = None)\n```\n\nExecute `data get entity <name> [<path>]` and parse the result\n\nArgs:\n- name: Name of the player who you want to get his/her info\n- path: An optional `path` parameter in `data get entity` command\n- timeout: The maximum time to wait the data result. Return `None` if time out. Default value `5`\n\nReturn:\n- A parsed json result. It can be a `dict`, a `list`, a `int` or a `None`\n\nPlease refer to the Player.dat page on minecraft wiki\n\n[player.dat format](https://minecraft.gamepedia.com/Player.dat_format)\n\n### get_player_coordinate\n\n```python\ndef get_player_coordinate(player: str, *, timeout: Optional[float] = None) -> Union[int or str]\n```\n\nUse `get_player_info` to query the `Pos` data of the player to get the player's coordinate. A `ValueError` will be risen if query failed\n\nIt will convert the return value into a named tuple `collections.namedtuple('Coordinate', 'x y z')` for easier use of the return value\n\n### get_player_dimension\n\n```\ndef get_player_dimension(player: str, *, timeout: Optional[float] = None) -> Coordinate\n```\n\nUse `get_player_info` to query the `Dimension` data of the player to get the player's dimension. A `ValueError` will be risen if query failed\n\nIt contains a dimension data convert. It will convert the dimension name in MC 1.16+ (e.g. `minecraft:overworld`) into the related integer\n\nDimension name mapping:\n\n```python\ndim_convert = {\n    'minecraft:overworld': 0,\n    'minecraft:the_nether': -1,\n    'minecraft:the_end': 1\n}\n```\n\nIf the dimension it gets is not in the mapping, for example it's a custom dimension, then it will return the name of the dimension directly\n\n### get_dimension_translation_text\n\n```\ndef get_dimension_translation_text(dim_id: int) -> RText\n```\n\nConvert the dimension id into a RTextTranslation object that can be translated by Minecraft. The mapping of the translation key is as follows\n\n```python\ndimension_translation = {\n    0: 'createWorld.customize.preset.overworld',\n    -1: 'advancements.nether.root.title',\n    1: 'advancements.end.root.title'\n}\n```\n\nIf the dimension id is not in the mapping, it will return a RText object contains the input id directly\n\nYou can safely use `api.get_dimension_translation_text(api.get_player_dimension('Steve'))` to get text component storing the dimension the player is in\n\n### get_server_player_list\n\n```python\ndef get_server_player_list(*, timeout: Optional[float] = None) -> Optional[Tuple[int, int, List[str]]]\n```\n\nReturn the player list information by executing /list command\n\nThe return value is a tuple with 3 element: the amount of current player, the player limit, and a list of names of online players. Return None if querying failed\n\nSee `examples/PlayerList.py` for example usage\n",
+    "readme_url": "https://raw.githubusercontent.com/Fallen-Breath/MinecraftDataAPI/next/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

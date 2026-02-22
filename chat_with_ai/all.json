@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "chat_with_ai",
+    "name": "Chat with AI",
+    "version": "1.4.2",
+    "link": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+    "authors": [
+      "gubai"
+    ],
+    "dependencies": {
+      "uuid_api": ">=0.1.2"
+    },
+    "requirements": [
+      "mcdreforged",
+      "openai",
+      "requests"
+    ],
+    "description": {
+      "en_us": "Let your server chat with AI",
+      "zh_cn": "让你的服务器接入AI"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "chat_with_ai",
+    "authors": [
+      "gubai"
+    ],
+    "repository": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+    "branch": "main",
+    "related_path": "chat_with_ai",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# chat_with_ai\n\nAfter DeepSeek resumed normal service, I attempted to develop an MCDR plugin to connect DeepSeek with Minecraft servers.\n\nUtilizing the openai library, this plugin theoretically supports all OpenAI-compatible models.\n\nArticle: https://blog.gubaiovo.com/posts/ec277bd3.html\n\n## Usage\n\nDrop into the plugins folder, then execute !!MCDR plugin reload chat_with_ai\n\nCommands\n\n`!!dsp help`: View help\n\n`!!dsp history`: View chat history\n\n`!!dsp clear`: Clear chat history\n\n`!!dsp system`: View AI preset\n\n`!!dsp system <system>`: Set AI preset\n\n`!!dsp prefix`: View AI name\n\n`!!dsp prefix <prefix>`: Set AI name\n\n`!!dsp init system`: Initialize role preset\n\n`!!dsp init prefix`: Initialize role preset\n\n`!!dsp init all`: Initialize all and clear chat history\n\n`!!dsp msg <message>`: Chat with AI\n\n## Acknowledgments\n\nTo my 2022 self:\n\n> The world generation algorithm swallowed my seventeenth year.\n> \n> That unsent letter still hovers at the edge of the End Gateway,\n> \n> adrift like unfinished redstone circuits.\n> \n> When the first AI villager spoke unscripted dialogue,\n> \n> I suddenly heard my 2022 self\n> \n> hammering rail rhythms deep in the mine shafts.\n> \n> Those abandoned coordinate parameters\n> \n> are recompiling spring beneath the bedrock layer.\n",
+      "zh_cn": "# chat_with_ai\nDeepSeek 恢复正常后，便尝试编写一个MCDR插件，使MC服务器能够接入DeepSeek。\n\n使用了openai库，理论上支持openai的模型均可使用此插件对接\n\n文章地址：https://blog.gubaiovo.com/posts/ec277bd3.html\n\n## 使用方法\n\n扔进plugins文件夹，然后`!!MCDR plugin reload chat_with_ai`\n\n\n\n## Command\n\n`!!dsp help`: 查看帮助\n\n`!!dsp history`: 查看历史消息\n\n`!!dsp clear`: 清空历史消息\n\n`!!dsp system`: 查看ai预设\n\n`!!dsp system <system>`: 设置ai预设\n\n`!!dsp prefix`: 查看ai名称\n\n`!!dsp prefix <prefix>`: 设置ai名称\n\n`!!dsp init system`: 初始化角色预设\n\n`!!dsp init prefix`: 初始化角色预设\n\n`!!dsp init all`: 全部初始化且清空历史记录\n\n`!!dsp msg <message>`: 与AI对话\n\n\n\n## 鸣谢\n\n感谢22年的自己\n\n> 世界生成算法吞下了我的十七岁。\n> \n> 那封没寄出的信还在末地折跃门边缘，\n> \n> 漂浮如未完成的红石电路。\n> \n> 当第一个AI村民说出预设外的对白，\n> \n> 我忽然听见2022年的自己，\n> \n> 在矿洞深处敲打铁轨的节奏。\n> \n> 那些被放弃的坐标参数，\n> \n> 正在基岩层下重新编译春天。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/gubaiovo/MCDR_chat_with_ai/main/chat_with_ai/doc/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/gubaiovo/MCDR_chat_with_ai/main/chat_with_ai/doc/README_CN.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "chat_with_ai",
+    "latest_version": "1.4.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/tag/1.4.2",
+        "name": "chat_with_ai-v1.4.2",
+        "tag_name": "1.4.2",
+        "created_at": "2025-03-12T17:45:18Z",
+        "description": "在1.4.1基础上优化了 KeyError 问题",
+        "prerelease": false,
+        "asset": {
+          "id": 236873302,
+          "name": "chat_with_ai.mcdr",
+          "size": 9470,
+          "download_count": 231,
+          "created_at": "2025-03-12T17:45:36Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/download/1.4.2/chat_with_ai.mcdr",
+          "hash_md5": "85325d28f64927332cb75b1cd01d34b2",
+          "hash_sha256": "ce4695b9ba90fed2074adba868e7286ba8a67f711400a729611c44bfdc1acbc6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_with_ai",
+          "name": "Chat with AI",
+          "version": "1.4.2",
+          "link": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {
+            "uuid_api": ">=0.1.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI",
+            "zh_cn": "让你的服务器接入AI"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/tag/1.4.1",
+        "name": "chat_with_ai-v1.4.1",
+        "tag_name": "1.4.1",
+        "created_at": "2025-03-12T17:23:01Z",
+        "description": "临时修复了检索不到玩家的UUID时，玩家无法使用插件功能的bug\r\n\r\n未经过全面测试，如仍出现此类报错请提交issue\r\n\r\n修复方式：对于检索不到uuid的玩家，使用“玩家名+时间戳”的哈希值作为替代uuid\r\n\r\n数据迁移方式：请服主在 ~/config/chat_with_ai/uuid.json 中手动修改键值对\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 236870382,
+          "name": "chat_with_ai.mcdr",
+          "size": 9485,
+          "download_count": 29,
+          "created_at": "2025-03-12T17:29:36Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/download/1.4.1/chat_with_ai.mcdr",
+          "hash_md5": "bbe6e6d94dddd4361f4f4127bd31dc56",
+          "hash_sha256": "b39abf55bc40b5bf8445e82ce5c8412c576c6923da754b01afc86f6cd73109d5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_with_ai",
+          "name": "Chat with AI",
+          "version": "1.4.1",
+          "link": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {
+            "uuid_api": ">=0.1.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI",
+            "zh_cn": "让你的服务器接入AI"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/tag/1.4.0",
+        "name": "chat_with_ai-v1.4.0",
+        "tag_name": "1.4.0",
+        "created_at": "2025-03-03T09:23:42Z",
+        "description": "1. 将对话移入单独的线程\r\n2. 支持多语言\r\n3. 优化uuid存储，优先搜索uuid.json\r\n4. 优化显示\r\n5. 支持权限管理\r\n\r\n请手动更新config.json文件\r\n\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 234122810,
+          "name": "chat_with_ai.mcdr",
+          "size": 8812,
+          "download_count": 47,
+          "created_at": "2025-03-03T09:25:05Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/download/1.4.0/chat_with_ai.mcdr",
+          "hash_md5": "f53fbb42462661ce3ee04cdc24dc0415",
+          "hash_sha256": "5bdf255fd2e2dc229f5ddc4f1defaf80223b141248447a3da67fecb709fa5cfe"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_with_ai",
+          "name": "Chat with AI",
+          "version": "1.4.0",
+          "link": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {
+            "uuid_api": ">=0.1.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI",
+            "zh_cn": "让你的服务器接入AI"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/tag/1.3.0",
+        "name": "chat_with_ai-v1.3.0",
+        "tag_name": "1.3.0",
+        "created_at": "2025-03-02T07:03:02Z",
+        "description": "1. 命令注册优化\r\n2. 支持玩家自定义前缀/预设\r\n3. 改用uuid存储\r\n4. 优化结构\r\n\r\n注：此版本存储模式由玩家id转为uuid，请手动迁移数据，将数据名中玩家id替换为对应uuid\r\n请手动更新config.json文件",
+        "prerelease": false,
+        "asset": {
+          "id": 233843278,
+          "name": "chat_with_ai.mcdr",
+          "size": 4998,
+          "download_count": 34,
+          "created_at": "2025-03-02T07:05:08Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/download/1.3.0/chat_with_ai.mcdr",
+          "hash_md5": "abb953238416b77b37918bc06c2cd425",
+          "hash_sha256": "5dd48d2f5be0cabb3dd844a9aadd298e42e86ec3055f3e74ee1b229f251da098"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_with_ai",
+          "name": "Chat with AI",
+          "version": "1.3.0",
+          "link": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {
+            "uuid_api": ">=0.1.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI",
+            "zh_cn": "让你的服务器接入AI"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/tag/1.2.0",
+        "name": "chat_with_ai-v1.2.0",
+        "tag_name": "1.2.0",
+        "created_at": "2025-03-02T02:14:02Z",
+        "description": "支持自定义前缀\r\n删除“收到你的消息：”\r\n如果从v1.1.0更新，请手动修改config格式\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 233815286,
+          "name": "chat_with_ai.mcdr",
+          "size": 3482,
+          "download_count": 33,
+          "created_at": "2025-03-02T02:56:11Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_chat_with_ai/releases/download/1.2.0/chat_with_ai.mcdr",
+          "hash_md5": "4b1c7462e8142a919babb82740bad66f",
+          "hash_sha256": "94f49758ac4f3d5e4ef7691ce8e713d47906f8c5c25c2766fe7f7e37180d502b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chat_with_ai",
+          "name": "Chat with AI",
+          "version": "1.2.0",
+          "link": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.2"
+          },
+          "requirements": [
+            "mcdreforged",
+            "openai"
+          ],
+          "description": {
+            "en_us": "Let your server chat with AI",
+            "zh_cn": "让你的服务器接入AI"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+    "name": "MCDR_chat_with_ai",
+    "full_name": "gubaiovo/MCDR_chat_with_ai",
+    "html_url": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+    "description": "Let your server chat with AI",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 0,
+    "readme": "# chat_with_ai\n\nAfter DeepSeek resumed normal service, I attempted to develop an MCDR plugin to connect DeepSeek with Minecraft servers.\n\nUtilizing the openai library, this plugin theoretically supports all OpenAI-compatible models.\n\nArticle: https://blog.gubaiovo.com/posts/ec277bd3.html\n\n## Usage\n\nDrop into the plugins folder, then execute !!MCDR plugin reload chat_with_ai\n\nCommands\n\n`!!dsp help`: View help\n\n`!!dsp history`: View chat history\n\n`!!dsp clear`: Clear chat history\n\n`!!dsp system`: View AI preset\n\n`!!dsp system <system>`: Set AI preset\n\n`!!dsp prefix`: View AI name\n\n`!!dsp prefix <prefix>`: Set AI name\n\n`!!dsp init system`: Initialize role preset\n\n`!!dsp init prefix`: Initialize role preset\n\n`!!dsp init all`: Initialize all and clear chat history\n\n`!!dsp msg <message>`: Chat with AI\n\n## Acknowledgments\n\nTo my 2022 self:\n\n> The world generation algorithm swallowed my seventeenth year.\n> \n> That unsent letter still hovers at the edge of the End Gateway,\n> \n> adrift like unfinished redstone circuits.\n> \n> When the first AI villager spoke unscripted dialogue,\n> \n> I suddenly heard my 2022 self\n> \n> hammering rail rhythms deep in the mine shafts.\n> \n> Those abandoned coordinate parameters\n> \n> are recompiling spring beneath the bedrock layer.\n",
+    "readme_url": "https://raw.githubusercontent.com/gubaiovo/MCDR_chat_with_ai/main/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  }
+}

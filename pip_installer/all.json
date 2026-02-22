@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "pip_installer",
+    "name": "PiPInstaller",
+    "version": "0.2.2",
+    "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.1.0"
+    ],
+    "description": {
+      "en_us": "Install Python dependencies in MCDR console.",
+      "zh_cn": "在MCDR控制台中安装Python包依赖！"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "pip_installer",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# PiPInstaller-MCDR\n\n为面板服解决Python依赖安装问题！\n\n> For English users: I'm sorry but please translate by yourself, AI tools would be fine.\n> \n> PRs for translation are welcome.\n\n## 用法\n\n**注意：使用前通过插件报错和使用文档等信息，确认你需要额外安装的Python依赖的PyPI包名！**\n\n**对于较为复杂需要较长安装时间的Python包，你应该另开终端/控制台/Shell手动安装和管理会话！**\n\n在MCDR的控制台上使用`!!pipi <包名（可限定版本）>`或`!!pip install <包名（可限定版本）>`从PyPI安装所需的Python依赖。使用空格分隔多个包名。\n> 目前不支持在游戏客户端中执行这些指令，如果你这么做，插件将提示请在控制台上执行。\n\n### 安装过程控制\n\n> 于0.2.1添加\n\n安装插件Command Aliases后，可以通过`!!pipi enable_aliases`启用命令别名。\n> 使用`!!MCDR plg install command_aliases --confirm`来安装此可选依赖。\n\n命令别名将被注册到`config/command_aliases/config.json`中。\n\n> 于v0.2.0添加\n\n`!!pip install <package> [-q]` - 安装Python（PyPI）包，支持空格分割多个包名，支持用`-q`参数静默安装。\n> 也可以使用`!!pipi <package> [-q]`\n\n`!!pip cancel` - 取消当前进行中的安装任务\n> 在启用命令别名后，也可以使用`!!pipc`\n\n`!!pip status` - 查看当前进行中的安装任务状态\n> 在启用命令别名后，也可以使用`!!pips`\n\n## 声明\n\n- **MCDReforged的开发者没有计划提供类似直接补全安装插件缺失的PyPI依赖的功能，因此不要向他们发出于此相关的任何功能请求。**\n- **若在使用插件的命令时遇到问题，可在此仓库发起Issues进行反馈；若在MCDR外使用变相解决的办法，则你需要自行确认MCDR的命令是否在你的操作环境中可用，并且你应该知道这种做法是不受推荐的，请不要因为在使用此方法遇到问题时向MCDR的开发者反馈**\n- **你应该详细阅读这篇[安装相关文档](https://docs.mcdreforged.com/zh-cn/latest/quick_start/install.html#)，构建完整的Python环境管理体系，这才是解决Python依赖问题的根本所在**\n",
+      "zh_cn": "# PiPInstaller-MCDR\n\n为面板服解决Python依赖安装问题！\n\n> For English users: I'm sorry but please translate by yourself, AI tools would be fine.\n> \n> PRs for translation are welcome.\n\n## 用法\n\n**注意：使用前通过插件报错和使用文档等信息，确认你需要额外安装的Python依赖的PyPI包名！**\n\n**对于较为复杂需要较长安装时间的Python包，你应该另开终端/控制台/Shell手动安装和管理会话！**\n\n在MCDR的控制台上使用`!!pipi <包名（可限定版本）>`或`!!pip install <包名（可限定版本）>`从PyPI安装所需的Python依赖。使用空格分隔多个包名。\n> 目前不支持在游戏客户端中执行这些指令，如果你这么做，插件将提示请在控制台上执行。\n\n### 安装过程控制\n\n> 于0.2.1添加\n\n安装插件Command Aliases后，可以通过`!!pipi enable_aliases`启用命令别名。\n> 使用`!!MCDR plg install command_aliases --confirm`来安装此可选依赖。\n\n命令别名将被注册到`config/command_aliases/config.json`中。\n\n> 于v0.2.0添加\n\n`!!pip install <package> [-q]` - 安装Python（PyPI）包，支持空格分割多个包名，支持用`-q`参数静默安装。\n> 也可以使用`!!pipi <package> [-q]`\n\n`!!pip cancel` - 取消当前进行中的安装任务\n> 在启用命令别名后，也可以使用`!!pipc`\n\n`!!pip status` - 查看当前进行中的安装任务状态\n> 在启用命令别名后，也可以使用`!!pips`\n\n## 声明\n\n- **MCDReforged的开发者没有计划提供类似直接补全安装插件缺失的PyPI依赖的功能，因此不要向他们发出于此相关的任何功能请求。**\n- **若在使用插件的命令时遇到问题，可在此仓库发起Issues进行反馈；若在MCDR外使用变相解决的办法，则你需要自行确认MCDR的命令是否在你的操作环境中可用，并且你应该知道这种做法是不受推荐的，请不要因为在使用此方法遇到问题时向MCDR的开发者反馈**\n- **你应该详细阅读这篇[安装相关文档](https://docs.mcdreforged.com/zh-cn/latest/quick_start/install.html#)，构建完整的Python环境管理体系，这才是解决Python依赖问题的根本所在**\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/PiPInstaller-MCDR/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/PiPInstaller-MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "pip_installer",
+    "latest_version": "0.2.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/tag/0.2.2",
+        "name": "v0.2.2",
+        "tag_name": "0.2.2",
+        "created_at": "2025-10-21T07:23:59Z",
+        "description": "- fix: 修复了命令别名写错位置的问题\r\n> 如果存在写错位置的数据，插件将尝试删除，如果不起作用需要重启MCDReforged才能解决。\r\n>\r\n> 如果仍存在问题，请立即发起Issue反馈！\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/PiPInstaller-MCDR/compare/0.2.1...0.2.2",
+        "prerelease": false,
+        "asset": {
+          "id": 306795688,
+          "name": "PiPInstaller-v0.2.2.mcdr",
+          "size": 3096,
+          "download_count": 91,
+          "created_at": "2025-10-21T07:26:29Z",
+          "browser_download_url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/download/0.2.2/PiPInstaller-v0.2.2.mcdr",
+          "hash_md5": "c01f759de83dd8ec7e57f2a157e47490",
+          "hash_sha256": "8d6bb3a5078793d3be7fc6155aec016f55092a196cb5c1e26b70f53277daefa9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pip_installer",
+          "name": "PiPInstaller",
+          "version": "0.2.2",
+          "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0"
+          ],
+          "description": {
+            "en_us": "Install Python dependencies in MCDR console.",
+            "zh_cn": "在MCDR控制台中安装Python包依赖！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/tag/0.2.1",
+        "name": "v0.2.1",
+        "tag_name": "0.2.1",
+        "created_at": "2025-10-18T07:19:14Z",
+        "description": "- feat: 使命令别名成为可选功能，增加了命令帮助，修正了[README](README.md)的部分内容错误\r\n> 现在需要通过`!!MCDR plg install command_aliases --confirm`安装Command Aliases插件来启用部分命令别名\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/PiPInstaller-MCDR/compare/0.2.0...0.2.1",
+        "prerelease": false,
+        "asset": {
+          "id": 305769397,
+          "name": "PiPInstaller-v0.2.1.mcdr",
+          "size": 2884,
+          "download_count": 9,
+          "created_at": "2025-10-18T07:19:39Z",
+          "browser_download_url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/download/0.2.1/PiPInstaller-v0.2.1.mcdr",
+          "hash_md5": "3c3a6ccb5187fb672a2da224bea607cb",
+          "hash_sha256": "1ad9510ca6753d23de59e0923858594f6ba661dd4b6131157498ee8919224f55"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pip_installer",
+          "name": "PiPInstaller",
+          "version": "0.2.1",
+          "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0"
+          ],
+          "description": {
+            "en_us": "Install Python dependencies in MCDR console.",
+            "zh_cn": "在MCDR控制台中安装Python包依赖！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/tag/0.2.0",
+        "name": "v0.2.0",
+        "tag_name": "0.2.0",
+        "created_at": "2025-10-18T05:29:14Z",
+        "description": "- feat: 添加了安装过程控制功能，现可提前中断Python包的安装，详见[README](README.md)\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/PiPInstaller-MCDR/compare/0.1.2...0.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 305753197,
+          "name": "PiPInstaller-v0.2.0.mcdr",
+          "size": 2275,
+          "download_count": 4,
+          "created_at": "2025-10-18T05:31:56Z",
+          "browser_download_url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/download/0.2.0/PiPInstaller-v0.2.0.mcdr",
+          "hash_md5": "679d22964411f1479574435ef79d84d0",
+          "hash_sha256": "6647d5ecf398c9b24ecb4e5612edc60ad80fdbc1d3fa5295e0bdac7bbfee8429"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pip_installer",
+          "name": "PiPInstaller",
+          "version": "0.2.0",
+          "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.0"
+          ],
+          "description": {
+            "en_us": "Install Python dependencies in MCDR console.",
+            "zh_cn": "在MCDR控制台中安装Python包依赖！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/tag/0.1.1",
+        "name": "v0.1.1",
+        "tag_name": "0.1.1",
+        "created_at": "2025-08-18T11:55:48Z",
+        "description": "fix: 使用@new_thread避免阻塞MCDR的任务主线程\n\n**Full Changelog**: https://github.com/Mooling0602/PiPInstaller-MCDR/compare/0.1.0...0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 283662898,
+          "name": "PiPInstaller-v0.1.1.mcdr",
+          "size": 1168,
+          "download_count": 21,
+          "created_at": "2025-08-18T11:57:43Z",
+          "browser_download_url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/download/0.1.1/PiPInstaller-v0.1.1.mcdr",
+          "hash_md5": "5596dbf37be15c27198bbce4b7f9bb1c",
+          "hash_sha256": "1a3677d3e577c57f6330b6ea9c4bcef1f3c75410af3a22722c4f585045154a7c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pip_installer",
+          "name": "PiPInstaller",
+          "version": "0.1.1",
+          "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Install Python dependencies in MCDR console.",
+            "zh_cn": "在MCDR控制台中安装Python包依赖！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2025-08-18T11:37:20Z",
+        "description": "feat: 支持同时安装多个包（使用空格分开）\n**Full Changelog**: https://github.com/Mooling0602/PiPInstaller-MCDR/commits/0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 283660133,
+          "name": "PiPInstaller-v0.1.0.mcdr",
+          "size": 1141,
+          "download_count": 8,
+          "created_at": "2025-08-18T11:41:13Z",
+          "browser_download_url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/download/0.1.0/PiPInstaller-v0.1.0.mcdr",
+          "hash_md5": "1704c43585662b66c6040dfd8a7a56ac",
+          "hash_sha256": "b0f1faa7145d7ea22d304240706d177f532d041c6b4b9a893a096f6198970819"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pip_installer",
+          "name": "PiPInstaller",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Install Python dependencies in MCDR console.",
+            "zh_cn": "在MCDR控制台中安装Python包依赖！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2025-03-10T15:51:26Z",
+        "description": "- feat: 可在控制台执行指令以安装PyPI包，详情见插件自述\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/PiPInstaller-MCDR/commits/0.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 236206981,
+          "name": "PiPInstaller-v0.0.1.mcdr",
+          "size": 1098,
+          "download_count": 18,
+          "created_at": "2025-03-10T15:55:14Z",
+          "browser_download_url": "https://github.com/Mooling0602/PiPInstaller-MCDR/releases/download/0.0.1/PiPInstaller-v0.0.1.mcdr",
+          "hash_md5": "692c6bd322c9fd4ce5f4812a8216435b",
+          "hash_sha256": "8fcb5d161457416de7a5880f88b2e0d529f0c3acc44c5bb05f4b72d4eaa498de"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pip_installer",
+          "name": "PiPInstaller",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Install Python dependencies in MCDR console.",
+            "zh_cn": "在MCDR控制台中安装Python依赖！"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+    "name": "PiPInstaller-MCDR",
+    "full_name": "Mooling0602/PiPInstaller-MCDR",
+    "html_url": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+    "description": "为面板服解决Python依赖安装问题！",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# PiPInstaller-MCDR\n\n为面板服解决Python依赖安装问题！\n\n> For English users: I'm sorry but please translate by yourself, AI tools would be fine.\n> \n> PRs for translation are welcome.\n\n## 用法\n\n**注意：使用前通过插件报错和使用文档等信息，确认你需要额外安装的Python依赖的PyPI包名！**\n\n**对于较为复杂需要较长安装时间的Python包，你应该另开终端/控制台/Shell手动安装和管理会话！**\n\n在MCDR的控制台上使用`!!pipi <包名（可限定版本）>`或`!!pip install <包名（可限定版本）>`从PyPI安装所需的Python依赖。使用空格分隔多个包名。\n> 目前不支持在游戏客户端中执行这些指令，如果你这么做，插件将提示请在控制台上执行。\n\n### 安装过程控制\n\n> 于0.2.1添加\n\n安装插件Command Aliases后，可以通过`!!pipi enable_aliases`启用命令别名。\n> 使用`!!MCDR plg install command_aliases --confirm`来安装此可选依赖。\n\n命令别名将被注册到`config/command_aliases/config.json`中。\n\n> 于v0.2.0添加\n\n`!!pip install <package> [-q]` - 安装Python（PyPI）包，支持空格分割多个包名，支持用`-q`参数静默安装。\n> 也可以使用`!!pipi <package> [-q]`\n\n`!!pip cancel` - 取消当前进行中的安装任务\n> 在启用命令别名后，也可以使用`!!pipc`\n\n`!!pip status` - 查看当前进行中的安装任务状态\n> 在启用命令别名后，也可以使用`!!pips`\n\n## 声明\n\n- **MCDReforged的开发者没有计划提供类似直接补全安装插件缺失的PyPI依赖的功能，因此不要向他们发出于此相关的任何功能请求。**\n- **若在使用插件的命令时遇到问题，可在此仓库发起Issues进行反馈；若在MCDR外使用变相解决的办法，则你需要自行确认MCDR的命令是否在你的操作环境中可用，并且你应该知道这种做法是不受推荐的，请不要因为在使用此方法遇到问题时向MCDR的开发者反馈**\n- **你应该详细阅读这篇[安装相关文档](https://docs.mcdreforged.com/zh-cn/latest/quick_start/install.html#)，构建完整的Python环境管理体系，这才是解决Python依赖问题的根本所在**\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/PiPInstaller-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

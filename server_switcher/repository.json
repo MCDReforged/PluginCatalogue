@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/meng877/server_switcher",
+  "name": "server_switcher",
+  "full_name": "meng877/server_switcher",
+  "html_url": "https://github.com/meng877/server_switcher",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 1,
+  "readme": "# ServerSwitcher\n\n一个支持多槽位的服务器切换\n改自QBM,简单易懂\n\n需要 `v2.0.1` 以上的 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n\n当前未在运行的服务器将会存放至 server_switcher 文件夹中\n\n## 命令格式说明\n\n`!!ss` 显示帮助信息\n\n`!!ss switch [<slot>]` 切换为槽位 `<slot>` 的服务器。\n\n`!!ss rename <slot> <comment>` 修改槽位 `<slot>` 的注释，即重命名这一槽位\n\n`!!ss confirm` 在执行 `switch` 后使用，再次确认是否进行切换\n\n`!!ss abort` 在任何时候键入此指令可中断操作\n\n`!!ss list` 显示各槽位的服务器信息\n\n`!!ss reload` 重新加载配置文件\n\n当 `<slot>` 未被指定时默认选择槽位 `1`\n\n## 配置文件选项说明\n\n配置文件为 `config/ServerSwitcher.json`。它会在第一次运行时自动生成\n\n## 感谢 [QuickBackupM](https://github.com/TISUnion/QuickBackupM) 提供灵感以及代码参考\n\n",
+  "readme_url": "https://raw.githubusercontent.com/meng877/server_switcher/main/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

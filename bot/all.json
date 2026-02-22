@@ -1,0 +1,868 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "bot",
+    "name": "Bot",
+    "version": "1.3.1",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {
+      "mcdreforged": "^2.6.0",
+      "minecraft_data_api": "^1.4.1",
+      "more_command_nodes": "^1.1.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "The best carpet bot manager!",
+      "zh_cn": "最好用的地毯模组假人管理器！"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "bot",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/bot",
+    "labels": [
+      "tool",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# Bot\n\n[简体中文](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/readme_cn.md)\n\n> The best carpet bot manager!\n\n## Dependencies\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n- [MoreCommandNodes](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/../more_command_nodes)\n\n## Usage\n\n`!!bot` View help\n\n`!!bot list [--index <index>] [filters]` Show bot list\n\n`!!bot spawn <name>` Spawn bot\n\n`!!bot kill <name>` Kill bot\n\n`!!bot action <name> [index]` Execute bot action(s)\n\n`!!bot tags` View available tags\n\n`!!bot tags <tag> spawn/kill` Spawn/kill bot(s) with tag\n\n`!!bot info <name>` View bot info\n\n`!!bot save <name> [position] [facing] [dimension]` Save bot\n\n`!!bot del <name>` Delete saved bot\n\n`!!bot config <name> <option> <value>` Config bot\n\n### Workflow\n\n```mermaid\nsequenceDiagram\n    participant Player/Console\n    participant Online Bots\n    participant Saved Bots\n\n    Player/Console-->>Online Bots: !!bot spawn (player)\n    Saved Bots-->>Online Bots: !!bot spawn\n    Online Bots-->>Online Bots: !!bot kill\n    Online Bots-->>Saved Bots: !!bot save\n    Player/Console-->>Saved Bots: !!bot save [location]\n    Saved Bots-->>Saved Bots: !!bot del\n```\n\n### list\n\n**--index \\<index\\>**: Page number, e.g. `--index 1`, default is 0\n\n**--online**: Show online bots\n\n**--saved**: Show saved bots\n\n**--tag \\<tag\\>**: Filter by tag\n\n### spawn\n\nSpawn bot\n\n```mermaid\nflowchart TD\n    start([spawn])\n    is_saved{Saved?}\n    is_player{Running by Player?}\n\n    start --> is_saved\n    is_saved -->|Yes| spawn1(Spawn at Saved Location)\n    is_saved -->|No| is_player\n    is_player -->|Yes| spawn2(Spawn at player's Location)\n    is_player -->|No| error1([Not Saved Error])\n```\n\n### kill\n\nKill bot\n\n### action\n\nExecute bot action(s)\n\nWhen `index` is specified, execute specific action(s) instead of all actions\n\n### tags\n\nView available tags and spawn/kill bot(s) with tag\n\n`!!bot tags` View available tags\n\n`!!bot tags <tag> spawn` Spawn bot(s) with tag\n\n`!!bot tags <tag> kill` Kill bot(s) with tag\n\n### info\n\nView bot info\n\n### save\n\nSave bot\n\n```mermaid\nflowchart TD\n    start([save])\n    with_location{Has Location?}\n    online{Online or Saved?}\n    is_player{Running by Player?}\n\n    start --> with_location\n    with_location -->|Yes| save3(Save at Input Location)\n    with_location -->|No| online\n\n    online -->|Yes| save1(Save at Bot's Location)\n    online -->|No| is_player\n    is_player -->|Yes| save2(Save at player's location)\n    is_player -->|No| error1([Bot Not Exists])\n```\n\n### del\n\nDelete saved bot\n\nAfter deletion, the bot will be backed up to the `botBin.json` file in the data directory. If you delete it by mistake, you can use it for manual recovery.\n\n### config\n\nConfig bot\n\n### Full Command Tree\n\n```mermaid\nflowchart LR\n    start(!!bot)\n\n    start --> list(list)\n    list --> list_index[\"--index &lt;index&gt;\"]\n    list --> list_online[--online]\n    list --> list_saved[--saved]\n    list --> list_tag[\"--tag &lt;tag&gt;\"]\n\n    start --> spawn(spawn)\n    spawn --> spawn_name(\"&lt;name&gt;\")\n\n    start --> kill(kill)\n    kill --> kill_name(\"&lt;name&gt;\")\n\n    start --> action(action)\n    action --> action_name(\"&lt;name&gt;\")\n    action_name --> action_name_index[\"&lt;index&gt;\"]\n\n    start --> tags(tags)\n    tags --> tags_tag[\"&lt;tag&gt;\"]\n    tags_tag --> tags_tag_spawn(spawn)\n    tags_tag --> tags_tag_kill(kill)\n\n    start --> info(info)\n    info --> info_name(\"&lt;name&gt;\")\n\n    start --> save(save)\n    save --> save_name(\"&lt;name&gt;\")\n    save_name --> save_name_position[\"&lt;position&gt;\"]\n    save_name_position --> save_name_position_facing[\"&lt;facing&gt;\"]\n    save_name_position_facing --> save_name_position_facing_dimension[\"&lt;dimension&gt;\"]\n\n    start --> del(del)\n    del --> del_name(\"&lt;name&gt;\")\n\n    start --> config(config)\n    config --> config_name(\"&lt;name&gt;\")\n    config_name --> config_name_name(\"name &lt;newName&gt;\")\n    config_name --> config_name_position(\"position &lt;position&gt;\")\n    config_name --> config_name_facing(\"facing &lt;facing&gt;\")\n    config_name --> config_name_dimension(\"dimension &lt;dimension&gt;\")\n    config_name --> config_name_comment(\"comment &lt;comment&gt;\")\n    config_name --> config_name_actions(actions)\n    config_name --> config_name_tags(tags)\n    config_name --> config_name_autoLogin(\"autoLogin &lt;autoLogin&gt;\")\n    config_name --> config_name_autoRunActions(\"autoRunActions &lt;autoRunActions&gt;\")\n    config_name --> config_name_autoUpdate(\"autoUpdate &lt;autoUpdate&gt;\")\n\n    config_name_actions --> config_name_actions_append(\"append &lt;action&gt;\")\n    config_name_actions --> config_name_actions_insert(\"insert &lt;index&gt; &lt;action&gt;\")\n    config_name_actions --> config_name_actions_delete(\"delete &lt;index&gt\")\n    config_name_actions --> config_name_actions_edit(\"edit &lt;index&gt; &lt;action&gt;\")\n    config_name_actions --> config_name_actions_clear(clear)\n\n    config_name_tags --> config_name_tags_append[\"append &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_insert[\"insert &lt;index&gt; &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_delete[\"delete &lt;index&gt\"]\n    config_name_tags --> config_name_tags_edit[\"edit &lt;index&gt; &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_clear[clear]\n```\n\n## Config\n\n### gamemode\n\nDefault: `survival`\n\nGame mode of bot\n\n### force_gamemode\n\nDefault: `false`\n\nForcing all bots to use the game mode configured by `gamemode`, if `false`, only saved bots will use the game mode configured by `gamemode`.\n\n### name_prefix\n\nDefault: `bot_`\n\nPrefix of bot name\n\n### name_suffix\n\nDefault: None\n\nSuffix of bot name\n\n### post_join_delay\n\nDefault: `0`\n\nDelay time (seconds) for processing after bot joined. If you are using a non-vanilla server, you may need to adjust this value.\n\n### permissions\n\nMinimum permission to use corresponding command\n\n## FastAPI MCDR\n\nThe plugin supports the [FastAPI MCDR](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/../fastapi_mcdr) plugin (>=2.0.0). After installing the FastAPI MCDR plugin, the plugin will automatically register endpoints. You can view the API definition through FastAPI.\n\nPython packages required:\n\n```text\npydantic>=2.0\n```\n\nYou can use this feature to implement external control, such as a web page for managing bots:\n\n![webpage to manage bots](https://github.com/user-attachments/assets/508689c3-a7d0-4280-ac3d-e9812d32c289)\n",
+      "zh_cn": "# Bot\n\n[English](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/readme.md)\n\n> 最好用的地毯模组假人管理器！\n\n## 依赖\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n- [MoreCommandNodes](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/../more_command_nodes)\n\n## 使用方法\n\n`!!bot` 查看帮助\n\n`!!bot list [--index <index>] [filters]` 显示假人列表\n\n`!!bot spawn <name>` 上线假人\n\n`!!bot kill <name>` 下线假人\n\n`!!bot action <name> [index]` 执行假人动作\n\n`!!bot tags` 查看可用标签\n\n`!!bot tags <tag> spawn/kill` 上线/下线带有标签的假人\n\n`!!bot info <name>` 查看假人信息\n\n`!!bot save <name> [position] [facing] [dimension]` 保存假人\n\n`!!bot del <name>` 删除保存的假人\n\n`!!bot config <name> <option> <value>` 配置假人\n\n### 工作流\n\n```mermaid\nsequenceDiagram\n    participant Player/Console\n    participant Online Bots\n    participant Saved Bots\n\n    Player/Console-->>Online Bots: !!bot spawn (player)\n    Saved Bots-->>Online Bots: !!bot spawn\n    Online Bots-->>Online Bots: !!bot kill\n    Online Bots-->>Saved Bots: !!bot save\n    Player/Console-->>Saved Bots: !!bot save [location]\n    Saved Bots-->>Saved Bots: !!bot del\n```\n\n### list\n\n**--index \\<index\\>**：页码，例如 `--index 1`，默认为 0\n\n**--online**：显示在线假人\n\n**--saved**：显示保存的假人\n\n**--tag \\<tag\\>**：按标签过滤\n\n### spawn\n\n上线假人\n\n```mermaid\nflowchart TD\n    start([spawn])\n    is_saved{Saved?}\n    is_player{Running by Player?}\n\n    start --> is_saved\n    is_saved -->|Yes| spawn1(Spawn at Saved Location)\n    is_saved -->|No| is_player\n    is_player -->|Yes| spawn2(Spawn at player's Location)\n    is_player -->|No| error1([Not Saved Error])\n```\n\n### kill\n\n下线假人\n\n### action\n\n执行假人动作\n\n当指定 `index` 时，执行特定动作而不是全部动作\n\n### tags\n\n查看可用标签和上线/下线带有标签的假人\n\n`!!bot tags` 查看可用标签\n\n`!!bot tags <tag> spawn` 上线带有标签的假人\n\n`!!bot tags <tag> kill` 下线带有标签的假人\n\n### info\n\n查看假人信息\n\n### save\n\n保存假人\n\n```mermaid\nflowchart TD\n    start([save])\n    with_location{Has Location?}\n    online{Online or Saved?}\n    is_player{Running by Player?}\n\n    start --> with_location\n    with_location -->|Yes| save3(Save at Input Location)\n    with_location -->|No| online\n\n    online -->|Yes| save1(Save at Bot's Location)\n    online -->|No| is_player\n    is_player -->|Yes| save2(Save at player's location)\n    is_player -->|No| error1([Bot Not Exists])\n```\n\n### del\n\n删除保存的假人\n\n删除后会备份假人到数据目录中的 `botBin.json` 文件。如果发生误删，可以用于手动恢复。\n\n### config\n\n配置假人\n\n### 完整指令树\n\n```mermaid\nflowchart LR\n    start(!!bot)\n\n    start --> list(list)\n    list --> list_index[\"--index &lt;index&gt;\"]\n    list --> list_online[--online]\n    list --> list_saved[--saved]\n    list --> list_tag[\"--tag &lt;tag&gt;\"]\n\n    start --> spawn(spawn)\n    spawn --> spawn_name(\"&lt;name&gt;\")\n\n    start --> kill(kill)\n    kill --> kill_name(\"&lt;name&gt;\")\n\n    start --> action(action)\n    action --> action_name(\"&lt;name&gt;\")\n    action_name --> action_name_index[\"&lt;index&gt;\"]\n\n    start --> tags(tags)\n    tags --> tags_tag[\"&lt;tag&gt;\"]\n    tags_tag --> tags_tag_spawn(spawn)\n    tags_tag --> tags_tag_kill(kill)\n\n    start --> info(info)\n    info --> info_name(\"&lt;name&gt;\")\n\n    start --> save(save)\n    save --> save_name(\"&lt;name&gt;\")\n    save_name --> save_name_position[\"&lt;position&gt;\"]\n    save_name_position --> save_name_position_facing[\"&lt;facing&gt;\"]\n    save_name_position_facing --> save_name_position_facing_dimension[\"&lt;dimension&gt;\"]\n\n    start --> del(del)\n    del --> del_name(\"&lt;name&gt;\")\n\n    start --> config(config)\n    config --> config_name(\"&lt;name&gt;\")\n    config_name --> config_name_name(\"name &lt;newName&gt;\")\n    config_name --> config_name_position(\"position &lt;position&gt;\")\n    config_name --> config_name_facing(\"facing &lt;facing&gt;\")\n    config_name --> config_name_dimension(\"dimension &lt;dimension&gt;\")\n    config_name --> config_name_comment(\"comment &lt;comment&gt;\")\n    config_name --> config_name_actions(actions)\n    config_name --> config_name_tags(tags)\n    config_name --> config_name_autoLogin(\"autoLogin &lt;autoLogin&gt;\")\n    config_name --> config_name_autoRunActions(\"autoRunActions &lt;autoRunActions&gt;\")\n    config_name --> config_name_autoUpdate(\"autoUpdate &lt;autoUpdate&gt;\")\n\n    config_name_actions --> config_name_actions_append(\"append &lt;action&gt;\")\n    config_name_actions --> config_name_actions_insert(\"insert &lt;index&gt; &lt;action&gt;\")\n    config_name_actions --> config_name_actions_delete(\"delete &lt;index&gt\")\n    config_name_actions --> config_name_actions_edit(\"edit &lt;index&gt; &lt;action&gt;\")\n    config_name_actions --> config_name_actions_clear(clear)\n\n    config_name_tags --> config_name_tags_append[\"append &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_insert[\"insert &lt;index&gt; &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_delete[\"delete &lt;index&gt\"]\n    config_name_tags --> config_name_tags_edit[\"edit &lt;index&gt; &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_clear[clear]\n```\n\n## 配置\n\n### gamemode\n\n默认值: `survival`\n\n生成假人的游戏模式\n\n### force_gamemode\n\n默认值: `false`\n\n是否强制所有假人使用 `gamemode` 配置的游戏模式，如果为 `false`，只有已保存的假人会使用 `gamemode` 配置的游戏模式。\n\n### name_prefix\n\n默认值: `bot_`\n\n假人名称前缀\n\n### name_suffix\n\n默认值: 无\n\n假人名称后缀\n\n### post_join_delay\n\n默认值: `0`\n\n假人上线后延迟处理的时间（秒），如果您使用非原版服务端，可能需要调整该值。\n\n### permissions\n\n使用对应指令的最低权限\n\n## FastAPI MCDR\n\n该插件支持 [FastAPI MCDR](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/../fastapi_mcdr) 插件（>=2.0.0），当安装 FastAPI MCDR 插件后，该插件会自动注册端点，您可以通过 FastAPI 查看接口定义。\n\nPython 包要求：\n\n```text\npydantic>=2.0\n```\n\n您可以利用该功能实现外部控制，例如一个管理假人的网页：\n\n![管理假人的网页](https://github.com/user-attachments/assets/508689c3-a7d0-4280-ac3d-e9812d32c289)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/bot/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/bot/readme_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "bot",
+    "latest_version": "1.3.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.3.1",
+        "name": "bot: v1.3.1",
+        "tag_name": "bot-v1.3.1",
+        "created_at": "2025-02-07T13:34:41Z",
+        "description": "## [1.3.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.3.0...bot-v1.3.1) (2025-02-07)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix bot load error when fastapi libraries installed (fix [#260](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/260)) ([2c4815c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2c4815c635f6b3972fb7cf9207cf454a4d9ac489))",
+        "prerelease": false,
+        "asset": {
+          "id": 227174287,
+          "name": "Bot-v1.3.1.mcdr",
+          "size": 18462,
+          "download_count": 1586,
+          "created_at": "2025-02-07T13:37:20Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.3.1/Bot-v1.3.1.mcdr",
+          "hash_md5": "d4ae24f4c142a7372089514d3070e99c",
+          "hash_sha256": "57d53d2c2afeb74b575510d3b510cfa374e6c17fe5a29ef1fff093bc9231cba2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.3.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.3.0",
+        "name": "bot: v1.3.0",
+        "tag_name": "bot-v1.3.0",
+        "created_at": "2024-12-20T22:06:28Z",
+        "description": "## [1.3.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.2.4...bot-v1.3.0) (2024-12-20)\n\n\n### Features\n\n* **bot:** ✨ bot bin (resolve [#238](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/238)) ([d99865a](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/d99865ae16af8dc343b77efbada4f8b00e12205a))\n* **bot:** ✨ new config post_join_delay ([c5c01bc](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/c5c01bc3c82ca0a32dead3c52e1b533dd5c5695c))\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix default bot list ([f61a6a6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f61a6a6792b5f1edcd4a15929a4d1dea92ce845b))\n* **bot:** 🔊 update fastapi manager logs ([e27ea82](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/e27ea822a0e4bf049c64f86ca881e709e8f8d947))",
+        "prerelease": false,
+        "asset": {
+          "id": 214809386,
+          "name": "Bot-v1.3.0.mcdr",
+          "size": 18459,
+          "download_count": 384,
+          "created_at": "2024-12-20T22:08:12Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.3.0/Bot-v1.3.0.mcdr",
+          "hash_md5": "bcdc0b15396e22942a2f9c374b7eed2f",
+          "hash_sha256": "278f2a93f42e829a31b903ac445fc8d586f1433b0397a4fc614d652f09c94985"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.3.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.2.4",
+        "name": "bot: v1.2.4",
+        "tag_name": "bot-v1.2.4",
+        "created_at": "2024-09-15T01:22:40Z",
+        "description": "## [1.2.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.2.3...bot-v1.2.4) (2024-09-14)\n\n\n### Bug Fixes\n\n* **bot:** 👽️ use new fastapi_mcdr interface ([a3edb1b](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a3edb1b96eb9d8cf6b29a042b2a109dfbb74a43e))",
+        "prerelease": false,
+        "asset": {
+          "id": 192692570,
+          "name": "Bot-v1.2.4.mcdr",
+          "size": 18301,
+          "download_count": 477,
+          "created_at": "2024-09-15T01:24:41Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.2.4/Bot-v1.2.4.mcdr",
+          "hash_md5": "38e143a0b4c2a94ab099f9a70bfa077c",
+          "hash_sha256": "939238ab6c8cf405a3029bd8f887deb8f1aa464c3612546262ceccfa90218bf0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.2.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.2.3",
+        "name": "bot: v1.2.3",
+        "tag_name": "bot-v1.2.3",
+        "created_at": "2024-08-28T23:50:19Z",
+        "description": "## [1.2.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.2.2...bot-v1.2.3) (2024-08-28)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix fastapi error code ([0daa16f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/0daa16fb98fdeb42a09e13652c4303f00af1b534))\n* **bot:** 🐛 fix fastapi setting tags ([bb8d6fc](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/bb8d6fc3461f046b344cbca0f5990c03b814676c))\n* **bot:** 🐛 fix fastapi update data ([6ca272c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/6ca272c040d4acb54fde7e7a710079971ece2b91))\n* **bot:** 🐛 fix update bot name in fastapi ([655a1ec](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/655a1ec3124651ad4004583611e617e57c93636b))\n* **bot:** 🐛 fix update name in fatapi ([29ec38b](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/29ec38b9d8a873a46c800654c356bb85a038626a))\n* **bot:** 🐛 patching bot name ([cec65ab](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/cec65abaf4d19b072fef071c63d2f5d2c0a40e73))\n* **bot:** 🐛 update BotsGetResponse ([036aa31](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/036aa310944463c3062abd66aa3304de3c0382dc))",
+        "prerelease": false,
+        "asset": {
+          "id": 188971448,
+          "name": "Bot-v1.2.3.mcdr",
+          "size": 18313,
+          "download_count": 142,
+          "created_at": "2024-08-28T23:51:55Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.2.3/Bot-v1.2.3.mcdr",
+          "hash_md5": "593abe4847d1338d978c8c55158fd6cd",
+          "hash_sha256": "35c82ebffd5fb50a1c4da13f9b5ca98a075f58937606e39214dcf58aae18a41d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.2.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.2.2",
+        "name": "bot: v1.2.2",
+        "tag_name": "bot-v1.2.2",
+        "created_at": "2024-08-27T17:04:25Z",
+        "description": "## [1.2.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.2.1...bot-v1.2.2) (2024-08-27)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix http model key names ([009a04d](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/009a04dea642beb1b7bb96e7f333ff02ff2076db))",
+        "prerelease": false,
+        "asset": {
+          "id": 188656594,
+          "name": "Bot-v1.2.2.mcdr",
+          "size": 18253,
+          "download_count": 58,
+          "created_at": "2024-08-27T17:06:16Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.2.2/Bot-v1.2.2.mcdr",
+          "hash_md5": "f0c8bf2d44120ad836719e75867e0801",
+          "hash_sha256": "f085c8810150d842603de4d6f61934942bdc1825feea7b54270d927522b0300e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.2.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.2.1",
+        "name": "bot: v1.2.1",
+        "tag_name": "bot-v1.2.1",
+        "created_at": "2024-08-27T16:06:39Z",
+        "description": "## [1.2.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.2.0...bot-v1.2.1) (2024-08-27)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix bot http api response ([4aebad6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4aebad628a2ed9ed44ea9f983c8536a12bfac37f))",
+        "prerelease": false,
+        "asset": {
+          "id": 188647109,
+          "name": "Bot-v1.2.1.mcdr",
+          "size": 18247,
+          "download_count": 43,
+          "created_at": "2024-08-27T16:08:07Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.2.1/Bot-v1.2.1.mcdr",
+          "hash_md5": "e795455e167ea4462851b256a52970de",
+          "hash_sha256": "e1a18de0a9447b2940a62a2370a91c76f477d006cb82275e62434e28a5a5c9cb"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.2.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.2.0",
+        "name": "bot: v1.2.0",
+        "tag_name": "bot-v1.2.0",
+        "created_at": "2024-08-26T12:46:59Z",
+        "description": "## [1.2.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.1.5...bot-v1.2.0) (2024-08-26)\n\n\n### Features\n\n* **bot:** ✨ improve list command ([#218](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/218)) ([3b43b00](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/3b43b006043071420caa768ab39c6447c81874d8))\n* **bot:** ✨ improve tags command ([#218](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/218)) ([8f6a4dd](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/8f6a4dd7bfc20adc9afcbb1992d8232d47f5abf6))\n* **bot:** ✨ update command edit button ([9e4d06d](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9e4d06dd7cfcd30f5247ea9f529f848ee53cfbe6))\n* **bot:** 🥅 catch any other error when loading FastAPIManager ([2314f31](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2314f31fabeefaa876625c9ab03d6ae13d098d62))\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix bot name during reload ([dfbb517](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/dfbb5174e269d255a51c0173a3e734feb9487a37))\n* **bot:** 👽️ fix minecraft_data_api import issue (fix [#221](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/221)) ([9f198dc](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9f198dccf0a80804436e094fabbb9922919bcd1e))\n* **bot:** 🔇 remove logs ([b60d8c1](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b60d8c19ac3936ff8f14ee67bba503620879db8d))\n* **bot:** 🩹 resolve dimension translation text in 1.19 (resolve [#210](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/210)) ([bf62e74](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/bf62e747940288caa1a86acbefecd2c1af4c4010))",
+        "prerelease": false,
+        "asset": {
+          "id": 188370065,
+          "name": "Bot-v1.2.0.mcdr",
+          "size": 18060,
+          "download_count": 50,
+          "created_at": "2024-08-26T12:49:12Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.2.0/Bot-v1.2.0.mcdr",
+          "hash_md5": "56ea78c4550d81dbe8f83d7fcd0df049",
+          "hash_sha256": "da46eae5e75f8e8d13e9e62e1eb3c4b38ae2eca5bd7f229245f54d2f4cf709d2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.2.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4.1",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.1.5",
+        "name": "bot: v1.1.5",
+        "tag_name": "bot-v1.1.5",
+        "created_at": "2024-07-01T14:38:44Z",
+        "description": "## [1.1.5](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.1.4...bot-v1.1.5) (2024-07-01)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 save bot actual mc name (fix [#193](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/193)) ([56b7826](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/56b78266adacd52ac567c078dcbb42ff99ee549e))",
+        "prerelease": false,
+        "asset": {
+          "id": 177007989,
+          "name": "Bot-v1.1.5.mcdr",
+          "size": 17542,
+          "download_count": 528,
+          "created_at": "2024-07-01T14:40:45Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.1.5/Bot-v1.1.5.mcdr",
+          "hash_md5": "e7df6337668295eaca7a6378e57e9538",
+          "hash_sha256": "5c6a72ac43195c38299c4027481c117898d362d452561c3ca44234354f8647e6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.1.5",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.1.4",
+        "name": "bot: v1.1.4",
+        "tag_name": "bot-v1.1.4",
+        "created_at": "2024-03-15T14:06:59Z",
+        "description": "## [1.1.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.1.3...bot-v1.1.4) (2024-03-15)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix bot join detection bug ([1a367ce](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/1a367cecd27c9a623f91a0641167b5e4faa16af3))",
+        "prerelease": false,
+        "asset": {
+          "id": 156862305,
+          "name": "Bot-v1.1.4.mcdr",
+          "size": 17549,
+          "download_count": 452,
+          "created_at": "2024-03-15T14:08:24Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.1.4/Bot-v1.1.4.mcdr",
+          "hash_md5": "6d0fd98e705cc6a655e46bf5f909fcae",
+          "hash_sha256": "3579fc39ab5ed94584c4a6a24d8117f7cf5b9fa416725cf1fbfdcf87d8659dc9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.1.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.1.3",
+        "name": "bot: v1.1.3",
+        "tag_name": "bot-v1.1.3",
+        "created_at": "2024-02-27T15:09:58Z",
+        "description": "## [1.1.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.1.2...bot-v1.1.3) (2024-02-27)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix bot gamemode issue (fix [#186](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/186)) ([250b0da](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/250b0dae2a26b18f9e4c1183d442d5e2c2535787))\n* **bot:** 🐛 fix bot naming issue ([5e9d240](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/5e9d24098a95b0b4aa34c2920da24373863e5c9a))\n\n\n### Performance Improvements\n\n* **bot:** ⚡️ improve perf of get_location ([a3ebfeb](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a3ebfebe2cdb1c4a09a81870cb80f5be0a271e71))",
+        "prerelease": false,
+        "asset": {
+          "id": 153828212,
+          "name": "Bot-v1.1.3.mcdr",
+          "size": 17554,
+          "download_count": 162,
+          "created_at": "2024-02-27T15:11:25Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.1.3/Bot-v1.1.3.mcdr",
+          "hash_md5": "ded1f268a97bf3e50f55d172b4442f09",
+          "hash_sha256": "9bc347ec70fee096be06608eb147aaa872a5e48619d7ba80ca56d97960a80dbb"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.1.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.1.2",
+        "name": "bot: v1.1.2",
+        "tag_name": "bot-v1.1.2",
+        "created_at": "2024-01-15T10:45:41Z",
+        "description": "## [1.1.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.1.1...bot-v1.1.2) (2024-01-15)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix fastapi lib loading issue (fix [#161](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/161)) ([27738a6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/27738a68833051de821928febac110252b532e63))",
+        "prerelease": false,
+        "asset": {
+          "id": 145654528,
+          "name": "Bot-v1.1.2.mcdr",
+          "size": 17241,
+          "download_count": 255,
+          "created_at": "2024-01-15T10:46:23Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.1.2/Bot-v1.1.2.mcdr",
+          "hash_md5": "c6e08a6f919120e98e86066145210398",
+          "hash_sha256": "276f43d1d9c6b1e622e10e59966690c42e7e45617cc6d651ae019a86bbd53c56"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.1.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.1.1",
+        "name": "bot: v1.1.1",
+        "tag_name": "bot-v1.1.1",
+        "created_at": "2023-12-31T10:51:04Z",
+        "description": "## [1.1.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.1.0...bot-v1.1.1) (2023-12-31)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix fastapi import bug ([b0eccdb](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b0eccdb2e66f3215d10df40a4237d18187183c4e))\n* **bot:** 🔇 update logging level in FastAPIManager ([4cbe835](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4cbe83526aff21533b181f3f30459b7f9f331584))",
+        "prerelease": false,
+        "asset": {
+          "id": 143140301,
+          "name": "Bot-v1.1.1.mcdr",
+          "size": 17176,
+          "download_count": 122,
+          "created_at": "2023-12-31T10:51:38Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.1.1/Bot-v1.1.1.mcdr",
+          "hash_md5": "08423e978aaf694c66468b241c2cadc9",
+          "hash_sha256": "9893e1ffa3b6e879b286064349f66b6b3782328faf452a03d533504ff60a36aa"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.1.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.1.0",
+        "name": "bot: v1.1.0",
+        "tag_name": "bot-v1.1.0",
+        "created_at": "2023-12-21T22:09:25Z",
+        "description": "## [1.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.6...bot-v1.1.0) (2023-12-21)\n\n\n### Features\n\n* **bot:** ✨ always parse name in command handlers ([cfdf9ba](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/cfdf9bafee63bdab12be5d934d158b36f1e1ab7d))\n* **bot:** ✨ config check ([cc5b2ae](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/cc5b2ae2263caa00165e000dcb4d751b78628636))\n* **bot:** ✨ fastapi_mcdr support (resolve [#145](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/145)) ([b75aa6e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b75aa6e040e3db750fdc2a77f2588c0440e0d71e))\n* **bot:** ✨ set bot online in post and patch requests ([4c41ab8](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4c41ab86f2b9ca34f979c9620286b2ca016e2451))\n* **bot:** ✨ set default name_prefix config to `bot_` ([15338b3](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/15338b3660c2e204e1d6e7944a97facd6210084d))\n* **bot:** ✨ tags and auto update ([e67ba25](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/e67ba2549020b8d0649d2b6450c5756c1572b585))\n* **bot:** 🌐 update english help message ([8c58216](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/8c5821663e707fd097bf7c2a0ed18f93c6c16b0a))\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix name in fastapi_manager and improve code style ([bce91f0](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/bce91f08e96b11bd58cbdcbd06fea998f2fa9efa))",
+        "prerelease": false,
+        "asset": {
+          "id": 141878339,
+          "name": "Bot-v1.1.0.mcdr",
+          "size": 17157,
+          "download_count": 131,
+          "created_at": "2023-12-21T22:10:07Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.1.0/Bot-v1.1.0.mcdr",
+          "hash_md5": "8358d9171f919d5ba9fe790f0d9bf908",
+          "hash_sha256": "96ee18a46e93e2d5d81507c3a21496a0c7ef503deb2d88bd5451815f76f2a286"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.6",
+        "name": "bot: v1.0.6",
+        "tag_name": "bot-v1.0.6",
+        "created_at": "2023-01-19T16:55:52Z",
+        "description": "## [1.0.6](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.5...bot-v1.0.6) (2023-01-19)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 fix bot name uppercase issue ([0ea1824](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/0ea1824469e28244398fd9eb115793e4ec7be32f))",
+        "prerelease": false,
+        "asset": {
+          "id": 92299495,
+          "name": "Bot-v1.0.6.mcdr",
+          "size": 13930,
+          "download_count": 1603,
+          "created_at": "2023-01-19T16:58:58Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.6/Bot-v1.0.6.mcdr",
+          "hash_md5": "b673a2892567c70cbdccdd8b50ecdc3a",
+          "hash_sha256": "df555c428df6985433f3fab88eba906f37f7c354b714ebf81605585607d49aa9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.6",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "dict_command_registration": "^1.0.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.5",
+        "name": "bot: v1.0.5",
+        "tag_name": "bot-v1.0.5",
+        "created_at": "2022-12-29T15:18:46Z",
+        "description": "## [1.0.5](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.4...bot-v1.0.5) (2022-12-29)\n\n\n### Build System\n\n* **bot:** ⬆️ set mcdreforged denpendcy as ^2.6.0 ([2fbcabf](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2fbcabf5ad021270b415af9a6c79b4598c725c3f))",
+        "prerelease": false,
+        "asset": {
+          "id": 89874369,
+          "name": "Bot-v1.0.5.mcdr",
+          "size": 13875,
+          "download_count": 255,
+          "created_at": "2022-12-29T15:19:31Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.5/Bot-v1.0.5.mcdr",
+          "hash_md5": "707c7c091db6f436573ccaa25c906c86",
+          "hash_sha256": "5ee627d45763e6ef6a442a9b3e9b0434e9e26737ae2e11ff4a0b1fa7cb10be72"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.5",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.6.0",
+            "dict_command_registration": "^1.0.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.4",
+        "name": "bot: v1.0.4",
+        "tag_name": "bot-v1.0.4",
+        "created_at": "2022-12-29T14:52:27Z",
+        "description": "## [1.0.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.3...bot-v1.0.4) (2022-12-29)\n\n\n### Reverts\n\n* **bot:** 💡 sort Union type order same as import order ([a5aca65](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a5aca65f7ae4abb19aed5a4958d7f61857334d90))\n\n\n### Build System\n\n* **bot:** 🔖 1.0.4 ([ee00c3b](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/ee00c3b0f3e4588eb47fcdb51a275094fc14cf7a))",
+        "prerelease": false,
+        "asset": {
+          "id": 89872311,
+          "name": "Bot-v1.0.4.mcdr",
+          "size": 13874,
+          "download_count": 119,
+          "created_at": "2022-12-29T14:53:06Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.4/Bot-v1.0.4.mcdr",
+          "hash_md5": "f26eb98baa52938329926c127d9bbe2c",
+          "hash_sha256": "61d437c81c8e5c5b2219bd7ceefaa024a12042b0610fc4f28d7b224c78c44829"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5",
+            "dict_command_registration": "^1.0.0",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.3",
+        "name": "bot: v1.0.3",
+        "tag_name": "bot-v1.0.3",
+        "created_at": "2022-10-03T22:19:47Z",
+        "description": "## [1.0.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.2...bot-v1.0.3) (2022-07-23)\r\n\r\n\r\n### Bug Fixes\r\n\r\n* **bot:** ✏️ fix help message arguments typo ([f4337ed](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f4337ed63f2ee5f8dcc5323d7d0bc9b6becdeed3))\r\n* **bot:** 🐛 correcting usages of IllegalDimensionException ([a89d530](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a89d5309041bdc25c3eddbe495f6069b785f8eaf))",
+        "prerelease": false,
+        "asset": {
+          "id": 89873991,
+          "name": "Bot-v1.0.3.mcdr",
+          "size": 13423,
+          "download_count": 112,
+          "created_at": "2022-12-29T15:14:20Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.3/Bot-v1.0.3.mcdr",
+          "hash_md5": "a997cbda05b7608e6fcd9380d30b193e",
+          "hash_sha256": "9c1eac60ea44e88f5f3161142326c354cf866e445d63b1f0e02a33ed90756bbe"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.2",
+        "name": "bot: v1.0.2",
+        "tag_name": "bot-v1.0.2",
+        "created_at": "2022-07-22T02:15:29Z",
+        "description": "## [1.0.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.1...bot-v1.0.2) (2022-07-22)\n\n\n### Bug Fixes\n\n* **bot:** 🐛 pass arg for raise exception ([22c74d6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/22c74d6d08a49445e3f0cb8e9f4b7ebcd6ecda94))",
+        "prerelease": false,
+        "asset": {
+          "id": 72317223,
+          "name": "Bot-v1.0.2.mcdr",
+          "size": 13375,
+          "download_count": 381,
+          "created_at": "2022-07-22T02:16:19Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.2/Bot-v1.0.2.mcdr",
+          "hash_md5": "b885cf032e3aa3dcc028119222919e63",
+          "hash_sha256": "7043e5c443e31ba05f85c55b550c4543b739e5db56f99f1fa6e41420415620fc"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.1",
+        "name": "bot: v1.0.1",
+        "tag_name": "bot-v1.0.1",
+        "created_at": "2022-07-21T05:05:43Z",
+        "description": "## [1.0.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v1.0.0...bot-v1.0.1) (2022-07-21)\n\n\n### Bug Fixes\n\n* **bot:** ✨ add config button for actions in info ([16fd490](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/16fd490b75374ce3b0e43c6a792bf5a5ff0d48d5))",
+        "prerelease": false,
+        "asset": {
+          "id": 72210286,
+          "name": "Bot-v1.0.1.mcdr",
+          "size": 13369,
+          "download_count": 126,
+          "created_at": "2022-07-21T05:06:17Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.1/Bot-v1.0.1.mcdr",
+          "hash_md5": "7a34b0edb72045ae7cfd9cc92e616ebd",
+          "hash_sha256": "42f092ca6a75f0c5f7fe62aa121a723bd8741cb9f7aecdeb3359b1d94a927dfd"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v1.0.0",
+        "name": "bot: v1.0.0",
+        "tag_name": "bot-v1.0.0",
+        "created_at": "2022-07-21T03:52:38Z",
+        "description": "## [1.0.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/bot-v0.1.0...bot-v1.0.0) (2022-07-21)\n\n\n### ⚠ BREAKING CHANGES\n\n* **bot:** new dependencies\n\n### Features\n\n* **bot:** ✨ support incomplete location info in  save command ([130afc5](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/130afc5d441136a695a160d2c6e5907cd3a5a4a0))\n* **bot:** 💥 rewrite to the new generation! ([bf5d450](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/bf5d450e0e507a3e4e232f5b1161bf5460ea271d))\n\n\n### Bug Fixes\n\n* **bot:** 🐛 disable data file load echo in console ([8065d64](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/8065d64c03d4c6c34ab963218ea0ad93f7578353))\n* **bot:** 🐛 fix config button hover text color ([aac82c9](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/aac82c9c7aeb8a5ad2b98cfca9aec08d393c7661))\n* **bot:** 🐛 fix config command using wrong permission to check ([3ddb723](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/3ddb723299f3acb4038fbe00288c7c4c34afde6b))\n* **bot:** 🐛 fix gamemode setting on spawn bot ([40e8678](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/40e86788c66110aa40b61ecf244d913c791c043e))\n* **bot:** 🐛 fix help message error ([2300400](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2300400f193ebf4b7073985ea19b7edbefe32a63))",
+        "prerelease": false,
+        "asset": {
+          "id": 72204890,
+          "name": "Bot-v1.0.0.mcdr",
+          "size": 13362,
+          "download_count": 129,
+          "created_at": "2022-07-21T03:53:18Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v1.0.0/Bot-v1.0.0.mcdr",
+          "hash_md5": "128b253a15fac5f3a1f408fc6b56e773",
+          "hash_sha256": "b2b08d9408fab5a730c5a06d3870e55846c6d65f0c0d10520618bcbbdfdc64af"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "1.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5",
+            "minecraft_data_api": "^1.4",
+            "more_command_nodes": "^1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "The best carpet bot manager!",
+            "zh_cn": "最好用的地毯模组假人管理器！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/bot-v0.1.0",
+        "name": "bot: v0.1.0",
+        "tag_name": "bot-v0.1.0",
+        "created_at": "2022-06-30T12:09:38Z",
+        "description": "## 0.1.0 (2022-06-30)\n\n\n### Features\n\n* **bot:** ✨ support MCDR 2.0 ([a8db9a7](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a8db9a7dabd23011ab9eed81c0ca1429369581ec))",
+        "prerelease": false,
+        "asset": {
+          "id": 70146587,
+          "name": "Bot-v0.1.0.mcdr",
+          "size": 2014,
+          "download_count": 180,
+          "created_at": "2022-06-30T12:10:23Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/bot-v0.1.0/Bot-v0.1.0.mcdr",
+          "hash_md5": "f548683c8a24622e7faebb1e764640ac",
+          "hash_sha256": "60ab358275bad391537aeb5a9531f88d08bc01b1203b1617710066f3e2e64c39"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot",
+          "name": "Bot",
+          "version": "0.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/bot",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "Manage carpet bot",
+            "zh_cn": "管理地毯假人"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 99,
+    "watchers_count": 99,
+    "forks_count": 51,
+    "readme": "# Bot\n\n[简体中文](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/readme_cn.md)\n\n> The best carpet bot manager!\n\n## Dependencies\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n- [MoreCommandNodes](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/../more_command_nodes)\n\n## Usage\n\n`!!bot` View help\n\n`!!bot list [--index <index>] [filters]` Show bot list\n\n`!!bot spawn <name>` Spawn bot\n\n`!!bot kill <name>` Kill bot\n\n`!!bot action <name> [index]` Execute bot action(s)\n\n`!!bot tags` View available tags\n\n`!!bot tags <tag> spawn/kill` Spawn/kill bot(s) with tag\n\n`!!bot info <name>` View bot info\n\n`!!bot save <name> [position] [facing] [dimension]` Save bot\n\n`!!bot del <name>` Delete saved bot\n\n`!!bot config <name> <option> <value>` Config bot\n\n### Workflow\n\n```mermaid\nsequenceDiagram\n    participant Player/Console\n    participant Online Bots\n    participant Saved Bots\n\n    Player/Console-->>Online Bots: !!bot spawn (player)\n    Saved Bots-->>Online Bots: !!bot spawn\n    Online Bots-->>Online Bots: !!bot kill\n    Online Bots-->>Saved Bots: !!bot save\n    Player/Console-->>Saved Bots: !!bot save [location]\n    Saved Bots-->>Saved Bots: !!bot del\n```\n\n### list\n\n**--index \\<index\\>**: Page number, e.g. `--index 1`, default is 0\n\n**--online**: Show online bots\n\n**--saved**: Show saved bots\n\n**--tag \\<tag\\>**: Filter by tag\n\n### spawn\n\nSpawn bot\n\n```mermaid\nflowchart TD\n    start([spawn])\n    is_saved{Saved?}\n    is_player{Running by Player?}\n\n    start --> is_saved\n    is_saved -->|Yes| spawn1(Spawn at Saved Location)\n    is_saved -->|No| is_player\n    is_player -->|Yes| spawn2(Spawn at player's Location)\n    is_player -->|No| error1([Not Saved Error])\n```\n\n### kill\n\nKill bot\n\n### action\n\nExecute bot action(s)\n\nWhen `index` is specified, execute specific action(s) instead of all actions\n\n### tags\n\nView available tags and spawn/kill bot(s) with tag\n\n`!!bot tags` View available tags\n\n`!!bot tags <tag> spawn` Spawn bot(s) with tag\n\n`!!bot tags <tag> kill` Kill bot(s) with tag\n\n### info\n\nView bot info\n\n### save\n\nSave bot\n\n```mermaid\nflowchart TD\n    start([save])\n    with_location{Has Location?}\n    online{Online or Saved?}\n    is_player{Running by Player?}\n\n    start --> with_location\n    with_location -->|Yes| save3(Save at Input Location)\n    with_location -->|No| online\n\n    online -->|Yes| save1(Save at Bot's Location)\n    online -->|No| is_player\n    is_player -->|Yes| save2(Save at player's location)\n    is_player -->|No| error1([Bot Not Exists])\n```\n\n### del\n\nDelete saved bot\n\nAfter deletion, the bot will be backed up to the `botBin.json` file in the data directory. If you delete it by mistake, you can use it for manual recovery.\n\n### config\n\nConfig bot\n\n### Full Command Tree\n\n```mermaid\nflowchart LR\n    start(!!bot)\n\n    start --> list(list)\n    list --> list_index[\"--index &lt;index&gt;\"]\n    list --> list_online[--online]\n    list --> list_saved[--saved]\n    list --> list_tag[\"--tag &lt;tag&gt;\"]\n\n    start --> spawn(spawn)\n    spawn --> spawn_name(\"&lt;name&gt;\")\n\n    start --> kill(kill)\n    kill --> kill_name(\"&lt;name&gt;\")\n\n    start --> action(action)\n    action --> action_name(\"&lt;name&gt;\")\n    action_name --> action_name_index[\"&lt;index&gt;\"]\n\n    start --> tags(tags)\n    tags --> tags_tag[\"&lt;tag&gt;\"]\n    tags_tag --> tags_tag_spawn(spawn)\n    tags_tag --> tags_tag_kill(kill)\n\n    start --> info(info)\n    info --> info_name(\"&lt;name&gt;\")\n\n    start --> save(save)\n    save --> save_name(\"&lt;name&gt;\")\n    save_name --> save_name_position[\"&lt;position&gt;\"]\n    save_name_position --> save_name_position_facing[\"&lt;facing&gt;\"]\n    save_name_position_facing --> save_name_position_facing_dimension[\"&lt;dimension&gt;\"]\n\n    start --> del(del)\n    del --> del_name(\"&lt;name&gt;\")\n\n    start --> config(config)\n    config --> config_name(\"&lt;name&gt;\")\n    config_name --> config_name_name(\"name &lt;newName&gt;\")\n    config_name --> config_name_position(\"position &lt;position&gt;\")\n    config_name --> config_name_facing(\"facing &lt;facing&gt;\")\n    config_name --> config_name_dimension(\"dimension &lt;dimension&gt;\")\n    config_name --> config_name_comment(\"comment &lt;comment&gt;\")\n    config_name --> config_name_actions(actions)\n    config_name --> config_name_tags(tags)\n    config_name --> config_name_autoLogin(\"autoLogin &lt;autoLogin&gt;\")\n    config_name --> config_name_autoRunActions(\"autoRunActions &lt;autoRunActions&gt;\")\n    config_name --> config_name_autoUpdate(\"autoUpdate &lt;autoUpdate&gt;\")\n\n    config_name_actions --> config_name_actions_append(\"append &lt;action&gt;\")\n    config_name_actions --> config_name_actions_insert(\"insert &lt;index&gt; &lt;action&gt;\")\n    config_name_actions --> config_name_actions_delete(\"delete &lt;index&gt\")\n    config_name_actions --> config_name_actions_edit(\"edit &lt;index&gt; &lt;action&gt;\")\n    config_name_actions --> config_name_actions_clear(clear)\n\n    config_name_tags --> config_name_tags_append[\"append &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_insert[\"insert &lt;index&gt; &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_delete[\"delete &lt;index&gt\"]\n    config_name_tags --> config_name_tags_edit[\"edit &lt;index&gt; &lt;tag&gt;\"]\n    config_name_tags --> config_name_tags_clear[clear]\n```\n\n## Config\n\n### gamemode\n\nDefault: `survival`\n\nGame mode of bot\n\n### force_gamemode\n\nDefault: `false`\n\nForcing all bots to use the game mode configured by `gamemode`, if `false`, only saved bots will use the game mode configured by `gamemode`.\n\n### name_prefix\n\nDefault: `bot_`\n\nPrefix of bot name\n\n### name_suffix\n\nDefault: None\n\nSuffix of bot name\n\n### post_join_delay\n\nDefault: `0`\n\nDelay time (seconds) for processing after bot joined. If you are using a non-vanilla server, you may need to adjust this value.\n\n### permissions\n\nMinimum permission to use corresponding command\n\n## FastAPI MCDR\n\nThe plugin supports the [FastAPI MCDR](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/bot/../fastapi_mcdr) plugin (>=2.0.0). After installing the FastAPI MCDR plugin, the plugin will automatically register endpoints. You can view the API definition through FastAPI.\n\nPython packages required:\n\n```text\npydantic>=2.0\n```\n\nYou can use this feature to implement external control, such as a web page for managing bots:\n\n![webpage to manage bots](https://github.com/user-attachments/assets/508689c3-a7d0-4280-ac3d-e9812d32c289)\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/bot/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

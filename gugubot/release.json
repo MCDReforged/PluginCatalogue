@@ -1,0 +1,3865 @@
+{
+  "schema_version": 8,
+  "id": "gugubot",
+  "latest_version": "2.0.29",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.29",
+      "name": "v2.0.29",
+      "tag_name": "v2.0.29",
+      "created_at": "2026-02-19T05:28:45Z",
+      "description": "- 添加 config -> `bot_list_pattern` 用于 leaf/lophine 端假人列表获取\r\n  - leaf端可使用 `\"\\\\):\\\\s*(.+)\"`\r\n  - lophine端可使用 `\"[^:\\)]+\"`\r\n- 添加 config -> `use_query_protocol` 用于玩家列表过长的情况\r\n  - config 中设置为 `true`\r\n  - `server/server.properties` 中，将 `enable-query` 设置为 `true` 即可使用\r\n\r\n## What's Changed\r\n* simple fix: Wrong words by @xieyuen in https://github.com/PFingan-Code/PF-GUGUBot/pull/201\r\n\r\n## New Contributors\r\n* @xieyuen made their first contribution in https://github.com/PFingan-Code/PF-GUGUBot/pull/201\r\nAppreciate for your contribution!\r\n\r\n**Full Changelog**: https://github.com/PFingan-Code/PF-GUGUBot/compare/v2.0.28...v2.0.29",
+      "prerelease": false,
+      "asset": {
+        "id": 358384651,
+        "name": "gugubot-v2.0.29.mcdr",
+        "size": 202626,
+        "download_count": 22,
+        "created_at": "2026-02-19T05:32:21Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.29/gugubot-v2.0.29.mcdr",
+        "hash_md5": "b89b2db00fd6db4eef69c929a49f0906",
+        "hash_sha256": "a3f4b432eb5b4935b4c1922f4c36fa6a33ff1a7ba0707d32f078f60061121e7f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.29",
+        "link": "https://github.com/PFingan-Code/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0",
+          "mcstatus>=11.0.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.28",
+      "name": "v2.0.28",
+      "tag_name": "v2.0.28",
+      "created_at": "2026-02-10T05:48:13Z",
+      "description": "- 修复管理员使用 `#绑定 列表` 不能获取所有绑定信息的问题\r\n- 新增config `system - key_words - cache_image` 启用时，会把QQ关键词图片保存到本地缓存。\r\n  - 暂时不支持QQ机器人在不同服务器的情况\r\n\r\n**Full Changelog**: https://github.com/PFingan-Code/PF-GUGUBot/compare/v2.0.27...v2.0.28",
+      "prerelease": false,
+      "asset": {
+        "id": 353454698,
+        "name": "gugubot-v2.0.28.mcdr",
+        "size": 196836,
+        "download_count": 57,
+        "created_at": "2026-02-10T05:51:49Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.28/gugubot-v2.0.28.mcdr",
+        "hash_md5": "ebeba9d24bd5627f6b273a29723e4d11",
+        "hash_sha256": "8683eb5dc61bf995930f1f6d079219d9fed3942a08d489823de8a0e19af0602c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.28",
+        "link": "https://github.com/PFingan-Code/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.27",
+      "name": "v2.0.27",
+      "tag_name": "v2.0.27",
+      "created_at": "2026-02-08T05:41:55Z",
+      "description": "- 修复 #mc 不转发图片，表情的问题\r\n\r\n**Full Changelog**: https://github.com/PFingan-Code/PF-GUGUBot/compare/v2.0.26...v2.0.27",
+      "prerelease": false,
+      "asset": {
+        "id": 352489022,
+        "name": "gugubot-v2.0.27.mcdr",
+        "size": 195346,
+        "download_count": 27,
+        "created_at": "2026-02-08T05:42:53Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.27/gugubot-v2.0.27.mcdr",
+        "hash_md5": "fe3684a664a359792493196e7891bc2e",
+        "hash_sha256": "bdb02911f6e6b7ab12eb557c79065b8eef08a7674d57a7f4b3862ef4a40b16cb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.27",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.26",
+      "name": "v2.0.26",
+      "tag_name": "v2.0.26",
+      "created_at": "2026-02-07T06:01:15Z",
+      "description": "- 添加 config `forward_to_other_connector`\r\n  - 为 `true` 时，关键词及回复会被转发到mc\r\n  - 为 `false` 时，关键词及回复只会回复到发消息的地方\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.25...v2.0.26",
+      "prerelease": false,
+      "asset": {
+        "id": 352077943,
+        "name": "gugubot-v2.0.26.mcdr",
+        "size": 195110,
+        "download_count": 15,
+        "created_at": "2026-02-07T06:04:08Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.26/gugubot-v2.0.26.mcdr",
+        "hash_md5": "50bab62dab250dd3f00a1fd2ef86d2b8",
+        "hash_sha256": "64029cea1b156eecc61e4cdc8ede41f4be02035be5bc1622abbd95ef2845b684"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.26",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.25",
+      "name": "v2.0.25",
+      "tag_name": "v2.0.25",
+      "created_at": "2026-02-06T06:36:25Z",
+      "description": "# 新功能\r\n1. 跨平台强制广播系统 (CrossBroadcastSystem)\r\n  - 新增插件 cross_broadcast.py，支持 QQ 端使用 #mc <消息> 仅广播到 MC，MC 端使用 !!qq <消息> 仅广播到QQ\r\n  -  可突破 enable_send 限制，实现定向跨平台消息传递\r\n  - 命令前缀可在配置中自定义（mc_command / qq_command）\r\n2. 独立的收发控制 (enable_send / enable_receive)\r\n  - 为每个 connector（QQ、Minecraft、Minecraft Bridge）新增 enable_send 和 enable_receive 配置项\r\n  - enable_send=false 时，该 connector 发出的消息不会被 echo 转发到其他平台\r\n  - enable_receive=false 时，其他平台的消息不会转发到该 connector\r\n  - Echo 系统和 KeyWord 系统均已适配此逻辑\r\n3. change_group_card 配置项\r\n  - 新增 QQ connector 下的 change_group_card 选项（默认 true）\r\n  - 控制绑定 ID 时是否自动修改群员的群名片为游戏名\r\n\r\n# Bug 修复\r\n1. 修复绑定通知无法正确触发 — 修正了 bound_notice 触发条件的问题\r\n2. 修复 enable_send / enable_receive 异常行为 — 确保收发开关按预期工作\r\n3. 修复非消息类型信息缺少检查 — 在 execute、player_list、startup_command、style 等多个系统中增加 event_type != \"message\" 的前置检查，避免非消息事件被错误处理\r\n4. 修复 source name 含特殊字符时的匹配问题 — connector_manager 广播时使用 re.escape() 对 source name 进行转义，防止 [] 等正则特殊字符导致 include/exclude 失效\r\n\r\n# 改进\r\n1. #mc / !!qq 命令切换到 CQHandler — 使跨平台广播支持 CQ 消息（如图片、表情等富文本）\r\n2. MC Parser 不再忽略 !!qq 命令 — 在 mc_parser.py 中对 !!qq 前缀的消息特殊放行，确保跨平台广播命令不被过滤\r\n3. 清理调试代码 — 移除了 test_connector.py 和 player_list.py 中残留的 print 调试语句\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.24...v2.0.25",
+      "prerelease": false,
+      "asset": {
+        "id": 351548831,
+        "name": "gugubot-v2.0.25.mcdr",
+        "size": 195165,
+        "download_count": 12,
+        "created_at": "2026-02-06T06:42:09Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.25/gugubot-v2.0.25.mcdr",
+        "hash_md5": "3825cbac33a0698555ef9c752d6dac0b",
+        "hash_sha256": "6d4173ed4b8548576f232483aaa8b481185871286b0781737077f5fa3d35574b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.25",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.24",
+      "name": "v2.0.24",
+      "tag_name": "v2.0.24",
+      "created_at": "2026-02-05T05:31:45Z",
+      "description": "- 在退群通知中区分 java 玩家名 和 基岩版 玩家名\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.23...v2.0.24",
+      "prerelease": false,
+      "asset": {
+        "id": 350983769,
+        "name": "gugubot-v2.0.24.mcdr",
+        "size": 192241,
+        "download_count": 16,
+        "created_at": "2026-02-05T05:33:19Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.24/gugubot-v2.0.24.mcdr",
+        "hash_md5": "271426f7255f5dbb8d8a93e0c3739e84",
+        "hash_sha256": "f43f20a9d79c1ec653bb5db38e9f5d2bef64c39f85ed70fc1fbe8f6ef055bef8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.24",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.23",
+      "name": "v2.0.23",
+      "tag_name": "v2.0.23",
+      "created_at": "2026-02-03T05:11:50Z",
+      "description": "- 修复 `#玩家` 不能正常使用\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.22...v2.0.23",
+      "prerelease": false,
+      "asset": {
+        "id": 349862502,
+        "name": "gugubot-v2.0.23.mcdr",
+        "size": 192159,
+        "download_count": 30,
+        "created_at": "2026-02-03T05:12:41Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.23/gugubot-v2.0.23.mcdr",
+        "hash_md5": "bcec0a52794109bb309b3797cb939001",
+        "hash_sha256": "32ad2b0b6d2f9078fc00da00d4478d0dedc057bd63e55fed70b8c5586cc84aaf"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.23",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.22",
+      "name": "v2.0.22",
+      "tag_name": "v2.0.22",
+      "created_at": "2026-01-31T07:06:08Z",
+      "description": "- 新增 `QQ` - `forward_group_ids` 配置项，支持将 MC 消息转发到指定的目标群 (#195 )\r\n- 重构 `Source` 类型系统，改进消息来源追踪能力\r\n- 修复 `admin_group_ids` 配置包含空值（None）时会报错的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.21...v2.0.22",
+      "prerelease": false,
+      "asset": {
+        "id": 348880668,
+        "name": "gugubot-v2.0.22.mcdr",
+        "size": 192117,
+        "download_count": 22,
+        "created_at": "2026-02-01T01:33:54Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.22/gugubot-v2.0.22.mcdr",
+        "hash_md5": "a2c06672e473735bc6f1e16982d35b45",
+        "hash_sha256": "530210c10699f8d54d62ddec4323de3aae9147afc499ef77e9de05030e637642"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.22",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.21",
+      "name": "v2.0.21",
+      "tag_name": "v2.0.21",
+      "created_at": "2026-01-28T04:47:12Z",
+      "description": "- 关键词系统 Config 新增： `admin_only`: 只允许管理员使用关键词相关指令 （但群员还是可以触发已设置的关键词）（ #194 ）\r\n\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.20...v2.0.21",
+      "prerelease": false,
+      "asset": {
+        "id": 346996906,
+        "name": "gugubot-v2.0.21.mcdr",
+        "size": 187751,
+        "download_count": 29,
+        "created_at": "2026-01-28T04:48:19Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.21/gugubot-v2.0.21.mcdr",
+        "hash_md5": "70afd953d72199427e32b8471e701bdb",
+        "hash_sha256": "75aafa16ff538e5e44414d1fd3fb3fb143ca7656977ee3052f191b19e947fa58"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.21",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.20",
+      "name": "v2.0.20",
+      "tag_name": "v2.0.20",
+      "created_at": "2026-01-25T06:03:27Z",
+      "description": "- 修复详细日志不能关闭的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.19...v2.0.20",
+      "prerelease": false,
+      "asset": {
+        "id": 345549480,
+        "name": "gugubot-v2.0.20.mcdr",
+        "size": 187645,
+        "download_count": 30,
+        "created_at": "2026-01-25T06:28:31Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.20/gugubot-v2.0.20.mcdr",
+        "hash_md5": "c62e3f996efb421b1e14d58a12dee529",
+        "hash_sha256": "d4357d4ff1b5735aefed39b508c31928cbcedcd0682b3a2ecf5d4c5563b018a4"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.20",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.19",
+      "name": "v2.0.19",
+      "tag_name": "v2.0.19",
+      "created_at": "2026-01-21T07:30:52Z",
+      "description": "- 修复 `echo` 系统即使在config中关闭但还是会转发的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.18...v2.0.19",
+      "prerelease": false,
+      "asset": {
+        "id": 343673889,
+        "name": "gugubot-v2.0.19.mcdr",
+        "size": 187633,
+        "download_count": 29,
+        "created_at": "2026-01-21T07:32:32Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.19/gugubot-v2.0.19.mcdr",
+        "hash_md5": "b58ed3b6cae9b8b9f8f54e9e4947c13a",
+        "hash_sha256": "288d008dd443e8d1fded735756db665da6dccdd117fe276673e1c0aa65683100"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.19",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.18",
+      "name": "v2.0.18",
+      "tag_name": "v2.0.18",
+      "created_at": "2026-01-20T06:29:41Z",
+      "description": "- 修复 `活跃白名单` 不可用的情况\r\n- 回复机器人消息时，使用之前的消息获取原始发送者\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.17...v2.0.18",
+      "prerelease": false,
+      "asset": {
+        "id": 343147760,
+        "name": "gugubot-v2.0.18.mcdr",
+        "size": 187497,
+        "download_count": 13,
+        "created_at": "2026-01-20T06:32:27Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.18/gugubot-v2.0.18.mcdr",
+        "hash_md5": "51cb9e49188258d64d7a52787caacdba",
+        "hash_sha256": "a68f5e77868bb1188a75fa74617c8ec03ab8ba14d1e79bd3b7e357d02c6bfc6d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.18",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.17",
+      "name": "v2.0.17",
+      "tag_name": "v2.0.17",
+      "created_at": "2026-01-18T07:52:33Z",
+      "description": "- 解决了单条消息过长可能导致的发送失败或显示问题\r\n- 添加了缺失的风格翻译键导致的#假人命令不返回具体列表\r\n- 修复了管理群群员不能使用管理员指令的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.16...v2.0.17",
+      "prerelease": false,
+      "asset": {
+        "id": 342219416,
+        "name": "gugubot-v2.0.17.mcdr",
+        "size": 186081,
+        "download_count": 30,
+        "created_at": "2026-01-18T07:55:59Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.17/gugubot-v2.0.17.mcdr",
+        "hash_md5": "738b82b765dcab23031c4b9a61258879",
+        "hash_sha256": "2889e05f1ad525c93837a2b86fbfcac29b8baa57a0afd1ad56a3277a93ed62fb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.17",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.16",
+      "name": "v2.0.16",
+      "tag_name": "v2.0.16",
+      "created_at": "2026-01-13T05:52:50Z",
+      "description": "- 支持 Leaves 假人列表 - 可正确识别 Leaves 服务端的假人 (config: `system - list- use_bot_list`)\r\n- 关服时不转发消息 - 服务器关闭时不再向游戏转发 QQ 消息\r\n- ChatImage + Image_previewer 共存 - 两个图片插件可同时使用\r\n- 自动修复群名片 - 绑定后自动校正群名片\r\n- 管理员免绑定提醒 - 管理员不再收到绑定通知\r\n- 名称处理优化 - 使用 Java/Bedrock 的第一个名称，修复类型转换问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.15...v2.0.16",
+      "prerelease": false,
+      "asset": {
+        "id": 339806565,
+        "name": "gugubot-v2.0.16.mcdr",
+        "size": 180368,
+        "download_count": 34,
+        "created_at": "2026-01-13T05:54:04Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.16/gugubot-v2.0.16.mcdr",
+        "hash_md5": "aa8cf584db2d0488f1691f0d4bbd20ee",
+        "hash_sha256": "77d117345c1930df11ce8b77b8b79a27e9d17ee1440ff7bb438853e3452df576"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.16",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.15",
+      "name": "v2.0.15",
+      "tag_name": "v2.0.15",
+      "created_at": "2026-01-09T06:50:07Z",
+      "description": "- 添加了绑定名称限制功能 `config -> system -> bound -> player_name_pattern`\r\n- 添加白名单检查(`#绑定 白名单检查` `#绑定 移除未绑定白名单`)和多余绑定检查(`#多余绑定检查` `#绑定 移除多余绑定`)\r\n- 缓存玩家最后游玩时间，解决玩家更改id导致判断成不活跃的问题\r\n- 支持加权随机聊天模板（可以为不同的消息模板设置权重） `- \"({display_name}) {sender}: \": 1`\r\n- 玩家加入/离开通知不再使用聊天模板（保持一致性）  #193 \r\n- 忽略非消息类型的消息（提高稳定性，避免处理错误的消息类型）\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.14...v2.0.15",
+      "prerelease": false,
+      "asset": {
+        "id": 338241933,
+        "name": "gugubot-v2.0.15.mcdr",
+        "size": 178819,
+        "download_count": 43,
+        "created_at": "2026-01-09T06:52:35Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.15/gugubot-v2.0.15.mcdr",
+        "hash_md5": "17acb46c1ba230b9fae23a19baac1b19",
+        "hash_sha256": "7f03b6862539c82b3bcd6d2098574586b806dde58e1c0fc598db5facf4b4c4e7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.15",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.14",
+      "name": "v2.0.14",
+      "tag_name": "v2.0.14",
+      "created_at": "2026-01-04T04:43:30Z",
+      "description": "- 不活跃检查时，现在会考虑基岩版的活跃时间来综合计算一个玩家活不活跃\r\n- 不活跃检查和未绑定检查，现在不会检查有管理权限的人（管理员/管理群的群员)\r\n- 在 f-string 中移除所有 `\\n` 以支持 `python3.12` 或更低版本\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.13...v2.0.14",
+      "prerelease": false,
+      "asset": {
+        "id": 336069344,
+        "name": "gugubot-v2.0.14.mcdr",
+        "size": 176013,
+        "download_count": 37,
+        "created_at": "2026-01-04T04:46:22Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.14/gugubot-v2.0.14.mcdr",
+        "hash_md5": "0b4d7eb8080c4bbf1f053c516971cf01",
+        "hash_sha256": "f48dacf8c4c191ed1bcb3b4dc716e71195bc293aff2da143090d7c3e0062d882"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.14",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.13",
+      "name": "v2.0.13",
+      "tag_name": "v2.0.13",
+      "created_at": "2026-01-03T06:28:10Z",
+      "description": "- 修复手动执行 `不活跃检查` 不能返回正确名单的问题\r\n- 自动为 `#mcdr` 指令添加 `!!` 前缀 （如有前缀则不会添加)\r\n- 渲染在自定义转发模板里的CQ码\r\n- 修复即使config中关闭 `bridge` 服务器，依然会启用监听的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.12...v2.0.13",
+      "prerelease": false,
+      "asset": {
+        "id": 335781817,
+        "name": "gugubot-v2.0.13.mcdr",
+        "size": 173885,
+        "download_count": 16,
+        "created_at": "2026-01-03T07:05:25Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.13/gugubot-v2.0.13.mcdr",
+        "hash_md5": "426dd9676a116108e6f02e485bad3fb9",
+        "hash_sha256": "72a560e912f2644b541c28ab3f7908252eb29e1f90a2cac45ed436a468386d4a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.13",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.12",
+      "name": "v2.0.12",
+      "tag_name": "v2.0.12",
+      "created_at": "2025-12-31T04:25:27Z",
+      "description": "- 修复随机模板未使用的问题\r\n- 修复bridge_connector未读取config中的地址和端口的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.11...v2.0.12",
+      "prerelease": false,
+      "asset": {
+        "id": 334739234,
+        "name": "gugubot-v2.0.12.mcdr",
+        "size": 173526,
+        "download_count": 41,
+        "created_at": "2025-12-31T04:30:57Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.12/gugubot-v2.0.12.mcdr",
+        "hash_md5": "5c5669bdbce9118ec0872424b94d9176",
+        "hash_sha256": "0e4a5d49e1881777fd0b9d2b6faf79c109ebf24a2b13b16e0db400c6c184f2b6"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.12",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.10",
+      "name": "v2.0.10",
+      "tag_name": "v2.0.10",
+      "created_at": "2025-12-28T06:03:42Z",
+      "description": "- 将缺失的 `colon_separator` & `comma_separator`  加入config\r\n- 阻止非管理员进行 @全体成员\r\n- 绑定的同时更改QQ的群名片\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.9...v2.0.10",
+      "prerelease": false,
+      "asset": {
+        "id": 333687942,
+        "name": "gugubot-v2.0.10.mcdr",
+        "size": 171326,
+        "download_count": 23,
+        "created_at": "2025-12-28T06:06:26Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.10/gugubot-v2.0.10.mcdr",
+        "hash_md5": "9728b024cc050a6e3b7461211e895e96",
+        "hash_sha256": "67f785cbe80eee4b0cdd3f8a9b40e4e48f4fa1bddbe27c5a6cd6c9919df35661"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.10",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.9",
+      "name": "v2.0.9",
+      "tag_name": "v2.0.9",
+      "created_at": "2025-12-25T05:34:41Z",
+      "description": "- 添加更多内置风格\r\n- `#玩家，#服务器` 现在会正确使用对应的风格文件\r\n- 移除使用非标准OneBot API判断机器人的方法\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.8...v2.0.9",
+      "prerelease": false,
+      "asset": {
+        "id": 332747810,
+        "name": "gugubot-v2.0.9.mcdr",
+        "size": 171073,
+        "download_count": 30,
+        "created_at": "2025-12-25T05:37:00Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.9/gugubot-v2.0.9.mcdr",
+        "hash_md5": "0343f4a3265aa43df47ba3c4c1f35b9d",
+        "hash_sha256": "cb0574fd9e56edd27f4a1c5c9ca48959cf3a2b29f3c23d0eeb2d680ff5c35242"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.9",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.8",
+      "name": "v2.0.8",
+      "tag_name": "v2.0.8",
+      "created_at": "2025-12-24T06:08:26Z",
+      "description": "修复:\r\n1. 绑定提示会提示Q群管家导致无线循环\r\n2. 修复服务器关闭时， 异步任务未正常关闭\r\n\r\n目前已知问题将在后续版本中逐步修复 #190 \r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.7...v2.0.8",
+      "prerelease": false,
+      "asset": {
+        "id": 332420095,
+        "name": "gugubot-v2.0.8.mcdr",
+        "size": 127484,
+        "download_count": 13,
+        "created_at": "2025-12-24T06:11:34Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.8/gugubot-v2.0.8.mcdr",
+        "hash_md5": "b2f66c3bf8f6b77d7e262f10e93590ed",
+        "hash_sha256": "24485f2043f3266c2b291443e84a2bb34b5a85fc969a3e0f89c376f5e9358892"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.8",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.7",
+      "name": "v2.0.7",
+      "tag_name": "v2.0.7",
+      "created_at": "2025-12-10T06:10:25Z",
+      "description": "- 修复 gameVersion 为 None 时报错\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.6...v2.0.7",
+      "prerelease": false,
+      "asset": {
+        "id": 326764529,
+        "name": "gugubot-v2.0.7.mcdr",
+        "size": 126449,
+        "download_count": 71,
+        "created_at": "2025-12-10T06:39:17Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.7/gugubot-v2.0.7.mcdr",
+        "hash_md5": "f3d21662609b9c1f4f02fc77915acc89",
+        "hash_sha256": "d5d5281de84ce12d20fa03d41b5ac5e96345caf1d82026da10630a4a245ac5c1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.7",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.6",
+      "name": "v2.0.6",
+      "tag_name": "v2.0.6",
+      "created_at": "2025-12-10T05:06:28Z",
+      "description": "- 修复 QQ 转发到子服务器时显示来源是主服务器而不是 QQ 的bug\r\n- 修复 QQ 请求会导致报错刷屏\r\n- 移除 3.12 python 语法以适应 python 3.9\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.5...v2.0.6",
+      "prerelease": false,
+      "asset": {
+        "id": 326736899,
+        "name": "gugubot-v2.0.6.mcdr",
+        "size": 126412,
+        "download_count": 6,
+        "created_at": "2025-12-10T05:11:20Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.6/gugubot-v2.0.6.mcdr",
+        "hash_md5": "7188b96da62ab5cd14c90f5557695267",
+        "hash_sha256": "dc53b2dfd286c26474db41ea8ba31222ffdf23625707578c983e94798f05cc67"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.6",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.5",
+      "name": "v2.0.5",
+      "tag_name": "v2.0.5",
+      "created_at": "2025-12-04T04:25:41Z",
+      "description": "- 修复使用 `ChatImage` 时，游戏内不显示 `[图片]` (#191 )\r\n\r\n感谢 @EightEggs 提出的 issue(#191)\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.4...v2.0.5",
+      "prerelease": false,
+      "asset": {
+        "id": 324173419,
+        "name": "gugubot-v2.0.5.mcdr",
+        "size": 126434,
+        "download_count": 62,
+        "created_at": "2025-12-04T04:27:27Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.5/gugubot-v2.0.5.mcdr",
+        "hash_md5": "3ddfc4efe09b3b69120bdc061bb3eb78",
+        "hash_sha256": "798e746c46c5ab43468392e896760255d235a1a8c2a015bd914d73b573d2b405"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.4",
+      "name": "v2.0.4",
+      "tag_name": "v2.0.4",
+      "created_at": "2025-12-03T07:41:13Z",
+      "description": "- 转发至 QQ 时，移除minecraft格式字体 `§a`\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.3...v2.0.4",
+      "prerelease": false,
+      "asset": {
+        "id": 323765272,
+        "name": "gugubot-v2.0.4.mcdr",
+        "size": 126510,
+        "download_count": 20,
+        "created_at": "2025-12-03T07:43:55Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.4/gugubot-v2.0.4.mcdr",
+        "hash_md5": "078cf5e426aec360a448e70bfff174c3",
+        "hash_sha256": "0cbf4f1b5c0b4990cc8ca5da0e22e64b05ba25f7de9cb10e2066162b401da947"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.4",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.3",
+      "name": "v2.0.3",
+      "tag_name": "v2.0.3",
+      "created_at": "2025-12-02T08:38:55Z",
+      "description": "- 修复并优化list显示\r\n- 忽略管理群消息\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.2...v2.0.3",
+      "prerelease": false,
+      "asset": {
+        "id": 323294139,
+        "name": "gugubot-v2.0.3.mcdr",
+        "size": 125999,
+        "download_count": 17,
+        "created_at": "2025-12-02T08:42:43Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.3/gugubot-v2.0.3.mcdr",
+        "hash_md5": "9759f56353d6b84400f21614346978a9",
+        "hash_sha256": "5d4da0e1f921f36b1d3735190b6493e92243f36ea09f686753ae8723b8fc6722"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.3",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.2",
+      "name": "v2.0.2",
+      "tag_name": "v2.0.2",
+      "created_at": "2025-12-02T05:38:58Z",
+      "description": "- 修复死亡/成就不转发\r\n- 修复自定义群名不显示\r\n- 添加 `!!gugubot` 帮助\r\n- 优化 #帮助 的显示\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.1...v2.0.2\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 323241052,
+        "name": "gugubot-v2.0.2.mcdr",
+        "size": 350226,
+        "download_count": 13,
+        "created_at": "2025-12-02T05:42:14Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.2/gugubot-v2.0.2.mcdr",
+        "hash_md5": "62bd19263b39943a2871cba2baeb5641",
+        "hash_sha256": "d0c48e14b9d1f2562135753a549f9fa83aadb3146e21fbaf7d00f3b81d11964c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.2",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.1",
+      "name": "v2.0.1",
+      "tag_name": "v2.0.1",
+      "created_at": "2025-11-30T23:33:24Z",
+      "description": "- 上传缺失的语言文件 #189 \r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v2.0.0...v2.0.1",
+      "prerelease": false,
+      "asset": {
+        "id": 322815764,
+        "name": "gugubot-v2.0.1.mcdr",
+        "size": 127959,
+        "download_count": 13,
+        "created_at": "2025-12-01T08:01:02Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.1/gugubot-v2.0.1.mcdr",
+        "hash_md5": "27af6f55fc44229529c04347c82ae744",
+        "hash_sha256": "1192fcb0dc54d8299f862ee2d6757f35495414118a26a3af61facd80f2555071"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.1",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v2.0.0",
+      "name": "v2.0.0",
+      "tag_name": "v2.0.0",
+      "created_at": "2025-11-30T10:25:33Z",
+      "description": "# GUGUBot v2.0.0\r\n\r\n## ⚠️ 重要提示\r\n\r\n### 不兼容变更\r\n\r\n本次更新为**重大版本更新**，包含大量不兼容变更。升级前请：\r\n\r\n1. **备份配置文件**：`/config/GUGUbot/config.yml`\r\n2. **备份数据文件**：绑定数据、白名单等\r\n3. **阅读迁移指南**：配置文件格式已完全改变\r\n4. **检查依赖版本**：部分依赖要求已变更\r\n\r\n## 📋 系统要求变更\r\n\r\n### MCDReforged 版本要求\r\n- **旧版要求**：MCDReforged ≥ 2.0.0\r\n- **新版要求**：MCDReforged ≥ 2.14.7 ⚠️\r\n- **影响**：需要升级 MCDReforged\r\n\r\n## 🏗️ 架构重构\r\n\r\n### 代码结构完全重写\r\n\r\n#### 旧版结构（v1.11.19）\r\n```\r\nGUGUbot/\r\n├── bot.py\r\n├── config.py\r\n├── system/          # 功能系统\r\n└── utils/           # 工具类\r\n```\r\n\r\n#### 新版结构（v2.0.0）\r\n```\r\nGUGUbot/\r\n├── gugubot/\r\n│   ├── builder/     # 消息构建器\r\n│   ├── config/       # 配置管理（模块化）\r\n│   ├── connector/    # 连接器（QQ、MC、Bridge）\r\n│   ├── logic/        # 逻辑系统\r\n│   │   ├── system/   # 核心系统\r\n│   │   └── plugins/  # 插件功能\r\n│   ├── parser/       # 消息解析器\r\n│   ├── utils/        # 工具类\r\n│   └── ws/           # WebSocket 服务\r\n└── lang/             # 多语言支持\r\n```\r\n\r\n### 核心改进\r\n\r\n1. **模块化设计**\r\n   - 连接器系统：QQ、Minecraft、Bridge 独立管理\r\n   - 解析器系统：消息解析逻辑分离\r\n   - 构建器系统：消息构建统一管理\r\n\r\n2. **插件化架构**\r\n   - 功能系统可独立启用/禁用\r\n   - 支持自定义插件开发\r\n   - 更好的扩展性\r\n\r\n3. **配置管理优化**\r\n   - 配置验证和迁移工具\r\n   - 默认配置自动生成\r\n   - 配置结构更清晰\r\n\r\n## 📝 配置文件变更\r\n\r\n### 配置格式完全改变\r\n\r\n#### 旧版配置（扁平结构）\r\n```yaml\r\nadmin_id:\r\n  - 123456789\r\ngroup_id:\r\n  - 123456789\r\ncommand_prefix: \"#\"\r\nforward:\r\n  mc_to_qq: true\r\n  qq_to_mc: true\r\n```\r\n\r\n#### 新版配置（嵌套结构）\r\n```yaml\r\nGUGUBot:\r\n  command_prefix: \"#\"\r\n\r\nconnector:\r\n  QQ:\r\n    enable: true\r\n    connection:\r\n      host: 127.0.0.1\r\n      port: 8777\r\n    permissions:\r\n      admin_ids:\r\n        - 123456789\r\n      group_ids:\r\n        - 123456789\r\n  \r\n  minecraft:\r\n    enable: true\r\n  \r\n  minecraft_bridge:\r\n    enable: true\r\n    is_main_server: true\r\n\r\nsystem:\r\n  echo:\r\n    enable: true\r\n  bound:\r\n    enable: true\r\n```\r\n\r\n### 主要配置变更\r\n\r\n1. **连接器配置**\r\n   - QQ 连接配置独立为 `connector.QQ`\r\n   - Minecraft 连接配置独立为 `connector.minecraft`\r\n   - 多服互联配置独立为 `connector.minecraft_bridge`\r\n\r\n2. **系统功能配置**\r\n   - 所有功能系统统一在 `system` 下配置\r\n   - 每个系统都有独立的 `enable` 开关\r\n\r\n3. **权限配置**\r\n   - 管理员配置移至 `connector.QQ.permissions.admin_ids`\r\n   - 管理群配置移至 `connector.QQ.permissions.admin_group_ids`\r\n   - 群组配置移至 `connector.QQ.permissions.group_ids`\r\n\r\n## ✨ 新增功能\r\n\r\n### 1. 内置 WebSocket 服务\r\n- **不再依赖** `cq_qq_api` 插件\r\n- 直接通过 WebSocket 连接 QQ 机器人\r\n- 支持 SSL/TLS 加密连接\r\n- 自动重连机制\r\n\r\n### 2. 多服互联增强\r\n- 更稳定的桥接连接\r\n- 心跳检测机制\r\n- 支持跨服命令执行\r\n- 灵活的服务器配置\r\n\r\n### 3. 消息构建器系统\r\n- 统一的消息格式化\r\n- 支持自定义消息模板\r\n- 更好的消息类型处理\r\n\r\n### 4. 多语言支持\r\n- 内置中文和英文语言包\r\n- 支持自定义语言文件\r\n- 语言文件位于 `lang/` 目录\r\n\r\n### 5. 配置迁移工具\r\n- 自动检测旧版配置\r\n- 提供配置迁移功能\r\n- 配置验证和错误提示\r\n\r\n### 6. 插件化系统\r\n- 功能模块可独立开发\r\n- 支持热插拔功能\r\n- 更好的代码组织\r\n\r\n## 🔧 功能改进\r\n\r\n### 绑定系统\r\n- ✅ 支持 Java 版和基岩版分别绑定\r\n- ✅ 绑定上限可配置（`max_java_bound`、`max_bedrock_bound`）\r\n- ✅ 更完善的绑定验证\r\n\r\n### 白名单系统\r\n- ✅ 与绑定系统深度集成\r\n- ✅ 支持多种白名单模式\r\n- ✅ 自动白名单管理\r\n\r\n### 消息转发\r\n- ✅ 更灵活的消息过滤\r\n- ✅ 支持正则表达式匹配\r\n- ✅ 消息模板自定义\r\n\r\n### 命令执行\r\n- ✅ 更安全的命令验证\r\n- ✅ 支持命令模式过滤\r\n- ✅ 跨服命令执行支持\r\n\r\n### 玩家管理\r\n- ✅ 不活跃玩家检查优化\r\n- ✅ 未绑定用户检查优化\r\n- ✅ 更详细的检查配置\r\n\r\n\r\n## 🐛 问题修复\r\n\r\n- 修复了消息转发中的一些边界情况\r\n- 修复了绑定系统的验证问题\r\n- 修复了多服互联的连接稳定性\r\n- 修复了配置加载的错误处理\r\n- 修复了 WebSocket 连接的重连逻辑\r\n\r\n\r\n**注意**：本次更新包含大量不兼容变更，请注意备份。\r\n\r\n\r\n\r\n## What's Changed\r\n* Xue k66 2.0.0 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/188\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.19...v2.0.0",
+      "prerelease": false,
+      "asset": {
+        "id": 322495812,
+        "name": "gugubot-v2.0.0.mcdr",
+        "size": 119287,
+        "download_count": 23,
+        "created_at": "2025-11-30T10:33:29Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v2.0.0/gugubot-v2.0.0.mcdr",
+        "hash_md5": "bad4156106f712a22852254a1cda397e",
+        "hash_sha256": "81d2906dd45c65f4e60a8fe093cc373bb0ed378962b2b4f1f6bdd93f63f397be"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "2.0.0",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "requests",
+          "ruamel.yaml",
+          "websocket-client>=1.0.0",
+          "websocket-server>=0.6.0"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.19",
+      "name": "v1.11.19",
+      "tag_name": "v1.11.19",
+      "created_at": "2025-10-05T00:25:58Z",
+      "description": "- 修复转发图片时`set_click_event` 报错\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.18...v1.11.19",
+      "prerelease": false,
+      "asset": {
+        "id": 300601722,
+        "name": "GUGUbot-v1.11.19.mcdr",
+        "size": 12635510,
+        "download_count": 159,
+        "created_at": "2025-10-05T00:27:23Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.19/GUGUbot-v1.11.19.mcdr",
+        "hash_md5": "66e35686cc0baece8adda62401850c95",
+        "hash_sha256": "2a3963c130cc5357486253691da6bb37815857b569e28b9e932e523945507cd5"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.19",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.18",
+      "name": "v1.11.18",
+      "tag_name": "v1.11.18",
+      "created_at": "2025-10-01T02:12:11Z",
+      "description": "- 移除kargs方式设置`set_click_event`\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.17...v1.11.18",
+      "prerelease": false,
+      "asset": {
+        "id": 299140061,
+        "name": "GUGUbot-v1.11.18.mcdr",
+        "size": 12635517,
+        "download_count": 42,
+        "created_at": "2025-10-01T02:24:16Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.18/GUGUbot-v1.11.18.mcdr",
+        "hash_md5": "39f9a03a9991b5c27bbc227009abe2c7",
+        "hash_sha256": "87b7e3939600e2c084f7f8c673eb77e12080e65857aa88769cbe25b718c13899"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.18",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.17",
+      "name": "v1.11.17",
+      "tag_name": "v1.11.17",
+      "created_at": "2025-09-17T03:30:06Z",
+      "description": "- 兼容 MCDR 2.15.* (移除RText.set_click_event使用kargs方式传入action的方法)\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.16...v1.11.17",
+      "prerelease": false,
+      "asset": {
+        "id": 294087237,
+        "name": "GUGUbot-v1.11.17.mcdr",
+        "size": 12635537,
+        "download_count": 69,
+        "created_at": "2025-09-17T03:32:07Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.17/GUGUbot-v1.11.17.mcdr",
+        "hash_md5": "49a6d4ca07e1c38b4a780df1b6bb55df",
+        "hash_sha256": "4f3a059e4774f9ac51fc214ee5be53f349f98e664c6cd55afc8384efc52f09a0"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.17",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.16",
+      "name": "v1.11.16",
+      "tag_name": "v1.11.16",
+      "created_at": "2025-09-08T03:47:59Z",
+      "description": "- 优化游戏版本判断\r\n- 添加 `unbound_member_kick_number_limit`  控制机器人一次能踢多少 `未绑定成员`\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.15...v1.11.16",
+      "prerelease": false,
+      "asset": {
+        "id": 290814632,
+        "name": "GUGUbot-v1.11.16.mcdr",
+        "size": 12635559,
+        "download_count": 64,
+        "created_at": "2025-09-08T03:53:28Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.16/GUGUbot-v1.11.16.mcdr",
+        "hash_md5": "69095d150c63ddef3e3e698fa6359b70",
+        "hash_sha256": "ab9f73984aa0a2b21cefb76a0c50596bfdc9960a89c658b6a5d2267742fbdfc3"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.16",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.15",
+      "name": "v1.11.15",
+      "tag_name": "v1.11.15",
+      "created_at": "2025-09-02T02:43:43Z",
+      "description": "- 添加 `ignore_execute_command_patterns`: 忽略指定格式的执行指令 \r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.14...v1.11.15",
+      "prerelease": false,
+      "asset": {
+        "id": 288643270,
+        "name": "GUGUbot-v1.11.15.mcdr",
+        "size": 12634785,
+        "download_count": 66,
+        "created_at": "2025-09-02T02:45:05Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.15/GUGUbot-v1.11.15.mcdr",
+        "hash_md5": "5b75104985d6d51b1eab7287b5c63601",
+        "hash_sha256": "4e3d53aef279fc293acfe63f1890b36834bfd924fb4ce144ad81384283eae954"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.15",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.14",
+      "name": "v1.11.14",
+      "tag_name": "v1.11.14",
+      "created_at": "2025-08-26T02:47:49Z",
+      "description": "- 当服务器关闭时，停止向服务器转发\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.13...v1.11.14",
+      "prerelease": false,
+      "asset": {
+        "id": 286238659,
+        "name": "GUGUbot-v1.11.14.mcdr",
+        "size": 12634609,
+        "download_count": 75,
+        "created_at": "2025-08-26T02:49:02Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.14/GUGUbot-v1.11.14.mcdr",
+        "hash_md5": "e2bc864a37c707a230acf82982cb9e63",
+        "hash_sha256": "66114fb2dd4158e0100a011d4151e9b8fe14de265d31f4c57f6788654ba96e50"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.14",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.12",
+      "name": "v1.11.12",
+      "tag_name": "v1.11.12",
+      "created_at": "2025-08-20T02:07:18Z",
+      "description": "- 添加 QQ 连接检查， 防止卡顿\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.11...v1.11.12",
+      "prerelease": false,
+      "asset": {
+        "id": 284255594,
+        "name": "GUGUbot-v1.11.12.mcdr",
+        "size": 12630847,
+        "download_count": 78,
+        "created_at": "2025-08-20T02:08:31Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.12/GUGUbot-v1.11.12.mcdr",
+        "hash_md5": "3033260691a2980a702f899f7ec31773",
+        "hash_sha256": "b413bf9080559e988817be80fcd0b315cdf08e7a4b42d1e218608593df558e41"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.12",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.5.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.11",
+      "name": "v1.11.11",
+      "tag_name": "v1.11.11",
+      "created_at": "2025-08-12T03:39:31Z",
+      "description": "- 添加 `多余绑定检查` 用于检查不在群里的绑定成员\r\n- 添加 `移除多余绑定` 用于移除不在群里的绑定成员\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.10...v1.11.11",
+      "prerelease": false,
+      "asset": {
+        "id": 281652176,
+        "name": "GUGUbot-v1.11.11.mcdr",
+        "size": 12628655,
+        "download_count": 74,
+        "created_at": "2025-08-12T03:41:08Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.11/GUGUbot-v1.11.11.mcdr",
+        "hash_md5": "3973f2e8fe35c97818fd58fc0c46ca88",
+        "hash_sha256": "5bf541599bc3117ec81c97fd3c1a747ccdd7cb7da21bdb930088a2001e020882"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.11",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.4.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.10",
+      "name": "v1.11.10",
+      "tag_name": "v1.11.10",
+      "created_at": "2025-08-11T02:20:30Z",
+      "description": "- 优化判断群机器人逻辑 使用 `get_robot_uin_range` 来获取所有机器人id的范围\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.9...v1.11.10",
+      "prerelease": false,
+      "asset": {
+        "id": 281286743,
+        "name": "GUGUbot-v1.11.10.mcdr",
+        "size": 12627433,
+        "download_count": 37,
+        "created_at": "2025-08-11T02:22:17Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.10/GUGUbot-v1.11.10.mcdr",
+        "hash_md5": "592d110a7fc53af7f96a13ad385ab54c",
+        "hash_sha256": "ad48d2e883fff6be581d15d8ad7aee0d306f3dfb3e1c32e65a30773fe9b6d16e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.10",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.4.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.9",
+      "name": "v1.11.9",
+      "tag_name": "v1.11.9",
+      "created_at": "2025-08-09T04:11:10Z",
+      "description": "- 支持 `imagepreviewer` 模组图片点击事件\r\n- 修复获取不到管理名单时报错\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.8...v1.11.9",
+      "prerelease": false,
+      "asset": {
+        "id": 280853482,
+        "name": "GUGUbot-v1.11.9.mcdr",
+        "size": 12626990,
+        "download_count": 51,
+        "created_at": "2025-08-09T05:48:30Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.9/GUGUbot-v1.11.9.mcdr",
+        "hash_md5": "54093804bb0fb5a90e07c8192d387d88",
+        "hash_sha256": "1ea53d5acdde955384fb1ae89780536511fc610c94f99db32e33cd065327ea6f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.9",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.8",
+      "name": "v1.11.8",
+      "tag_name": "v1.11.8",
+      "created_at": "2025-07-21T03:17:09Z",
+      "description": "- 修复转发带 @ 的消息时会发送两次的 bug\r\n- 修复未绑定群员发消息时报错\r\n- 更改活跃检测时使用的数据，从 `使用usercache.json` 到 `使用玩家存档的更新时间（server/world/playerdata/uuid.dat)`\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.7...v1.11.8",
+      "prerelease": false,
+      "asset": {
+        "id": 274782877,
+        "name": "GUGUbot-v1.11.8.mcdr",
+        "size": 12516412,
+        "download_count": 121,
+        "created_at": "2025-07-21T03:21:26Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.8/GUGUbot-v1.11.8.mcdr",
+        "hash_md5": "f47fbd2f5ac241a4abb2c3d1cadf4d4a",
+        "hash_sha256": "7606426d6db9d1ae56013de3d8654dce42f2ccbe9ed27076fbbb179b89e8e94d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.8",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.7",
+      "name": "v1.11.7",
+      "tag_name": "v1.11.7",
+      "created_at": "2025-07-17T01:08:10Z",
+      "description": "- 修复判断能否发送图片时出错 (#182 )\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.6...v1.11.7",
+      "prerelease": false,
+      "asset": {
+        "id": 273555863,
+        "name": "GUGUbot-v1.11.7.mcdr",
+        "size": 12626797,
+        "download_count": 66,
+        "created_at": "2025-07-17T01:09:10Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.7/GUGUbot-v1.11.7.mcdr",
+        "hash_md5": "95c1ec8c8f097c558bf4dc256d6d53a9",
+        "hash_sha256": "86bc8a44c6bbc33b9de838f15a2e681f14b09d190455cd640236e52e3ee75c17"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.7",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.6",
+      "name": "v1.11.6",
+      "tag_name": "v1.11.6",
+      "created_at": "2025-07-15T04:34:22Z",
+      "description": "- 在不用 `ChatImage` 时，添加图片的悬置文字，点击事件（打开连接）(#181 )\r\n- 在config解析报错前给一个大体的报错信息 (#179 )\r\n- 增加未绑定成员移除时的消息提示\r\n- 不活跃成员检测，如果该成员未登录过，会显示在群里的天数\r\n- 修复退群时不会转发通知到管理群，不会删除绑定的问题 （白名单会正常删除）\r\n- 优化定时任务（定时检测不活跃成员及未绑定成员）\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.5...v1.11.6",
+      "prerelease": false,
+      "asset": {
+        "id": 272951136,
+        "name": "GUGUbot-v1.11.6.mcdr",
+        "size": 12516484,
+        "download_count": 54,
+        "created_at": "2025-07-15T04:43:58Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.6/GUGUbot-v1.11.6.mcdr",
+        "hash_md5": "388d03ecd5294b5c4a26885faaae760c",
+        "hash_sha256": "2bf9d63cc345df3e675868ae2c1fef65a35e5c3da264aad1561e3d4ee15409c9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.6",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.5",
+      "name": "v1.11.5",
+      "tag_name": "v1.11.5",
+      "created_at": "2025-07-09T05:50:39Z",
+      "description": "- 解绑时同时解绑白名单\r\n- 新增随机检查结果回答\r\n- 修复不活跃玩家时间检测异常\r\n- 修复活跃检测不生效问题\r\n- 提供简易的config文件报错 `YAML 配置文件语法错误: 出错位置：第 xx 行，第 xx 列\\n详细信息: xxx`\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.3...v1.11.5",
+      "prerelease": false,
+      "asset": {
+        "id": 271272884,
+        "name": "GUGUbot-v1.11.5.mcdr",
+        "size": 12621147,
+        "download_count": 76,
+        "created_at": "2025-07-09T05:54:10Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.5/GUGUbot-v1.11.5.mcdr",
+        "hash_md5": "5ecc3696e3b592bbb5770129ef005458",
+        "hash_sha256": "98245640e33d63ac1f59c44053f770ad954fc14e06d4f71d223f0bf9a63be62c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.3",
+      "name": "v1.11.3",
+      "tag_name": "v1.11.3",
+      "created_at": "2025-07-06T06:02:12Z",
+      "description": "- 新增 `force_game_name` 定期强制设置群员名称为绑定的游戏名\r\n- 新增 `#绑定 白名单检查` -> 检查白名单成员是否存在绑定\r\n- 新增 `#绑定 移除未绑定白名单` -> 移除未绑定白名单成员\r\n- 现在群员退群会在管理群中通知\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.2...v1.11.3",
+      "prerelease": false,
+      "asset": {
+        "id": 270359064,
+        "name": "GUGUbot-v1.11.3.mcdr",
+        "size": 12617469,
+        "download_count": 50,
+        "created_at": "2025-07-06T06:06:00Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.3/GUGUbot-v1.11.3.mcdr",
+        "hash_md5": "196b6c0d62ceb54eecf758c6444f369d",
+        "hash_sha256": "80934efdf73b67aec213f732f006b5099bff9ee054cef71ea4a443f8bcea881c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.3",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.2",
+      "name": "v1.11.2",
+      "tag_name": "v1.11.2",
+      "created_at": "2025-07-05T06:04:32Z",
+      "description": "- 添加 `#绑定 活跃检查` -> 检查不活跃成员\r\n- 添加 `#绑定 移除不活跃` -> 移除不活跃成员\r\n- 新增 未绑定/活跃 检测通知渠道选择\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.1...v1.11.2",
+      "prerelease": false,
+      "asset": {
+        "id": 270151771,
+        "name": "GUGUbot-v1.11.2.mcdr",
+        "size": 12615063,
+        "download_count": 40,
+        "created_at": "2025-07-05T06:34:26Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.2/GUGUbot-v1.11.2.mcdr",
+        "hash_md5": "9625b3d0e7c0a400cf83b1a1654f1e87",
+        "hash_sha256": "2b0ebf66405c6fef11a7a2ac305993d5265b92006d41c40cc8e4f7128edccc5e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.2",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.1",
+      "name": "v1.11.1",
+      "tag_name": "v1.11.1",
+      "created_at": "2025-07-05T04:25:36Z",
+      "description": "- 有未绑定人员时，会在绑定群里提示\r\n- 添加玩家名称检查\r\n- 修复未绑定检测一直显示所有人都绑定\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.11.0...v1.11.1",
+      "prerelease": false,
+      "asset": {
+        "id": 270138450,
+        "name": "GUGUbot-v1.11.1.mcdr",
+        "size": 12610671,
+        "download_count": 37,
+        "created_at": "2025-07-05T04:26:16Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.1/GUGUbot-v1.11.1.mcdr",
+        "hash_md5": "1a7506ad9202bfe43f96a1afac963be2",
+        "hash_sha256": "b6fe457ce9355a707207b2bf5098a037656322f1b789234284aaa8093a1e6e74"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.1",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.11.0",
+      "name": "v1.11.0",
+      "tag_name": "v1.11.0",
+      "created_at": "2025-07-05T00:04:54Z",
+      "description": "- 解绑时会尝试同步删除白名单 #178 \r\n- 手动添加基岩白名单功能 #175 \r\n- 定期检查未绑定名单 #173 \r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.10.0...v1.11.0",
+      "prerelease": false,
+      "asset": {
+        "id": 270087351,
+        "name": "GUGUbot-v1.11.0.mcdr",
+        "size": 12610157,
+        "download_count": 37,
+        "created_at": "2025-07-05T00:01:52Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.11.0/GUGUbot-v1.11.0.mcdr",
+        "hash_md5": "46df89d584cd505f52d90eacfcd206ce",
+        "hash_sha256": "dcfc5a34dfde09e7ca1080147b45c1eb1151f241f06ec0b2d9bf925b480c945f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.11.0",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.10.0",
+      "name": "v1.10.0",
+      "tag_name": "v1.10.0",
+      "created_at": "2025-06-23T03:02:54Z",
+      "description": "* 拓展管理群中的管理员权限至监听的群聊中 (#176 )\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.19...v1.10.0",
+      "prerelease": false,
+      "asset": {
+        "id": 266360619,
+        "name": "GUGUbot-v1.10.0.mcdr",
+        "size": 12510106,
+        "download_count": 120,
+        "created_at": "2025-06-23T03:06:07Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.10.0/GUGUbot-v1.10.0.mcdr",
+        "hash_md5": "2cd2fdb07a8a83c619775edffd184656",
+        "hash_sha256": "5b649d6ce493c8fad6d77b26b57cdfbbe3157f21e2d8698ad088c2e551b9bcb9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.10.0",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.19",
+      "name": "v1.9.19",
+      "tag_name": "v1.9.19",
+      "created_at": "2025-06-15T14:15:37Z",
+      "description": "修复 java 玩家存在时，基岩版uuid不能正确添加\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.18...v1.9.19",
+      "prerelease": false,
+      "asset": {
+        "id": 264136911,
+        "name": "GUGUbot-v1.9.19.mcdr",
+        "size": 12603196,
+        "download_count": 67,
+        "created_at": "2025-06-15T14:17:01Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.19/GUGUbot-v1.9.19.mcdr",
+        "hash_md5": "44e5d239c2f638c5050aa7a5dfe032fa",
+        "hash_sha256": "605949c667b111f3d21f379c7b735618fb017462f5700b13538092fdc928b3f4"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.19",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.18",
+      "name": "v1.9.18",
+      "tag_name": "v1.9.18",
+      "created_at": "2025-06-15T00:54:16Z",
+      "description": "更新 whitelistAPI 版本至 1.4.0 以支持 fwhitelist 添加基岩版玩家白名单\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.17...v1.9.18",
+      "prerelease": false,
+      "asset": {
+        "id": 264023708,
+        "name": "GUGUbot-v1.9.18.mcdr",
+        "size": 12603199,
+        "download_count": 47,
+        "created_at": "2025-06-15T00:55:50Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.18/GUGUbot-v1.9.18.mcdr",
+        "hash_md5": "383d17b98388c539beed6bb296f1cc36",
+        "hash_sha256": "1f507a8a4013ce9ea0460a493a7a8c57cd0d42dbbb91985b60d1f6bb6820b08e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.18",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.3.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.4.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.17",
+      "name": "v1.9.17",
+      "tag_name": "v1.9.17",
+      "created_at": "2025-06-13T05:17:22Z",
+      "description": "添加管理员白名单添加基岩版白名单 (#175 )\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.16...v1.9.17",
+      "prerelease": false,
+      "asset": {
+        "id": 263519463,
+        "name": "GUGUbot-v1.9.17.mcdr",
+        "size": 12603074,
+        "download_count": 55,
+        "created_at": "2025-06-13T05:18:54Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.17/GUGUbot-v1.9.17.mcdr",
+        "hash_md5": "d6558bfdf53da3141630dc7a7dafa0de",
+        "hash_sha256": "7bfb46e33c677bcc7e212f43f6d0cb43b0de8482e91568a3f4ee703b803891bb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.17",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.16",
+      "name": "v1.9.16",
+      "tag_name": "v1.9.16",
+      "created_at": "2025-06-08T18:29:44Z",
+      "description": "修复获取版本为None时，报错\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.15...v1.9.16",
+      "prerelease": false,
+      "asset": {
+        "id": 262082326,
+        "name": "GUGUbot-v1.9.16.mcdr",
+        "size": 12603052,
+        "download_count": 53,
+        "created_at": "2025-06-08T18:30:43Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.16/GUGUbot-v1.9.16.mcdr",
+        "hash_md5": "82d3e6ff2c381b44b39f9d7b255a1601",
+        "hash_sha256": "54235cef3aad1cded1b2f8d2c2c99eff096d68502ff78257ba80231e98a4dada"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.16",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.15",
+      "name": "v1.9.15",
+      "tag_name": "v1.9.15",
+      "created_at": "2025-06-08T15:12:14Z",
+      "description": "修复 `list` 指令报错 (#174 )\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.14...v1.9.15",
+      "prerelease": false,
+      "asset": {
+        "id": 262055259,
+        "name": "GUGUbot-v1.9.15.mcdr",
+        "size": 12603049,
+        "download_count": 37,
+        "created_at": "2025-06-08T15:12:54Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.15/GUGUbot-v1.9.15.mcdr",
+        "hash_md5": "838d1d0715d498b8d14f4fe9b3519c81",
+        "hash_sha256": "abe73143ae740ce397e4a7696a4ebead130b210c77a8da83a7efd4a43a8fcf2f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.15",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.14",
+      "name": "v1.9.14",
+      "tag_name": "v1.9.14",
+      "created_at": "2025-06-06T02:32:25Z",
+      "description": "- 修复字体初始化逻辑 (#172 )\r\n- 修复lagrange回复时报错 (#172 )\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.13...v1.9.14",
+      "prerelease": false,
+      "asset": {
+        "id": 261434697,
+        "name": "GUGUbot-v1.9.14.mcdr",
+        "size": 12509843,
+        "download_count": 67,
+        "created_at": "2025-06-06T02:35:11Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.14/GUGUbot-v1.9.14.mcdr",
+        "hash_md5": "2eddb74370b7e56c51e0b8cb17b773a9",
+        "hash_sha256": "4bb68a7a0069e4f8f692f18ffb3815f00d59669ca75bdae80dcdd1fa7a9744d6"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.14",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.13",
+      "name": "v1.9.13",
+      "tag_name": "v1.9.13",
+      "created_at": "2025-06-05T05:49:35Z",
+      "description": "- 🐛 修复 mac 下初始 pygame 报错（#160、#170）\r\n- 🔧 新增配置项 `ignore_mc_command_patterns`：可用于忽略特定 MC 消息（#168）\r\n- 🤖 新增机器人自我判断逻辑（#166）\r\n- 📎新增配置项 `member_can_unbound`： 新增群指令 `#绑定 解绑`（#165）\r\n- 🔧 修复指令处理问题（#163）\r\n- ⬆️ 更新 mg_event 至 v1.1.0（#162）\r\n- ✨ 新增 MC 消息 `[@xxx]` 转换为 QQ @ 提示功能（#147）\r\n\r\n## What's Changed\r\n* Merge dev code by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/155\r\n* Dev by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/171\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.12...v1.9.13",
+      "prerelease": false,
+      "asset": {
+        "id": 261143848,
+        "name": "GUGUbot-v1.9.13.mcdr",
+        "size": 12509695,
+        "download_count": 45,
+        "created_at": "2025-06-05T05:52:23Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.13/GUGUbot-v1.9.13.mcdr",
+        "hash_md5": "54edaf664c57143b7c18e2b3be00ece2",
+        "hash_sha256": "e4a4884bba9089bf3a970d45b1ece488b11682f0a91ded3ab41df2b500818ee5"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.13",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.12",
+      "name": "v1.9.12",
+      "tag_name": "v1.9.12",
+      "created_at": "2025-03-07T06:19:41Z",
+      "description": "- Remove logic to add plugin into system path [Relative Issue](https://github.com/AnzhiZhang/MCDReforgedPlugins/pull/266)\r\n- change to absolute import\r\n\r\n## What's Changed\r\n* 1.9.12 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/161\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.11...v1.9.12",
+      "prerelease": false,
+      "asset": {
+        "id": 235366565,
+        "name": "GUGUbot-v1.9.12.mcdr",
+        "size": 12363854,
+        "download_count": 247,
+        "created_at": "2025-03-07T06:24:15Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.12/GUGUbot-v1.9.12.mcdr",
+        "hash_md5": "1728e4a39ba25c12bfa39455f1343376",
+        "hash_sha256": "ae23a2d4d76169bf10e2e195a6ef51af77ce543b131aa055c5f3c87acc1a665e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.12",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.11",
+      "name": "v1.9.11",
+      "tag_name": "v1.9.11",
+      "created_at": "2025-02-12T06:53:17Z",
+      "description": "修复 #153 \r\n\r\n## What's Changed\r\n* 1.9.11 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/159\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.10...v1.9.11",
+      "prerelease": false,
+      "asset": {
+        "id": 228412264,
+        "name": "GUGUbot-v1.9.11.mcdr",
+        "size": 12509648,
+        "download_count": 85,
+        "created_at": "2025-02-12T06:54:27Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.11/GUGUbot-v1.9.11.mcdr",
+        "hash_md5": "d39fb2cdf9bb3e5243b697454ab4313d",
+        "hash_sha256": "39c5e30825b3befdf2f0989d0491a9e198a72d760ae48f2adf02321599a81c8c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.11",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.10",
+      "name": "v1.9.10",
+      "tag_name": "v1.9.10",
+      "created_at": "2025-02-11T07:00:12Z",
+      "description": "更新 cq_qq_api 依赖版本\r\n\r\n## What's Changed\r\n* 1.9.10 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/158\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.9...v1.9.10",
+      "prerelease": false,
+      "asset": {
+        "id": 228109615,
+        "name": "GUGUbot-v1.9.10.mcdr",
+        "size": 12509556,
+        "download_count": 41,
+        "created_at": "2025-02-11T07:04:25Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.10/GUGUbot-v1.9.10.mcdr",
+        "hash_md5": "c990c2b4f742feaee0e97f14d4c55490",
+        "hash_sha256": "50aa9bdee6f8d2b4f4fdbd3d718303222dda23cf2a3940b4c6a2a08b15fc1381"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.10",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.2.1",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.8",
+      "name": "v1.9.8",
+      "tag_name": "v1.9.8",
+      "created_at": "2025-01-09T06:14:34Z",
+      "description": "修复：\r\n- 转发时报错 `ValueError`\r\n- 被@人后面信息颜色错误\r\n- 回复时 被@人缺少 @符号\r\n- 移除上报具体消息，减轻空间占用\r\n- 移除在风格文件里多余的 `f-string`  #140 \r\n\r\n优化：\r\n- 统一风格文件引号  #140 \r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.7...v1.9.8",
+      "prerelease": false,
+      "asset": {
+        "id": 219065351,
+        "name": "GUGUbot-v1.9.8.mcdr",
+        "size": 12383177,
+        "download_count": 162,
+        "created_at": "2025-01-09T06:57:55Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.8/GUGUbot-v1.9.8.mcdr",
+        "hash_md5": "96d6471948c8aa3316ca783acf18d11c",
+        "hash_sha256": "6c7ef23618cccde54f82d8a70760ca72a5dd9a6cfbcf287b5c7ee9b48e29a85f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.8",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.1.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.6",
+      "name": "",
+      "tag_name": "v1.9.6",
+      "created_at": "2025-01-06T04:06:52Z",
+      "description": "新增：\r\n- 服务器名字在机器人名字上的显示 [add optional template for bot name](https://github.com/LoosePrince/PF-GUGUBot/commit/0eea377b5b854493d1e340a1cd9b3d792913d04d)\r\n\r\n修复：\r\n- 超时导致的TaskThread重建\r\n- 获取群名异常导致报错 #128 \r\n\r\n优化：\r\n- 简化 rcon 相关代码 #129  [use rcon_query](https://github.com/LoosePrince/PF-GUGUBot/commit/46ec9e8de12df7cf32c7a117ad42fd3e19efa5aa)\r\n\r\n感谢：\r\n[@MooLing0602](https://github.com/Mooling0602) 提供的简化建议\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.5...v1.9.6",
+      "prerelease": false,
+      "asset": {
+        "id": 218304858,
+        "name": "GUGUbot-v1.9.6.mcdr",
+        "size": 12383665,
+        "download_count": 61,
+        "created_at": "2025-01-06T05:33:39Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.6/GUGUbot-v1.9.6.mcdr",
+        "hash_md5": "ba11e39aba7db216377bf503cfcd378c",
+        "hash_sha256": "ad22246f36ff12dd3175030ce3a44bfbe173b6a528770c8e7918aafa6f15c727"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.6",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.1.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.5",
+      "name": "v1.9.5",
+      "tag_name": "v1.9.5",
+      "created_at": "2025-01-05T05:59:02Z",
+      "description": "新增：\r\n- 死亡消息转发，成就消息转发 #112 \r\n  - 新增依赖: `mg_events>=0.2.3`\r\n  - 新增 `config`: `forward` -> `mc_achievement`, `mc_death`\r\n- 私聊命令搬到群聊， bot管理员可执行 #123 \r\n\r\n修复：\r\n- 群公告不能正确换行 #127 \r\n- 移除没玩家时转发警告 #125 \r\n- 转发 console 发出的信息  #123 \r\n- 处理列表是中文的情况  #123 \r\n- 绑定名字带空格的处理  #123 \r\n- 修复群帮助发送错误 [correct the help msg for group](https://github.com/LoosePrince/PF-GUGUBot/commit/322666ab4bc75ed2fd7ea9cc87799c27d0f0418c)\r\n\r\n感谢：\r\n群内大佬们的提议及反馈，多谢哩！\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.4...v1.9.5",
+      "prerelease": false,
+      "asset": {
+        "id": 218095175,
+        "name": "GUGUbot-v1.9.5.mcdr",
+        "size": 12383785,
+        "download_count": 40,
+        "created_at": "2025-01-05T08:22:09Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.5/GUGUbot-v1.9.5.mcdr",
+        "hash_md5": "9342a45c99dd19581e2158588c7a82cb",
+        "hash_sha256": "8f12bf0df7f8417411a3dc91755ed6041c33d802b79990239ff27057971e937d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0",
+          "mg_events": ">=0.2.3"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.4",
+      "name": "v1.9.4",
+      "tag_name": "v1.9.4",
+      "created_at": "2025-01-02T05:51:12Z",
+      "description": "修复：\r\n- 带换行符的文本不能正确转发\r\n- `qq` 到 `mc` 转发失效 （`/tellraw` 指令无法正确触发）\r\n- 审核功能为空时，报错 （并 默认关闭审核功能）\r\n- 查询群名片时，使用错误的群号\r\n\r\n新增：\r\n- `#绑定 白名单同步` 功能， 将绑定列表同步到白名单\r\n- 新增 消息格式提醒，如果使用 `消息段` 格式会进行提示，而不是直接报错\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.3...v1.9.4",
+      "prerelease": false,
+      "asset": {
+        "id": 217340023,
+        "name": "GUGUbot-v1.9.4.mcdr",
+        "size": 12370385,
+        "download_count": 73,
+        "created_at": "2025-01-02T05:57:02Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.4/GUGUbot-v1.9.4.mcdr",
+        "hash_md5": "48ba1677d9b2007f522878568cba7625",
+        "hash_sha256": "093a09adf9c29ae008bffdda8ae1803cd4ae5ce6a59250471ad00a9388133165"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.4",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.3",
+      "name": "v1.9.3",
+      "tag_name": "v1.9.3",
+      "created_at": "2024-12-22T06:14:09Z",
+      "description": "# 请不要使用此版本\r\n> 此版本存在重大漏洞，使用换行会导致发送的消息被当做指令执行，这是一个重大漏洞，可能会给您的服务器带来重大的后果！！\r\n\r\n# 新增\r\n- 机器人好友即为管理功能 （`config` 中 `friend_is_admin` 参数） #118 \r\n- 指令说明现在会根据设置的指令前缀变更啦！#120 \r\n- `config/GUGUbot/help_msg.json`(或者自定义的路径 `config -> dict_address -> customized_help_path`) 中可以自定义帮助文本 #120 \r\n- 现在 `qq` 到 `mc` 的转发会显示群名称 #121 \r\n\r\n优化：\r\n- `gugubot` 会尝试在加载的时候连接 `rcon`\r\n- 修复了 `config -> forward -> forward_other_bot` 的错别字\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.2...v1.9.3",
+      "prerelease": false,
+      "asset": {
+        "id": 215069663,
+        "name": "GUGUbot-v1.9.3.mcdr",
+        "size": 12369768,
+        "download_count": 103,
+        "created_at": "2024-12-22T06:25:08Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.3/GUGUbot-v1.9.3.mcdr",
+        "hash_md5": "736415950a24b788f1c9a2941840b993",
+        "hash_sha256": "34ce93ab44892e9093ab41259b182f73c17fb2ff497e1b26aaa4dfb3c1121cfb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.3",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.2",
+      "name": "v1.9.2",
+      "tag_name": "v1.9.2",
+      "created_at": "2024-12-21T06:05:09Z",
+      "description": "修复：\r\n- `bound_system` & `review system` `config` 参数报错\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.9.1...v1.9.2",
+      "prerelease": false,
+      "asset": {
+        "id": 214887171,
+        "name": "GUGUbot-v1.9.2.mcdr",
+        "size": 12370828,
+        "download_count": 49,
+        "created_at": "2024-12-21T06:11:31Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.2/GUGUbot-v1.9.2.mcdr",
+        "hash_md5": "83366e1073c13c35909b5a4a0f06cff5",
+        "hash_sha256": "1fe262a72473bdac5213e847211e10ed941d928f1a821fcd32cef23d673f2cc1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.2",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.1",
+      "name": "v1.9.1",
+      "tag_name": "v1.9.1",
+      "created_at": "2024-12-20T07:41:28Z",
+      "description": "修复 玩家上下线报错\r\n\r\n(v1.9.0) `Config` 文件新增：\r\n- `bot_notice`  假人上下线通知开关\r\n- `random_template` 随机发言模板开关 -> 转发使用随机发言模板，防止风控\r\n\r\n(v1.9.0) 命令新增：\r\n- 群：`#绑定 @xxx <游戏ID>` 管理员可帮群员进行绑定\r\n- 私: `#MCDR <mcdr命令>` 可以执行MCDR命令 （但没结果返回）\r\n- 私: `#绑定 白名单 <开/关>` 开启/关闭 绑定时绑定白名单\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 214657440,
+        "name": "GUGUbot-v1.9.1.mcdr",
+        "size": 12370464,
+        "download_count": 56,
+        "created_at": "2024-12-20T07:42:45Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.1/GUGUbot-v1.9.1.mcdr",
+        "hash_md5": "3c5919e1065866367779a0ddd55d2f39",
+        "hash_sha256": "269a78279f62977d2f2017cfba8f1214309d387145bb2365030333c7a4557b9d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.1",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.9.0",
+      "name": "v1.9.0",
+      "tag_name": "v1.9.0",
+      "created_at": "2024-12-20T06:04:18Z",
+      "description": "拆分、重构代码  #116 \r\n\r\n新增：\r\n- 群命令增加绑定管理相关命令 #115 \r\n- 增加通过机器人调整 绑定时绑定白名单 功能开关 #114\r\n- 添加机器人发图功能检测 #110\r\n- 随机发言模板 #111 \r\n- 增加MCDR指令执行 #113 \r\n- 使用白名单插件 WhitelistAPI #109 \r\n\r\n修复：\r\n- RCON 开启判断 #117 \r\n- 配置文件错误时进行提示而不是报错 #105\r\n\r\n**感谢**：\r\n- @Dreamwxz 提出的ISSUE！\r\n- @LoosePrince  项目管理！\r\n- 以及群里各位**佬**的建议",
+      "prerelease": false,
+      "asset": {
+        "id": 214645603,
+        "name": "GUGUbot-v1.9.0.mcdr",
+        "size": 12370445,
+        "download_count": 44,
+        "created_at": "2024-12-20T06:08:19Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.9.0/GUGUbot-v1.9.0.mcdr",
+        "hash_md5": "498f5f5308d08c8db07b8be98be2bb00",
+        "hash_sha256": "85b202bf2f6cb1496754cb9e77aeead42c50518b98c19b10b5863c9593b2e8ee"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.9.0",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0",
+          "whitelist_api": ">=1.3.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.7",
+      "name": "v1.8.7",
+      "tag_name": "v1.8.7",
+      "created_at": "2024-12-09T06:29:01Z",
+      "description": "# 修复\r\n- 白名单不能正常运行\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.6...v1.8.7",
+      "prerelease": false,
+      "asset": {
+        "id": 212049296,
+        "name": "GUGUbot-v1.8.7.mcdr",
+        "size": 12227368,
+        "download_count": 78,
+        "created_at": "2024-12-09T06:32:41Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.7/GUGUbot-v1.8.7.mcdr",
+        "hash_md5": "6cc9f62367e1797b2c951fde4f703550",
+        "hash_sha256": "617ac54c24d677b0a407b4112ac237e99595f5ecfd9ba5bbd6d85d24441f5a5b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.7",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.6",
+      "name": "v1.8.6",
+      "tag_name": "v1.8.6",
+      "created_at": "2024-11-25T16:41:47Z",
+      "description": "- 修复添加图片无效 的问题\r\n- 发送图片一直 \"添加成功\" 的问题\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.5...v1.8.6",
+      "prerelease": false,
+      "asset": {
+        "id": 208975796,
+        "name": "GUGUbot-v1.8.6.mcdr",
+        "size": 12227367,
+        "download_count": 85,
+        "created_at": "2024-11-25T16:44:06Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.6/GUGUbot-v1.8.6.mcdr",
+        "hash_md5": "1ea995c96d857375a805f9d93a457fa2",
+        "hash_sha256": "ffdd7443c25f604be374af13726a583185308e8aa816441a030be6fba920f4ed"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.6",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.5",
+      "name": "v1.8.5",
+      "tag_name": "v1.8.5",
+      "created_at": "2024-11-25T07:23:42Z",
+      "description": "修复：\r\n- `admin_group_id` 为空时，指令报错\r\n- 转发特定表情包的时候，图片解析失败导致转发信息含连接\r\n- 关键词系统触发不再依赖转发设置\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.4...v1.8.5",
+      "prerelease": false,
+      "asset": {
+        "id": 208974831,
+        "name": "GUGUbot-v1.8.5.mcdr",
+        "size": 12227368,
+        "download_count": 39,
+        "created_at": "2024-11-25T16:38:10Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.5/GUGUbot-v1.8.5.mcdr",
+        "hash_md5": "01bfe08cacda509e0383e717140b4253",
+        "hash_sha256": "469f6ec21ebf0a656a417716fc9726a172c365da2aa830986bc691450d665fb4"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人（支持离线服务器）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.4",
+      "name": "v1.8.4",
+      "tag_name": "v1.8.4",
+      "created_at": "2024-11-16T06:43:08Z",
+      "description": "修复高版本forge端list指令报错\r\n\r\n## What's Changed\r\n* 1.8.4 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/104\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.3...v1.8.4",
+      "prerelease": false,
+      "asset": {
+        "id": 206917566,
+        "name": "GUGUbot-v1.8.4.mcdr",
+        "size": 12227071,
+        "download_count": 68,
+        "created_at": "2024-11-16T06:43:51Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.4/GUGUbot-v1.8.4.mcdr",
+        "hash_md5": "682e466d7f1c1d93008270042b7f49ee",
+        "hash_sha256": "bf47d862691314f86e446e3dd2174dfde571be5a21ef98eb733fd956df15541f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.4",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.3",
+      "name": "v1.8.3",
+      "tag_name": "v1.8.3",
+      "created_at": "2024-11-01T00:25:01Z",
+      "description": "- 修复群号存在 none 时报错\r\n- 更新 config 注释\r\n\r\n## What's Changed\r\n* 1.8.3 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/103\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.2...v1.8.3",
+      "prerelease": false,
+      "asset": {
+        "id": 203260232,
+        "name": "GUGUbot-v1.8.3.mcdr",
+        "size": 12227029,
+        "download_count": 67,
+        "created_at": "2024-11-01T00:25:26Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.3/GUGUbot-v1.8.3.mcdr",
+        "hash_md5": "f3c4277f2277c776b8048163b9c36b82",
+        "hash_sha256": "abcccce48401804505e2883a4f95130a7e4e1e240c46e8e68a2ebdf2f3c6eeb8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.3",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.2",
+      "name": "v1.8.2",
+      "tag_name": "v1.8.2",
+      "created_at": "2024-10-28T02:30:18Z",
+      "description": "小更新\r\n\r\n更改使用 `online_player_api` 的使用条件 #101 \r\n\r\n## What's Changed\r\n* 1.8.2 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/102\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.1...v1.8.2",
+      "prerelease": false,
+      "asset": {
+        "id": 202239561,
+        "name": "GUGUbot-v1.8.2.mcdr",
+        "size": 12227034,
+        "download_count": 47,
+        "created_at": "2024-10-28T02:31:41Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.2/GUGUbot-v1.8.2.mcdr",
+        "hash_md5": "a6b5ec83cae0c831a3e0a91191c29302",
+        "hash_sha256": "8bb16d7da366fe3964cb12785ed3da4ede3c8067d98ebf03c8aff6332ce04821"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.2",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.1",
+      "name": "v1.8.1",
+      "tag_name": "v1.8.1",
+      "created_at": "2024-10-26T21:13:05Z",
+      "description": "[Handle multihand result for player list & switch to ruamel.yaml for c…](https://github.com/LoosePrince/PF-GUGUBot/commit/f51c3abf3f91e4967a122def2f6146a140309071)\r\n\r\n修复：\r\n- 开关命令时，不会更新 config 的 bug\r\n- config 重载时注释消失的问题\r\n\r\n优化：\r\n- 更新玩家名称获取方式 （`rcon` -> `online_player_api` -> 命令行捕获）\r\n  - 针对 #99 的处理\r\n\r\n变更：\r\n- 新增插件依赖 `player_ip_logger` & `online_player_api`\r\n- 更新 python 依赖包\r\n\r\n## What's Changed\r\n* 1.8.1 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/100\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.8.0...v1.8.1\r\n\r\n---\r\n感谢 @HanYuCR 提出的报错 #99 【多端兼容性问题】",
+      "prerelease": false,
+      "asset": {
+        "id": 201982684,
+        "name": "GUGUbot-v1.8.1.mcdr",
+        "size": 12227023,
+        "download_count": 44,
+        "created_at": "2024-10-26T21:17:31Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.1/GUGUbot-v1.8.1.mcdr",
+        "hash_md5": "4c0fa55159f7dd4ca00931a18ec501b1",
+        "hash_sha256": "fb373e2a860903f2a8752a494a1e3ffcd62852ae61fdfdc63ec6595891e4d9fa"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.1",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0",
+          "online_player_api": ">=1.0.0",
+          "player_ip_logger": ">=1.1.0"
+        },
+        "requirements": [
+          "pygame",
+          "Requests",
+          "ruamel.yaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.8.0",
+      "name": "v1.8.0",
+      "tag_name": "v1.8.0",
+      "created_at": "2024-10-19T07:20:25Z",
+      "description": "重构部分代码\r\n\r\n！！ **修复启动时报错** ！！\r\n\r\n**新增**\r\n- 增加显示群内公告\r\n- #绑定 清空 功能 -> 清空白名单 + 绑定列表 （二次确认）\r\n- 取消 功能 -> 取消 添加图片 （30s 后默认取消添加）\r\n- 重启 功能 -> 自己重启\r\n- 风格 切换增加 冷却 （管理员无视） (config -> style_cooldown)\r\n- 群功能失效 -> 只转发和管理员命令 （config -> command -> group_admin）\r\n- 添加绑定多个账号功能 (config -> max_bound)\r\n\r\n**修复**：\r\n- 图片会添加不上 （增加file属性检测）\r\n- 修复单纯回复时，游戏内显示CQ:reply源码\r\n\r\n## What's Changed\r\n* 1.8.0 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/97\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.7.5...v1.8.0",
+      "prerelease": false,
+      "asset": {
+        "id": 200468363,
+        "name": "GUGUbot-v1.8.0.mcdr",
+        "size": 12226598,
+        "download_count": 52,
+        "created_at": "2024-10-20T19:33:18Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.8.0/GUGUbot-v1.8.0.mcdr",
+        "hash_md5": "ba085e117c74f6a3d3ee2056527aac7a",
+        "hash_sha256": "a41e5026204df9fafeeaf257947828c46fb47c09d1ac19f742b20201e50596ba"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.8.0",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.7.5",
+      "name": "v1.7.5 hotfix",
+      "tag_name": "v1.7.5",
+      "created_at": "2024-10-05T05:11:43Z",
+      "description": "- 修复假人加入时报错\r\n\r\n## What's Changed\r\n* 1.7.5 hotfix  by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/96\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.7.4...v1.7.5",
+      "prerelease": false,
+      "asset": {
+        "id": 197018190,
+        "name": "GUGUbot-v1.7.5.mcdr",
+        "size": 12224185,
+        "download_count": 53,
+        "created_at": "2024-10-05T05:12:29Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.7.5/GUGUbot-v1.7.5.mcdr",
+        "hash_md5": "505dba238e7596ae895fe961ca89537b",
+        "hash_sha256": "a0cfcd65dd127cc839139ff85b35a55841b09e03c75a96b808d845b0fcaec546"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.7.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.7.4",
+      "name": "v1.7.4 表情名称显示",
+      "tag_name": "v1.7.4",
+      "created_at": "2024-10-04T02:06:18Z",
+      "description": "新增(#92 )：\r\n- mface 表情名称显示\r\n- 部分 face表情名称显示\r\n\r\n## What's Changed\r\n* 1.7.4 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/95\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.7.3...v1.7.4",
+      "prerelease": false,
+      "asset": {
+        "id": 196782742,
+        "name": "GUGUbot-v1.7.4.mcdr",
+        "size": 12224168,
+        "download_count": 38,
+        "created_at": "2024-10-04T02:06:53Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.7.4/GUGUbot-v1.7.4.mcdr",
+        "hash_md5": "1bbb5a3e7dfd5051b09847d74468581c",
+        "hash_sha256": "2562bcbaaddc84a475eb5dcec3c3e00cb1506a25f374f11e0de8cdc03549c8ba"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.7.4",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.7.3",
+      "name": "v1.7.3",
+      "tag_name": "v1.7.3",
+      "created_at": "2024-10-03T17:40:24Z",
+      "description": "修复：\r\n- config自动更新不会更新次级属性[fix config auto-update won't update sub-config](https://github.com/LoosePrince/PF-GUGUBot/commit/5773b5bb501d2bf35fa8231359c763e1b3051c7f)\r\n- 修复进群申请时机器人报错[fix error in request notice](https://github.com/LoosePrince/PF-GUGUBot/commit/de265265534e65822aea12d77b88fe9903caa650)\r\n\r\n优化:\r\n- 不再向官方机器人发送绑定提示[ignore robot message](https://github.com/LoosePrince/PF-GUGUBot/commit/bebe44473e6a5a3d90cbf43c6b3e9cec10486e38)\r\n- 添加 `farward_other_bot` 转发官方机器人消息 开关[Add forward robot option & disable robot bound notice](https://github.com/LoosePrince/PF-GUGUBot/commit/db4a195228190163b0d90a2ce86ffbdc82e464e7)\r\n- 使用on_info检测玩家加入[move on_player_join functions to on_info](https://github.com/LoosePrince/PF-GUGUBot/commit/81b3184f5bebafbcb7a85b75c9e4aa8f28dc7d93)\r\n- 优化json，@格式匹配\r\n\r\n移除:\r\n- 玩家进入游戏时发送群公告（API不支持）[add markdown parser and optimize json re pattern](https://github.com/LoosePrince/PF-GUGUBot/commit/4c8f20ffcc9c3bd060f554858709ede8be5b9440)[extend reply matching pattern & optimized qq_name searching logic](https://github.com/LoosePrince/PF-GUGUBot/commit/b7bb9b2eb9b278795bb9ebb683d3291235ab0d6e)\r\n\r\n## What's Changed\r\n* 1.7.3 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/94\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.7.2...v1.7.3",
+      "prerelease": false,
+      "asset": {
+        "id": 196692646,
+        "name": "GUGUbot-v1.7.3.mcdr",
+        "size": 12222519,
+        "download_count": 41,
+        "created_at": "2024-10-03T17:42:45Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.7.3/GUGUbot-v1.7.3.mcdr",
+        "hash_md5": "b933f78e5eb527937fb966784e625de3",
+        "hash_sha256": "87b004eaba5f5933bca2b3044ae7d76e9334b7eb831e64b861e0aaf31783abff"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.7.3",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.7.2",
+      "name": "v1.7.2 ChatImage 美化",
+      "tag_name": "v1.7.2",
+      "created_at": "2024-09-22T16:19:20Z",
+      "description": "- 不复制默认的群号，管理群号，管理人qq号到config\r\n- 美化ChatImage的显示\r\n\r\n## What's Changed\r\n* 1.7.2 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/91\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.7.1...v1.7.2",
+      "prerelease": false,
+      "asset": {
+        "id": 194193779,
+        "name": "GUGUbot-v1.7.2.mcdr",
+        "size": 12222451,
+        "download_count": 88,
+        "created_at": "2024-09-22T16:20:10Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.7.2/GUGUbot-v1.7.2.mcdr",
+        "hash_md5": "4022c6aadf80ef7951b0382b72e40fc3",
+        "hash_sha256": "fb27fd5d04d5238619affac266dfb772630d25942f3c9005df7c2b7f4201c9d1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.7.2",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.7.1",
+      "name": "v1.7.1",
+      "tag_name": "v1.7.1",
+      "created_at": "2024-09-22T14:10:31Z",
+      "description": "- 更新版本命名规则\r\n- 修复错误的执行命令说明\r\n- 修复读取Style时自动创建新的GUGUBot/config.yml\r\n\r\n## What's Changed\r\n* 1.7.1 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/90\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.1.7...v1.7.1",
+      "prerelease": false,
+      "asset": {
+        "id": 194183129,
+        "name": "GUGUbot-v1.7.1.mcdr",
+        "size": 12222378,
+        "download_count": 43,
+        "created_at": "2024-09-22T14:12:52Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.7.1/GUGUbot-v1.7.1.mcdr",
+        "hash_md5": "82a7ba595e68bd325e6b57cb0f61e0d7",
+        "hash_sha256": "9b722e7116a15909ae447b6d34abe6ff180d7de55636a413c4cd520f1376418c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.7.1",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.1.6",
+      "name": "v1.1.6",
+      "tag_name": "v1.1.6",
+      "created_at": "2024-09-18T17:53:30Z",
+      "description": "- 新增 关闭上报显示 config\r\n- 新增 MCDR 指令转发开关 config\r\n- 绑定 指令变成可选项\r\n\r\n## What's Changed\r\n* merge issue template by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/80\r\n* 1.1.6 update by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/81\r\n* 1.1.6 update by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/82\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.1.5...v1.1.6",
+      "prerelease": false,
+      "asset": {
+        "id": 193428380,
+        "name": "GUGUbot-v1.1.6.mcdr",
+        "size": 12220529,
+        "download_count": 56,
+        "created_at": "2024-09-18T17:55:55Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.1.6/GUGUbot-v1.1.6.mcdr",
+        "hash_md5": "57a22975af2abfedcd238451b1693d2f",
+        "hash_sha256": "eb3414f18cd2a7b6d2bf4534a734c36067b890566c6f45581ac12c9d6787e64c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.1.6",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__",
+          "LoosePrince"
+        ],
+        "dependencies": {
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.1.5",
+      "name": "GUGUbot-v1.1.5",
+      "tag_name": "v1.1.5",
+      "created_at": "2024-09-15T23:41:57Z",
+      "description": "- 添加获取群成员名字失败提示 & 指引\r\n- 统一config文件夹名字\r\n- 更新检查提示\r\n\r\n## What's Changed\r\n* 更新README,添加更多注释 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/72\r\n* update correct README by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/73\r\n* Merge README by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/74\r\n* 1.1.5 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/75\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.1.4...v1.1.5",
+      "prerelease": false,
+      "asset": {
+        "id": 193078034,
+        "name": "GUGUbot-v1.1.5.mcdr",
+        "size": 12220378,
+        "download_count": 49,
+        "created_at": "2024-09-17T04:47:21Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.1.5/GUGUbot-v1.1.5.mcdr",
+        "hash_md5": "f893ae0c75c6005a95d82eb3539c85d3",
+        "hash_sha256": "cab194ab01d5f37202b03bca30d194eb50344a515c3679fb9d7fcbef8fd40105"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.1.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2",
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.1.4",
+      "name": "GUGUbot-v1.1.4",
+      "tag_name": "v1.1.4",
+      "created_at": "2024-08-27T05:25:42Z",
+      "description": "[更新config_default](https://github.com/LoosePrince/PF-GUGUBot/commit/a81ec2b354a8ff6ad8532a111538d4b0863253bc)\r\n[API 列表获取换成 INFO日志捕获](https://github.com/LoosePrince/PF-GUGUBot/commit/63352bada139c5fe4fc4eb546945ff4f4ef48cc3)\r\n[更新config_default](https://github.com/LoosePrince/PF-GUGUBot/commit/a81ec2b354a8ff6ad8532a111538d4b0863253bc)\r\n\r\n## What's Changed\r\n* 允许re忽略多余参数的存在 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/69\r\n* 1.1.3 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/70\r\n* 1.1.4 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/71\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.1.3...v1.1.4",
+      "prerelease": false,
+      "asset": {
+        "id": 188535060,
+        "name": "GUGUbot-v1.1.4.mcdr",
+        "size": 12218117,
+        "download_count": 111,
+        "created_at": "2024-08-27T05:26:45Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.1.4/GUGUbot-v1.1.4.mcdr",
+        "hash_md5": "9e07a8000c9e8be16306cec693393489",
+        "hash_sha256": "e7c33f8f1dfeb1864d90af4bfad9993969341e6a3bb82692598f97127ee0dea2"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.1.4",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2",
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.1.2",
+      "name": "v1.1.2",
+      "tag_name": "v1.1.2",
+      "created_at": "2024-08-18T00:29:04Z",
+      "description": "Config 新增：\r\n\r\n[添加绑定提示开关](https://github.com/LoosePrince/PF-GUGUBot/commit/1fcab13f86a3dbb34735d59921f2c4818ff8955a)\r\nbound_notice: 是否提醒绑定（默认开启）\r\n[风格参数](https://github.com/LoosePrince/PF-GUGUBot/commit/3bfc7b2e0d55b76f309541c10759bd3b229a2a72)\r\nstyle: 机器人回复风格选项\r\nis_main_server 非主服机器人不回复除 #列表 的指令\r\nserver_name 可选服务器名前缀\r\n修复：\r\n\r\n[修复get报错](https://github.com/LoosePrince/PF-GUGUBot/commit/b9a0b4919966d7dcee55a2fe131974f90726e144)\r\n[修复文件夹找不到的报错](https://github.com/LoosePrince/PF-GUGUBot/commit/5c10a2590fd403c1dd7a12190b40efbec425505f)\r\n非常感谢 @[DavidBlackCN](https://github.com/DavidBlackCN) 在 https://github.com/LoosePrince/PF-GUGUBot/issues/39 中的建议及及时反馈！\r\n谢谢 @[Evander0](https://github.com/Evander0) 在 https://github.com/LoosePrince/PF-GUGUBot/issues/64 中发现的报错！\r\n\r\n## What's Changed\r\n* 1.1.1 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/63\r\n* 【修复报错】修复复制文件时，未找到文件夹报错 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/65\r\n* 1.1.2 更新 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/66\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.0.1...v1.1.2",
+      "prerelease": false,
+      "asset": {
+        "id": 186634224,
+        "name": "GUGUbot-v1.1.2.mcdr",
+        "size": 12216577,
+        "download_count": 68,
+        "created_at": "2024-08-18T00:31:47Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.1.2/GUGUbot-v1.1.2.mcdr",
+        "hash_md5": "439bf37677467e2cfedafc797ec18467",
+        "hash_sha256": "0799972a29aaf07f20665eeadfd2aedd9cc5610dac11b7659b0fe20ffee161ce"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.1.2",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2",
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.1.1",
+      "name": "GUGUbot-v1.1.1",
+      "tag_name": "v1.1.1",
+      "created_at": "2024-08-16T03:02:40Z",
+      "description": "## What's Changed\r\n\r\n修复bug，优化更新代码\r\n\r\n* 1.0.6 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/46\r\n* 更新默认设置模板 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/47\r\n* 1.1.0 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/48\r\n* 修复初始化时，调用开服指令的报错 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/50\r\n* 更新readme by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/51\r\n* 1.0.7beta by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/52\r\n* 1.0.6 bug修复 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/54\r\n* Change requirements.txt path to allow plugin repo to read it  by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/55\r\n* 1.1.0 websocket by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/56\r\n* 1.1.0 websocket by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/57\r\n* 1.1.1 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/59\r\n* 优化日志显示形式 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/60\r\n*   修复初始化时，未找到文件夹的报错，感谢 @[Evander0](https://github.com/Evander0) 提供的错误\r\n\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.1.0...GUGUbot-v1.1.1",
+      "prerelease": false,
+      "asset": {
+        "id": 186565053,
+        "name": "GUGUbot-v1.1.1.mcdr",
+        "size": 12216409,
+        "download_count": 39,
+        "created_at": "2024-08-17T14:05:21Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.1.1/GUGUbot-v1.1.1.mcdr",
+        "hash_md5": "e0db2dd232beee5ef94fb86a76e2884f",
+        "hash_sha256": "6a3341258efb1fde1013c024640e4ac3b81b0ee3ab4885f196657afacdc0420a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.1.1",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2",
+          "cq_qq_api": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.1.0",
+      "name": "GUGUbot-v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2024-03-07T14:00:52Z",
+      "description": "## What's Changed\r\n* 1.0.6 bug修复 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/54\r\n* Change requirements.txt path to allow plugin repo to read it  by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/55\r\n* 1.1.0 websocket by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/56\r\n\r\n**GUGUbot 从 HTTP 协议切换至 websocket 协议**\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/v1.0.6...GUGUbot-v1.1.0",
+      "prerelease": false,
+      "asset": {
+        "id": 185955022,
+        "name": "GUGUbot-v1.1.0.mcdr",
+        "size": 12212138,
+        "download_count": 45,
+        "created_at": "2024-08-14T16:02:43Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.1.0/GUGUbot-v1.1.0.mcdr",
+        "hash_md5": "f235b5eb7569808e39959f73d5e8aec0",
+        "hash_sha256": "d3b5738f443bc81068e21162aa3d2892d022feeebd5c871caf83e8ec76bdbbef"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.1.0",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2",
+          "websocket_info_factory": ">=1.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "websocket-client",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.0.6",
+      "name": "GUGUBot-v1.0.6 CoolQAPI更新兼容",
+      "tag_name": "v1.0.6",
+      "created_at": "2023-09-01T17:04:11Z",
+      "description": "## 更新说明\r\n> 适配 MCDR版本 `2.13.1`\r\n\r\n- **GUGUBot**\r\n\r\n1. 修复BUGs\r\n\r\n- **CoolQ API**\r\n\r\n1. > 更新兼容((QQ框架)，版本不变\r\n2. 之后会在[PF-CoolQ](https://github.com/LoosePrince/PF-CoolQAPI)中维护CoolQAPI\r\n3. 请在[PF-CoolQ](https://github.com/LoosePrince/PF-CoolQAPI)中下载CoolQAPI\r\n\r\n- **提交对比**: 无\r\n\r\n- **更多**\r\n如果需要更多联动或提交想法和问题请提交 [Github](https://github.com/LoosePrince/PF-GUGUBot/issues) 或 QQ [1377820366](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 提交！\r\n视情况添加，请勿联系他人（开发者：[雪开](https://github.com/XueK66) @XueK66 ）\r\n\r\n#### 注意大小写！",
+      "prerelease": false,
+      "asset": {
+        "id": 185720286,
+        "name": "GUGUbot-v1.0.6.mcdr",
+        "size": 12212439,
+        "download_count": 45,
+        "created_at": "2024-08-13T15:55:00Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.0.6/GUGUbot-v1.0.6.mcdr",
+        "hash_md5": "41e513a27ff285df9c82f04b7aa5bf43",
+        "hash_sha256": "78b962fc2d29fc4e133175285e0d1306bbc690aeeb63a3bd9aa11c400437541e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.0.6",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2",
+          "cool_q_api": ">=0.2.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.1.2",
+          "Flask<=2.0.0",
+          "Werkzeug<=2.0",
+          "pygame",
+          "requests",
+          "pyyaml"
+        ],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.0.5",
+      "name": "GUGUBot-v1.0.5",
+      "tag_name": "v1.0.5",
+      "created_at": "2023-08-30T11:30:49Z",
+      "description": "## 更新说明\r\n- **GUGUBot**\r\n\r\n1. > [加入默认bound图片，字体复制入config文件夹](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/4e04ce404fcf2a05bf38d94704558ec2b91a8c6b)\r\n2. > [添加自定义config转图字数要求](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/972c10d5c0e64d35bb6c048b54fcbc9b7a99ccd4)\r\n3. > [增加文字转图片的行高](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/dc326b6d06befd076bc72a1dcbf898742459943a)\r\n4. > [修复复制文件的错误](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/cf1f1ddcf8d2d127ffd7702a2067a1eb43cbc6a2)\r\n5. > [添加DEBUG模式玩家列表的消息](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/be73197f14dbdfebe1122798ee7fbf053c31ee96)\r\n6. > [修改假人判断逻辑：是否在绑定列表内](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/0b561dd79347c5845ac149aeb38d9e590111e2c6)\r\n7. > [修复名字 关能不正确关闭](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/125dda45a41e6bfae645276f814829a2865f587d)\r\n8. > [添加玩家列表的debug信息](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/460671f9b598f624ba41087edeeddc4a90305e79)\r\n9. > [添加一个不匹配的自动重载](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/7da8976763433993f6a5162d8d54a5af8918205d)\r\n10. > [优化列表格式](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/24290882de418843a2086b0c91649f93db601bf2)\r\n11. > [修复bug](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/9ad6d6fc82794ed2fe97728af4be78baf8a78040)\r\n12. > [将绑定图片路径加入config](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/d865660d8f817cc83ad8860ebc9a578d2a6d7b89)\r\n13. > [修复不出绑定图片的bug](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/dd6b536ac43ec347340843681c5217b61e107120)\r\n14. > [真·修复绑定图片问题](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/1d3be58ca50a5ff555d4d1a2ec07eb11c03335cd)\r\n15. > [修复#服务器的显示错误](https://github.com/LoosePrince/PF-GUGUBot/pull/40/commits/26a382062d29c3bf2c70ec7d8b8ff8fa04311c24)\r\n16.  > [增加#服务器的帮助说明](https://github.com/LoosePrince/PF-GUGUBot/pull/42/commits/0bafa5ac516133e5a0c7b53126a921df32b7907a)\r\n17.  > [更新 server的正确回复](https://github.com/LoosePrince/PF-GUGUBot/pull/42/commits/79a03a63d67b4b6637e6691acad921ac41a141ff)\r\n\r\n- **CoolQAPI**\r\n已取消，请使用原版CoolQApi\r\n\r\n- **更多**\r\n如果需要更多联动或提交想法和问题请提交 [Github](https://github.com/LoosePrince/PF-GUGUBot/issues) 或 QQ [1377820366](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 提交！\r\n视情况添加，请勿联系他人（开发者：[雪开](https://github.com/XueK66) @XueK66 ）\r\n\r\n- **感谢**\r\n@DavidBlackCN 的反馈\r\n\r\n#### 注意大小写！",
+      "prerelease": false,
+      "asset": {
+        "id": 123767092,
+        "name": "GUGUbot.mcdr",
+        "size": 24379557,
+        "download_count": 46,
+        "created_at": "2023-08-30T11:34:34Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.0.5/GUGUbot.mcdr",
+        "hash_md5": "b6c079224d0d4604f3a528d475f8b1b0",
+        "hash_sha256": "ab4640e2887decfb679700eab4daf5eb52f837c5a07bfc1c74d1a080c7dbd4bb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.0.5",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/tag/v1.0.4",
+      "name": "GUGUBot-v1.0.4 - fix",
+      "tag_name": "v1.0.4",
+      "created_at": "2023-08-29T14:32:36Z",
+      "description": "## 更新说明\r\n> #### 重点！已取消魔改的CoolQAPI，请更换为原版CoolApi！\r\n- **GUGUBot**\r\n\r\n1. > 修复 [QQ到MC转发回复的报错](https://github.com/LoosePrince/PF-GUGUBot/pull/12/commits/3a76ecba191730bcaa2173b41c62632f09d3c523)\r\n2. > 添加 [RCON获取玩家列表功能](https://github.com/LoosePrince/PF-GUGUBot/pull/12/commits/dfb3a2b4753facc30dd569707cc7f09b5259db14)\r\n3. > 修改 [Config文件将默认使用yml文件](https://github.com/LoosePrince/PF-GUGUBot/pull/12/commits/10a7cc5254ee87ffd510fccab12617768d2096af)\r\n4. > 删除 [去除了不必要的Config](https://github.com/LoosePrince/PF-GUGUBot/pull/12/commits/de0635d5c0d063b55f8fcd62f80a60936fe2a5d5)\r\n5. > 增加 [网路api的错误捕捉](https://github.com/LoosePrince/PF-GUGUBot/pull/12/commits/a24e16bb94ba2f49514bb18b359709c25dca8962)\r\n6. > 增加 [config的配置参考样本](https://github.com/LoosePrince/PF-GUGUBot/pull/12/commits/e50353a391ff0f17e9c3a040e6ec8fb1078ebc0c)\r\n7.  > 增加 [机器人名字显示添加rcon获取方案](https://github.com/LoosePrince/PF-GUGUBot/pull/13/commits/741ec07500f8a7bf360ca5dbac65d668bde11c54)\r\n8. > 增加 [mc到qq增加多种说话模板（0.3%的彩蛋发言）](https://github.com/LoosePrince/PF-GUGUBot/pull/14/commits/dbf925ea68977c86c86e259fd7f6fcfb8e19cdeb)\r\n9. > 增加 [新增部署方法](https://github.com/LoosePrince/PF-GUGUBot/pull/13/commits/03ac7bec8d7f67feafc61abed5b0b11c85da121d)\r\n\r\n- **CoolQAPI**\r\n已取消，请使用原版CoolQApi\r\n\r\n- **更多**\r\n如果需要更多联动或提交想法和问题请提交 [Github](https://github.com/LoosePrince/PF-GUGUBot/issues) 或 QQ [1377820366](http://wpa.qq.com/msgrd?v=3&uin=1377820366&site=qq&menu=yes) 提交！\r\n视情况添加，请勿联系他人（开发者：[雪开](https://github.com/XueK66)）\r\n\r\n#### 注意大小写！\r\n\r\n## What's Changed\r\n* 1.0.4 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/12\r\n* 1.0.4 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/13\r\n* 1.0.4 by @XueK66 in https://github.com/LoosePrince/PF-GUGUBot/pull/14\r\n\r\n**Full Changelog**: https://github.com/LoosePrince/PF-GUGUBot/compare/GUGUbot-v1.0.3...GUGUbot-v1.0.4\r\n\r\n感谢来自 @DavidBlackCN 的耐心测试与交流",
+      "prerelease": false,
+      "asset": {
+        "id": 123556474,
+        "name": "GUGUbot.mcdr",
+        "size": 24379079,
+        "download_count": 40,
+        "created_at": "2023-08-29T05:25:28Z",
+        "browser_download_url": "https://github.com/PFingan-Code/PF-GUGUBot/releases/download/v1.0.4/GUGUbot.mcdr",
+        "hash_md5": "51a25c1be8d86135a609fa2fd636a563",
+        "hash_sha256": "c04b861a5d80ef6a09b4bb6758bae54b588764bab0f19bd4aa3830d6c2caba84"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gugubot",
+        "name": "GUGUbot",
+        "version": "1.0.4",
+        "link": "https://github.com/LoosePrince/PF-GUGUBot",
+        "authors": [
+          "XueK__"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A QQ bot connect MC and QQ",
+          "zh_cn": "一个QQ和MC互通的机器人"
+        }
+      }
+    }
+  ]
+}

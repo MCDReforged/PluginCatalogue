@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "spectator_tp",
+    "name": "Spectator TP",
+    "version": "1.1.0",
+    "link": "https://github.com/Passion-Never-Dissipate/SpectatorTP",
+    "authors": [
+      "FRUITS_CANDY",
+      "SeeU_SAMA"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.7.0",
+      "minecraft_data_api": "*"
+    },
+    "requirements": [
+      "mcdreforged>=2.7.0"
+    ],
+    "description": {
+      "en_us": "A multi-mode transmission plugin designed specifically for the spectator gamemode",
+      "zh_cn": "一个专为为观察者模式设计的多模式传送插件"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "spectator_tp",
+    "authors": [
+      "FRUITS_CANDY",
+      "SeeU-SAMA"
+    ],
+    "repository": "https://github.com/Passion-Never-Dissipate/SpectatorTP",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "zh_cn": "# SpectatorTP\n> 你还在为观察者模式下无法tp观察者玩家烦恼吗？还在为观察者模式下无法穿过地狱门而烦恼吗？来看看这款插件吧\n\n一个专为观察者模式设计的多模式传送插件，在开始使用前建议你详细阅读下文档\n\n您在使用过程中遇到任何问题或想提出建议，欢迎加入我们的交流群号: 417086159\n\n> [!WARNING]\n> \n> 使用此插件前，请确保您的服务端已经安装能够在生存模式与观察者模式间来回切换的插件，如[Gamemode](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode)\n> \n> 本插件只能在观察者模式或创造模式下工作。\n\n## 前置插件\n* [MinecraftDataAPI](https://github.com/Fallen-Breath/MinecraftDataAPI)\n\n## 指令使用说明\n\n`!!st help` 显示帮助信息\n\n`!!st`/`!d` 根据当前坐标在地狱和主世界间快速切换，自身必须是非生存模式且处于地狱与主世界间的任一维度\n\n`!!st id <玩家>` 传送到某个玩家，自身必须是非生存模式\n\n`!!st id <玩家1> <玩家2>` 将玩家1传送到玩家2，玩家1必须是非生存模式\n\n`!!st <x> <y> <z>` 传送到自身所在维度的指定坐标,自身必须是非生存模式\n\n`!!st <x> <y> <z> in <维度:0主世界,-1地狱,1末地>` 传送到某个维度的指定坐标,自身必须是非生存模式\n\n## 配置文件说明\n\n* ### dim_convert\n\n  默认值：\n\n> ``` \n>   {\n>        \"0\": \"minecraft:overworld\",\n>        \"-1\": \"minecraft:the_nether\",\n>        \"1\": \"minecraft:the_end\"\n>    }\n> ```\n\n一个字典，代表维度数字id与维度名称之间的映射，原版环境下你不需要修改它\n\n* ### dim_translation\n\n  默认值：\n\n> ``` \n>   {\n>        \"minecraft:overworld\": \"主世界\",\n>        \"minecraft:the_nether\": \"下界\",\n>        \"minecraft:the_end\": \"末地\"\n>    }\n> ```\n\n一个字典，代表维度名称与维度翻译文本之间的映射，原版环境下你不需要修改它\n\n* ### prefix\n\n  默认值: !!st\n\n  插件指令的前缀，在指令未与其他插件起冲突的情况下，你最好不要更改它\n\n* ### short_prefix\n\n  默认值: !d\n\n  短命令的前缀，如果你不知道它是什么，不要更改它\n\n* ### short_prefix_enable\n\n  默认值: true\n\n  短命令的开关\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/Passion-Never-Dissipate/SpectatorTP/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "spectator_tp",
+    "latest_version": "1.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/SpectatorTP/releases/tag/v1.1.0",
+        "name": "SpectatorTP-v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2025-08-06T03:37:35Z",
+        "description": "1.修复了使用!d与!!st进行维度切换时，坐标换算不准确的问题。2.增加了传送目的地坐标的边界范围判断",
+        "prerelease": false,
+        "asset": {
+          "id": 279952201,
+          "name": "SpectatorTP-v1.1.0.mcdr",
+          "size": 18434,
+          "download_count": 91,
+          "created_at": "2025-08-06T15:51:06Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/SpectatorTP/releases/download/v1.1.0/SpectatorTP-v1.1.0.mcdr",
+          "hash_md5": "660b778dd6b302616041c1a3a5d86c22",
+          "hash_sha256": "cf8a7d11b8f1fb9819deda3d98a63696811142cec5670019e8c8f53d492a210e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "spectator_tp",
+          "name": "Spectator TP",
+          "version": "1.1.0",
+          "link": "https://github.com/Passion-Never-Dissipate/SpectatorTP",
+          "authors": [
+            "FRUITS_CANDY",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0",
+            "minecraft_data_api": "*"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A multi-mode transmission plugin designed specifically for the spectator gamemode",
+            "zh_cn": "一个专为为观察者模式设计的多模式传送插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/SpectatorTP/releases/tag/v1.0.0",
+        "name": "SpectatorTP-v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-08-05T10:22:11Z",
+        "description": "Spectator TP的第一个版本，以后会继续更新的",
+        "prerelease": false,
+        "asset": {
+          "id": 279569543,
+          "name": "SpectatorTP-v1.0.0.mcdr",
+          "size": 18479,
+          "download_count": 27,
+          "created_at": "2025-08-05T14:14:39Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/SpectatorTP/releases/download/v1.0.0/SpectatorTP-v1.0.0.mcdr",
+          "hash_md5": "37c98d50f08192c1487cf7e997edc85d",
+          "hash_sha256": "fdc64332e59f82fc58811c6cc6fdfeb1b46a46832021f3708b93d9c9b995b5fa"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "spectator_tp",
+          "name": "Spectator TP",
+          "version": "1.0.0",
+          "link": "https://github.com/Passion-Never-Dissipate/SpectatorTP",
+          "authors": [
+            "FRUITS_CANDY",
+            "SeeU_SAMA"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0",
+            "minecraft_data_api": "*"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A multi-mode transmission plugin designed specifically for the spectator gamemode",
+            "zh_cn": "一个专为为观察者模式设计的多模式传送插件"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Passion-Never-Dissipate/SpectatorTP",
+    "name": "SpectatorTP",
+    "full_name": "Passion-Never-Dissipate/SpectatorTP",
+    "html_url": "https://github.com/Passion-Never-Dissipate/SpectatorTP",
+    "description": "一个专为观察者模式设计的多模式传送插件",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# SpectatorTP\n> 你还在为观察者模式下无法tp观察者玩家烦恼吗？还在为观察者模式下无法穿过地狱门而烦恼吗？来看看这款插件吧\n\n一个专为观察者模式设计的多模式传送插件，在开始使用前建议你详细阅读下文档\n\n您在使用过程中遇到任何问题或想提出建议，欢迎加入我们的交流群号: 417086159\n\n> [!WARNING]\n> \n> 使用此插件前，请确保您的服务端已经安装能够在生存模式与观察者模式间来回切换的插件，如[Gamemode](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode)\n> \n> 本插件只能在观察者模式或创造模式下工作。\n\n## 前置插件\n* [MinecraftDataAPI](https://github.com/Fallen-Breath/MinecraftDataAPI)\n\n## 指令使用说明\n\n`!!st help` 显示帮助信息\n\n`!!st`/`!d` 根据当前坐标在地狱和主世界间快速切换，自身必须是非生存模式且处于地狱与主世界间的任一维度\n\n`!!st id <玩家>` 传送到某个玩家，自身必须是非生存模式\n\n`!!st id <玩家1> <玩家2>` 将玩家1传送到玩家2，玩家1必须是非生存模式\n\n`!!st <x> <y> <z>` 传送到自身所在维度的指定坐标,自身必须是非生存模式\n\n`!!st <x> <y> <z> in <维度:0主世界,-1地狱,1末地>` 传送到某个维度的指定坐标,自身必须是非生存模式\n\n## 配置文件说明\n\n* ### dim_convert\n\n  默认值：\n\n> ``` \n>   {\n>        \"0\": \"minecraft:overworld\",\n>        \"-1\": \"minecraft:the_nether\",\n>        \"1\": \"minecraft:the_end\"\n>    }\n> ```\n\n一个字典，代表维度数字id与维度名称之间的映射，原版环境下你不需要修改它\n\n* ### dim_translation\n\n  默认值：\n\n> ``` \n>   {\n>        \"minecraft:overworld\": \"主世界\",\n>        \"minecraft:the_nether\": \"下界\",\n>        \"minecraft:the_end\": \"末地\"\n>    }\n> ```\n\n一个字典，代表维度名称与维度翻译文本之间的映射，原版环境下你不需要修改它\n\n* ### prefix\n\n  默认值: !!st\n\n  插件指令的前缀，在指令未与其他插件起冲突的情况下，你最好不要更改它\n\n* ### short_prefix\n\n  默认值: !d\n\n  短命令的前缀，如果你不知道它是什么，不要更改它\n\n* ### short_prefix_enable\n\n  默认值: true\n\n  短命令的开关\n",
+    "readme_url": "https://raw.githubusercontent.com/Passion-Never-Dissipate/SpectatorTP/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

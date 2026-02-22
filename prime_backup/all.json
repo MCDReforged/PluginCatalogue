@@ -1,0 +1,1561 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "prime_backup",
+    "name": "Prime Backup",
+    "version": "1.12.0",
+    "link": "https://github.com/TISUnion/PrimeBackup",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.12.0"
+    },
+    "requirements": [
+      "APScheduler>=3.8,<4",
+      "SQLAlchemy>=2",
+      "mcdreforged>=2.12.0",
+      "pathspec",
+      "psutil",
+      "pydantic>=2",
+      "pytz",
+      "typing_extensions",
+      "xxhash>=3",
+      "zstandard"
+    ],
+    "description": {
+      "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+      "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "prime_backup",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/TISUnion/PrimeBackup",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# Prime Backup\n\n**English** | [中文](https://github.com/TISUnion/PrimeBackup/tree/master/README.zh.md)\n\nA powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world\n\nDocument: https://tisunion.github.io/PrimeBackup/\n\n## Features\n\n- Only stores files with changes with the hash-based file pool. Supports unlimited number of backup\n- Comprehensive backup operations, including backup/restore, list/delete, import/export, etc\n- Smooth in-game interaction, with most operations achievable through mouse clicks\n- Highly customizable backup pruning strategies, similar to the strategy use by [PBS](https://pbs.proxmox.com/docs/prune-simulator/)\n- Crontab jobs, including automatic backup, automatic pruning, etc.\n- Supports use as a command-line tool. Manage the backups without MCDR\n\n![!!pb command](https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/docs/img/pb_welcome.png)\n\n## Requirements\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) requirement: `>=2.12.0`\n\nPython package requirements: See [requirements.txt](https://github.com/TISUnion/PrimeBackup/tree/master/requirements.txt)\n\n## Usages\n\nSee the document: https://tisunion.github.io/PrimeBackup/\n\n## How it works\n\nPrime Backup maintains a custom file pool to store the backup files. Every file in the pool is identified with the hash value of its content.\nWith that, Prime Backup can deduplicate files with same content, and only stores 1 copy of them, greatly reduces the burden on disk usage.\n\nBesides that, Prime Backup also supports compression on the stored files, which reduces the disk usage further more\n\nPrimeBackup is capable of storing various of common file types, including regular files, directories, and symbolic links. For these 3 types:\n\n- Regular file: Prime Backup calculates its hash values first. If the hash does not exist in the file pool, \n  Prime backup will (compress and) store its content into a new blob in the file pool.\n  The file status, including mode, uid, mtime etc., will be stored in the database\n- Directory: Prime Backup will store its information in the database\n- Symlink: Prime Backup will store the symlink itself, instead of the linked target\n\n## Thanks\n\nThe idea for the hash-based file pool is inspired by https://github.com/z0z0r4/better_backup\n",
+      "zh_cn": "# Prime Backup\n\n[English](https://github.com/TISUnion/PrimeBackup/tree/master/README.md) | **中文**\n\n一个强大的 MCDR 备份插件，一套先进的 Minecraft 存档备份解决方案\n\n中文文档：https://tisunion.github.io/PrimeBackup/zh/\n\n## Features\n\n- 基于哈希的文件池，只储存有变化的文件。支持无限数量的备份\n- 完善的备份操作，包括备份回档、展示删除、导入导出等\n- 流畅的游戏内交互，大部分操作都能点点点\n- 高可自定义备份清理策略，是 [PBS](https://pbs.proxmox.com/docs/prune-simulator/) 所用策略的同款\n- 定时任务，包括自动备份、自动清理等\n- 支持作为命令行工具使用，无需 MCDR 即可管理备份\n\n![!!pb command](https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/docs/img/pb_welcome.zh.png)\n\n## 依赖\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 依赖：`>=2.12.0`\n\nPython 包要求：见 [requirements.txt](https://github.com/TISUnion/PrimeBackup/tree/master/requirements.txt)\n\n## 使用方法\n\n参见文档：https://tisunion.github.io/PrimeBackup/zh/\n\n## 工作原理\n\nPrime Backup 维护了一个自定义的文件池来储存备份文件，池中的每个文件都以其内容的哈希值作为其唯一标识符。\n借此，Prime Backup 可以对那些内容相同的文件进行去重，并只存储它们的一份副本，从而有效地减少了磁盘占用的负担\n\n除此之外，Prime Backup 还支持对存储的文件进行压缩，从而进一步减少磁盘占用\n\nPrime Backup 可以存储常见集中的文件类型，包括普通文件、目录和符号链接。对于这三种文件类型：\n\n- 普通文件：Prime Backup 会先计算其哈希值。如果文件池里不存在这个哈希，\n  就在池里新建一个数据对象，（压缩）储存该文件的内容。\n  对于文件的状态信息，包括 mode、uid、mtime 等，将存储在数据库中\n- 文件夹：Prime Backup 将其信息存储在数据库中\n- 符号链接：Prime Backup 将存储符号链接本身，而非其所链接的目标对象\n\n## 致谢\n\n基于哈希的文件池这个想法来自 https://github.com/z0z0r4/better_backup\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/README.zh.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "prime_backup",
+    "latest_version": "1.12.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.12.0",
+        "name": "Prime Backup v1.12.0",
+        "tag_name": "v1.12.0",
+        "created_at": "2025-12-14T15:37:10Z",
+        "description": "## News\r\n\r\n- Added support to delete files inside existing backup with `!!pb database delete file` command (#67)\r\n- Added backup tag `scheduled`, prune config `scheduled_backup` and tag new scheduled backups with it (#78)\r\n- Added `!!pb database inspect file2` command for inspecting file by fileset id\r\n- Show show related backup sample for `!!pb database inspect file` and `!!pb database inspect file2` command\r\n- Show show related file sample for `!!pb database inspect blob` command\r\n- Added command suggestions for inputing file paths inside backup/fileset\r\n\r\n## Changes\r\n\r\n- Improved reply message if `!!pb list` gets out of range hint\r\n- Rotates PB's own logs if it's bigger than 10MiB\r\n- More docs in the doc website\r\n\r\n## Fixes\r\n\r\n- (CLI) Fixed wrong fuse python lib prompt",
+        "prerelease": false,
+        "asset": {
+          "id": 328578291,
+          "name": "PrimeBackup-v1.12.0.pyz",
+          "size": 223627,
+          "download_count": 1135,
+          "created_at": "2025-12-14T17:24:45Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.12.0/PrimeBackup-v1.12.0.pyz",
+          "hash_md5": "065b76725b1dd767835ca588aa84a543",
+          "hash_sha256": "07dc085c33b0cff877aa5032b7edcb714eac0606de6621adbfda072a60ab0ac9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.12.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pydantic>=2",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.11.0",
+        "name": "Prime Backup v1.11.0",
+        "tag_name": "v1.11.0",
+        "created_at": "2025-08-30T14:48:27Z",
+        "description": "- Added backup config [`retain_patterns`](https://tisunion.github.io/PrimeBackup/config/#retain_patterns) (#41)\r\n  - Recommended for files that do not need to be backed up but should still be kept after restoring\r\n- Register a placeholder command root node if pb is disabled by config\r\n  - To guide doc-dislikers to read the doc\r\n  - If the user had enabled PB, then the placeholder command will not be registered if PB is disabled again",
+        "prerelease": false,
+        "asset": {
+          "id": 287886479,
+          "name": "PrimeBackup-v1.11.0.pyz",
+          "size": 215072,
+          "download_count": 1401,
+          "created_at": "2025-08-30T17:39:56Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.11.0/PrimeBackup-v1.11.0.pyz",
+          "hash_md5": "026891ffaba9f57ed901be83d64309ca",
+          "hash_sha256": "757919feb19d160ab136417c19c125e350c0841beec5e0b8f1878d009f426113"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.11.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pydantic>=2",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.10.3",
+        "name": "Prime Backup v1.10.3",
+        "tag_name": "v1.10.3",
+        "created_at": "2025-08-02T11:45:09Z",
+        "description": "- Improved schedule backup triggering condition (#86)\r\n- Fixed bad backup meta serializing (#87)\r\n- Added docs warning for config option `ignored_files` and `ignore_patterns` (#83)\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 278739529,
+          "name": "PrimeBackup-v1.10.3.pyz",
+          "size": 213035,
+          "download_count": 621,
+          "created_at": "2025-08-02T14:59:01Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.10.3/PrimeBackup-v1.10.3.pyz",
+          "hash_md5": "7e08933e443e6bbc26b8b8f9362746a3",
+          "hash_sha256": "45a2c0dedea0383306057e55180e76da8a6ce44014ed3e8e0c8e5edd8143a8e8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.10.3",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.10.2",
+        "name": "Prime Backup v1.10.2",
+        "tag_name": "v1.10.2",
+        "created_at": "2025-05-04T17:56:02Z",
+        "description": "- Fixed missing backup id conversion in MCDR `diff` command (#75)",
+        "prerelease": false,
+        "asset": {
+          "id": 251779916,
+          "name": "PrimeBackup-v1.10.2.pyz",
+          "size": 211926,
+          "download_count": 1694,
+          "created_at": "2025-05-04T17:57:38Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.10.2/PrimeBackup-v1.10.2.pyz",
+          "hash_md5": "00fd76c48e7b153d9b2a05391ccb9663",
+          "hash_sha256": "9b9b61e570bbe5241917155c92ffbed44397444c03869e2fdf292821b08ab0b4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.10.2",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.10.1",
+        "name": "Prime Backup v1.10.1",
+        "tag_name": "v1.10.1",
+        "created_at": "2025-05-03T18:11:20Z",
+        "description": "- Fixed missing backup id conversion in MCDR `back` command (#74)\r\n- Improved file check and logging improve for ScanUnknownBlobFilesAction",
+        "prerelease": false,
+        "asset": {
+          "id": 251592143,
+          "name": "PrimeBackup-v1.10.1.pyz",
+          "size": 211885,
+          "download_count": 88,
+          "created_at": "2025-05-03T18:12:53Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.10.1/PrimeBackup-v1.10.1.pyz",
+          "hash_md5": "480026fdf04e3e7ce60562f0b2daf3ac",
+          "hash_sha256": "4738fde78419afcc83be15db5c334c7162a6a6187d240e4cc03a0d007b585dfd"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.10.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.10.0",
+        "name": "Prime Backup v1.10.0",
+        "tag_name": "v1.10.0",
+        "created_at": "2025-04-30T13:09:01Z",
+        "description": "## News\r\n\r\n- Added fileset shrinking feature to reduce unused files in filesets\r\n- Added fuzzytest with github action\r\n- Added `!!pb database prune` command to clean up possible dangling objects in database\r\n- Enhanced backup id input for MCDR command and CLI. Support using `latest` or `~`, `~3`, to targetting the n-th latest backup\r\n  - Simplified `<backup_id_range>` command node accept values\r\n  - Remove BackupIdAlternatives `latest_with_temp`, useless, not worth to maintain\r\n- Added gitignore flavor pattern support for the `backup.targets` config\r\n- CLI: Added `--version` to show version and exit\r\n- CLI: Added `fuse` command, requires python package `fuse-python` and OS package `fuse` (fuse 2)\r\n\r\n## Changes\r\n\r\n- Made `online_player_counter` work before DbAccess initialization ok (#70, #71)\r\n- Added confirmation for `!!pb delete` and `!!pb delete_range` command\r\n- Added summary message for `!!pb delete` command on multiple deletion\r\n- Log reference messages for VACUUM failure that caused by \"database or disk is full\" (#72)\r\n- Improve the text prompts for console command sources that cannot interact with buttons (#69)\r\n\r\n## Fixes\r\n\r\n- Fixed MCDR warning for sending the `save-on` command if the server is stopped during the backup (#66)\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 250789275,
+          "name": "PrimeBackup-v1.10.0.pyz",
+          "size": 211481,
+          "download_count": 150,
+          "created_at": "2025-04-30T17:19:43Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.10.0/PrimeBackup-v1.10.0.pyz",
+          "hash_md5": "7f8a53b27ddb44dfb66542144d89b279",
+          "hash_sha256": "4b1ef106f9b17953b416573b80312d95b8f4c593934667640be6e347d4615b6c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.10.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.9.5",
+        "name": "Prime Backup v1.9.5",
+        "tag_name": "v1.9.5",
+        "created_at": "2025-03-30T14:59:39Z",
+        "description": "- Add tools: The #64 fixer\r\n- Fixed DB version mismatch error creation\r\n- Fixed fileset ref check\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 242059375,
+          "name": "PrimeBackup-v1.9.5.pyz",
+          "size": 178158,
+          "download_count": 615,
+          "created_at": "2025-03-30T15:12:03Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.9.5/PrimeBackup-v1.9.5.pyz",
+          "hash_md5": "55bbdab0b0affd933b9a0086a3616124",
+          "hash_sha256": "41dd50ae70371cdb38e7d2438af3d86096b8439f31398faa313ef39ffbc7da28"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.9.5",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.9.4",
+        "name": "Prime Backup v1.9.4",
+        "tag_name": "v1.9.4",
+        "created_at": "2025-03-29T14:29:54Z",
+        "description": "- Show affected backup ids in validation log in fileset validation action",
+        "prerelease": false,
+        "asset": {
+          "id": 241847444,
+          "name": "PrimeBackup-v1.9.4.pyz",
+          "size": 178165,
+          "download_count": 93,
+          "created_at": "2025-03-29T16:10:17Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.9.4/PrimeBackup-v1.9.4.pyz",
+          "hash_md5": "73ca5bc9534a1f2cceecf7b97431f27b",
+          "hash_sha256": "c5f13433419fbebec7cd44fe8d448b7415b76f7caa0f0c2073ada0cc0c3dbf6d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.9.4",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.9.3",
+        "name": "Prime Backup v1.9.3",
+        "tag_name": "v1.9.3",
+        "created_at": "2025-03-29T13:14:17Z",
+        "description": "- (**CRITICAL**) Fixed a file deletion bug on backup deletion. See https://github.com/TISUnion/PrimeBackup/issues/64",
+        "prerelease": false,
+        "asset": {
+          "id": 241832352,
+          "name": "PrimeBackup-v1.9.3.pyz",
+          "size": 178108,
+          "download_count": 57,
+          "created_at": "2025-03-29T13:29:39Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.9.3/PrimeBackup-v1.9.3.pyz",
+          "hash_md5": "551f91d28920ae901b5a9c764eb1dabc",
+          "hash_sha256": "0502218ee6f8666295dc4ea686dc9c0cb281eddf7e42f98dcf6ed6999dce8c07"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.9.3",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.9.2",
+        "name": "Prime Backup v1.9.2",
+        "tag_name": "v1.9.2",
+        "created_at": "2025-03-28T08:48:34Z",
+        "description": "> [!CAUTION]\r\n> Buggy on backup deletion, **DO NOT USE**. Please upgrade to v1.9.3 and above as soon as possible\r\n\r\n- `!!pb list` command add `--me` argument\r\n- Decrease the default frequency for the CompactDatabaseJob from per-day to per-week\r\n- Fix ZeroDivisionError on db migration 2to3 if no backup exists (#63)",
+        "prerelease": false,
+        "asset": {
+          "id": 241528967,
+          "name": "PrimeBackup-v1.9.2.pyz",
+          "size": 178097,
+          "download_count": 66,
+          "created_at": "2025-03-28T08:51:03Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.9.2/PrimeBackup-v1.9.2.pyz",
+          "hash_md5": "61d8a6ee1accd4d4f766851cbe3811e4",
+          "hash_sha256": "c662f1bdc0cd177d444140d8cfdd4e3249436f49eabd2c108841cde49db0bd03"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.9.2",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.9.1",
+        "name": "PrimeBackup v1.9.1",
+        "tag_name": "v1.9.1",
+        "created_at": "2025-03-15T12:50:01Z",
+        "description": "> [!CAUTION]\r\n> Buggy on backup deletion, **DO NOT USE**. Please upgrade to v1.9.3 and above as soon as possible\r\n\r\n- Fix db migration 2to3 fail if backup count % 10 == 1",
+        "prerelease": false,
+        "asset": {
+          "id": 237735473,
+          "name": "PrimeBackup-v1.9.1.pyz",
+          "size": 176565,
+          "download_count": 284,
+          "created_at": "2025-03-15T12:51:27Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.9.1/PrimeBackup-v1.9.1.pyz",
+          "hash_md5": "8a443b3aee4615569900e5f45f716c64",
+          "hash_sha256": "3b5bf77f19f4f312d9a55d046b28c9f411e00547b65c8971e97c2a1e6d53b68b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.9.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.9.0",
+        "name": "PrimeBackup v1.9.0",
+        "tag_name": "v1.9.0",
+        "created_at": "2025-03-15T10:14:19Z",
+        "description": "> [!CAUTION]\r\n> Buggy on backup deletion, **DO NOT USE**. Please upgrade to v1.9.3 and above as soon as possible\r\n\r\n> [!NOTE]\r\n> Database schema updated from 2 to 3, automatic migration is included\r\n>\r\n> **Downgrading is not supported once the migration is finished**\r\n\r\n## News\r\n\r\n- Add backup config `reuse_stat_unchanged_file` for those speed lovers. Read [the doc](https://tisunion.github.io/PrimeBackup/config/#reuse_stat_unchanged_file) first and use with CAUTION!\r\n- Add hash method `md5` in case it's useful\r\n- Add backup config `creation_skip_missing_file` and `creation_skip_missing_file_patterns` (#55)\r\n- Validate int field range upon db operation (#52)\r\n- `!!pb list` command add `--sort` argument\r\n\r\n## Changes\r\n\r\n- Refactored the storage format of files in the database, resulting in up to 95% database file size reduce\r\n- Decrease logging level for the `skipped` log in the scheduled backup job (#54)\r\n- Migrate all nanoseconds (ns) to microseconds (us), so PB should still work after year 2262\r\n- CreateBackupTask can be aborted during the world-save-wait\r\n- Hide those BlobFileChanged warnings, unless it's the last chance\r\n\r\n## Fixes\r\n\r\n- (tools) `qb_importer.py` skip bad qb slots, fix creator format\r\n- Lots of other small fixes, see: https://github.com/TISUnion/PrimeBackup/compare/v1.8.3...v1.9.0",
+        "prerelease": false,
+        "asset": {
+          "id": 237716444,
+          "name": "PrimeBackup-v1.9.0.pyz",
+          "size": 176557,
+          "download_count": 51,
+          "created_at": "2025-03-15T10:26:03Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.9.0/PrimeBackup-v1.9.0.pyz",
+          "hash_md5": "5b8ee9cd838f81c9d66b0f898925d4c8",
+          "hash_sha256": "f3cf789609641677fdfe0c041d5478cd5c26fa002a25a0753b92e97fa48901cf"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.9.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "typing_extensions",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.8.3",
+        "name": "PrimeBackup v1.8.3",
+        "tag_name": "v1.8.3",
+        "created_at": "2024-09-17T09:50:34Z",
+        "description": "- Fixed incompatibility with python3.8 (#44)",
+        "prerelease": false,
+        "asset": {
+          "id": 193121006,
+          "name": "PrimeBackup-v1.8.3.pyz",
+          "size": 151681,
+          "download_count": 2106,
+          "created_at": "2024-09-17T09:51:24Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.8.3/PrimeBackup-v1.8.3.pyz",
+          "hash_md5": "5badfe0e6b06d40b40740c4e8ffa77b9",
+          "hash_sha256": "941cf78f5be98363867318046fd5bee46940e1a63e1121974b4da4e3ffec65cb"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.8.3",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.8.2",
+        "name": "PrimeBackup v1.8.2",
+        "tag_name": "v1.8.2",
+        "created_at": "2024-09-11T11:53:38Z",
+        "description": "## Patches\r\n\r\n- Fixed wrong field order in `restore.log` (#42)\r\n- Fixed logging issue if `OnlinePlayerCounter.get_online_players` returns None\r\n- Fixed compress comparing on file validation\r\n- Fixed `DbSession.get_file_by_blob_hashes` limit handling (affects compress method / hash method migration)\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 191964789,
+          "name": "PrimeBackup-v1.8.2.pyz",
+          "size": 151677,
+          "download_count": 155,
+          "created_at": "2024-09-11T13:09:48Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.8.2/PrimeBackup-v1.8.2.pyz",
+          "hash_md5": "190f89dd9af98fa72de81cb8c1495afc",
+          "hash_sha256": "88530afcbc0cea1176ad0fa31c321905fa20a8f528fc795200445c3b095c7e2e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.8.2",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.8.1",
+        "name": "PrimeBackup v1.8.1",
+        "tag_name": "v1.8.1",
+        "created_at": "2024-07-22T09:43:07Z",
+        "description": "## Patches\r\n\r\n- Fixed exception during backup creation (#39)\r\n- Fixed blob rollback logic does not work for backup creation\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 181062512,
+          "name": "PrimeBackup-v1.8.1.pyz",
+          "size": 151230,
+          "download_count": 675,
+          "created_at": "2024-07-22T09:46:44Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.8.1/PrimeBackup-v1.8.1.pyz",
+          "hash_md5": "97f39a7801f9f7aa7f736fa7598b5740",
+          "hash_sha256": "50d13f25a248c3d8d0d49750d3593bde0ff5ff355b90c5c9a1545d24c8482140"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.8.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.8.0",
+        "name": "PrimeBackup v1.8.0",
+        "tag_name": "v1.8.0",
+        "created_at": "2024-07-21T17:28:15Z",
+        "description": "> [!IMPORTANT]  \r\n> Buggy on backup creation, please use [v1.8.1](https://github.com/TISUnion/PrimeBackup/releases/tag/v1.8.1) instead\r\n\r\n## News\r\n\r\n- Added gitignore-flavor ignore patterns support\r\n  - Python package `pathspec` is required to installed \r\n\r\n## Changes\r\n\r\n- Improved blob validation file logging reply messages\r\n- The `debug` option can now set PrimeBackup's logger log level to `debug`\r\n- Show file count on backup creation\r\n\r\n## Fixes\r\n\r\n- Fixed cli command `extract` incorrect help message (#36)\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 181062829,
+          "name": "PrimeBackup-v1.8.0.pyz",
+          "size": 151148,
+          "download_count": 50,
+          "created_at": "2024-07-22T09:48:39Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.8.0/PrimeBackup-v1.8.0.pyz",
+          "hash_md5": "3f82c14665a25d7af4636ef119726652",
+          "hash_sha256": "390181387bdc637faec6f13003a706d351ebfefd131e862d8c706245e4b5081a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.8.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "APScheduler>=3.8,<4",
+            "SQLAlchemy>=2",
+            "mcdreforged>=2.12.0",
+            "pathspec",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.4",
+        "name": "PrimeBackup v1.7.4",
+        "tag_name": "v1.7.4",
+        "created_at": "2024-04-20T09:59:41Z",
+        "description": "- Fixed not show hover click hint if backup id not clickable (#21)\r\n- Improved logging messages on exception, so users know what file caused the failure",
+        "prerelease": false,
+        "asset": {
+          "id": 163229268,
+          "name": "PrimeBackup-v1.7.4.pyz",
+          "size": 150163,
+          "download_count": 965,
+          "created_at": "2024-04-20T10:07:23Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.4/PrimeBackup-v1.7.4.pyz",
+          "hash_md5": "2dbd05e85f48ff6b72c29ac793999551",
+          "hash_sha256": "083b16e6dd6a9f9782c0a23db4343a82cbb1e707546944e40f23457db4847c84"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.7.4",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.3",
+        "name": "PrimeBackup v1.7.3",
+        "tag_name": "v1.7.3",
+        "created_at": "2024-03-10T18:45:02Z",
+        "description": "- Added support for setting permission requirement to the root `!!pb` command, using the `command.permission.root` config\r\n- Fixed scheduled backup triggers twice, not once, if `require_online_players` is enabled (#20)\r\n- Fixed backup creating task hangs for world saving until times out if server stops\r\n- CLI improvements\r\n  - Exit with not-0 code if failed\r\n  - Make extracting backup with root (`.`) work",
+        "prerelease": false,
+        "asset": {
+          "id": 155942581,
+          "name": "PrimeBackup-v1.7.3.pyz",
+          "size": 149780,
+          "download_count": 322,
+          "created_at": "2024-03-10T18:48:38Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.3/PrimeBackup-v1.7.3.pyz",
+          "hash_md5": "6e6d0945d25f5bffb4b692f57a35b3a8",
+          "hash_sha256": "6361b98a1b85846c00ce996fc2ae3835d1a7793a1beacf6bda35be96fc65591d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.7.3",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.2",
+        "name": "PrimeBackup v1.7.2",
+        "tag_name": "v1.7.2",
+        "created_at": "2024-02-25T01:46:50Z",
+        "description": "- Fixed a few remaing text display issues",
+        "prerelease": false,
+        "asset": {
+          "id": 153409653,
+          "name": "PrimeBackup-v1.7.2.pyz",
+          "size": 149678,
+          "download_count": 152,
+          "created_at": "2024-02-25T01:48:39Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.2/PrimeBackup-v1.7.2.pyz",
+          "hash_md5": "22c9ddd3a21c32b74a3fe08947e731d7",
+          "hash_sha256": "a47ef4079587ee8af109818a707b3e936f0a2e15d83af338d0679b55dca38bc9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.7.2",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.1",
+        "name": "PrimeBackup v1.7.1",
+        "tag_name": "v1.7.1",
+        "created_at": "2024-02-24T18:41:46Z",
+        "description": "## News\r\n\r\n- Show more backup info on the backup id text in the backup tag related commands\r\n- Added precise explanation for the restore quick action button. Make it clean that it ignores temporary backups\r\n\r\n## Fixes\r\n\r\n- Fixed zh_cn translation of the `temporary` backup tag\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 153366554,
+          "name": "PrimeBackup-v1.7.1.pyz",
+          "size": 149697,
+          "download_count": 53,
+          "created_at": "2024-02-24T18:44:14Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.1/PrimeBackup-v1.7.1.pyz",
+          "hash_md5": "bf78415b740ddfd778de8db35be32176",
+          "hash_sha256": "0e36151ae51db58c7052d9df782d6162f50c9cce9036784f76d0b7a629d4d278"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.7.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.7.0",
+        "name": "PrimeBackup v1.7.0",
+        "tag_name": "v1.7.0",
+        "created_at": "2024-02-24T17:29:28Z",
+        "description": "## News\r\n\r\n- Added config option `backup.source_root_use_mcdr_working_directory` (#15)\r\n- Added config option `require_online_players` and `require_online_players_blacklist` for scheduled backup (#13)\r\n- CLI: Now you can use `latest` and `latest_non_temp` as the alternatives to `backup_id` argument\r\n\r\n## Changes\r\n\r\n- MCDR `!!MCDR import` command: rename the `--no-meta` argument to `--auto-meta`\r\n- CLI `show` command: Renamed the shortform of `--human` from `-h` to `-H`\r\n- Renamed the concept \"pre-restore backup\" to \"temporary backup\"\r\n  - Auto migration included\r\n- DB version is now `2`\r\n\r\n## Fixes\r\n\r\n- Some messages and document texts fix\r\n\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 153361227,
+          "name": "PrimeBackup-v1.7.0.pyz",
+          "size": 149498,
+          "download_count": 55,
+          "created_at": "2024-02-24T17:50:46Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.7.0/PrimeBackup-v1.7.0.pyz",
+          "hash_md5": "c4a22aecf6c7832f6da30194ad6570a6",
+          "hash_sha256": "e38fc863e6bcdc9df203e443575d6696337c02866a3a21bdd588e266427c9c96"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.7.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.6.3",
+        "name": "PrimeBackup v1.6.3",
+        "tag_name": "v1.6.3",
+        "created_at": "2024-01-02T04:47:58Z",
+        "description": "- Fixed wrong backup sorting logic, should use backup timestamp as the key, not backup id\r\n- `!!pb list` command: Increased `--per-page` limit from 20 to 1000",
+        "prerelease": false,
+        "asset": {
+          "id": 143380828,
+          "name": "PrimeBackup-v1.6.3.pyz",
+          "size": 144412,
+          "download_count": 506,
+          "created_at": "2024-01-02T09:28:32Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.6.3/PrimeBackup-v1.6.3.pyz",
+          "hash_md5": "86e294d9fa861be214eef1cee0d33ba2",
+          "hash_sha256": "48b1212cc80a8369b70b84fac03951188ab462b218ebd53981f43cd715021016"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.6.3",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.6.2",
+        "name": "PrimeBackup v1.6.2",
+        "tag_name": "v1.6.2",
+        "created_at": "2023-12-26T15:19:51Z",
+        "description": "- Fixed db backup job does not support old sqlite3 that doesn't support the `VACUUM INTO` statement. Make it work",
+        "prerelease": false,
+        "asset": {
+          "id": 142500176,
+          "name": "PrimeBackup-v1.6.2.pyz",
+          "size": 144405,
+          "download_count": 130,
+          "created_at": "2023-12-26T15:28:18Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.6.2/PrimeBackup-v1.6.2.pyz",
+          "hash_md5": "afb9f834e42a0bbeefd3f163fa09904b",
+          "hash_sha256": "cea5e6e3c1c48923c13a17a1356a183c837153707fb2a69f3d45ed74ca82dede"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.6.2",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.6.1",
+        "name": "PrimeBackup v1.6.1",
+        "tag_name": "v1.6.1",
+        "created_at": "2023-12-23T13:06:02Z",
+        "description": "- Fixed incompatibility with python 3.8 (#8)",
+        "prerelease": false,
+        "asset": {
+          "id": 142139217,
+          "name": "PrimeBackup-v1.6.1.pyz",
+          "size": 144065,
+          "download_count": 81,
+          "created_at": "2023-12-23T13:07:44Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.6.1/PrimeBackup-v1.6.1.pyz",
+          "hash_md5": "a82e7e82aae21f5795b25539cc94e041",
+          "hash_sha256": "0bb9f8b09a8a1f325167607f1c11191d51e051d5dc22531a090ec7ba61729fde"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.6.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.6.0",
+        "name": "PrimeBackup v1.6.0",
+        "tag_name": "v1.6.0",
+        "created_at": "2023-12-22T17:57:38Z",
+        "description": "## News\r\n\r\n- Added root config `concurrency` indicating the maximum concurrency to be used during all task and action executions (#3)\r\n  - Backup creation action: support concurrent file hash pre-scan\r\n  - Backup exporting to directory action: support concurrent export\r\n  - Blob validation action: support concurrent validation\r\n\r\n## Changes\r\n\r\n- Make `lzma` and `gzip` modules load-on-demand, in case the python environment does not include these modules\r\n- Ensure the current compress method library exists on plugin loaded\r\n- Remove existing undeleted trash bins before directory export\r\n\r\n## Fixes\r\n\r\n- Handling more errno for copy-on-write fast copy properly (#7)\r\n- Fixed some permission checkers do not work\r\n- Improved robustness on compress method migration\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 142018556,
+          "name": "PrimeBackup-v1.6.0.pyz",
+          "size": 144058,
+          "download_count": 62,
+          "created_at": "2023-12-22T18:09:21Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.6.0/PrimeBackup-v1.6.0.pyz",
+          "hash_md5": "d5ae071c63247fa159c0df228262dec6",
+          "hash_sha256": "7cc89a206fcca959d6f6b28ff34c2adc2bf19d78530e29dcfc3feb02285d0e5f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.6.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.5.0",
+        "name": "PrimeBackup v1.5.0",
+        "tag_name": "v1.5.0",
+        "created_at": "2023-12-18T18:10:42Z",
+        "description": "## News\r\n\r\n- Added `!!pb database migrate_compress_method` command to migrate compress method for all blobs\r\n- Let the `!!pb database` command works like the `!!pb help database` command\r\n- Added a file logger to log backup restoring operations (at `pb_files/logs/restore.log`)\r\n\r\n## Changes\r\n\r\n- Reply not abort-able when aborting a task who's `is_abort_able` returns false\r\n- Ensure file loggers use utf8 encoding\r\n- More precise `APScheduler` version requirement in `requirements.txt`\r\n- More logging messages for file / blob validation action\r\n- Lots of other small improvements and doc updates\r\n\r\n## Fixes\r\n\r\n- Fixed error during file validation for the `!!pb database validate` command\r\n- Fixed missing command permission settings for `crontab` and `help` subcommands\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 141311289,
+          "name": "PrimeBackup-v1.5.0.pyz",
+          "size": 141911,
+          "download_count": 91,
+          "created_at": "2023-12-18T18:16:48Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.5.0/PrimeBackup-v1.5.0.pyz",
+          "hash_md5": "c3c7260c88efdd70b0bc55dcec6024d7",
+          "hash_sha256": "eebd381f2e734c04f17b36a4bdf2b269097fc55f9211d610d3ddaa4d78613e71"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.5.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3.8,<4",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.4.1",
+        "name": "PrimeBackup v1.4.1",
+        "tag_name": "v1.4.1",
+        "created_at": "2023-12-17T16:51:25Z",
+        "description": "## Fixes\r\n\r\n- Fixed unable to do cross-device fast file copy in linux (#6)",
+        "prerelease": false,
+        "asset": {
+          "id": 141144350,
+          "name": "PrimeBackup-v1.4.1.pyz",
+          "size": 138265,
+          "download_count": 61,
+          "created_at": "2023-12-17T16:53:56Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.4.1/PrimeBackup-v1.4.1.pyz",
+          "hash_md5": "4f563f49e52830f0ded636f1b229ec24",
+          "hash_sha256": "d0f34a0abfa16602acabce2bf50f45745619799e9a297697016aa111761137a8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.4.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.4.0",
+        "name": "PrimeBackup v1.4.0",
+        "tag_name": "v1.4.0",
+        "created_at": "2023-12-16T12:17:32Z",
+        "description": "## News\r\n\r\n- Added `!!pb diff` command to show differences between two backups\r\n- Added `!!pb inspect` commands to inspect backups, files and blobs\r\n\r\n## Changes\r\n\r\n- For `ExportBackupToTarAction`, set uname and gname in tar file whenever possible\r\n\r\n## Fixes\r\n\r\n- Fixed JobLookupError after backup created if the plugin is unloading\r\n- Fixed a few errors that occurred when the pb storage root is on a different file system than the backup source root (#5)\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 140998000,
+          "name": "PrimeBackup-v1.4.0.pyz",
+          "size": 138161,
+          "download_count": 68,
+          "created_at": "2023-12-16T12:24:06Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.4.0/PrimeBackup-v1.4.0.pyz",
+          "hash_md5": "a265e1ce81da9b7d2709ba3c4e0a5330",
+          "hash_sha256": "ccd11ad1c5f707657f647b1058b937bbc22f966304a7c9a3dd14af10e0627855"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.4.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.3.0",
+        "name": "PrimeBackup v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2023-12-13T16:03:02Z",
+        "description": "## News\r\n\r\n- Added support for those old sqlite version that does not support json query. Not very efficient but it works\r\n- Added `-a` flag as an alternative to `--all` in the `!!pb list` command for easier usage\r\n\r\n## Changes\r\n\r\n- More restrictive `!!pb confirm` and `!!pb abort`\r\n  - You can only confirm / abort your tasks, unless you have enough permission, or the task is a special case (the restore task allows everyone to abort)\r\n- Change `!!pb list` command optional argument names: use `--from` and `--to` instead of `--start` and `--end` for date range argument\r\n- Prune backupjob: Increase the  default interval, and reduce its logging messages\r\n- Restore backup task: Always broadcast backup information whether confim is needed\r\n- Increase max ongoing task for light tasks, from 3 to 5\r\n\r\n## Fixes\r\n\r\n- Fixed incompatibility with python3.8\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 140490429,
+          "name": "PrimeBackup-v1.3.0.pyz",
+          "size": 129542,
+          "download_count": 79,
+          "created_at": "2023-12-13T16:12:06Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.3.0/PrimeBackup-v1.3.0.pyz",
+          "hash_md5": "09bb0645a2423f02c0fc5588892ee051",
+          "hash_sha256": "852941e7be7e00b6bf2981ba09fb7057c3aec44723f402db702092708a815e66"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.3.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.2.0",
+        "name": "PrimeBackup v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2023-12-12T18:13:14Z",
+        "description": "## News\r\n- Added `!!pb import` MCDR command, so you can import in MCDR now\r\n- Added more tar-derived file extension support, e.g. `.tgz` for tar + gz\r\n- Added bz2 support for tar formats\r\n- Added the backup meta check during importing backup by default\r\n  - Can be disabled with `--no-meta`\r\n\r\n## Changes\r\n\r\n- Show db file size for database overview commands\r\n- Refine the `ExportBackupToDirectoryAction` logic \r\n  - Affected less files in extract / export mode, keep consistent on restore mode\r\n  - Make the export rollback-able on failure\r\n- Make the ExportBackupToDirectoryAction action rollback-able\r\n- Backup creation no longer scan into symlink target directory. Always follow the as-is policy\r\n  - If you are using symlink as target, you should turn on the `follow_target_symlink` config option\r\n\r\n## Fixes\r\n\r\n- Fixed cannot import zip backup if the modes of its files are 0. Zips created by windows softwares often don't have these mode information\r\n- Fixed scheduled backup error if the job is in crontab mode\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 140317917,
+          "name": "PrimeBackup-v1.2.0.pyz",
+          "size": 127438,
+          "download_count": 56,
+          "created_at": "2023-12-12T18:23:26Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.2.0/PrimeBackup-v1.2.0.pyz",
+          "hash_md5": "84d612aae26e8f7ecf3ba9a3dbb67193",
+          "hash_sha256": "9d2f898be5e92e5fd4666908c864440c4bb10f0e0b07e3a6096d4b572f252ade"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.2.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.1.0",
+        "name": "PrimeBackup v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2023-12-11T18:02:18Z",
+        "description": "- Add `!!pb database migrate_hash_method` command, to migrate to another hash method\r\n  - You can now change the `hash_method` after the plugin is enabled. Make your choice casually XD\r\n  - The command might take a long time, depends on how many blob / files there are\r\n- Loosen the hash method check\r\n  - Always use the database one in all situation\r\n  - A warning will be printed if the hash method in the config is different to the hash method stored in the database\r\n- Fix cannot import `tar.zst` backup",
+        "prerelease": false,
+        "asset": {
+          "id": 140119400,
+          "name": "PrimeBackup-v1.1.0.pyz",
+          "size": 123578,
+          "download_count": 64,
+          "created_at": "2023-12-11T18:06:40Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.1.0/PrimeBackup-v1.1.0.pyz",
+          "hash_md5": "c4d9abcad647dd7b561d2be906120559",
+          "hash_sha256": "03c909ad46000dc76b194d9130af1453b190bf52de5835270efea1e5b6f00020"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.1.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.0.1",
+        "name": "PrimeBackup v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2023-12-10T17:18:24Z",
+        "description": "- Fixed object count query issue when database is empty\r\n- Reset the scheduled backup timer only for interval mode\r\n  - It's meaningless to reset a crontab timer\r\n- Stricter `CrontabJobSetting` value check: now `interval` and `crontab` cannot be set at the same time",
+        "prerelease": false,
+        "asset": {
+          "id": 139948068,
+          "name": "PrimeBackup-v1.0.1.pyz",
+          "size": 119725,
+          "download_count": 82,
+          "created_at": "2023-12-10T17:26:14Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.0.1/PrimeBackup-v1.0.1.pyz",
+          "hash_md5": "4d4a1da59f5c1fc007fdd54bf5be675f",
+          "hash_sha256": "dd166143c083f9a8e4b7228c37971f5a61384d75b12dfb0f5e8e382d8b90819a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.0.1",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/PrimeBackup/releases/tag/v1.0.0",
+        "name": "PrimeBackup v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2023-12-10T14:59:34Z",
+        "description": "Unleashing the Prime Backup",
+        "prerelease": false,
+        "asset": {
+          "id": 139936836,
+          "name": "PrimeBackup-v1.0.0.pyz",
+          "size": 119632,
+          "download_count": 57,
+          "created_at": "2023-12-10T15:15:49Z",
+          "browser_download_url": "https://github.com/TISUnion/PrimeBackup/releases/download/v1.0.0/PrimeBackup-v1.0.0.pyz",
+          "hash_md5": "eec1fa26c9eb72b1b891cc438fdf0d66",
+          "hash_sha256": "4aaf0e5e151957fe37aff0c79a20503989bb7a9a02e2b12e92bbc4068e5f8664"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "prime_backup",
+          "name": "Prime Backup",
+          "version": "1.0.0",
+          "link": "https://github.com/TISUnion/PrimeBackup",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.12.0",
+            "psutil",
+            "pytz",
+            "xxhash>=3",
+            "SQLAlchemy>=2",
+            "APScheduler>=3",
+            "zstandard"
+          ],
+          "description": {
+            "en_us": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+            "zh_cn": "一个强大的MCDR备份插件，一套先进的Minecraft存档备份解决方案"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/TISUnion/PrimeBackup",
+    "name": "PrimeBackup",
+    "full_name": "TISUnion/PrimeBackup",
+    "html_url": "https://github.com/TISUnion/PrimeBackup",
+    "description": "A powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world",
+    "archived": false,
+    "stargazers_count": 135,
+    "watchers_count": 135,
+    "forks_count": 16,
+    "readme": "# Prime Backup\n\n**English** | [中文](https://github.com/TISUnion/PrimeBackup/tree/master/README.zh.md)\n\nA powerful backup plugin for MCDR, an advanced backup solution for your Minecraft world\n\nDocument: https://tisunion.github.io/PrimeBackup/\n\n## Features\n\n- Only stores files with changes with the hash-based file pool. Supports unlimited number of backup\n- Comprehensive backup operations, including backup/restore, list/delete, import/export, etc\n- Smooth in-game interaction, with most operations achievable through mouse clicks\n- Highly customizable backup pruning strategies, similar to the strategy use by [PBS](https://pbs.proxmox.com/docs/prune-simulator/)\n- Crontab jobs, including automatic backup, automatic pruning, etc.\n- Supports use as a command-line tool. Manage the backups without MCDR\n\n![!!pb command](https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/docs/img/pb_welcome.png)\n\n## Requirements\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) requirement: `>=2.12.0`\n\nPython package requirements: See [requirements.txt](https://github.com/TISUnion/PrimeBackup/tree/master/requirements.txt)\n\n## Usages\n\nSee the document: https://tisunion.github.io/PrimeBackup/\n\n## How it works\n\nPrime Backup maintains a custom file pool to store the backup files. Every file in the pool is identified with the hash value of its content.\nWith that, Prime Backup can deduplicate files with same content, and only stores 1 copy of them, greatly reduces the burden on disk usage.\n\nBesides that, Prime Backup also supports compression on the stored files, which reduces the disk usage further more\n\nPrimeBackup is capable of storing various of common file types, including regular files, directories, and symbolic links. For these 3 types:\n\n- Regular file: Prime Backup calculates its hash values first. If the hash does not exist in the file pool, \n  Prime backup will (compress and) store its content into a new blob in the file pool.\n  The file status, including mode, uid, mtime etc., will be stored in the database\n- Directory: Prime Backup will store its information in the database\n- Symlink: Prime Backup will store the symlink itself, instead of the linked target\n\n## Thanks\n\nThe idea for the hash-based file pool is inspired by https://github.com/z0z0r4/better_backup\n",
+    "readme_url": "https://raw.githubusercontent.com/TISUnion/PrimeBackup/master/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  }
+}

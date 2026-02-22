@@ -1,0 +1,76 @@
+{
+  "schema_version": 8,
+  "id": "ye_announcement",
+  "latest_version": "1.4.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/XiaoYeYa/ye_announcement/releases/tag/v1.4.1",
+      "name": "v1.4.1",
+      "tag_name": "v1.4.1",
+      "created_at": "2024-03-27T21:45:11Z",
+      "description": "### 本次更新日志\r\n## GUI\r\n\r\n- 优化了UI，使它的显示更美观整洁。\r\n![{B1ED64E3-BA68-4fcf-9DD1-D707FFE41E99}](https://github.com/XiaoYeYa/ye_announcement/assets/124911800/74b20500-1e19-4ea6-9fe5-8a36bef67ccc)\r\n\r\n\r\n## 功能更新\r\n\r\n- 修复了已知的一些使用的问题。\r\n- 支持在公告中添加换行符或颜色字符串。\r\n- 支持更改公告显示的服务器名称。可在MCDR目录的`config`文件夹里的`announcements.json`中更改显示服务器名称。\r\n- 支持直接在配置文件中输入中文字符作为服务器名称，而不是作为字符串。\r\n\r\n## 命令更新\r\n\r\n- 添加新命令 `!!gr`，用于重载配置文件。",
+      "prerelease": false,
+      "asset": {
+        "id": 161542550,
+        "name": "ye_announcement-v1.4.1.mcdr",
+        "size": 2226,
+        "download_count": 420,
+        "created_at": "2024-04-11T13:17:13Z",
+        "browser_download_url": "https://github.com/XiaoYeYa/ye_announcement/releases/download/v1.4.1/ye_announcement-v1.4.1.mcdr",
+        "hash_md5": "a1e07f5fcfe210440a64666eb1228bd1",
+        "hash_sha256": "2772b08385b5a25bf46bd6595c9b77fd81434ed64e93e1f9453a163294b1f2fa"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "ye_announcement",
+        "name": "Ye_announcement",
+        "version": "1.4.1",
+        "link": "https://github.com/XiaoYeYa/ye_announcement",
+        "authors": [
+          "XiaoYeYa"
+        ],
+        "dependencies": {},
+        "requirements": [],
+        "description": {
+          "en_us": "Announce players when they join the game",
+          "zh_cn": "当玩家加入游戏时向其发公告"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/XiaoYeYa/ye_announcement/releases/tag/v1.3.0",
+      "name": "v1.3.0",
+      "tag_name": "v1.3.0",
+      "created_at": "2024-03-27T21:45:11Z",
+      "description": "## 使用\r\n\r\n- 发布公告：使用 `!!g <公告内容>` 命令发布一条新公告。\r\n- 删除公告：使用 `!!gd <序号>` 命令删除指定序号的公告。\r\n- 修改公告颜色：使用 `!!gc <序号> <颜色>` 命令修改指定序号的公告颜色。\r\n- 查看公告列表：使用 `!!glist` 命令查看当前所有的公告信息，包括序号。\r\n- 获取帮助：使用 `!!ghelp` 命令获取插件的使用教程和所有命令的帮助信息。\r\n\r\n## 注意事项\r\n\r\n- 公告内容支持使用 `颜色` 来修改颜色，如 `red` 表示红色，`blue` 表示蓝色等。\r\n- 公告会在玩家进入服务器时显示，以便玩家及时了解到服务器的重要信息。",
+      "prerelease": false,
+      "asset": {
+        "id": 158890499,
+        "name": "ye_announcement.mcdr",
+        "size": 1985,
+        "download_count": 106,
+        "created_at": "2024-03-27T13:43:55Z",
+        "browser_download_url": "https://github.com/XiaoYeYa/ye_announcement/releases/download/v1.3.0/ye_announcement.mcdr",
+        "hash_md5": "6d71f0bdfa522520ee2e9a1d3f3c0d7e",
+        "hash_sha256": "45dabdbc84883874685d8e20d84ee80d026393063305f3d8bea53c0b59e0bf1c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "ye_announcement",
+        "name": "Ye_announcement",
+        "version": "1.3.0",
+        "link": "https://github.com/XiaoYeYa/ye_announcement",
+        "authors": [
+          "XiaoYeYa"
+        ],
+        "dependencies": {},
+        "requirements": [],
+        "description": {
+          "en_us": "Announce players when they join the game",
+          "zh_cn": "当玩家加入游戏时向其发公告"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1473 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "minecraft_command_register",
+    "name": "Minecraft Command Register",
+    "version": "2.15.7",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+    "authors": [
+      "Andy Zhang",
+      "ZhuRuoLing"
+    ],
+    "dependencies": {
+      "mcdreforged": "2.15.7"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Register MCDReforged commands in Minecraft",
+      "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "minecraft_command_register",
+    "authors": [
+      "Andy Zhang",
+      "ZhuRuoLing"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/minecraft_command_register",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# Minecraft Command Register\n\n> 在 Minecraft 中注册 MCDReforged 指令\n\n例：`!!MCDR` 将被注册为 `/!!MCDR`、`!!qb` 将被注册为 `/!!qb`\n\n<https://user-images.githubusercontent.com/37402126/206166484-891245f2-d148-487d-b7be-1b79766144bd.mp4>\n\n## MCDR 版本对照表\n\n对于特定的 MCDR 版本，您应当使用对应的本插件版本\n\n| MCDR 版本 | 插件版本   |\n| ------- | ------ |\n| 2.6.0   | 1.2.0  |\n| 2.6.1   | 1.2.1  |\n| 2.7.0   | 1.2.2  |\n| 2.7.1   | 1.2.3  |\n| 2.7.2   | 1.2.4  |\n| 2.8.0   | None   |\n| 2.8.1   | 1.3.0  |\n| 2.8.2   | 1.3.1  |\n| 2.8.3   | 1.3.2  |\n| 2.8.4   | None   |\n| 2.9.0   | 1.4.0  |\n| 2.9.1   | 1.4.1  |\n| 2.10.0  | 1.5.0  |\n| 2.10.1  | 1.5.1  |\n| 2.11.0  | 1.6.0  |\n| 2.12.0  | 1.7.0  |\n| 2.12.1  | 1.7.1  |\n| 2.12.2  | 1.7.2  |\n| 2.12.3  | 1.7.3  |\n| 2.13.0  | 2.13.0 |\n| 2.13.1  | 2.13.1 |\n| 2.13.2  | 2.13.2 |\n| 2.14.0  | 2.14.0 |\n| 2.14.1  | 2.14.1 |\n| 2.14.2  | 2.14.2 |\n| 2.14.3  | 2.14.3 |\n| 2.14.4  | 2.14.4 |\n| 2.14.5  | 2.14.5 |\n| 2.14.7  | 2.14.7 |\n| 2.15.0  | 2.15.0 |\n| 2.15.1  | 2.15.1 |\n| 2.15.2  | 2.15.2 |\n| 2.15.3  | 2.15.3 |\n| 2.15.4  | 2.15.4 |\n| 2.15.5  | 2.15.5 |\n| 2.15.6  | 2.15.6 |\n| 2.15.7  | 2.15.7 |\n\n## 安装指南\n\n### Fabric\n\n安装此插件，并配合 [MCDR Command Fabric](https://modrinth.com/mod/mcdr-command-fabric) 模组使用。\n\n### Forge\n\nComming soon...\n\n### Bukkit\n\nComming soon...\n",
+      "zh_cn": "# Minecraft Command Register\n\n> 在 Minecraft 中注册 MCDReforged 指令\n\n例：`!!MCDR` 将被注册为 `/!!MCDR`、`!!qb` 将被注册为 `/!!qb`\n\n<https://user-images.githubusercontent.com/37402126/206166484-891245f2-d148-487d-b7be-1b79766144bd.mp4>\n\n## MCDR 版本对照表\n\n对于特定的 MCDR 版本，您应当使用对应的本插件版本\n\n| MCDR 版本 | 插件版本   |\n| ------- | ------ |\n| 2.6.0   | 1.2.0  |\n| 2.6.1   | 1.2.1  |\n| 2.7.0   | 1.2.2  |\n| 2.7.1   | 1.2.3  |\n| 2.7.2   | 1.2.4  |\n| 2.8.0   | None   |\n| 2.8.1   | 1.3.0  |\n| 2.8.2   | 1.3.1  |\n| 2.8.3   | 1.3.2  |\n| 2.8.4   | None   |\n| 2.9.0   | 1.4.0  |\n| 2.9.1   | 1.4.1  |\n| 2.10.0  | 1.5.0  |\n| 2.10.1  | 1.5.1  |\n| 2.11.0  | 1.6.0  |\n| 2.12.0  | 1.7.0  |\n| 2.12.1  | 1.7.1  |\n| 2.12.2  | 1.7.2  |\n| 2.12.3  | 1.7.3  |\n| 2.13.0  | 2.13.0 |\n| 2.13.1  | 2.13.1 |\n| 2.13.2  | 2.13.2 |\n| 2.14.0  | 2.14.0 |\n| 2.14.1  | 2.14.1 |\n| 2.14.2  | 2.14.2 |\n| 2.14.3  | 2.14.3 |\n| 2.14.4  | 2.14.4 |\n| 2.14.5  | 2.14.5 |\n| 2.14.7  | 2.14.7 |\n| 2.15.0  | 2.15.0 |\n| 2.15.1  | 2.15.1 |\n| 2.15.2  | 2.15.2 |\n| 2.15.3  | 2.15.3 |\n| 2.15.4  | 2.15.4 |\n| 2.15.5  | 2.15.5 |\n| 2.15.6  | 2.15.6 |\n| 2.15.7  | 2.15.7 |\n\n## 安装指南\n\n### Fabric\n\n安装此插件，并配合 [MCDR Command Fabric](https://modrinth.com/mod/mcdr-command-fabric) 模组使用。\n\n### Forge\n\nComming soon...\n\n### Bukkit\n\nComming soon...\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/minecraft_command_register/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/minecraft_command_register/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "minecraft_command_register",
+    "latest_version": "2.15.7",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.7",
+        "name": "minecraft_command_register: v2.15.7",
+        "tag_name": "minecraft_command_register-v2.15.7",
+        "created_at": "2026-01-12T21:33:20Z",
+        "description": "## [2.15.7](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.6...minecraft_command_register-v2.15.7) (2026-01-12)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.7 ([50cb2eb](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/50cb2eb0cfe339830419cf6fb383f99a82ff2de8))",
+        "prerelease": false,
+        "asset": {
+          "id": 339633944,
+          "name": "MinecraftCommandRegister-v2.15.7.mcdr",
+          "size": 1641,
+          "download_count": 146,
+          "created_at": "2026-01-12T21:36:12Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.7/MinecraftCommandRegister-v2.15.7.mcdr",
+          "hash_md5": "c52c6b2daa7678be49b2cd800b2de6df",
+          "hash_sha256": "f0051ba4bc40303a24f2008ca3be3f27b19e1bd9efa78944cd39dc75c8952a22"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.7",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.7"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.6",
+        "name": "minecraft_command_register: v2.15.6",
+        "tag_name": "minecraft_command_register-v2.15.6",
+        "created_at": "2026-01-02T16:40:12Z",
+        "description": "## [2.15.6](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.5...minecraft_command_register-v2.15.6) (2026-01-02)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.6 ([2239109](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/22391094aa18bfe2c8181c97693cb7179858ef9b))",
+        "prerelease": false,
+        "asset": {
+          "id": 335556649,
+          "name": "MinecraftCommandRegister-v2.15.6.mcdr",
+          "size": 1641,
+          "download_count": 39,
+          "created_at": "2026-01-02T16:42:32Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.6/MinecraftCommandRegister-v2.15.6.mcdr",
+          "hash_md5": "e2d13c4264793a8cfaeb26ee17382f11",
+          "hash_sha256": "f0c038a347ed80760f823872cb4ba23868dff0005593f8243968ebdc7b01cdc4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.6",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.5",
+        "name": "minecraft_command_register: v2.15.5",
+        "tag_name": "minecraft_command_register-v2.15.5",
+        "created_at": "2025-10-21T21:05:18Z",
+        "description": "## [2.15.5](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.4...minecraft_command_register-v2.15.5) (2025-10-21)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.5 ([c84dd38](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/c84dd38653b42dd075c8adfa6aa7a0f4473319b1))",
+        "prerelease": false,
+        "asset": {
+          "id": 307040544,
+          "name": "MinecraftCommandRegister-v2.15.5.mcdr",
+          "size": 1640,
+          "download_count": 240,
+          "created_at": "2025-10-21T21:07:37Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.5/MinecraftCommandRegister-v2.15.5.mcdr",
+          "hash_md5": "df050794ab7f7848705d3b41b25949e4",
+          "hash_sha256": "5fc88457a922e6de4ef1b3fbb681aff09d49dcf3a9c547f3e91ad98a1f5c1999"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.5",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.5"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.4",
+        "name": "minecraft_command_register: v2.15.4",
+        "tag_name": "minecraft_command_register-v2.15.4",
+        "created_at": "2025-09-26T15:24:09Z",
+        "description": "## [2.15.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.3...minecraft_command_register-v2.15.4) (2025-09-26)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.4 ([21076eb](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/21076eb0f3c269d847ccc3713443149c1d650281))",
+        "prerelease": false,
+        "asset": {
+          "id": 297586276,
+          "name": "MinecraftCommandRegister-v2.15.4.mcdr",
+          "size": 1640,
+          "download_count": 116,
+          "created_at": "2025-09-26T15:27:09Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.4/MinecraftCommandRegister-v2.15.4.mcdr",
+          "hash_md5": "7e84664c20488c393e174eaf69aa5b1e",
+          "hash_sha256": "98eaa49ed182d6c6e543871266199f888ec502ef46f8009a8c0a31d75da8b633"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.3",
+        "name": "minecraft_command_register: v2.15.3",
+        "tag_name": "minecraft_command_register-v2.15.3",
+        "created_at": "2025-09-19T02:58:33Z",
+        "description": "## [2.15.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.2...minecraft_command_register-v2.15.3) (2025-09-19)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.3 ([dc9a08c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/dc9a08c13cb4b6897ceca3a362c14c8bce34aadf))",
+        "prerelease": false,
+        "asset": {
+          "id": 294896748,
+          "name": "MinecraftCommandRegister-v2.15.3.mcdr",
+          "size": 1640,
+          "download_count": 75,
+          "created_at": "2025-09-19T03:00:45Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.3/MinecraftCommandRegister-v2.15.3.mcdr",
+          "hash_md5": "ecd24853dd3ff8e3f24a44c5da1d1494",
+          "hash_sha256": "b6e64f92e1756539d4232b86102eaae499aca790a9e5e9b1da3a0db000cd181f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.3"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.2",
+        "name": "minecraft_command_register: v2.15.2",
+        "tag_name": "minecraft_command_register-v2.15.2",
+        "created_at": "2025-09-16T12:48:24Z",
+        "description": "## [2.15.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.1...minecraft_command_register-v2.15.2) (2025-09-16)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.2 ([9073f75](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9073f7545751f75b4e4cde25567baeca16a84f3e))",
+        "prerelease": false,
+        "asset": {
+          "id": 293829946,
+          "name": "MinecraftCommandRegister-v2.15.2.mcdr",
+          "size": 1640,
+          "download_count": 47,
+          "created_at": "2025-09-16T12:53:57Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.2/MinecraftCommandRegister-v2.15.2.mcdr",
+          "hash_md5": "8f70240b9d819d61f61f0d96aa78e776",
+          "hash_sha256": "37193815d05a50245bfb28387a7f3b52891d34432d0c047c8c651e564e1b170a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.2"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.1",
+        "name": "minecraft_command_register: v2.15.1",
+        "tag_name": "minecraft_command_register-v2.15.1",
+        "created_at": "2025-08-29T17:21:57Z",
+        "description": "## [2.15.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.15.0...minecraft_command_register-v2.15.1) (2025-08-29)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.1 ([3704eda](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/3704eda5b0a8c6a9d7a102fca026d4d07d59ff22))",
+        "prerelease": false,
+        "asset": {
+          "id": 287601312,
+          "name": "MinecraftCommandRegister-v2.15.1.mcdr",
+          "size": 1640,
+          "download_count": 100,
+          "created_at": "2025-08-29T17:24:48Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.1/MinecraftCommandRegister-v2.15.1.mcdr",
+          "hash_md5": "c6ad7b663ecfe11eb44b674be6caeb4d",
+          "hash_sha256": "b667c2398aba2d65da1b73a16a04ef6b71daa1ee20c6a3a80ec08aee7ec70691"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.15.0",
+        "name": "minecraft_command_register: v2.15.0",
+        "tag_name": "minecraft_command_register-v2.15.0",
+        "created_at": "2025-08-24T18:53:56Z",
+        "description": "## [2.15.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.7...minecraft_command_register-v2.15.0) (2025-08-24)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.15.0 ([9a374a0](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9a374a05e9368b5ac0b24f89203685fe5d7cd966))\n\n\n### Bug Fixes\n\n* **minecraft_command_register:** 🐛 check server is startup in register ([16c0fdf](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/16c0fdf4bafb9c2e20630cee318c15e81df0e05a)), closes [#284](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/284)",
+        "prerelease": false,
+        "asset": {
+          "id": 285775487,
+          "name": "MinecraftCommandRegister-v2.15.0.mcdr",
+          "size": 1640,
+          "download_count": 60,
+          "created_at": "2025-08-24T18:55:59Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.15.0/MinecraftCommandRegister-v2.15.0.mcdr",
+          "hash_md5": "aa6a1f4bb46e0597962beda51139927c",
+          "hash_sha256": "7fc9ac79d9a65d23271d8b1813d87cc6c5c9b6e6a79f606f166f6b45a188a976"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.15.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.7",
+        "name": "minecraft_command_register: v2.14.7",
+        "tag_name": "minecraft_command_register-v2.14.7",
+        "created_at": "2025-04-15T15:27:31Z",
+        "description": "## [2.14.7](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.5...minecraft_command_register-v2.14.7) (2025-04-15)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.7 ([11cde67](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/11cde67090ad0cab4f55c0e854e5e5af28585322)), closes [#268](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/268)",
+        "prerelease": false,
+        "asset": {
+          "id": 246628912,
+          "name": "MinecraftCommandRegister-v2.14.7.mcdr",
+          "size": 1629,
+          "download_count": 437,
+          "created_at": "2025-04-15T15:29:48Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.7/MinecraftCommandRegister-v2.14.7.mcdr",
+          "hash_md5": "231320696783c2bc46c5d1bf780c6cf3",
+          "hash_sha256": "52b1a02f6c73814fff004f3317e8527082dcdf2128a20715b6e99ecc8e8cf4bc"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.7",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.7"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.5",
+        "name": "minecraft_command_register: v2.14.5",
+        "tag_name": "minecraft_command_register-v2.14.5",
+        "created_at": "2025-02-07T11:01:04Z",
+        "description": "## [2.14.5](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.4...minecraft_command_register-v2.14.5) (2025-02-07)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.5 ([37551a0](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/37551a004a14b83301b9e3d58aeba421a7c9b5aa))",
+        "prerelease": false,
+        "asset": {
+          "id": 227144345,
+          "name": "MinecraftCommandRegister-v2.14.5.mcdr",
+          "size": 1628,
+          "download_count": 160,
+          "created_at": "2025-02-07T11:03:08Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.5/MinecraftCommandRegister-v2.14.5.mcdr",
+          "hash_md5": "bba0ecba75e5cdc120d76d84196deae5",
+          "hash_sha256": "ee72f748ae5f353f945a6aadb77689ee7d38e3146ed3148db29d36c7976cb445"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.5",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.5"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.4",
+        "name": "minecraft_command_register: v2.14.4",
+        "tag_name": "minecraft_command_register-v2.14.4",
+        "created_at": "2025-01-10T11:01:07Z",
+        "description": "## [2.14.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.3...minecraft_command_register-v2.14.4) (2025-01-10)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.4 ([000f6f6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/000f6f6ac435c9cc7655d17b93ffdbea6c762a69))",
+        "prerelease": false,
+        "asset": {
+          "id": 219392589,
+          "name": "MinecraftCommandRegister-v2.14.4.mcdr",
+          "size": 1628,
+          "download_count": 147,
+          "created_at": "2025-01-10T11:03:27Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.4/MinecraftCommandRegister-v2.14.4.mcdr",
+          "hash_md5": "a87ad0ad68c4518da15c3d9490e9bb51",
+          "hash_sha256": "e4f2a9a08c7cc27b54afb49c03b138b25925fa64d7f653af6ad0b178a2ccb9cc"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.3",
+        "name": "minecraft_command_register: v2.14.3",
+        "tag_name": "minecraft_command_register-v2.14.3",
+        "created_at": "2025-01-04T18:17:48Z",
+        "description": "## [2.14.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.2...minecraft_command_register-v2.14.3) (2025-01-04)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.3 ([8dd6513](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/8dd65131a782d1395939b5fc039ca56494c7c4aa))",
+        "prerelease": false,
+        "asset": {
+          "id": 217939355,
+          "name": "MinecraftCommandRegister-v2.14.3.mcdr",
+          "size": 1628,
+          "download_count": 62,
+          "created_at": "2025-01-04T18:19:29Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.3/MinecraftCommandRegister-v2.14.3.mcdr",
+          "hash_md5": "080e16ea4467b5377d36b0b99814d9cf",
+          "hash_sha256": "69a97945a84ecc88d041df62a87e516db5db7590792bd4582415589191af10af"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.3"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.2",
+        "name": "minecraft_command_register: v2.14.2",
+        "tag_name": "minecraft_command_register-v2.14.2",
+        "created_at": "2024-12-21T21:26:56Z",
+        "description": "## [2.14.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.1...minecraft_command_register-v2.14.2) (2024-12-21)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.2 ([eb12888](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/eb1288880319bb7d1b5eb5703aba60799c4fddd4))",
+        "prerelease": false,
+        "asset": {
+          "id": 214985100,
+          "name": "MinecraftCommandRegister-v2.14.2.mcdr",
+          "size": 1628,
+          "download_count": 77,
+          "created_at": "2024-12-21T21:28:59Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.2/MinecraftCommandRegister-v2.14.2.mcdr",
+          "hash_md5": "de42525addf3c11326f9dd2c3c8ffc60",
+          "hash_sha256": "60c85f422a1f1de98d8bdb5c3c1c92f84d1f774987eaf598701a31b05008753c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.2"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.1",
+        "name": "minecraft_command_register: v2.14.1",
+        "tag_name": "minecraft_command_register-v2.14.1",
+        "created_at": "2024-12-20T19:52:33Z",
+        "description": "## [2.14.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.14.0...minecraft_command_register-v2.14.1) (2024-12-20)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.1 ([87a3663](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/87a36639230f6003930002da4bd33fad0467ab8b))",
+        "prerelease": false,
+        "asset": {
+          "id": 214787726,
+          "name": "MinecraftCommandRegister-v2.14.1.mcdr",
+          "size": 1628,
+          "download_count": 43,
+          "created_at": "2024-12-20T19:54:00Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.1/MinecraftCommandRegister-v2.14.1.mcdr",
+          "hash_md5": "fa87db68df51fd189f72269fa2a88f4f",
+          "hash_sha256": "6aa745ccfa62a19045d4ad5baead54d7ab6b59e06b69cf4d7a4e0c8ee1e76f28"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.14.0",
+        "name": "minecraft_command_register: v2.14.0",
+        "tag_name": "minecraft_command_register-v2.14.0",
+        "created_at": "2024-12-20T19:40:45Z",
+        "description": "## [2.14.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.13.2...minecraft_command_register-v2.14.0) (2024-12-20)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.14.0 ([843fba4](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/843fba454778a6ecf027876477c8db9fd3355cf0))",
+        "prerelease": false,
+        "asset": {
+          "id": 214785751,
+          "name": "MinecraftCommandRegister-v2.14.0.mcdr",
+          "size": 1628,
+          "download_count": 35,
+          "created_at": "2024-12-20T19:42:39Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.14.0/MinecraftCommandRegister-v2.14.0.mcdr",
+          "hash_md5": "81abd4aebd6149991e7fa19395ad3bba",
+          "hash_sha256": "0b89f8a43e7f6f0183e00da00b7a6b492b9fd9d83cd8bffad94c890c01e1a471"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.14.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.14.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.13.2",
+        "name": "minecraft_command_register: v2.13.2",
+        "tag_name": "minecraft_command_register-v2.13.2",
+        "created_at": "2024-11-14T14:15:36Z",
+        "description": "## [2.13.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.13.1...minecraft_command_register-v2.13.2) (2024-11-14)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.13.2 ([f42a194](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f42a19494c42f15917158e6ee25054816244c7c0))",
+        "prerelease": false,
+        "asset": {
+          "id": 206479562,
+          "name": "MinecraftCommandRegister-v2.13.2.mcdr",
+          "size": 1609,
+          "download_count": 126,
+          "created_at": "2024-11-14T14:18:02Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.13.2/MinecraftCommandRegister-v2.13.2.mcdr",
+          "hash_md5": "eb13d3fa706db8a5e5fe9bfdae4bafff",
+          "hash_sha256": "64087b9d46d23d68ecd47df9a8679d36d04ced8a1ac8e5722d1f9d9b5d4ec356"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.13.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.13.2"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.13.1",
+        "name": "minecraft_command_register: v2.13.1",
+        "tag_name": "minecraft_command_register-v2.13.1",
+        "created_at": "2024-07-18T12:36:28Z",
+        "description": "## [2.13.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v2.13.0...minecraft_command_register-v2.13.1) (2024-07-18)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.13.1 ([bad7f17](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/bad7f1784e887358e0ac19417bc64bf3b6a77e87))",
+        "prerelease": false,
+        "asset": {
+          "id": 180354746,
+          "name": "MinecraftCommandRegister-v2.13.1.mcdr",
+          "size": 1609,
+          "download_count": 254,
+          "created_at": "2024-07-18T12:38:12Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.13.1/MinecraftCommandRegister-v2.13.1.mcdr",
+          "hash_md5": "51ccd9db516a5155929c3b3b25c0678e",
+          "hash_sha256": "74a67bd5579dc2d36116ac29007beb3ab29d08ca3695ce0951975ac563fede68"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.13.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.13.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v2.13.0",
+        "name": "minecraft_command_register: v2.13.0",
+        "tag_name": "minecraft_command_register-v2.13.0",
+        "created_at": "2024-07-07T18:49:46Z",
+        "description": "## [2.13.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.7.3...minecraft_command_register-v2.13.0) (2024-07-07)\n\n\n### Features\n\n* **minecraft_command_register:** 🔖 2.13.0 ([4867199](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4867199de85c2b53c63e3c4ec64717c02ade702d))",
+        "prerelease": false,
+        "asset": {
+          "id": 178211923,
+          "name": "MinecraftCommandRegister-v2.13.0.mcdr",
+          "size": 1610,
+          "download_count": 150,
+          "created_at": "2024-07-07T18:50:58Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v2.13.0/MinecraftCommandRegister-v2.13.0.mcdr",
+          "hash_md5": "138091a20e68259a48a03732daa9fbe3",
+          "hash_sha256": "4fa90200da0b3abbd751719ade9365fdb5a3d9c2dfc8450fd6612f5926d92d47"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "2.13.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.13.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.7.3",
+        "name": "minecraft_command_register: v1.7.3",
+        "tag_name": "minecraft_command_register-v1.7.3",
+        "created_at": "2023-12-21T15:44:57Z",
+        "description": "## [1.7.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.7.2...minecraft_command_register-v1.7.3) (2023-12-21)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.12.3 ([95c1aec](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/95c1aec91285765dfab0077bd31083e955234729))",
+        "prerelease": false,
+        "asset": {
+          "id": 141828404,
+          "name": "MinecraftCommandRegister-v1.7.3.mcdr",
+          "size": 1613,
+          "download_count": 307,
+          "created_at": "2023-12-21T15:45:38Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.7.3/MinecraftCommandRegister-v1.7.3.mcdr",
+          "hash_md5": "f57cdbfe308beacff7546b92f60c8bf6",
+          "hash_sha256": "2a9f68280a74fc2f26b54d0a9fbb318165a1ad1e42f621dda9ae24025e58a716"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.7.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.12.3"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.7.2",
+        "name": "minecraft_command_register: v1.7.2",
+        "tag_name": "minecraft_command_register-v1.7.2",
+        "created_at": "2023-12-21T15:31:58Z",
+        "description": "## [1.7.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.7.1...minecraft_command_register-v1.7.2) (2023-12-21)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.12.2 ([ff31cec](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/ff31cecd6bec11f5d82b2e6eca2854bd8d8e175a))",
+        "prerelease": false,
+        "asset": {
+          "id": 141825125,
+          "name": "MinecraftCommandRegister-v1.7.2.mcdr",
+          "size": 1612,
+          "download_count": 59,
+          "created_at": "2023-12-21T15:32:38Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.7.2/MinecraftCommandRegister-v1.7.2.mcdr",
+          "hash_md5": "a3892d1612dd48f19f2d7f3ce60eae4c",
+          "hash_sha256": "82b7d86670074c83a7aeb7a467b796312b7f15d77fe88874e782c6a40e281aad"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.7.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.12.2"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.7.1",
+        "name": "minecraft_command_register: v1.7.1",
+        "tag_name": "minecraft_command_register-v1.7.1",
+        "created_at": "2023-12-10T15:23:59Z",
+        "description": "## [1.7.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.7.0...minecraft_command_register-v1.7.1) (2023-12-10)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.12.1 ([9770fe8](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/9770fe8c27c8df68cd2315d64130f04f8ad5aaa6))",
+        "prerelease": false,
+        "asset": {
+          "id": 139937491,
+          "name": "MinecraftCommandRegister-v1.7.1.mcdr",
+          "size": 1611,
+          "download_count": 79,
+          "created_at": "2023-12-10T15:24:48Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.7.1/MinecraftCommandRegister-v1.7.1.mcdr",
+          "hash_md5": "6c69c15af70c62933233dbe7266242cc",
+          "hash_sha256": "e509d31baedcce4a92a9d7f7204c1a483103aa76fea58738eb17805a2002a0d9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.7.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.12.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.7.0",
+        "name": "minecraft_command_register: v1.7.0",
+        "tag_name": "minecraft_command_register-v1.7.0",
+        "created_at": "2023-12-10T11:59:46Z",
+        "description": "## [1.7.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.6.0...minecraft_command_register-v1.7.0) (2023-12-10)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.12.0 ([b61cb7a](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b61cb7a383dd31ea19d19725a106f254e512adb3))",
+        "prerelease": false,
+        "asset": {
+          "id": 139921981,
+          "name": "MinecraftCommandRegister-v1.7.0.mcdr",
+          "size": 1612,
+          "download_count": 54,
+          "created_at": "2023-12-10T12:00:22Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.7.0/MinecraftCommandRegister-v1.7.0.mcdr",
+          "hash_md5": "81c263505a6264f5f7e4d8ff5fa97594",
+          "hash_sha256": "03a99a467e6c76f877c9533e05caf81d8973f3fed85fb7e844265ae9eb35ed27"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.7.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.12.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.6.0",
+        "name": "minecraft_command_register: v1.6.0",
+        "tag_name": "minecraft_command_register-v1.6.0",
+        "created_at": "2023-10-13T11:15:35Z",
+        "description": "## [1.6.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.5.1...minecraft_command_register-v1.6.0) (2023-10-13)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.11.0 ([f7dd014](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f7dd0146406adf9a8aee907ccb47339fa3ef0351))",
+        "prerelease": false,
+        "asset": {
+          "id": 130423971,
+          "name": "MinecraftCommandRegister-v1.6.0.mcdr",
+          "size": 1612,
+          "download_count": 127,
+          "created_at": "2023-10-13T11:16:22Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.6.0/MinecraftCommandRegister-v1.6.0.mcdr",
+          "hash_md5": "710fddd82f6d10378a499eba89c7fd33",
+          "hash_sha256": "c258158e0fd086604020393c1809b6363d2c91378e67fae5cbe15aabccedaad2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.6.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.11.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.5.1",
+        "name": "minecraft_command_register: v1.5.1",
+        "tag_name": "minecraft_command_register-v1.5.1",
+        "created_at": "2023-07-25T10:00:33Z",
+        "description": "## [1.5.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.5.0...minecraft_command_register-v1.5.1) (2023-07-25)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.10.1 ([8b8be16](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/8b8be16b00dbe0ca15694573072859e7bc4c2892))",
+        "prerelease": false,
+        "asset": {
+          "id": 118518719,
+          "name": "MinecraftCommandRegister-v1.5.1.mcdr",
+          "size": 1612,
+          "download_count": 207,
+          "created_at": "2023-07-25T10:01:21Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.5.1/MinecraftCommandRegister-v1.5.1.mcdr",
+          "hash_md5": "43cbbacc4b148502e1c0681d05c17bc4",
+          "hash_sha256": "51ff7e3c81dbde560ec48c1d2f93a676eaf40cf05b59a1ab66ed928680c96ac6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.5.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.10.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.5.0",
+        "name": "minecraft_command_register: v1.5.0",
+        "tag_name": "minecraft_command_register-v1.5.0",
+        "created_at": "2023-07-18T14:07:17Z",
+        "description": "## [1.5.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.4.1...minecraft_command_register-v1.5.0) (2023-07-18)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.10.0 ([a00862a](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/a00862a05434812a5ccd108156307c52eec3bc2b))",
+        "prerelease": false,
+        "asset": {
+          "id": 117528580,
+          "name": "MinecraftCommandRegister-v1.5.0.mcdr",
+          "size": 1612,
+          "download_count": 72,
+          "created_at": "2023-07-18T14:08:03Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.5.0/MinecraftCommandRegister-v1.5.0.mcdr",
+          "hash_md5": "2484a7ad8fb2a4de837e39a4103a7ffb",
+          "hash_sha256": "ae0fae1eb31cc85b9e1bc9aac512a705c39f9c88dc146249e9dcc719234001d2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.5.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.10.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.4.1",
+        "name": "minecraft_command_register: v1.4.1",
+        "tag_name": "minecraft_command_register-v1.4.1",
+        "created_at": "2023-06-17T06:58:49Z",
+        "description": "## [1.4.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.4.0...minecraft_command_register-v1.4.1) (2023-06-17)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.9.1 ([5a204ff](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/5a204ff01f4cca553adbe68c596c99d7f1629848))",
+        "prerelease": false,
+        "asset": {
+          "id": 113162100,
+          "name": "MinecraftCommandRegister-v1.4.1.mcdr",
+          "size": 1610,
+          "download_count": 127,
+          "created_at": "2023-06-17T06:59:28Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.4.1/MinecraftCommandRegister-v1.4.1.mcdr",
+          "hash_md5": "bc90fafd1f588472ecf3ba27c47bff09",
+          "hash_sha256": "2bd9c38c36b951fc6caebc690e78e21c40b5a959a1102e7f7b5dd063e1a1cad1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.4.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.9.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.4.0",
+        "name": "minecraft_command_register: v1.4.0",
+        "tag_name": "minecraft_command_register-v1.4.0",
+        "created_at": "2023-05-20T20:57:16Z",
+        "description": "## [1.4.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.3.2...minecraft_command_register-v1.4.0) (2023-05-20)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.9.0 ([b80820c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b80820c2d98c9da0e985ab896e044d85b15c0686))",
+        "prerelease": false,
+        "asset": {
+          "id": 109061196,
+          "name": "MinecraftCommandRegister-v1.4.0.mcdr",
+          "size": 1611,
+          "download_count": 84,
+          "created_at": "2023-05-20T20:57:59Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.4.0/MinecraftCommandRegister-v1.4.0.mcdr",
+          "hash_md5": "493156f45e499889a3d38bd1bfd7863b",
+          "hash_sha256": "a7f74c08ff7f6d63a1d0e7e2bffe0ccb24b710a5310bfde8cd9add6af4e93a8b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.4.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.9.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.3.2",
+        "name": "minecraft_command_register: v1.3.2",
+        "tag_name": "minecraft_command_register-v1.3.2",
+        "created_at": "2023-04-04T11:16:01Z",
+        "description": "## [1.3.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.3.1...minecraft_command_register-v1.3.2) (2023-04-04)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.8.3 ([55e8b8f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/55e8b8ff8347b3e12a0870e0fd5cf038b578fd54))",
+        "prerelease": false,
+        "asset": {
+          "id": 102251774,
+          "name": "MinecraftCommandRegister-v1.3.2.mcdr",
+          "size": 1610,
+          "download_count": 134,
+          "created_at": "2023-04-04T11:16:47Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.3.2/MinecraftCommandRegister-v1.3.2.mcdr",
+          "hash_md5": "a018a9223c0914af58a969d774c13127",
+          "hash_sha256": "bad46465ecdd879be436dea79a77a08c3833e3cb93b3921d129251861187d558"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.3.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.8.3"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.3.1",
+        "name": "minecraft_command_register: v1.3.1",
+        "tag_name": "minecraft_command_register-v1.3.1",
+        "created_at": "2023-04-03T08:47:11Z",
+        "description": "## [1.3.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.3.0...minecraft_command_register-v1.3.1) (2023-04-03)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ MCDR 2.8.2 ([b015132](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b0151329d582f939f30763e60646a940f733c62e))",
+        "prerelease": false,
+        "asset": {
+          "id": 102094160,
+          "name": "MinecraftCommandRegister-v1.3.1.mcdr",
+          "size": 1610,
+          "download_count": 58,
+          "created_at": "2023-04-03T08:47:57Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.3.1/MinecraftCommandRegister-v1.3.1.mcdr",
+          "hash_md5": "87cfb6604b13e47fd3826ad235c3bf9f",
+          "hash_sha256": "9038e7b5d77f502288a10920a382a1b8453b4d06d0245934ce110e98c641f735"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.3.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.8.2"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.3.0",
+        "name": "minecraft_command_register: v1.3.0",
+        "tag_name": "minecraft_command_register-v1.3.0",
+        "created_at": "2023-03-26T19:16:31Z",
+        "description": "## [1.3.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.2.4...minecraft_command_register-v1.3.0) (2023-03-26)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ upgrade to 1.3.0 as MCDR upgrade to 2.8.1 ([c6981ae](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/c6981ae3a0acee1aaba3c21133420347bbd6bba7))",
+        "prerelease": false,
+        "asset": {
+          "id": 101052912,
+          "name": "MinecraftCommandRegister-v1.3.0.mcdr",
+          "size": 1610,
+          "download_count": 66,
+          "created_at": "2023-03-26T19:17:13Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.3.0/MinecraftCommandRegister-v1.3.0.mcdr",
+          "hash_md5": "f10710e0875065c2738a8c50efcb81ea",
+          "hash_sha256": "6caaf252edd1dddb5723462e1dea36f8a0e51a1bbacf2e6f2e812c72cccbc4d8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.3.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.8.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.2.4",
+        "name": "minecraft_command_register: v1.2.4",
+        "tag_name": "minecraft_command_register-v1.2.4",
+        "created_at": "2023-03-14T21:17:48Z",
+        "description": "## [1.2.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.2.3...minecraft_command_register-v1.2.4) (2023-03-14)\n\n\n### Bug Fixes\n\n* **minecraft_command_register:** ⬆️ update to MCDR 2.7.2 ([ab8750d](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/ab8750d1a518636eda690e0d970627ac16912f48))",
+        "prerelease": false,
+        "asset": {
+          "id": 99401399,
+          "name": "MinecraftCommandRegister-v1.2.4.mcdr",
+          "size": 1611,
+          "download_count": 68,
+          "created_at": "2023-03-14T21:18:39Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.2.4/MinecraftCommandRegister-v1.2.4.mcdr",
+          "hash_md5": "c3cbdf729a12819ee8c35b4a4247c877",
+          "hash_sha256": "7f04f2d281dc522c4aee2ec4efb1fa54b9948d793e5f0def60bd9230cdfffda8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.2.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.7.2"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.2.3",
+        "name": "minecraft_command_register: v1.2.3",
+        "tag_name": "minecraft_command_register-v1.2.3",
+        "created_at": "2023-01-26T17:43:28Z",
+        "description": "## [1.2.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.2.2...minecraft_command_register-v1.2.3) (2023-01-26)\n\n\n### Miscellaneous Chores\n\n* **minecraft_command_register:** ⬆️ 1.2.3 for mcdr 2.7.1 ([adf10d6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/adf10d6d77e59359bfcf4c2eae1ddd521c05ba8a))",
+        "prerelease": false,
+        "asset": {
+          "id": 93147023,
+          "name": "MinecraftCommandRegister-v1.2.3.mcdr",
+          "size": 1611,
+          "download_count": 164,
+          "created_at": "2023-01-26T17:44:16Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.2.3/MinecraftCommandRegister-v1.2.3.mcdr",
+          "hash_md5": "9eb9c0bfa5be0d0f7949fbee6c590bbc",
+          "hash_sha256": "be3093d64bc19b47824382a1001f202dbb3613442025e54d49b6f2e47f5f9dde"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.2.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.7.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.2.2",
+        "name": "minecraft_command_register: v1.2.2",
+        "tag_name": "minecraft_command_register-v1.2.2",
+        "created_at": "2023-01-15T10:44:39Z",
+        "description": "## [1.2.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.2.1...minecraft_command_register-v1.2.2) (2023-01-15)\n\n\n### Build System\n\n* **minecraft_command_register:** ➕ v1.2.2 for MCDR v2.7.0 ([04f1681](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/04f1681f8f72319bded2cd4de9e94ca9efd2f46e))",
+        "prerelease": false,
+        "asset": {
+          "id": 91759690,
+          "name": "MinecraftCommandRegister-v1.2.2.mcdr",
+          "size": 1610,
+          "download_count": 137,
+          "created_at": "2023-01-15T10:45:18Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.2.2/MinecraftCommandRegister-v1.2.2.mcdr",
+          "hash_md5": "3cc4d06c1d7e64625d5d7db0d1dbfb5c",
+          "hash_sha256": "059ebc13b513216a54f8dfedec196054cdfe6e052752a7ec7027560f4a7dc54b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.2.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.7.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.2.1",
+        "name": "minecraft_command_register: v1.2.1",
+        "tag_name": "minecraft_command_register-v1.2.1",
+        "created_at": "2022-12-28T20:57:47Z",
+        "description": "## [1.2.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.2.0...minecraft_command_register-v1.2.1) (2022-12-28)\n\n\n### Build System\n\n* **minecraft_command_register:** 🔖 1.2.1 for mcdr 2.6.1 ([103a68c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/103a68ccb1a6d4a8646e2308005b81d7754a5634))",
+        "prerelease": false,
+        "asset": {
+          "id": 89793259,
+          "name": "MinecraftCommandRegister-v1.2.1.mcdr",
+          "size": 1611,
+          "download_count": 141,
+          "created_at": "2022-12-28T20:58:26Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.2.1/MinecraftCommandRegister-v1.2.1.mcdr",
+          "hash_md5": "719dfac2eaf8fe6b74c682c48f7579c4",
+          "hash_sha256": "a0f4433297b125e9e808d1027a6d25f15d7eedfe066a5e2a9d4e117aaf24e6fa"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.2.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.6.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.2.0",
+        "name": "minecraft_command_register: v1.2.0",
+        "tag_name": "minecraft_command_register-v1.2.0",
+        "created_at": "2022-12-01T20:51:07Z",
+        "description": "## [1.2.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.1.1...minecraft_command_register-v1.2.0) (2022-12-01)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ optimize data format ([2f1f660](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2f1f660eb3c8e3be6faaed595a69e9f8036a6fdd))\n* **minecraft_command_register:** make minecraft_command_register fits the mod MCDRCommandFabric ([#66](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/66)) ([aa24c67](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/aa24c67d8947db258c72ff7f76f69b35965db192))",
+        "prerelease": false,
+        "asset": {
+          "id": 86671276,
+          "name": "MinecraftCommandRegister-v1.2.0.mcdr",
+          "size": 1611,
+          "download_count": 171,
+          "created_at": "2022-12-01T20:51:49Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.2.0/MinecraftCommandRegister-v1.2.0.mcdr",
+          "hash_md5": "20ef40f1a45c89385a47e0b0a655749e",
+          "hash_sha256": "ce0f71ae32bc69ef2c0092ed63518ec41ce9e1cca6eec78626c809b372b9b94f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.2.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang",
+            "ZhuRuoLing"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.1.1",
+        "name": "minecraft_command_register: v1.1.1",
+        "tag_name": "minecraft_command_register-v1.1.1",
+        "created_at": "2022-11-20T23:20:25Z",
+        "description": "## [1.1.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.1.0...minecraft_command_register-v1.1.1) (2022-11-20)\n\n\n### Bug Fixes\n\n* **minecraft_command_register:** 🐛 fix execute command ([87157ed](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/87157ed152095976acd7c7ac06491ce03e4724f2))",
+        "prerelease": false,
+        "asset": {
+          "id": 85348070,
+          "name": "MinecraftCommandRegister-v1.1.1.mcdr",
+          "size": 1331,
+          "download_count": 159,
+          "created_at": "2022-11-20T23:21:04Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.1.1/MinecraftCommandRegister-v1.1.1.mcdr",
+          "hash_md5": "fd55dfc1744d09fd51a4712c8f743666",
+          "hash_sha256": "cd7e4bf3f45d80760d9ea7d46bd53eb6ca3a1f3dd8dc455129d1682224b70e9b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.1.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.1.0",
+        "name": "minecraft_command_register: v1.1.0",
+        "tag_name": "minecraft_command_register-v1.1.0",
+        "created_at": "2022-11-20T22:32:28Z",
+        "description": "## [1.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/minecraft_command_register-v1.0.0...minecraft_command_register-v1.1.0) (2022-11-20)\n\n\n### Features\n\n* **minecraft_command_register:** ✨ add debug logs ([53098b2](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/53098b20d5904970e6ba959b6cca8e8ac7409967))\n\n\n### Bug Fixes\n\n* **minecraft_command_register:** 🔥 remove event listener ([4dc2dbb](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4dc2dbb27de685adb283410a36c6602bea5b15ca))",
+        "prerelease": false,
+        "asset": {
+          "id": 85344695,
+          "name": "MinecraftCommandRegister-v1.1.0.mcdr",
+          "size": 1334,
+          "download_count": 113,
+          "created_at": "2022-11-20T22:33:08Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.1.0/MinecraftCommandRegister-v1.1.0.mcdr",
+          "hash_md5": "b16a33e06c91fc59124bf5ffd0011aed",
+          "hash_sha256": "f60eec7141087e2fc0ad2f691f269bb645cf9a2e78fa30ee5d3b68adde5506f5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/minecraft_command_register-v1.0.0",
+        "name": "minecraft_command_register: v1.0.0",
+        "tag_name": "minecraft_command_register-v1.0.0",
+        "created_at": "2022-11-20T17:02:21Z",
+        "description": "## 1.0.0 (2022-11-20)\n\n\n### Features\n\n* **minecraft_command_register:** 🎉 new plugin minecraft_command_register ([2006045](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/200604503d80543cecaa85de87194dca14443956))",
+        "prerelease": false,
+        "asset": {
+          "id": 85320609,
+          "name": "MinecraftCommandRegister-v1.0.0.mcdr",
+          "size": 1368,
+          "download_count": 118,
+          "created_at": "2022-11-20T17:02:54Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/minecraft_command_register-v1.0.0/MinecraftCommandRegister-v1.0.0.mcdr",
+          "hash_md5": "bd4183f96990156269a1b64e69ccf7d8",
+          "hash_sha256": "693b97a77c124ea223b9c01eb60820debfe30108e2282a672927f39b28eab98f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_command_register",
+          "name": "Minecraft Command Register",
+          "version": "1.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/minecraft_command_register",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Register MCDReforged commands in Minecraft",
+            "zh_cn": "在 Minecraft 中注册 MCDReforged 指令"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 99,
+    "watchers_count": 99,
+    "forks_count": 51,
+    "readme": "# Minecraft Command Register\n\n> 在 Minecraft 中注册 MCDReforged 指令\n\n例：`!!MCDR` 将被注册为 `/!!MCDR`、`!!qb` 将被注册为 `/!!qb`\n\n<https://user-images.githubusercontent.com/37402126/206166484-891245f2-d148-487d-b7be-1b79766144bd.mp4>\n\n## MCDR 版本对照表\n\n对于特定的 MCDR 版本，您应当使用对应的本插件版本\n\n| MCDR 版本 | 插件版本   |\n| ------- | ------ |\n| 2.6.0   | 1.2.0  |\n| 2.6.1   | 1.2.1  |\n| 2.7.0   | 1.2.2  |\n| 2.7.1   | 1.2.3  |\n| 2.7.2   | 1.2.4  |\n| 2.8.0   | None   |\n| 2.8.1   | 1.3.0  |\n| 2.8.2   | 1.3.1  |\n| 2.8.3   | 1.3.2  |\n| 2.8.4   | None   |\n| 2.9.0   | 1.4.0  |\n| 2.9.1   | 1.4.1  |\n| 2.10.0  | 1.5.0  |\n| 2.10.1  | 1.5.1  |\n| 2.11.0  | 1.6.0  |\n| 2.12.0  | 1.7.0  |\n| 2.12.1  | 1.7.1  |\n| 2.12.2  | 1.7.2  |\n| 2.12.3  | 1.7.3  |\n| 2.13.0  | 2.13.0 |\n| 2.13.1  | 2.13.1 |\n| 2.13.2  | 2.13.2 |\n| 2.14.0  | 2.14.0 |\n| 2.14.1  | 2.14.1 |\n| 2.14.2  | 2.14.2 |\n| 2.14.3  | 2.14.3 |\n| 2.14.4  | 2.14.4 |\n| 2.14.5  | 2.14.5 |\n| 2.14.7  | 2.14.7 |\n| 2.15.0  | 2.15.0 |\n| 2.15.1  | 2.15.1 |\n| 2.15.2  | 2.15.2 |\n| 2.15.3  | 2.15.3 |\n| 2.15.4  | 2.15.4 |\n| 2.15.5  | 2.15.5 |\n| 2.15.6  | 2.15.6 |\n| 2.15.7  | 2.15.7 |\n\n## 安装指南\n\n### Fabric\n\n安装此插件，并配合 [MCDR Command Fabric](https://modrinth.com/mod/mcdr-command-fabric) 模组使用。\n\n### Forge\n\nComming soon...\n\n### Bukkit\n\nComming soon...\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/minecraft_command_register/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

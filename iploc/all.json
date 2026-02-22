@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "iploc",
+    "name": "IPLocation",
+    "version": "0.1.6",
+    "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0-alpha.1",
+      "player_ip_logger": ">=1.2.0"
+    },
+    "requirements": [
+      "requests"
+    ],
+    "description": {
+      "en_us": "Show the IP location when player joined the game with multiple APIs.",
+      "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "iploc",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/IPLocation-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "# IPLocation-MCDR\n本插件适合中国大陆地区用户使用。\n\n启用了此插件后，在玩家上线时，会使用淘宝IP地址库查询并显示其IP归属地。\n\n后续可能会更新与之相关的更多功能。\n\n## 用法\n开箱即用。\n\n## 依赖项\n- 必需依赖：Pypi包request（多数情况下你的Python环境中已经安装好了）\n- 必需依赖：MCDR插件[Player IP Logger](https://mcdreforged.com/zh-CN/plugin/player_ip_logger)（用于获取玩家的IP地址）\n- 可选依赖：MCDR插件[MatrixSync](https://mcdreforged.com/zh-CN/plugin/matrix_sync)（可实现IP归属地广播到Matrix房间内）\n\n## 效果\n> 控制台效果：\n> ![屏幕截图_20240930_224343](https://github.com/user-attachments/assets/2e36d77c-2237-48e9-a0bf-b5695574d375)\n> 游戏内效果：\n> ![Screenshot_20240930-225430_Minecraft](https://github.com/user-attachments/assets/42bad1a3-623f-4da2-9a36-6e6a0f32861d)\n\n\n\n## 注意\n若无法查询出IP归属地，可以尝试增加配置（config/iploc/config.json）中的retry数，默认查询3次应该足以查询出结果了。\n\n目前没有找到可用的获取淘宝IP地址库的访问密钥（accessKey）的方法，因此暂不提供配置，使用通用方案，如果你有可用性更好的访问密钥可以修改源代码并使用。\n\n## 局限性\n使用的接口：淘宝IP地址库、百度，精准度和可用性难以保证。\n\n提示语句暂不能自定义，计划于后续进行支持。\n\n## 其他\n目前尚无相关的同类MCDR插件，而Spigot插件EssentialsX GeoIP配置比较繁琐且有时提供的信息不完整，因此开发此插件。\n\n如果您有更好的方案，可以自行开发并进行完善，当有更好用的项目出现后，本项目可能会考虑存档并停止更新。\n",
+      "zh_cn": "# IPLocation-MCDR\n本插件适合中国大陆地区用户使用。\n\n启用了此插件后，在玩家上线时，会使用淘宝IP地址库查询并显示其IP归属地。\n\n后续可能会更新与之相关的更多功能。\n\n## 用法\n开箱即用。\n\n## 依赖项\n- 必需依赖：Pypi包request（多数情况下你的Python环境中已经安装好了）\n- 必需依赖：MCDR插件[Player IP Logger](https://mcdreforged.com/zh-CN/plugin/player_ip_logger)（用于获取玩家的IP地址）\n- 可选依赖：MCDR插件[MatrixSync](https://mcdreforged.com/zh-CN/plugin/matrix_sync)（可实现IP归属地广播到Matrix房间内）\n\n## 效果\n> 控制台效果：\n> ![屏幕截图_20240930_224343](https://github.com/user-attachments/assets/2e36d77c-2237-48e9-a0bf-b5695574d375)\n> 游戏内效果：\n> ![Screenshot_20240930-225430_Minecraft](https://github.com/user-attachments/assets/42bad1a3-623f-4da2-9a36-6e6a0f32861d)\n\n\n\n## 注意\n若无法查询出IP归属地，可以尝试增加配置（config/iploc/config.json）中的retry数，默认查询3次应该足以查询出结果了。\n\n目前没有找到可用的获取淘宝IP地址库的访问密钥（accessKey）的方法，因此暂不提供配置，使用通用方案，如果你有可用性更好的访问密钥可以修改源代码并使用。\n\n## 局限性\n使用的接口：淘宝IP地址库、百度，精准度和可用性难以保证。\n\n提示语句暂不能自定义，计划于后续进行支持。\n\n## 其他\n目前尚无相关的同类MCDR插件，而Spigot插件EssentialsX GeoIP配置比较繁琐且有时提供的信息不完整，因此开发此插件。\n\n如果您有更好的方案，可以自行开发并进行完善，当有更好用的项目出现后，本项目可能会考虑存档并停止更新。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/IPLocation-MCDR/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/IPLocation-MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "iploc",
+    "latest_version": "0.1.6",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.1.6",
+        "name": "v0.1.6",
+        "tag_name": "0.1.6",
+        "created_at": "2024-12-24T05:48:31Z",
+        "description": "- 修复了玩家的IP地址为本地回环地址时，调用百度API查询时抛出报错的情况，建议立即更新\r\n- 支持MatrixSync的2.5+版本，并且先前版本不再支持。\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/IPLocation-MCDR/compare/0.1.4...0.1.6",
+        "prerelease": false,
+        "asset": {
+          "id": 215512577,
+          "name": "IPLocation-v0.1.6.mcdr",
+          "size": 17735,
+          "download_count": 269,
+          "created_at": "2024-12-24T05:52:36Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.1.6/IPLocation-v0.1.6.mcdr",
+          "hash_md5": "0af30586820d1148d54b2a987a2da12c",
+          "hash_sha256": "22aa4724c47b40e3b03c6bfe26e9ac825202bdf822fd7f911893a70cfd9cd3b4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.1.6",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1",
+            "player_ip_logger": ">=1.2.0"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game with multiple APIs.",
+            "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.1.4",
+        "name": "v0.1.4",
+        "tag_name": "0.1.4",
+        "created_at": "2024-12-07T15:37:59Z",
+        "description": "修改源代码中部分注释内容，无实际更新",
+        "prerelease": false,
+        "asset": {
+          "id": 211761766,
+          "name": "IPLocation-v0.1.4.mcdr",
+          "size": 17605,
+          "download_count": 45,
+          "created_at": "2024-12-07T15:40:19Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.1.4/IPLocation-v0.1.4.mcdr",
+          "hash_md5": "8ed8c6a38d9afffb946b79c5d323d008",
+          "hash_sha256": "8eef375b6113c288a54702fb27d5ada7e4e381724995e9bc933342e610b82615"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.1.4",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1",
+            "player_ip_logger": ">=1.2.0"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game with multiple APIs.",
+            "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.1.3",
+        "name": "v0.1.3",
+        "tag_name": "0.1.3",
+        "created_at": "2024-11-18T14:30:28Z",
+        "description": "- 现在你可以在配置文件内修改IP归属地的提示消息格式了\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/IPLocation-MCDR/compare/0.1.2...0.1.3",
+        "prerelease": false,
+        "asset": {
+          "id": 207345365,
+          "name": "IPLocation-v0.1.3.mcdr",
+          "size": 17677,
+          "download_count": 53,
+          "created_at": "2024-11-18T14:44:19Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.1.3/IPLocation-v0.1.3.mcdr",
+          "hash_md5": "9c0703f1041df9548f42908f60eeb6fe",
+          "hash_sha256": "2e8b4bda6b75391c81a32a58bfd599b4ddd736c60e39ac9fb66dd421cb6c9aea"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.1.3",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1",
+            "player_ip_logger": ">=1.2.0"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game with multiple APIs.",
+            "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.1.2",
+        "name": "v0.1.2",
+        "tag_name": "0.1.2",
+        "created_at": "2024-11-12T18:43:47Z",
+        "description": "- 可选更新：彻底移除了对插件MatrixSync v2.3.x接口的支持，请有需求的用户更新此插件\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/IPLocation-MCDR/compare/0.1.1...0.1.2",
+        "prerelease": false,
+        "asset": {
+          "id": 207102726,
+          "name": "IPLocation-v0.1.2.mcdr",
+          "size": 17587,
+          "download_count": 33,
+          "created_at": "2024-11-17T11:00:06Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.1.2/IPLocation-v0.1.2.mcdr",
+          "hash_md5": "68ba2a2aea134d78993f4ae36d7c0423",
+          "hash_sha256": "3cbb7252fb6d82d81fb21570f757f649f42e7647a077339f6004db4c9dbbecc3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.1.2",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1",
+            "player_ip_logger": ">=1.2.0"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game with multiple APIs.",
+            "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.1.1",
+        "name": "v0.1.1",
+        "tag_name": "0.1.1",
+        "created_at": "2024-11-09T11:37:28Z",
+        "description": "- 适配MatrixSync v2.4.0的接口变动（同时支持v2.3.x和v2.4.x，且为最后一个支持v2.3.x的版本）\r\n- 没有新增内容，此版本为可选更新\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/IPLocation-MCDR/compare/0.1.0...0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 205285164,
+          "name": "IPLocation-v0.1.1.mcdr",
+          "size": 17631,
+          "download_count": 33,
+          "created_at": "2024-11-09T11:42:17Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.1.1/IPLocation-v0.1.1.mcdr",
+          "hash_md5": "0aa136552f8e98ab872d80bf34b9d431",
+          "hash_sha256": "9499128254233963c1ebe7e70684acd74a30d1d4bbaf631328eeec8504bf3f2a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.1.1",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1",
+            "player_ip_logger": ">=1.2.0"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game with multiple APIs.",
+            "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.1.0",
+        "name": "0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2024-11-05T13:15:01Z",
+        "description": "**插件已经更新至v0.1.0版本，强烈推荐进行更新！**\r\n\r\n- 对接Player IP Logger，需要安装此MCDR插件\r\n- 新增来自百度的接口，并默认推荐使用（可用接口：baidu、taobao，可在配置的api项中调整）\r\n- 将IP归属地的查询放在新线程中执行，避免阻塞\r\n- 插件源代码结构大幅重构，更清晰易读\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/IPLocation-MCDR/compare/0.0.2...0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 204278617,
+          "name": "IPLocation-v0.1.0.mcdr",
+          "size": 17821,
+          "download_count": 40,
+          "created_at": "2024-11-05T13:34:33Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.1.0/IPLocation-v0.1.0.mcdr",
+          "hash_md5": "17002ea98ace8df98348ece122139722",
+          "hash_sha256": "24f78d76f507b6feedd0dab97822627cbea29af81011b2de6a10f9be89a04962"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1",
+            "player_ip_logger": ">=1.2.0"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game with multiple APIs.",
+            "zh_cn": "使用多种API，在玩家上线时显示其IP归属地。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2024-09-30T14:47:19Z",
+        "description": "[+]在玩家上线时查询并显示其IP归属地\r\n> **Full Changelog**: https://github.com/Mooling0602/IPLocation-MCDR/commits/0.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 198913224,
+          "name": "IPLocation-v0.0.1.mcdr",
+          "size": 2478,
+          "download_count": 59,
+          "created_at": "2024-10-14T06:33:59Z",
+          "browser_download_url": "https://github.com/Mooling0602/IPLocation-MCDR/releases/download/0.0.1/IPLocation-v0.0.1.mcdr",
+          "hash_md5": "bb5636dad1264eba7fa975dca672dd2f",
+          "hash_sha256": "c60e6ebf71e3a0fbbf1bfcf22631b023a875f8ab383b116697bc6717823aad2e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "iploc",
+          "name": "IPLocation",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/IPLocation-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0-alpha.1"
+          },
+          "requirements": [
+            "requests"
+          ],
+          "description": {
+            "en_us": "Show the IP location when player joined the game.",
+            "zh_cn": "在玩家上线时显示其IP归属地。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/IPLocation-MCDR",
+    "name": "IPLocation-MCDR",
+    "full_name": "Mooling0602/IPLocation-MCDR",
+    "html_url": "https://github.com/Mooling0602/IPLocation-MCDR",
+    "description": "A MCDR plugin, to show the IP location when a player joined the game.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# IPLocation-MCDR\n本插件适合中国大陆地区用户使用。\n\n启用了此插件后，在玩家上线时，会使用淘宝IP地址库查询并显示其IP归属地。\n\n后续可能会更新与之相关的更多功能。\n\n## 用法\n开箱即用。\n\n## 依赖项\n- 必需依赖：Pypi包request（多数情况下你的Python环境中已经安装好了）\n- 必需依赖：MCDR插件[Player IP Logger](https://mcdreforged.com/zh-CN/plugin/player_ip_logger)（用于获取玩家的IP地址）\n- 可选依赖：MCDR插件[MatrixSync](https://mcdreforged.com/zh-CN/plugin/matrix_sync)（可实现IP归属地广播到Matrix房间内）\n\n## 效果\n> 控制台效果：\n> ![屏幕截图_20240930_224343](https://github.com/user-attachments/assets/2e36d77c-2237-48e9-a0bf-b5695574d375)\n> 游戏内效果：\n> ![Screenshot_20240930-225430_Minecraft](https://github.com/user-attachments/assets/42bad1a3-623f-4da2-9a36-6e6a0f32861d)\n\n\n\n## 注意\n若无法查询出IP归属地，可以尝试增加配置（config/iploc/config.json）中的retry数，默认查询3次应该足以查询出结果了。\n\n目前没有找到可用的获取淘宝IP地址库的访问密钥（accessKey）的方法，因此暂不提供配置，使用通用方案，如果你有可用性更好的访问密钥可以修改源代码并使用。\n\n## 局限性\n使用的接口：淘宝IP地址库、百度，精准度和可用性难以保证。\n\n提示语句暂不能自定义，计划于后续进行支持。\n\n## 其他\n目前尚无相关的同类MCDR插件，而Spigot插件EssentialsX GeoIP配置比较繁琐且有时提供的信息不完整，因此开发此插件。\n\n如果您有更好的方案，可以自行开发并进行完善，当有更好用的项目出现后，本项目可能会考虑存档并停止更新。\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/IPLocation-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

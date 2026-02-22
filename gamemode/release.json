@@ -1,0 +1,302 @@
+{
+  "schema_version": 8,
+  "id": "gamemode",
+  "latest_version": "1.4.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.4.1",
+      "name": "gamemode: v1.4.1",
+      "tag_name": "gamemode-v1.4.1",
+      "created_at": "2025-08-24T18:56:53Z",
+      "description": "## [1.4.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.4.0...gamemode-v1.4.1) (2025-08-24)\n\n\n### Bug Fixes\n\n* **on_load:** 🐛 improve teleport command to keep the dimension ([05c4c63](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/05c4c638c6efefd47a3cbff2b0894aea17e387f9))",
+      "prerelease": false,
+      "asset": {
+        "id": 285776046,
+        "name": "Gamemode-v1.4.1.mcdr",
+        "size": 6329,
+        "download_count": 876,
+        "created_at": "2025-08-24T18:59:35Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.4.1/Gamemode-v1.4.1.mcdr",
+        "hash_md5": "a54f03d89b294a0afcbe701239a08e96",
+        "hash_sha256": "7d7db842627a855ca4967b8c6a51adaa47b01c84f092cde9e155a45f0d4b710d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.4.1",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.7.0",
+          "minecraft_data_api": "^1.4.0",
+          "online_player_api": "^1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.4.0",
+      "name": "gamemode: v1.4.0",
+      "tag_name": "gamemode-v1.4.0",
+      "created_at": "2025-08-19T01:27:43Z",
+      "description": "## [1.4.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.3.0...gamemode-v1.4.0) (2025-08-19)\n\n\n### Features\n\n* **gamemode:** allow teleport to players ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** features and bux fixes ([#282](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/282)) ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** rotate player to initial angle when switching from spectator to survival mode ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** support configurable data.json save path ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** support configurable short_commands ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** support tilde(`~`) in `tp` command ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** update config file ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** update help message ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** validate player param online using online_player_api ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n\n\n### Bug Fixes\n\n* **gamemode:** fix `!!spec <player>` exception when player doesn't exist ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** improve coordinate validation using regex ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** initialize loop_manager to None ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n* **gamemode:** normalize player name when using another player's name ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))\n\n\n### Performance Improvements\n\n* **gamemode:** remove duplicate player position queries; Optimize player position queries ([f289890](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/f2898902adc430256973450843da42ee2be5bebd))",
+      "prerelease": false,
+      "asset": {
+        "id": 283871938,
+        "name": "Gamemode-v1.4.0.mcdr",
+        "size": 6357,
+        "download_count": 109,
+        "created_at": "2025-08-19T01:29:32Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.4.0/Gamemode-v1.4.0.mcdr",
+        "hash_md5": "b0eb903c544a0c7c5843b355194a420e",
+        "hash_sha256": "d10677cd95c5b291b842ee5851cdcdf3bc6749480decd7a9c745bb50e8b5ebbc"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.4.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.7.0",
+          "minecraft_data_api": "^1.4.0",
+          "online_player_api": "^1.2.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.3.0",
+      "name": "gamemode: v1.3.0",
+      "tag_name": "gamemode-v1.3.0",
+      "created_at": "2025-08-17T22:14:46Z",
+      "description": "## [1.3.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.2.0...gamemode-v1.3.0) (2025-08-17)\r\n\r\n\r\n### Features\r\n\r\n* ✨ update config ([6a66116](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/6a6611663f53edceec740dd85f63ef142c8a91d9))\r\n\r\n> [!NOTE]  \r\n> Config file structure has been updated, please migrate if needed. See [readme](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode) for more details.",
+      "prerelease": false,
+      "asset": {
+        "id": 283460330,
+        "name": "Gamemode-v1.3.0.mcdr",
+        "size": 4292,
+        "download_count": 52,
+        "created_at": "2025-08-17T22:16:22Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.3.0/Gamemode-v1.3.0.mcdr",
+        "hash_md5": "cbc2ffb5f31505e2411349d6b1311bea",
+        "hash_sha256": "e42df08af1688e3847acfab34742671bf0faa351b74986bf2f058772928306c7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.3.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.7.0",
+          "minecraft_data_api": ">=1.4"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.2.0",
+      "name": "gamemode: v1.2.0",
+      "tag_name": "gamemode-v1.2.0",
+      "created_at": "2025-08-17T21:55:17Z",
+      "description": "## [1.2.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.1.0...gamemode-v1.2.0) (2025-08-17)\n\n\n### Features\n\n* **gamemode:** range limit ([304a078](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/304a078a3addd0213bd1804bdb819f4beef25eab))\n* **gamemode:** update command requirements ([b0a7b91](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/b0a7b91fb51bbe6982ac3a02d23deaffa86d753d))\n\n\n### Bug Fixes\n\n* **gamemode:** load monitored players on load ([5b73651](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/5b7365145433a2b7c7f89aac52c204059c96b56e))",
+      "prerelease": false,
+      "asset": {
+        "id": 283456806,
+        "name": "Gamemode-v1.2.0.mcdr",
+        "size": 4268,
+        "download_count": 40,
+        "created_at": "2025-08-17T21:56:46Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.2.0/Gamemode-v1.2.0.mcdr",
+        "hash_md5": "9ebcd5ebea4df5b117ac17674f280a3a",
+        "hash_sha256": "b9f3f938b673b24b61ca2cc88fd81c88e2680dfc228499ce3e3272b2bf36f308"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.2.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "mcdreforged": "^2.7.0",
+          "minecraft_data_api": ">=1.4"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.1.0",
+      "name": "gamemode: v1.1.0",
+      "tag_name": "gamemode-v1.1.0",
+      "created_at": "2023-12-26T11:40:23Z",
+      "description": "## [1.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.0.1...gamemode-v1.1.0) (2023-12-26)\n\n\n### Features\n\n* **gamemode:** ✨ add shorter command !s ([5ac0725](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/5ac0725dc950478e5d21d275eb8d6a2c6dbc0e81))\n* **gamemode:** ✨ update help messsage ([015850e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/015850ea4c8c9faa54872b7e927ef9ac707b9625))",
+      "prerelease": false,
+      "asset": {
+        "id": 142481189,
+        "name": "Gamemode-v1.1.0.mcdr",
+        "size": 3243,
+        "download_count": 2119,
+        "created_at": "2023-12-26T11:40:57Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.1.0/Gamemode-v1.1.0.mcdr",
+        "hash_md5": "3ae360d6df16ba34029b65047665c6b3",
+        "hash_sha256": "a2194c0f9e177a34981c0149641521b528a60035078503566ca0b6aacd847476"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.1.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "minecraft_data_api": ">=1.4"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.0.1",
+      "name": "gamemode: v1.0.1",
+      "tag_name": "gamemode-v1.0.1",
+      "created_at": "2023-03-18T15:37:46Z",
+      "description": "## [1.0.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v1.0.0...gamemode-v1.0.1) (2023-03-18)\n\n\n### Bug Fixes\n\n* **gamemode:** 👽️ fix config api issue (fix [#114](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/114)) ([2ed962f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2ed962f914adfc9184e228bf7b80161482136968))",
+      "prerelease": false,
+      "asset": {
+        "id": 99936961,
+        "name": "Gamemode-v1.0.1.mcdr",
+        "size": 3175,
+        "download_count": 975,
+        "created_at": "2023-03-18T15:38:32Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.0.1/Gamemode-v1.0.1.mcdr",
+        "hash_md5": "d908265459ceffe1cb763d63926c1b80",
+        "hash_sha256": "87e4a0edd630aa9e8798539b9f6fad612ce02e18f3fe440d73166512d71ef621"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.0.1",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "minecraft_data_api": ">=1.4"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v1.0.0",
+      "name": "gamemode: v1.0.0",
+      "tag_name": "gamemode-v1.0.0",
+      "created_at": "2022-12-02T14:11:00Z",
+      "description": "## [1.0.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/gamemode-v0.1.0...gamemode-v1.0.0) (2022-12-02)\n\n\n### Bug Fixes\n\n* **gamemode:** 🐛 fix load_config_simple as MCDR api changed (fix [#68](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/68)) ([2dd500e](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/2dd500edf5978cff513e2aa5c638276f7e2963cb))\n\n\n### Miscellaneous Chores\n\n* **gamemode:** 🔖 1.0.0 ([1369ad8](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/1369ad83260f3b5a99ab1a5ada387f5f7042e755))",
+      "prerelease": false,
+      "asset": {
+        "id": 86758525,
+        "name": "Gamemode-v1.0.0.mcdr",
+        "size": 3132,
+        "download_count": 469,
+        "created_at": "2022-12-02T14:11:43Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v1.0.0/Gamemode-v1.0.0.mcdr",
+        "hash_md5": "381fac7103090337751106d0436c186c",
+        "hash_sha256": "31813271bbcd9f1961259fdb4e2ffa766d3e2a2d1ca4fdcfc4e9eddc1a84d399"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "1.0.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "minecraft_data_api": ">=1.4"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/gamemode-v0.1.0",
+      "name": "gamemode: v0.1.0",
+      "tag_name": "gamemode-v0.1.0",
+      "created_at": "2022-06-30T09:28:12Z",
+      "description": "## 0.1.0 (2022-06-30)\n\n\n### Features\n\n* **gamemode:** ✨ support MCDR 2.0 ([d999f4a](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/d999f4aa3ea606dd26c98643f18ed5cf47d64664))",
+      "prerelease": false,
+      "asset": {
+        "id": 70132164,
+        "name": "Gamemode-v0.1.0.mcdr",
+        "size": 3097,
+        "download_count": 407,
+        "created_at": "2022-06-30T09:29:07Z",
+        "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/gamemode-v0.1.0/Gamemode-v0.1.0.mcdr",
+        "hash_md5": "524bf63efbfe85cd70a766cbfb9bab5c",
+        "hash_sha256": "dcdcf8c366f1886a91657064be8ac23abe8e09af750a19bcde0e1b4c4816a669"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "gamemode",
+        "name": "Gamemode",
+        "version": "0.1.0",
+        "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/gamemode",
+        "authors": [
+          "Andy Zhang"
+        ],
+        "dependencies": {
+          "minecraft_data_api": ">=1.4.1"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Change to spectator mode for observe, teleport to origin position when change back to survival mode",
+          "zh_cn": "旁观者模式以旁观，返回生存时传送回原坐标"
+        }
+      }
+    }
+  ]
+}

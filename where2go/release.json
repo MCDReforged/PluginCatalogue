@@ -1,0 +1,517 @@
+{
+  "schema_version": 8,
+  "id": "where2go",
+  "latest_version": "0.6.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.6.0",
+      "name": "v0.6.0",
+      "tag_name": "v0.6.0",
+      "created_at": "2026-01-25T13:53:45Z",
+      "description": "# News\r\n\r\n- 新增 `link` `unlink` `autolink` 指令，为坐标点建立连接，详见README\r\n- 新增 `page_size` 配置项，可自定义使用 `list` `autolink` 等指令时每页显示的坐标点数量\r\n\r\n# Changes\r\n\r\n- 完全重构了坐标点显示工具，由 Display 类迁移到 RText 组件系统\r\n- 重构了翻页工具\r\n- 微调坐标点显示\r\n\r\n# Fixes\r\n\r\n- 修复使用 `info` 指令时可能的报错\r\n- 修复其他已知问题",
+      "prerelease": false,
+      "asset": {
+        "id": 345651036,
+        "name": "Where2go-v0.6.0.mcdr",
+        "size": 28998,
+        "download_count": 75,
+        "created_at": "2026-01-25T14:01:23Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.6.0/Where2go-v0.6.0.mcdr",
+        "hash_md5": "6495498bc0dee06d62884aaff54d37f8",
+        "hash_sha256": "e483bfd15dc349598b3a11a87e9273873e2bfd5ca60735fb4d6200f6c8f9277d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.6.0",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.5.0",
+      "name": "v0.5.0",
+      "tag_name": "v0.5.0",
+      "created_at": "2026-01-01T09:38:29Z",
+      "description": "# News\r\n\r\n- 兼容了 Xaero's Minimap v25.x+ 的添加坐标点事件（ 感谢由 [RethinkQAQ](https://github.com/RethinkQAQ) 提供的格式 #21 ）\r\n- 优化添加坐标点按钮样式\r\n\r\n# Changes\r\n\r\n- 移除了`enable_1_21_5_compat`配置项\r\n- 优化部分逻辑",
+      "prerelease": false,
+      "asset": {
+        "id": 335150892,
+        "name": "Where2go-v0.5.0.mcdr",
+        "size": 24943,
+        "download_count": 79,
+        "created_at": "2026-01-01T09:44:42Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.5.0/Where2go-v0.5.0.mcdr",
+        "hash_md5": "03470c389d32561165fc02e671c6a441",
+        "hash_sha256": "f2224c5495008d9389de2502ce0c99c8dad2fb4c340baebe04941b30f8470f31"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.5.0",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.4.2",
+      "name": "v0.4.2",
+      "tag_name": "v0.4.2",
+      "created_at": "2025-07-28T03:30:52Z",
+      "description": "# News\r\n- 新增 `enable_1_21_5_compat`，用于切换 1.21.5+ 兼容行为。\r\n\r\n# Fixes\r\n- 修复并兼容不同形式的 Internal-... 维度标识，优化 Xaero waypoint 的解析与生成逻辑（ #20 ）。",
+      "prerelease": false,
+      "asset": {
+        "id": 333777144,
+        "name": "Where2go-v0.4.2.mcdr",
+        "size": 24292,
+        "download_count": 24,
+        "created_at": "2025-12-28T14:29:36Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.4.2/Where2go-v0.4.2.mcdr",
+        "hash_md5": "db00aca991409b0d593fdfa3f4f54ac9",
+        "hash_sha256": "80c2a49fe59c6da49dbe1a35ea8927ed39a4605361660522c81da58d5fe01992"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.4.2",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.4.1",
+      "name": "v0.4.1",
+      "tag_name": "v0.4.1",
+      "created_at": "2025-07-28T03:30:52Z",
+      "description": "# Fixes\r\n- 修复`on_user_info`未被正确注册的问题\r\n\r\n# Changes\r\n- 优化了默认配置文件中的正则表达式，现在\"XXX在哪(**里**)(？)\"也可以被正确识别了",
+      "prerelease": false,
+      "asset": {
+        "id": 276948008,
+        "name": "Where2go-v0.4.1.mcdr",
+        "size": 24192,
+        "download_count": 221,
+        "created_at": "2025-07-28T03:34:26Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.4.1/Where2go-v0.4.1.mcdr",
+        "hash_md5": "150006a216aa6bda42777743c8c2d582",
+        "hash_sha256": "0b16094c307dc35fc98926d60734b19a8de403ffc876d9c498c579486695a29b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.4.1",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.4.0",
+      "name": "v0.4.0",
+      "tag_name": "v0.4.0",
+      "created_at": "2025-07-22T14:37:56Z",
+      "description": "# News\r\n\r\n- 新增`!!wp addpos`指令 (#19 )，用于直接基于坐标和维度添加坐标点\r\n- 新增`!!wp addhere`指令，快速将玩家当前位置添加为坐标点\r\n\r\n# Fixes\r\n\r\n- 修复了`en_us`中的部分拼写错误\r\n\r\n# Changes\r\n\r\n- 增加了对`minecraft_data_api`的依赖。由于原先的API存在线程安全问题，现在改用`minecraft_data_api`插件获取玩家坐标等信息",
+      "prerelease": false,
+      "asset": {
+        "id": 275487077,
+        "name": "Where2go-v0.4.0.mcdr",
+        "size": 24161,
+        "download_count": 65,
+        "created_at": "2025-07-23T05:10:26Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.4.0/Where2go-v0.4.0.mcdr",
+        "hash_md5": "8dd096832218f696620c3575203fc9ab",
+        "hash_sha256": "05aaf9e882517fe8ef4ff09d58abf05bccef3a61950823bbdb581a1e06b113ae"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.4.0",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.3.0",
+      "name": "v0.3.0",
+      "tag_name": "v0.3.0",
+      "created_at": "2025-03-19T13:48:04Z",
+      "description": "# News\r\n\r\n- 为添加Xaero坐标点的按钮加入了兼容模式。现在新版本的Xaero模组也可以通过兼容模式来以一种不太优雅的方式添加坐标点了。**需要手动启用，详见README**\r\n\r\n# Fixes\r\n\r\n- 如果分享的坐标点与某个已存储的坐标点的坐标完全相同，那么不会再显示”临时坐标点“了，而是直接显示存储坐标点的信息。\r\n- 为`fastsearch_regex`正则表达式添加了正则分组。\r\n\r\n# Notes\r\n\r\n- **如果你是从低版本的where2go插件升级至此版本的，请删除原先的配置文件或将配置文件中的`fastsearch_regex`改为`\"^(?P<name>\\w+)在哪？?$\"`**，否则可能在快速搜索时出现异常报错。",
+      "prerelease": false,
+      "asset": {
+        "id": 238890375,
+        "name": "Where2go-v0.3.0.mcdr",
+        "size": 23978,
+        "download_count": 334,
+        "created_at": "2025-03-19T13:55:21Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.3.0/Where2go-v0.3.0.mcdr",
+        "hash_md5": "e44600c51f1719706a5164b5a27ec791",
+        "hash_sha256": "389e4f775be3f3b0efb551cc5d36edbfe36224614f8bcf2ed70b612912e38b37"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.3.0",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.2.5",
+      "name": "v0.2.5",
+      "tag_name": "v0.2.5",
+      "created_at": "2024-09-27T16:15:43Z",
+      "description": "# Fixes\r\n- 修复无任何坐标点时查询玩家位置会在控制台异常报错的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 195368525,
+        "name": "Where2go-v0.2.5.mcdr",
+        "size": 23729,
+        "download_count": 394,
+        "created_at": "2024-09-27T16:16:38Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.2.5/Where2go-v0.2.5.mcdr",
+        "hash_md5": "cf8728a3c9b055a478f434867e31e667",
+        "hash_sha256": "95c5a9dcfec9a6ebe1ad662f8fa3b5abea147d97dcc510d10f04163e4afd641a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.2.5",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.2.4",
+      "name": "v0.2.4",
+      "tag_name": "v0.2.4",
+      "created_at": "2024-09-15T11:51:20Z",
+      "description": "# Fixes\r\n- 优化了默认的快速搜索正则表达式",
+      "prerelease": false,
+      "asset": {
+        "id": 192747716,
+        "name": "Where2go-v0.2.4.mcdr",
+        "size": 23721,
+        "download_count": 93,
+        "created_at": "2024-09-15T11:54:46Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.2.4/Where2go-v0.2.4.mcdr",
+        "hash_md5": "605940b1d44a003430a1c00047a58d1c",
+        "hash_sha256": "c8b0977a48541717eb9549f958d71842441d23d7890aa21bf898d14639790ddf"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.2.4",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.2.3",
+      "name": "v0.2.3",
+      "tag_name": "v0.2.3",
+      "created_at": "2024-08-31T14:56:17Z",
+      "description": "# Fixes\r\n- 修复部分情况下配置文件类型错误的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 189565215,
+        "name": "Where2go-v0.2.3.mcdr",
+        "size": 23719,
+        "download_count": 105,
+        "created_at": "2024-08-31T14:58:18Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.2.3/Where2go-v0.2.3.mcdr",
+        "hash_md5": "be4dca5c60efa72362631e8f1a932ad0",
+        "hash_sha256": "d862cf895ed1f4b94a08aa6a5f84dd89dd27d5ec7b087e60ce3108fc9a87ae45"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.2.3",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.2.2",
+      "name": "v0.2.2",
+      "tag_name": "v0.2.2",
+      "created_at": "2024-08-03T12:55:45Z",
+      "description": "# News\r\n- 完成了英文语言文件`en_us.yml`",
+      "prerelease": false,
+      "asset": {
+        "id": 183644392,
+        "name": "Where2go-v0.2.2.mcdr",
+        "size": 23725,
+        "download_count": 94,
+        "created_at": "2024-08-03T12:59:43Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.2.2/Where2go-v0.2.2.mcdr",
+        "hash_md5": "f9ed30c8214f56040c8962812735c518",
+        "hash_sha256": "0e64141782b7b8208fa94b1a0a08ea7b507ce965a2cc1e1277b44fad61c3854c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.2.2",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.2.1",
+      "name": "v0.2.1",
+      "tag_name": "v0.2.1",
+      "created_at": "2024-07-30T06:16:12Z",
+      "description": "# Fixes\r\n- 修复部分版本python下Union返回值类型注释报错的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 182694905,
+        "name": "Where2go-v0.2.1.mcdr",
+        "size": 23771,
+        "download_count": 61,
+        "created_at": "2024-07-30T06:17:13Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.2.1/Where2go-v0.2.1.mcdr",
+        "hash_md5": "f0a95657f1de61f2584986da1c58068a",
+        "hash_sha256": "b0c28598916fe7b0290af2fbeb7887713c9b2cef821fb8ccf20d99cfc0b9af9b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.2.1",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.2.0",
+      "name": "v0.2.0",
+      "tag_name": "v0.2.0",
+      "created_at": "2024-07-28T10:18:40Z",
+      "description": "# News\r\n- 当使用`!!here` `!!vris`和使用快速搜索查找玩家位置时，玩家会添加高亮。高亮指令（包括高亮时间）可以在配置文件中修改\r\n- 更详细的`!!wp info`\r\n\r\n# Fixes\r\n- 修复添加坐标点时部分颜色无法识别的问题\r\n- 修复部分颜色的坐标点无法使用`[+X]`快速添加的问题\r\n- 配置文件优化",
+      "prerelease": false,
+      "asset": {
+        "id": 182329147,
+        "name": "Where2go-v0.2.0.mcdr",
+        "size": 23779,
+        "download_count": 62,
+        "created_at": "2024-07-28T10:20:13Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.2.0/Where2go-v0.2.0.mcdr",
+        "hash_md5": "026214eb9d70b49d07e0a64eebcef91f",
+        "hash_sha256": "69aeee2b75778359d34850529fe9531592d2c1cc8f0c5fd59ac58173f2b6899c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.2.0",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.1.2",
+      "name": "v0.1.2",
+      "tag_name": "v0.1.2",
+      "created_at": "2024-07-24T08:54:09Z",
+      "description": "# Fixes\r\n- 修复了使用`!!wp list`指令时翻页操作异常的问题\r\n- 优化了坐标点搜索时的匹配方法\r\n- 优化部分回显",
+      "prerelease": false,
+      "asset": {
+        "id": 181514345,
+        "name": "Where2go-v0.1.2.mcdr",
+        "size": 22718,
+        "download_count": 62,
+        "created_at": "2024-07-24T08:54:35Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.1.2/Where2go-v0.1.2.mcdr",
+        "hash_md5": "956037c3dfaf3fe41eb93ae2a73fe2e9",
+        "hash_sha256": "1a29eb53e29c630ec7bfcc9ec31a80c2c066b51caa0e6bdb7f6fd263c6ff9049"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.1.2",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/Where2go/releases/tag/v0.1.1",
+      "name": "v0.1.1",
+      "tag_name": "v0.1.1",
+      "created_at": "2024-07-23T09:49:09Z",
+      "description": "# Fixes\r\n- 修复下届和末地坐标点无法识别的问题\r\n- 修复了提示附近坐标点时可能提示错误的问题\r\n- 修复了提示附近坐标点时可能提示错误的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 181291878,
+        "name": "Where2go-v0.1.1.mcdr",
+        "size": 22721,
+        "download_count": 58,
+        "created_at": "2024-07-23T10:11:02Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/Where2go/releases/download/v0.1.1/Where2go-v0.1.1.mcdr",
+        "hash_md5": "b5a9679938c28cfe900dfd02e1e8ab61",
+        "hash_sha256": "0216e4b50c00fc75a0d64af5a4014c1a2808b0d9c17f716e82a1ec450cb02646"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "where2go",
+        "name": "Where2go",
+        "version": "0.1.1",
+        "link": "https://github.com/LazyAlienServer/Where2go",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "An advanced 'location' plugin including sharing waypoints, search player pos, etc.",
+          "zh_cn": "一个功能强大的位置插件，包含共享坐标点、查询玩家位置等功能"
+        }
+      }
+    }
+  ]
+}

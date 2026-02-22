@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "clear_player_data",
+    "name": "player_data_clearer",
+    "version": "1.0.0",
+    "link": "https://github.com/god-what-is-that/mcdr-player-data-clearer",
+    "authors": [
+      "Xcuk",
+      "tch"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0",
+      "uuid_api_remake": ">=2.0.0"
+    },
+    "requirements": [
+      "pyyaml",
+      "requests"
+    ],
+    "description": {
+      "en_us": "清除指定UUID的玩家数据"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "clear_player_data",
+    "authors": [
+      "tch"
+    ],
+    "repository": "https://github.com/god-what-is-that/mcdr-player-data-clearer",
+    "branch": "main",
+    "related_path": "player_data_clearer",
+    "labels": [
+      "management",
+      "tool"
+    ],
+    "introduction": {
+      "zh_cn": "# mcdr-player-data-clearer\n依赖uuid_api_remake插件。  \n在配置文件中添加你需要删除的玩家数据位置以及后缀。默认会删除world/playerdata/uuid.dat+dat_old、advancements/uuid.json、stats/uuid.json。  \n!!cpd uuid [uuid], 清除指定UUID的玩家数据。  \n!!cpd playerid [playerid], 清除指定玩家数据。  \n!!cpd clean [day]，清除多少天没修改的玩家数据。不是查的usercache.json，是直接查world的playerdata的修改日期。\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/god-what-is-that/mcdr-player-data-clearer/main/player_data_clearer/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "clear_player_data",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/god-what-is-that/mcdr-player-data-clearer/releases/tag/1.0.0",
+        "name": "1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2025-07-17T11:11:10Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 273774198,
+          "name": "player_data_clearer-v1.0.0.mcdr",
+          "size": 4977,
+          "download_count": 48,
+          "created_at": "2025-07-17T14:08:04Z",
+          "browser_download_url": "https://github.com/god-what-is-that/mcdr-player-data-clearer/releases/download/1.0.0/player_data_clearer-v1.0.0.mcdr",
+          "hash_md5": "e98ce7b446d6bfe2c955e09d067b597b",
+          "hash_sha256": "6c2216ed6b10697358521f654fe912aa1d08ed6f318b50695ae2259a7082e0a7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "clear_player_data",
+          "name": "player_data_clearer",
+          "version": "1.0.0",
+          "link": "https://github.com/xt0827/clear-player-data",
+          "authors": [
+            "Xcuk",
+            "tch"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "pyyaml",
+            "requests"
+          ],
+          "description": {
+            "en_us": "清除指定UUID的玩家数据"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/god-what-is-that/mcdr-player-data-clearer",
+    "name": "mcdr-player-data-clearer",
+    "full_name": "god-what-is-that/mcdr-player-data-clearer",
+    "html_url": "https://github.com/god-what-is-that/mcdr-player-data-clearer",
+    "description": "MCDR用于删除玩家数据的插件",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# mcdr-player-data-clearer\n依赖uuid_api_remake插件。  \n在配置文件中添加你需要删除的玩家数据位置以及后缀。默认会删除world/playerdata/uuid.dat+dat_old、advancements/uuid.json、stats/uuid.json。  \n!!cpd uuid [uuid], 清除指定UUID的玩家数据。  \n!!cpd playerid [playerid], 清除指定玩家数据。  \n!!cpd clean [day]，清除多少天没修改的玩家数据。不是查的usercache.json，是直接查world的playerdata的修改日期。\n",
+    "readme_url": "https://raw.githubusercontent.com/god-what-is-that/mcdr-player-data-clearer/main/player_data_clearer/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 8,
+  "id": "joinmotd_reforged",
+  "latest_version": "1.0.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/iXORTech/joinMOTD-Reforged/releases/tag/v1.0.0",
+      "name": "Version 1.0.0 (B93F2EC)",
+      "tag_name": "v1.0.0",
+      "created_at": "2023-12-17T23:07:06Z",
+      "description": "<!--\nTemplate for changes, <mandatory> [optional]\n- <New feature/Improvements/Bug fix> - [(Pull Request Number) \\[@GitHubUsername\\]]\n-->\n\n------\n\n# The First Official Release\n\n> [!NOTE]\n> This version is identical compared to the `v1.0.0-rc.1` version code and feature wise,\n> and the only difference is that the version number has been changed to `v1.0.0`.\n> However, it is still recommended to update to this official version.\n\n## BREAKING CHANGES\n\n`There is nothing to display yet.`\n\n## New features\n\n- Add `!!motd` command to show the MOTD and the server list.\n- Add `!!motd reload` command to reload the config file.\n- Add `!!server` to show the server list.\n- Show automatically the MOTD and the server list when a player joins the server.\n- Show the name of the currently connected server in the MOTD.\n- Allow server operators to configure the permissions of the commands.\n- Add i18n support.\n- Add English and Simplified Chinese translations.\n- Use Python library `nbtlib` and MCDR plugin [DayCount NBT (`daycount_nbt`)](https://github.com/alex3236/daycount-NBT) to automatically get the day count of the server.\n\n## Improvements\n\n`There is nothing to display yet.`\n\n## Bug fixes\n\n`There is nothing to display yet.`\n\n## Known Bugs\n\n`There is nothing to display yet.`\n\n------\n\n# 首个正式版本\n\n> [!NOTE]\n> 本版本与 `v1.0.0-rc.1` 版本在代码和功能上完全相同，\n> 唯一的区别是版本号已经被修改为 `v1.0.0`。\n> 但是，我们仍然建议更新到本正式版本。\n\n## 破坏性变更\n\n`暂时没有可以显示的内容`\n\n## 新增功能\n\n- 添加 `!!motd` 命令以显示 MOTD 和服务器列表。\n- 添加 `!!motd reload` 命令以重新加载配置文件。\n- 添加 `!!server` 命令以显示服务器列表。\n- 玩家加入服务器时自动显示 MOTD 和服务器列表。\n- 在 MOTD 中显示当前连接的服务器的名称。\n- 允许服务器管理员配置命令的权限。\n- 添加国际化支持。\n- 添加英文和简体中文翻译。\n- 依赖 Python 库 `nbtlib` 和 MCDR 插件 [DayCount NBT (`daycount_nbt`)](https://github.com/alex3236/daycount-NBT) 来自动获取服务器的开服天数。\n\n## 优化与改进\n\n`暂时没有可以显示的内容`\n\n## 错误修复\n\n`暂时没有可以显示的内容`\n\n## 已知错误\n\n`暂时没有可以显示的内容`\n\n------\n\n**Full Changelog**: https://github.com/iXORTech/joinMOTD-Reforged/commits/v1.0.0\n**完整的更新日志**: https://github.com/iXORTech/joinMOTD-Reforged/commits/v1.0.0\n",
+      "prerelease": false,
+      "asset": {
+        "id": 141181754,
+        "name": "joinMOTD-Reforged-v1.0.0+b93f2ec.mcdr",
+        "size": 5652,
+        "download_count": 830,
+        "created_at": "2023-12-17T23:07:43Z",
+        "browser_download_url": "https://github.com/iXORTech/joinMOTD-Reforged/releases/download/v1.0.0/joinMOTD-Reforged-v1.0.0%2Bb93f2ec.mcdr",
+        "hash_md5": "a3d8666c4b46156b30e29005c8f36af3",
+        "hash_sha256": "5097af3bbcd4f17ee20d44fd00bb8041c8d6befc7903ab43f74306b5dfff8c69"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "joinmotd_reforged",
+        "name": "Join MOTD Reforged",
+        "version": "1.0.0",
+        "link": "https://github.com/iXORTech/joinMOTD-Reforged",
+        "authors": [
+          "iXOR Technology",
+          "Qian Qian \"Cubik\" (Cubik65536) <cubik65536@cubik65536.top>"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.10.0",
+          "daycount_nbt": "^2.2.1"
+        },
+        "requirements": [
+          "mcdreforged >= 2.10.0",
+          "nbtlib >= 2.0.0"
+        ],
+        "description": {
+          "en_us": "Send player a MOTD when he joins",
+          "zh_cn": "当玩家加入游戏时向其发送欢迎信息"
+        }
+      }
+    }
+  ]
+}

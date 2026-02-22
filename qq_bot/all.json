@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "qq_bot",
+    "name": "QQBot",
+    "version": "2.0.7",
+    "link": "https://github.com/Lonely-Sails/Plugin.Minecraft_QQBot",
+    "authors": [],
+    "dependencies": {},
+    "requirements": [
+      "websockets^=15.0.0",
+      "mcdreforged^=2.14.7"
+    ],
+    "description": {
+      "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "qq_bot",
+    "authors": [
+      "Lonely-Sails",
+      "meng877"
+    ],
+    "repository": "https://github.com/Minecraft-QQBot/Plugin.McdReforged",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# McdReforged\n\n### [**文档**](https://qqbot.bugjump.xyz/文档/安装插件/McdReforged.html)\n\n## 项目简介\n\n**一款基于 Nonebot2 用多种方式与 Minecraft 交互的 Python QQ 机器人**。功能丰富，使用简单且可以自行配置，仅需简单配置即可使用。目前已实现的功能有：\n\n- 多服互联，群服互通。\n  - 在不同服务器之间转发消息。\n  - 可在游戏内看到 QQ 群的消息。\n  - 可使用指令在游戏内向 QQ 群发送消息。\n  - 可播报服务器开启、关闭，玩家进入离开服务器以及死亡消息。\n- 使用 WebUi 简单配置。\n- 戳一戳机器人发送一言卡片。\n- 可自行配置指令的开启或关闭。\n- 对 QQ 群指令相应。目前已实现的指令有：\n  - `luck` 查看今日幸运指数。\n  - `list` 查询每个服务器的玩家在线情况。\n  - `help` 查看帮助信息。\n  - `server` 查看当前在线的服务器并显示对应编号，也可用于查看服务器占用。\n  - `bound` 有关绑定白名单的指令。\n  - `command` 发送指令到服务器。\n\n更多功能还在探索中……\n\n> [!WARNING]\n> 本项目采用 GPL3 许可证，请勿商用！如若修改请务必开源并且注明出处。\n\n本项目为与 [BotServer](https://github.com/Minecraft-QQBot/BotServer) 机器人进行对接的 MCDR 插件。\n\n## 特色功能\n\n- 可以使用 !!qq 发送 QQ 群消息。\n\n> [!TIP]\n> 请注意，本插件的玩家列表依赖于原版的 List 指令获取。如果你的 List 指令输出由于模组被篡改，请自行尝试修改代码解决，或是提交 Issues 向作者反馈，但我们并不保证接纳所有的 List 格式。\n\n## 插件安装\n\n你可以到 [Releases](https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases) 下载最新版本 MCDR 服务器插件。\n\n使用此插件前，你需要先安装 `Websockets` 依赖。输入如下指令安装：\n\n```bash\npip3 install websockets\n```\n\n将下载好的 `QQBot.mcdr` 文拷贝到 MCDR 的 插件文件夹 下，安装完成。\n\n## 插件配置\n\n编辑 配置文件夹 `qq_bot` 下的 `config.json` 文件。配置文件内容参考如下：\n\n```json\n{\n  \"uri\": \"ws://127.0.0.1:8000/\",\n  \"name\": \"服务器名称\",\n  \"token\": \"令牌\",\n  \"reconnect_interval\": 5\n}\n```\n\n其中各个字段的含义如下：\n\n|        字段名         | 类型  |                  含义                   |\n| :----------------: | :-: | :-----------------------------------: |\n|        uri         | 字符串 | WebSocket 连接的 Uri，格式为 ws://host:port/ |\n|        name        | 字符串 |             服务器名称，中英文都可。              |\n|       token        | 字符串 |      口令，和服务器配置文件下的 TOKEN 保持一致即可。      |\n| reconnect_interval | 整数  |         重连间隔，单位为秒，通常来说不需要修改。          |\n\n其中 Uri 的 host 和 port 就是你的主机名和机器人配置的端口号。\n\n当你看到类似 `身份验证完毕，连接到机器人成功！` 的日志时，说明你的服务器已经成功连接到机器人服务器。若出现错误提示，请确保你的机器人服务器已经开启，或者配置文件的\nPort 是否正确。你可以通过 `server` 指令查看服务器是否连接上机器人。\n\n> [!TIP]\n> 若插件遇到问题，或有更好的想法，可以加入 QQ 群 [`962802248`](https://qm.qq.com/q/B3kmvJl2xO) 或者提交 Issues\n> 向作者反馈。若你有能力，欢迎为本项目提供代码贡献！\n",
+      "zh_cn": "# McdReforged\n\n### [**文档**](https://qqbot.bugjump.xyz/文档/安装插件/McdReforged.html)\n\n## 项目简介\n\n**一款基于 Nonebot2 用多种方式与 Minecraft 交互的 Python QQ 机器人**。功能丰富，使用简单且可以自行配置，仅需简单配置即可使用。目前已实现的功能有：\n\n- 多服互联，群服互通。\n  - 在不同服务器之间转发消息。\n  - 可在游戏内看到 QQ 群的消息。\n  - 可使用指令在游戏内向 QQ 群发送消息。\n  - 可播报服务器开启、关闭，玩家进入离开服务器以及死亡消息。\n- 使用 WebUi 简单配置。\n- 戳一戳机器人发送一言卡片。\n- 可自行配置指令的开启或关闭。\n- 对 QQ 群指令相应。目前已实现的指令有：\n  - `luck` 查看今日幸运指数。\n  - `list` 查询每个服务器的玩家在线情况。\n  - `help` 查看帮助信息。\n  - `server` 查看当前在线的服务器并显示对应编号，也可用于查看服务器占用。\n  - `bound` 有关绑定白名单的指令。\n  - `command` 发送指令到服务器。\n\n更多功能还在探索中……\n\n> [!WARNING]\n> 本项目采用 GPL3 许可证，请勿商用！如若修改请务必开源并且注明出处。\n\n本项目为与 [BotServer](https://github.com/Minecraft-QQBot/BotServer) 机器人进行对接的 MCDR 插件。\n\n## 特色功能\n\n- 可以使用 !!qq 发送 QQ 群消息。\n\n> [!TIP]\n> 请注意，本插件的玩家列表依赖于原版的 List 指令获取。如果你的 List 指令输出由于模组被篡改，请自行尝试修改代码解决，或是提交 Issues 向作者反馈，但我们并不保证接纳所有的 List 格式。\n\n## 插件安装\n\n你可以到 [Releases](https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases) 下载最新版本 MCDR 服务器插件。\n\n使用此插件前，你需要先安装 `Websockets` 依赖。输入如下指令安装：\n\n```bash\npip3 install websockets\n```\n\n将下载好的 `QQBot.mcdr` 文拷贝到 MCDR 的 插件文件夹 下，安装完成。\n\n## 插件配置\n\n编辑 配置文件夹 `qq_bot` 下的 `config.json` 文件。配置文件内容参考如下：\n\n```json\n{\n  \"uri\": \"ws://127.0.0.1:8000/\",\n  \"name\": \"服务器名称\",\n  \"token\": \"令牌\",\n  \"reconnect_interval\": 5\n}\n```\n\n其中各个字段的含义如下：\n\n|        字段名         | 类型  |                  含义                   |\n| :----------------: | :-: | :-----------------------------------: |\n|        uri         | 字符串 | WebSocket 连接的 Uri，格式为 ws://host:port/ |\n|        name        | 字符串 |             服务器名称，中英文都可。              |\n|       token        | 字符串 |      口令，和服务器配置文件下的 TOKEN 保持一致即可。      |\n| reconnect_interval | 整数  |         重连间隔，单位为秒，通常来说不需要修改。          |\n\n其中 Uri 的 host 和 port 就是你的主机名和机器人配置的端口号。\n\n当你看到类似 `身份验证完毕，连接到机器人成功！` 的日志时，说明你的服务器已经成功连接到机器人服务器。若出现错误提示，请确保你的机器人服务器已经开启，或者配置文件的\nPort 是否正确。你可以通过 `server` 指令查看服务器是否连接上机器人。\n\n> [!TIP]\n> 若插件遇到问题，或有更好的想法，可以加入 QQ 群 [`962802248`](https://qm.qq.com/q/B3kmvJl2xO) 或者提交 Issues\n> 向作者反馈。若你有能力，欢迎为本项目提供代码贡献！\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Minecraft-QQBot/Plugin.McdReforged/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Minecraft-QQBot/Plugin.McdReforged/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "qq_bot",
+    "latest_version": "2.0.7",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v2.0.7",
+        "name": "v2.0.7",
+        "tag_name": "v2.0.7",
+        "created_at": "2025-07-09T08:37:55Z",
+        "description": "修复了插件有时会未响应的问题。",
+        "prerelease": false,
+        "asset": {
+          "id": 271303785,
+          "name": "QQBot-v2.0.7.mcdr",
+          "size": 6933,
+          "download_count": 123,
+          "created_at": "2025-07-09T08:40:42Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v2.0.7/QQBot-v2.0.7.mcdr",
+          "hash_md5": "6e61d8d714f60022cf5135d46b18c803",
+          "hash_sha256": "360181964f6f47abe6b2c02d3707fd324319bf4d3bf0f6cee4b3289845a546a8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "2.0.7",
+          "link": "https://github.com/Lonely-Sails/Plugin.Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [
+            "websockets^=15.0.0"
+          ],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v2.0.6",
+        "name": "v2.0.6",
+        "tag_name": "v2.0.6",
+        "created_at": "2025-01-24T06:32:38Z",
+        "description": "修复插件一直报错的问题。\r\n\r\n> [!TIP]\r\n> 此插件最好对接 v2.0.6 的 BotServer，否则在验证失败时可能会出现错误。",
+        "prerelease": false,
+        "asset": {
+          "id": 223022449,
+          "name": "QQBot-v2.0.6.mcdr",
+          "size": 6123,
+          "download_count": 222,
+          "created_at": "2025-01-24T06:35:50Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v2.0.6/QQBot-v2.0.6.mcdr",
+          "hash_md5": "e14c5528ae7febb8c9ecc6a66be7077e",
+          "hash_sha256": "9c9806af9ccedadba17e89095a600c0591fe776e5b92abfe30cca6d170ac8718"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "2.0.6",
+          "link": "https://github.com/Lonely-Sails/Plugin.Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v2.0.5",
+        "name": "v2.0.5",
+        "tag_name": "v2.0.5",
+        "created_at": "2024-08-30T01:38:05Z",
+        "description": "修复一些小问题。\r\n\r\n> [!WARNING]\r\n> 此版本需要求 BotServer 版本在 v2.0.5 以上，否则可能会出现不可预知的错误。",
+        "prerelease": false,
+        "asset": {
+          "id": 189310304,
+          "name": "QQBot-v2.0.5.mcdr",
+          "size": 6168,
+          "download_count": 210,
+          "created_at": "2024-08-30T08:04:59Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v2.0.5/QQBot-v2.0.5.mcdr",
+          "hash_md5": "f6232ffb08272ec2b08169a3008f1c4f",
+          "hash_sha256": "ec77da8e5228d7e9d540f08e9913e3ab4a3996be0bf2ab23e14e9b0d87f7bae5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "2.0.5",
+          "link": "https://github.com/Lonely-Sails/Plugin.Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v2.0.4",
+        "name": "v2.0.4",
+        "tag_name": "v2.0.4",
+        "created_at": "2024-08-22T09:52:02Z",
+        "description": "修改一些小问题。",
+        "prerelease": false,
+        "asset": {
+          "id": 187614475,
+          "name": "QQBot-v2.0.4.mcdr",
+          "size": 6146,
+          "download_count": 82,
+          "created_at": "2024-08-22T09:52:28Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v2.0.4/QQBot-v2.0.4.mcdr",
+          "hash_md5": "562a5e96b087bdaaa0d083e877ca699a",
+          "hash_sha256": "24cf87341efe9388618256d2fd7572d512bd66b867071cbb941ae6e355a13b69"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "2.0.4",
+          "link": "https://github.com/Lonely-Sails/Plugin.Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v2.0.1",
+        "name": "v2.0.1",
+        "tag_name": "v2.0.1",
+        "created_at": "2024-08-03T09:39:37Z",
+        "description": "修复一些已知问题。",
+        "prerelease": false,
+        "asset": {
+          "id": 183947756,
+          "name": "QQBot-v2.0.1.mcdr",
+          "size": 6252,
+          "download_count": 57,
+          "created_at": "2024-08-05T07:26:07Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v2.0.1/QQBot-v2.0.1.mcdr",
+          "hash_md5": "b846317f040fafee16c8a683fd0a0d3b",
+          "hash_sha256": "e18dbcab0ad6a99e66e1de6c046fa7c98c79e23c6ab8a42b501207f1562f551f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "2.0.1",
+          "link": "https://github.com/Lonely-Sails/Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [
+            "requests>=2.22.0"
+          ],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v2.0.0",
+        "name": "v2.0.0",
+        "tag_name": "v2.0.0",
+        "created_at": "2024-08-01T09:15:49Z",
+        "description": "添加对 V2.0.0 机器人的支持 。",
+        "prerelease": false,
+        "asset": {
+          "id": 183178428,
+          "name": "QQBot-v2.0.0.mcdr",
+          "size": 6227,
+          "download_count": 50,
+          "created_at": "2024-08-01T09:34:36Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v2.0.0/QQBot-v2.0.0.mcdr",
+          "hash_md5": "1485dbc9301d8f3c62339657850e70e8",
+          "hash_sha256": "5d7660f7da4f8603578ec8f88c94948b9d1d67939d8dc00ebeb60fc3e14d4dc6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "2.0.0",
+          "link": "https://github.com/Lonely-Sails/Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [
+            "requests>=2.22.0"
+          ],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/tag/v1.3.0",
+        "name": "v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2024-07-22T00:58:01Z",
+        "description": "添加多服互联功能。",
+        "prerelease": false,
+        "asset": {
+          "id": 180996203,
+          "name": "QQBot-v1.3.0.mcdr",
+          "size": 2909,
+          "download_count": 49,
+          "created_at": "2024-07-22T01:05:04Z",
+          "browser_download_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases/download/v1.3.0/QQBot-v1.3.0.mcdr",
+          "hash_md5": "f9cfb207b57d2f6417a12395ceb44936",
+          "hash_sha256": "728f3c6380c3b178f0a7db4c818673bdf2a4d7f4f666f5dd5189912d6487ffda"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "qq_bot",
+          "name": "QQBot",
+          "version": "1.3.0",
+          "link": "https://github.com/Lonely-Sails/Minecraft_QQBot",
+          "authors": [],
+          "dependencies": {},
+          "requirements": [
+            "requests>=2.22.0"
+          ],
+          "description": {
+            "en_us": "一个基于 Nonebot2 的 Minecraft 服务器 QQ 机器人，支持多服使用"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged",
+    "name": "Plugin.McdReforged",
+    "full_name": "Minecraft-QQBot/Plugin.McdReforged",
+    "html_url": "https://github.com/Minecraft-QQBot/Plugin.McdReforged",
+    "description": "与 BotServer 进行对接的 Mcdr 插件。",
+    "archived": false,
+    "stargazers_count": 12,
+    "watchers_count": 12,
+    "forks_count": 3,
+    "readme": "# McdReforged\n\n### [**文档**](https://qqbot.bugjump.xyz/文档/安装插件/McdReforged.html)\n\n## 项目简介\n\n**一款基于 Nonebot2 用多种方式与 Minecraft 交互的 Python QQ 机器人**。功能丰富，使用简单且可以自行配置，仅需简单配置即可使用。目前已实现的功能有：\n\n- 多服互联，群服互通。\n  - 在不同服务器之间转发消息。\n  - 可在游戏内看到 QQ 群的消息。\n  - 可使用指令在游戏内向 QQ 群发送消息。\n  - 可播报服务器开启、关闭，玩家进入离开服务器以及死亡消息。\n- 使用 WebUi 简单配置。\n- 戳一戳机器人发送一言卡片。\n- 可自行配置指令的开启或关闭。\n- 对 QQ 群指令相应。目前已实现的指令有：\n  - `luck` 查看今日幸运指数。\n  - `list` 查询每个服务器的玩家在线情况。\n  - `help` 查看帮助信息。\n  - `server` 查看当前在线的服务器并显示对应编号，也可用于查看服务器占用。\n  - `bound` 有关绑定白名单的指令。\n  - `command` 发送指令到服务器。\n\n更多功能还在探索中……\n\n> [!WARNING]\n> 本项目采用 GPL3 许可证，请勿商用！如若修改请务必开源并且注明出处。\n\n本项目为与 [BotServer](https://github.com/Minecraft-QQBot/BotServer) 机器人进行对接的 MCDR 插件。\n\n## 特色功能\n\n- 可以使用 !!qq 发送 QQ 群消息。\n\n> [!TIP]\n> 请注意，本插件的玩家列表依赖于原版的 List 指令获取。如果你的 List 指令输出由于模组被篡改，请自行尝试修改代码解决，或是提交 Issues 向作者反馈，但我们并不保证接纳所有的 List 格式。\n\n## 插件安装\n\n你可以到 [Releases](https://github.com/Minecraft-QQBot/Plugin.McdReforged/releases) 下载最新版本 MCDR 服务器插件。\n\n使用此插件前，你需要先安装 `Websockets` 依赖。输入如下指令安装：\n\n```bash\npip3 install websockets\n```\n\n将下载好的 `QQBot.mcdr` 文拷贝到 MCDR 的 插件文件夹 下，安装完成。\n\n## 插件配置\n\n编辑 配置文件夹 `qq_bot` 下的 `config.json` 文件。配置文件内容参考如下：\n\n```json\n{\n  \"uri\": \"ws://127.0.0.1:8000/\",\n  \"name\": \"服务器名称\",\n  \"token\": \"令牌\",\n  \"reconnect_interval\": 5\n}\n```\n\n其中各个字段的含义如下：\n\n|        字段名         | 类型  |                  含义                   |\n| :----------------: | :-: | :-----------------------------------: |\n|        uri         | 字符串 | WebSocket 连接的 Uri，格式为 ws://host:port/ |\n|        name        | 字符串 |             服务器名称，中英文都可。              |\n|       token        | 字符串 |      口令，和服务器配置文件下的 TOKEN 保持一致即可。      |\n| reconnect_interval | 整数  |         重连间隔，单位为秒，通常来说不需要修改。          |\n\n其中 Uri 的 host 和 port 就是你的主机名和机器人配置的端口号。\n\n当你看到类似 `身份验证完毕，连接到机器人成功！` 的日志时，说明你的服务器已经成功连接到机器人服务器。若出现错误提示，请确保你的机器人服务器已经开启，或者配置文件的\nPort 是否正确。你可以通过 `server` 指令查看服务器是否连接上机器人。\n\n> [!TIP]\n> 若插件遇到问题，或有更好的想法，可以加入 QQ 群 [`962802248`](https://qm.qq.com/q/B3kmvJl2xO) 或者提交 Issues\n> 向作者反馈。若你有能力，欢迎为本项目提供代码贡献！\n",
+    "readme_url": "https://raw.githubusercontent.com/Minecraft-QQBot/Plugin.McdReforged/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

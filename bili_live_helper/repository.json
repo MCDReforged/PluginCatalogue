@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Aimerny/MCDRPlugins",
+  "name": "MCDRPlugins",
+  "full_name": "Aimerny/MCDRPlugins",
+  "html_url": "https://github.com/Aimerny/MCDRPlugins",
+  "description": "Aimerny's MCDR plugins repository",
+  "archived": false,
+  "stargazers_count": 7,
+  "watchers_count": 7,
+  "forks_count": 1,
+  "readme": "# BiliLiveHelper | B站直播助手-弹幕姬\n\n---\n\n支持将b站直播间的弹幕同步到mc中\n\n> [!important]\n> 此插件仅用于学习交流,请勿用于违法犯罪或其他不良用途.\n\n# :sparkles: 功能\n\n**BiliLiveHelper**是一款~~功能丰富的~~MCDR插件,能够实现将[bilibili](https://bilibili.com)(以下简称\"B站)\n直播间中的弹幕信息实时同步到MC聊天板中.\n\n- [x] 全异步拉取B站弹幕\n- [x] 支持多个玩家订阅各自的直播间,弹幕消息单独发送,互不干扰\n- [x] 玩家可以随时启停弹幕姬\n- [ ] 支持查询订阅的直播间的状态\n- [ ] admin轻松管理所有玩家的订阅信息\n- [x] 游戏内通过直播姬账号发送弹幕,即时回应\n\n# :robot: 指令\n```\n ---------- BiliLiveHelper ----------\n >> !!blh [help] - | - 获取帮助\n >> !!blh bind <rid> - | - 绑定直播间id\n >> !!blh on - | - 启动直播弹幕姬\n >> !!blh off - | - 停止直播弹幕姬\n >> !!blh info - | - 查看我的直播间信息\n >> !!blh query - | - 查看其他玩家的直播间信息\n >> !!blh send <danmu> - | - 向直播间发送弹幕\n >> !!blh s <danmu> - | - 向直播间发送弹幕\n ------- Authored by Aimerny --------\n\n```\n\n# :pushpin: 依赖\n\n| python依赖项           | 版本      |\n| ------------------- | ------- |\n| mcdreforged         | ^2.12.0 |\n| bilibili-python-api | ^16.3.0 |\n\n| mcdr依赖项     | 版本      |\n| ----------- | ------- |\n| mcdreforged | ^2.13.0 |\n\n# :wrench: 配置\n```json5\n{\n    \"enable\": true,\n    \"data_file_path\": \"data.json\",\n    \"console_output\": true,\n    \"account\": {\n        \"uid\": 3546688564234249,\n        \"sessdata\": \"\",\n        \"bili_jct\": \"\",\n        \"buvid3\": \"\",\n        \"ac_time_value\": \"\"\n    },\n   \"send\":true\n}\n```\n## 配置说明\n\n1. `data_file_path`: 数据文件的路径.持久化的信息会保存到这个文件\n2. `console_output`: 是否将接收到的弹幕输出到服务器控制台,如果设为false则需要在debug模式才能看到\n3. `account`: 使用此插件需要一个真实的B站账号.`account`中是一些鉴权信息\n   1. `uid`: 你的B站账号UID\n   2. 其他: 参考 [获取 Credential 类所需信息](https://nemo2011.github.io/bilibili-api/#/get-credential)\n4. `send`: 是否允许服务器成员使用上述配置中的`account`发送消息到对应直播间,默认为true\n\n> [!note]\n> B站的账号如果没有在其他地方登录基本不会过期,建议开一个小号做这件事情\n\n# :art: 功能预览\n\n## 消息同步\n\n![image-20240831032822332](https://cdn.jsdelivr.net/gh/aimerny/picgo@main/image-20240831032822332.png)\n\n![image-20240831032855128](https://cdn.jsdelivr.net/gh/aimerny/picgo@main/image-20240831032855128.png)\n\n## MC发送弹幕\n\n![](https://cdn.jsdelivr.net/gh/aimerny/picgo@main/image-20240924021814482.png)\n\n![](https://cdn.jsdelivr.net/gh/aimerny/picgo@main/image-20240924021842208.png)\n",
+  "readme_url": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/bili_live_helper/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

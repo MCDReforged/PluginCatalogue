@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "name": "MCDReforgedPlugins",
+  "full_name": "AnzhiZhang/MCDReforgedPlugins",
+  "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "description": "MCDReforged Plugins",
+  "archived": false,
+  "stargazers_count": 99,
+  "watchers_count": 99,
+  "forks_count": 51,
+  "readme": "# OnlinePlayerAPI\n\n> 在线玩家 API\n\n## API\n\n### is_online(player: str, case_sensitive: bool = True)\n\n如果玩家在线, 返回 `True`。\n\n如果玩家不在线, 返回 `False`。\n\n`case_sensitive` 是否忽略大小写。\n\n### check_online(player: str, case_sensitive: bool = True)\n\n与 `is_online(player)` 相同。\n\n### get_player_list()\n\n返回所有在线玩家的列表。\n\n### normalize_player_name(player: str)\n\n返回给定玩家名称的正确大小写形式。\n\n如果玩家不在线，则引发 ValueError。\n",
+  "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/online_player_api/readme.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

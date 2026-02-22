@@ -1,0 +1,128 @@
+{
+  "schema_version": 8,
+  "id": "kill_server",
+  "latest_version": "0.1.2",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v0.1.2",
+      "name": "KillServer v0.1.2",
+      "tag_name": "kill_server-v0.1.2",
+      "created_at": "2026-02-20T08:43:08Z",
+      "description": "## Added\r\n\r\n- new LiteralEvents:` ServerStoppingEvent`, `PluginStoppingServerEvent`, `WorldSavedEvent`\r\n\r\n## Changed\r\n\r\n- update MCDR version requirements\r\n\r\n---\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/kill_server-v0.1.1...kill_server-v0.1.2\r\n\r\nrelate pr: #31 ",
+      "prerelease": false,
+      "asset": {
+        "id": 359069016,
+        "name": "KillServer-v0.1.2.mcdr",
+        "size": 1991,
+        "download_count": 2,
+        "created_at": "2026-02-20T08:50:05Z",
+        "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v0.1.2/KillServer-v0.1.2.mcdr",
+        "hash_md5": "befa42f1e14c0ea2d7681bd312a7c13e",
+        "hash_sha256": "9ef48d825428875b7498836830cccca933fcf48b2ceed7029904ebd97bd18654"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "kill_server",
+        "name": "KillServer",
+        "version": "0.1.2",
+        "link": null,
+        "authors": [
+          "xieyuen"
+        ],
+        "dependencies": {
+          "python": ">=3.12",
+          "mcdreforged": ">=2.15"
+        },
+        "requirements": [
+          "dowhen",
+          "mcdreforged>=2.15.0"
+        ],
+        "description": {
+          "en_us": "Force to kill mc server",
+          "zh_cn": "强制关闭 Minecraft 服务端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v0.1.1",
+      "name": "KillServer 0.1.1",
+      "tag_name": "kill_server-v0.1.1",
+      "created_at": "2026-02-17T16:36:12Z",
+      "description": "## Fixed\r\n\r\n- incorrect return value\r\n\r\n---\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/kill_server-v0.1.0...kill_server-v0.1.1",
+      "prerelease": false,
+      "asset": {
+        "id": 357929765,
+        "name": "KillServer-v0.1.1.mcdr",
+        "size": 1437,
+        "download_count": 3,
+        "created_at": "2026-02-18T13:01:21Z",
+        "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v0.1.1/KillServer-v0.1.1.mcdr",
+        "hash_md5": "dbb191c96438ab36893178c2ae1950e1",
+        "hash_sha256": "706acfaef5b23aebbb7f5af02347d39af432fe52b48090a3efb463bdc21496ea"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "kill_server",
+        "name": "KillServer",
+        "version": "0.1.1",
+        "link": null,
+        "authors": [
+          "xieyuen"
+        ],
+        "dependencies": {
+          "python": ">=3.12",
+          "mcdreforged": ">=2.10"
+        },
+        "requirements": [
+          "dowhen",
+          "mcdreforged"
+        ],
+        "description": {
+          "en_us": "Force to kill mc server",
+          "zh_cn": "强制关闭 Minecraft 服务端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v0.1.0",
+      "name": "KillServer 0.1.0",
+      "tag_name": "kill_server-v0.1.0",
+      "created_at": "2026-02-17T15:22:50Z",
+      "description": "在关服卡死时强制关闭服务器\r\n\r\n> [!WARNING]\r\n> 此插件使用 [dowhen](http://github.com/gaogaotiantian/dowhen/) 模块实现, 可能不够稳定\r\n\r\n## 介绍\r\n\r\n对于下面的两种情况(实际可能还有更多适用的情况):\r\n\r\n- Fabric 服务器卡死不关闭\r\n  - [MCDReforged/MCDReforged#150](https://github.com/MCDReforged/MCDReforged/issues/150)\r\n  - [EngineHub/WorldEdit#2459](https://github.com/EngineHub/WorldEdit/issues/2459)\r\n- `pause` 命令诱发用户Ctrl+C操作，导致 MCDR 关闭与存档恢复冲突，最终致使存档损坏\r\n  - [#85](https://github.com/TISUnion/PrimeBackup/issues/85)),\r\n\r\n\r\n本插件提供监听服务器关闭并且在这些情况下强制关闭服务器的功能, 给小白腐竹们提供一个简单且无脑的解决方案\r\n\r\n## 配置\r\n\r\n本插件只有一项配置: `waiting_time`\r\n\r\n这个配置是等待服务器关闭的时间, **单位为秒**, 默认为 60 秒\r\n\r\n## What's Changed\r\n* MCDRpost v3.4.0 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/23\r\n* hotfix: 更新 README by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/26\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/master...kill_server-v0.1.0\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 357398579,
+        "name": "KillServer-v0.1.0.mcdr",
+        "size": 1424,
+        "download_count": 7,
+        "created_at": "2026-02-17T15:29:27Z",
+        "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v0.1.0/KillServer-v0.1.0.mcdr",
+        "hash_md5": "2dde4daa92ccaaa4a2cd2157f3f3748c",
+        "hash_sha256": "298a0bcdcc705040412dcccb87fa5ec4031dfc1b5cd334223e5b9d83a7e2655d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "kill_server",
+        "name": "KillServer",
+        "version": "0.1.0",
+        "link": null,
+        "authors": [
+          "xieyuen"
+        ],
+        "dependencies": {
+          "python": ">=3.12",
+          "mcdreforged": ">=2.10"
+        },
+        "requirements": [
+          "dowhen",
+          "mcdreforged"
+        ],
+        "description": {
+          "en_us": "Force to kill mc server",
+          "zh_cn": "强制关闭 Minecraft 服务端"
+        }
+      }
+    }
+  ]
+}

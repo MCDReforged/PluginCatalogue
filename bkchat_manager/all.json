@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "bkchat_manager",
+    "name": "BukkitChatManager",
+    "version": "0.3.0",
+    "link": "https://github.com/Mooling0602/BukkitChatManager",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0"
+    },
+    "requirements": [
+      "strip_ansi"
+    ],
+    "description": {
+      "en_us": "Manage chat in game for servers use BukkitAPI.",
+      "zh_cn": "接管BukkitAPI服务端的游戏内聊天。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "bkchat_manager",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/BukkitChatManager-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# BukkitChatManager-MCDR\n在MCDR接管BukkitAPI服务端的游戏内聊天。\n\n## 依赖\n- BukkitAPI 插件：[PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.1.jar)\n> 已附加到MCDR插件中，MCDR启动或重载此插件时会自动更新或加载，你可能需要重启服务器以使其生效！\n\n## 用法\n从Release中安装此MCDR插件，如果出现问题，请确认依赖是否已经正常加载，有报错请反馈到Issues！\n\n## 配置\n配置文件位于`config/bkchat_manager/config.json`，你可以在里面修改聊天消息的格式等。\n\n其中，`%player%`表示玩家名；`%message%`表示聊天消息内容或玩家执行的指令内容；`%src_prefix%`表示指令源。\n\n## 注意事项\n和类似的BukkitAPI插件冲突，请不要使用这些同类型的插件。\n\n另外，如果有和依赖中作用相同的替代品插件，此MCDR插件可无缝迁移到其他类型的服务端上；Mohist等支持BukkitAPI的混合端也可以使用。\n\n插件有内置专门的服务端处理器，强烈建议启用，同时启用后无法使用其他的服务端处理器，否则会冲突。\n\n## 更新内容\n### 历史日志\n- `v0.2.1` 对内置的Bukkit插件依赖进行了更新，添加了客户端聊天拦截的动态控制功能，非生产环境下可以使用/chatmsg on|off进行调试，生产环境下请禁止普通玩家的playerlog.chatmsg权限（将于后续优化）！\n- `v0.3.0` 更新了兼容模式（compatibility_mode），你可以通过安装此插件并启用聊天兼容模式的方式，使MCDR本身和MCDR的大部分按规范开发的插件，可以兼容各种会修改聊天内容并影响服务端聊天相关日志输出的Bukkit服务端插件如VentureChat等！\n\n### 计划中\n\n经过测试的服务端：Mohist、Paper、Leaves\n> 极低版本的服务端尚未测试，理论上支持1.12及以上的所有Bukkit服务端。\n",
+      "zh_cn": "# BukkitChatManager-MCDR\n在MCDR接管BukkitAPI服务端的游戏内聊天。\n\n## 依赖\n- BukkitAPI 插件：[PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.1.jar)\n> 已附加到MCDR插件中，MCDR启动或重载此插件时会自动更新或加载，你可能需要重启服务器以使其生效！\n\n## 用法\n从Release中安装此MCDR插件，如果出现问题，请确认依赖是否已经正常加载，有报错请反馈到Issues！\n\n## 配置\n配置文件位于`config/bkchat_manager/config.json`，你可以在里面修改聊天消息的格式等。\n\n其中，`%player%`表示玩家名；`%message%`表示聊天消息内容或玩家执行的指令内容；`%src_prefix%`表示指令源。\n\n## 注意事项\n和类似的BukkitAPI插件冲突，请不要使用这些同类型的插件。\n\n另外，如果有和依赖中作用相同的替代品插件，此MCDR插件可无缝迁移到其他类型的服务端上；Mohist等支持BukkitAPI的混合端也可以使用。\n\n插件有内置专门的服务端处理器，强烈建议启用，同时启用后无法使用其他的服务端处理器，否则会冲突。\n\n## 更新内容\n### 历史日志\n- `v0.2.1` 对内置的Bukkit插件依赖进行了更新，添加了客户端聊天拦截的动态控制功能，非生产环境下可以使用/chatmsg on|off进行调试，生产环境下请禁止普通玩家的playerlog.chatmsg权限（将于后续优化）！\n- `v0.3.0` 更新了兼容模式（compatibility_mode），你可以通过安装此插件并启用聊天兼容模式的方式，使MCDR本身和MCDR的大部分按规范开发的插件，可以兼容各种会修改聊天内容并影响服务端聊天相关日志输出的Bukkit服务端插件如VentureChat等！\n\n### 计划中\n\n经过测试的服务端：Mohist、Paper、Leaves\n> 极低版本的服务端尚未测试，理论上支持1.12及以上的所有Bukkit服务端。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/BukkitChatManager-MCDR/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/BukkitChatManager-MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "bkchat_manager",
+    "latest_version": "0.3.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/tag/0.3.0",
+        "name": "v0.3.0",
+        "tag_name": "0.3.0",
+        "created_at": "2025-02-06T13:34:52Z",
+        "description": "更新了兼容模式（compatibility_mode），若有需要，请更新后前往插件配置启用\r\n关于兼容模式：插件将不对聊天消息进行处理，仅在控制台输出一条内容重复的聊天日志，专供MCDR进行解析，你可以继续使用诸如VentureChat之类的聊天类插件，且保持和MCDR的兼容性；兼容模式下，仍然需要开启插件内置的服务端处理器以正确解析聊天消息，若不开启需要自行适配服务端处理器\r\n> 除非你需要调试，否则不要执行chatmsg相关的Bukkit插件命令\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/BukkitChatManager-MCDR/compare/0.2.1...0.3.0",
+        "prerelease": false,
+        "asset": {
+          "id": 226859444,
+          "name": "BukkitChatManager-v0.3.0.mcdr",
+          "size": 21661,
+          "download_count": 89,
+          "created_at": "2025-02-06T13:41:06Z",
+          "browser_download_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.3.0/BukkitChatManager-v0.3.0.mcdr",
+          "hash_md5": "0166d888fdc50c5d06fee2beaf8c6bd4",
+          "hash_sha256": "1f0fe035f2323b6f5590dba1efc1a9d5b5e30b89f104a0490be6b67a8ddf6bb9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bkchat_manager",
+          "name": "BukkitChatManager",
+          "version": "0.3.0",
+          "link": "https://github.com/Mooling0602/BukkitChatManager",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "strip_ansi"
+          ],
+          "description": {
+            "en_us": "Manage chat in game for servers use BukkitAPI.",
+            "zh_cn": "接管BukkitAPI服务端的游戏内聊天。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/tag/0.2.1",
+        "name": "v0.2.1",
+        "tag_name": "0.2.1",
+        "created_at": "2025-02-05T14:15:51Z",
+        "description": "对内置的Bukkit插件依赖进行了更新，添加了客户端聊天拦截的动态控制功能，非生产环境下可以使用`/chatmsg on|off`进行调试，生产环境下请禁止普通玩家的`playerlog.chatmsg`权限（将于后续优化）！\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/BukkitChatManager-MCDR/compare/0.2.0...0.2.1",
+        "prerelease": false,
+        "asset": {
+          "id": 226516747,
+          "name": "BukkitChatManager-v0.2.1.mcdr",
+          "size": 8576,
+          "download_count": 36,
+          "created_at": "2025-02-05T14:17:30Z",
+          "browser_download_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.2.1/BukkitChatManager-v0.2.1.mcdr",
+          "hash_md5": "3a9bdf3f6c42d6f0c19a4d341a28bbc1",
+          "hash_sha256": "84c17970bc8d033f8ed339153273305841ba3a9fe3959eaf7ecf9ab8e43309a1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bkchat_manager",
+          "name": "BukkitChatManager",
+          "version": "0.2.1",
+          "link": "https://github.com/Mooling0602/BukkitChatManager",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "strip_ansi"
+          ],
+          "description": {
+            "en_us": "Manage chat in game for servers use BukkitAPI.",
+            "zh_cn": "接管BukkitAPI服务端的游戏内聊天"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/tag/0.2.0",
+        "name": "v0.2.0",
+        "tag_name": "0.2.0",
+        "created_at": "2024-11-22T12:01:48Z",
+        "description": "- 添加了内置的服务端处理器，以配合插件工作（若你有其他和插件兼容的解析器可以在配置中禁用）\r\n> 内置处理器需要Pypi依赖strip_ansi，以过滤ANSI转义字符（MCDR本身目前还没有内置此功能）\r\n- BukkitAPI插件依赖现内置于插件本体内，加载时自动解压到服务端内，重启服务端即可生效\r\n\r\n**详细的变更记录**: https://github.com/Mooling0602/BukkitChatManager-MCDR/compare/0.1.0...0.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 208325076,
+          "name": "BukkitChatManager-v0.2.0.mcdr",
+          "size": 19284,
+          "download_count": 45,
+          "created_at": "2024-11-22T12:06:32Z",
+          "browser_download_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.2.0/BukkitChatManager-v0.2.0.mcdr",
+          "hash_md5": "1135450140154818f340acf514c65214",
+          "hash_sha256": "dfbdfc832b0d22622b74f661be89f3c691aacf0969beea32906ea205c140b08a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bkchat_manager",
+          "name": "BukkitChatManager",
+          "version": "0.2.0",
+          "link": "https://github.com/Mooling0602/BukkitChatManager",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [
+            "strip_ansi"
+          ],
+          "description": {
+            "en_us": "Manage chat in game for servers use BukkitAPI.",
+            "zh_cn": "接管BukkitAPI服务端的游戏内聊天"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2024-11-17T09:58:30Z",
+        "description": "- 支持修改上下线的消息格式\r\n- 请手动删除旧的BukkitAPI插件，现在此MCDR插件会自动解压新的BukkitAPI插件（依赖项），安装后重启服务器即可\r\n> 目前每次加载插件都会解压依赖出来，不过文件不是很大，基本没有影响，下个版本将进行优化。",
+        "prerelease": false,
+        "asset": {
+          "id": 207100617,
+          "name": "BukkitChatManager-v0.1.0.mcdr",
+          "size": 17766,
+          "download_count": 35,
+          "created_at": "2024-11-17T10:28:30Z",
+          "browser_download_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.1.0/BukkitChatManager-v0.1.0.mcdr",
+          "hash_md5": "d012010460b8091fb014393d90ed01c9",
+          "hash_sha256": "92f3af452b8e0c8ca6adb391a9353132b43af2c59ee4d74037bb0a51efd582aa"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bkchat_manager",
+          "name": "BukkitChatManager",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/BukkitChatManager",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Manage chat in game for servers use BukkitAPI.",
+            "zh_cn": "接管BukkitAPI服务端的游戏内聊天"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/tag/0.0.2",
+        "name": "v0.0.2",
+        "tag_name": "0.0.2",
+        "created_at": "2024-10-31T10:51:01Z",
+        "description": "- 修复了控制台执行指令导致插件报错的问题\r\n**Full Changelog**: https://github.com/Mooling0602/BukkitChatManager-MCDR/compare/0.0.1...0.0.2",
+        "prerelease": false,
+        "asset": {
+          "id": 203108002,
+          "name": "BukkitChatManager-v0.0.2.mcdr",
+          "size": 14697,
+          "download_count": 38,
+          "created_at": "2024-10-31T10:53:39Z",
+          "browser_download_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.0.2/BukkitChatManager-v0.0.2.mcdr",
+          "hash_md5": "23792d6bd2e2a9677179666ac17ccaff",
+          "hash_sha256": "2a39bb97de536a4f4bff98aede12b97a5945776baff09c54a9fa11414849c9ac"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bkchat_manager",
+          "name": "BukkitChatManager",
+          "version": "0.0.2",
+          "link": "https://github.com/Mooling0602/BukkitChatManager",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Manage chat in game for servers use BukkitAPI.",
+            "zh_cn": "接管BukkitAPI服务端的游戏内聊天"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2024-10-31T09:07:50Z",
+        "description": "- Bukkit 插件依赖项（必装/Must Install）：[PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.0.1/PlayerLog-1.0-SNAPSHOT.jar)\r\n- 默认的bukkit_handler可能无法正确识别前缀（应该是少识别了一个空格），后续将在插件内内置合适的服务端处理器解决此问题",
+        "prerelease": false,
+        "asset": {
+          "id": 203094289,
+          "name": "BukkitChatManager-v0.0.1.mcdr",
+          "size": 1340,
+          "download_count": 31,
+          "created_at": "2024-10-31T09:44:40Z",
+          "browser_download_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR/releases/download/0.0.1/BukkitChatManager-v0.0.1.mcdr",
+          "hash_md5": "86024b3c4890634a098bc8420c40cc21",
+          "hash_sha256": "967e0a7f721250ad30862c8c3bedf704fc9c76dd4af12b542d1c5bbd64914930"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bkchat_manager",
+          "name": "BukkitChatManager",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/BukkitChatManager",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Take over chat messages in game for BukkitAPI servers.",
+            "zh_cn": "接管BukkitAPI服务端的游戏内聊天。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/BukkitChatManager-MCDR",
+    "name": "BukkitChatManager-MCDR",
+    "full_name": "Mooling0602/BukkitChatManager-MCDR",
+    "html_url": "https://github.com/Mooling0602/BukkitChatManager-MCDR",
+    "description": "Manage chat in game for BukkitAPI servers in MCDR.",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# BukkitChatManager-MCDR\n在MCDR接管BukkitAPI服务端的游戏内聊天。\n\n## 依赖\n- BukkitAPI 插件：[PlayerLog](https://github.com/Mooling0602/BukkitChatManager-MCDR/blob/main/extra/PlayerLog-1.1.jar)\n> 已附加到MCDR插件中，MCDR启动或重载此插件时会自动更新或加载，你可能需要重启服务器以使其生效！\n\n## 用法\n从Release中安装此MCDR插件，如果出现问题，请确认依赖是否已经正常加载，有报错请反馈到Issues！\n\n## 配置\n配置文件位于`config/bkchat_manager/config.json`，你可以在里面修改聊天消息的格式等。\n\n其中，`%player%`表示玩家名；`%message%`表示聊天消息内容或玩家执行的指令内容；`%src_prefix%`表示指令源。\n\n## 注意事项\n和类似的BukkitAPI插件冲突，请不要使用这些同类型的插件。\n\n另外，如果有和依赖中作用相同的替代品插件，此MCDR插件可无缝迁移到其他类型的服务端上；Mohist等支持BukkitAPI的混合端也可以使用。\n\n插件有内置专门的服务端处理器，强烈建议启用，同时启用后无法使用其他的服务端处理器，否则会冲突。\n\n## 更新内容\n### 历史日志\n- `v0.2.1` 对内置的Bukkit插件依赖进行了更新，添加了客户端聊天拦截的动态控制功能，非生产环境下可以使用/chatmsg on|off进行调试，生产环境下请禁止普通玩家的playerlog.chatmsg权限（将于后续优化）！\n- `v0.3.0` 更新了兼容模式（compatibility_mode），你可以通过安装此插件并启用聊天兼容模式的方式，使MCDR本身和MCDR的大部分按规范开发的插件，可以兼容各种会修改聊天内容并影响服务端聊天相关日志输出的Bukkit服务端插件如VentureChat等！\n\n### 计划中\n\n经过测试的服务端：Mohist、Paper、Leaves\n> 极低版本的服务端尚未测试，理论上支持1.12及以上的所有Bukkit服务端。\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/BukkitChatManager-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

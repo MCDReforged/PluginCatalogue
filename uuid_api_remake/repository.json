@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+  "name": "MCDR_uuid_api_remake",
+  "full_name": "gubaiovo/MCDR_uuid_api_remake",
+  "html_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+  "description": "Get UUID of players",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 1,
+  "readme": "# UUID API REMAKE\n本插件为UUID API重制版，[原作UUID API链接：https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api)\n\n### 本插件uuid获取流程 (如果获取失败则执行下一步)：\n\n1. 判断服务器正版/离线\n2. (1). 正版：\n   1. 读取 usercache.json，失败则下一步\n   2. 调用 API\n   (2). 离线\n   1. 读取 offline_uuid.json，失败则下一步\n   2. 本地计算 uuid，保存到 offline_uuid.json\n\n### 配置文件\n\n```json\n{\n    \"online_api\": \"https://api.mojang.com/users/profiles/minecraft/{}\",\n    \"mojang_online_mode_fallback\": true,\n    \"permissions\": {\n        \"help\": 3,\n        \"get\": 3\n    }\n}\n```\n\n**mojang_online_mode_fallback**: 当插件无法判断服务器正版/离线时，由该项决定使用正版/离线 uuid 获取方式  \n**online_api**: 获取正版 uuid 的 API  \n**permissions**: 权限管理，数值参考 [MCDReforgedPermissions](https://docs.mcdreforged.com/zh-cn/latest/permission.html)\n\n### 命令\n\n具体使用方法请参考 `!!uar help`\n\n### API使用方法\n\n获取玩家名对应的uuid：\n\n```python\nimport uuid_api_remake\n\nname = ... # str\nuuid = uuid_api_remake.get_uuid(name)\nprint(uuid)\n```\n\n获取uuid对应的玩家名(获取范围为 `offline_uuid.json` 以及 `usercache.json`)\n\n```python\nimport uuid_api_remake\n\nuuid = ... # str\nname = uuid_api_remake.get_name(uuid)\nprint(name)\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/gubaiovo/MCDR_uuid_api_remake/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

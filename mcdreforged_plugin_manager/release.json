@@ -1,0 +1,515 @@
+{
+  "schema_version": 8,
+  "id": "mcdreforged_plugin_manager",
+  "latest_version": "2.2.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v2.2.0",
+      "name": "MCDReforgedPluginManager v2.2.0",
+      "tag_name": "v2.2.0",
+      "created_at": "2024-07-01T05:35:25Z",
+      "description": "## News\r\n\r\n- Added support for MCDR 2.13.0 (#10)\r\n- Added ingame warning when cache failed (#8)\r\n- Added hint when cache is not loaded (#8)\r\n- Added 'no plugin found' message for list command\r\n\r\n## Fixes\r\n\r\n- Fixed `everything.json` loss when cache failed (#8)\r\n- Fixed exception while install when MCDR requirement or dependency not satisfied\r\n- Fixed `uninstall` and `upgrade` commands throw error when multiple plugin_id is given\r\n\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 176925086,
+        "name": "MCDReforgedPluginManager-v2.2.0.mcdr",
+        "size": 23359,
+        "download_count": 411,
+        "created_at": "2024-07-01T05:36:50Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v2.2.0/MCDReforgedPluginManager-v2.2.0.mcdr",
+        "hash_md5": "a9e2d8eded31b2b79398771df047a741",
+        "hash_sha256": "4d1befd030b013b4ce81a2c8608551d114bf39ea76a06d39dff386167f613289"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "2.2.0",
+        "link": "https://github.com/Ivan-1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v2.1.1",
+      "name": "MCDReforgedPluginManager v2.1.1",
+      "tag_name": "v2.1.1",
+      "created_at": "2024-06-23T09:28:28Z",
+      "description": "## Fixes\r\n\r\n- Fixed error when starting MCDR server without PluginCatalogue cache",
+      "prerelease": false,
+      "asset": {
+        "id": 175425387,
+        "name": "MCDReforgedPluginManager-v2.1.1.mcdr",
+        "size": 23166,
+        "download_count": 88,
+        "created_at": "2024-06-23T09:29:28Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v2.1.1/MCDReforgedPluginManager-v2.1.1.mcdr",
+        "hash_md5": "44989938d185c18017a760f14b1da971",
+        "hash_sha256": "eb8fa4a9b6633e50fac96a144769c8a3b99a2dda7fee75600259e45edff54c69"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "2.1.1",
+        "link": "https://github.com/Ivan-1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v2.1.0",
+      "name": "MCDReforgedPluginManager v2.1.0",
+      "tag_name": "v2.1.0",
+      "created_at": "2024-06-18T12:21:54Z",
+      "description": "## News\r\n\r\n- Add message when no plugin found for `search` command\r\n\r\n## Changes\r\n\r\n- Compat new PluginCatalogue schema (#6)\r\n\r\n## Fixes\r\n\r\n- Fixed the commands which take one plugin id as argument\r\n- Fixed PluginCatalogue cache not being opened using utf8 (https://github.com/Ivan-1F/MCDReforgedPluginManager/issues/6#issuecomment-2018966659)",
+      "prerelease": false,
+      "asset": {
+        "id": 174482657,
+        "name": "MCDReforgedPluginManager-v2.1.0.mcdr",
+        "size": 23166,
+        "download_count": 73,
+        "created_at": "2024-06-18T12:28:23Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v2.1.0/MCDReforgedPluginManager-v2.1.0.mcdr",
+        "hash_md5": "e18a179d2ab7b0ce5e5789fddd97dd85",
+        "hash_sha256": "479d2fa9d180bdec09e0ebf8a35c9712a93e8952055da0030fc49fa3441a2e73"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "2.1.0",
+        "link": "https://github.com/Ivan-1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v2.0.0",
+      "name": "MCDReforgedPluginManager v2.0.0",
+      "tag_name": "v2.0.0",
+      "created_at": "2023-04-14T16:45:10Z",
+      "description": "## News\r\n\r\n- New config item: `release_download_url_template`: The url template used when downloading GitHub release assets, where '{url}' will be replaced with the actual url (#5)\r\n\r\n## Changes\r\n\r\n- Cache the whole `meta` branch including plugin info, plugin meta and plugin releases\r\n- Better cache loading when the plugin is loaded\r\n- Custom thread name renaming to fit MCDR thread names:\r\n  - `mpm-cache` -> `MPMCache`\r\n  - `mpm-installer` -> `MPMInstall`\r\n  - `mpm-uninstaller` -> `MPMUninstall`\r\n  - `CacheClock` -> `MPMCacheClock`\r\n- `!!mpm install`, `!!mpm uninstall` and `!!mpm upgrade` command will not suggest `mcdreforged_plugin_manager`\r\n- mpm will not be able to install, uninstall or upgrade itself (`mcdreforged_plugin_manager`)\r\n\r\n## Fixes\r\n\r\n- Fixed plugin uninstaller thread name\r\n- Fixed cache clock timer not inherited from old instance when the plugin is reloaded\r\n- `en_us` translation typo: `mcdreforged_plugin_manager.uninstall.dependency_warning`\r\n\r\n## Migrate from v1\r\n\r\n- Change the `source` field in the config file, it should be the url to download the whole meta branch in v2\r\n- Remove the `cache.json` file in `MCDR/config/mcdreforged_plugin_manager`\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 103714058,
+        "name": "MCDReforgedPluginManager-v2.0.0.mcdr",
+        "size": 23188,
+        "download_count": 673,
+        "created_at": "2023-04-14T16:46:28Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v2.0.0/MCDReforgedPluginManager-v2.0.0.mcdr",
+        "hash_md5": "73d27bab8d5bcf65f6d6341070751362",
+        "hash_sha256": "c39a5e65df7f71546af7614662c8d0337bbd060e00e0baa9ee6de923349adb82"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "2.0.0",
+        "link": "https://github.com/Ivan-1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.3.3",
+      "name": "MCDReforgedPluginManager v1.3.3",
+      "tag_name": "v1.3.3",
+      "created_at": "2023-04-02T14:29:45Z",
+      "description": "## Changes\r\n\r\n- Compat the new `plugin.json` file from PluginCatalogue (resolved #4)\r\n- Stop using removed api `Serializable.update_from`\r\n- Fixed incorrect link in MCDR meta",
+      "prerelease": false,
+      "asset": {
+        "id": 102000413,
+        "name": "MCDReforgedPluginManager-v1.3.3.mcdr",
+        "size": 22309,
+        "download_count": 96,
+        "created_at": "2023-04-02T14:32:45Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.3.3/MCDReforgedPluginManager-v1.3.3.mcdr",
+        "hash_md5": "f9cfa6d8b0b5d7f69df58046713ab003",
+        "hash_sha256": "bd9ef99318bc78d620e3565478b7dd61c71d3ee1c8b1233b812aee7d13655beb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.3.3",
+        "link": "https://github.com/Ivan-1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.3.2",
+      "name": "MCDReforgedPluginManager v1.3.2",
+      "tag_name": "v1.3.2",
+      "created_at": "2023-02-20T13:48:00Z",
+      "description": "## Changes\r\n\r\n- Better upgrade process: download new file first and only remove old file when new file is downloaded (resolved #2)\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 96397666,
+        "name": "MCDReforgedPluginManager-v1.3.2.mcdr",
+        "size": 22119,
+        "download_count": 174,
+        "created_at": "2023-02-20T13:52:39Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.3.2/MCDReforgedPluginManager-v1.3.2.mcdr",
+        "hash_md5": "273e27780570be255762615fdf2b1b7b",
+        "hash_sha256": "35d688386a32ff261152f63fd252370268f6b2eaccdccaa8233eb3342b55cef5"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.3.2",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.3.1",
+      "name": "MCDReforgedPluginManager v1.3.1",
+      "tag_name": "v1.3.1",
+      "created_at": "2022-11-30T08:46:00Z",
+      "description": "## Fixes\r\n\r\n- Fixed the error when using proxies to request web resources",
+      "prerelease": false,
+      "asset": {
+        "id": 86468883,
+        "name": "MCDReforgedPluginManager-v1.3.1.mcdr",
+        "size": 22056,
+        "download_count": 286,
+        "created_at": "2022-11-30T08:48:02Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.3.1/MCDReforgedPluginManager-v1.3.1.mcdr",
+        "hash_md5": "be316f2cd9b178657e5aea921e8f9f69",
+        "hash_sha256": "c8727ad8bf09d393dc58c88813bfa9869bac1e5dad57cf913f2585341b18b591"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.3.1",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.3.0",
+      "name": "MCDReforgedPluginManager v1.3.0",
+      "tag_name": "v1.3.0",
+      "created_at": "2022-11-22T15:08:19Z",
+      "description": "## News\r\n\r\n- Proxy support when requesting web resources (#1)",
+      "prerelease": false,
+      "asset": {
+        "id": 85569852,
+        "name": "MCDReforgedPluginManager-v1.3.0.mcdr",
+        "size": 21969,
+        "download_count": 129,
+        "created_at": "2022-11-22T15:10:19Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.3.0/MCDReforgedPluginManager-v1.3.0.mcdr",
+        "hash_md5": "fb9707394a694f389561b33b02cc4998",
+        "hash_sha256": "75117cb6578d1de62e7ee89d3f4d79a5fc8ca8d38ba3ee04aa0e94803a99c1e7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.3.0",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.2.1",
+      "name": "MCDReforgedPluginManager v1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2022-07-27T06:26:05Z",
+      "description": "## Changes\r\n\r\n- Looser requirements in requirements.txt",
+      "prerelease": false,
+      "asset": {
+        "id": 72806253,
+        "name": "MCDReforgedPluginManager-v1.2.1.mcdr",
+        "size": 21808,
+        "download_count": 236,
+        "created_at": "2022-07-27T06:28:27Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.2.1/MCDReforgedPluginManager-v1.2.1.mcdr",
+        "hash_md5": "7b72a708a5a0bc99dc5aeb0e64846354",
+        "hash_sha256": "094d9f8595909a7396f1b8967b11956faed87ffb0c7a447120cf8868dbc17581"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.2.1",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0",
+          "requests"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.2.0",
+      "name": "MCDReforgedPluginManager v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2022-04-23T08:17:07Z",
+      "description": "## News\r\n\r\n- Multiple plugins operation support for `install`, `uninstall`, and `upgrade` subcommands\r\n  - e.g. `!!mpm install here beep quick_backup_multi`\r\n\r\n## Changes\r\n\r\n- More information will be shown when using `upgrade` command\r\n\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 63409198,
+        "name": "MCDReforgedPluginManager-v1.2.0.mcdr",
+        "size": 21815,
+        "download_count": 114,
+        "created_at": "2022-04-23T08:20:17Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.2.0/MCDReforgedPluginManager-v1.2.0.mcdr",
+        "hash_md5": "113186521635557b94cc70e0dd65a8a4",
+        "hash_sha256": "0ce9a934f637265e1720477fa989ba55513376ed456bf550924cb22dfc4b2bea"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.2.0",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged~=2.3.2",
+          "requests~=2.26.0"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.1.1",
+      "name": "MCDReforgedPluginManager v1.1.1",
+      "tag_name": "v1.1.1",
+      "created_at": "2022-04-19T03:48:18Z",
+      "description": "## Fixes\r\n\r\n - Added the missing `install_path` key in the default config",
+      "prerelease": false,
+      "asset": {
+        "id": 62956515,
+        "name": "MCDReforgedPluginManager-v1.1.1.mcdr",
+        "size": 21551,
+        "download_count": 44,
+        "created_at": "2022-04-19T03:49:16Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.1.1/MCDReforgedPluginManager-v1.1.1.mcdr",
+        "hash_md5": "8de2bcfa138f60f6483f4e0b3b7cf230",
+        "hash_sha256": "efa91a6c5d28de8bf4a1f3b55c68221ee21ebf26ffdcd75d6edc5f5a6b57f27b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.1.1",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged~=2.3.2",
+          "requests~=2.26.0"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.1.0",
+      "name": "MCDReforgedPluginManager v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2022-04-19T03:41:41Z",
+      "description": "## News\r\n\r\n - New config option `install_path`: allows you to specify where to install the plugin\r\n\r\n## Changes\r\n\r\n - Plugins will be upgraded to the same directory (multiple plugin path support)\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 62956220,
+        "name": "MCDReforgedPluginManager-v1.1.0.mcdr",
+        "size": 21448,
+        "download_count": 43,
+        "created_at": "2022-04-19T03:43:49Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.1.0/MCDReforgedPluginManager-v1.1.0.mcdr",
+        "hash_md5": "4a962738d7d4ec27018caef9dd5881bc",
+        "hash_sha256": "babb3542291c4e3dc44d61a6992a556ddc51cef99c94f0dbca23296622077b99"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.1.0",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged~=2.3.2",
+          "requests~=2.26.0"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/tag/v1.0.0",
+      "name": "MCDReforgedPluginManager v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2022-04-16T14:37:29Z",
+      "description": "## News\r\n\r\nImplemented the MCDR side\r\n\r\n- Dependency checking\r\n- Update checking\r\n- Plugin installation & uninstallation\r\n- Plugin upgrading\r\n- Plugin searching",
+      "prerelease": false,
+      "asset": {
+        "id": 62815395,
+        "name": "MCDReforgedPluginManager-v1.0.0.mcdr",
+        "size": 21393,
+        "download_count": 48,
+        "created_at": "2022-04-17T08:39:08Z",
+        "browser_download_url": "https://github.com/Ivan-1F/MCDReforgedPluginManager/releases/download/v1.0.0/MCDReforgedPluginManager-v1.0.0.mcdr",
+        "hash_md5": "e4b6167e8104b21486addbac921ab4a8",
+        "hash_sha256": "fe1c0e47e3f31fdf3dacf42456d83a1c374db0e56e16f156d889d3661ff9f095"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdreforged_plugin_manager",
+        "name": "MCDReforged Plugin Manager",
+        "version": "1.0.0",
+        "link": "https://github.com/Ivan1F/MCDReforgedPluginManager",
+        "authors": [
+          "Ivan1F"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged~=2.3.2",
+          "requests~=2.26.0"
+        ],
+        "description": {
+          "en_us": "Manage your mcdreforged plugins with ease",
+          "zh_cn": "轻松管理你的 MCDReforged 插件"
+        }
+      }
+    }
+  ]
+}

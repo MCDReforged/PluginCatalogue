@@ -1,0 +1,312 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "more_command_nodes",
+    "name": "MoreCommandNodes",
+    "version": "1.1.2",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/more_command_nodes",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {
+      "mcdreforged": "^2.5"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "More command nodes",
+      "zh_cn": "更多的指令节点"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "more_command_nodes",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/more_command_nodes",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# MoreCommandNodes\n\n> 更多指令节点\n\n如果您想要添加更多自定义节点，欢迎提交 PR！\n\n## 节点列表\n\n```mermaid\nclassDiagram\n    class FloatsArgument\n    class Position\n    class Facing\n    class EnumeratedText\n\n    FloatsArgument : +__init__(String name, int number)\n    FloatsArgument <|-- Position\n    Position : +__init__(String name)\n    FloatsArgument <|-- Facing\n    Facing : +__init__(String name)\n\n    EnumeratedText : +__init__(String name, Type[Enum] enum_class)\n```\n\n### FloatsArgument\n\n连续的多个浮点数节点。\n\n### Position\n\n坐标节点，连续的三个浮点数。\n\n### Facing\n\n朝向节点，连续的两个浮点数。\n\n### EnumeratedText\n\n与 MCDR 的 Enumeration 类似，但是使用 Enum 的值而不是名称作为节点文本。\n",
+      "zh_cn": "# MoreCommandNodes\n\n> 更多指令节点\n\n如果您想要添加更多自定义节点，欢迎提交 PR！\n\n## 节点列表\n\n```mermaid\nclassDiagram\n    class FloatsArgument\n    class Position\n    class Facing\n    class EnumeratedText\n\n    FloatsArgument : +__init__(String name, int number)\n    FloatsArgument <|-- Position\n    Position : +__init__(String name)\n    FloatsArgument <|-- Facing\n    Facing : +__init__(String name)\n\n    EnumeratedText : +__init__(String name, Type[Enum] enum_class)\n```\n\n### FloatsArgument\n\n连续的多个浮点数节点。\n\n### Position\n\n坐标节点，连续的三个浮点数。\n\n### Facing\n\n朝向节点，连续的两个浮点数。\n\n### EnumeratedText\n\n与 MCDR 的 Enumeration 类似，但是使用 Enum 的值而不是名称作为节点文本。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/more_command_nodes/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/more_command_nodes/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "more_command_nodes",
+    "latest_version": "1.1.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.1.2",
+        "name": "more_command_nodes: v1.1.2",
+        "tag_name": "more_command_nodes-v1.1.2",
+        "created_at": "2024-07-01T15:37:37Z",
+        "description": "## [1.1.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/more_command_nodes-v1.1.1...more_command_nodes-v1.1.2) (2024-07-01)\n\n\n### Bug Fixes\n\n* **more_command_nodes:** 🐛 use command_builder_utils from api package ([0e49258](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/0e49258202850294b535a378966ed3cedb388603))",
+        "prerelease": false,
+        "asset": {
+          "id": 177020250,
+          "name": "MoreCommandNodes-v1.1.2.mcdr",
+          "size": 1417,
+          "download_count": 2217,
+          "created_at": "2024-07-01T15:39:32Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.1.2/MoreCommandNodes-v1.1.2.mcdr",
+          "hash_md5": "5b96d82fe3a2646f2bc0f3a5e49f4582",
+          "hash_sha256": "2431681a4d1f9f0474f7eaf80484a8437a511cb4d9f3909e1a41bf2c840b33b6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.1.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.1.1",
+        "name": "more_command_nodes: v1.1.1",
+        "tag_name": "more_command_nodes-v1.1.1",
+        "created_at": "2024-07-01T11:41:37Z",
+        "description": "## [1.1.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/more_command_nodes-v1.1.0...more_command_nodes-v1.1.1) (2024-07-01)\n\n\n### Bug Fixes\n\n* **more_command_nodes:** 🐛 fix import error by mcdr 2.13 (resolve [#199](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/199)) ([8a10565](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/8a105652a9491c8a79d43397e85ff63a9e5b2f14))",
+        "prerelease": false,
+        "asset": {
+          "id": 176976845,
+          "name": "MoreCommandNodes-v1.1.1.mcdr",
+          "size": 1430,
+          "download_count": 68,
+          "created_at": "2024-07-01T11:43:07Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.1.1/MoreCommandNodes-v1.1.1.mcdr",
+          "hash_md5": "79e72fadf7d648ed220e0068c4af9bbd",
+          "hash_sha256": "fd6244b3c7fd6bd53fdc0ce561f2544a24893ded4b68e4c9fb8c1b2d71d0fe36"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.1.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.1.0",
+        "name": "more_command_nodes: v1.1.0",
+        "tag_name": "more_command_nodes-v1.1.0",
+        "created_at": "2022-07-18T15:26:30Z",
+        "description": "## [1.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/more_command_nodes-v1.0.3...more_command_nodes-v1.1.0) (2022-07-18)\n\n\n### Features\n\n* **more_command_nodes:** ✨ set EnumeratedText to inherit Enumeration ([ce366a7](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/ce366a7bc14876e66dc2509720ce91f452c8c1d9))",
+        "prerelease": false,
+        "asset": {
+          "id": 71935952,
+          "name": "MoreCommandNodes-v1.1.0.mcdr",
+          "size": 1428,
+          "download_count": 2026,
+          "created_at": "2022-07-18T15:27:09Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.1.0/MoreCommandNodes-v1.1.0.mcdr",
+          "hash_md5": "03d21e35ed9bec31f796ba1d6326470d",
+          "hash_sha256": "4b4cfe9e7ca7b556151ae5ad1340481a678ca31e184a7d44626234b5f86bc638"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.5"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.0.3",
+        "name": "more_command_nodes: v1.0.3",
+        "tag_name": "more_command_nodes-v1.0.3",
+        "created_at": "2022-07-18T14:28:53Z",
+        "description": "## [1.0.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/more_command_nodes-v1.0.2...more_command_nodes-v1.0.3) (2022-07-18)\n\n\n### Bug Fixes\n\n* **more_command_nodes:** 🐛 fix FloatsArgument extra spaces issue ([97c12d5](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/97c12d568379959d527c7bc3d96e91e167854f47))",
+        "prerelease": false,
+        "asset": {
+          "id": 71931412,
+          "name": "MoreCommandNodes-v1.0.3.mcdr",
+          "size": 1433,
+          "download_count": 112,
+          "created_at": "2022-07-18T14:35:28Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.0.3/MoreCommandNodes-v1.0.3.mcdr",
+          "hash_md5": "2fb0cd3588601ee4208723436063f66c",
+          "hash_sha256": "1af14626ac634310b624ece4d4270b70b6e7e29714015aa4a321eb42485c34e3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.0.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.0.2",
+        "name": "more_command_nodes: v1.0.2",
+        "tag_name": "more_command_nodes-v1.0.2",
+        "created_at": "2022-07-08T14:00:47Z",
+        "description": "## [1.0.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/more_command_nodes-v1.0.1...more_command_nodes-v1.0.2) (2022-07-08)\r\n\r\n\r\n### Bug Fixes\r\n\r\n* **more_command_nodes:** 🐛 fix parse of FloatsArgument ([dc65f2c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/dc65f2c81943235eb0e4c2dc4965f75a57fb2844))",
+        "prerelease": false,
+        "asset": {
+          "id": 70976142,
+          "name": "MoreCommandNodes-v1.0.2.mcdr",
+          "size": 1376,
+          "download_count": 152,
+          "created_at": "2022-07-08T14:04:27Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.0.2/MoreCommandNodes-v1.0.2.mcdr",
+          "hash_md5": "1f151ba7797e40acdd117de42e4314cb",
+          "hash_sha256": "0e4ca4fb55212ffa22aea2662e30d0a5b5c184a709744235d6d29adbdde2873c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.0.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.0.1",
+        "name": "more_command_nodes: v1.0.1",
+        "tag_name": "more_command_nodes-v1.0.1",
+        "created_at": "2022-07-08T08:05:47Z",
+        "description": "## [1.0.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/more_command_nodes-v1.0.0...more_command_nodes-v1.0.1) (2022-07-08)\r\n\r\n\r\n### Bug Fixes\r\n\r\n* **more_command_nodes:** 🐛 fix Exception used in FloatsArgument ([284ba8f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/284ba8f4a9a58310faafcffa9196e035b2328ace))\r\n* **more_command_nodes:** 🐛 fix import util ([25f933b](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/25f933b11dfc35d914df43c133bece5efce6af75))\r\n* **more_command_nodes:** 🐛 fix range in FloatsArgument ([4fa552f](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4fa552f5e4a5efb9296b1324a527d3888f90bb66))",
+        "prerelease": false,
+        "asset": {
+          "id": 70976051,
+          "name": "MoreCommandNodes-v1.0.1.mcdr",
+          "size": 1405,
+          "download_count": 55,
+          "created_at": "2022-07-08T14:03:18Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.0.1/MoreCommandNodes-v1.0.1.mcdr",
+          "hash_md5": "2cdd3a20310a2532014cca95cf858372",
+          "hash_sha256": "601c079681a33aba70204f42d700bb66de6b966941e77c2465e335fe4416de6c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.0.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/more_command_nodes-v1.0.0",
+        "name": "more_command_nodes: v1.0.0",
+        "tag_name": "more_command_nodes-v1.0.0",
+        "created_at": "2022-07-08T07:27:50Z",
+        "description": "## 1.0.0 (2022-07-08)\n\n\n### Features\n\n* **more_command_nodes:** 🎉 release MoreCommandNodes ([4aefc2b](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4aefc2b728482040a90200cd9e9c5612ed9726a5))",
+        "prerelease": false,
+        "asset": {
+          "id": 70941230,
+          "name": "MoreCommandNodes-v1.0.0.mcdr",
+          "size": 1371,
+          "download_count": 64,
+          "created_at": "2022-07-08T07:28:27Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/more_command_nodes-v1.0.0/MoreCommandNodes-v1.0.0.mcdr",
+          "hash_md5": "e0d5632abd1934870c7ac5d75df8e3d9",
+          "hash_sha256": "3ccd7e9db81dd62dde1fb1c7f0b411d82858c2e72e0f4dfd9cc4d0512c447967"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "more_command_nodes",
+          "name": "MoreCommandNodes",
+          "version": "1.0.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/more_command_nodes",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "More command nodes",
+            "zh_cn": "更多的指令节点"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 99,
+    "watchers_count": 99,
+    "forks_count": 51,
+    "readme": "# MoreCommandNodes\n\n> 更多指令节点\n\n如果您想要添加更多自定义节点，欢迎提交 PR！\n\n## 节点列表\n\n```mermaid\nclassDiagram\n    class FloatsArgument\n    class Position\n    class Facing\n    class EnumeratedText\n\n    FloatsArgument : +__init__(String name, int number)\n    FloatsArgument <|-- Position\n    Position : +__init__(String name)\n    FloatsArgument <|-- Facing\n    Facing : +__init__(String name)\n\n    EnumeratedText : +__init__(String name, Type[Enum] enum_class)\n```\n\n### FloatsArgument\n\n连续的多个浮点数节点。\n\n### Position\n\n坐标节点，连续的三个浮点数。\n\n### Facing\n\n朝向节点，连续的两个浮点数。\n\n### EnumeratedText\n\n与 MCDR 的 Enumeration 类似，但是使用 Enum 的值而不是名称作为节点文本。\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/more_command_nodes/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

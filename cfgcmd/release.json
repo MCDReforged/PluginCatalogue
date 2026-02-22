@@ -1,0 +1,341 @@
+{
+  "schema_version": 8,
+  "id": "cfgcmd",
+  "latest_version": "1.3.3",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.3.3",
+      "name": "v1.3.3",
+      "tag_name": "v1.3.3",
+      "created_at": "2025-04-28T15:24:17Z",
+      "description": "## bug修复\r\n\r\n- 应该修复了某些时候编辑器交互锁被无限占用的问题\r\n\r\n## 功能\r\n\r\n- 添加`envEditor`命令，打开文件同时打开编辑器",
+      "prerelease": false,
+      "asset": {
+        "id": 250159308,
+        "name": "configCommand-v1.3.3.mcdr",
+        "size": 20474,
+        "download_count": 56,
+        "created_at": "2025-04-28T15:26:02Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.3.3/configCommand-v1.3.3.mcdr",
+        "hash_md5": "5d18488694dff3047227ee5bf7d04a28",
+        "hash_sha256": "257aa6f29e07ae45f91f0192f22947cb2510019f872ff1d70b810bf10787e23d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.3.3",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml",
+          "requests"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.3.2",
+      "name": "v1.3.2",
+      "tag_name": "v1.3.2",
+      "created_at": "2025-04-17T17:41:24Z",
+      "description": "# `1.3.2`版本\r\n\r\n## 新功能\r\n\r\n### 可用在线编辑器\r\n\r\n#### 用法\r\n\r\n- `!!cfg editor` 打开新的编辑器会话（需要打开一个文件）\r\n- `!!cfg editorApply` 同步编辑器的修改\r\n- `!!cfg editorDelete` 删除编辑器会话\r\n\r\n## Bug修复\r\n\r\n来自`v1.3.1`: 编辑器打开出错无提示\r\n\r\n## 注\r\n\r\n`1.3.1`版本无Release",
+      "prerelease": false,
+      "asset": {
+        "id": 247274761,
+        "name": "configCommand-v1.3.2.mcdr",
+        "size": 20302,
+        "download_count": 31,
+        "created_at": "2025-04-17T17:44:29Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.3.2/configCommand-v1.3.2.mcdr",
+        "hash_md5": "c6053c0654c9313d3a48234cd8f4f983",
+        "hash_sha256": "f0432826cf411a6d3b9357fd21bdffc5272593187a3270b75509a190f7f3e49d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.3.2",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml",
+          "requests"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.6",
+      "name": "v1.2.6",
+      "tag_name": "v1.2.6",
+      "created_at": "2025-04-05T03:03:33Z",
+      "description": "修复了`ls`子命令无法正常打印的bug",
+      "prerelease": false,
+      "asset": {
+        "id": 243714355,
+        "name": "cfgcmd-v1.2.6.mcdr",
+        "size": 16747,
+        "download_count": 24,
+        "created_at": "2025-04-05T03:04:34Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.6/cfgcmd-v1.2.6.mcdr",
+        "hash_md5": "c357bb7a3d8d6b499cf7f97ce3d50e7e",
+        "hash_sha256": "0101796bb4f350e0306d9f5bb0067b9871a44b5d8a21a10b3c069419de5eaff8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.2.6",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.5",
+      "name": "v1.2.5",
+      "tag_name": "v1.2.5",
+      "created_at": "2025-04-02T13:57:56Z",
+      "description": "- 修复了`ls`子命令在当页有`float`类型值的时候无法正确执行的bug\r\n- 修复了`set`与`setTyped`子命令在无附加信息时会附带`None`的bug",
+      "prerelease": false,
+      "asset": {
+        "id": 242924093,
+        "name": "cfgcmd-v1.2.5.mcdr",
+        "size": 16746,
+        "download_count": 26,
+        "created_at": "2025-04-02T13:58:44Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.5/cfgcmd-v1.2.5.mcdr",
+        "hash_md5": "a0c3feca4e8e22a2b61b81121cfe5f58",
+        "hash_sha256": "279c4e89d62a98180f6729897248274dd5036a4324dbf8c5e2ff63835266018f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.2.5",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.4",
+      "name": "v1.2.4",
+      "tag_name": "v1.2.4",
+      "created_at": "2025-04-02T11:18:41Z",
+      "description": "## bug修复:\r\n- 修复了`set`子命令无法将值修改为`INT`但是带小数点的浮点数值\r\n- 修复了`set`子命令即使无法修改仍然回复成功消息",
+      "prerelease": false,
+      "asset": {
+        "id": 242886605,
+        "name": "cfgcmd-v1.2.4.mcdr",
+        "size": 16740,
+        "download_count": 24,
+        "created_at": "2025-04-02T11:20:09Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.4/cfgcmd-v1.2.4.mcdr",
+        "hash_md5": "d30f8731119804c9ccf054eb72f2a1dd",
+        "hash_sha256": "feab77af5f902c8bc8706810d8ccde41e399df306510acf361c76424ea6c85f7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.2.4",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.3",
+      "name": "v1.2.3",
+      "tag_name": "v1.2.3",
+      "created_at": "2025-03-30T16:32:48Z",
+      "description": "- 添加了`lsLong`指令\r\n- 添加了日志功能，自动存储到`/log/cfgcmdlogs/`下\r\n- `ls`中的`float`类型有了高亮",
+      "prerelease": false,
+      "asset": {
+        "id": 242069268,
+        "name": "cfgcmd-v1.2.3.mcdr",
+        "size": 16642,
+        "download_count": 27,
+        "created_at": "2025-03-30T16:34:22Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.3/cfgcmd-v1.2.3.mcdr",
+        "hash_md5": "c0a59a94ab8be74ca8b3d6f19dbd07d6",
+        "hash_sha256": "3b262eb708e7fdf20cbc7fa7050451611aa98e115667dc779118d6f5ddea98f9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.2.3",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.0",
+      "name": "v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2025-03-28T15:49:30Z",
+      "description": "请参阅README的修改",
+      "prerelease": false,
+      "asset": {
+        "id": 241619719,
+        "name": "cfgcmd-v1.2.0.mcdr",
+        "size": 15711,
+        "download_count": 27,
+        "created_at": "2025-03-28T15:50:19Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.0/cfgcmd-v1.2.0.mcdr",
+        "hash_md5": "ac2614357de59a231bb1612262344707",
+        "hash_sha256": "6d2edf9a87f21b4b930c73c2a4627a6b4efed448908358ce7eefce86449ca271"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.2.0",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件",
+          "en_us": "Modify config files with MCDR command"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.1.0",
+      "name": "v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2025-03-27T03:08:38Z",
+      "description": "# 相比于上个版本`1.0.1`的修改:\r\n\r\n- 添加了`rmFile`命令，可以移除文件\r\n- 添加了`touch`命令，可以创建新的空文件\r\n- 修复了`quit`命令不正确的提示消息逻辑",
+      "prerelease": false,
+      "asset": {
+        "id": 241159557,
+        "name": "configCommand-v1.1.0.mcdr",
+        "size": 13101,
+        "download_count": 29,
+        "created_at": "2025-03-27T03:11:05Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.1.0/configCommand-v1.1.0.mcdr",
+        "hash_md5": "53d9d9e1657b3df7bd0c5661d03a8df4",
+        "hash_sha256": "18d341f89970ef170c5c6caa55b3d81ba49c25002f70202cd64dced2becc1d5d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.1.0",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "zh_cn": "使用MCDR指令修改配置文件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.0.1",
+      "name": "1.0.1",
+      "tag_name": "v1.0.1",
+      "created_at": "2025-03-27T03:08:38Z",
+      "description": "1. 添加了缺少的一些信息\r\n2. 移除了一些调试信息\r\n3. 命令`env`的`rwMode`参数现在有效",
+      "prerelease": false,
+      "asset": {
+        "id": 240867665,
+        "name": "configCommand-v1.0.1.mcdr",
+        "size": 12887,
+        "download_count": 26,
+        "created_at": "2025-03-26T06:38:16Z",
+        "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.0.1/configCommand-v1.0.1.mcdr",
+        "hash_md5": "ed73ffeb472fc5443161e7f64ea23813",
+        "hash_sha256": "a9cfbddc037ff2a4e5e46a25af7d02a5cdde93b9b4ef8295d81f30e115961c3d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "cfgcmd",
+        "name": "configCommand",
+        "version": "1.0.1",
+        "link": "https://github.com/wang-yupu/configCommand",
+        "authors": [
+          "wangyupu"
+        ],
+        "dependencies": {},
+        "requirements": [
+          "pyyaml",
+          "toml"
+        ],
+        "description": {
+          "en_us": "使用MCDR指令修改配置文件"
+        }
+      }
+    }
+  ]
+}

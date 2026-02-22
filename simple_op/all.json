@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "simple_op",
+    "name": "Simple OP",
+    "version": "1.3.0",
+    "link": "https://github.com/MCDReforged/SimpleOP",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.14.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "!!op to get op, !!restart to restart the server",
+      "zh_cn": "!!op 以获取op, !!restart 以重启服务器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "simple_op",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/TISUnion/SimpleOP",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# SimpleOP\n\n`!!op` give you op\n\n`!!restart` restart the server\n\nMostly used in creative servers\n\nConfig file: `config/simple_op/config.json`\n\n```json5\n{\n    \"enabled\": true,     // The global switch of the plugin\n    \"restart_delay\": 5,  // `!!restart` restart countdown duration in second\n    \"permissions\": {     // command minimum required permissions\n        \"op\": 1,\n        \"restart\": 1\n    }\n}\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/TISUnion/SimpleOP/master/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "simple_op",
+    "latest_version": "1.3.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/TISUnion/SimpleOP/releases/tag/v1.3.0",
+        "name": "",
+        "tag_name": "v1.3.0",
+        "created_at": "2025-04-22T17:54:01Z",
+        "description": "A few more configs",
+        "prerelease": false,
+        "asset": {
+          "id": 248504112,
+          "name": "SimpleOP-v1.3.0.mcdr",
+          "size": 2203,
+          "download_count": 729,
+          "created_at": "2025-04-22T17:54:44Z",
+          "browser_download_url": "https://github.com/TISUnion/SimpleOP/releases/download/v1.3.0/SimpleOP-v1.3.0.mcdr",
+          "hash_md5": "c194c4352dc3a2d11958c0eaa1d3be00",
+          "hash_sha256": "38219699fb7080cbc9188ea0a599c16927ae176adb5a546e3f5c66bc3b80659c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_op",
+          "name": "Simple OP",
+          "version": "1.3.0",
+          "link": "https://github.com/MCDReforged/SimpleOP",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "!!op to get op, !!restart to restart the server",
+            "zh_cn": "!!op 以获取op, !!restart 以重启服务器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/SimpleOP/releases/tag/v1.2.0",
+        "name": "",
+        "tag_name": "v1.2.0",
+        "created_at": "2021-08-26T12:23:06Z",
+        "description": "- Upgraded to MCDR 2.1+ better translation logic\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 43347963,
+          "name": "SimpleOP-v1.2.0.mcdr",
+          "size": 1978,
+          "download_count": 3851,
+          "created_at": "2021-08-26T13:44:28Z",
+          "browser_download_url": "https://github.com/TISUnion/SimpleOP/releases/download/v1.2.0/SimpleOP-v1.2.0.mcdr",
+          "hash_md5": "70520bad1e6e8cf7a04b09b79967c3b4",
+          "hash_sha256": "708ba752e7b378dcbfcfa7eae709fe7561e86e892c9c8307dcc4fefd5d4340b9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_op",
+          "name": "Simple OP",
+          "version": "1.2.0",
+          "link": "https://github.com/MCDReforged/SimpleOP",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0-beta"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "!!op to get op, !!restart to restart the server",
+            "zh_cn": "!!op 以获取op, !!restart 以重启服务器"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/TISUnion/SimpleOP/releases/tag/v1.1.0",
+        "name": "SimpleOP v1.1.0 for MCDR2",
+        "tag_name": "v1.1.0",
+        "created_at": "2021-08-22T03:52:07Z",
+        "description": "Who doesn't like packed plugin format\r\n\r\nConfig file: `restart_delay`\r\n\r\nTranslation to english supported",
+        "prerelease": false,
+        "asset": {
+          "id": 42997518,
+          "name": "SimpleOP-v1.1.0.mcdr",
+          "size": 1934,
+          "download_count": 1448,
+          "created_at": "2021-08-22T03:50:39Z",
+          "browser_download_url": "https://github.com/TISUnion/SimpleOP/releases/download/v1.1.0/SimpleOP-v1.1.0.mcdr",
+          "hash_md5": "4700f6e6eb77625a33db0c4cc44d3928",
+          "hash_sha256": "e07a94b80429a7a78d3f0062eb666db17d508baadea19127a1f008f6aa9df917"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "simple_op",
+          "name": "Simple OP",
+          "version": "1.1.0",
+          "link": "https://github.com/MCDReforged/SimpleOP",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "!!op to get op, !!restart to restart the server",
+            "zh_cn": "!!op 以获取op, !!restart 以重启服务器"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/TISUnion/SimpleOP",
+    "name": "SimpleOP",
+    "full_name": "TISUnion/SimpleOP",
+    "html_url": "https://github.com/TISUnion/SimpleOP",
+    "description": "!!op to get op, !!restart to restart the server",
+    "archived": false,
+    "stargazers_count": 4,
+    "watchers_count": 4,
+    "forks_count": 5,
+    "readme": "# SimpleOP\n\n`!!op` give you op\n\n`!!restart` restart the server\n\nMostly used in creative servers\n\nConfig file: `config/simple_op/config.json`\n\n```json5\n{\n    \"enabled\": true,     // The global switch of the plugin\n    \"restart_delay\": 5,  // `!!restart` restart countdown duration in second\n    \"permissions\": {     // command minimum required permissions\n        \"op\": 1,\n        \"restart\": 1\n    }\n}\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/TISUnion/SimpleOP/master/readme.md",
+    "license": null
+  }
+}

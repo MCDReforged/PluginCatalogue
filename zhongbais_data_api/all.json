@@ -1,0 +1,320 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "zhongbais_data_api",
+    "name": "zhongbaisDataAPI",
+    "version": "0.2.4",
+    "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+    "authors": [
+      "zhongbai233"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged"
+    ],
+    "description": {
+      "en_us": "Polling /data command related APIs",
+      "zh_cn": "轮询 /data 命令相关API"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "zhongbais_data_api",
+    "authors": [
+      "zhongbai233"
+    ],
+    "repository": "https://github.com/zhongbai2333/zhongbais-Data-API",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# zhongbais Data API\n\nA MCDReforged–based player position retrieval and callback API. It encapsulates timed polling and callback mechanisms, making it easy for other plugins or scripts to uniformly access and subscribe to changes in player position, dimension, rotation, and more.\n\nEnglish | [简中](https://github.com/zhongbai2333/zhongbais-Data-API/tree/main/README_zh.md)\n\n---\n\n## Features\n\n- **Timed Polling**: Automatically polls all online players’ NBT data via RCON at the configured interval\n- **Callback System**: Built-in lists of callbacks let you subscribe to specific NBT fields or to player list changes\n\n---\n\n## Quick Start\n\n```python\nfrom mcdreforged.api.all import PluginServerInterface, new_thread\nfrom zhongbais_data_api import zbDataAPI\n\ndef on_load(self, server: PluginServerInterface, old):\n    # Listen for *all* NBT changes\n    zbDataAPI.register_player_info_callback(self.on_player_update)\n    # Or listen for specific NBT fields only:\n    # zbDataAPI.register_player_info_callback(self.on_player_update, ['Pos', 'Dimension', ...])\n\n    # Listen for player join/leave events\n    zbDataAPI.register_player_list_callback(self.on_player_list_change)\n\ndef on_player_update(self, name: str, info: dict):\n    \"\"\"\n    name: player’s name\n    info: {\n      \"Pos\": [...],         # position [x, y, z]\n      \"Rotation\": [...],    # rotation [yaw, pitch]\n      \"Dimension\": \"...\",   # dimension\n      …                     # other fields as configured\n    }\n    \"\"\"\n    self.server.logger.info(f\"[PlayerUpdate] {name} -> {info}\")\n\ndef on_player_list_change(self, player: str, current_list: list):\n    # player: name of the player who joined or left\n    # current_list: list of all online players\n    self.server.logger.info(f\"[PlayerList] {player} changed, now: {current_list}\")\n\n# Manually trigger a data fetch (e.g. for testing)\nzbDataAPI.refresh_getpos()\n```\n\n---\n\n## Configuration\n\nOnly the bot detection related config is listed here; others can stay at their defaults:\n\n- bot_keyword (bot keyword)\n  - Used to detect and ignore bot player names.\n  - Supports glob-style wildcards: `*`, `?`, `[]`.\n  - If no wildcard is present, falls back to substring check (backward compatible with older versions).\n  - Matching is case-insensitive.\n  - Examples:\n    - `bot_*`: matches names starting with `bot_`, e.g., `bot_alice`.\n    - `*_bot`: matches names ending with `_bot`, e.g., `helper_bot`.\n    - `Bot??Bot*`: matches `Bot` + any two chars + `Bot` + any suffix, e.g., `Bot12BotX`, `BotA3Bot_something`.\n\n> Tip: To keep the old behavior where any name containing `bot_` is treated as a bot, set it to `bot_` (without wildcards).\n\n---\n\n## API Documentation\n\n### `zbDataAPI.register_player_info_callback(func, list=[]) -> None`\n\nAutomatically delivers NBT data (position, dimension, rotation, etc.) for players.\nIf `list` is empty (default), listens to *all* players; otherwise, only to the specified NBT fields.\n\n> **Parameters**\n> \n> - `func(name: str, info: dict)`: callback function; `name` is the player’s name, `info` is a dict of the latest data.\n> - `list: list` (optional): list of NBT field names to listen for, default `[]`.\n\n---\n\n### `zbDataAPI.get_player_list() -> list`\n\nReturns the list of currently online player names.\n\n```python\nplayers = zbDataAPI.get_player_list()\n```\n\n---\n\n### `zbDataAPI.register_player_list_callback(func) -> None`\n\nTriggered when a player joins or leaves.\n\n> **Parameters**\n> \n> - `func(player: str, current_list: list)`: callback function; `player` is the name of the joined/left player, `current_list` is the updated list of online players.\n\n---\n\n### `zbDataAPI.refresh_getpos() -> None`\n\nManually triggers a data fetch, equivalent to the internal timed polling.\n\n---\n\n## Development & Contribution\n\n1. Fork this repository\n2. Create a branch `feature/xxx`\n3. Commit your changes and open a Pull Request\n\nContributions, issues, and PRs are welcome to make this API even better!\n\n---\n\n## License\n\nThis project is licensed under GPLv3. See [LICENSE](https://github.com/zhongbai2333/zhongbais-Data-API/tree/main/./LICENSE) for details.\n",
+      "zh_cn": "# zhongbais Data API\n\n一个基于 MCDReforged 的玩家位置信息获取与回调 API，封装了定时拉取等功能，方便其他插件或脚本统一访问和订阅玩家位置、维度、朝向等数据变化。\n\n[English](https://github.com/zhongbai2333/zhongbais-Data-API/tree/main/README.md) | 简中\n\n---\n\n## 特性\n\n- **定时拉取**：自动按配置的间隔通过 RCON 获取所有在线玩家的 NBT 数据\n- **回调机制**：封装了回调列表，支持按需订阅玩家信息变化或在线列表增减\n\n---\n\n## 快速上手\n\n```python\nfrom mcdreforged.api.all import PluginServerInterface, new_thread\nfrom zhongbais_data_api import zbDataAPI\n\ndef on_load(self, server: PluginServerInterface, old):\n    # 监听所有NBT的信息变化\n    zbDataAPI.register_player_info_callback(self.on_player_update)\n    # 也可以只监听部分NBT的信息变化\n    # zbDataAPI.register_player_info_callback(self.on_player_update, ['Pos', 'Dimension', ...])\n\n    # 监听在线玩家列表变化\n    zbDataAPI.register_player_list_callback(self.on_player_list_change)\n\ndef on_player_update(self, name: str, info: dict):\n    \"\"\"\n    name: 玩家名\n    info: {\n      \"Pos\": [...],         # 位置 [x, y, z]\n      \"Rotation\": [...],    # 朝向 [yaw, pitch]\n      \"Dimension\": \"...\",   # 维度\n      …                     # 可根据配置添加其他字段\n    }\n    \"\"\"\n    self.server.logger.info(f\"[PlayerUpdate] {name} -> {info}\")\n\ndef on_player_list_change(self, player: str, current_list: list):\n    # player: 新增或离线的玩家名\n    # current_list: 当前所有在线玩家列表\n    self.server.logger.info(f\"[PlayerList] {player} changed, now: {current_list}\")\n\n# 在需要时手动触发一次拉取（例如测试时）\nzbDataAPI.refresh_getpos()\n```\n\n---\n\n## 配置说明\n\n以下仅列出与“机器人玩家识别”相关的配置项，其他保持默认即可：\n\n- bot_keyword（机器人过滤关键字）\n  - 用于识别并忽略机器人玩家名。\n  - 支持通配符（glob）匹配：`*`, `?`, `[]`。\n  - 若不包含通配符，则按“子串包含”判断（与旧版本一致）。\n  - 匹配不区分大小写。\n  - 示例：\n    - `bot_*`：匹配以 `bot_` 开头的名字，如 `bot_alice`。\n    - `*_bot`：匹配以 `_bot` 结尾的名字，如 `helper_bot`。\n    - `Bot??Bot*`：匹配形如 `Bot` + 任意两字符 + `Bot` + 任意后缀，例如 `Bot12BotX`、`BotA3Bot_something`。\n\n> 提示：如果你希望延续旧行为，让任意包含 `bot_` 的名字都视为机器人，请将该项配置为 `bot_`（不带通配符）。\n\n---\n\n## API 文档\n\n### `zbDataAPI.register_player_info_callback(func, list=[]) -> None`\n\n自动回传玩家的 NBT 信息（位置、维度、朝向等）。\n如果 `list` 为空（默认），监听所有NBT；否则仅对 `list` 中的NBT回传。\n\n> **参数**\n> \n> - `func(name: str, info: dict)`：回调函数，`name` 是玩家名，`info` 是该玩家的最新信息字典。\n> - `list: list`（可选）：要监听的NBT列表，默认 `[]`。\n\n---\n\n### `zbDataAPI.get_player_list() -> list`\n\n获取当前所有在线玩家的名字列表。\n\n```python\nplayers = zbDataAPI.get_player_list()\n```\n\n---\n\n### `zbDataAPI.register_player_list_callback(func) -> None`\n\n当有玩家上线或下线时触发。\n\n> **参数**\n> \n> - `func(player: str, current_list: list)`：回调函数，`player` 是发生变化的玩家名，`current_list` 是最新的在线玩家列表。\n\n---\n\n### `zbDataAPI.refresh_getpos() -> None`\n\n手动触发一次玩家信息拉取，与内部定时拉取逻辑等效。\n\n---\n\n## 开发与贡献\n\n1. Fork 本仓库\n2. 新建分支 `feature/xxx`\n3. 提交改动并发起 Pull Request\n\n欢迎提交 issue 和 PR，让这个 API 更加完善！\n\n---\n\n## 许可协议\n\n本项目遵循 GPLv3 许可，详情见 [LICENSE](https://github.com/zhongbai2333/zhongbais-Data-API/tree/main/./LICENSE) 文件。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/zhongbai2333/zhongbais-Data-API/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/zhongbai2333/zhongbais-Data-API/main/README_zh.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "zhongbais_data_api",
+    "latest_version": "0.2.4",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.2.4",
+        "name": "zhongbais Data API v0.2.4",
+        "tag_name": "v0.2.4",
+        "created_at": "2026-01-12T02:50:49Z",
+        "description": "# What's Changed\n\n## Feature\n\n- 新增：[#9](https://github.com/zhongbai2333/zhongbais-Data-API/issues/9) [Feature] 支持1.21+NBT浮点数格式\n\n**Full Changelog**: https://github.com/zhongbai2333/zhongbais-Data-API/compare/v0.2.3...v0.2.4\n",
+        "prerelease": false,
+        "asset": {
+          "id": 339293558,
+          "name": "zhongbaisDataAPI-v0.2.4.mcdr",
+          "size": 20382,
+          "download_count": 20,
+          "created_at": "2026-01-12T02:51:14Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.2.4/zhongbaisDataAPI-v0.2.4.mcdr",
+          "hash_md5": "0dd590f72484c2e38395a019bebba07f",
+          "hash_sha256": "a628caf6c8253ac7296662c65d0bbedb35d8b767894bf5d6b063ba3d8361662f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.2.4",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Polling /data command related APIs",
+            "zh_cn": "轮询 /data 命令相关API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.2.3",
+        "name": "zhongbais Data API v0.2.3",
+        "tag_name": "v0.2.3",
+        "created_at": "2025-10-25T05:32:11Z",
+        "description": "# What's Changed\r\n\r\n## Fix\r\n\r\n- 修复：[#8](https://github.com/zhongbai2333/zhongbais-Data-API/pull/8) 修复无法正常获取服务器启动状态与玩家NBT数据转JSON解析失败的Bug\r\n\r\n## Feature\r\n\r\n- 新增：[#8](https://github.com/zhongbai2333/zhongbais-Data-API/pull/8) 修复无法正常获取服务器启动状态与玩家NBT数据转JSON解析失败的Bug\r\n\r\n## Thanks\r\n\r\n- 感谢：@nkdns 的PR\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/zhongbais-Data-API/compare/v0.2.2...v0.2.3\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 308490824,
+          "name": "zhongbaisDataAPI-v0.2.3.mcdr",
+          "size": 20326,
+          "download_count": 24,
+          "created_at": "2025-10-25T05:32:41Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.2.3/zhongbaisDataAPI-v0.2.3.mcdr",
+          "hash_md5": "2f42b74690669251102266c91d1f7d69",
+          "hash_sha256": "dfed5dd00e3cfb916dbec06cceaa4ab78452f0b073343ae099b7cc6aac4677c3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.2.3",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Polling /data command related APIs",
+            "zh_cn": "轮询 /data 命令相关API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.2.2",
+        "name": "zhongbais Data API v0.2.2",
+        "tag_name": "v0.2.2",
+        "created_at": "2025-08-22T13:34:09Z",
+        "description": "# What's Changed\n\n## Fix\n\n- 修复：[#7](https://github.com/zhongbai2333/zhongbais-Data-API/issues/7) [BUG] 错误的 [GetPos] Need RCON Support! 提示\n\n**Full Changelog**: https://github.com/zhongbai2333/zhongbais-Data-API/compare/v0.2.1...v0.2.2\n",
+        "prerelease": false,
+        "asset": {
+          "id": 285154763,
+          "name": "zhongbaisDataAPI-v0.2.2.mcdr",
+          "size": 19716,
+          "download_count": 47,
+          "created_at": "2025-08-22T13:34:28Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.2.2/zhongbaisDataAPI-v0.2.2.mcdr",
+          "hash_md5": "625f73f5555c2df76e03aa40c8bc63f6",
+          "hash_sha256": "d06ccf7ca3f7356291d3f4b85408a72825bc640d5951cc7003c9bbc01b876ea3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.2.2",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Polling /data command related APIs",
+            "zh_cn": "轮询 /data 命令相关API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.2.1",
+        "name": "zhongbais Data API v0.2.1",
+        "tag_name": "v0.2.1",
+        "created_at": "2025-08-22T03:49:43Z",
+        "description": "# What's Changed\n\n## Update\n\n- 更新：[#6](https://github.com/zhongbai2333/zhongbais-Data-API/issues/6) [Update] 删除多余的afk_time配置选项，修改debug实现效果\n- 更新：[#5](https://github.com/zhongbai2333/zhongbais-Data-API/issues/5) [Update] 使Bot ID检测更改为简易正则表达式\n\n**Full Changelog**: https://github.com/zhongbai2333/zhongbais-Data-API/compare/v0.2.0...v0.2.1\n",
+        "prerelease": false,
+        "asset": {
+          "id": 285024173,
+          "name": "zhongbaisDataAPI-v0.2.1.mcdr",
+          "size": 19527,
+          "download_count": 23,
+          "created_at": "2025-08-22T03:50:02Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.2.1/zhongbaisDataAPI-v0.2.1.mcdr",
+          "hash_md5": "a9b5b091066c3909bf0887943823d549",
+          "hash_sha256": "b33dd5e698b77beb5a5d242369b273be32e24ab97a2b710832d690abc8b920c5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.2.1",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Polling /data command related APIs",
+            "zh_cn": "轮询 /data 命令相关API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.2.0",
+        "name": "zhongbais Data API v0.2.0",
+        "tag_name": "v0.2.0",
+        "created_at": "2025-05-11T02:30:32Z",
+        "description": "# What's Changed\n\n## Update\n\n- 更新：[#4](https://github.com/zhongbai2333/zhongbais-Data-API/issues/4) [Update] 删除afk功能，修改config文件\n\n## Feature\n\n- 新增：[#3](https://github.com/zhongbai2333/zhongbais-Data-API/issues/3) [Feature] 提供自定义注册NBT轮询，不再局限于Pos，Rot，Dim\n\n**Full Changelog**: https://github.com/zhongbai2333/zhongbais-Data-API/compare/v0.1.1...v0.2.0\n",
+        "prerelease": false,
+        "asset": {
+          "id": 253591134,
+          "name": "zhongbaisDataAPI-v0.2.0.mcdr",
+          "size": 18140,
+          "download_count": 30,
+          "created_at": "2025-05-11T02:30:50Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.2.0/zhongbaisDataAPI-v0.2.0.mcdr",
+          "hash_md5": "7edf20e6dc18ebf5a5de5f2f45591984",
+          "hash_sha256": "d83bbfb16dc7ca435aee5937143124412ee0441e57ab96051e08cbe33412cc73"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.2.0",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Polling /data command related APIs",
+            "zh_cn": "轮询 /data 命令相关API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.1.1",
+        "name": "zhongbais Data API v0.1.1",
+        "tag_name": "v0.1.1",
+        "created_at": "2025-05-06T14:57:13Z",
+        "description": "# What's Changed\r\n\r\n## Update\r\n\r\n - 更新：#1 添加copy()\r\n\r\n**Full Changelog**: https://github.com/zhongbai2333/zhongbais-Data-API/compare/v0.1.0...v0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 252331308,
+          "name": "zhongbaisDataAPI-v0.1.1.mcdr",
+          "size": 17687,
+          "download_count": 25,
+          "created_at": "2025-05-06T14:57:46Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.1.1/zhongbaisDataAPI-v0.1.1.mcdr",
+          "hash_md5": "db288d0d60d8d116aabea602c768a7f8",
+          "hash_sha256": "fdbe406e46ed81aa8e7c3c58f71434d99eba6b74d2b84175c2fea4202a828a2d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.1.1",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Polling /data command related APIs",
+            "zh_cn": "轮询 /data 命令相关API"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/tag/v0.1.0",
+        "name": "zhongbais Data API v0.1.0",
+        "tag_name": "v0.1.0",
+        "created_at": "2025-05-06T13:59:38Z",
+        "description": "# First Beta Version | 第一个 Beta 版本\r\n\r\n## If there are any bugs, please raise an issue! | 若有BUG请提issue!",
+        "prerelease": false,
+        "asset": {
+          "id": 252317310,
+          "name": "zhongbaisDataAPI-v0.1.0.mcdr",
+          "size": 17668,
+          "download_count": 26,
+          "created_at": "2025-05-06T13:59:51Z",
+          "browser_download_url": "https://github.com/zhongbai2333/zhongbais-Data-API/releases/download/v0.1.0/zhongbaisDataAPI-v0.1.0.mcdr",
+          "hash_md5": "2b7eb0093f4fb43c3504f3929685e5e8",
+          "hash_sha256": "66eccc071da69218772190e0807344541614fd8eb9e8f959db91b22804420a47"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zhongbais_data_api",
+          "name": "zhongbaisDataAPI",
+          "version": "0.1.0",
+          "link": "https://github.com/zhongbai2333/zhongbais-Data-API",
+          "authors": [
+            "zhongbai233"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Self use Data Command API",
+            "zh_cn": "自用的Data命令API"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/zhongbai2333/zhongbais-Data-API",
+    "name": "zhongbais-Data-API",
+    "full_name": "zhongbai2333/zhongbais-Data-API",
+    "html_url": "https://github.com/zhongbai2333/zhongbais-Data-API",
+    "description": "Polling /data command related APIs",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 1,
+    "readme": "# zhongbais Data API\n\nA MCDReforged–based player position retrieval and callback API. It encapsulates timed polling and callback mechanisms, making it easy for other plugins or scripts to uniformly access and subscribe to changes in player position, dimension, rotation, and more.\n\nEnglish | [简中](https://github.com/zhongbai2333/zhongbais-Data-API/tree/main/README_zh.md)\n\n---\n\n## Features\n\n- **Timed Polling**: Automatically polls all online players’ NBT data via RCON at the configured interval\n- **Callback System**: Built-in lists of callbacks let you subscribe to specific NBT fields or to player list changes\n\n---\n\n## Quick Start\n\n```python\nfrom mcdreforged.api.all import PluginServerInterface, new_thread\nfrom zhongbais_data_api import zbDataAPI\n\ndef on_load(self, server: PluginServerInterface, old):\n    # Listen for *all* NBT changes\n    zbDataAPI.register_player_info_callback(self.on_player_update)\n    # Or listen for specific NBT fields only:\n    # zbDataAPI.register_player_info_callback(self.on_player_update, ['Pos', 'Dimension', ...])\n\n    # Listen for player join/leave events\n    zbDataAPI.register_player_list_callback(self.on_player_list_change)\n\ndef on_player_update(self, name: str, info: dict):\n    \"\"\"\n    name: player’s name\n    info: {\n      \"Pos\": [...],         # position [x, y, z]\n      \"Rotation\": [...],    # rotation [yaw, pitch]\n      \"Dimension\": \"...\",   # dimension\n      …                     # other fields as configured\n    }\n    \"\"\"\n    self.server.logger.info(f\"[PlayerUpdate] {name} -> {info}\")\n\ndef on_player_list_change(self, player: str, current_list: list):\n    # player: name of the player who joined or left\n    # current_list: list of all online players\n    self.server.logger.info(f\"[PlayerList] {player} changed, now: {current_list}\")\n\n# Manually trigger a data fetch (e.g. for testing)\nzbDataAPI.refresh_getpos()\n```\n\n---\n\n## Configuration\n\nOnly the bot detection related config is listed here; others can stay at their defaults:\n\n- bot_keyword (bot keyword)\n  - Used to detect and ignore bot player names.\n  - Supports glob-style wildcards: `*`, `?`, `[]`.\n  - If no wildcard is present, falls back to substring check (backward compatible with older versions).\n  - Matching is case-insensitive.\n  - Examples:\n    - `bot_*`: matches names starting with `bot_`, e.g., `bot_alice`.\n    - `*_bot`: matches names ending with `_bot`, e.g., `helper_bot`.\n    - `Bot??Bot*`: matches `Bot` + any two chars + `Bot` + any suffix, e.g., `Bot12BotX`, `BotA3Bot_something`.\n\n> Tip: To keep the old behavior where any name containing `bot_` is treated as a bot, set it to `bot_` (without wildcards).\n\n---\n\n## API Documentation\n\n### `zbDataAPI.register_player_info_callback(func, list=[]) -> None`\n\nAutomatically delivers NBT data (position, dimension, rotation, etc.) for players.\nIf `list` is empty (default), listens to *all* players; otherwise, only to the specified NBT fields.\n\n> **Parameters**\n> \n> - `func(name: str, info: dict)`: callback function; `name` is the player’s name, `info` is a dict of the latest data.\n> - `list: list` (optional): list of NBT field names to listen for, default `[]`.\n\n---\n\n### `zbDataAPI.get_player_list() -> list`\n\nReturns the list of currently online player names.\n\n```python\nplayers = zbDataAPI.get_player_list()\n```\n\n---\n\n### `zbDataAPI.register_player_list_callback(func) -> None`\n\nTriggered when a player joins or leaves.\n\n> **Parameters**\n> \n> - `func(player: str, current_list: list)`: callback function; `player` is the name of the joined/left player, `current_list` is the updated list of online players.\n\n---\n\n### `zbDataAPI.refresh_getpos() -> None`\n\nManually triggers a data fetch, equivalent to the internal timed polling.\n\n---\n\n## Development & Contribution\n\n1. Fork this repository\n2. Create a branch `feature/xxx`\n3. Commit your changes and open a Pull Request\n\nContributions, issues, and PRs are welcome to make this API even better!\n\n---\n\n## License\n\nThis project is licensed under GPLv3. See [LICENSE](https://github.com/zhongbai2333/zhongbais-Data-API/tree/main/./LICENSE) for details.\n",
+    "readme_url": "https://raw.githubusercontent.com/zhongbai2333/zhongbais-Data-API/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "fbs_plugin",
+    "name": "FastBotSpawn",
+    "version": "1.1.3",
+    "link": "https://github.com/Walkersifolia/FastBotSpawn",
+    "authors": [
+      "WalkerTian"
+    ],
+    "dependencies": {},
+    "requirements": [],
+    "description": {
+      "en_us": "A plugin with multiple functions"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "fbs_plugin",
+    "authors": [
+      "WalkerTian"
+    ],
+    "repository": "https://github.com/Walkersifolia/FastBotSpawn",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# FastBotSpawn\n-----\n\n一个[MCDReforged](https://github.com/Fallen-Breath/MCDReforged)插件，可以批量召唤假人并设置前缀，最好与fabric-carpet的配置项`fakePlayerNamePrefix`保持一致。\n\n依赖于fabric-carpet\n\n### 指令\n```\n!!b pre bot_ 设置前缀，bot_可替换，推荐和Carpet配置同步，没有就留空\n!!b suf _fake 设置后缀，_fake可替换，推荐和Carpet配置同步，没有就留空\n!!b limit [number] 设置最大生成数量，默认为10\n!!b clear 清除设置的前缀&后缀\n!!b spawn [mini] [max] 批量召唤假人\n!!b drop [mini] [max] 批量控制丢出全部物品\n!!b kill [mini] [max] 批量下线假人\n[mini] [max] 是最小和最大的序号，差值不能超过10，不写默认为1-10\n```\n\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Walkersifolia/FastBotSpawn/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "fbs_plugin",
+    "latest_version": "1.1.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.3",
+        "name": "v1.1.3",
+        "tag_name": "1.1.3",
+        "created_at": "2024-06-25T20:18:38Z",
+        "description": "增加了`!!b suf`指令，效果为添加后缀\r\n更改前缀指令为`!!b pre`\r\n\\suoxi/",
+        "prerelease": false,
+        "asset": {
+          "id": 175923075,
+          "name": "FastBotSpawn-v1.1.3.mcdr",
+          "size": 2668,
+          "download_count": 296,
+          "created_at": "2024-06-25T20:24:15Z",
+          "browser_download_url": "https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.3/FastBotSpawn-v1.1.3.mcdr",
+          "hash_md5": "7c27a2da133b6fff2496dc6740ef7eda",
+          "hash_sha256": "8569589608055977f9083dc09cad2ceaaded87b9010069508484cdf3de8bebd2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "fbs_plugin",
+          "name": "FastBotSpawn",
+          "version": "1.1.3",
+          "link": "https://github.com/Walkersifolia/FastBotSpawn",
+          "authors": [
+            "WalkerTian"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin with multiple functions"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.2",
+        "name": "v1.1.2",
+        "tag_name": "1.1.2",
+        "created_at": "2024-04-26T13:04:09Z",
+        "description": "更正了帮助文本\r\n\r\n我知道这个更新很水（）",
+        "prerelease": false,
+        "asset": {
+          "id": 164398052,
+          "name": "FastBotSpawn-v1.1.2.mcdr",
+          "size": 2582,
+          "download_count": 80,
+          "created_at": "2024-04-26T13:05:38Z",
+          "browser_download_url": "https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.2/FastBotSpawn-v1.1.2.mcdr",
+          "hash_md5": "493424948f9a41203a1b6e7fa5be8f40",
+          "hash_sha256": "f6b7f8c0bef9b9890787da7245fc19a325931392b7d273e66ae8c59626973146"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "fbs_plugin",
+          "name": "FastBotSpawn",
+          "version": "1.1.2",
+          "link": "https://github.com/Walkersifolia/FastBotSpawn",
+          "authors": [
+            "WalkerTian"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin with multiple functions"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.1",
+        "name": "v1.1.1",
+        "tag_name": "1.1.1",
+        "created_at": "2023-09-23T17:44:21Z",
+        "description": "增加了自定义单次假人召唤上限的功能\r\n默认为10\r\n此功能即为上次添加的“限制单次生成的数量”",
+        "prerelease": false,
+        "asset": {
+          "id": 127411538,
+          "name": "FastBotSpawn-v1.1.1.mcdr",
+          "size": 2576,
+          "download_count": 138,
+          "created_at": "2023-09-23T17:49:10Z",
+          "browser_download_url": "https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.1/FastBotSpawn-v1.1.1.mcdr",
+          "hash_md5": "78c3a876ec9bb42507c4eacaf6981efe",
+          "hash_sha256": "6b53deda8de0f4b210fb0f8acdc724ed56c68deeffea24d5462036362df77bc9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "fbs_plugin",
+          "name": "FastBotSpawn",
+          "version": "1.1.1",
+          "link": "https://github.com/Walkersifolia/FastBotSpawn",
+          "authors": [
+            "WalkerTian"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin with multiple functions"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Walkersifolia/FastBotSpawn/releases/tag/1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "1.1.0",
+        "created_at": "2023-07-14T17:12:13Z",
+        "description": "增加了自定义序号区间的功能\r\n限制单次生成的数量\r\n有想法欢迎提issue，我尽量实现",
+        "prerelease": false,
+        "asset": {
+          "id": 117030689,
+          "name": "FastBotSpawn-v1.1.0.mcdr",
+          "size": 2543,
+          "download_count": 84,
+          "created_at": "2023-07-14T17:12:08Z",
+          "browser_download_url": "https://github.com/Walkersifolia/FastBotSpawn/releases/download/1.1.0/FastBotSpawn-v1.1.0.mcdr",
+          "hash_md5": "1c4fdd0d93b3aa9701dfe5a18bd6eb4c",
+          "hash_sha256": "c284b086fdba21af1903f6532b6214f365d260aafbe2330781e940ee453915bc"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "fbs_plugin",
+          "name": "FastBotSpawn",
+          "version": "1.1.0",
+          "link": "https://github.com/Walkersifolia/FastBotSpawn",
+          "authors": [
+            "WalkerTian"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "en_us": "A plugin with multiple functions"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Walkersifolia/FastBotSpawn",
+    "name": "FastBotSpawn",
+    "full_name": "Walkersifolia/FastBotSpawn",
+    "html_url": "https://github.com/Walkersifolia/FastBotSpawn",
+    "description": "A MCDR plugin that can make you spawn the carpet fake player easily",
+    "archived": false,
+    "stargazers_count": 8,
+    "watchers_count": 8,
+    "forks_count": 1,
+    "readme": "# FastBotSpawn\n-----\n\n一个[MCDReforged](https://github.com/Fallen-Breath/MCDReforged)插件，可以批量召唤假人并设置前缀，最好与fabric-carpet的配置项`fakePlayerNamePrefix`保持一致。\n\n依赖于fabric-carpet\n\n### 指令\n```\n!!b pre bot_ 设置前缀，bot_可替换，推荐和Carpet配置同步，没有就留空\n!!b suf _fake 设置后缀，_fake可替换，推荐和Carpet配置同步，没有就留空\n!!b limit [number] 设置最大生成数量，默认为10\n!!b clear 清除设置的前缀&后缀\n!!b spawn [mini] [max] 批量召唤假人\n!!b drop [mini] [max] 批量控制丢出全部物品\n!!b kill [mini] [max] 批量下线假人\n[mini] [max] 是最小和最大的序号，差值不能超过10，不写默认为1-10\n```\n\n",
+    "readme_url": "https://raw.githubusercontent.com/Walkersifolia/FastBotSpawn/master/README.md",
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "spdx_id": "CC0-1.0",
+      "url": "https://api.github.com/licenses/cc0-1.0"
+    }
+  }
+}

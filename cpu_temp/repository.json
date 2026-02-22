@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/R1ckyH/cpu_temp",
+  "name": "cpu_temp",
+  "full_name": "R1ckyH/cpu_temp",
+  "html_url": "https://github.com/R1ckyH/cpu_temp",
+  "description": "A plugin for MCDReforge to check cpu temp regularly",
+  "archived": false,
+  "stargazers_count": 3,
+  "watchers_count": 3,
+  "forks_count": 0,
+  "readme": "# cpu_temp\n-----\n[中文](https://github.com/R1ckyH/cpu_temp/blob/master/README_cn.md)\n\n**For linux only**\n\nA plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) to check cpu temp regularly\n\nYou have to install python module <strong>`daytime`, `psutil` and `apscheduler`</strong> to use cpu_temp\n\nYou can execute `pip install daytime psutil apscheduler` to install it\n\nType `!!temp` or `!!temperature` to use this plugin\n\n`!!temp restart` need helper or more permission to use\n\n# variable usage\n-----\nedit the variable inside `.mcdr` **(not recommend)**\n\n`temp_loop` is loop start when load or not\n\n`t_hours`, `t_minutes`, `t_seconds` is the regulay loop interval time\n\n`warn_hours`, `warn_minutes`, `warn_seconds` is the warning loop interval time\n\n`show_freq` is the frequency that the plugin print log after run regular loop for `show_freq` times(recommand don't change it)\n\n`warning_degree`, `high_degree`, `medium_degree` is the warning degre and degree color setup\n\n`restart_countdown` is the restart countdown\n",
+  "readme_url": "https://raw.githubusercontent.com/R1ckyH/cpu_temp/master/README.md",
+  "license": {
+    "key": "lgpl-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "spdx_id": "LGPL-3.0",
+    "url": "https://api.github.com/licenses/lgpl-3.0"
+  }
+}

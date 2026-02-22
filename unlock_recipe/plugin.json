@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "unlock_recipe",
+  "authors": [
+    "uerhu"
+  ],
+  "repository": "https://github.com/uerhu/MCDR-UnlockRecipe",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# UnlockRecipe\n[中文](https://github.com/uerhu/MCDR-UnlockRecipe/tree/master/README_cn.md)\n\n---\n## Introduction\n* JEI, REI and other mods cannot view locked recipes when browsing recipes\n* Use this plugin to unlock recipes for non-op players\n---\n## Command\n* `!!recipe`unlock recipes for oneself（Only for player）\n---\n## Configuration\nconfig.json （default configuration file）\n```json5\n{\n    \"permission\": 1,  // player permission level\n    \"announce\": true,  // whether to notify players when they enter the game\n    \"announce_once\": true  // whether to notify only once\n}\n```\nannounced_players.json (record notified players)\n```json5\n{\n  \"announced_players\": [\n    \"player1\",\n    \"player2\"\n    ]\n}\n```\n",
+    "zh_cn": "# UnlockRecipe\n[English](https://github.com/uerhu/MCDR-UnlockRecipe/tree/master/README.md)\n\n---\n## 简介\n* JEI, REI等mod查看配方时，可能无法查看未解锁的配方\n* 使用该插件可以使非op玩家解锁配方\n---\n## 命令\n* `!!recipe`解锁自己的所有配方（仅限玩家）\n---\n## 配置文件\nconfig.json （默认配置文件）\n```json5\n{\n    \"permission\": 1,  // 玩家权限等级\n    \"announce\": true,  // 是否在玩家进入游戏时通知玩家\n    \"announce_once\": true  // 是否只通知一次\n}\n```\nannounced_players.json (记录已通知的玩家)\n```json5\n{\n  \"announced_players\": [\n    \"player1\",\n    \"player2\"\n    ]\n}\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/uerhu/MCDR-UnlockRecipe/master/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/uerhu/MCDR-UnlockRecipe/master/README_cn.md"
+  }
+}

@@ -1,0 +1,874 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "smart_servertime",
+    "name": "SmartServerTime",
+    "version": "1.5.0",
+    "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+    "authors": [
+      "zyxkad"
+    ],
+    "dependencies": {
+      "mcdreforged": "^2.14.0",
+      "kpi": "~1.5.0",
+      "loginproxy": "~0.9.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "A Minecraft Auto Start/Stop Plugin",
+      "zh_cn": "一个Minecraft自动停起服务器插件"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "smart_servertime",
+    "authors": [
+      "zyxkad"
+    ],
+    "repository": "https://github.com/kmcsr/smart_servertime_mcdr",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "\n- English\n- [中文](https://github.com/kmcsr/smart_servertime_mcdr/tree/master/README_zh.MD)\n\n# Smart Server Time\n\n*If it's useful, please give a star :)*\n\n## Feature\n\n- Server will stop automagically when **all players leave** the server\n- Massive savings on your server's CPU :)\n- Server will start when some player is trying connect to the server\n- Support server **cooldown timeout**\n- Support **manually start/stop** your server\n- Support *Minecraft Client Packet*, response ***correctly** ping request*, **send server status to player** who is *tring connect*\n\n## Dependencies\n\n| ID                                                      | Release Link                                         |\n| ------------------------------------------------------- | ---------------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr)                | <https://github.com/kmcsr/kpi_mcdr/releases>         |\n| [loginproxy](https://github.com/kmcsr/login_proxy_mcdr) | <https://github.com/kmcsr/login_proxy_mcdr/releases> |\n\n## TODO\n",
+      "zh_cn": "\n- [English](https://github.com/kmcsr/smart_servertime_mcdr/tree/master/README.MD)\n- 中文\n\n# Smart Server Time\n\n*如果本插件有用, 请给个star吧 :)*\n\n## 特性\n\n- 当**所有玩家**离开服务器后, *自动停止*服务器\n- 大量节省您服务器的CPU :)\n- 当有玩家**尝试连接**服务器时, *自动启动*服务器\n- 支持**延时关闭**服务器\n- 支持*手动启动/关闭*服务器\n- 支持解析*Minecraft消息包*, 可以***正常返回**Ping请求*, 并对*尝试连接的玩家*给予服务器**状态提示**\n\n## 依赖\n\n| ID                                                      | 下载链接                                                 |\n| ------------------------------------------------------- | ---------------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr)                | <https://github.com/kmcsr/kpi_mcdr/releases>         |\n| [loginproxy](https://github.com/kmcsr/login_proxy_mcdr) | <https://github.com/kmcsr/login_proxy_mcdr/releases> |\n\n## 计划中\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/kmcsr/smart_servertime_mcdr/master/README.MD",
+      "zh_cn": "https://raw.githubusercontent.com/kmcsr/smart_servertime_mcdr/master/README_zh.MD"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "smart_servertime",
+    "latest_version": "1.5.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.5.0",
+        "name": "v1.5.0",
+        "tag_name": "v1.5.0",
+        "created_at": "2025-04-22T12:36:22Z",
+        "description": "- fix #5 ",
+        "prerelease": false,
+        "asset": {
+          "id": 248426611,
+          "name": "SmartServerTime-v1.5.0.mcdr",
+          "size": 18188,
+          "download_count": 221,
+          "created_at": "2025-04-22T12:36:29Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.5.0/SmartServerTime-v1.5.0.mcdr",
+          "hash_md5": "65fe2269ca47601d343a65a5a889c7e0",
+          "hash_sha256": "7564eca78d8af95dcdad37cb626e3e4d1ce09fb124ed54f77c452c06caa94140"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.5.0",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.14.0",
+            "kpi": "~1.5.0",
+            "loginproxy": "~0.9.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.4.1",
+        "name": "v1.4.1",
+        "tag_name": "v1.4.1",
+        "created_at": "2025-02-08T01:44:10Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 227327277,
+          "name": "SmartServerTime-v1.4.1.mcdr",
+          "size": 18188,
+          "download_count": 72,
+          "created_at": "2025-02-08T01:44:13Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.4.1/SmartServerTime-v1.4.1.mcdr",
+          "hash_md5": "2953ddfc256ffd27b0cb2ce844a626ee",
+          "hash_sha256": "277bdf10e9c6077bffc41f8eaa90e6ef883c19ec82357e25acb7ad123364c7c1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.4.1",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.14.0",
+            "kpi": "~1.5.0",
+            "loginproxy": "~0.8.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.4.0",
+        "name": "v1.4.0",
+        "tag_name": "v1.4.0",
+        "created_at": "2025-02-06T21:04:09Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 226967983,
+          "name": "SmartServerTime-v1.4.0.mcdr",
+          "size": 18194,
+          "download_count": 53,
+          "created_at": "2025-02-06T21:04:16Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.4.0/SmartServerTime-v1.4.0.mcdr",
+          "hash_md5": "2cbbf9f14f8d5b54272f70636fcd462f",
+          "hash_sha256": "17529eb45ad96f308ab57bfb10212376a2a5d9b8838ae9ec0d07b0524c944e13"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.4.0",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.14.0",
+            "kpi": "~1.5.0",
+            "loginproxy": "~0.7.3"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.10",
+        "name": "v1.3.10",
+        "tag_name": "v1.3.10",
+        "created_at": "2025-02-01T20:33:53Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 225479254,
+          "name": "SmartServerTime-v1.3.10.mcdr",
+          "size": 17992,
+          "download_count": 52,
+          "created_at": "2025-02-01T20:33:55Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.10/SmartServerTime-v1.3.10.mcdr",
+          "hash_md5": "ec03958d1122053a71968ea7b4f63a87",
+          "hash_sha256": "48dd40640599cfc9e2184285cd7df2667301e69cb517819f62354534b9bc4d64"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.10",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": "^2.14.0",
+            "kpi": "~1.5.0",
+            "loginproxy": ">=0.6.9"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.9",
+        "name": "v1.3.9",
+        "tag_name": "v1.3.9",
+        "created_at": "2024-02-04T04:40:19Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149697247,
+          "name": "SmartServerTime-v1.3.9.mcdr",
+          "size": 17861,
+          "download_count": 266,
+          "created_at": "2024-02-04T05:07:14Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.9/SmartServerTime-v1.3.9.mcdr",
+          "hash_md5": "521261897f04b10cff7d22c69e98cabb",
+          "hash_sha256": "043b15ad4b7861f626f5c8188c5dc1590912d134fce905fc77fd3987f81cdff6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.9",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.9"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.8",
+        "name": "v1.3.8",
+        "tag_name": "v1.3.8",
+        "created_at": "2024-02-04T04:40:19Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149695508,
+          "name": "SmartServerTime-v1.3.8.mcdr",
+          "size": 17852,
+          "download_count": 63,
+          "created_at": "2024-02-04T04:40:22Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.8/SmartServerTime-v1.3.8.mcdr",
+          "hash_md5": "6f7e30c7b637c011939369d8357b11ea",
+          "hash_sha256": "d713ad5fff77dabcf4c7760f6c91999d34e28da696aa62313ff394971c3664ec"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.8",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.9"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.7",
+        "name": "v1.3.7",
+        "tag_name": "v1.3.7",
+        "created_at": "2024-02-04T00:21:15Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149655626,
+          "name": "SmartServerTime-v1.3.7.mcdr",
+          "size": 17839,
+          "download_count": 59,
+          "created_at": "2024-02-04T00:21:18Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.7/SmartServerTime-v1.3.7.mcdr",
+          "hash_md5": "c998a1ecfc54803cc91e79a040bb89d5",
+          "hash_sha256": "a230f8b41b4df7556d3526671081728dfa65de28678a2e3693fcba63fb5ad0d3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.7",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.9"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.6",
+        "name": "v1.3.6",
+        "tag_name": "v1.3.6",
+        "created_at": "2024-02-03T23:19:39Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149654991,
+          "name": "SmartServerTime-v1.3.6.mcdr",
+          "size": 17849,
+          "download_count": 61,
+          "created_at": "2024-02-04T00:14:04Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.6/SmartServerTime-v1.3.6.mcdr",
+          "hash_md5": "15c8022e464402c793293d6e94a63e7f",
+          "hash_sha256": "c0208499c0c13378ec02b9f4bac1e82af08bf780691c05eb23aedf7cfa98daf0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.6",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.5",
+        "name": "v1.3.5",
+        "tag_name": "v1.3.5",
+        "created_at": "2024-02-03T23:19:39Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149654254,
+          "name": "SmartServerTime-v1.3.5.mcdr",
+          "size": 17847,
+          "download_count": 58,
+          "created_at": "2024-02-04T00:09:42Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.5/SmartServerTime-v1.3.5.mcdr",
+          "hash_md5": "5971446fc3d14be9e0b50eed75ec4cca",
+          "hash_sha256": "7895809a5d65c1b1d38c4c40970eb233d006b0c4e6b014219b1331d98148872a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.5",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.4",
+        "name": "v1.3.4",
+        "tag_name": "v1.3.4",
+        "created_at": "2024-02-03T23:19:39Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149652990,
+          "name": "SmartServerTime-v1.3.4.mcdr",
+          "size": 17846,
+          "download_count": 59,
+          "created_at": "2024-02-03T23:52:18Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.4/SmartServerTime-v1.3.4.mcdr",
+          "hash_md5": "1ebbe7052f3d255abebb6a15f3b23c7c",
+          "hash_sha256": "d9346d48602ae522fe9bd69fe2e0c711ffa45e0c1d53749cbe40244eed11ed3c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.4",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.3",
+        "name": "v1.3.3",
+        "tag_name": "v1.3.3",
+        "created_at": "2024-02-03T22:44:41Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149650606,
+          "name": "SmartServerTime-v1.3.3.mcdr",
+          "size": 17846,
+          "download_count": 56,
+          "created_at": "2024-02-03T23:19:34Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.3/SmartServerTime-v1.3.3.mcdr",
+          "hash_md5": "fb4ca750aec49db6d3b3bc3c8a4f07b1",
+          "hash_sha256": "8098d14d6d5dd95933d0da1d306d8d24923e21f0ff2aa8b265c21e367be54a9f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.3",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.2",
+        "name": "v1.3.2",
+        "tag_name": "v1.3.2",
+        "created_at": "2024-02-03T22:44:41Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149647864,
+          "name": "SmartServerTime-v1.3.2.mcdr",
+          "size": 17843,
+          "download_count": 56,
+          "created_at": "2024-02-03T22:44:44Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.2/SmartServerTime-v1.3.2.mcdr",
+          "hash_md5": "9bacde8b118951b7362d649f2f520417",
+          "hash_sha256": "20ffeee912c3e57718f7fdd7eb73bbf12025f4e8f53e8a7d8ab20e9c00d64e12"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.2",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "loginproxy": ">=0.6.6"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.1",
+        "name": "v1.3.1",
+        "tag_name": "v1.3.1",
+        "created_at": "2024-02-03T20:27:52Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 149634029,
+          "name": "SmartServerTime-v1.3.1.mcdr",
+          "size": 18003,
+          "download_count": 60,
+          "created_at": "2024-02-03T20:27:59Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.1/SmartServerTime-v1.3.1.mcdr",
+          "hash_md5": "c1ebc08f6b84f49a28a51ad2f7e1c3f2",
+          "hash_sha256": "ba8bd1fe71336d7ac1ee5b9029e8d061d9b8a8e926bfaf7a66fe8dbda3596153"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.1",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.2",
+            "delayexe": ">=1.3.0",
+            "loginproxy": ">=0.4.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.3.0",
+        "name": "v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2022-11-25T08:00:52Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 85909395,
+          "name": "SmartServerTime-v1.3.0.mcdr",
+          "size": 17955,
+          "download_count": 279,
+          "created_at": "2022-11-25T08:01:07Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.3.0/SmartServerTime-v1.3.0.mcdr",
+          "hash_md5": "4b172da68ad0c6edf6f4bac1b9552148",
+          "hash_sha256": "b6b9cfbab885322daec9301b6ef94d85bce1fd3fb5bc54a06b90b22365ea4b80"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.3.0",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.3.0",
+            "delayexe": ">=1.3.0",
+            "loginproxy": ">=0.4.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.2.4",
+        "name": "v1.2.4",
+        "tag_name": "v1.2.4",
+        "created_at": "2022-11-21T23:42:10Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 85492969,
+          "name": "SmartServerTime-v1.2.4.mcdr",
+          "size": 17962,
+          "download_count": 75,
+          "created_at": "2022-11-22T00:58:06Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.2.4/SmartServerTime-v1.2.4.mcdr",
+          "hash_md5": "7fb0984b276a3bf13f714e6ce12630f2",
+          "hash_sha256": "521f8a0b02eebc1e1ad90395f9dd541a7131d1129b323cf90b18b1477e5d1218"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.2.4",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.2.0",
+            "delayexe": ">=1.2.1",
+            "loginproxy": ">=0.3.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.2.3",
+        "name": "v1.2.3",
+        "tag_name": "v1.2.3",
+        "created_at": "2022-11-20T20:34:19Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 85336332,
+          "name": "SmartServerTime-v1.2.3.mcdr",
+          "size": 17908,
+          "download_count": 74,
+          "created_at": "2022-11-20T20:44:57Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.2.3/SmartServerTime-v1.2.3.mcdr",
+          "hash_md5": "8d8bc52cdac69511fe63cf3cc5944ec5",
+          "hash_sha256": "a379eb907d193515369f6762ea643e72a76775a23af6c9d9742f2a86fc1ff295"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.2.3",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.2.0",
+            "delayexe": ">=1.2.1",
+            "loginproxy": ">=0.3.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.2.2",
+        "name": "v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2022-11-20T20:34:19Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 85335720,
+          "name": "SmartServerTime-v1.2.2.mcdr",
+          "size": 17903,
+          "download_count": 58,
+          "created_at": "2022-11-20T20:34:21Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.2.2/SmartServerTime-v1.2.2.mcdr",
+          "hash_md5": "b9e432fcb49fbbf9d81029ce001e4945",
+          "hash_sha256": "ddec82d73b9a80c06ba67f644d4558244000454491796ac4062c6afc45d891b0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.2.2",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.2.0",
+            "delayexe": ">=1.2.1",
+            "loginproxy": ">=0.3.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.2.1",
+        "name": "v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2022-11-20T20:00:31Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 85333294,
+          "name": "SmartServerTime-v1.2.1.mcdr",
+          "size": 17895,
+          "download_count": 58,
+          "created_at": "2022-11-20T20:00:33Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.2.1/SmartServerTime-v1.2.1.mcdr",
+          "hash_md5": "d1d5b43471251dd7ee8097b63c65c205",
+          "hash_sha256": "dc31d61275d6d797d391d1bbd13d1a512fa2bf0012d4d460399611a3e71abb57"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.2.1",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.2.0",
+            "delayexe": ">=1.2.1",
+            "loginproxy": ">=0.3.3"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.2.0",
+        "name": "v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2022-10-23T06:39:49Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 81967658,
+          "name": "SmartServerTime-v1.2.0.mcdr",
+          "size": 17934,
+          "download_count": 72,
+          "created_at": "2022-10-23T06:39:51Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.2.0/SmartServerTime-v1.2.0.mcdr",
+          "hash_md5": "21bbfee511d55ddf94c8ab0de6777779",
+          "hash_sha256": "a3aeda97f95e159655b25d9d520f32b9edc8a0b2824375542fb56027d6c8355b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.2.0",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.2.0",
+            "delayexe": ">=1.2.1",
+            "loginproxy": ">=0.3.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2022-09-18T02:03:22Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 78210290,
+          "name": "SmartServerTime-v1.1.0.mcdr",
+          "size": 20654,
+          "download_count": 69,
+          "created_at": "2022-09-18T02:03:24Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.1.0/SmartServerTime-v1.1.0.mcdr",
+          "hash_md5": "6f7d21063bb5259ddab13af8a2cdd73b",
+          "hash_sha256": "1654de0ccec52e3fdcf3c5cc6b79bdaf9b1c7bd387331b081e93c710ccb48491"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.1.0",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "kpi": ">=1.0.1",
+            "delayexe": ">=1.2.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2022-05-11T00:00:49Z",
+        "description": null,
+        "prerelease": false,
+        "asset": {
+          "id": 65114731,
+          "name": "SmartServerTime-v1.0.0.mcdr",
+          "size": 8378,
+          "download_count": 162,
+          "created_at": "2022-05-11T00:00:58Z",
+          "browser_download_url": "https://github.com/kmcsr/smart_servertime_mcdr/releases/download/v1.0.0/SmartServerTime-v1.0.0.mcdr",
+          "hash_md5": "3c9021017a1c82b07fb30ec8efc6aeda",
+          "hash_sha256": "67aae1210f909c561a69ed482ffce0f1cf871cae8cc2e089de6a28327b393065"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "smart_servertime",
+          "name": "SmartServerTime",
+          "version": "1.0.0",
+          "link": "https://github.com/kmcsr/smart_servertime_mcdr",
+          "authors": [
+            "zyxkad"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "delayexe": ">=1.1.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A Minecraft Auto Start/Stop Plugin",
+            "zh_cn": "一个Minecraft自动停起服务器插件"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/kmcsr/smart_servertime_mcdr",
+    "name": "smart_servertime_mcdr",
+    "full_name": "kmcsr/smart_servertime_mcdr",
+    "html_url": "https://github.com/kmcsr/smart_servertime_mcdr",
+    "description": "A MCDR plugin use for auto start/stop server",
+    "archived": false,
+    "stargazers_count": 12,
+    "watchers_count": 12,
+    "forks_count": 1,
+    "readme": "\n- English\n- [中文](https://github.com/kmcsr/smart_servertime_mcdr/tree/master/README_zh.MD)\n\n# Smart Server Time\n\n*If it's useful, please give a star :)*\n\n## Feature\n\n- Server will stop automagically when **all players leave** the server\n- Massive savings on your server's CPU :)\n- Server will start when some player is trying connect to the server\n- Support server **cooldown timeout**\n- Support **manually start/stop** your server\n- Support *Minecraft Client Packet*, response ***correctly** ping request*, **send server status to player** who is *tring connect*\n\n## Dependencies\n\n| ID                                                      | Release Link                                         |\n| ------------------------------------------------------- | ---------------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr)                | <https://github.com/kmcsr/kpi_mcdr/releases>         |\n| [loginproxy](https://github.com/kmcsr/login_proxy_mcdr) | <https://github.com/kmcsr/login_proxy_mcdr/releases> |\n\n## TODO\n",
+    "readme_url": "https://raw.githubusercontent.com/kmcsr/smart_servertime_mcdr/master/README.MD",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

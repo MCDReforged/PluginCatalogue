@@ -1,0 +1,459 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "where_is",
+    "name": "Where Is",
+    "version": "2.2.2",
+    "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "dependencies": {
+      "minecraft_data_api": "*",
+      "mcdreforged": ">=2.12.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.1.3"
+    ],
+    "description": {
+      "en_us": "Query players' coordinates",
+      "zh_cn": "查询玩家的坐标"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "where_is",
+    "authors": [
+      "Ra1ny_Yuki"
+    ],
+    "repository": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "**English** | [简体中文](https://github.com/Lazy-Bing-Server/WhereIs-MCDR/tree/master/README_zh.md)\n\nWhere Is\n-------\n\nA [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugin, inspired by [Fallen_Breath's](https://github.com/Fallen-Breath) [Here](https://github.com/TISUnion/Here) and [Ivan-1F's](https://github.com/Ivan-1F) [Where](https://github.com/Ivan-1F/MCDReforged-Plugins/tree/master/where)\n\n## Dependencies\n\n[MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI/)\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.12.0\n\n> Changed in v2.2:\n> \n> No longer supports MCDR v2.11 or earlier\n\n## Commands\n\n1. `!!whereis` or `!!vris`（can be modified in config）：Show coordinate of other player\n\nCommand format: `!!whereis <player> [args(optional)]` (multiple players allowed)\n\n​\tOptional arguments could be following values (multiple arguments should be divided by space):\n\n​\t`-a`, `--all` means broadcasting coordinate to all the players and highlight target player\n\n​\t`-s`, `--sudo` allows querying coordinate of protected players\n\nBoth 2 arguments requires `admin` permission level in the config file of this plugin\n\n> Changed in v2.2:\n> \n> No longer supports arguments like `-as` and `-sa`, multiple players allowed\n\n2. `!!here` (can be modified in config）: Broadcast your current coordinate\n\n> New in v2.1:\n> \n> Inline `!!here` command divided by space can be responded if enabled\n\nOptional argument can be used with both commands: (unavailable for inline `!!here`)\n\n​\t`-h`, `--highlight` <duration> Set highlight target player time, overrides config settings\n\n> Players won't be highlighted if their location is only queried, not broadcast\n\n> New in v2.2:\n> \n> New optional argument `-h <duration>` introduced\n\n\n## Config File\n\nSeveral features can be modified with configuration file, which will be generated automatically in `config/where_is/config.json`\n\nCalling `!!MCDR plg reload where_is` to reload is required to make it loaded after modifying\n\nHere is the config items in the file\n\n> [!WARNING]\n> These 2 items which are marked with asterisk below should be configured manually before you update to 2.x or you'll lose all the configuration during loading the new version!!! You can ignore this message if you haven't install this plugin before\n\n| Keys                             | Value type                      | Default value           | Introduction                                                                                                                                                                                                                                                          |\n| -------------------------------- | ------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `enable_where_is`                | `bool`                          | `true`                  | Set it to `true` to enable query other player location                                                                                                                                                                                                                |\n| `enable_here`                    | `bool`                          | `true`                  | Set it to `true` to enable broadcast your location                                                                                                                                                                                                                    |\n| `enable_inline_here`             | `bool`                          | `false`                 | Set it to `true` to make inline here enabled.                                                                                                                                                                                                                         |\n| *`command_prefix`                | `dict`(which includes 2 items)  | In the following sheets | Command prefix of this plugin                                                                                                                                                                                                                                         |\n| `broadcast_to_console`           | `bool`                          | `true`                  | `!!here` or `!!vris <player> -a` will also send message to server console                                                                                                                                                                                             |\n| `permission_requirements`        | `dict`(which includes 3 items)  | In the following sheets | Minimum permission of commands                                                                                                                                                                                                                                        |\n| *`hightlight_time`               | ``dict`(which includes 2 items) | In the following sheets | Highlight player time when coordinates are broadcasted to all the ones.                                                                                                                                                                                               |\n| `display_waypoints`              | `dict`(which includes 2 items)  | In the following sheets | If the text would include waypoint text of minimap                                                                                                                                                                                                                    |\n| `query_timeout`                  | `int`                           | `3`                     | Timeout of Minecraft Data API (seconds)                                                                                                                                                                                                                               |\n| `click_to_teleport`              | `bool`                          | `true`                  | Allow player click to fill the teleport command (still requires operator permission)                                                                                                                                                                                  |\n| `location_protection`            | `dict`(which includes 5 items)  | In the following sheets | Player coordinate protection configuration                                                                                                                                                                                                                            |\n| `dimension_translation_mode`     | `Literal['mcdr', 'minecraft']`  | `'mcdr'`                | `mcdr`: MCDReforged translates dimension names; `minecraft`: Minecraft translates dimension names. In 1.19 and later versions, using `mcdr` will avoid translation failure due to these dimension key change.                                                         |\n| `custom_dimension_name`          | `Dict[str, Dict[str, str]]`     | Too long to show        | A mapping of dimension name translation for `mcdr` translation mode. This fist layer keys are the languages. The second layer keys are the dimension IDs (Non-vanilla dimensions are allowed. vanilla dimensions are required to fill and should omit the namespace). |\n| `custom_vanilla_translation_key` | `Dict[str, str]`                | Too long to show        | A mapping of dimension translation keys for `minecraft` translation mode. (Non-vanilla dimensions are allowed. vanilla dimensions are required to fill and should omit the namespace).                                                                                |\n\n> New in v2.1:\n> \n> New configuration items: `inline_here` and `custom_vanilla_translation_key`\n\nIn the sheet above, the items which have stable items is showing below:\n\n**The asterisked items contents goes here:**\n\n| Keys of`command_prefix` | Value type | Default value           | Introduction                          |\n| ----------------------- | ---------- | ----------------------- | ------------------------------------- |\n| `where_is`              | `str`      | ['!!vris', '!!whereis'] | Command prefix to query locations     |\n| `here`                  | `str`      | ['!!here']              | Command prefix to broadcast locations |\n\n| Keys of`highlight_time` | Value type | Default value | Introduction                                                               |\n| ----------------------- | ---------- | ------------- | -------------------------------------------------------------------------- |\n| `where_is`              | `int`      | `0`           | Highlight player time when  querying other player's location and broadcast |\n| `here`                  | `int`      | `15`          | Highlight player time when  broadcasting your location                     |\n\nThe rest are the regular items:\n\n| Keys of`permission_requirements` | Value type | Default value | Introduction                                                             |\n| -------------------------------- | ---------- | ------------- | ------------------------------------------------------------------------ |\n| `where_is`                       | `int`      | `1`           | Permissions which allows query location without extra arguments          |\n| `here`                           | `int`      | `0`           | Permissions which allows broadcast your location without extra arguments |\n| `admin`                          | `int`      | `3`           | Permissions which allows query location with extra arguments             |\n\n| Keys of`display_waypoints` | Value type | Default value | Introduction                                                                                                                                                                        |\n| -------------------------- | ---------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `voxelmap`                 | `bool`     | `true`        | If it is `true` a text (`[+V]`) will be displayed, click to highlight the location, ctrl-click to add waypoint to [Voxelmap](https://www.curseforge.com/minecraft/mc-mods/voxelmap) |\n| `xaero_minimap`            | `bool`     | `true`        | If it is `true` a text (`[+X]`) will be displayed, click to add waypoint to [Xaero's Minimap](https://chocolateminecraft.com/minimap2.php)                                          |\n\n| Keys of`location_protection` | Value type | Default value                                             | Introduction                                                                          |\n| ---------------------------- | ---------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| `enable_whitelist`           | `bool`     | `false`                                                   | Enable querying whitelist, which blocks the player **NOT** in this list being queried |\n| `enable_blacklist`           | `bool`     | `true`                                                    | Enable querying whitelist, which blocks the player in this list being queried         |\n| `whitelist`                  | `list`     | empty list                                                | whitelist, which blocks the player **NOT** in this list being queried                 |\n| `blacklist`                  | `list`     | empty list                                                | Enable querying whitelist, which blocks the player in this list being queried         |\n| `protected_text`             | `dict`     | `'en_us': 'He/She\\'s in your heart!', 'zh_cn': 'Ta在你心里!'` | Text replied when querying blocked, supports language preference of MCDReforged       |\n\n## Example\n\n![](https://raw.githubusercontent.com/Lazy-Bing-Server/WhereIs-MCDR/master/img.png)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Lazy-Bing-Server/WhereIs-MCDR/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "where_is",
+    "latest_version": "2.2.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.2.2",
+        "name": "v2.2.2",
+        "tag_name": "2.2.2",
+        "created_at": "2025-08-17T10:15:08Z",
+        "description": "Fixed incorrect plugin behaviour after reloading in MCDR (#6) by @Crystal0404 in #7\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/2.2.1...2.2.2",
+        "prerelease": false,
+        "asset": {
+          "id": 283353541,
+          "name": "WhereIs-v2.2.2.mcdr",
+          "size": 25153,
+          "download_count": 393,
+          "created_at": "2025-08-17T11:17:38Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.2.2/WhereIs-v2.2.2.mcdr",
+          "hash_md5": "4b094a2f3ecfe38f8e70c0c1a43ba2a7",
+          "hash_sha256": "7bc25c11de0560581b27f7f075d096f4176b9eaa8595577ea27b8e6512652251"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.2.2",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.2.1",
+        "name": "v2.2.1",
+        "tag_name": "2.2.1",
+        "created_at": "2024-06-04T09:22:12Z",
+        "description": "- Fixed serial requirements in command tree\r\n- Fixed a problem that raise an exception when player join the server ASAP after server starts\r\n- No longer attach build count to version\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/2.2.0...2.2.1",
+        "prerelease": false,
+        "asset": {
+          "id": 171808507,
+          "name": "WhereIs-v2.2.1.mcdr",
+          "size": 25060,
+          "download_count": 1149,
+          "created_at": "2024-06-04T09:26:47Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.2.1/WhereIs-v2.2.1.mcdr",
+          "hash_md5": "4d32a7355b8f58a4c2e3c290f31ea7c2",
+          "hash_sha256": "e640238af39456f9bf57002902972076dc25b9166dbfc259f30e9611f4bec3bd"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.2.1",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.2.0",
+        "name": "v2.2.0",
+        "tag_name": "2.2.0",
+        "created_at": "2024-04-07T14:07:18Z",
+        "description": "> [!IMPORTANT]\r\n> This version no longer supports MCDReforged v2.11 and earlier\r\n\r\n# New in v2.2.0\r\n\r\n1. This plugin now have a in-game help message, execute `where_is` prefix (`!!whereis` or `!!vris` by default) to browse\r\n2. New command syntax:\r\n   - `where_is` command allowed querying multiple players\r\n   - deprecated old optional argument syntax, `-as` / `-sa` are removed, now optional arguments should be divided by space\r\n\r\n     > Actually commands mixing these arguments into player names can be parsed correctly too\r\n\r\n3. Now highlight time can be specified by attaching argument `-h/--highlight <duration>`\r\n     > Highlight argument, when executing a command that won't broadcast player's location, will be ignored to protect player's location from highlighting accidentally by player has no privilege\r\n\r\n\r\n# Other changes\r\n\r\n1. Due to the use of new features, dependency `mcdreforged` raised to `>=2.12.0`\r\n\r\n2. Now MCDR can suggest player names and arguments while user input query commands in console.\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/2.1.1...2.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 160784365,
+          "name": "WhereIs-v2.2.0+build.12.mcdr",
+          "size": 24980,
+          "download_count": 229,
+          "created_at": "2024-04-07T14:36:41Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.2.0/WhereIs-v2.2.0%2Bbuild.12.mcdr",
+          "hash_md5": "d82eca68796c1bb9ee0cf6e2a7b46a5d",
+          "hash_sha256": "bdb23134535e9187ee682c1d3e38ffe2d3eb6db2c23fcf3188a13bcf0f29e9cb"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.2.0+build.12",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.12.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.1.1",
+        "name": "v2.1.1",
+        "tag_name": "2.1.1",
+        "created_at": "2023-12-12T09:28:35Z",
+        "description": "Fixed compatibility with newer version of MCDR",
+        "prerelease": false,
+        "asset": {
+          "id": 140232983,
+          "name": "WhereIs-v2.1.1+build.9.mcdr",
+          "size": 22494,
+          "download_count": 324,
+          "created_at": "2023-12-12T09:29:58Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.1.1/WhereIs-v2.1.1%2Bbuild.9.mcdr",
+          "hash_md5": "111cf56c1720cc701bcc6d24832eda66",
+          "hash_sha256": "d4765b65bd939db36ef443f72f6348ca8a2a083d831e3cd6ec86dd64cc7e269d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.1.1+build.9",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.1.0",
+        "name": "2.1.0",
+        "tag_name": "2.1.0",
+        "created_at": "2023-08-02T15:56:13Z",
+        "description": "## What's new in v2.1\r\n\r\n1. Inline here (suggested by [EasonSYC](https://github.com/EasonSYC) in TISUnion/Here#19 and TISUnion/Here#25)\r\n\r\n    After option `enable_inline_here` is enabled (default to `false`), command `!!here` in almost any position of chat message can be responded. \r\n\r\n    There's a slight difference between this implement and TISUnion/Here#25: Command `!!here` should be divided with space to other words in chat message\r\n\r\n2. `minecraft` dimension translation mode key customization\r\n\r\n    Now you can modifying translation keys in config option `custom_vanilla_translation_key` to avoid translation failure. Custom\r\n\r\n## Other changes\r\n\r\n1. `broadcast_to_console` option in configuration\r\n\r\n   When this is enabled, `!!here` message and `!!vris/!!whereis <player> -a` message will be sent to MCDR console. In old versions, all the broadcast message would be sent to console.\r\n\r\n2. Now dimension translation mode is default to `mcdr`.\r\n\r\n   Translation key for dimensions has been changed for a long time, `minecraft` mode is not suitable to be the default mode anymore.\r\n\r\n## Fixes\r\n\r\n1. Fixed a problem that makes MCDReforged language preference invalid for 'here' and 'where is' broadcast message\r\n\r\n2. Fixed a problem that allows invalid 'where is' arguments be ignored\r\n\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/2.0.2...2.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 119776787,
+          "name": "WhereIs-v2.1.0+build.8.mcdr",
+          "size": 21616,
+          "download_count": 368,
+          "created_at": "2023-08-02T16:02:22Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.1.0/WhereIs-v2.1.0%2Bbuild.8.mcdr",
+          "hash_md5": "18ec880c8676161883bbb565fdaebb0b",
+          "hash_sha256": "26371a29a0ac4aed7ca7264087ed6ee5da4a8385851174ae98ebd2fb251819fe"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.1.0+build.8",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.0.2",
+        "name": "2.0.2",
+        "tag_name": "2.0.2",
+        "created_at": "2022-07-20T14:06:27Z",
+        "description": "**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/2.0.1...2.0.2",
+        "prerelease": false,
+        "asset": {
+          "id": 72157877,
+          "name": "WhereIs-v2.0.2+build.6.mcdr",
+          "size": 19942,
+          "download_count": 1176,
+          "created_at": "2022-07-20T15:56:45Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.0.2/WhereIs-v2.0.2%2Bbuild.6.mcdr",
+          "hash_md5": "a2fbb9cf7716100bb7513a0864bcce72",
+          "hash_sha256": "d60e64fac057d9ab0451a1b2b9b7885e6f898793dfc925b6c0cb3415a4488565"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.0.2+build.6",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.0.1",
+        "name": "2.0.1",
+        "tag_name": "2.0.1",
+        "created_at": "2022-07-03T14:42:36Z",
+        "description": "Fixed a configuration problem that enable items are not effective.\r\n\r\nDO NOT FORGET TO BACK YOUR CONFIGURATION UP BEFORE YOU UPATE TO 2.0 AND LATER VERSION\r\n[(See the known issue of this release)](https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.0.0)\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/2.0.0...2.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 70514412,
+          "name": "WhereIs-v2.0.1+build.4.mcdr",
+          "size": 19933,
+          "download_count": 204,
+          "created_at": "2022-07-04T11:22:55Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.0.1/WhereIs-v2.0.1%2Bbuild.4.mcdr",
+          "hash_md5": "169d4bd7c73d378600be4a075baa404b",
+          "hash_sha256": "67337990aa6adf31c80c7d62d69e307912dc2c37422dc865db1e8c2f08f85e8a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.0.1+build.4",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query players' coordinates",
+            "zh_cn": "查询玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/2.0.0",
+        "name": "2.0.0",
+        "tag_name": "2.0.0",
+        "created_at": "2022-07-03T09:18:43Z",
+        "description": "# Feature updates\r\n\r\n1. New function: `!!here`. The same as [Here](https://github.com/TISUnion/Here)\r\n2. Now the dimension names are allow to be configured in configuration. Using these translation for vanilla dimensions requires `mcdr` mode for `dimension_translation_mode`. Non-vanilla dimensions are also supported and `mcdr` mode is not required for these dimensions (`minecraft` mode can't translate non-vanilla dimensions so these dimensions will always be tranlated with `mcdr` mode).\r\n\r\n# Known issue \r\nUpdating to this version will make all your configuration lost. Here're 2 ways to avoid this lost:\r\n1. Back your configuration up and configure after updating.\r\n2. Configure `command_prefix` and `highlight_time` item with new values before updating.\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/1.1.0...2.0.0",
+        "prerelease": false,
+        "asset": {
+          "id": 70420552,
+          "name": "WhereIs-v2.0.0+build.3.mcdr",
+          "size": 19936,
+          "download_count": 143,
+          "created_at": "2022-07-03T09:33:15Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/2.0.0/WhereIs-v2.0.0%2Bbuild.3.mcdr",
+          "hash_md5": "4af3ffcb6aeadb2859c3ccc7592d78da",
+          "hash_sha256": "6cbc26cabd464131b74144734005d65a66d81c6ccebfd1055d126ba07681628f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "2.0.0+build.3",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query other players' coordinates",
+            "zh_cn": "查询其他玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/1.1.0",
+        "name": "1.1.0",
+        "tag_name": "1.1.0",
+        "created_at": "2022-07-02T09:02:23Z",
+        "description": "Added a new option to allow this plugin use MCDR translate dimension names instead of minecraft to avoid tranlation failure\r\n\r\n**Full Changelog**: https://github.com/Lazy-Bing-Server/WhereIs-MCDR/compare/1.0.0...1.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 70352435,
+          "name": "WhereIs-v1.1.0+build.2.mcdr",
+          "size": 18556,
+          "download_count": 143,
+          "created_at": "2022-07-02T09:07:25Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/1.1.0/WhereIs-v1.1.0%2Bbuild.2.mcdr",
+          "hash_md5": "92db022c33005b62656b87da551da799",
+          "hash_sha256": "7a8eaab146e21747b5948e5937ee87764f48dde8e5efc7d14e4ee8127ea709ec"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "1.1.0+build.2",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query other players' coordinates",
+            "zh_cn": "查询其他玩家的坐标"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/tag/1.0.0",
+        "name": "1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2021-12-31T17:42:58Z",
+        "description": "Initial release",
+        "prerelease": false,
+        "asset": {
+          "id": 52930833,
+          "name": "WhereIs-v1.0.0.mcdr",
+          "size": 18265,
+          "download_count": 489,
+          "created_at": "2021-12-31T17:44:56Z",
+          "browser_download_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR/releases/download/1.0.0/WhereIs-v1.0.0.mcdr",
+          "hash_md5": "566d8a8e476a40884f368beba12fad7c",
+          "hash_sha256": "7c62db6a195b55d2026ea72a1fced4957e8bd2ba82b04ac7cf66e95ec93a2d65"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "where_is",
+          "name": "Where Is",
+          "version": "1.0.0",
+          "link": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+          "authors": [
+            "Ra1ny_Yuki"
+          ],
+          "dependencies": {
+            "minecraft_data_api": "*",
+            "mcdreforged": ">=2.1.3"
+          },
+          "requirements": [
+            "mcdreforged>=2.1.3"
+          ],
+          "description": {
+            "en_us": "Query other players' coordinates",
+            "zh_cn": "查询其他玩家的坐标"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+    "name": "WhereIs-MCDR",
+    "full_name": "Lazy-Bing-Server/WhereIs-MCDR",
+    "html_url": "https://github.com/Lazy-Bing-Server/WhereIs-MCDR",
+    "description": "Query other player's coordinates",
+    "archived": false,
+    "stargazers_count": 8,
+    "watchers_count": 8,
+    "forks_count": 2,
+    "readme": "**English** | [简体中文](https://github.com/Lazy-Bing-Server/WhereIs-MCDR/tree/master/README_zh.md)\n\nWhere Is\n-------\n\nA [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugin, inspired by [Fallen_Breath's](https://github.com/Fallen-Breath) [Here](https://github.com/TISUnion/Here) and [Ivan-1F's](https://github.com/Ivan-1F) [Where](https://github.com/Ivan-1F/MCDReforged-Plugins/tree/master/where)\n\n## Dependencies\n\n[MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI/)\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.12.0\n\n> Changed in v2.2:\n> \n> No longer supports MCDR v2.11 or earlier\n\n## Commands\n\n1. `!!whereis` or `!!vris`（can be modified in config）：Show coordinate of other player\n\nCommand format: `!!whereis <player> [args(optional)]` (multiple players allowed)\n\n​\tOptional arguments could be following values (multiple arguments should be divided by space):\n\n​\t`-a`, `--all` means broadcasting coordinate to all the players and highlight target player\n\n​\t`-s`, `--sudo` allows querying coordinate of protected players\n\nBoth 2 arguments requires `admin` permission level in the config file of this plugin\n\n> Changed in v2.2:\n> \n> No longer supports arguments like `-as` and `-sa`, multiple players allowed\n\n2. `!!here` (can be modified in config）: Broadcast your current coordinate\n\n> New in v2.1:\n> \n> Inline `!!here` command divided by space can be responded if enabled\n\nOptional argument can be used with both commands: (unavailable for inline `!!here`)\n\n​\t`-h`, `--highlight` <duration> Set highlight target player time, overrides config settings\n\n> Players won't be highlighted if their location is only queried, not broadcast\n\n> New in v2.2:\n> \n> New optional argument `-h <duration>` introduced\n\n\n## Config File\n\nSeveral features can be modified with configuration file, which will be generated automatically in `config/where_is/config.json`\n\nCalling `!!MCDR plg reload where_is` to reload is required to make it loaded after modifying\n\nHere is the config items in the file\n\n> [!WARNING]\n> These 2 items which are marked with asterisk below should be configured manually before you update to 2.x or you'll lose all the configuration during loading the new version!!! You can ignore this message if you haven't install this plugin before\n\n| Keys                             | Value type                      | Default value           | Introduction                                                                                                                                                                                                                                                          |\n| -------------------------------- | ------------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `enable_where_is`                | `bool`                          | `true`                  | Set it to `true` to enable query other player location                                                                                                                                                                                                                |\n| `enable_here`                    | `bool`                          | `true`                  | Set it to `true` to enable broadcast your location                                                                                                                                                                                                                    |\n| `enable_inline_here`             | `bool`                          | `false`                 | Set it to `true` to make inline here enabled.                                                                                                                                                                                                                         |\n| *`command_prefix`                | `dict`(which includes 2 items)  | In the following sheets | Command prefix of this plugin                                                                                                                                                                                                                                         |\n| `broadcast_to_console`           | `bool`                          | `true`                  | `!!here` or `!!vris <player> -a` will also send message to server console                                                                                                                                                                                             |\n| `permission_requirements`        | `dict`(which includes 3 items)  | In the following sheets | Minimum permission of commands                                                                                                                                                                                                                                        |\n| *`hightlight_time`               | ``dict`(which includes 2 items) | In the following sheets | Highlight player time when coordinates are broadcasted to all the ones.                                                                                                                                                                                               |\n| `display_waypoints`              | `dict`(which includes 2 items)  | In the following sheets | If the text would include waypoint text of minimap                                                                                                                                                                                                                    |\n| `query_timeout`                  | `int`                           | `3`                     | Timeout of Minecraft Data API (seconds)                                                                                                                                                                                                                               |\n| `click_to_teleport`              | `bool`                          | `true`                  | Allow player click to fill the teleport command (still requires operator permission)                                                                                                                                                                                  |\n| `location_protection`            | `dict`(which includes 5 items)  | In the following sheets | Player coordinate protection configuration                                                                                                                                                                                                                            |\n| `dimension_translation_mode`     | `Literal['mcdr', 'minecraft']`  | `'mcdr'`                | `mcdr`: MCDReforged translates dimension names; `minecraft`: Minecraft translates dimension names. In 1.19 and later versions, using `mcdr` will avoid translation failure due to these dimension key change.                                                         |\n| `custom_dimension_name`          | `Dict[str, Dict[str, str]]`     | Too long to show        | A mapping of dimension name translation for `mcdr` translation mode. This fist layer keys are the languages. The second layer keys are the dimension IDs (Non-vanilla dimensions are allowed. vanilla dimensions are required to fill and should omit the namespace). |\n| `custom_vanilla_translation_key` | `Dict[str, str]`                | Too long to show        | A mapping of dimension translation keys for `minecraft` translation mode. (Non-vanilla dimensions are allowed. vanilla dimensions are required to fill and should omit the namespace).                                                                                |\n\n> New in v2.1:\n> \n> New configuration items: `inline_here` and `custom_vanilla_translation_key`\n\nIn the sheet above, the items which have stable items is showing below:\n\n**The asterisked items contents goes here:**\n\n| Keys of`command_prefix` | Value type | Default value           | Introduction                          |\n| ----------------------- | ---------- | ----------------------- | ------------------------------------- |\n| `where_is`              | `str`      | ['!!vris', '!!whereis'] | Command prefix to query locations     |\n| `here`                  | `str`      | ['!!here']              | Command prefix to broadcast locations |\n\n| Keys of`highlight_time` | Value type | Default value | Introduction                                                               |\n| ----------------------- | ---------- | ------------- | -------------------------------------------------------------------------- |\n| `where_is`              | `int`      | `0`           | Highlight player time when  querying other player's location and broadcast |\n| `here`                  | `int`      | `15`          | Highlight player time when  broadcasting your location                     |\n\nThe rest are the regular items:\n\n| Keys of`permission_requirements` | Value type | Default value | Introduction                                                             |\n| -------------------------------- | ---------- | ------------- | ------------------------------------------------------------------------ |\n| `where_is`                       | `int`      | `1`           | Permissions which allows query location without extra arguments          |\n| `here`                           | `int`      | `0`           | Permissions which allows broadcast your location without extra arguments |\n| `admin`                          | `int`      | `3`           | Permissions which allows query location with extra arguments             |\n\n| Keys of`display_waypoints` | Value type | Default value | Introduction                                                                                                                                                                        |\n| -------------------------- | ---------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `voxelmap`                 | `bool`     | `true`        | If it is `true` a text (`[+V]`) will be displayed, click to highlight the location, ctrl-click to add waypoint to [Voxelmap](https://www.curseforge.com/minecraft/mc-mods/voxelmap) |\n| `xaero_minimap`            | `bool`     | `true`        | If it is `true` a text (`[+X]`) will be displayed, click to add waypoint to [Xaero's Minimap](https://chocolateminecraft.com/minimap2.php)                                          |\n\n| Keys of`location_protection` | Value type | Default value                                             | Introduction                                                                          |\n| ---------------------------- | ---------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| `enable_whitelist`           | `bool`     | `false`                                                   | Enable querying whitelist, which blocks the player **NOT** in this list being queried |\n| `enable_blacklist`           | `bool`     | `true`                                                    | Enable querying whitelist, which blocks the player in this list being queried         |\n| `whitelist`                  | `list`     | empty list                                                | whitelist, which blocks the player **NOT** in this list being queried                 |\n| `blacklist`                  | `list`     | empty list                                                | Enable querying whitelist, which blocks the player in this list being queried         |\n| `protected_text`             | `dict`     | `'en_us': 'He/She\\'s in your heart!', 'zh_cn': 'Ta在你心里!'` | Text replied when querying blocked, supports language preference of MCDReforged       |\n\n## Example\n\n![](https://raw.githubusercontent.com/Lazy-Bing-Server/WhereIs-MCDR/master/img.png)\n",
+    "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/WhereIs-MCDR/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

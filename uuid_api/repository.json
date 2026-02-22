@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "name": "MCDReforgedPlugins",
+  "full_name": "AnzhiZhang/MCDReforgedPlugins",
+  "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "description": "MCDReforged Plugins",
+  "archived": false,
+  "stargazers_count": 99,
+  "watchers_count": 99,
+  "forks_count": 51,
+  "readme": "# UUID API\n\n> Player UUID API\n\n## Required Python Modules\n\n- requests\n\n## Usage\n\n```python\nget_uuid(name: str) -> UUID | None\n```\n\nReturns `None` if the player is not found.\n\nExample:\n\n```python\nuuid_api = server.get_plugin_instance('uuid_api')\nuuid = uuid_api.get_uuid('Steve')\nserver.logger.warning(uuid)\n```\n\n## Configuration\n\n### use_usercache\n\nDefault: `true`\n\nWhether to use data from the `usercache.json` file as a cache to retrieve player UUIDs.\n\n### override_online_mode\n\nDefault: `false`\n\nWhether to override the `online-mode` setting in `server.properties`.\n\nIf set to `true`, the plugin will ignore the `online-mode` setting in `server.properties` and instead use the value specified in `override_online_mode_value`.\n\nIf you're using a proxy server such as BungeeCord or Velocity with online-mode enabled, or if the actual UUIDs do not match the server's `online-mode` setting, enabling this option ensures the plugin correctly handles online mode.\n\n### override_online_mode_value\n\nDefault: `true`\n\nWhen `override_online_mode` is set to `true`, this value determines whether the plugin treats the server as running in online mode.\n\n## Acknowledgements\n\nSome code are adapted from <https://github.com/gubaiovo/MCDR_uuid_api_remake>\n",
+  "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

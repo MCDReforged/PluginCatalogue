@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "player_last_play",
+    "name": "PlayerLastPlay",
+    "version": "1.3.0",
+    "link": "https://github.com/Aimerny/MCDRPlugins/tree/main/src/player_last_play",
+    "authors": [
+      "Aimerny"
+    ],
+    "dependencies": {
+      "online_player_api": "^1.0.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.6.0"
+    ],
+    "description": {
+      "en_us": "Record player lastime left the server",
+      "zh_cn": "记录与查询玩家最近游玩时间,方便检查服务器玩家活跃度"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "player_last_play",
+    "authors": [
+      "Aimerny"
+    ],
+    "repository": "https://github.com/Aimerny/MCDRPlugins",
+    "branch": "main",
+    "related_path": "src/player_last_play",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "# PlayerLastPlay\n统计玩家最后一次上线时间与累计在线时长，方便查看玩家活跃度，清理僵尸（bushi\n\n## 使用姿势\n\n```\n!!plp [help] #插件帮助\n!!plp help #显示帮助消息\n!!plp list <index> #获取指定页玩家列表\n!!plp get <player> #获取玩家的最后游玩时间与总在线时长\n!!plp clean <player> #清除玩家的信息\n!!plp reset <player> #重置玩家的累计在线时长\n```\n> 清除或重置玩家信息需要玩家权限在`Admin`以上\n\n## 配置说明\n> 以下注释中的数字均为默认配置，可根据服务器状况自行配置。不同的颜色目前只做提示，并无其他功能\n\n```json5\n    {\n  // 第一区间，7天内上线过或者当前在线，时间展示为绿色\n  \"active\": 7,\n  // 第二区间，介于7-14天之间上线过，时间展示为黄色\n  \"normal\": 14,\n  // 第三区间，介于14-21天内上线过，时间展示为红色\n  \"inactive\": 21,\n  // 第四区间，21天及以上没上线过，时间展示为灰色\n  //plp list时的排序方向，如设为true，优先展示最近上线的玩家，否则优先展示最近没上过线的玩家\n  \"reverse\": true,\n  // 分页查询的每页大小,默认为10\n  \"pageSize\": 10,\n  // 忽略的玩家名称正则列表\n  \"ignorePlayerRegexes\": [\n    \"^bot_.*$\",\n    \"^Bot_.*$\"\n  ],\n  //是否开启只统计白名单内玩家\n  \"only_whitelist_player\": false\n}\n```\n> [!note]\n> 1. 如果在server/whitelist.json中没有玩家信息的情况下打开`only_whitelist_player`选项，则无法保存任何玩家的统计时间。即使你的服务器并没有开启白名单。\n> \n> 3. 如果在之前未开启`only_whitelist_player`选项,已经存入了部分玩家信息，那么plp不会自动清除历史信息\n\n部分Utils及代码风格来自于[离线白名单](https://github.com/EMUnion/AdvancedWhitelistR)以及[QQChat](https://github.com/Aimerny/MCDReforgedPlugins/tree/master/qq_chat)插件\n",
+      "zh_cn": "# PlayerLastPlay\n统计玩家最后一次上线时间与累计在线时长，方便查看玩家活跃度，清理僵尸（bushi\n\n## 使用姿势\n\n```\n!!plp [help] #插件帮助\n!!plp help #显示帮助消息\n!!plp list <index> #获取指定页玩家列表\n!!plp get <player> #获取玩家的最后游玩时间与总在线时长\n!!plp clean <player> #清除玩家的信息\n!!plp reset <player> #重置玩家的累计在线时长\n```\n> 清除或重置玩家信息需要玩家权限在`Admin`以上\n\n## 配置说明\n> 以下注释中的数字均为默认配置，可根据服务器状况自行配置。不同的颜色目前只做提示，并无其他功能\n\n```json5\n    {\n  // 第一区间，7天内上线过或者当前在线，时间展示为绿色\n  \"active\": 7,\n  // 第二区间，介于7-14天之间上线过，时间展示为黄色\n  \"normal\": 14,\n  // 第三区间，介于14-21天内上线过，时间展示为红色\n  \"inactive\": 21,\n  // 第四区间，21天及以上没上线过，时间展示为灰色\n  //plp list时的排序方向，如设为true，优先展示最近上线的玩家，否则优先展示最近没上过线的玩家\n  \"reverse\": true,\n  // 分页查询的每页大小,默认为10\n  \"pageSize\": 10,\n  // 忽略的玩家名称正则列表\n  \"ignorePlayerRegexes\": [\n    \"^bot_.*$\",\n    \"^Bot_.*$\"\n  ],\n  //是否开启只统计白名单内玩家\n  \"only_whitelist_player\": false\n}\n```\n> [!note]\n> 1. 如果在server/whitelist.json中没有玩家信息的情况下打开`only_whitelist_player`选项，则无法保存任何玩家的统计时间。即使你的服务器并没有开启白名单。\n> \n> 3. 如果在之前未开启`only_whitelist_player`选项,已经存入了部分玩家信息，那么plp不会自动清除历史信息\n\n部分Utils及代码风格来自于[离线白名单](https://github.com/EMUnion/AdvancedWhitelistR)以及[QQChat](https://github.com/Aimerny/MCDReforgedPlugins/tree/master/qq_chat)插件\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/player_last_play/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/player_last_play/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "player_last_play",
+    "latest_version": "1.3.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Aimerny/MCDRPlugins/releases/tag/player_last_play-v1.3.0",
+        "name": "player_last_play: v1.3.0",
+        "tag_name": "player_last_play-v1.3.0",
+        "created_at": "2025-10-29T10:16:45Z",
+        "description": "## [1.3.0](https://github.com/Aimerny/MCDRPlugins/compare/player_last_play-v1.2.2...player_last_play-v1.3.0) (2025-10-29)\n\n\n### Features\n\n* **plp:** support recording online time ([3a6a280](https://github.com/Aimerny/MCDRPlugins/commit/3a6a2803d98fcd576c570fd0c03883eaebfb76ed))",
+        "prerelease": false,
+        "asset": {
+          "id": 310063168,
+          "name": "PlayerLastPlay-v1.3.0.mcdr",
+          "size": 6890,
+          "download_count": 223,
+          "created_at": "2025-10-29T10:17:23Z",
+          "browser_download_url": "https://github.com/Aimerny/MCDRPlugins/releases/download/player_last_play-v1.3.0/PlayerLastPlay-v1.3.0.mcdr",
+          "hash_md5": "89ff66ed13583e813e127e15dc908599",
+          "hash_sha256": "1cc391b80415f3c5e31d655f03c7e303fbeab9bc6316e1c3620f48da96d459eb"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "player_last_play",
+          "name": "PlayerLastPlay",
+          "version": "1.3.0",
+          "link": "https://github.com/Aimerny/MCDRPlugins/tree/main/src/player_last_play",
+          "authors": [
+            "Aimerny"
+          ],
+          "dependencies": {
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "Record player lastime left the server",
+            "zh_cn": "记录与查询玩家最近游玩时间,方便检查服务器玩家活跃度"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Aimerny/MCDRPlugins/releases/tag/player_last_play-v1.2.2",
+        "name": "player_last_play: v1.2.2",
+        "tag_name": "player_last_play-v1.2.2",
+        "created_at": "2025-04-23T15:58:41Z",
+        "description": "## [1.2.2](https://github.com/Aimerny/MCDRPlugins/compare/player_last_play-v1.2.1...player_last_play-v1.2.2) (2025-04-23)\n\n\n### Bug Fixes\n\n* **player_last_play:** text fix ([0bedb6b](https://github.com/Aimerny/MCDRPlugins/commit/0bedb6b9fbda06d5207ff8769885c8ca8043f5cd))",
+        "prerelease": false,
+        "asset": {
+          "id": 248832156,
+          "name": "PlayerLastPlay-v1.2.2.mcdr",
+          "size": 5640,
+          "download_count": 286,
+          "created_at": "2025-04-23T15:59:23Z",
+          "browser_download_url": "https://github.com/Aimerny/MCDRPlugins/releases/download/player_last_play-v1.2.2/PlayerLastPlay-v1.2.2.mcdr",
+          "hash_md5": "46e0cd9c586ef755f88765b0d79c0bc0",
+          "hash_sha256": "33b0c8fb3fbf8016fb47ea95f288351ff60f99752223133004f890b5c2e5b073"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "player_last_play",
+          "name": "PlayerLastPlay",
+          "version": "1.2.2",
+          "link": "https://github.com/Aimerny/MCDRPlugins/tree/main/src/player_last_play",
+          "authors": [
+            "Aimerny"
+          ],
+          "dependencies": {
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "Record player lastime left the server",
+            "zh_cn": "记录与查询玩家最近游玩时间,方便检查服务器玩家活跃度"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Aimerny/MCDRPlugins/releases/tag/player_last_play-v1.2.1",
+        "name": "player_last_play: v1.2.1",
+        "tag_name": "player_last_play-v1.2.1",
+        "created_at": "2025-02-06T06:59:16Z",
+        "description": "## [1.2.1](https://github.com/Aimerny/MCDRPlugins/compare/player_last_play-v1.2.0...player_last_play-v1.2.1) (2025-02-06)\n\n\n### Bug Fixes\n\n* fix link for all plugins meta ([c313e6f](https://github.com/Aimerny/MCDRPlugins/commit/c313e6f1b92db0c76a200c4c25956adfb4c4c933))",
+        "prerelease": false,
+        "asset": {
+          "id": 226766614,
+          "name": "PlayerLastPlay-v1.2.1.mcdr",
+          "size": 5643,
+          "download_count": 139,
+          "created_at": "2025-02-06T07:00:02Z",
+          "browser_download_url": "https://github.com/Aimerny/MCDRPlugins/releases/download/player_last_play-v1.2.1/PlayerLastPlay-v1.2.1.mcdr",
+          "hash_md5": "22f8c5b745964d7cc5f0b2648327d1da",
+          "hash_sha256": "5fb0584e378b29a3d7e568a1f2827a77a1598c2d91bf5402f875d3a76491abe2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "player_last_play",
+          "name": "PlayerLastPlay",
+          "version": "1.2.1",
+          "link": "https://github.com/Aimerny/MCDRPlugins/tree/main/src/player_last_play",
+          "authors": [
+            "Aimerny"
+          ],
+          "dependencies": {
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "Record player lastime left the server",
+            "zh_cn": "记录与查询玩家最近游玩时间,方便检查服务器玩家活跃度"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Aimerny/MCDRPlugins/releases/tag/player_last_play-v1.2.0",
+        "name": "player_last_play: v1.2.0",
+        "tag_name": "player_last_play-v1.2.0",
+        "created_at": "2024-08-30T03:47:30Z",
+        "description": "## [1.2.0](https://github.com/Aimerny/MCDRPlugins/compare/player_last_play-v1.1.3...player_last_play-v1.2.0) (2024-08-30)\n\n\n### Features\n\n* :tada: init exist plugins ([5029f43](https://github.com/Aimerny/MCDRPlugins/commit/5029f430f3a376878270a08124a73cad63af7bc5))",
+        "prerelease": false,
+        "asset": {
+          "id": 189273859,
+          "name": "PlayerLastPlay-v1.2.0.mcdr",
+          "size": 3672,
+          "download_count": 243,
+          "created_at": "2024-08-30T03:52:19Z",
+          "browser_download_url": "https://github.com/Aimerny/MCDRPlugins/releases/download/player_last_play-v1.2.0/PlayerLastPlay-v1.2.0.mcdr",
+          "hash_md5": "e59477814ccda6f767218e5d9f1925b1",
+          "hash_sha256": "5d050e17ecbdbe1cf1c1e60bfcb9eb8f691e959ebcb331f5c9234530374edd25"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "player_last_play",
+          "name": "PlayerLastPlay",
+          "version": "1.2.0",
+          "link": "https://github.com/Aimerny/playerLastPlay",
+          "authors": [
+            "Aimerny"
+          ],
+          "dependencies": {
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.6.0"
+          ],
+          "description": {
+            "en_us": "Record player lastime left the server",
+            "zh_cn": "记录与查询玩家最近游玩时间,方便检查服务器玩家活跃度"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Aimerny/MCDRPlugins/releases/tag/player_last_play-v1.1.3",
+        "name": "PlayerLastPlay-v1.1.3",
+        "tag_name": "player_last_play-v1.1.3",
+        "created_at": "2024-08-29T20:00:05Z",
+        "description": "Transfer from : https://github.com/Aimerny/PlayerLastPlay/releases/tag/v1.1.3",
+        "prerelease": false,
+        "asset": {
+          "id": 188909014,
+          "name": "PlayerLastPlay-v1.1.3.mcdr",
+          "size": 17212,
+          "download_count": 35,
+          "created_at": "2024-08-28T17:54:37Z",
+          "browser_download_url": "https://github.com/Aimerny/MCDRPlugins/releases/download/player_last_play-v1.1.3/PlayerLastPlay-v1.1.3.mcdr",
+          "hash_md5": "3ca9a081e152e0ab90d59644eeeab824",
+          "hash_sha256": "3d8cd13edb5924169a27105df2556ccadd32fe972a981270b1e30453e87a70c0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "player_last_play",
+          "name": "PlayerLastPlay",
+          "version": "1.1.3",
+          "link": "https://github.com/Aimerny/playerLastPlay",
+          "authors": [
+            "Aimerny"
+          ],
+          "dependencies": {
+            "online_player_api": "^1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Record player lastime left the server",
+            "zh_cn": "记录与查询玩家最近游玩时间,方便检查服务器玩家活跃度"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Aimerny/MCDRPlugins",
+    "name": "MCDRPlugins",
+    "full_name": "Aimerny/MCDRPlugins",
+    "html_url": "https://github.com/Aimerny/MCDRPlugins",
+    "description": "Aimerny's MCDR plugins repository",
+    "archived": false,
+    "stargazers_count": 7,
+    "watchers_count": 7,
+    "forks_count": 1,
+    "readme": "# PlayerLastPlay\n统计玩家最后一次上线时间与累计在线时长，方便查看玩家活跃度，清理僵尸（bushi\n\n## 使用姿势\n\n```\n!!plp [help] #插件帮助\n!!plp help #显示帮助消息\n!!plp list <index> #获取指定页玩家列表\n!!plp get <player> #获取玩家的最后游玩时间与总在线时长\n!!plp clean <player> #清除玩家的信息\n!!plp reset <player> #重置玩家的累计在线时长\n```\n> 清除或重置玩家信息需要玩家权限在`Admin`以上\n\n## 配置说明\n> 以下注释中的数字均为默认配置，可根据服务器状况自行配置。不同的颜色目前只做提示，并无其他功能\n\n```json5\n    {\n  // 第一区间，7天内上线过或者当前在线，时间展示为绿色\n  \"active\": 7,\n  // 第二区间，介于7-14天之间上线过，时间展示为黄色\n  \"normal\": 14,\n  // 第三区间，介于14-21天内上线过，时间展示为红色\n  \"inactive\": 21,\n  // 第四区间，21天及以上没上线过，时间展示为灰色\n  //plp list时的排序方向，如设为true，优先展示最近上线的玩家，否则优先展示最近没上过线的玩家\n  \"reverse\": true,\n  // 分页查询的每页大小,默认为10\n  \"pageSize\": 10,\n  // 忽略的玩家名称正则列表\n  \"ignorePlayerRegexes\": [\n    \"^bot_.*$\",\n    \"^Bot_.*$\"\n  ],\n  //是否开启只统计白名单内玩家\n  \"only_whitelist_player\": false\n}\n```\n> [!note]\n> 1. 如果在server/whitelist.json中没有玩家信息的情况下打开`only_whitelist_player`选项，则无法保存任何玩家的统计时间。即使你的服务器并没有开启白名单。\n> \n> 3. 如果在之前未开启`only_whitelist_player`选项,已经存入了部分玩家信息，那么plp不会自动清除历史信息\n\n部分Utils及代码风格来自于[离线白名单](https://github.com/EMUnion/AdvancedWhitelistR)以及[QQChat](https://github.com/Aimerny/MCDReforgedPlugins/tree/master/qq_chat)插件\n",
+    "readme_url": "https://raw.githubusercontent.com/Aimerny/MCDRPlugins/main/src/player_last_play/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

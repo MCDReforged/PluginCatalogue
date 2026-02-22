@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "replay_helper",
+    "name": "ReplayHelper",
+    "version": "1.0.0",
+    "link": "https://github.com/EXE-autumnwind/ReplayHelper",
+    "authors": [
+      "EXE_autumnwind"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [],
+    "description": {
+      "zh_cn": "一个ServerReplay控制器,为每位玩家单独录制并自动切断"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "replay_helper",
+    "authors": [
+      "EXE_autumnwind"
+    ],
+    "repository": "https://github.com/EXE-autumnwind/ReplayHelper",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "zh_cn": "# ReplayHelper\n\n一个简单的[ServerReplay](https://modrinth.com/mod/server-replay)Mod 控制插件，以 `.mcpr` 为每位玩家单独录制并自动切断。\n\n## 功能特点\n\n- **自动录制**：无需手动操作，插件会自动记录所有玩家。\n- **排除假人**：插件会排除以_fake结尾的玩家\n- **自动裁切**：插件每两小时会自动裁切录像\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/replay_helper/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/replay_helper/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "replay_helper",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/EXE-autumnwind/ReplayHelper/releases/tag/1.0.0",
+        "name": "",
+        "tag_name": "1.0.0",
+        "created_at": "2025-05-14T05:32:28Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 254485474,
+          "name": "Replayhelper.mcdr",
+          "size": 2723,
+          "download_count": 113,
+          "created_at": "2025-05-14T05:43:02Z",
+          "browser_download_url": "https://github.com/EXE-autumnwind/ReplayHelper/releases/download/1.0.0/Replayhelper.mcdr",
+          "hash_md5": "a0985f9329666a401252c9125fd3f0e9",
+          "hash_sha256": "fc8d7e5953c4d116347dc107322f62093a0fc3f7985e8fb5478812e3faa0c2b3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "replay_helper",
+          "name": "ReplayHelper",
+          "version": "1.0.0",
+          "link": "https://github.com/EXE-autumnwind/ReplayHelper",
+          "authors": [
+            "EXE_autumnwind"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "一个ReplayServer控制器"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/EXE-autumnwind/ReplayHelper",
+    "name": "ReplayHelper",
+    "full_name": "EXE-autumnwind/ReplayHelper",
+    "html_url": "https://github.com/EXE-autumnwind/ReplayHelper",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# ReplayHelper\n\nReplayHelper 可以利用[ServerReplay](https://modrinth.com/mod/server-replay)Mod，以 `.mcpr` 格式为每位玩家单独录制并自动切断。\n\n## 功能特点\n\n- **自动录制**：无需手动操作，插件会自动记录所有玩家。\n- **排除假人**：插件会排除以 `_fake` 结尾的玩家\n- **自动裁切**：插件每两小时会自动裁切录像\n\n## 注意事项\n- 插件依赖于[ServerReplay](https://modrinth.com/mod/server-replay) Mod，如果缺失插件无法工作\n- 插件只能运行在[MCDR](https://mcdreforged.com/)服务器上\n\n## 使用教程\n\n**安装插件**：将插件文件放置在MCDR服务器的插件目录下，并重新启动服务器。\n\n### 指令\n\n> `!!rp <玩家ID> start` 开始某人的录像\n\n> `!!rp <玩家ID> stop` 停止某人的录像\n\n> `!!rp <玩家ID> cut` 裁切某人的录像\n",
+    "readme_url": "https://raw.githubusercontent.com/EXE-autumnwind/ReplayHelper/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

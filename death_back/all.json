@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "death_back",
+    "name": "DeathBack",
+    "version": "0.1.0",
+    "link": "https://github.com/Mooling0602/DeathBack-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.1.0",
+      "mg_events": ">=0.2.1",
+      "minecraft_data_api": ">=1.4"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Teleport you back to the last place you died quickly.",
+      "zh_cn": "快速返回上次你死亡的地点。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "death_back",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/DeathBack-MCDR",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# DeathBack-MCDR\n快速返回死亡点\n\n## 安装\n使用`!!MCDR plg install death_back`安装插件。\n\n或从Release下载（更新较快），但是你可能需要手动根据控制台报错处理依赖关系。\n\n## 用法\n`!!back`\n目前没有设计冷却CD等附加功能，会在后续更新，也欢迎PR。\nYou can PR translations if you want, and this is quite simple!\n\n## 其他\n有bug请直接在Issues反馈。\n\n插件支持作为API使用，具体请参考[Ender Pearl TP](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR)\n",
+      "zh_cn": "# DeathBack-MCDR\n快速返回死亡点\n\n## 安装\n使用`!!MCDR plg install death_back`安装插件。\n\n或从Release下载（更新较快），但是你可能需要手动根据控制台报错处理依赖关系。\n\n## 用法\n`!!back`\n目前没有设计冷却CD等附加功能，会在后续更新，也欢迎PR。\nYou can PR translations if you want, and this is quite simple!\n\n## 其他\n有bug请直接在Issues反馈。\n\n插件支持作为API使用，具体请参考[Ender Pearl TP](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/DeathBack-MCDR/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/DeathBack-MCDR/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "death_back",
+    "latest_version": "0.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/DeathBack-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2024-12-10T16:22:32Z",
+        "description": "从这个版本开始，现在插件可以用作API了（用作API时，你只能使用下游插件的功能）\r\n支持的下游插件：\r\n- Ender Pearl TP（[GitHub最新发行版](https://github.com/[Mooling0602/Ender-Pearl-TP-MCDR](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR)) / [MCDR插件仓库](https://mcdreforged.com/zh-CN/plugin/ender_pearl_tp)）\r\n> 版本需达到0.2.0，MCDR插件仓库同步更新稍慢\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/DeathBack-MCDR/compare/0.0.1...0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 212415943,
+          "name": "DeathBack-v0.1.0.mcdr",
+          "size": 14250,
+          "download_count": 440,
+          "created_at": "2024-12-10T16:25:38Z",
+          "browser_download_url": "https://github.com/Mooling0602/DeathBack-MCDR/releases/download/0.1.0/DeathBack-v0.1.0.mcdr",
+          "hash_md5": "7cef4e32db4c53fc82734c1d6d4ddc73",
+          "hash_sha256": "00dcd300bb50e3ddc80134b89cffba59698a7666d652b1c30ff63069b0bae094"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "death_back",
+          "name": "DeathBack",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/DeathBack-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "mg_events": ">=0.2.1",
+            "minecraft_data_api": ">=1.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Teleport you back to the last place you died quickly.",
+            "zh_cn": "快速返回上次你死亡的地点。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/DeathBack-MCDR/releases/tag/0.0.1",
+        "name": "0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2024-11-30T18:04:03Z",
+        "description": "<!-- 本版插件使用安卓手机和MT管理器纯手搓，若有未发现的bug纯属正常现象 -->\r\n\r\n直接`!!back`😋👍\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/DeathBack-MCDR/commits/0.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 210083165,
+          "name": "DeathBack-v0.0.1.mcdr",
+          "size": 1371,
+          "download_count": 30,
+          "created_at": "2024-11-30T18:05:24Z",
+          "browser_download_url": "https://github.com/Mooling0602/DeathBack-MCDR/releases/download/0.0.1/DeathBack-v0.0.1.mcdr",
+          "hash_md5": "9c3d071cd6a2ce4682f96f89623cde5b",
+          "hash_sha256": "5d9e313ba8f8db6011c215797729d362d7374edd2b5982aa775b5a89d54da0a4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "death_back",
+          "name": "DeathBack",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/DeathBack-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.1.0",
+            "mg_events": ">=0.0.1",
+            "minecraft_data_api": ">=1.4"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Go back to last died place quickly.",
+            "zh_cn": "快速返回上次死亡的地点。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/DeathBack-MCDR",
+    "name": "DeathBack-MCDR",
+    "full_name": "Mooling0602/DeathBack-MCDR",
+    "html_url": "https://github.com/Mooling0602/DeathBack-MCDR",
+    "description": "A MCDReforged plugin, teleport you to the last place you died quickly.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# DeathBack-MCDR\n快速返回死亡点\n\n## 安装\n使用`!!MCDR plg install death_back`安装插件。\n\n或从Release下载（更新较快），但是你可能需要手动根据控制台报错处理依赖关系。\n\n## 用法\n`!!back`\n目前没有设计冷却CD等附加功能，会在后续更新，也欢迎PR。\nYou can PR translations if you want, and this is quite simple!\n\n## 其他\n有bug请直接在Issues反馈。\n\n插件支持作为API使用，具体请参考[Ender Pearl TP](https://github.com/Mooling0602/Ender-Pearl-TP-MCDR)\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/DeathBack-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

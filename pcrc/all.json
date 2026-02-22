@@ -1,0 +1,440 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "pcrc",
+    "name": "PCRC",
+    "version": "1.4.1",
+    "link": "https://github.com/Fallen-Breath/PCRC",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "cryptography",
+      "requests",
+      "pynbt",
+      "redbaron",
+      "colorlog",
+      "ruamel.yaml"
+    ],
+    "description": {
+      "en_us": "PyCraft based Replay Client",
+      "zh_cn": "基于PyCraft的Replay客户端"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "pcrc",
+    "authors": [
+      "Fallen_Breath"
+    ],
+    "repository": "https://github.com/Fallen-Breath/PCRC",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "PCRC\n--------\n\n**English** | [中文](https://github.com/Fallen-Breath/PCRC/tree/master/readme_cn.md)\n\n> PyCraft based Replay Client\n\nA Minecraft client that can record a replay file (*.mcpr) which can be recognized by [Replay Mod](https://www.replaymod.com/)\n\nGreat thanks to [SARC](https://github.com/Robitobi01/SARC) for the replay logic stuffs and [pyCraft](https://github.com/ammaraskar/pyCraft) for the minecraft client stuffs\n\n## Environment\n\nPython version should be python3 and at least it works on Python 3.6 and Python 3.8\n\n### Python modules\n\n- cryptography\n- requests\n- pynbt\n- redbaron\n- colorlog\n- ruamel.yaml\n\nThe requirements are also stored in `requirements.txt`\n\n### Minecraft server\n\nPCRC currently supports connecting to vanilla Minecraft server. Supported versions:\n\n- 1.12 / 1.12.2\n- 1.14.4\n- 1.15.2\n- 1.16.1 ~ 1.16.5\n- 1.17.1\n- 1.18 ~ 1.18.2\n\n## Advantage\n\n- Can be hosted server side for 24/7 recording\n- Has way less performance usage than a regular Minecraft client\n- It can be set to record only when the player is nearby\n- Multiple options can be set for custom recording\n- Restart after raw file size reaches 2048MB or recording time reaches 5 hours to prevent oversize recording\n- Since the virtual player (bot) doesn't move, the recording file will not include unnecessary packets related to chunk loading, which can significantly reduce recording file size\n\n## Usage\n\n### Direct Launch\n\n1. Download and unzip the latest PCRC in [Release](https://github.com/Fallen-Breath/PCRC/releases) page\n2. Run `python PCRC.pyz` or `PCRC.exe`\n- On first start, PCRC will generate default config file and exit. Fill in the config file on demand before launch it again\n3. Input `start` in the console to start PCRC\n4. (**Recommand**) Set the gamemode of the PCRC bot to spectator\n5. Use console or chat in game to control PCRC\n\n### As a MCDR plugin\n\nRequires [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.0\n\nPut the `PCRC.pyz` downloaded from [Release](https://github.com/Fallen-Breath/PCRC/releases) into the plugin folder of MCDR and that's it\n\nNOTE: Unloading the plugin will cause PCRC to stop recording and exit the game\n\n## Config\n\nThe config file is `config.json`. All settings can be changed in it. Those which are similar to ABC inside it are just comments, don't need to modify them\n\nWhen used as a plugin for MCDR, the path to the configuration file will be `config/pcrc/config.json`, and `config/pcrc/mcdr_config.json` store the configuration related to MCDR\n\n### Base\n\n`language`: The language that the PCRC bot will speak in the game. Language file should be in folder `lang/`\n\n`recording_temp_file_directory`: Path to the directory where PCRC will store its temporary recording files in\n\n`recording_storage_directory`: Path to the directory where PCRC will save its finished recording files\n\n`debug_mode`: Whether outputs debug info or not\n\n### Account and Server\n\n`authenticate_type`: The way for PCRC to login your account. It can be `offline`, `mojang` or `microsoft`, respectively corresponding to offline account, Mojang account login and Microsoft account login\n\nIf you use Microsoft account login, when you connect to the server for the first time after startup, you need to log in with your Microsoft account according to the console output\n\n`username`: The username for offline mode login, or the email address of the Minecraft account if you are using `mojang` type online mode login\n\n`password`: The password of the Minecraft account if you are using `mojang` type online mode login\n\n`store_token`: When set to true and the `authenticate_type` is `microsoft`, the microsoft login token will be saved to file `token.json`. When launching PCRC the stored token will be loaded and used if it's not expired. Noted: The login token will be stored in plaintext\n\nExamples for those account related config entries:\n\n```json5\n// Log in with offline mode\n{\n    \"authenticate_type\": \"offline\",\n    \"username\": \"MyPlayerName\",  // the player name you want to use\n    \"password\": \"\",  // This entry will not be used and will be ignored\n}\n```\n\n```json5\n// Log in with mojang account\n{\n    \"authenticate_type\": \"mojang\",\n    \"username\": \"MyEmail@mail.com\",  // your mojang account email address\n    \"password\": \"mypassword\",  // your mojang account password\n}\n```\n\n```json5\n// Log in with microsoft account\n{\n    \"authenticate_type\": \"microsoft\",\n    \"username\": \"\",  // This entry will not be used and will be ignored\n    \"password\": \"\",  // This entry will not be used and will be ignored\n}\n```\n\n`address`: IP Address of the Minecraft server\n\n`port`: Port of the Minecraft server\n\n`server_name`: The server name showed in replay viewer\n\n`initial_version`: The preferred Minecraft version that used to connect to bungeecord like server\n\n### PCRC Control\n\n`file_size_limit_mb`: The limit of size of the `.tmcpr` file. Every time it is reached, PCRC will restart. Default: `2048`\n\n`file_buffer_size_mb`: The limit of size of file buffer. Every time it is reached, PCRC will flush all content in the buffer into `.tmcpr` file. Default: `8`\n\n`time_recorded_limit_hour`: The limit of actual recording time. Every time it is reached, PCRC will restart. Default: `12`\n\n`delay_before_afk_second`: The time delay between every player leaving and PCRC pausing recording. Default: `15`\n\n`afk_ignore_spectator`: If set to true, PCRC will ignore all packets from spectator players when determining if it should pause recording due to all players have left. Default: `true`\n\n`record_packets_when_afk`: If set to false, PCRC will ignore almost every incoming packets when PCRC pauses recording (SARC's behavior). This can decrease the replay file size a lot but might cause block / entity desync if there will be something happening after player leaves. Default: `true`\n\n`auto_relogin`: If this option is enabled, and the client gets disconnected, PCRC will automatically try to reconnect\n\n`auto_relogin_attempts`: The maximum amount of relogin attempts before login success . Default: `5`\n\n`chat_spam_protect`: Automatically delay between sending chat messages if necessary to prevent being kicked for spamming\n\n`command_prefix`: Any chat message starts with `command_prefix` will be recognize as a command to control PCRC. Default: `!!PCRC`\n\n### PCRC Features\n\n`daytime`: Sets the daytime once to the defined time in the recording and ignores all further changes from the server. If set to `-1` the normal day/night cycle is recorded\n\n`weather`: Turns weather in the recording on or off\n\n`with_player_only`: If set to true, PCRC only record packets if there are players nearby\n\n`remove_items`: If set to true, all dropped items wont be recorded\n\n`remove_bats`: If set to true, bats won't be recorded\n\n`remove_phantoms`: If set to true, phantoms won't be recorded\n\n`on_joined_commands`: A string list storing the commands that the PCRC bot will enter in sequence after it joins the game. You might need this if the server has some kind of login plugin etc.\n\n```json5\n// on_joined_commands example\n{\n    \"on_joined_commands\": [\n        \"/login myPassword\",\n        \"/server myServer\"\n    ],\n}\n```\n\n### PCRC Whitelist\n\n`enabled`: Whether to enable whitelist\n\n`whitelist`: Whitelist player list\n\n## Command\n\nCommand prefix `!!PCRC` can be customized in the config file\n\n### Console Command\n\nAvailable if launched directly\n\n`help`: Show the list of console command\n\n`start`: Start PCRC and start recording\n\n`stop`: Stop PCRC and stop recording\n\n`restart`: Restart PCRC\n\n`exit`: Exit the program\n\n`reload`: Reload the config file. Notes that not all config entries support hot-reload, e.g. `authenticate_type` is not hot-reload-able\n\n`auth`: Authenticate with minecraft again. Used when the previous authentication failed\n\n`say <text>`: Send text `<text>` to the server as a chat message\n\n`set <option> <value>` Set option to value of PCRC and in the config file\n\n`whitelist [on|off]` Switch the whitelist switch\n\n`whitelist [add|del] <player>` Add or delete a player to(from) the whitelist\n\n`whitelist status` To view the status of the whitelist and the whitelisted player(s)\n\n`status`: Show the status of PCRC\n\n`list`: Show the player list in the server if connected\n\n### MCDR Plugin command\n\nAvailable if used as a MCDR plugin\n\n`!!PCRC start`: start PCRC and start recording\n\n`!!PCRC stop`: stop PCRC and stop recording. Only works with console command input\n\n`!!PCRC reload`: Reload the config for PCRC and the config file for MCDR. Notes that not all PCRC config entries support hot-reload\n\n`!!PCRC set_redirect_url <url>`: Input the url used in microsoft logging in\n\nRequires permission level 1 to use these commands. The minimum required permission level can be set in the config file for MCDR\n\n### In Game Command\n\nUsing normal in game chatting to trigger\n\n`!!PCRC`: show help\n\n`!!PCRC status`: show status\n\n`!!PCRC here`: emit a \"!!here\" command\n\n`!!PCRC pos`: show position, might not be 100% accurate\n\n`!!PCRC spec`: use the teleport ability in spectator mode to teleport to the player who sent this command\n\n`!!PCRC stop`: stop PCRC\n\n`!!PCRC restart`: restart PCRC\n\n`!!PCRC set`: print all settable option\n\n`!!PCRC set <option> <value>`: set the value of `<option>` to `<value>` which won't write to config file\n\n`!!PCRC name <filename>`: set recording file name to `<filename>`\n\n`!!PCRC respawn`: let PCRC bot try to respawn\n\n## Notes\n\n- There's not any code for processing game content in PCRC so if you want to move the PCRC bot you can only use teleport command like `!!PCRC spec` or `/tp`. You can not use stuffs like piston to move the bot otherwise some wired behaviors like the bot become invisible may occur\n- The file size that PCRC shows when recording is the size of `.tmcpr` file, the uncompressed raw packet file size. It's not the size of the final recording file `.mcpr`. The final file size is about 10% to 40% of the original packet file size, depending on the situation\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Fallen-Breath/PCRC/master/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "pcrc",
+    "latest_version": "1.4.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.4.1",
+        "name": "PCRC v1.4.1",
+        "tag_name": "v1.4.1",
+        "created_at": "2024-04-23T03:38:02Z",
+        "description": "- Fixed mcdr packages import path to ensure it works in new MCDR versions\r\n- Use python3.11 for `.exe` packaging\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 163678182,
+          "name": "PCRC.pyz",
+          "size": 105437,
+          "download_count": 242,
+          "created_at": "2024-04-23T03:48:16Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.4.1/PCRC.pyz",
+          "hash_md5": "135011f2f2a26af6b3a2cda2074d744b",
+          "hash_sha256": "cc2b14322a3691471ccacefd63b06de77a2a9d4c69f48da6fffee5c6e1ab92c0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.4.1",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.4.0",
+        "name": "PCRC v1.4.0",
+        "tag_name": "v1.4.0",
+        "created_at": "2022-09-30T14:18:00Z",
+        "description": "- Added hot reload support for PCRC config. Notes that not all config entries support hot-reload, e.g. `authenticate_type` is not hot-reload-able\r\n- Added config entry `on_joined_commands` (#22). With that you can make PCRC bot executing custom commands (or even custom chat messages) when joining the game\r\n- Fixed daytime overriding feature not working (#31)\r\n- Fixed entity filtering features not working\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 79543686,
+          "name": "PCRC.pyz",
+          "size": 105502,
+          "download_count": 721,
+          "created_at": "2022-09-30T15:07:46Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.4.0/PCRC.pyz",
+          "hash_md5": "eaef5d7849d125fca8398a488c9d1775",
+          "hash_sha256": "cdbef2c0a0342bf861db63615b0a8248db974f4f0d5d95caf062487253f3bd69"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.4.0",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.3.0",
+        "name": "PCRC v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2022-06-19T10:28:12Z",
+        "description": "- Added the ability to save and load MSA token to / from file\r\n  - Switchable via config entry `store_token`, with default value `false` for safety\r\n- Added config entry `debug_packet` for debugging packet recording",
+        "prerelease": false,
+        "asset": {
+          "id": 68934077,
+          "name": "PCRC.pyz",
+          "size": 104809,
+          "download_count": 352,
+          "created_at": "2022-06-19T10:33:00Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.3.0/PCRC.pyz",
+          "hash_md5": "a4cab203e699e85827d2709756507c92",
+          "hash_sha256": "2e4956ba95a9c938475a014349129607beee20b929727b8d02d74e48176aca17"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.3.0",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.3",
+        "name": "PCRC v1.2.3",
+        "tag_name": "v1.2.3",
+        "created_at": "2022-03-28T06:55:57Z",
+        "description": "- Fixed issues with small value of option `delay_before_afk_second` including crashing with value 0\r\n- Removed duplicated entry \"Working: <bool>\" in cli `status` command",
+        "prerelease": false,
+        "asset": {
+          "id": 60805098,
+          "name": "PCRC.pyz",
+          "size": 103995,
+          "download_count": 216,
+          "created_at": "2022-03-28T07:00:16Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.3/PCRC.pyz",
+          "hash_md5": "4a13ccf5070b2194531f38acdd9768a4",
+          "hash_sha256": "c8c383ef7b8ec7f4c2d4e489004b840991694b40a94776b7b9b037add349fc6d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.2.3",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.2",
+        "name": "PCRC v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2022-03-11T19:39:43Z",
+        "description": "## News & Changes\r\n\r\n- Added CLI `auth`, `help` command\r\n- Added CLI `list` command to show player list\r\n- Improved CLI `status` command\r\n- Added config option `afk_ignore_spectator`, with which spectator flying around will keep pcrc afking\r\n- Now PCRC will do Minecraft authentication at startup, and constantly refresh the token every 3 hours after a successful authentication\r\n\r\n## Fixes\r\n\r\n- Fixed some stored information not reset after reconnecting to the server\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.1.0...v1.2.0\r\n\r\n## Patches\r\n\r\n### v1.2.1\r\n\r\n- Fixed pcrc records nothing\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.2.0...v1.2.1\r\n\r\n### v1.2.2\r\n\r\n- Fixed CLI `stop` command does not interrupt auto-restart\r\n- Fixed some pycraft packets don't recognized as entity packet\r\n  - So player standing still doing nothing will not trigger pcrc recording pausing every 15s\r\n- Fixed wrong exception type displaying on_connection_exception\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.2.1...v1.2.2",
+        "prerelease": false,
+        "asset": {
+          "id": 59251856,
+          "name": "PCRC.pyz",
+          "size": 103952,
+          "download_count": 87,
+          "created_at": "2022-03-11T19:45:35Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.2/PCRC.pyz",
+          "hash_md5": "14b060b593b8f99db3a9dd0ef6897d78",
+          "hash_sha256": "f0f54e3e2cd3c3b7e4da48e05b3f4afa93d0efcbf951b29d9c89f63be6256cea"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.2.2",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.1",
+        "name": "PCRC v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2022-03-10T08:53:53Z",
+        "description": "## News & Changes\r\n\r\n- Added CLI `auth`, `help` command\r\n- Added CLI `list` command to show player list\r\n- Improved CLI `status` command\r\n- Added config option `afk_ignore_spectator`, with which spectator flying around will keep pcrc afking\r\n- Now PCRC will do Minecraft authentication at startup, and constantly refresh the token every 3 hours after a successful authentication\r\n\r\n## Fixes\r\n\r\n- Fixed some stored information not reset after reconnecting to the server\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.1.0...v1.2.0\r\n\r\n## Patches\r\n\r\n### v1.2.1\r\n\r\n- Fixed pcrc records nothing\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.2.0...v1.2.1",
+        "prerelease": false,
+        "asset": {
+          "id": 59093086,
+          "name": "PCRC.pyz",
+          "size": 103667,
+          "download_count": 57,
+          "created_at": "2022-03-10T08:58:34Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.1/PCRC.pyz",
+          "hash_md5": "796bea080bd6c4af3a3ff6063a660909",
+          "hash_sha256": "6fc603019f2b6948affcd7a5fec18bf6d7d72fcd313cddbaca37275ab8f46a38"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.2.1",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.2.0",
+        "name": "PCRC v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2022-03-09T08:20:57Z",
+        "description": "## News & Changes\r\n\r\n- Added CLI `auth`, `help` command\r\n- Added CLI `list` command to show player list\r\n- Improved CLI `status` command\r\n- Added config option `afk_ignore_spectator`, with which spectator flying around will keep pcrc afking\r\n- Now PCRC will do Minecraft authentication at startup, and constantly refresh the token every 3 hours after a successful authentication\r\n\r\n## Fixes\r\n\r\n- Fixed some stored information not reset after reconnecting to the server\r\n\r\n**Full Changelog**: https://github.com/Fallen-Breath/PCRC/compare/v1.1.0...v1.2.0",
+        "prerelease": false,
+        "asset": {
+          "id": 58980104,
+          "name": "PCRC.pyz",
+          "size": 103664,
+          "download_count": 49,
+          "created_at": "2022-03-09T08:25:26Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.2.0/PCRC.pyz",
+          "hash_md5": "e5512ffa039d149924837516dea4adec",
+          "hash_sha256": "6972a719e870bdbe276c629a8d2431736cf06e51e21e8ac56e5fd49ac0abacf6"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.2.0",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.1.0",
+        "name": "PCRC v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2022-03-08T12:44:12Z",
+        "description": "## News\r\n\r\n- Added config option `auto_relogin_attempts` to limit auto re-login attempts\r\n- Added command `!!PCRC respawn` for respawning the bot\r\n\r\n## Fixes\r\n\r\n- Fixed some pycraft patches not applied correcly\r\n- Fixed `!!PCRC spec` does not work\r\n- Fixed unorder message sending\r\n- (MCDR) Fixed complaining unknown command for in-game bot commands\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 58895591,
+          "name": "PCRC.pyz",
+          "size": 101036,
+          "download_count": 49,
+          "created_at": "2022-03-08T12:51:16Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.1.0/PCRC.pyz",
+          "hash_md5": "c5eeb4bac830b49df7e30c7fa19846a2",
+          "hash_sha256": "c12b5093d85a8cf2a03e4fef473c7e1334eb9a2e351080f071c9aafcc8645cf3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.1.0",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Fallen-Breath/PCRC/releases/tag/v1.0.0",
+        "name": "PCRC v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2022-03-07T17:29:32Z",
+        "description": "- Almost rewritten everything\r\n  - Patches upstream PyCraft in run time instead of maintaing an own folk\r\n  - Use PyCraft's way to handle packet logics\r\n- Minecraft 1.18.2 supports\r\n- Microsoft account supports (#21)\r\n- Pack sources into a .pyz for easier executing\r\n  - Works as a MCDReforged plugin too",
+        "prerelease": false,
+        "asset": {
+          "id": 58818127,
+          "name": "PCRC.pyz",
+          "size": 100302,
+          "download_count": 52,
+          "created_at": "2022-03-07T17:37:24Z",
+          "browser_download_url": "https://github.com/Fallen-Breath/PCRC/releases/download/v1.0.0/PCRC.pyz",
+          "hash_md5": "ca7183e2171e2b409f00cf6212ac7623",
+          "hash_sha256": "0aabd9aa9a49c3c3c5a7c27a9ab287006c2d2d282aa171c139d85608aad62370"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pcrc",
+          "name": "PCRC",
+          "version": "1.0.0",
+          "link": "https://github.com/Fallen-Breath/PCRC",
+          "authors": [
+            "Fallen_Breath"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "cryptography",
+            "requests",
+            "pynbt",
+            "redbaron",
+            "colorlog",
+            "ruamel.yaml"
+          ],
+          "description": {
+            "en_us": "PyCraft based Replay Client",
+            "zh_cn": "基于PyCraft的Replay客户端"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Fallen-Breath/PCRC",
+    "name": "PCRC",
+    "full_name": "Fallen-Breath/PCRC",
+    "html_url": "https://github.com/Fallen-Breath/PCRC",
+    "description": "PyCraft based Replay Client",
+    "archived": false,
+    "stargazers_count": 142,
+    "watchers_count": 142,
+    "forks_count": 15,
+    "readme": "PCRC\n--------\n\n**English** | [中文](https://github.com/Fallen-Breath/PCRC/tree/master/readme_cn.md)\n\n> PyCraft based Replay Client\n\nA Minecraft client that can record a replay file (*.mcpr) which can be recognized by [Replay Mod](https://www.replaymod.com/)\n\nGreat thanks to [SARC](https://github.com/Robitobi01/SARC) for the replay logic stuffs and [pyCraft](https://github.com/ammaraskar/pyCraft) for the minecraft client stuffs\n\n## Environment\n\nPython version should be python3 and at least it works on Python 3.6 and Python 3.8\n\n### Python modules\n\n- cryptography\n- requests\n- pynbt\n- redbaron\n- colorlog\n- ruamel.yaml\n\nThe requirements are also stored in `requirements.txt`\n\n### Minecraft server\n\nPCRC currently supports connecting to vanilla Minecraft server. Supported versions:\n\n- 1.12 / 1.12.2\n- 1.14.4\n- 1.15.2\n- 1.16.1 ~ 1.16.5\n- 1.17.1\n- 1.18 ~ 1.18.2\n\n## Advantage\n\n- Can be hosted server side for 24/7 recording\n- Has way less performance usage than a regular Minecraft client\n- It can be set to record only when the player is nearby\n- Multiple options can be set for custom recording\n- Restart after raw file size reaches 2048MB or recording time reaches 5 hours to prevent oversize recording\n- Since the virtual player (bot) doesn't move, the recording file will not include unnecessary packets related to chunk loading, which can significantly reduce recording file size\n\n## Usage\n\n### Direct Launch\n\n1. Download and unzip the latest PCRC in [Release](https://github.com/Fallen-Breath/PCRC/releases) page\n2. Run `python PCRC.pyz` or `PCRC.exe`\n- On first start, PCRC will generate default config file and exit. Fill in the config file on demand before launch it again\n3. Input `start` in the console to start PCRC\n4. (**Recommand**) Set the gamemode of the PCRC bot to spectator\n5. Use console or chat in game to control PCRC\n\n### As a MCDR plugin\n\nRequires [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.0\n\nPut the `PCRC.pyz` downloaded from [Release](https://github.com/Fallen-Breath/PCRC/releases) into the plugin folder of MCDR and that's it\n\nNOTE: Unloading the plugin will cause PCRC to stop recording and exit the game\n\n## Config\n\nThe config file is `config.json`. All settings can be changed in it. Those which are similar to ABC inside it are just comments, don't need to modify them\n\nWhen used as a plugin for MCDR, the path to the configuration file will be `config/pcrc/config.json`, and `config/pcrc/mcdr_config.json` store the configuration related to MCDR\n\n### Base\n\n`language`: The language that the PCRC bot will speak in the game. Language file should be in folder `lang/`\n\n`recording_temp_file_directory`: Path to the directory where PCRC will store its temporary recording files in\n\n`recording_storage_directory`: Path to the directory where PCRC will save its finished recording files\n\n`debug_mode`: Whether outputs debug info or not\n\n### Account and Server\n\n`authenticate_type`: The way for PCRC to login your account. It can be `offline`, `mojang` or `microsoft`, respectively corresponding to offline account, Mojang account login and Microsoft account login\n\nIf you use Microsoft account login, when you connect to the server for the first time after startup, you need to log in with your Microsoft account according to the console output\n\n`username`: The username for offline mode login, or the email address of the Minecraft account if you are using `mojang` type online mode login\n\n`password`: The password of the Minecraft account if you are using `mojang` type online mode login\n\n`store_token`: When set to true and the `authenticate_type` is `microsoft`, the microsoft login token will be saved to file `token.json`. When launching PCRC the stored token will be loaded and used if it's not expired. Noted: The login token will be stored in plaintext\n\nExamples for those account related config entries:\n\n```json5\n// Log in with offline mode\n{\n    \"authenticate_type\": \"offline\",\n    \"username\": \"MyPlayerName\",  // the player name you want to use\n    \"password\": \"\",  // This entry will not be used and will be ignored\n}\n```\n\n```json5\n// Log in with mojang account\n{\n    \"authenticate_type\": \"mojang\",\n    \"username\": \"MyEmail@mail.com\",  // your mojang account email address\n    \"password\": \"mypassword\",  // your mojang account password\n}\n```\n\n```json5\n// Log in with microsoft account\n{\n    \"authenticate_type\": \"microsoft\",\n    \"username\": \"\",  // This entry will not be used and will be ignored\n    \"password\": \"\",  // This entry will not be used and will be ignored\n}\n```\n\n`address`: IP Address of the Minecraft server\n\n`port`: Port of the Minecraft server\n\n`server_name`: The server name showed in replay viewer\n\n`initial_version`: The preferred Minecraft version that used to connect to bungeecord like server\n\n### PCRC Control\n\n`file_size_limit_mb`: The limit of size of the `.tmcpr` file. Every time it is reached, PCRC will restart. Default: `2048`\n\n`file_buffer_size_mb`: The limit of size of file buffer. Every time it is reached, PCRC will flush all content in the buffer into `.tmcpr` file. Default: `8`\n\n`time_recorded_limit_hour`: The limit of actual recording time. Every time it is reached, PCRC will restart. Default: `12`\n\n`delay_before_afk_second`: The time delay between every player leaving and PCRC pausing recording. Default: `15`\n\n`afk_ignore_spectator`: If set to true, PCRC will ignore all packets from spectator players when determining if it should pause recording due to all players have left. Default: `true`\n\n`record_packets_when_afk`: If set to false, PCRC will ignore almost every incoming packets when PCRC pauses recording (SARC's behavior). This can decrease the replay file size a lot but might cause block / entity desync if there will be something happening after player leaves. Default: `true`\n\n`auto_relogin`: If this option is enabled, and the client gets disconnected, PCRC will automatically try to reconnect\n\n`auto_relogin_attempts`: The maximum amount of relogin attempts before login success . Default: `5`\n\n`chat_spam_protect`: Automatically delay between sending chat messages if necessary to prevent being kicked for spamming\n\n`command_prefix`: Any chat message starts with `command_prefix` will be recognize as a command to control PCRC. Default: `!!PCRC`\n\n### PCRC Features\n\n`daytime`: Sets the daytime once to the defined time in the recording and ignores all further changes from the server. If set to `-1` the normal day/night cycle is recorded\n\n`weather`: Turns weather in the recording on or off\n\n`with_player_only`: If set to true, PCRC only record packets if there are players nearby\n\n`remove_items`: If set to true, all dropped items wont be recorded\n\n`remove_bats`: If set to true, bats won't be recorded\n\n`remove_phantoms`: If set to true, phantoms won't be recorded\n\n`on_joined_commands`: A string list storing the commands that the PCRC bot will enter in sequence after it joins the game. You might need this if the server has some kind of login plugin etc.\n\n```json5\n// on_joined_commands example\n{\n    \"on_joined_commands\": [\n        \"/login myPassword\",\n        \"/server myServer\"\n    ],\n}\n```\n\n### PCRC Whitelist\n\n`enabled`: Whether to enable whitelist\n\n`whitelist`: Whitelist player list\n\n## Command\n\nCommand prefix `!!PCRC` can be customized in the config file\n\n### Console Command\n\nAvailable if launched directly\n\n`help`: Show the list of console command\n\n`start`: Start PCRC and start recording\n\n`stop`: Stop PCRC and stop recording\n\n`restart`: Restart PCRC\n\n`exit`: Exit the program\n\n`reload`: Reload the config file. Notes that not all config entries support hot-reload, e.g. `authenticate_type` is not hot-reload-able\n\n`auth`: Authenticate with minecraft again. Used when the previous authentication failed\n\n`say <text>`: Send text `<text>` to the server as a chat message\n\n`set <option> <value>` Set option to value of PCRC and in the config file\n\n`whitelist [on|off]` Switch the whitelist switch\n\n`whitelist [add|del] <player>` Add or delete a player to(from) the whitelist\n\n`whitelist status` To view the status of the whitelist and the whitelisted player(s)\n\n`status`: Show the status of PCRC\n\n`list`: Show the player list in the server if connected\n\n### MCDR Plugin command\n\nAvailable if used as a MCDR plugin\n\n`!!PCRC start`: start PCRC and start recording\n\n`!!PCRC stop`: stop PCRC and stop recording. Only works with console command input\n\n`!!PCRC reload`: Reload the config for PCRC and the config file for MCDR. Notes that not all PCRC config entries support hot-reload\n\n`!!PCRC set_redirect_url <url>`: Input the url used in microsoft logging in\n\nRequires permission level 1 to use these commands. The minimum required permission level can be set in the config file for MCDR\n\n### In Game Command\n\nUsing normal in game chatting to trigger\n\n`!!PCRC`: show help\n\n`!!PCRC status`: show status\n\n`!!PCRC here`: emit a \"!!here\" command\n\n`!!PCRC pos`: show position, might not be 100% accurate\n\n`!!PCRC spec`: use the teleport ability in spectator mode to teleport to the player who sent this command\n\n`!!PCRC stop`: stop PCRC\n\n`!!PCRC restart`: restart PCRC\n\n`!!PCRC set`: print all settable option\n\n`!!PCRC set <option> <value>`: set the value of `<option>` to `<value>` which won't write to config file\n\n`!!PCRC name <filename>`: set recording file name to `<filename>`\n\n`!!PCRC respawn`: let PCRC bot try to respawn\n\n## Notes\n\n- There's not any code for processing game content in PCRC so if you want to move the PCRC bot you can only use teleport command like `!!PCRC spec` or `/tp`. You can not use stuffs like piston to move the bot otherwise some wired behaviors like the bot become invisible may occur\n- The file size that PCRC shows when recording is the size of `.tmcpr` file, the uncompressed raw packet file size. It's not the size of the final recording file `.mcpr`. The final file size is about 10% to 40% of the original packet file size, depending on the situation\n",
+    "readme_url": "https://raw.githubusercontent.com/Fallen-Breath/PCRC/master/readme.md",
+    "license": {
+      "key": "apache-2.0",
+      "name": "Apache License 2.0",
+      "spdx_id": "Apache-2.0",
+      "url": "https://api.github.com/licenses/apache-2.0"
+    }
+  }
+}

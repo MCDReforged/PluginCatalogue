@@ -1,0 +1,403 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "cfgcmd",
+    "name": "configCommand",
+    "version": "1.3.3",
+    "link": "https://github.com/wang-yupu/configCommand",
+    "authors": [
+      "wangyupu"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "pyyaml",
+      "toml",
+      "requests"
+    ],
+    "description": {
+      "zh_cn": "使用MCDR指令修改配置文件",
+      "en_us": "Modify config files with MCDR command"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "cfgcmd",
+    "authors": [
+      "wangyupu"
+    ],
+    "repository": "https://github.com/wang-yupu/configCommand",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# configCommand / cfgcmd\n\n[简体中文](https://github.com/wang-yupu/configCommand/tree/main//README.md)\n[Link](https://cfgcmd.wangyupu.com)\n\n> Still translated by gpt-4o\n\nUse MCDR commands in the game to modify configurations of other plugins/Mods!\n\n**Version `1.3.1` supports online editor**\n\n## Permissions\n\nCurrently, the plugin allows all players with permissions to modify the configuration (MCDR level 4). This plugin can modify **all files that the user running the MCDR process has access to** (especially `root`), so **please control permissions or run the server in a container**.\n\n## Commands\n\n- `!!cfg env <path, starting from the MCDR root path, can be absolute/relative path> <config file> [optional: reader type]`: Set the target file modified by the executor\n- `!!cfg quit`: Clear the executor's target file\n- `!!cfg write`: Write to the target file\n- `!!cfg reload`: Reload the target file (overwrites all previous modifications)\n- `!!cfg info`: View file information\n\n---\n\n- `!!cfg set <key> <value>`: Set a key-value pair, where `<key>` uses `.` to separate paths in the configuration tree (see the example below). This command does not support relative paths like `..` in the `key`. See the \"Types\" section below for types.\n- `!!cfg setTyped <key> <type> <value>`: See the \"Types\" section below. If the value cannot be interpreted as the specified type, it will default to `STRING`.\n- `!!cfg rm <key>`: Delete the key's content\n- `!!cfg mv <sourceKey> <destKey>`: Move or rename\n- `!!cfg cp <sourceKey> <destKey>`: Copy and paste\n- `!!cfg cd <key>`: Since configuration files are tree-structured, this command provides a file-system-like `cd` operation. Not available when the reader is `plain`.\n- `!!cfg ls [optional: page] [require prior key]: View the content of the current object. When the reader is `plain`, the entire file is printed. Each page contains 10 lines.\n- `!!cfg lsLong [required: page] [optional: lines per page] [require prior key]`: Same as the previous command\n\n---\n\n- `!!cfg lsDir <path>`: View a list of files starting from the MCDR root directory\n- `!!cfg rmFile <file>`: Delete a file (**cannot be undone**)\n- `!!cfg touchFile <file>`: Create an **empty** file\n\n---\n\n- `!!cfg editor`: Open the online editor for the current file, requires setting `enableCloud` to `true`\n- `!!cfg editorApply`: Synchronize the modified configuration file from the cloud\n- `!!cfg editorDelete`: Delete the cloud session\n\n> If upgrading from version `1.3.1` or below, you need to manually add `enableCloud: true` to your configuration file to use the online editor.\n\n---\n\n> After executing `!!cfg env ...`, the file will not be locked  \n> Executing `!!cfg info` will display the current file information  \n> Executing `!!cfg ls` will print the content of the object where the pointer is located  \n> The reader is determined by the file extension. Files with no extension or unknown extensions will use the `plain` reader  \n> When the reader is `plain`, the `<key>` parameter specifies the line number  \n> If the `<key>` contains spaces and is followed by other parameters, wrap it in double quotes. Use `\\` to escape. See [QuotableText](https://docs.mcdreforged.com/zh-cn/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.QuotableText)\n\n### Number Types\n\n`setTyped` can specify the type of a value. The following types are available, and some types have special behaviors:\n\n- `STRING`: Basic string\n- `INT`: Number, including floating-point numbers (`float`)\n- `BOOL`: Boolean value, case-insensitive, but must be either `T`/`True` (true) or `F`/`False` (false)\n- `LIST`: List\n- `OBJECT`: JS `Object`, Python `dict`, YAML `mapping`\n- `AUTO`: This type directly uses the `set` command\n\n#### Special Behavior for `LIST` and `OBJECT`\n\n##### `LIST`\n\nThe input value is split by commas, and you can escape commas with `\\` to avoid incorrect splitting. After splitting, each item will be type-inferred and a list will be created. If the value is empty, an empty list is created.\n\n##### `OBJECT`\n\nSimilar to `LIST`, the input value is split by commas and then split into key-value pairs using `:`. Commas can also be escaped with `\\` to avoid incorrect splitting. The items will be type-inferred (both keys and values) and an `OBJECT` will be created. If the value is empty, an empty `OBJECT` will be created.\n> It is not recommended to use `setTyped OBJECT ...`, as it can encounter input restrictions in chat. It is better to use it only for creating empty `OBJECT`s.\n\n#### Type Inference\n\nAll inferred types follow a common logic:\n\n1. If the value doesn't exist or is `None` (case-sensitive), it will start automatic inference, otherwise it will use the existing type.\n2. If the value (in uppercase) matches one of `T`, `TRUE`, `F`, or `FALSE`, it is a boolean value.\n3. If the value contains non-numeric characters (other than decimal points, negative signs, or double quotes), it is a string.\n4. If the value is enclosed in double quotes, it is a string representation of a number. Remove the surrounding double quotes and proceed to step 5.\n5. If it consists only of numbers (including possible decimals or signs), it is considered a number.\n6. Otherwise, it is a string.\n\n> `LIST` and `OBJECT` are not involved in this inference process, so automatic inference won't result in `LIST` or `OBJECT`.\n\n### Example\n\nOriginal configuration file:\n\n```json\n1  {\n2      \"foo\": 123,\n3      \"bar\": {\n4          \"barFoo\": \"?\",\n5          \"barBar\": {\n6              \"barBarFoo\": 456\n7          }\n8      },\n9      \"buzz\": [\n10         \"wangyupu\",\"zzfx1166\"\n11     ]\n12 }\n```\n\nCommands (in order):\n\n1. `!!cfg env \"config/foo/\" bar.json`: Open the file\n2. `!!cfg set foo 1231`: Set the value on line 2 to 1231\n3. `!!cfg set bar.barFoo \"!\": Set the value on line 4 to \"!\"\n4. `!!cfg rm buzz.1`: Remove the second item in the list on line 10 (0-based index)\n5. `!!cfg cd bar.barBar`: Change the pointer to the object on line 5\n6. `!!cfg set barBarFoo 789`: Set the value on line 6 to 789\n7. `!!cfg write`: Write the file\n8. `!!cfg quit`: Exit the file\n\nModified configuration file:\n\n```json\n1  {\n2      \"foo\": 1231,\n3      \"bar\": {\n4          \"barFoo\": \"!\",\n5          \"barBar\": {\n6              \"barBarFoo\": 789\n7          }\n8      },\n9      \"buzz\": [\n10         \"wangyupu\"\n11     ]\n12 }\n```\n\n## Plugin Configuration\n\n```yaml\nownerPlayer: PlayerName\ncfgCmdPermission: 4\nallowModifyConfig: true\nallowOutBound: false\nenableLog: true\nonlyOwnerPlayer: false\n```\n\n- `ownerPlayer`: The player specified here bypasses all security controls. Leave it empty to apply permission control to all authorized players.\n- `allowModifyConfig`: Determines whether the configuration of **this plugin (`cfgcmd`)** can be modified.\n- `allowOutBound`: Determines whether accessing files outside the MCDR root path is allowed. When set to `false`, only files within the MCDR path are accessible.\n- `enableLog`: Determines whether to enable logging, which will be saved in the *MCDR root path*/logs/cfgcmdLogs/<YYYY>-<mm>-<dd>_<COUNT>.log.\n- `onlyOwnerPlayer`: Determines whether only the specified `ownerPlayer` is allowed to use this plugin.\n\n> `allowModifyConfig` defaults to `true` to allow administrators to safely configure the plugin when they cannot access the backend. It is recommended to manually set it to `false` after installation.\n\n## Supported Configuration File Formats\n\n- `json`\n- `yaml` (`yml`)\n- `toml`\n- Plain text\n",
+      "zh_cn": "\n# configCommand / cfgcmd\n\n[English](https://github.com/wang-yupu/configCommand/tree/main//README_en.md)  \n[Link](https://cfgcmd.wangyupu.com)\n\n在游戏内使用MCDR命令修改其它插件/Mod的配置！\n\n**`1.3.1`版本支持在线编辑器!**\n\n## 权限\n\n目前插件对所有配置内允许的玩家允许使用(MCDR 4级权限)。此插件可以修改**运行MCDR进程的用户有权修改的所有文件**(尤其是`root`)，因此**请控制好权限或者将服务端放入容器运行**。\n\n## 命令\n\n- `!!cfg env <路径，以MCDR根路径开始，可用绝对/相对路径> <配置文件> [可选: 读写器类型]`: 将执行者修改的目标文件设置为对应文件\n- `!!cfg quit`: 清空执行者的目标文件\n- `!!cfg write`: 写入目标文件\n- `!!cfg reload`: 重载目标文件(会覆盖已经进行的所有修改)\n- `!!cfg info`: 查看文件信息\n\n---  \n\n- `!!cfg set <key> <value>`: 设置键值对，`<key>`中`.`分割的键将被当做配置树的路径解释(具体见下文示例)，此命令的`key`不支持`..`此类相对路径。类型见下方类型章节\n- `!!cfg setTyped <key> <type> <value>`: 具体见下方类型章节。若值无法被解释为指定的类型，则使用`STRING`\n- `!!cfg rm <key>`: 删除键对应的内容\n- `!!cfg mv <sourceKey> <destKey>`: 移动，也可以当重命名使用\n- `!!cfg cp <sourceKey> <destKey>`: 复制粘贴\n- `!!cfg cd <key>`: 因为配置文件是树状结构，所以就提供一个类似文件系统操作的`cd`指令。在读写器为`plain`时不可用\n- `!!cfg ls [可选: page] [需要前项存在: key]`: 查看当前Object内容。在读写器为`plain`时打印全文。每10行算一页\n- `!!cfg lsLong [必选: page] [可选: linePerPage] [需要前项存在: key]`: 同上\n\n---  \n\n- `!!cfg lsDir <路径>`: 以MCDR目录为根目录查看文件列表\n- `!!cfg rmFile <文件>`: 删除文件 (**无法撤销**)\n- `!!cfg touchFile <文件>`: 创建**空**文件\n\n---  \n\n- `!!cfg editor`: 打开当前文件的在线编辑器，需要配置`enableCloud`为`true`\n- `!!cfg editorApply`: 从云端同步已经修改的配置文件\n- `!!cfg editorDelete`: 删除云端的会话\n\n> 从`1.3.1`版本以下升级过来的，需要手动为配置文件添加`enableCloud`为`true`才能使用在线编辑器\n\n---  \n\n> 执行`!!cfg env ...`后，不会占用文件  \n> 执行`!!cfg info`给出当前文件信息  \n> 执行`!!cfg ls`打印指针所在Object的内容  \n> 读写器根据文件后缀名判断。没有后缀名或者未知后缀名的会选择使用`plain`读写器  \n> 若读写器为`plain`，`<key>`参数指定的就是行号  \n> 若`<key>`包含空格且后面还有参数，用英文双引号把它括住。用`\\`可以转义。具体见[QuotableText](https://docs.mcdreforged.com/zh-cn/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.QuotableText)\n\n### 数值类型\n\n`setTyped`可以指定数值的类型，以下类型可用，部分类型有特殊的行为:\n\n- `STRING`: 基本的字符串\n- `INT`: 数字，包含浮点数(`float`)\n- `BOOL`: 布尔值，数值大小写不敏感，但是输入必须为`T``True`(解析为真)、`F``False`(解析为假)\n- `LIST`: 列表\n- `OBJECT`: JS的`Object`，Python的`dict`，YAML的`mapping`\n- `AUTO`: 用这个类型 = 直接用`set`子命令\n\n#### `LIST`与`OBJECT`的特殊行为\n\n##### `LIST`\n\n它会将输入的值用英文逗号分开，可以使用`\\`转义逗号避免错误的分割。被分割后的项目会自动进行类型推导并创建一个列表。若值是空的，则创建一个空列表\n\n##### `OBJECT`\n\n类似`LIST`，它会将输入的值用英文逗号分开，然后再用`:`分割键值对。可以使用`\\`转义逗号避免错误的分割。被分割后的项目会自动进行类型推导(无论是键还是值)并创建一个`OBJECT`。若值是空的，则创建一个空`OBJECT`\n> 实际不推荐使用`setTyped OBJECT ...`，因为它会遇到聊天框输入限制。推荐用于创建空的`OBJECT`\n\n#### 类型推导\n\n所有被推导的类型共享一个逻辑:\n\n1. 判断原先值是否不存在或值为`None`(大小写敏感) ? 开始自动推导 : 原有类型可用则以原有类型继续，否则开始自动推导\n2. 将数值转换为纯大写后是否为[`T`,`TRUE`,`F`,`FALSE`]中的一项 ? 是布尔值，结束 : 继续\n3. 包含非数字字符(小数点、负号、双引号除外) ? 是一个字符串，结束 : 是一个数字，跳到第4步\n4. 判断值被双引号括住 ? 是一个字符串式的数字，且去掉开头与结尾的双引号并进行5步的转换，结束 : 继续判断\n5. 全是数字(以及可能包含的小数点和开头符号) ? 是数字(小数点取最靠后的那个)，结束 : 这是一个字符串\n\n> `LIST`与`OBJECT`不参与此推导过程，因此自动推导不可能推出`LIST`与`OBJECT`\n\n### 示例\n\n原始配置文件:\n\n```json\n1  {\n2      \"foo\": 123,\n3      \"bar\": {\n4          \"barFoo\": \"?\",\n5          \"barBar\": {\n6              \"barBarFoo\": 456\n7          }\n8      },\n9      \"buzz\": [\n10         \"wangyupu\",\"zzfx1166\"\n11     ]\n12 }\n```\n\n命令(有顺序):\n\n1. `!!cfg env \"config/foo/\" bar.json`: 打开文件\n2. `!!cfg set foo 1231`: 设置第2行的值为1231\n3. `!!cfg set bar.barFoo \"!\"`: 设置第4行的值为\"!\"\n4. `!!cfg rm buzz.1`: 删除第10行列表的第二项 (0-based index)\n5. `!!cfg cd bar.barBar`: 切换目前指针到第5行的Object\n6. `!!cfg set barBarFoo 789`: 修改第6行的值为789\n7. `!!cfg write`: 写入文件\n8. `!!cfg quit`: 离开文件\n\n修改后配置文件:\n\n```json\n1  {\n2      \"foo\": 1231,\n3      \"bar\": {\n4          \"barFoo\": \"!\",\n5          \"barBar\": {\n6              \"barBarFoo\": 789\n7          }\n8      },\n9      \"buzz\": [\n10         \"wangyupu\"\n11     ]\n12 }\n```\n\n## 插件配置\n\n```yaml\nownerPlayer: 玩家名称\ncfgCmdPermission: 4\nallowModifyConfig: true\nallowOutBound: false\nenableLog: true\nonlyOwnerPlayer: false\nenableCloud: true\n```\n\n`ownerPlayer`指定的玩家绕过所有安全控制措施。将其留空以对所有有权限的玩家进行权限控制  \n`allowModifyConfig`指定是否允许修改**本插件(`cfgcmd`)的配置**  \n`allowOutBound`指定是否允许离开`MCDR`根路径，为`false`时只能访问`MCDR`路径下的文件  \n`enableLog`指定是否启用记录功能，记录保存于*MCDR根路径*`/logs/cfgcmdLogs/<YYYY>-<mm>-<dd>_<COUNT>.log`  \n`onlyOwnerPlayer`指定是否只允许被指定的`ownerPlayer`才能使用此插件\n\n> `allowModifyConfig`默认为`true`是为了管理员于无法访问后台的情况下也能对插件进行安全配置，建议安装后手动将其改为`false`  \n> `enableCloud`在`1.3.1`版本前不存在，因此升级到`1.3.1+`版本时需要自行添加此配置以允许编辑器会话\n\n## 支持的配置文件格式\n\n- `json`\n- `yaml`(`yml`)\n- `toml`\n- 纯文本\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/wang-yupu/configCommand/main/README.md",
+      "en_us": "https://raw.githubusercontent.com/wang-yupu/configCommand/main/README_en.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "cfgcmd",
+    "latest_version": "1.3.3",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.3.3",
+        "name": "v1.3.3",
+        "tag_name": "v1.3.3",
+        "created_at": "2025-04-28T15:24:17Z",
+        "description": "## bug修复\r\n\r\n- 应该修复了某些时候编辑器交互锁被无限占用的问题\r\n\r\n## 功能\r\n\r\n- 添加`envEditor`命令，打开文件同时打开编辑器",
+        "prerelease": false,
+        "asset": {
+          "id": 250159308,
+          "name": "configCommand-v1.3.3.mcdr",
+          "size": 20474,
+          "download_count": 56,
+          "created_at": "2025-04-28T15:26:02Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.3.3/configCommand-v1.3.3.mcdr",
+          "hash_md5": "5d18488694dff3047227ee5bf7d04a28",
+          "hash_sha256": "257aa6f29e07ae45f91f0192f22947cb2510019f872ff1d70b810bf10787e23d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.3.3",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.3.2",
+        "name": "v1.3.2",
+        "tag_name": "v1.3.2",
+        "created_at": "2025-04-17T17:41:24Z",
+        "description": "# `1.3.2`版本\r\n\r\n## 新功能\r\n\r\n### 可用在线编辑器\r\n\r\n#### 用法\r\n\r\n- `!!cfg editor` 打开新的编辑器会话（需要打开一个文件）\r\n- `!!cfg editorApply` 同步编辑器的修改\r\n- `!!cfg editorDelete` 删除编辑器会话\r\n\r\n## Bug修复\r\n\r\n来自`v1.3.1`: 编辑器打开出错无提示\r\n\r\n## 注\r\n\r\n`1.3.1`版本无Release",
+        "prerelease": false,
+        "asset": {
+          "id": 247274761,
+          "name": "configCommand-v1.3.2.mcdr",
+          "size": 20302,
+          "download_count": 31,
+          "created_at": "2025-04-17T17:44:29Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.3.2/configCommand-v1.3.2.mcdr",
+          "hash_md5": "c6053c0654c9313d3a48234cd8f4f983",
+          "hash_sha256": "f0432826cf411a6d3b9357fd21bdffc5272593187a3270b75509a190f7f3e49d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.3.2",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.6",
+        "name": "v1.2.6",
+        "tag_name": "v1.2.6",
+        "created_at": "2025-04-05T03:03:33Z",
+        "description": "修复了`ls`子命令无法正常打印的bug",
+        "prerelease": false,
+        "asset": {
+          "id": 243714355,
+          "name": "cfgcmd-v1.2.6.mcdr",
+          "size": 16747,
+          "download_count": 24,
+          "created_at": "2025-04-05T03:04:34Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.6/cfgcmd-v1.2.6.mcdr",
+          "hash_md5": "c357bb7a3d8d6b499cf7f97ce3d50e7e",
+          "hash_sha256": "0101796bb4f350e0306d9f5bb0067b9871a44b5d8a21a10b3c069419de5eaff8"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.2.6",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.5",
+        "name": "v1.2.5",
+        "tag_name": "v1.2.5",
+        "created_at": "2025-04-02T13:57:56Z",
+        "description": "- 修复了`ls`子命令在当页有`float`类型值的时候无法正确执行的bug\r\n- 修复了`set`与`setTyped`子命令在无附加信息时会附带`None`的bug",
+        "prerelease": false,
+        "asset": {
+          "id": 242924093,
+          "name": "cfgcmd-v1.2.5.mcdr",
+          "size": 16746,
+          "download_count": 26,
+          "created_at": "2025-04-02T13:58:44Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.5/cfgcmd-v1.2.5.mcdr",
+          "hash_md5": "a0c3feca4e8e22a2b61b81121cfe5f58",
+          "hash_sha256": "279c4e89d62a98180f6729897248274dd5036a4324dbf8c5e2ff63835266018f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.2.5",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.4",
+        "name": "v1.2.4",
+        "tag_name": "v1.2.4",
+        "created_at": "2025-04-02T11:18:41Z",
+        "description": "## bug修复:\r\n- 修复了`set`子命令无法将值修改为`INT`但是带小数点的浮点数值\r\n- 修复了`set`子命令即使无法修改仍然回复成功消息",
+        "prerelease": false,
+        "asset": {
+          "id": 242886605,
+          "name": "cfgcmd-v1.2.4.mcdr",
+          "size": 16740,
+          "download_count": 24,
+          "created_at": "2025-04-02T11:20:09Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.4/cfgcmd-v1.2.4.mcdr",
+          "hash_md5": "d30f8731119804c9ccf054eb72f2a1dd",
+          "hash_sha256": "feab77af5f902c8bc8706810d8ccde41e399df306510acf361c76424ea6c85f7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.2.4",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.3",
+        "name": "v1.2.3",
+        "tag_name": "v1.2.3",
+        "created_at": "2025-03-30T16:32:48Z",
+        "description": "- 添加了`lsLong`指令\r\n- 添加了日志功能，自动存储到`/log/cfgcmdlogs/`下\r\n- `ls`中的`float`类型有了高亮",
+        "prerelease": false,
+        "asset": {
+          "id": 242069268,
+          "name": "cfgcmd-v1.2.3.mcdr",
+          "size": 16642,
+          "download_count": 27,
+          "created_at": "2025-03-30T16:34:22Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.3/cfgcmd-v1.2.3.mcdr",
+          "hash_md5": "c0a59a94ab8be74ca8b3d6f19dbd07d6",
+          "hash_sha256": "3b262eb708e7fdf20cbc7fa7050451611aa98e115667dc779118d6f5ddea98f9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.2.3",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.2.0",
+        "name": "v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2025-03-28T15:49:30Z",
+        "description": "请参阅README的修改",
+        "prerelease": false,
+        "asset": {
+          "id": 241619719,
+          "name": "cfgcmd-v1.2.0.mcdr",
+          "size": 15711,
+          "download_count": 27,
+          "created_at": "2025-03-28T15:50:19Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.2.0/cfgcmd-v1.2.0.mcdr",
+          "hash_md5": "ac2614357de59a231bb1612262344707",
+          "hash_sha256": "6d2edf9a87f21b4b930c73c2a4627a6b4efed448908358ce7eefce86449ca271"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.2.0",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件",
+            "en_us": "Modify config files with MCDR command"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2025-03-27T03:08:38Z",
+        "description": "# 相比于上个版本`1.0.1`的修改:\r\n\r\n- 添加了`rmFile`命令，可以移除文件\r\n- 添加了`touch`命令，可以创建新的空文件\r\n- 修复了`quit`命令不正确的提示消息逻辑",
+        "prerelease": false,
+        "asset": {
+          "id": 241159557,
+          "name": "configCommand-v1.1.0.mcdr",
+          "size": 13101,
+          "download_count": 29,
+          "created_at": "2025-03-27T03:11:05Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.1.0/configCommand-v1.1.0.mcdr",
+          "hash_md5": "53d9d9e1657b3df7bd0c5661d03a8df4",
+          "hash_sha256": "18d341f89970ef170c5c6caa55b3d81ba49c25002f70202cd64dced2becc1d5d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.1.0",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "zh_cn": "使用MCDR指令修改配置文件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/wang-yupu/configCommand/releases/tag/v1.0.1",
+        "name": "1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2025-03-27T03:08:38Z",
+        "description": "1. 添加了缺少的一些信息\r\n2. 移除了一些调试信息\r\n3. 命令`env`的`rwMode`参数现在有效",
+        "prerelease": false,
+        "asset": {
+          "id": 240867665,
+          "name": "configCommand-v1.0.1.mcdr",
+          "size": 12887,
+          "download_count": 26,
+          "created_at": "2025-03-26T06:38:16Z",
+          "browser_download_url": "https://github.com/wang-yupu/configCommand/releases/download/v1.0.1/configCommand-v1.0.1.mcdr",
+          "hash_md5": "ed73ffeb472fc5443161e7f64ea23813",
+          "hash_sha256": "a9cfbddc037ff2a4e5e46a25af7d02a5cdde93b9b4ef8295d81f30e115961c3d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "cfgcmd",
+          "name": "configCommand",
+          "version": "1.0.1",
+          "link": "https://github.com/wang-yupu/configCommand",
+          "authors": [
+            "wangyupu"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "pyyaml",
+            "toml"
+          ],
+          "description": {
+            "en_us": "使用MCDR指令修改配置文件"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/wang-yupu/configCommand",
+    "name": "configCommand",
+    "full_name": "wang-yupu/configCommand",
+    "html_url": "https://github.com/wang-yupu/configCommand",
+    "description": "使用MCDR指令修改服务端配置文件",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "\n# configCommand / cfgcmd\n\n[English](https://github.com/wang-yupu/configCommand/tree/main//README_en.md)  \n[Link](https://cfgcmd.wangyupu.com)\n\n在游戏内使用MCDR命令修改其它插件/Mod的配置！\n\n**`1.3.1`版本支持在线编辑器!**\n\n## 权限\n\n目前插件对所有配置内允许的玩家允许使用(MCDR 4级权限)。此插件可以修改**运行MCDR进程的用户有权修改的所有文件**(尤其是`root`)，因此**请控制好权限或者将服务端放入容器运行**。\n\n## 命令\n\n- `!!cfg env <路径，以MCDR根路径开始，可用绝对/相对路径> <配置文件> [可选: 读写器类型]`: 将执行者修改的目标文件设置为对应文件\n- `!!cfg quit`: 清空执行者的目标文件\n- `!!cfg write`: 写入目标文件\n- `!!cfg reload`: 重载目标文件(会覆盖已经进行的所有修改)\n- `!!cfg info`: 查看文件信息\n\n---  \n\n- `!!cfg set <key> <value>`: 设置键值对，`<key>`中`.`分割的键将被当做配置树的路径解释(具体见下文示例)，此命令的`key`不支持`..`此类相对路径。类型见下方类型章节\n- `!!cfg setTyped <key> <type> <value>`: 具体见下方类型章节。若值无法被解释为指定的类型，则使用`STRING`\n- `!!cfg rm <key>`: 删除键对应的内容\n- `!!cfg mv <sourceKey> <destKey>`: 移动，也可以当重命名使用\n- `!!cfg cp <sourceKey> <destKey>`: 复制粘贴\n- `!!cfg cd <key>`: 因为配置文件是树状结构，所以就提供一个类似文件系统操作的`cd`指令。在读写器为`plain`时不可用\n- `!!cfg ls [可选: page] [需要前项存在: key]`: 查看当前Object内容。在读写器为`plain`时打印全文。每10行算一页\n- `!!cfg lsLong [必选: page] [可选: linePerPage] [需要前项存在: key]`: 同上\n\n---  \n\n- `!!cfg lsDir <路径>`: 以MCDR目录为根目录查看文件列表\n- `!!cfg rmFile <文件>`: 删除文件 (**无法撤销**)\n- `!!cfg touchFile <文件>`: 创建**空**文件\n\n---  \n\n- `!!cfg editor`: 打开当前文件的在线编辑器，需要配置`enableCloud`为`true`\n- `!!cfg editorApply`: 从云端同步已经修改的配置文件\n- `!!cfg editorDelete`: 删除云端的会话\n\n> 从`1.3.1`版本以下升级过来的，需要手动为配置文件添加`enableCloud`为`true`才能使用在线编辑器\n\n---  \n\n> 执行`!!cfg env ...`后，不会占用文件  \n> 执行`!!cfg info`给出当前文件信息  \n> 执行`!!cfg ls`打印指针所在Object的内容  \n> 读写器根据文件后缀名判断。没有后缀名或者未知后缀名的会选择使用`plain`读写器  \n> 若读写器为`plain`，`<key>`参数指定的就是行号  \n> 若`<key>`包含空格且后面还有参数，用英文双引号把它括住。用`\\`可以转义。具体见[QuotableText](https://docs.mcdreforged.com/zh-cn/latest/code_references/command.html#mcdreforged.command.builder.nodes.arguments.QuotableText)\n\n### 数值类型\n\n`setTyped`可以指定数值的类型，以下类型可用，部分类型有特殊的行为:\n\n- `STRING`: 基本的字符串\n- `INT`: 数字，包含浮点数(`float`)\n- `BOOL`: 布尔值，数值大小写不敏感，但是输入必须为`T``True`(解析为真)、`F``False`(解析为假)\n- `LIST`: 列表\n- `OBJECT`: JS的`Object`，Python的`dict`，YAML的`mapping`\n- `AUTO`: 用这个类型 = 直接用`set`子命令\n\n#### `LIST`与`OBJECT`的特殊行为\n\n##### `LIST`\n\n它会将输入的值用英文逗号分开，可以使用`\\`转义逗号避免错误的分割。被分割后的项目会自动进行类型推导并创建一个列表。若值是空的，则创建一个空列表\n\n##### `OBJECT`\n\n类似`LIST`，它会将输入的值用英文逗号分开，然后再用`:`分割键值对。可以使用`\\`转义逗号避免错误的分割。被分割后的项目会自动进行类型推导(无论是键还是值)并创建一个`OBJECT`。若值是空的，则创建一个空`OBJECT`\n> 实际不推荐使用`setTyped OBJECT ...`，因为它会遇到聊天框输入限制。推荐用于创建空的`OBJECT`\n\n#### 类型推导\n\n所有被推导的类型共享一个逻辑:\n\n1. 判断原先值是否不存在或值为`None`(大小写敏感) ? 开始自动推导 : 原有类型可用则以原有类型继续，否则开始自动推导\n2. 将数值转换为纯大写后是否为[`T`,`TRUE`,`F`,`FALSE`]中的一项 ? 是布尔值，结束 : 继续\n3. 包含非数字字符(小数点、负号、双引号除外) ? 是一个字符串，结束 : 是一个数字，跳到第4步\n4. 判断值被双引号括住 ? 是一个字符串式的数字，且去掉开头与结尾的双引号并进行5步的转换，结束 : 继续判断\n5. 全是数字(以及可能包含的小数点和开头符号) ? 是数字(小数点取最靠后的那个)，结束 : 这是一个字符串\n\n> `LIST`与`OBJECT`不参与此推导过程，因此自动推导不可能推出`LIST`与`OBJECT`\n\n### 示例\n\n原始配置文件:\n\n```json\n1  {\n2      \"foo\": 123,\n3      \"bar\": {\n4          \"barFoo\": \"?\",\n5          \"barBar\": {\n6              \"barBarFoo\": 456\n7          }\n8      },\n9      \"buzz\": [\n10         \"wangyupu\",\"zzfx1166\"\n11     ]\n12 }\n```\n\n命令(有顺序):\n\n1. `!!cfg env \"config/foo/\" bar.json`: 打开文件\n2. `!!cfg set foo 1231`: 设置第2行的值为1231\n3. `!!cfg set bar.barFoo \"!\"`: 设置第4行的值为\"!\"\n4. `!!cfg rm buzz.1`: 删除第10行列表的第二项 (0-based index)\n5. `!!cfg cd bar.barBar`: 切换目前指针到第5行的Object\n6. `!!cfg set barBarFoo 789`: 修改第6行的值为789\n7. `!!cfg write`: 写入文件\n8. `!!cfg quit`: 离开文件\n\n修改后配置文件:\n\n```json\n1  {\n2      \"foo\": 1231,\n3      \"bar\": {\n4          \"barFoo\": \"!\",\n5          \"barBar\": {\n6              \"barBarFoo\": 789\n7          }\n8      },\n9      \"buzz\": [\n10         \"wangyupu\"\n11     ]\n12 }\n```\n\n## 插件配置\n\n```yaml\nownerPlayer: 玩家名称\ncfgCmdPermission: 4\nallowModifyConfig: true\nallowOutBound: false\nenableLog: true\nonlyOwnerPlayer: false\nenableCloud: true\n```\n\n`ownerPlayer`指定的玩家绕过所有安全控制措施。将其留空以对所有有权限的玩家进行权限控制  \n`allowModifyConfig`指定是否允许修改**本插件(`cfgcmd`)的配置**  \n`allowOutBound`指定是否允许离开`MCDR`根路径，为`false`时只能访问`MCDR`路径下的文件  \n`enableLog`指定是否启用记录功能，记录保存于*MCDR根路径*`/logs/cfgcmdLogs/<YYYY>-<mm>-<dd>_<COUNT>.log`  \n`onlyOwnerPlayer`指定是否只允许被指定的`ownerPlayer`才能使用此插件\n\n> `allowModifyConfig`默认为`true`是为了管理员于无法访问后台的情况下也能对插件进行安全配置，建议安装后手动将其改为`false`  \n> `enableCloud`在`1.3.1`版本前不存在，因此升级到`1.3.1+`版本时需要自行添加此配置以允许编辑器会话\n\n## 支持的配置文件格式\n\n- `json`\n- `yaml`(`yml`)\n- `toml`\n- 纯文本\n",
+    "readme_url": "https://raw.githubusercontent.com/wang-yupu/configCommand/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

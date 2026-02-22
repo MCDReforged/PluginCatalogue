@@ -1,0 +1,502 @@
+{
+  "schema_version": 8,
+  "id": "quick_backup_multi",
+  "latest_version": "1.10.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.10.1",
+      "name": "QuickBackupM v1.10.1",
+      "tag_name": "v1.10.1",
+      "created_at": "2023-12-22T18:18:59Z",
+      "description": "- Fixed operation_name is not inherited from the old plugin instance",
+      "prerelease": false,
+      "asset": {
+        "id": 142020100,
+        "name": "QuickBackupM-v1.10.1.mcdr",
+        "size": 24309,
+        "download_count": 4440,
+        "created_at": "2023-12-22T18:20:12Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.10.1/QuickBackupM-v1.10.1.mcdr",
+        "hash_md5": "fd7adde42afcea6a63519529e3a170de",
+        "hash_sha256": "09dad04cfb2512e22988e3868dae00fdf36f6da44b2f51b4db6e2e43ae539264"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.10.1",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.10.0",
+      "name": "QuickBackupM v1.10.0",
+      "tag_name": "v1.10.0",
+      "created_at": "2023-12-07T06:43:53Z",
+      "description": "- Add config `concurrent_copy_workers` for concurrent copying (idea from #51)\r\n- Fixed config option `ignored_files` does not work when using tar (hopefully fixes #41)\r\n- Improved game saved wait logic",
+      "prerelease": false,
+      "asset": {
+        "id": 139408101,
+        "name": "QuickBackupM-v1.10.0.mcdr",
+        "size": 24293,
+        "download_count": 188,
+        "created_at": "2023-12-07T07:06:25Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.10.0/QuickBackupM-v1.10.0.mcdr",
+        "hash_md5": "ea3ef4ab08a9c2ea745086cb17d4525a",
+        "hash_sha256": "76ee99de2c7f2399c4b1749b07dc65974db56ce5cfde17db9b4f295ac7e1968b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.10.0",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.9.0",
+      "name": "QuickBackupM v1.9.0",
+      "tag_name": "v1.9.0",
+      "created_at": "2023-05-10T17:52:02Z",
+      "description": "- Add `tar_xz` support for option `backup_format`\r\n- Add `compress_level` in config (default 1) (#43)\r\n- Add Reflink (Copy On Write) support by @tksmly (#39)\r\n- Tweal size unit for backup size display a bit\r\n\r\n**Full Changelog**: https://github.com/TISUnion/QuickBackupM/compare/v1.8.0...v1.9.0",
+      "prerelease": false,
+      "asset": {
+        "id": 107579519,
+        "name": "QuickBackupM-v1.9.0.mcdr",
+        "size": 23529,
+        "download_count": 2414,
+        "created_at": "2023-05-10T17:55:42Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.9.0/QuickBackupM-v1.9.0.mcdr",
+        "hash_md5": "6e8bb6a1ea6c00c2b74b3e8849e18e73",
+        "hash_sha256": "7e82fb144d22d0a8ffdf274b04035eceacf441953326c5d60ede5115bf44a208"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.9.0",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.8.0",
+      "name": "QuickBackupM v1.8.0",
+      "tag_name": "v1.8.0",
+      "created_at": "2023-03-13T18:56:20Z",
+      "description": "- Add support for `tar`, `tar.gz` backup format. No more million of small files in your backup folder\r\n  - Configured with option `backup_format`",
+      "prerelease": false,
+      "asset": {
+        "id": 99234600,
+        "name": "QuickBackupM-v1.8.0.mcdr",
+        "size": 22991,
+        "download_count": 555,
+        "created_at": "2023-03-13T18:58:51Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.8.0/QuickBackupM-v1.8.0.mcdr",
+        "hash_md5": "01727564d170708a5c916993ae09e819",
+        "hash_sha256": "a44bcd20f8a6f17d2dceddcf064df2ec62c36747dddd7ed994d4f845fde8d021"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.8.0",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.7.0",
+      "name": "QuickBackupM v1.7.0",
+      "tag_name": "v1.7.0",
+      "created_at": "2022-10-03T04:10:24Z",
+      "description": "- Slot comment rename support with `!!qb rename <slot> <comment>`\r\n- Fixed the operation lock showing the wrong operation name",
+      "prerelease": false,
+      "asset": {
+        "id": 79773575,
+        "name": "QuickBackupM-v1.7.0.mcdr",
+        "size": 22417,
+        "download_count": 1730,
+        "created_at": "2022-10-03T04:13:26Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.7.0/QuickBackupM-v1.7.0.mcdr",
+        "hash_md5": "96e2795a425c0a9d3e8d368d17da7631",
+        "hash_sha256": "ceaa16c4f8a482939169e2fe251b8ef374127d514190b9bbdaedcb645a6dba5b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.7.0",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.6.0",
+      "name": "QuickBackupM v1.6.0",
+      "tag_name": "v1.6.0",
+      "created_at": "2022-03-11T07:54:41Z",
+      "description": "- Supports handling symbolic link world folder in the backing up / restoring logic (#29)",
+      "prerelease": false,
+      "asset": {
+        "id": 59195377,
+        "name": "QuickBackupM-v1.6.0.mcdr",
+        "size": 22070,
+        "download_count": 1718,
+        "created_at": "2022-03-11T07:56:09Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.6.0/QuickBackupM-v1.6.0.mcdr",
+        "hash_md5": "0f020bcc909f9f807651eec96dee3468",
+        "hash_sha256": "0384fd9e09fd4faf7216fbda1571556684c4068916592493255beda7349c70d4"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.6.0",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.5.0",
+      "name": "QuickBackupM v1.5.0",
+      "tag_name": "v1.5.0",
+      "created_at": "2021-12-20T19:03:02Z",
+      "description": "- New config entry: `saved_world_keywords`\r\n  - You can set custom keyword to suit your custom server with custom `/save-all` output\r\n  - Default value: `[\"Saved the game\", \"Saved the world\"]`, works for vanilla Minecraft servers",
+      "prerelease": false,
+      "asset": {
+        "id": 52222043,
+        "name": "QuickBackupM-v1.5.0.mcdr",
+        "size": 22181,
+        "download_count": 745,
+        "created_at": "2021-12-20T19:05:06Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.5.0/QuickBackupM-v1.5.0.mcdr",
+        "hash_md5": "ef16f5fd30114d07a26583011567fb5f",
+        "hash_sha256": "4c6cc965cc2dac7697f38e206a39f64e5ec00bb077e50ddcedc8edd992a28651"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.5.0",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.4.4",
+      "name": "QuickBackupM v1.4.4",
+      "tag_name": "v1.4.4",
+      "created_at": "2021-12-09T08:04:35Z",
+      "description": "- Better & Neater operation conflict logic\r\n- Async world deleting",
+      "prerelease": false,
+      "asset": {
+        "id": 51370038,
+        "name": "QuickBackupM-v1.4.4.mcdr",
+        "size": 22146,
+        "download_count": 188,
+        "created_at": "2021-12-09T08:06:09Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.4.4/QuickBackupM-v1.4.4.mcdr",
+        "hash_md5": "dc086c2265e50499ee512b0cf9a9b607",
+        "hash_sha256": "f82859a8255569b7227446241e52f80ea93252964268a7c7d5b16412329ea3e2"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.4.4",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.4.3",
+      "name": "QuickBackupM v1.4.3",
+      "tag_name": "v1.4.3",
+      "created_at": "2021-10-30T06:09:58Z",
+      "description": "- Fixed a English translation issue (#27)\r\n- Now QBM uses nested translation file format\r\n  - Requires MCDR >=2.1.2",
+      "prerelease": false,
+      "asset": {
+        "id": 48211323,
+        "name": "QuickBackupM-v1.4.3.mcdr",
+        "size": 22150,
+        "download_count": 302,
+        "created_at": "2021-10-30T06:12:46Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.4.3/QuickBackupM-v1.4.3.mcdr",
+        "hash_md5": "26d031c7db1e407aa818e7c03c3367ee",
+        "hash_sha256": "f5c59b2dbfc8c066b8e05ac39789d3026ef87b4b5418c7c9096e258c25515d6c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.4.3",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.4.2",
+      "name": "QuickBackupM v1.4.2",
+      "tag_name": "v1.4.2",
+      "created_at": "2021-08-29T15:33:36Z",
+      "description": "Fixed `ignored_files` not working",
+      "prerelease": false,
+      "asset": {
+        "id": 43562703,
+        "name": "QuickBackupM-v1.4.2.mcdr",
+        "size": 22249,
+        "download_count": 1697,
+        "created_at": "2021-08-29T15:35:41Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.4.2/QuickBackupM-v1.4.2.mcdr",
+        "hash_md5": "eecbb3906cba7e1c9ea903b1fac5a235",
+        "hash_sha256": "9aa7c8ea32c69ffb8519f87667f25c9f32a126d255118b0b88398fb63fc38203"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.4.2",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.0-beta"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.4.1",
+      "name": "QuickBackupM v1.4.1",
+      "tag_name": "v1.4.1",
+      "created_at": "2021-08-27T09:44:14Z",
+      "description": "- Added  `ignored_files` option with default value `['session.lock']` in config file for #22\r\n  - Removed option `ignore_session_lock`\r\n- Upgraded to MCDR 2.1+ better translation logic\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 43419545,
+        "name": "QuickBackupM-v1.4.1.mcdr",
+        "size": 22243,
+        "download_count": 1439,
+        "created_at": "2021-08-27T09:44:34Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.4.1/QuickBackupM-v1.4.1.mcdr",
+        "hash_md5": "bff8b4ef01e2bc0d96651faeed87023c",
+        "hash_sha256": "4688818374fdd12dfff76b5ebd2012e485a72a46ab94b7b8a4ae676da8bebaca"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.4.1",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.0-beta"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.3.3",
+      "name": "QuickBackupM v1.3",
+      "tag_name": "v1.3.3",
+      "created_at": "2021-08-24T15:44:22Z",
+      "description": "- Supports backup file in `world_names` list\r\n- Fixed error on !!qb reload",
+      "prerelease": false,
+      "asset": {
+        "id": 43184486,
+        "name": "QuickBackupM-v1.3.3.mcdr",
+        "size": 21598,
+        "download_count": 1438,
+        "created_at": "2021-08-24T16:01:43Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.3.3/QuickBackupM-v1.3.3.mcdr",
+        "hash_md5": "f5772dc5a537c470dc26689050bc1465",
+        "hash_sha256": "11ce887f805181c4f06148d89cad4c225e3eff8bd918f63bf839c9492949d11a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.3.3",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.1"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.1"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/TISUnion/QuickBackupM/releases/tag/v1.2.2",
+      "name": "QuickBackupM v1.2",
+      "tag_name": "v1.2.2",
+      "created_at": "2021-08-16T03:22:41Z",
+      "description": "MCDR 2.0",
+      "prerelease": false,
+      "asset": {
+        "id": 42573153,
+        "name": "QuickBackupM-v1.2.2.mcdr",
+        "size": 21340,
+        "download_count": 1525,
+        "created_at": "2021-08-16T17:06:50Z",
+        "browser_download_url": "https://github.com/TISUnion/QuickBackupM/releases/download/v1.2.2/QuickBackupM-v1.2.2.mcdr",
+        "hash_md5": "1ffe637655cd43d34e9205e147a9d767",
+        "hash_sha256": "a601a65f8252e7ef3768dfa083130109d76dca74cda9e36d47c6fb5df4b538e1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "quick_backup_multi",
+        "name": "Quick Backup Multi",
+        "version": "1.2.2",
+        "link": "https://github.com/TISUnion/QuickBackupM",
+        "authors": [
+          "Fallen_Breath"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0-beta.3"
+        },
+        "requirements": [
+          "mcdreforged>=2.0.0b3"
+        ],
+        "description": {
+          "en_us": "A backup / restore plugin, with multiple backup slot",
+          "zh_cn": "多槽位备份/回档插件"
+        }
+      }
+    }
+  ]
+}

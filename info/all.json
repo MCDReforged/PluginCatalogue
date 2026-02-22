@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "info",
+    "name": "Info",
+    "version": "0.2.4",
+    "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/info",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "psutil",
+      "py-cpuinfo"
+    ],
+    "description": {
+      "en_us": "Get server info",
+      "zh_cn": "获取服务器信息"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "info",
+    "authors": [
+      "Andy Zhang"
+    ],
+    "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "branch": "master",
+    "related_path": "src/info",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "# Info\n\n获取服务器信息\n\n## 支持功能\n\n- 系统版本\n- Python版本\n- CPU利用率\n- 内存使用量\n- 存档大小\n\n需要显示更多内容发 Issue\n\n## 使用\n\n使用 `!!info` 获取\n\n## 配置\n\n### world_names\n\n参与存档大小计算的文件夹名\n\n默认值:\n\n```json\n[\n    \"world\"\n]\n```\n",
+      "zh_cn": "# Info\n\n获取服务器信息\n\n## 支持功能\n\n- 系统版本\n- Python版本\n- CPU利用率\n- 内存使用量\n- 存档大小\n\n需要显示更多内容发 Issue\n\n## 使用\n\n使用 `!!info` 获取\n\n## 配置\n\n### world_names\n\n参与存档大小计算的文件夹名\n\n默认值:\n\n```json\n[\n    \"world\"\n]\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/info/readme.md",
+      "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/info/readme.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "info",
+    "latest_version": "0.2.4",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/info-v0.2.4",
+        "name": "info: v0.2.4",
+        "tag_name": "info-v0.2.4",
+        "created_at": "2025-08-24T19:21:05Z",
+        "description": "## [0.2.4](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/info-v0.2.3...info-v0.2.4) (2025-08-24)\n\n\n### Bug Fixes\n\n* **info:** 🐛 fix info output using RText ([06467e5](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/06467e512cb4d321ffd78d221c578e2f274173d4))",
+        "prerelease": false,
+        "asset": {
+          "id": 285782221,
+          "name": "Info-v0.2.4.mcdr",
+          "size": 2358,
+          "download_count": 481,
+          "created_at": "2025-08-24T19:23:26Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/info-v0.2.4/Info-v0.2.4.mcdr",
+          "hash_md5": "1f7817510888789af0129254e0ec559f",
+          "hash_sha256": "fe6409f25d2e938c5264e6a460473a178a77d3f3946747ca1c67035f3c45c857"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "info",
+          "name": "Info",
+          "version": "0.2.4",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/info",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "psutil",
+            "py-cpuinfo"
+          ],
+          "description": {
+            "en_us": "Get server info",
+            "zh_cn": "获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/info-v0.2.3",
+        "name": "info: v0.2.3",
+        "tag_name": "info-v0.2.3",
+        "created_at": "2025-08-23T05:54:16Z",
+        "description": "## [0.2.3](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/info-v0.2.2...info-v0.2.3) (2025-08-23)\n\n\n### Bug Fixes\n\n* **info:** 🐛 update CPU usage calculation ([19d31ab](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/19d31abeb65494074eb7dc8c33f5329386e2d025))",
+        "prerelease": false,
+        "asset": {
+          "id": 285395582,
+          "name": "Info-v0.2.3.mcdr",
+          "size": 2271,
+          "download_count": 42,
+          "created_at": "2025-08-23T05:56:32Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/info-v0.2.3/Info-v0.2.3.mcdr",
+          "hash_md5": "e9f1f9b97436bd35e4f8bc46ea3bf54e",
+          "hash_sha256": "5e0d6fe5e5dd84861fd1cec96a809f6fa92a23a38338d875f005c21ccd031dd3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "info",
+          "name": "Info",
+          "version": "0.2.3",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/info",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "psutil",
+            "py-cpuinfo"
+          ],
+          "description": {
+            "en_us": "Get server info",
+            "zh_cn": "获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/info-v0.2.2",
+        "name": "info: v0.2.2",
+        "tag_name": "info-v0.2.2",
+        "created_at": "2024-11-18T12:59:01Z",
+        "description": "## [0.2.2](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/info-v0.2.1...info-v0.2.2) (2024-11-18)\n\n\n### Bug Fixes\n\n* **info:** 🩹 use working directory from mcdr config ([#244](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/244)) ([dbe66d6](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/dbe66d62ca7b31a49d189b177d810743508f1459))",
+        "prerelease": false,
+        "asset": {
+          "id": 207327169,
+          "name": "Info-v0.2.2.mcdr",
+          "size": 2254,
+          "download_count": 764,
+          "created_at": "2024-11-18T13:01:01Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/info-v0.2.2/Info-v0.2.2.mcdr",
+          "hash_md5": "796c70690225b9abef5626ac2f135f7d",
+          "hash_sha256": "d53bec5f9a4ed84fa3e8cf60a2419101361ab228b719e9b17b54bafb701f67c4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "info",
+          "name": "Info",
+          "version": "0.2.2",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/info",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "psutil",
+            "py-cpuinfo"
+          ],
+          "description": {
+            "en_us": "Get server info",
+            "zh_cn": "获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/info-v0.2.1",
+        "name": "info: v0.2.1",
+        "tag_name": "info-v0.2.1",
+        "created_at": "2024-11-09T13:03:13Z",
+        "description": "## [0.2.1](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/info-v0.2.0...info-v0.2.1) (2024-11-09)\n\n\n### Bug Fixes\n\n* **info:** 🩹 default value for brand_raw (resolve [#241](https://github.com/AnzhiZhang/MCDReforgedPlugins/issues/241)) ([4f7784c](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/4f7784cca392d49898c68a2c4ca9c4d6b4b4ca28))",
+        "prerelease": false,
+        "asset": {
+          "id": 205292219,
+          "name": "Info-v0.2.1.mcdr",
+          "size": 2228,
+          "download_count": 70,
+          "created_at": "2024-11-09T13:05:35Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/info-v0.2.1/Info-v0.2.1.mcdr",
+          "hash_md5": "ef7a4b93fc2bd0baad6ac12fd2f3e964",
+          "hash_sha256": "3cdef1ca228bb8f377fd66bbd2992d094ea7090d88a4ae0e78c0c1e4f5cdf285"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "info",
+          "name": "Info",
+          "version": "0.2.1",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/info",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "psutil",
+            "py-cpuinfo"
+          ],
+          "description": {
+            "en_us": "Get server info",
+            "zh_cn": "获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/info-v0.2.0",
+        "name": "info: v0.2.0",
+        "tag_name": "info-v0.2.0",
+        "created_at": "2023-02-22T23:34:38Z",
+        "description": "## [0.2.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/info-v0.1.0...info-v0.2.0) (2023-02-22)\n\n\n### Features\n\n* **info:** ✨ add cpu brand info ([77092cf](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/77092cf24a442dec8487d259c798bf8b43b10a39))",
+        "prerelease": false,
+        "asset": {
+          "id": 96726460,
+          "name": "Info-v0.2.0.mcdr",
+          "size": 2220,
+          "download_count": 1321,
+          "created_at": "2023-02-22T23:35:16Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/info-v0.2.0/Info-v0.2.0.mcdr",
+          "hash_md5": "f1f44ca0b355d92e3dc7f7c63863fb8b",
+          "hash_sha256": "8d592a9d9ac2d8e2d177f80fc32b2742e5598730b779cb53dea24e075e52935b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "info",
+          "name": "Info",
+          "version": "0.2.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/info",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "psutil",
+            "py-cpuinfo"
+          ],
+          "description": {
+            "en_us": "Get server info",
+            "zh_cn": "获取服务器信息"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/tag/info-v0.1.0",
+        "name": "info: v0.1.0",
+        "tag_name": "info-v0.1.0",
+        "created_at": "2022-06-30T05:57:27Z",
+        "description": "## [0.1.0](https://github.com/AnzhiZhang/MCDReforgedPlugins/compare/info-v0.0.2...info-v0.1.0) (2022-06-30)\n\n\n### Features\n\n* **info:** ✨ use rtr instead of tr for multilang ([1d052aa](https://github.com/AnzhiZhang/MCDReforgedPlugins/commit/1d052aab180eae647534f31cc4762e8e44735f82))",
+        "prerelease": false,
+        "asset": {
+          "id": 70111250,
+          "name": "Info-v0.1.0.mcdr",
+          "size": 2150,
+          "download_count": 580,
+          "created_at": "2022-06-30T05:59:40Z",
+          "browser_download_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins/releases/download/info-v0.1.0/Info-v0.1.0.mcdr",
+          "hash_md5": "c5286e7bbe26b94f4d03f4b86cef8a54",
+          "hash_sha256": "e3b7050b2a53ef28a51a703bddc72eecf80192d2c04333823903ee8ec6a6d021"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "info",
+          "name": "Info",
+          "version": "0.1.0",
+          "link": "https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/info",
+          "authors": [
+            "Andy Zhang"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "psutil"
+          ],
+          "description": {
+            "en_us": "Get server info",
+            "zh_cn": "获取服务器信息"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "name": "MCDReforgedPlugins",
+    "full_name": "AnzhiZhang/MCDReforgedPlugins",
+    "html_url": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+    "description": "MCDReforged Plugins",
+    "archived": false,
+    "stargazers_count": 99,
+    "watchers_count": 99,
+    "forks_count": 51,
+    "readme": "# Info\n\n获取服务器信息\n\n## 支持功能\n\n- 系统版本\n- Python版本\n- CPU利用率\n- 内存使用量\n- 存档大小\n\n需要显示更多内容发 Issue\n\n## 使用\n\n使用 `!!info` 获取\n\n## 配置\n\n### world_names\n\n参与存档大小计算的文件夹名\n\n默认值:\n\n```json\n[\n    \"world\"\n]\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/info/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

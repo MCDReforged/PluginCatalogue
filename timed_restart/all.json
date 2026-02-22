@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "timed_restart",
+    "name": "Timed Restart",
+    "version": "1.0.0",
+    "link": "https://github.com/QingMo-A/TimedRestart",
+    "authors": [
+      "QingMo"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.6.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Scheduled Server Restart",
+      "zh_cn": "定时重启服务器"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "timed_restart",
+    "authors": [
+      "QingMo"
+    ],
+    "repository": "https://github.com/QingMo-A/TimedRestart",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# TimedRestart ( 定时重启 )\n\n> 一个简单的定时重启插件, 你可以自定义时区, 自定义重启时间点以及提前多久告知 ! ! !\n\n![Version](https://img.shields.io/badge/version-v1.0.0-blue)\n\n## 介绍\n\n这个插件可以定时重启释放内存, 防止服务器因内存原因崩溃\n\n## 使用\n\n### 指令\n\n1. 重载配置文件：\n   ```java\n   !!timed_restart reload\n   ```\n2. 列出全部指令：\n   ```java\n   !!timed_restart help\n   ```\n3. 列出当前重启时间点：\n   ```java\n   !!timed_restart list\n   ```\n4. 增加重启时间点：\n   ```java\n   !!timed_restart add <time>\n   ```\n5. 移除重启时间点：\n   ```java\n   !!timed_restart remove <time>\n   ```\n6. 更改时区：\n   ```java\n   // timed_restart timezone 8 -> UTC+8\n   // timed_restart timezone -5 -> UTC-5\n   !!timed_restart timezone <timezone>\n   ```\n### 配置文件 ( config/timed_restart/config.json )\n默认:\n   ```json\n   {\n    \"restart_times\": [\n        \"06:00\",\n        \"12:00\",\n        \"18:00\",\n        \"00:00\"\n    ],\n    \"warning_minutes\": [\n        5,\n        3,\n        1\n    ],\n    \"timezone\": 8\n   }\n   ```\n",
+      "zh_cn": "# TimedRestart ( 定时重启 )\n\n> 一个简单的定时重启插件, 你可以自定义时区, 自定义重启时间点以及提前多久告知 ! ! !\n\n![Version](https://img.shields.io/badge/version-v1.0.0-blue)\n\n## 介绍\n\n这个插件可以定时重启释放内存, 防止服务器因内存原因崩溃\n\n## 使用\n\n### 指令\n\n1. 重载配置文件：\n   ```java\n   !!timed_restart reload\n   ```\n2. 列出全部指令：\n   ```java\n   !!timed_restart help\n   ```\n3. 列出当前重启时间点：\n   ```java\n   !!timed_restart list\n   ```\n4. 增加重启时间点：\n   ```java\n   !!timed_restart add <time>\n   ```\n5. 移除重启时间点：\n   ```java\n   !!timed_restart remove <time>\n   ```\n6. 更改时区：\n   ```java\n   // timed_restart timezone 8 -> UTC+8\n   // timed_restart timezone -5 -> UTC-5\n   !!timed_restart timezone <timezone>\n   ```\n### 配置文件 ( config/timed_restart/config.json )\n默认:\n   ```json\n   {\n    \"restart_times\": [\n        \"06:00\",\n        \"12:00\",\n        \"18:00\",\n        \"00:00\"\n    ],\n    \"warning_minutes\": [\n        5,\n        3,\n        1\n    ],\n    \"timezone\": 8\n   }\n   ```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/QingMo-A/TimedRestart/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/QingMo-A/TimedRestart/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "timed_restart",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/QingMo-A/TimedRestart/releases/tag/v1.0.0",
+        "name": "Release 1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-02-13T10:43:48Z",
+        "description": "[+] 正式版1.0.0",
+        "prerelease": false,
+        "asset": {
+          "id": 228795372,
+          "name": "timed_restart.mcdr",
+          "size": 4910,
+          "download_count": 207,
+          "created_at": "2025-02-13T10:43:50Z",
+          "browser_download_url": "https://github.com/QingMo-A/TimedRestart/releases/download/v1.0.0/timed_restart.mcdr",
+          "hash_md5": "306f2d91681c4b358820114913a1d5da",
+          "hash_sha256": "766a55bd0375bdb08d9630703c3ec5277642e8513f7b545164402a5d76780b84"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "timed_restart",
+          "name": "Timed Restart",
+          "version": "1.0.0",
+          "link": "https://github.com/QingMo-A/TimedRestart",
+          "authors": [
+            "QingMo"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Scheduled Server Restart",
+            "zh_cn": "定时重启服务器"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/QingMo-A/TimedRestart",
+    "name": "TimedRestart",
+    "full_name": "QingMo-A/TimedRestart",
+    "html_url": "https://github.com/QingMo-A/TimedRestart",
+    "description": null,
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "# TimedRestart ( 定时重启 )\n\n> 一个简单的定时重启插件, 你可以自定义时区, 自定义重启时间点以及提前多久告知 ! ! !\n\n![Version](https://img.shields.io/badge/version-v1.0.0-blue)\n\n## 介绍\n\n这个插件可以定时重启释放内存, 防止服务器因内存原因崩溃\n\n## 使用\n\n### 指令\n\n1. 重载配置文件：\n   ```java\n   !!timed_restart reload\n   ```\n2. 列出全部指令：\n   ```java\n   !!timed_restart help\n   ```\n3. 列出当前重启时间点：\n   ```java\n   !!timed_restart list\n   ```\n4. 增加重启时间点：\n   ```java\n   !!timed_restart add <time>\n   ```\n5. 移除重启时间点：\n   ```java\n   !!timed_restart remove <time>\n   ```\n6. 更改时区：\n   ```java\n   // timed_restart timezone 8 -> UTC+8\n   // timed_restart timezone -5 -> UTC-5\n   !!timed_restart timezone <timezone>\n   ```\n### 配置文件 ( config/timed_restart/config.json )\n默认:\n   ```json\n   {\n    \"restart_times\": [\n        \"06:00\",\n        \"12:00\",\n        \"18:00\",\n        \"00:00\"\n    ],\n    \"warning_minutes\": [\n        5,\n        3,\n        1\n    ],\n    \"timezone\": 8\n   }\n   ```\n",
+    "readme_url": "https://raw.githubusercontent.com/QingMo-A/TimedRestart/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

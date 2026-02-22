@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/QingMo-A/TimedRestart",
+  "name": "TimedRestart",
+  "full_name": "QingMo-A/TimedRestart",
+  "html_url": "https://github.com/QingMo-A/TimedRestart",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 0,
+  "readme": "# TimedRestart ( 定时重启 )\n\n> 一个简单的定时重启插件, 你可以自定义时区, 自定义重启时间点以及提前多久告知 ! ! !\n\n![Version](https://img.shields.io/badge/version-v1.0.0-blue)\n\n## 介绍\n\n这个插件可以定时重启释放内存, 防止服务器因内存原因崩溃\n\n## 使用\n\n### 指令\n\n1. 重载配置文件：\n   ```java\n   !!timed_restart reload\n   ```\n2. 列出全部指令：\n   ```java\n   !!timed_restart help\n   ```\n3. 列出当前重启时间点：\n   ```java\n   !!timed_restart list\n   ```\n4. 增加重启时间点：\n   ```java\n   !!timed_restart add <time>\n   ```\n5. 移除重启时间点：\n   ```java\n   !!timed_restart remove <time>\n   ```\n6. 更改时区：\n   ```java\n   // timed_restart timezone 8 -> UTC+8\n   // timed_restart timezone -5 -> UTC-5\n   !!timed_restart timezone <timezone>\n   ```\n### 配置文件 ( config/timed_restart/config.json )\n默认:\n   ```json\n   {\n    \"restart_times\": [\n        \"06:00\",\n        \"12:00\",\n        \"18:00\",\n        \"00:00\"\n    ],\n    \"warning_minutes\": [\n        5,\n        3,\n        1\n    ],\n    \"timezone\": 8\n   }\n   ```\n",
+  "readme_url": "https://raw.githubusercontent.com/QingMo-A/TimedRestart/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

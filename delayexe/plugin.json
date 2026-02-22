@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "delayexe",
+  "authors": [
+    "zyxkad"
+  ],
+  "repository": "https://github.com/kmcsr/delayexe_mcdr",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "tool",
+    "api"
+  ],
+  "introduction": {
+    "en_us": "\n- English\n- [中文](https://github.com/kmcsr/delayexe_mcdr/tree/master/README_zh.MD)\n\n# Delay ExE\n\n- A plugin for delay execute command until all player have left\n- You can use it as a API\n\n### Example for API\n\n```python\n\nimport delayexe\n\ndef a_method():\n\tdelayexe.add_delay_task('say There are no player online') # run minecraft command\n\tdelayexe.add_delay_task('kill @a') # Must nothing to kill\n\tdelayexe.add_delay_task(lambda: print('There are no player online')) # run python method\n\n\t# ...\n\n\tdelayexe.clear_delay_task() # clear all delay tasks, the top of three commands will never run, if any player is online\n\n# ...\n\na_method()\n\n# ...\n\n```\n\n",
+    "zh_cn": "\n- [English](https://github.com/kmcsr/delayexe_mcdr/tree/master/README.MD)\n- 中文\n\n# Delay ExE\n\n- 一个延迟直到服务器**没有玩家**后执行指定命令的插件\n- 可以当做*API*用\n- ~~原理非常简单, 就不多介绍了~~\n\n### API示例\n\n```python\n\nimport delayexe\n\ndef a_method():\n\tdelayexe.add_delay_task('say There are no player online') # 执行minecraft命令\n\tdelayexe.add_delay_task('kill @a') # 不会有任何东西被杀死, 在任何时候\n\tdelayexe.add_delay_task(lambda: print('There are no player online')) # 可以执行python无参函数\n\n\t# ...\n\n\tdelayexe.clear_delay_task() # 清除所有任务\n\n# ...\n\na_method()\n\n# ...\n\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/kmcsr/delayexe_mcdr/master/README.MD",
+    "zh_cn": "https://raw.githubusercontent.com/kmcsr/delayexe_mcdr/master/README_zh.MD"
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "uuid_api_remake",
+    "name": "UUID API Remake",
+    "version": "2.1.0",
+    "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+    "authors": [
+      "gubai"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged",
+      "requests"
+    ],
+    "description": {
+      "en_us": "Get UUID of players",
+      "zh_cn": "获取玩家的UUID"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "uuid_api_remake",
+    "authors": [
+      "gubai"
+    ],
+    "repository": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+    "branch": "main",
+    "related_path": "uuid_api_remake",
+    "labels": [
+      "api",
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "# UUID API REMAKE\n本插件为UUID API重制版，[原作UUID API链接：https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api)\n\n### 本插件uuid获取流程 (如果获取失败则执行下一步)：\n\n1. 判断服务器正版/离线\n2. (1). 正版：\n   1. 读取 usercache.json，失败则下一步\n   2. 调用 API\n   (2). 离线\n   1. 读取 offline_uuid.json，失败则下一步\n   2. 本地计算 uuid，保存到 offline_uuid.json\n\n### 配置文件\n\n```json\n{\n    \"online_api\": \"https://api.mojang.com/users/profiles/minecraft/{}\",\n    \"mojang_online_mode_fallback\": true,\n    \"permissions\": {\n        \"help\": 3,\n        \"get\": 3\n    }\n}\n```\n\n**mojang_online_mode_fallback**: 当插件无法判断服务器正版/离线时，由该项决定使用正版/离线 uuid 获取方式  \n**online_api**: 获取正版 uuid 的 API  \n**permissions**: 权限管理，数值参考 [MCDReforgedPermissions](https://docs.mcdreforged.com/zh-cn/latest/permission.html)\n\n### 命令\n\n具体使用方法请参考 `!!uar help`\n\n### API使用方法\n\n获取玩家名对应的uuid：\n\n```python\nimport uuid_api_remake\n\nname = ... # str\nuuid = uuid_api_remake.get_uuid(name)\nprint(uuid)\n```\n\n获取uuid对应的玩家名(获取范围为 `offline_uuid.json` 以及 `usercache.json`)\n\n```python\nimport uuid_api_remake\n\nuuid = ... # str\nname = uuid_api_remake.get_name(uuid)\nprint(name)\n```\n",
+      "zh_cn": "*数据拉取失败*"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/gubaiovo/MCDR_uuid_api_remake/main/uuid_api_remake/doc/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/gubaiovo/MCDR_uuid_api_remake/main/uuid_api_remake/doc/README_CN.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "uuid_api_remake",
+    "latest_version": "2.1.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v2.1.1",
+        "name": "uuid_api_remake-v2.1.1",
+        "tag_name": "v2.1.1",
+        "created_at": "2026-01-20T08:38:08Z",
+        "description": "增加游戏内点击复制uuid的功能",
+        "prerelease": false,
+        "asset": {
+          "id": 343186882,
+          "name": "uuid_api_remake.mcdr",
+          "size": 4245,
+          "download_count": 20,
+          "created_at": "2026-01-20T08:43:44Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v2.1.1/uuid_api_remake.mcdr",
+          "hash_md5": "d391af200b89476c66e25c17329467d9",
+          "hash_sha256": "11192b58035e1067a32947204cd8a19b2694d1b265c4880a0e71aa2ffeb129d0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api_remake",
+          "name": "UUID API Remake",
+          "version": "2.1.1",
+          "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Get UUID of players",
+            "zh_cn": "获取玩家的UUID"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v2.1.0",
+        "name": "uuid_api_remake-v2.1.0",
+        "tag_name": "v2.1.0",
+        "created_at": "2025-07-24T02:16:45Z",
+        "description": "增加权限管理，移除命令只能在控制台使用的限制",
+        "prerelease": false,
+        "asset": {
+          "id": 275796410,
+          "name": "uuid_api_remake.mcdr",
+          "size": 4170,
+          "download_count": 87,
+          "created_at": "2025-07-24T02:20:29Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v2.1.0/uuid_api_remake.mcdr",
+          "hash_md5": "74fe32c97f552cbf0a96039950b361b2",
+          "hash_sha256": "2712b26fbcb8766e03c8e591836c5cf21d6552d165cc3b5108fc9189ef1bd29b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api_remake",
+          "name": "UUID API Remake",
+          "version": "2.1.0",
+          "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Get UUID of players",
+            "zh_cn": "获取玩家的UUID"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v2.0.0",
+        "name": "uuid_api_remake-v2.0.0",
+        "tag_name": "v2.0.0",
+        "created_at": "2025-07-17T10:18:41Z",
+        "description": "整体重构  \r\n1. 判断正版/离线首先由服务器配置文件 `server.properties` 决定，其次由插件配置文件决定  \r\n2. 正版uuid获取逻辑更改为：优先usercache.json，其次 API  \r\n3. 离线uuid获取逻辑更改为：优先查询插件数据，其次本地计算，并保存到数据文件  \r\n如果出现非预期问题，欢迎提 issue\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 273725368,
+          "name": "uuid_api_remake.mcdr",
+          "size": 3995,
+          "download_count": 35,
+          "created_at": "2025-07-17T10:33:37Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v2.0.0/uuid_api_remake.mcdr",
+          "hash_md5": "79b716b75abe274d173cf9d83e71d8f9",
+          "hash_sha256": "bdeacdfeef7ca53d0b0077a7ad683c3b6d0f3859b162e403cdb4df44dbf0685e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api_remake",
+          "name": "UUID API Remake",
+          "version": "2.0.0",
+          "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Get UUID of players",
+            "zh_cn": "获取玩家的UUID"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v1.1.0",
+        "name": "uuid_api_remake-v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2025-03-14T08:15:51Z",
+        "description": "1. 更新配置文件，具体参考readme说明\r\n2. 修复在控制台中获取玩家信息时，由于返回值错误导致的 `too many values to unpack` 报错\r\n3. 增加uuid自动去重。调用 `get_uuid` 时，若欲获取 `uuid` 的 `new_name` 不存在于 `uuid.json` ，且该`name`对应的 `uuid` 存在于 `uuid.json`，则自动更换 `uuid.json` 中 key 为 `old_name` 的键为 `name`",
+        "prerelease": false,
+        "asset": {
+          "id": 237409609,
+          "name": "uuid_api_remake.mcdr",
+          "size": 10039,
+          "download_count": 69,
+          "created_at": "2025-03-14T08:24:12Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v1.1.0/uuid_api_remake.mcdr",
+          "hash_md5": "80a2b6be8d4a57ec12850fc2dd265e55",
+          "hash_sha256": "7877a7622db2bf098e2a5ae77cb95101577597772bc6ee4c59692ce24d15f708"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api_remake",
+          "name": "UUID API Remake",
+          "version": "1.1.0",
+          "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Get UUID of players",
+            "zh_cn": "获取玩家的UUID"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/tag/v1.0.0",
+        "name": "uuid_api_remake-v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-03-13T13:09:45Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 237131609,
+          "name": "uuid_api_remake.mcdr",
+          "size": 9605,
+          "download_count": 33,
+          "created_at": "2025-03-13T13:12:08Z",
+          "browser_download_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake/releases/download/v1.0.0/uuid_api_remake.mcdr",
+          "hash_md5": "a4537652bb7e5a50eb08c81b196677ee",
+          "hash_sha256": "8d2aaeeeb50c5fdbae616cff2f56423b51cd9613efe4ad309ae6a7028a84e6c7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "uuid_api_remake",
+          "name": "UUID API Remake",
+          "version": "1.0.0",
+          "link": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+          "authors": [
+            "gubai"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged",
+            "requests"
+          ],
+          "description": {
+            "en_us": "Get UUID of players",
+            "zh_cn": "获取玩家的UUID"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+    "name": "MCDR_uuid_api_remake",
+    "full_name": "gubaiovo/MCDR_uuid_api_remake",
+    "html_url": "https://github.com/gubaiovo/MCDR_uuid_api_remake",
+    "description": "Get UUID of players",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 1,
+    "readme": "# UUID API REMAKE\n本插件为UUID API重制版，[原作UUID API链接：https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api)\n\n### 本插件uuid获取流程 (如果获取失败则执行下一步)：\n\n1. 判断服务器正版/离线\n2. (1). 正版：\n   1. 读取 usercache.json，失败则下一步\n   2. 调用 API\n   (2). 离线\n   1. 读取 offline_uuid.json，失败则下一步\n   2. 本地计算 uuid，保存到 offline_uuid.json\n\n### 配置文件\n\n```json\n{\n    \"online_api\": \"https://api.mojang.com/users/profiles/minecraft/{}\",\n    \"mojang_online_mode_fallback\": true,\n    \"permissions\": {\n        \"help\": 3,\n        \"get\": 3\n    }\n}\n```\n\n**mojang_online_mode_fallback**: 当插件无法判断服务器正版/离线时，由该项决定使用正版/离线 uuid 获取方式  \n**online_api**: 获取正版 uuid 的 API  \n**permissions**: 权限管理，数值参考 [MCDReforgedPermissions](https://docs.mcdreforged.com/zh-cn/latest/permission.html)\n\n### 命令\n\n具体使用方法请参考 `!!uar help`\n\n### API使用方法\n\n获取玩家名对应的uuid：\n\n```python\nimport uuid_api_remake\n\nname = ... # str\nuuid = uuid_api_remake.get_uuid(name)\nprint(uuid)\n```\n\n获取uuid对应的玩家名(获取范围为 `offline_uuid.json` 以及 `usercache.json`)\n\n```python\nimport uuid_api_remake\n\nuuid = ... # str\nname = uuid_api_remake.get_name(uuid)\nprint(name)\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/gubaiovo/MCDR_uuid_api_remake/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

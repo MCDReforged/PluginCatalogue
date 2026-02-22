@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "database_api",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/database_api",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "# DatabaseAPI\n\n> 数据库API\n> \n> 提供了数据库操作的便捷API\n\n## 环境要求\n\n### Python包\n\n- sqlalchemy\n\n## 开发文档\n\n查看 [Valut](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/database_api/../.archived/vault/vault.py) 参考使用方法\n\n提供了以下两个类:\n\n- TableBase\n- DataManager\n\n### TableBase\n\n一个数据库表的基类, 写一个你的数据库表并继承这个类来创建一张表\n\n### DataManager\n\n使用本API需要自行实例化这个类\n\n实例化: `__init__(self, file_path: str)`\n\n#### get_session\n\n获取一个数据库会话的上下文管理器, 更多信息请自行查找资料\n",
+    "zh_cn": "# DatabaseAPI\n\n> 数据库API\n> \n> 提供了数据库操作的便捷API\n\n## 环境要求\n\n### Python包\n\n- sqlalchemy\n\n## 开发文档\n\n查看 [Valut](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/database_api/../.archived/vault/vault.py) 参考使用方法\n\n提供了以下两个类:\n\n- TableBase\n- DataManager\n\n### TableBase\n\n一个数据库表的基类, 写一个你的数据库表并继承这个类来创建一张表\n\n### DataManager\n\n使用本API需要自行实例化这个类\n\n实例化: `__init__(self, file_path: str)`\n\n#### get_session\n\n获取一个数据库会话的上下文管理器, 更多信息请自行查找资料\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/database_api/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/database_api/readme.md"
+  }
+}
