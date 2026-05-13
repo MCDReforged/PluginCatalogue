@@ -1,0 +1,60 @@
+name: Bug report (错误反馈)
+description: Report a bug or unexpected behavior
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide complete information.
+        请尽量提供完整信息。
+  - type: input
+    id: summary
+    attributes:
+      label: Summary (问题概述)
+      description: Briefly describe the bug.
+      placeholder: 简要描述 bug
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior (预期行为)
+      description: What did you expect to happen?
+      placeholder: 描述你期望发生的结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior (实际行为)
+      description: What actually happened?
+      placeholder: 描述实际发生的结果
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps (复现步骤)
+      description: List the steps to reproduce the issue.
+      placeholder: 1. ...\n2. ...\n3. ...
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Additional details (补充信息)
+      description: Attach logs, screenshots, or relevant links if available.
+      placeholder: 如有必要，可附上日志、截图、相关链接等
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm (提交确认)
+      options:
+        - label: |
+            I have checked that this is not a duplicate issue and provided the required information.
+            我已确认这不是重复问题，并已提供所需信息。
+          required: true

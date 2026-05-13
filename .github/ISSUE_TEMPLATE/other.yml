@@ -1,24 +1,19 @@
-name: 其他问题
-description: 反馈不属于“举报插件”或“网站问题”的其他事项
-title: "[其他问题] "
+name: Other issues (其他问题)
+description: Report other issues
 body:
-  - type: markdown
-    attributes:
-      value: |
-        若问题与插件仓库网站有关，请改到：https://github.com/MCDReforged/website/issues/
   - type: textarea
     id: summary
     attributes:
-      label: 问题描述
-      description: 请简要描述你遇到的问题或建议
-      placeholder: 请描述问题
+      label: Describe the issue (问题描述)
+      description: Simply describe the issue.
+      placeholder: 简要描述问题
     validations:
       required: true
   - type: textarea
     id: details
     attributes:
-      label: 补充信息
-      description: 可补充上下文、截图、日志或相关链接
-      placeholder: 可选
+      label: Further details (补充信息)
+      description: If necessary, you can provide additional context, screenshots, logs, or relevant links.
+      placeholder: 如有需要，可补充上下文、截图、日志或相关链接
     validations:
       required: false

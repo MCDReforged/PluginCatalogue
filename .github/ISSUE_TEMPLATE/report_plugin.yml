@@ -1,58 +1,62 @@
-name: 举报插件
-description: 举报插件侵权、存在安全问题或其他违规行为
-title: "[举报插件] "
+name: Report a plugin (举报插件)
+description: For copyright infringement, security risks, or policy violations
+title: "[Report] "
 body:
   - type: markdown
     attributes:
       value: |
-        请尽量提供完整信息，便于维护者核实与处理。
+        Please rovide complete information.
+        请尽量提供完整信息。
   - type: input
     id: plugin_id
     attributes:
-      label: 插件 ID
-      description: 例如 `example_plugin`
-      placeholder: 填写插件 ID
+      label: Plugin ID (插件 ID)
+      description: e.g. `example_plugin`
+      placeholder: 形如 example_plugin
     validations:
       required: true
   - type: input
     id: plugin_repo
     attributes:
-      label: 插件仓库地址
-      description: 对应插件的 GitHub 仓库链接
-      placeholder: https://github.com/owner/repo
+      label: Repository (插件地址)
+      description: Repository of the plugin.
+      placeholder: 形如 https://github.com/owner/repo
     validations:
       required: false
   - type: dropdown
     id: report_type
     attributes:
-      label: 举报类型
+      label: Report type (举报类型)
       options:
-        - 侵权问题
-        - 安全问题
-        - 恶意行为
-        - 其他违规
+        - Copyright (侵权)
+        - Security (安全)
+        - Malicious (恶意)
+        - Abuse (滥用)
+        - Others (其他)
     validations:
       required: true
   - type: textarea
     id: details
     attributes:
-      label: 详细说明
-      description: 描述问题表现、影响范围、复现方式（如适用）
-      placeholder: 请尽量详细描述
+      label: Provide details (详细说明)
+      description: Describe the behavior, scope of impact, and reproduction steps (if applicable).
+      placeholder: 描述问题表现、影响范围、复现方式（如适用）
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
-      label: 证据与参考链接
-      description: 可附上截图、日志、相关链接等
-      placeholder: 粘贴证据或链接
+      label: Further details (补充信息)
+      description: If necessary, you can attach screenshots, logs, relevant links, etc.
+      placeholder: 如有必要，可附上截图、日志、相关链接等
     validations:
       required: false
   - type: checkboxes
     id: confirm
     attributes:
-      label: 提交确认
+      label: Confirm (提交确认)
       options:
-        - label: 我已确认举报内容真实，并愿意配合进一步核实
+        - label: |
+            I have confirmed that the reported content is true and am willing to cooperate with further verification.
+            我已确认举报内容真实，并愿意配合进一步核实。
           required: true
