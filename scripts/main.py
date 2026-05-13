@@ -5,9 +5,10 @@ from argparse import ArgumentParser
 from typing import Collection, Optional
 
 from catalogue.doc_gen import generate_doc
-from common import log
+from common import constants, log
 from common.report import reporter
 from plugin.plugin_list import get_plugin_list
+from utils import file_utils
 
 
 async def check(target_ids: Optional[Collection[str]]):
@@ -19,6 +20,32 @@ async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
 	plugin_list = get_plugin_list(target_ids)
 	await plugin_list.fetch_data(fail_hard=False, reuse_old_on_failures=True)
 	plugin_list.store_data()
+
+
+def auto_disable_failed_plugins():
+	for plugin_id, failures in reporter.failures.items():
+		if len(failures) == 0:
+			continue
+
+		plugin_info_path = constants.PLUGINS_FOLDER / plugin_id / 'plugin_info.json'
+		try:
+			plugin_info = file_utils.load_json(plugin_info_path)
+		except FileNotFoundError:
+			log.warning('Cannot auto disable plugin {}, plugin_info.json not found'.format(plugin_id))
+			continue
+		except Exception:
+			log.exception('Cannot auto disable plugin {}, failed to load plugin_info.json'.format(plugin_id))
+			continue
+
+		if plugin_info.get('disable'):
+			continue
+
+		reason = 'Auto disabled by scheduled update: {}'.format(failures[0])
+		plugin_info['disable'] = True
+		plugin_info['disable_reason'] = reason
+		file_utils.save_json(plugin_info, plugin_info_path)
+		reporter.record_plugin_disabled(plugin_id, reason)
+		log.warning('Auto disabled plugin {} due to fetch failures'.format(plugin_id))
 
 
 async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
@@ -42,6 +69,8 @@ async def async_main(parser: argparse.ArgumentParser, args: argparse.Namespace):
 			if not args.no_check:
 				await check(target_ids)
 			await fetch_and_store_data(target_ids)
+			if args.auto_disable_failures:
+				auto_disable_failed_plugins()
 			await generate_doc(target_ids)
 		else:
 			parser.print_help()
@@ -67,6 +96,7 @@ def main():
 
 	all_parser = subparsers.add_parser('all', help='Run everything above: check, fetch, doc')
 	all_parser.add_argument('--no-check', action='store_true', help='Skip the check')
+	all_parser.add_argument('--auto-disable-failures', action='store_true', help='Auto disable failed plugins by setting disable fields in plugin_info.json')
 
 	args = parser.parse_args()
 	asyncio.run(async_main(parser, args))

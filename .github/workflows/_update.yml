@@ -64,9 +64,26 @@ jobs:
           if [ "${{ inputs.check }}" = "true" ] && [ -n "${{ steps.detect-changes.outputs.plugins }}" ]; then
             python main.py check --targets "${{ steps.detect-changes.outputs.plugins }}"
           fi
-          python main.py all --no-check
+          if [ "${{ inputs.check }}" = "true" ]; then
+            python main.py all --no-check
+          else
+            python main.py all --no-check --auto-disable-failures
+          fi
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
+
+      - name: Auto commit disabled plugins
+        if: ${{ !inputs.check }}
+        run: |
+          if git diff --quiet -- plugins/; then
+            echo "No plugin changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add plugins/
+          git commit -m "chore: auto disable failed plugins"
+          git push
 
       - name: Deploy meta
         uses: s0/git-publish-subdir-action@develop
