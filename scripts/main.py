@@ -23,6 +23,10 @@ async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
 
 
 def auto_disable_failed_plugins():
+	if len(reporter.failures) == 0:
+		log.info('No plugin failures found, skipping auto disable')
+		return
+
 	for plugin_id, failures in reporter.failures.items():
 		plugin_info_path = constants.PLUGINS_FOLDER / plugin_id / 'plugin_info.json'
 		try:
