@@ -40,7 +40,7 @@ def auto_disable_failed_plugins():
 		if plugin_info.get('disable'):
 			continue
 
-		first_failure = failures[0] if len(failures) > 0 else 'unknown failure'
+		first_failure = failures[0]
 		reason = 'Disabled by scheduled update ({} failures): {}'.format(len(failures), first_failure)
 		plugin_info['disable'] = True
 		plugin_info['disable_reason'] = reason
