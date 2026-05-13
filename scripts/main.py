@@ -31,7 +31,7 @@ def auto_disable_failed_plugins():
 		try:
 			plugin_info = file_utils.load_json(plugin_info_path)
 		except FileNotFoundError:
-			log.warning('Cannot auto disable plugin {}, plugin_info.json not found'.format(plugin_id))
+			log.warning('Skipping auto disable for plugin {}, plugin_info.json not found'.format(plugin_id))
 			continue
 		except Exception:
 			log.exception('Cannot auto disable plugin {}, failed to load plugin_info.json'.format(plugin_id))
@@ -40,7 +40,8 @@ def auto_disable_failed_plugins():
 		if plugin_info.get('disable'):
 			continue
 
-		reason = 'Auto disabled by scheduled update ({} failures): {}'.format(len(failures), failures[0])
+		first_failure = failures[0] if len(failures) > 0 else 'unknown failure'
+		reason = 'Auto disabled by scheduled update ({} failures): {}'.format(len(failures), first_failure)
 		plugin_info['disable'] = True
 		plugin_info['disable_reason'] = reason
 		file_utils.save_json(plugin_info, plugin_info_path)
