@@ -83,9 +83,9 @@ jobs:
           PLUGIN_IDS=$(printf '%s\n' "$CHANGED_FILES" | sed -n 's|^plugins/\([^/]*\)/plugin_info.json$|\1|p' | sort -u | tr '\n' ',' | sed 's/,$//')
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          printf '%s\n' "$CHANGED_FILES" | while IFS= read -r changed_file; do
+          while IFS= read -r changed_file; do
             [ -n "$changed_file" ] && [ -f "$changed_file" ] && git add -- "$changed_file"
-          done
+          done <<< "$CHANGED_FILES"
           git commit -m "chore: auto disable failed plugins (${PLUGIN_IDS})"
           git push
 
