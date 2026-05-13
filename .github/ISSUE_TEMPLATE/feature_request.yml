@@ -44,9 +44,7 @@ body:
   - type: checkboxes
     id: confirm
     attributes:
-      label: Confirm (提交确认)
+      label: 我已检查现有 issue，且理解功能建议可能不被采纳。
       options:
-        - label: |
-            I have checked existing issues and understand this is a feature request.
-            我已检查现有 issue，并确认这是一个功能建议。
+        - label: I've checked existing issues and acknowledge that feature requests might be declined.
           required: true

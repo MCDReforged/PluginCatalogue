@@ -17,3 +17,10 @@ body:
       placeholder: 如有需要，可补充上下文、截图、日志或相关链接
     validations:
       required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 我已确认这不是重复问题，并已提供所需信息。
+      options:
+        - label: I have checked that this is not a duplicate issue and provided the required information.
+          required: true

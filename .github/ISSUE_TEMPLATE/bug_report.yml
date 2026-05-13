@@ -38,7 +38,7 @@ body:
     attributes:
       label: Reproduction steps (复现步骤)
       description: List the steps to reproduce the issue.
-      placeholder: 1. ...\n2. ...\n3. ...
+      placeholder: 提供最小步骤以复现此问题
     validations:
       required: false
   - type: textarea
@@ -52,9 +52,7 @@ body:
   - type: checkboxes
     id: confirm
     attributes:
-      label: Confirm (提交确认)
+      label: 我已确认这不是重复问题，并已提供所需信息。
       options:
-        - label: |
-            I have checked that this is not a duplicate issue and provided the required information.
-            我已确认这不是重复问题，并已提供所需信息。
+        - label: I have checked that this is not a duplicate issue and provided the required information.
           required: true
