@@ -19,6 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -41,14 +43,28 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
 
+      - name: Detect changed plugins
+        id: detect-changes
+        if: inputs.check
+        run: |
+          if git rev-parse --verify HEAD~1 > /dev/null 2>&1; then
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- plugins/ | sed -n 's|^plugins/\([^/]*\)/.*|\1|p' | sort -u | tr '\n' ',')
+            CHANGED="${CHANGED%,}"
+          else
+            CHANGED=""
+          fi
+          echo "plugins=$CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed plugins: ${CHANGED:-none}"
+
       - name: Do the update
+        # Strict check (fail_hard) runs only for plugins changed in this commit.
+        # All plugins are always updated with fallback behavior (--no-check).
         run: |
           cd ./scripts
-          if [ "${{ inputs.check }}" = "true" ]; then
-            python main.py all
-          else
-            python main.py all --no-check
+          if [ "${{ inputs.check }}" = "true" ] && [ -n "${{ steps.detect-changes.outputs.plugins }}" ]; then
+            python main.py check --targets "${{ steps.detect-changes.outputs.plugins }}"
           fi
+          python main.py all --no-check
         env:
           github_api_token: ${{ secrets.TOKEN_FOR_GITHUB_API }}
 
