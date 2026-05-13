@@ -1,0 +1,58 @@
+name: 举报插件
+description: 举报插件侵权、存在安全问题或其他违规行为
+title: "[举报插件] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请尽量提供完整信息，便于维护者核实与处理。
+  - type: input
+    id: plugin_id
+    attributes:
+      label: 插件 ID
+      description: 例如 `example_plugin`
+      placeholder: 填写插件 ID
+    validations:
+      required: true
+  - type: input
+    id: plugin_repo
+    attributes:
+      label: 插件仓库地址
+      description: 对应插件的 GitHub 仓库链接
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: false
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: 举报类型
+      options:
+        - 侵权问题
+        - 安全问题
+        - 恶意行为
+        - 其他违规
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: 详细说明
+      description: 描述问题表现、影响范围、复现方式（如适用）
+      placeholder: 请尽量详细描述
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 证据与参考链接
+      description: 可附上截图、日志、相关链接等
+      placeholder: 粘贴证据或链接
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我已确认举报内容真实，并愿意配合进一步核实
+          required: true
