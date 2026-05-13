@@ -40,7 +40,7 @@ def auto_disable_failed_plugins():
 		if plugin_info.get('disable'):
 			continue
 
-		reason = 'Auto disabled by scheduled update: {}'.format(failures[0])
+		reason = 'Auto disabled by scheduled update ({} failures): {}'.format(len(failures), failures[0])
 		plugin_info['disable'] = True
 		plugin_info['disable_reason'] = reason
 		file_utils.save_json(plugin_info, plugin_info_path)
