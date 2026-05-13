@@ -84,7 +84,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           printf '%s\n' "$CHANGED_FILES" | while IFS= read -r changed_file; do
-            [ -n "$changed_file" ] && git add -- "$changed_file"
+            [ -n "$changed_file" ] && [ -f "$changed_file" ] && git add -- "$changed_file"
           done
           git commit -m "chore: auto disable failed plugins (${PLUGIN_IDS})"
           git push
