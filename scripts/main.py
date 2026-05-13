@@ -24,9 +24,6 @@ async def fetch_and_store_data(target_ids: Optional[Collection[str]]):
 
 def auto_disable_failed_plugins():
 	for plugin_id, failures in reporter.failures.items():
-		if len(failures) == 0:
-			continue
-
 		plugin_info_path = constants.PLUGINS_FOLDER / plugin_id / 'plugin_info.json'
 		try:
 			plugin_info = file_utils.load_json(plugin_info_path)
