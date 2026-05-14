@@ -14,7 +14,9 @@ body:
     attributes:
       label: Summary (问题概述)
       description: Briefly describe the bug.
-      placeholder: 简要描述 bug
+      placeholder: |
+        e.g. Brief bug description
+        简要描述 bug
     validations:
       required: true
   - type: textarea
@@ -22,7 +24,9 @@ body:
     attributes:
       label: Expected behavior (预期行为)
       description: What did you expect to happen?
-      placeholder: 描述你期望发生的结果
+      placeholder: |
+        e.g. What did you expect to happen?
+        描述你期望发生的结果
     validations:
       required: true
   - type: textarea
@@ -30,7 +34,9 @@ body:
     attributes:
       label: Actual behavior (实际行为)
       description: What actually happened?
-      placeholder: 描述实际发生的结果
+      placeholder: |
+        e.g. What actually happened?
+        描述实际发生的结果
     validations:
       required: true
   - type: textarea
@@ -38,7 +44,9 @@ body:
     attributes:
       label: Reproduction steps (复现步骤)
       description: List the steps to reproduce the issue.
-      placeholder: 提供最小步骤以复现此问题
+      placeholder: |
+        e.g. List the minimum steps to reproduce this issue
+        提供最小步骤以复现此问题
     validations:
       required: false
   - type: textarea
@@ -46,7 +54,9 @@ body:
     attributes:
       label: Additional details (补充信息)
       description: Attach logs, screenshots, or relevant links if available.
-      placeholder: 如有必要，可附上日志、截图、相关链接等
+      placeholder: |
+        e.g. Attach logs, screenshots, or relevant links if available
+        如有必要，可附上日志、截图、相关链接等
     validations:
       required: false
   - type: checkboxes

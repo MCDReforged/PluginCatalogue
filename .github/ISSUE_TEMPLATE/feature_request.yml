@@ -14,7 +14,9 @@ body:
     attributes:
       label: Summary (需求概述)
       description: Briefly describe the feature request.
-      placeholder: 简要描述功能建议
+      placeholder: |
+        e.g. Brief feature request
+        简要描述功能建议
     validations:
       required: true
   - type: textarea
@@ -22,7 +24,9 @@ body:
     attributes:
       label: Problem or motivation (问题或动机)
       description: What problem would this solve?
-      placeholder: 说明这个建议要解决什么问题
+      placeholder: |
+        e.g. What problem would this solve?
+        说明这个建议要解决什么问题
     validations:
       required: true
   - type: textarea
@@ -30,7 +34,9 @@ body:
     attributes:
       label: Proposed solution (建议方案)
       description: Describe the feature or improvement you would like.
-      placeholder: 描述你希望的功能或改进方案
+      placeholder: |
+        e.g. Describe the feature or improvement you would like
+        描述你希望的功能或改进方案
     validations:
       required: true
   - type: textarea
@@ -38,7 +44,9 @@ body:
     attributes:
       label: Additional details (补充信息)
       description: Add examples, alternatives, mockups, or related links if helpful.
-      placeholder: 如有必要，可补充示例、替代方案、草图或相关链接等
+      placeholder: |
+        e.g. Add examples, alternatives, mockups, or related links if helpful
+        如有必要，可补充示例、替代方案、草图或相关链接等
     validations:
       required: false
   - type: checkboxes
