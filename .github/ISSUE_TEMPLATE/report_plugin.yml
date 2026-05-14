@@ -12,7 +12,9 @@ body:
     attributes:
       label: Plugin ID (插件 ID)
       description: e.g. `example_plugin`
-      placeholder: 形如 example_plugin
+      placeholder: |
+        e.g. example_plugin
+        形如 example_plugin
     validations:
       required: true
   - type: input
@@ -20,7 +22,9 @@ body:
     attributes:
       label: Repository (插件地址)
       description: Repository of the plugin.
-      placeholder: 形如 https://github.com/owner/repo
+      placeholder: |
+        e.g. https://github.com/owner/repo
+        形如 https://github.com/owner/repo
     validations:
       required: false
   - type: dropdown
@@ -40,7 +44,9 @@ body:
     attributes:
       label: Provide details (详细说明)
       description: Describe the behavior, scope of impact, and reproduction steps (if applicable).
-      placeholder: 描述问题表现、影响范围、复现方式（如适用）
+      placeholder: |
+        Describe the behavior, scope of impact, and reproduction steps (if applicable).
+        描述问题表现、影响范围、复现方式（如适用）
     validations:
       required: true
   - type: textarea
@@ -48,7 +54,9 @@ body:
     attributes:
       label: Further details (补充信息)
       description: If necessary, you can attach screenshots, logs, relevant links, etc.
-      placeholder: 如有必要，可附上截图、日志、相关链接等
+      placeholder: |
+        If needed, include screenshots, logs, and relevant links.
+        如有必要，可附上截图、日志、相关链接等
     validations:
       required: false
   - type: checkboxes

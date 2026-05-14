@@ -6,7 +6,9 @@ body:
     attributes:
       label: Describe the issue (问题描述)
       description: Simply describe the issue.
-      placeholder: 简要描述问题
+      placeholder: |
+        Briefly describe the issue.
+        简要描述问题
     validations:
       required: true
   - type: textarea
@@ -14,7 +16,9 @@ body:
     attributes:
       label: Further details (补充信息)
       description: If necessary, you can provide additional context, screenshots, logs, or relevant links.
-      placeholder: 如有需要，可补充上下文、截图、日志或相关链接
+      placeholder: |
+        Add context, screenshots, logs, or relevant links if needed.
+        如有需要，可补充上下文、截图、日志或相关链接
     validations:
       required: false
   - type: checkboxes
