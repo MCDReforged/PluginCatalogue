@@ -13,8 +13,8 @@ body:
       label: Plugin ID (插件 ID)
       description: e.g. `example_plugin`
       placeholder: |
-        e.g. example_plugin
-        形如 example_plugin
+        e.g. my_plugin_name
+        形如 sample_plugin_cn
     validations:
       required: true
   - type: input
@@ -24,7 +24,7 @@ body:
       description: Repository of the plugin.
       placeholder: |
         e.g. https://github.com/owner/repo
-        形如 https://github.com/owner/repo
+        形如 https://github.com/示例用户/示例仓库
     validations:
       required: false
   - type: dropdown
