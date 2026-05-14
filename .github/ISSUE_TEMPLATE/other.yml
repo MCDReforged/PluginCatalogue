@@ -1,0 +1,30 @@
+name: Other issues (其他问题)
+description: Report other issues
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Describe the issue (问题描述)
+      description: Simply describe the issue.
+      placeholder: |
+        Briefly describe the issue.
+        简要描述问题
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Further details (补充信息)
+      description: If necessary, you can provide additional context, screenshots, logs, or relevant links.
+      placeholder: |
+        Add context, screenshots, logs, or relevant links if needed.
+        如有需要，可补充上下文、截图、日志或相关链接
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 我已确认这不是重复问题，并已提供所需信息。
+      options:
+        - label: I have checked that this is not a duplicate issue and provided the required information.
+          required: true

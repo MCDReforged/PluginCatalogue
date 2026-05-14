@@ -1,0 +1,68 @@
+name: Report a plugin (举报插件)
+description: For copyright infringement, security risks, or policy violations
+title: "[Report] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide complete information.
+        请尽量提供完整信息。
+  - type: input
+    id: plugin_id
+    attributes:
+      label: Plugin ID (插件 ID)
+      description: e.g. `example_plugin`
+      placeholder: |
+        e.g. my_plugin_name
+        形如 my_plugin_name
+    validations:
+      required: true
+  - type: input
+    id: plugin_repo
+    attributes:
+      label: Repository (插件地址)
+      description: Repository of the plugin.
+      placeholder: |
+        e.g. https://github.com/owner/repo
+        形如 https://github.com/owner/repo
+    validations:
+      required: false
+  - type: dropdown
+    id: report_type
+    attributes:
+      label: Report type (举报类型)
+      options:
+        - Copyright (侵权)
+        - Security (安全)
+        - Malicious (恶意)
+        - Abuse (滥用)
+        - Others (其他)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Provide details (详细说明)
+      description: Describe the behavior, scope of impact, and reproduction steps (if applicable).
+      placeholder: |
+        Describe the behavior, scope of impact, and reproduction steps (if applicable).
+        描述问题表现、影响范围、复现方式（如适用）
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Further details (补充信息)
+      description: If necessary, you can attach screenshots, logs, relevant links, etc.
+      placeholder: |
+        If needed, include screenshots, logs, and relevant links.
+        如有必要，可附上截图、日志、相关链接等
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: 我已确认举报内容真实，并愿意配合进一步核实。
+      options:
+        - label: I have confirmed that the reported content is true and am willing to cooperate with further verification.
+          required: true
