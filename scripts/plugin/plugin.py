@@ -330,10 +330,15 @@ class Plugin:
 						self.__introduction_error[lang] = e
 					else:
 						if file_location.lower().endswith('.md'):
+							repos_url = self.repos.get_page_url_base()
+							raw_url = self.repos.get_raw_url_base()
+							if (base_dir := Path(file_location).parent.as_posix()) not in ['.', '']:
+								repos_url += '/' + base_dir
+								raw_url += '/' + base_dir
 							file_content = markdown_utils.rewrite_markdown(
 								file_content,
-								repos_url=self.repos.get_page_url_base(),
-								raw_url=self.repos.get_raw_url_base(),
+								repos_url=repos_url,
+								raw_url=raw_url,
 							)
 						introduction_translations[lang] = file_content
 				else:
