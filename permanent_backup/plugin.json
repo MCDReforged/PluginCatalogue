@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "permanent_backup",
+  "authors": [
+    "Fallen_Breath"
+  ],
+  "repository": "https://github.com/TISUnion/PermanentBackup",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "PermanentBackup\n-----\n\n一个用于创建完整备份的 \n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件。备份的存档将会被打包成 `.zip` 格式\n\n与 [QuickBackupM](https://github.com/TISUnion/QuickBackupM) 类似，PermanentBackup 可以指定备份的世界文件夹，也可以修改所需的权限等级\n\n备份的存档将会存放至 perma_backup 文件夹中\n\n## 命令格式说明\n\n`!!backup` 显示帮助信息\n\n`!!backup make [<comment>]` 创建一个备份，comment 为可选备注信息\n\n`!!backup list` 显示最近的十个备份的信息\n\n`!!backup listall` 显示所有备份的信息\n\n## 配置文件\n\n配置文件为 `config/PermanentBackup.json`\n\n具体修改方式类似 [QuickBackupM](https://github.com/TISUnion/QuickBackupM)\n\n默认配置文件：\n\n```json5\n{\n    \"turn_off_auto_save\": true,   // 备份时是否关闭 autosave\n    \"ignore_session_lock\": true,  // 是否忽略session.lock\n    \"backup_path\": \"./perma_backup\",  // 备份文件夹路径\n    \"server_path\": \"./server\",  //  服务端所在路径\n    \"world_names\": [  // 存档文件名列表。bukkit系服务端使用多个文件夹储存不同的维度\n        \"world\"\n    ],\n    \"minimum_permission_level\": {  // 指令权限需求\n        \"make\": 2,\n        \"list\": 0,\n        \"listall\": 2\n    }\n}\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/TISUnion/PermanentBackup/master/readme.md"
+  }
+}

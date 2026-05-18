@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "mc_tg_bridge",
+    "name": "Minecraft Telegram Bridge",
+    "version": "1.2.1",
+    "link": "https://github.com/Azusa-mikan/minecraft_telegram_bridge",
+    "authors": [
+      "Azusa-mikan"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.15",
+      "mg_events": ">=1.1.2",
+      "minecraft_data_api": ">=1.6.1"
+    },
+    "requirements": [
+      "pydantic>=2.12.5",
+      "python-telegram-bot[rate-limiter]==22.7"
+    ],
+    "description": {
+      "zh_cn": "使用 Telegram Bot 控制你的 Minecraft 服务器，具备聊天同步/事件转发",
+      "en_us": "Control your Minecraft server via Telegram Bot, with chat sync and event forwarding"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "mc_tg_bridge",
+    "authors": [
+      "Azusa_mikan"
+    ],
+    "repository": "https://github.com/Azusa-mikan/minecraft_telegram_bridge",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information",
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# Minecraft Telegram Bridge\n\n一个用于 [MCDReforged](https://github.com/MCDReforged/MCDReforged) 的 Telegram 桥接插件。  \n它可以把 Minecraft 服务器和 Telegram 群聊连接起来，实现聊天互通、服务器事件通知，以及基础的远程控制。\n\n## 功能概览\n\n- Minecraft 聊天转发到 Telegram（支持自定义格式）\n- Telegram 消息转发到 Minecraft（支持在游戏内快捷回复）\n- 玩家进出服通知、服务器启停通知\n- Telegram 查看服务器状态（CPU、内存、线程、IO、队列）\n- Telegram 远程控制服务器：启动、停止、重启\n- Telegram 执行 Minecraft 命令 / MCDR 命令\n- Telegram 用户与游戏玩家名绑定（验证码流程）\n\n## 环境要求\n\n- Python `>= 3.10`\n- MCDReforged `>= 2.15`\n- [mg_events](https://github.com/Mooling0602/MoreGameEvents-MCDR) `>=1.1.2`\n- [minecraft_data_api](https://github.com/Fallen-Breath/MinecraftDataAPI) `>=1.6.1`\n\n## 安装\n\n直接使用下面的命令，它会搞定一切：\n\n```\n!!MCDR plugin install mc_tg_bridge\n```\n\n安装后插件会自动生成配置文件 `config/tgb/config.yaml`（具体路径取决于 MCDR 数据目录）\n\n## 配置文件\n\n### 字段说明\n\n- `plugin_status`：是否启用插件（必须为 `true`）\n- `to_tg_message_format`：Minecraft -> Telegram 聊天格式\n- `to_mc_message_format`：Telegram -> Minecraft 聊天格式\n- `joined_message` / `left_message`：玩家进出服通知模板\n- `server_started_message` / `server_stopped_message`：服务器启停通知模板\n- `mc_to_tg_send_events`: 启用额外事件消息转发（玩家死亡、获得进度）\n- `telegram.bot_token`：BotFather 创建的机器人 Token\n- `telegram.admin_id`：管理员 Telegram 用户 ID（高权限操作判定）\n- `telegram.chat_ids`：允许交互的 Telegram 聊天 ID 列表（只能群组）\n\n## 使用说明\n\n### Telegram 侧命令\n\n- `/start`：激活机器人（含绑定流程入口）\n- `/status`：查看服务器状态\n- `/bind <玩家名>`：发起绑定流程\n- `/stop`：停止服务器（仅管理员）\n- `/restart`：重启服务器（仅管理员）\n- `/start_server`：启动服务器（仅管理员）\n- `/exec <命令>`：执行命令\n  - 以 `!!` 开头：执行 MCDR 命令（权限由 MCDR 权限系统判定）\n  - 非 `!!`：执行 Minecraft 命令（仅管理员）\n\n### Minecraft 侧命令\n\n- `!!tgb reply <chat_id> <message_id> <text>`：回复某条 Telegram 消息\n- `!!tgb bind <验证码>`：完成 Telegram 绑定验证\n\n## 绑定流程\n\n1. 在 Telegram 群中执行 `/bind 玩家名`\n2. 点击机器人给出的验证按钮（跳转私聊）\n3. 机器人私聊发送 6 位验证码\n4. 在游戏内执行：`!!tgb bind 验证码`\n5. 验证成功后，Telegram 用户与玩家名写入 `bind.json`\n\n说明：\n- 验证码默认 60 秒有效\n- 同一时刻只允许一个待验证请求\n\n## 权限与安全\n\n- 只有 `telegram.chat_ids` 中的聊天可与机器人交互\n- 管理操作（启停服、重启）仅 `admin_id` 可用\n- `/exec !!...` 会以 Telegram 命令源执行 MCDR 命令：\n  - `admin_id` 映射为较高权限等级\n  - 其他用户为低权限等级\n\n## 消息流向\n\n- Minecraft -> Telegram：\n  - 玩家聊天（非 `!!` 命令）\n  - 玩家加入 / 离开\n  - 玩家死亡 / 达成进度（若 `mc_to_tg_send_events` 为 `true`）\n  - 服务器启动 / 停止\n- Telegram -> Minecraft：\n  - 群消息转发到游戏聊天\n  - 未绑定用户显示为 Telegram 昵称（绑定后可显示玩家名）\n\n## 常见问题\n\n- 插件未加载：\n  - 检查 `plugin_status` 是否为 `true`\n  - 检查 `bot_token`、`chat_ids`、`admin_id` 是否正确\n- Telegram 收不到消息：\n  - 确认机器人已在目标群并关闭私有模式\n  - 确认群 ID 已写入 `chat_ids`\n- 未转发死亡消息和进度消息\n  - 如果你所运行的服务端不会在控制台输出，那么 `MoreGameEvents-MCDR` 插件将无法捕获\n  - 详见: [工作原理](https://github.com/Mooling0602/MoreGameEvents-MCDR#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86)\n- 死亡消息和进度消息有颜色符号\n  - 只要把 `/config/mg_events/config.yml` 中的 `set_advancement_color_in_content_raw` 配置项改为 `false` 即可\n  - 详见: [MoreGameEvents-MCDR 文档](https://github.com/Mooling0602/MoreGameEvents-MCDR#%E6%96%87%E6%A1%A3%E7%AE%80%E6%98%93%E7%89%88)\n- 绑定失败：\n  - 确认验证码未过期\n  - 确认执行绑定命令的游戏玩家与发起绑定的 Telegram 用户一致\n\n## 许可证\n\n本项目使用 **GNU General Public License v3.0 (GPL-3.0)** 许可证发布。\n\nCopyright (C) 2026 Azusa-Mikan\n",
+      "zh_cn": "# Minecraft Telegram Bridge\n\n一个用于 [MCDReforged](https://github.com/MCDReforged/MCDReforged) 的 Telegram 桥接插件。  \n它可以把 Minecraft 服务器和 Telegram 群聊连接起来，实现聊天互通、服务器事件通知，以及基础的远程控制。\n\n## 功能概览\n\n- Minecraft 聊天转发到 Telegram（支持自定义格式）\n- Telegram 消息转发到 Minecraft（支持在游戏内快捷回复）\n- 玩家进出服通知、服务器启停通知\n- Telegram 查看服务器状态（CPU、内存、线程、IO、队列）\n- Telegram 远程控制服务器：启动、停止、重启\n- Telegram 执行 Minecraft 命令 / MCDR 命令\n- Telegram 用户与游戏玩家名绑定（验证码流程）\n\n## 环境要求\n\n- Python `>= 3.10`\n- MCDReforged `>= 2.15`\n- [mg_events](https://github.com/Mooling0602/MoreGameEvents-MCDR) `>=1.1.2`\n- [minecraft_data_api](https://github.com/Fallen-Breath/MinecraftDataAPI) `>=1.6.1`\n\n## 安装\n\n直接使用下面的命令，它会搞定一切：\n\n```\n!!MCDR plugin install mc_tg_bridge\n```\n\n安装后插件会自动生成配置文件 `config/tgb/config.yaml`（具体路径取决于 MCDR 数据目录）\n\n## 配置文件\n\n### 字段说明\n\n- `plugin_status`：是否启用插件（必须为 `true`）\n- `to_tg_message_format`：Minecraft -> Telegram 聊天格式\n- `to_mc_message_format`：Telegram -> Minecraft 聊天格式\n- `joined_message` / `left_message`：玩家进出服通知模板\n- `server_started_message` / `server_stopped_message`：服务器启停通知模板\n- `mc_to_tg_send_events`: 启用额外事件消息转发（玩家死亡、获得进度）\n- `telegram.bot_token`：BotFather 创建的机器人 Token\n- `telegram.admin_id`：管理员 Telegram 用户 ID（高权限操作判定）\n- `telegram.chat_ids`：允许交互的 Telegram 聊天 ID 列表（只能群组）\n\n## 使用说明\n\n### Telegram 侧命令\n\n- `/start`：激活机器人（含绑定流程入口）\n- `/status`：查看服务器状态\n- `/bind <玩家名>`：发起绑定流程\n- `/stop`：停止服务器（仅管理员）\n- `/restart`：重启服务器（仅管理员）\n- `/start_server`：启动服务器（仅管理员）\n- `/exec <命令>`：执行命令\n  - 以 `!!` 开头：执行 MCDR 命令（权限由 MCDR 权限系统判定）\n  - 非 `!!`：执行 Minecraft 命令（仅管理员）\n\n### Minecraft 侧命令\n\n- `!!tgb reply <chat_id> <message_id> <text>`：回复某条 Telegram 消息\n- `!!tgb bind <验证码>`：完成 Telegram 绑定验证\n\n## 绑定流程\n\n1. 在 Telegram 群中执行 `/bind 玩家名`\n2. 点击机器人给出的验证按钮（跳转私聊）\n3. 机器人私聊发送 6 位验证码\n4. 在游戏内执行：`!!tgb bind 验证码`\n5. 验证成功后，Telegram 用户与玩家名写入 `bind.json`\n\n说明：\n- 验证码默认 60 秒有效\n- 同一时刻只允许一个待验证请求\n\n## 权限与安全\n\n- 只有 `telegram.chat_ids` 中的聊天可与机器人交互\n- 管理操作（启停服、重启）仅 `admin_id` 可用\n- `/exec !!...` 会以 Telegram 命令源执行 MCDR 命令：\n  - `admin_id` 映射为较高权限等级\n  - 其他用户为低权限等级\n\n## 消息流向\n\n- Minecraft -> Telegram：\n  - 玩家聊天（非 `!!` 命令）\n  - 玩家加入 / 离开\n  - 玩家死亡 / 达成进度（若 `mc_to_tg_send_events` 为 `true`）\n  - 服务器启动 / 停止\n- Telegram -> Minecraft：\n  - 群消息转发到游戏聊天\n  - 未绑定用户显示为 Telegram 昵称（绑定后可显示玩家名）\n\n## 常见问题\n\n- 插件未加载：\n  - 检查 `plugin_status` 是否为 `true`\n  - 检查 `bot_token`、`chat_ids`、`admin_id` 是否正确\n- Telegram 收不到消息：\n  - 确认机器人已在目标群并关闭私有模式\n  - 确认群 ID 已写入 `chat_ids`\n- 未转发死亡消息和进度消息\n  - 如果你所运行的服务端不会在控制台输出，那么 `MoreGameEvents-MCDR` 插件将无法捕获\n  - 详见: [工作原理](https://github.com/Mooling0602/MoreGameEvents-MCDR#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86)\n- 死亡消息和进度消息有颜色符号\n  - 只要把 `/config/mg_events/config.yml` 中的 `set_advancement_color_in_content_raw` 配置项改为 `false` 即可\n  - 详见: [MoreGameEvents-MCDR 文档](https://github.com/Mooling0602/MoreGameEvents-MCDR#%E6%96%87%E6%A1%A3%E7%AE%80%E6%98%93%E7%89%88)\n- 绑定失败：\n  - 确认验证码未过期\n  - 确认执行绑定命令的游戏玩家与发起绑定的 Telegram 用户一致\n\n## 许可证\n\n本项目使用 **GNU General Public License v3.0 (GPL-3.0)** 许可证发布。\n\nCopyright (C) 2026 Azusa-Mikan\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Azusa-mikan/minecraft_telegram_bridge/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Azusa-mikan/minecraft_telegram_bridge/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "mc_tg_bridge",
+    "latest_version": "1.2.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Azusa-mikan/minecraft_telegram_bridge/releases/tag/v1.2.1",
+        "name": "v.1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2026-04-19T16:55:29Z",
+        "description": "[update log](https://github.com/Azusa-mikan/telegram_bridge/commit/4c8b3d1bd06bb4828c8997be10c540d1da0518ba)",
+        "prerelease": false,
+        "asset": {
+          "id": 400057956,
+          "name": "MinecraftTelegramBridge-v1.2.1.mcdr",
+          "size": 13763,
+          "download_count": 16,
+          "created_at": "2026-04-19T16:57:58Z",
+          "browser_download_url": "https://github.com/Azusa-mikan/minecraft_telegram_bridge/releases/download/v1.2.1/MinecraftTelegramBridge-v1.2.1.mcdr",
+          "hash_md5": "610d7141844e05db8e6b44ef29942ea2",
+          "hash_sha256": "e020df7389516ad61516f85ed08859e10efae9b60b88a87749c2d330382368f0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mc_tg_bridge",
+          "name": "Minecraft Telegram Bridge",
+          "version": "1.2.1",
+          "link": "https://github.com/Azusa-mikan/minecraft_telegram_bridge",
+          "authors": [
+            "Azusa-mikan"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15",
+            "mg_events": ">=1.1.2",
+            "minecraft_data_api": ">=1.6.1"
+          },
+          "requirements": [
+            "pydantic>=2.12.5",
+            "python-telegram-bot[rate-limiter]==22.7"
+          ],
+          "description": {
+            "zh_cn": "使用 Telegram Bot 控制你的 Minecraft 服务器，具备聊天同步/事件转发",
+            "en_us": "Control your Minecraft server via Telegram Bot, with chat sync and event forwarding"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Azusa-mikan/minecraft_telegram_bridge",
+    "name": "minecraft_telegram_bridge",
+    "full_name": "Azusa-mikan/minecraft_telegram_bridge",
+    "html_url": "https://github.com/Azusa-mikan/minecraft_telegram_bridge",
+    "description": "Sync Minecraft server chat/events to Telegram group chat",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# Minecraft Telegram Bridge\n\n一个用于 [MCDReforged](https://github.com/MCDReforged/MCDReforged) 的 Telegram 桥接插件。  \n它可以把 Minecraft 服务器和 Telegram 群聊连接起来，实现聊天互通、服务器事件通知，以及基础的远程控制。\n\n## 功能概览\n\n- Minecraft 聊天转发到 Telegram（支持自定义格式）\n- Telegram 消息转发到 Minecraft（支持在游戏内快捷回复）\n- 玩家进出服通知、服务器启停通知\n- Telegram 查看服务器状态（CPU、内存、线程、IO、队列）\n- Telegram 远程控制服务器：启动、停止、重启\n- Telegram 执行 Minecraft 命令 / MCDR 命令\n- Telegram 用户与游戏玩家名绑定（验证码流程）\n\n## 环境要求\n\n- Python `>= 3.10`\n- MCDReforged `>= 2.15`\n- [mg_events](https://github.com/Mooling0602/MoreGameEvents-MCDR) `>=1.1.2`\n- [minecraft_data_api](https://github.com/Fallen-Breath/MinecraftDataAPI) `>=1.6.1`\n\n## 安装\n\n直接使用下面的命令，它会搞定一切：\n\n```\n!!MCDR plugin install mc_tg_bridge\n```\n\n安装后插件会自动生成配置文件 `config/tgb/config.yaml`（具体路径取决于 MCDR 数据目录）\n\n## 配置文件\n\n### 字段说明\n\n- `plugin_status`：是否启用插件（必须为 `true`）\n- `to_tg_message_format`：Minecraft -> Telegram 聊天格式\n- `to_mc_message_format`：Telegram -> Minecraft 聊天格式\n- `joined_message` / `left_message`：玩家进出服通知模板\n- `server_started_message` / `server_stopped_message`：服务器启停通知模板\n- `mc_to_tg_send_events`: 启用额外事件消息转发（玩家死亡、获得进度）\n- `telegram.bot_token`：BotFather 创建的机器人 Token\n- `telegram.admin_id`：管理员 Telegram 用户 ID（高权限操作判定）\n- `telegram.chat_ids`：允许交互的 Telegram 聊天 ID 列表（只能群组）\n\n## 使用说明\n\n### Telegram 侧命令\n\n- `/start`：激活机器人（含绑定流程入口）\n- `/status`：查看服务器状态\n- `/bind <玩家名>`：发起绑定流程\n- `/stop`：停止服务器（仅管理员）\n- `/restart`：重启服务器（仅管理员）\n- `/start_server`：启动服务器（仅管理员）\n- `/exec <命令>`：执行命令\n  - 以 `!!` 开头：执行 MCDR 命令（权限由 MCDR 权限系统判定）\n  - 非 `!!`：执行 Minecraft 命令（仅管理员）\n\n### Minecraft 侧命令\n\n- `!!tgb reply <chat_id> <message_id> <text>`：回复某条 Telegram 消息\n- `!!tgb bind <验证码>`：完成 Telegram 绑定验证\n\n## 绑定流程\n\n1. 在 Telegram 群中执行 `/bind 玩家名`\n2. 点击机器人给出的验证按钮（跳转私聊）\n3. 机器人私聊发送 6 位验证码\n4. 在游戏内执行：`!!tgb bind 验证码`\n5. 验证成功后，Telegram 用户与玩家名写入 `bind.json`\n\n说明：\n- 验证码默认 60 秒有效\n- 同一时刻只允许一个待验证请求\n\n## 权限与安全\n\n- 只有 `telegram.chat_ids` 中的聊天可与机器人交互\n- 管理操作（启停服、重启）仅 `admin_id` 可用\n- `/exec !!...` 会以 Telegram 命令源执行 MCDR 命令：\n  - `admin_id` 映射为较高权限等级\n  - 其他用户为低权限等级\n\n## 消息流向\n\n- Minecraft -> Telegram：\n  - 玩家聊天（非 `!!` 命令）\n  - 玩家加入 / 离开\n  - 玩家死亡 / 达成进度（若 `mc_to_tg_send_events` 为 `true`）\n  - 服务器启动 / 停止\n- Telegram -> Minecraft：\n  - 群消息转发到游戏聊天\n  - 未绑定用户显示为 Telegram 昵称（绑定后可显示玩家名）\n\n## 常见问题\n\n- 插件未加载：\n  - 检查 `plugin_status` 是否为 `true`\n  - 检查 `bot_token`、`chat_ids`、`admin_id` 是否正确\n- Telegram 收不到消息：\n  - 确认机器人已在目标群并关闭私有模式\n  - 确认群 ID 已写入 `chat_ids`\n- 未转发死亡消息和进度消息\n  - 如果你所运行的服务端不会在控制台输出，那么 `MoreGameEvents-MCDR` 插件将无法捕获\n  - 详见: [工作原理](https://github.com/Mooling0602/MoreGameEvents-MCDR#%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86)\n- 死亡消息和进度消息有颜色符号\n  - 只要把 `/config/mg_events/config.yml` 中的 `set_advancement_color_in_content_raw` 配置项改为 `false` 即可\n  - 详见: [MoreGameEvents-MCDR 文档](https://github.com/Mooling0602/MoreGameEvents-MCDR#%E6%96%87%E6%A1%A3%E7%AE%80%E6%98%93%E7%89%88)\n- 绑定失败：\n  - 确认验证码未过期\n  - 确认执行绑定命令的游戏玩家与发起绑定的 Telegram 用户一致\n\n## 许可证\n\n本项目使用 **GNU General Public License v3.0 (GPL-3.0)** 许可证发布。\n\nCopyright (C) 2026 Azusa-Mikan\n",
+    "readme_url": "https://raw.githubusercontent.com/Azusa-mikan/minecraft_telegram_bridge/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

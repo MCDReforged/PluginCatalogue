@@ -1,0 +1,776 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "chunk_backup",
+    "name": "Chunk Backup",
+    "version": "2.0.2",
+    "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+    "authors": [
+      "FRUITS_CANDY",
+      "Bexerlmao"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.15.1",
+      "candy_tools": ">=1.0.2"
+    },
+    "requirements": [
+      "mcdreforged>=2.15.1"
+    ],
+    "description": {
+      "en_us": "A MCDR plugin that backs up or restores by chunk",
+      "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "chunk_backup",
+    "authors": [
+      "FRUITS_CANDY",
+      "Bexerlmao"
+    ],
+    "repository": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "zh_cn": "# Chunk Backup —— 区块备份插件，v2.0.0 焕新登场！\n\n[![MCDReforged](https://img.shields.io/badge/MCDReforged-≥2.15.1-blue)](https://mcdreforged.com)\n[![Minecraft](https://img.shields.io/badge/Minecraft-1.16--26.1-green)]()\n[![GitHub release](https://img.shields.io/github/v/release/Passion-Never-Dissipate/Chunk_BackUp)]()\n\n> ⚠️ **警告**  \n> **v2.0.0 是一次完全重写的大版本升级，与旧版 v1.x 不兼容！**  \n> 旧版备份数据**无法直接在新版中使用**，请务必阅读下方的「升级指南」。\n\n> 💡 **提示**\n> - 当前版本支持 Minecraft 1.16以后的所有正式版，并自动适配26.1前后的新世界存储结构。\n> - 需要 MCDReforged **≥2.15.1** 和 **必须的前置插件** [candy_tools](https://github.com/Passion-Never-Dissipate/candy_tools) **≥1.0.2**（缺少它将导致插件无法正常工作）。\n> - 建议将服务端编码设为 UTF-8（详见配置说明）。\n> - 遇到问题先检查插件是否为最新版，并确认配置文件是否正确。\n> - 若发现问题或有改进建议，欢迎提交 Issue 或 PR，也可加入交流群：**417086159**。\n\n---\n\n## 📌 新版简介\n\n**Chunk Backup** 是一款以 **区块（chunk）** 为最小单位的 Minecraft 服务器备份插件。它只备份你指定的区块范围，而不是整个世界，从而大幅节省存储空间和操作时间。\n\n**v2.0.0 是一次脱胎换骨的重构**，我们重写了命令系统、任务调度、备份格式和错误处理，带来了更可靠、更易用的体验：\n\n- **全新命令树**：相较于以前复杂且难以理解的命令，新版本命令更容易理解，直观，功能更多。\n- **任务队列与确认机制**：所有耗时操作（备份、回档、删除）均进入队列，支持 `!!cb confirm` 和 `!!cb abort`，告别误操作。\n- **智能版本适配**：自动识别服务端版本，配置文件自动切换26.1版本前后的存储结构（`dimensions/minecraft/...`）。\n- **玩家数据备份**：拥有Carpet Mod时，备份时自动收集选区内的玩家数据，回档时可选择一并恢复。\n- **完整操作日志**：每次危险任务都会生成日志，可追溯任务状态、执行者和结果。\n- **备份索引文件**：每个备份目录下生成 `index.json`，明确记录备份范围与外部区块，确保可恢复性。\n\n---\n\n## 🚀 主要特性\n\n### 🧩 区块级精确操作\n- 支持三种选区方式：\n  - **半径模式**：以玩家所在区块为中心，备份 `2×半径+1` 边长的正方形区域（最小为单个区块）。\n  - **两点模式**：通过两个世界坐标确定矩形范围，自动转换为区块坐标。\n  - **维度模式**：备份整个维度的所有区域文件（如主世界、下界、末地）。\n\n### 📦 智能处理超大区块\n- 当区块数据超过 **1020 KiB** 时，自动将其内容存储为外部文件（`c.x.z.mcc`），区域文件中仅保留标记。\n- 备份与恢复时自动处理这些外部文件，完美兼容原版机制。\n\n### 👤 玩家数据备份（需 Carpet Mod 和 candy_tools）\n- 在安装 Carpet Mod 且启用 candy_tools 插件的情况下，备份时会自动备份选区内玩家的物品栏，坐标，成就等数据。\n- 回档时可选择 **同时恢复玩家数据**（需添加 `-d` 参数），确保玩家进度与区块同步。\n- 玩家数据独立存储，与区块备份分开管理，灵活可控。\n\n### 🔄 智能版本适配\n- 自动检测 Minecraft 服务端版本，配置文件自动切换26.1版本前后的存储结构（`dimensions/minecraft/...`）。\n- 无需手动修改配置文件，插件自动切换路径规则。\n\n### 🛡️ 安全可靠的任务管理\n- **任务队列**：所有耗时操作作为独立任务运行，避免阻塞服务器主线程。\n- **确认与中断**：\n  - `!!cb confirm` 确认危险操作，`!!cb abort` 随时中止等待中的任务。\n  - 重型任务（如回档）与轻型任务分离，互不干扰。\n- **自动回滚保护**：回档前自动创建“回档前备份”（overwrite），若回档失败，插件会自动尝试恢复到此状态，最大限度保护存档。\n\n### 📜 完整日志追溯\n- 每次备份、回档、删除操作都会生成详细日志，保存最近 **100 条** 记录。\n- 通过 `!!cb log list` 和 `!!cb log show` 可查看任务状态、执行者、执行时间及结果。\n- 日志文件以 JSON 格式存储，便于外部分析。\n\n### 🗂️ 备份索引文件\n- 每个备份目录下都会生成 `index.json`，明确记录：\n  - 备份类型（全区域/部分区块）\n  - 包含的区块范围\n  - 外部区块列表（若有）\n- **重要提示**：每个备份目录下的 `info.json` 文件存储了该备份的所有元数据（日期、注释、维度等），是备份有效的核心标识。**切勿手动删除或修改**，否则该备份将被视为无效，无法用于回档。\n\n### ⚡ 高性能并发处理\n- 使用线程池并行处理多个区域的区块导出/合并操作。\n- 支持配置最大并发线程数（`max_workers`），在性能与资源占用间取得平衡。\n\n### 🌍 多维度支持\n- 配置文件支持自定义多个维度，每个维度可指定：\n  - 世界文件夹名称\n  - 区域文件夹路径（支持多个，如 `region`、`entities`、`poi`）\n  - 维度描述和整数 ID（用于命令输入）\n- 开箱即支持主世界、下界、末地，也可轻松添加其他模组维度。\n\n### 🎮 人性化命令设计\n- 基于 MCDReforged 原生命令节点构建，支持 **Tab 补全** 和 **参数提示**。\n- 提供详细的指令帮助，输入 `!!cb help <指令>` 即可查看用法示例。\n- 支持 `-s`（静态备份）、`-d`（回档时恢复玩家数据）、`-c`（跳过确认）等便捷参数。\n\n---\n\n## 📦 安装\n\n1. **确保已安装前置插件**：`candy_tools` 是必须的前置插件，缺少它将导致 Chunk Backup 无法正常工作。请先安装 [candy_tools](https://github.com/Passion-Never-Dissipate/candy_tools) **≥1.0.2**。\n2. **安装 Chunk Backup**：你可以通过以下任意一种方式安装：\n   - **推荐：使用 MCDR 插件管理器**  \n     在游戏内或控制台执行命令：  \n     `!!MCDR plugin install chunk_backup`  \n     插件管理器将自动下载并安装最新版本。\n   - **手动安装**  \n     从 [GitHub Releases](https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases) 页面下载最新版本的插件（`.mcdr` 或源码包），放入 MCDR 的 `plugins` 文件夹。\n3. 启动/重启 MCDR，插件会自动生成配置文件 `config/chunk_backup/config.json`。\n4. 根据需要修改配置文件（详见下文「配置」），然后输入 `!!cb reload` 重载。\n\n> ⚠️ **注意**\n> - 若你的服务端使用 Spigot/Paper 等多世界文件夹结构，请确保在配置中为每个维度正确设置 `world_name` 和 `region_folder`。\n> - 如果服务端输出乱码，请参考 [MCDR 文档](https://docs.mcdreforged.com/zh-cn/latest/configuration.html#handler) 设置正确的处理器（handler）和 UTF-8 编码。\n\n---\n\n## ⚙️ 配置\n\n配置文件位于 `config/chunk_backup/config.json`。首次运行插件时会自动生成默认配置，请根据实际情况修改。\n\n### 根字段\n\n| 字段                  | 类型     | 默认值                 | 说明                                     |\n| ------------------- | ------ | ------------------- | -------------------------------------- |\n| `server_root`       | string | `\"./server\"`        | 服务端文件夹路径                               |\n| `storage_root`      | string | `\"./cb_files\"`      | 插件数据存储根目录                              |\n| `log_storage`       | string | `\"logs\"`            | 日志存储子目录（相对于 `storage_root`）            |\n| `static_storage`    | string | `\"static_storage\"`  | 静态备份存储子目录                              |\n| `dynamic_storage`   | string | `\"dynamic_storage\"` | 动态备份存储子目录                              |\n| `overwrite_storage` | string | `\"overwrite\"`       | 回档前自动备份存放目录                            |\n| `max_workers`       | int    | `4`                 | 文件操作的最大并发线程数                           |\n| `ensure_no_carpet`  | bool   | `false`             | 是否强制在未安装 Carpet Mod 时仍尝试玩家数据备份（可能导致错误） |\n| `config_version`    | string | 插件版本                | 配置文件版本（自动管理，请勿手动修改）                    |\n| `minecraft_version` | string | 自动检测                | 上次备份时的 Minecraft 版本，用于路径自动升级           |\n\n### 命令配置（`command`）\n\n#### `command.prefix`\n- 类型：string\n- 默认值：`\"!!cb\"`\n- 说明：插件指令的前缀，修改后需重载生效。\n\n#### `command.permission`\n权限级别字典，控制各子命令的访问权限。数值含义参考 [MCDR 权限系统](https://mcdreforged.readthedocs.io/zh_CN/latest/permission.html)。默认值如下：\n\n```json\n{\n    \"root\": 0,\n    \"make\": 1,\n    \"pmake\": 1,\n    \"dmake\": 1,\n    \"back\": 2,\n    \"restore\": 2,\n    \"del\": 2,\n    \"list\": 0,\n    \"show\": 0,\n    \"log\": 1,\n    \"help\": 0,\n    \"confirm\": 1,\n    \"abort\": 1,\n    \"reload\": 3\n}\n```\n\n#### `command.confirm_time_wait`\n- 类型：字符串（带单位的时间，如 `\"60s\"`）\n- 默认值：`\"60s\"`\n- 说明：执行危险操作时等待确认的超时时间。\n\n#### `command.restore_countdown_sec`\n- 类型：int\n- 默认值：`10`\n- 说明：回档前服务器关闭倒计时的秒数。\n\n### 服务端配置（`server`）\n\n#### `server.turn_off_auto_save`\n- 类型：bool\n- 默认值：`true`\n- 说明：备份时是否自动关闭自动保存（`save-off`），完成后重新开启。\n\n#### `server.commands`\nMinecraft 命令模板，用于执行特定操作。可修改以适应非原版服务端。\n\n- `get_entity_data`: 默认 `\"data get entity {name} {path}\"`，获取实体数据。\n- `save_all_worlds`: 默认 `\"save-all flush\"`，保存世界。\n- `auto_save_off`: 默认 `\"save-off\"`，关闭自动保存。\n- `auto_save_on`: 默认 `\"save-on\"`，开启自动保存。\n\n#### `server.data_getter_regex`\n正则表达式字典，用于解析 `data get entity` 命令的返回结果。默认包含：\n\n- `crood_getter`: 匹配坐标输出。\n- `dimension_getter`: 匹配维度输出。\n\n如果修改了服务端语言或输出格式，可能需要调整这些正则。\n\n#### `server.saved_world_regex`\n- 类型：字符串列表\n- 默认值：`[\"Saved the game\", \"Saved the world\"]`\n- 说明：匹配世界保存完成时的控制台输出，用于确认保存操作完成。\n\n#### `server.save_world_max_wait`\n- 类型：字符串（带单位的时间）\n- 默认值：`\"10min\"`\n- 说明：等待世界保存完成的最大超时时间。\n\n### 备份配置（`backup`）\n\n#### `backup.dimension`\n维度配置字典，键为维度名（如 `\"minecraft:overworld\"`），值为对象，包含：\n\n- `integer_id` (int): 用于命令中输入的数字 ID，必须唯一。\n- `world_name` (string): 世界文件夹名称（相对于 `server_root`）。\n- `description` (string): 维度描述（仅用于显示）。\n- `region_folder` (list of string): 区域文件夹路径列表，相对于 `world_name`。通常包含 `region`、`entities`、`poi`。插件会自动根据 Minecraft 版本调整路径，但也可手动设置。\n\n默认包含主世界、下界、末地。\n\n#### `backup.player_data`\n玩家数据文件路径配置，用于备份和恢复玩家相关文件。格式为字典，键为文件扩展名（如 `\".json\"`），值为文件夹列表。默认值会根据 Minecraft 版本自动切换（旧版与 26.1+ 路径不同）。\n\n#### `backup.max_dynamic_slot`\n- 类型：int\n- 默认值：`10`\n- 说明：动态备份最大槽位数，超过上限时自动删除最旧备份。\n\n#### `backup.max_static_slot`\n- 类型：int\n- 默认值：`50`\n- 说明：静态备份最大槽位数，超过上限时阻止新备份创建。\n\n#### `backup.max_chunk_length`\n- 类型：int\n- 默认值：`320`\n- 说明：允许备份的区块矩形最大边长（区块个数），用于限制过大范围。\n\n---\n\n## 📌 添加自定义维度\n\nChunk Backup 支持任意 Minecraft 维度（包括模组维度，如暮色森林、地狱、末地等）。你只需在配置文件中正确添加维度信息，即可对该维度执行备份与回档操作。\n\n### 1. 获取维度的合法名称\n\n在添加维度前，你需要知道该维度在游戏中的内部名称。有两种常用方法：\n\n- **F3 调试屏幕**  \n  在游戏中按下 F3 键，打开调试屏幕。在左上角可以看到当前所在维度的信息，例如 `twilightforest:twilight_forest`。\n\n  ![F3 调试屏幕示例](https://raw.githubusercontent.com/Passion-Never-Dissipate/Chunk_BackUp/main/images/before_use1.png)  \n  *（图片仅为示意，请以实际游戏内显示为准）*\n\n- **使用 `/data get entity` 命令**  \n  执行指令 `/data get entity <玩家名> Dimension`，控制台会返回当前维度的名称。例如：\n  ```\n  /data get entity Steve Dimension\n  ```\n  返回结果中会包含维度名，如 `\"twilightforest:twilight_forest\"`。\n\n  ![命令示例](https://raw.githubusercontent.com/Passion-Never-Dissipate/Chunk_BackUp/main/images/before_use2.png)\n\n### 2. 维度配置结构\n\n在配置文件 `config/chunk_backup/config.json` 中，找到 `backup.dimension` 字段。它是一个字典，**键为维度名**（如 `\"minecraft:overworld\"`），值为一个对象，包含以下字段：\n\n| 字段              | 类型     | 说明                                                                                                                                                                         |\n| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `integer_id`    | int    | 用于命令中输入的整数 ID，**必须唯一**（不能与其他维度重复）。建议使用自定义的负整数或大整数以避免与原版冲突。                                                                                                                 |\n| `world_name`    | string | 该维度所在的世界文件夹名称（相对于 `server_root`）。对于单世界服务端，通常为 `\"world\"`；对于多世界服务端，可能为其他名称。                                                                                                  |\n| `description`   | string | 维度的描述信息（仅用于显示，不影响功能）。                                                                                                                                                      |\n| `region_folder` | list   | 区域文件夹路径列表，相对于 `world_name`。通常需要包含 `region`、`entities`、`poi` 这三个子文件夹的路径（注意：在 Minecraft 26.1 版本后，路径可能变为 `dimensions/minecraft/overworld/region` 等，插件会自动适配，但如果你手动设置，请确保路径正确）。 |\n\n### 3. 确定 `region_folder` 路径\n\n`region_folder` 中的路径需要指向该维度下存储区域文件（`.mca`）的目录。\n- 对于 **原版单世界服务端**，各维度的路径通常是固定的：\n  - 主世界：`region`、`entities`、`poi`（直接位于世界文件夹下）\n  - 下界：`DIM-1/region`、`DIM-1/entities`、`DIM-1/poi`\n  - 末地：`DIM1/region`、`DIM1/entities`、`DIM1/poi`\n- 对于 **模组维度**（如暮色森林），路径通常形如 `dimensions/<modid>/<dimension>/region` 等。你可以通过查看服务端文件夹结构来确定。\n\n**提示**：插件会自动根据 Minecraft 版本切换路径规则（26.1 版本前后路径不同）。如果你不确定，可以先留空让插件自动生成默认值，然后根据实际情况微调。\n\n### 4. 完整示例：添加暮色森林维度\n\n假设你的服务器安装了暮色森林模组，其维度名为 `twilightforest:twilight_forest`，世界文件夹为 `world`，区域文件位于 `dimensions/twilightforest/twilight_forest/` 下。则配置如下：\n\n```json\n\"backup\": {\n    \"dimension\": {\n        \"minecraft:overworld\": {\n            \"integer_id\": 0,\n            \"world_name\": \"world\",\n            \"description\": \"主世界\",\n            \"region_folder\": [\n                \"region\",\n                \"entities\",\n                \"poi\"\n            ]\n        },\n        \"minecraft:the_nether\": {\n            \"integer_id\": -1,\n            \"world_name\": \"world\",\n            \"description\": \"下界\",\n            \"region_folder\": [\n                \"DIM-1/region\",\n                \"DIM-1/entities\",\n                \"DIM-1/poi\"\n            ]\n        },\n        \"minecraft:the_end\": {\n            \"integer_id\": 1,\n            \"world_name\": \"world\",\n            \"description\": \"末地\",\n            \"region_folder\": [\n                \"DIM1/region\",\n                \"DIM1/entities\",\n                \"DIM1/poi\"\n            ]\n        },\n        \"twilightforest:twilight_forest\": {\n            \"integer_id\": -2,\n            \"world_name\": \"world\",\n            \"description\": \"暮色森林\",\n            \"region_folder\": [\n                \"dimensions/twilightforest/twilight_forest/region\",\n                \"dimensions/twilightforest/twilight_forest/entities\",\n                \"dimensions/twilightforest/twilight_forest/poi\"\n            ]\n        }\n    },\n    // ... 其他备份配置\n}\n```\n\n### 5. 注意事项\n\n- **`integer_id` 必须唯一**：不能与已有维度重复。建议使用负整数或 100 以上的整数，以避免与未来 Minecraft 版本新增维度冲突。\n- **路径准确性**：如果 `region_folder` 路径错误，插件将无法找到对应的区域文件，导致备份失败。请务必检查服务端文件夹结构，确保路径正确。\n- **多世界服务端**：如果你的服务端使用 Spigot/Paper 等多世界服务端，不同维度可能位于不同的世界文件夹中，此时 `world_name` 应设置为对应的世界文件夹名称（例如 `world_nether`、`world_the_end` 或自定义名称）。\n- **修改后重载**：每次修改配置文件后，都需要在游戏或控制台执行 `!!cb reload` 使更改生效。\n\n---\n\n通过以上步骤，你可以轻松地将任何自定义维度纳入 Chunk Backup 的管理范围，享受精确的区块备份与恢复功能。\n\n## 🎮 指令帮助\n\n所有指令均以插件前缀（默认 `!!cb`）开头。支持 Tab 补全，输入 `!!cb help` 查看总览，`!!cb help <指令>` 查看详细用法。\n\n### 通用选项\n\n| 选项                | 含义                                      |\n| ----------------- | --------------------------------------- |\n| `-s`, `--static`  | 操作静态备份（不自动轮换）                           |\n| `-d`, `--data`    | 回档时同时恢复玩家数据（需 Carpet Mod 和 candy_tools） |\n| `-c`, `--confirm` | 跳过二次确认，直接执行                             |\n\n### 备份指令\n\n| 指令                                              | 说明                                                                |\n| ----------------------------------------------- | ----------------------------------------------------------------- |\n| `!!cb make <半径> [<注释>]`                         | 以玩家所在区块为中心，备份边长为 `2*半径+1` 的区块区域。**玩家数据会自动备份（若安装 Carpet）**，无需额外参数。 |\n| `!!cb pmake <x1> <z1> <x2> <z2> in <维度> [<注释>]` | 备份两个坐标点所确定的矩形区块范围。                                                |\n| `!!cb dmake <维度列表> [<注释>]`                      | 备份整个维度的所有区域文件（支持逗号分隔多个维度，如 `0,-1,1`）。                             |\n\n### 回档指令\n\n| 指令                   | 说明                        |\n| -------------------- | ------------------------- |\n| `!!cb back [<备份ID>]` | 回档到指定备份（不指定 ID 则使用最新的备份）。 |\n| `!!cb restore`       | 撤销上一次回档，恢复到回档前状态。         |\n\n### 管理指令\n\n| 指令                  | 说明                                   |\n| ------------------- | ------------------------------------ |\n| `!!cb list [<页数>]`  | 列出备份列表。                              |\n| `!!cb show <备份ID>`  | 显示指定备份的详细信息（添加 `-d` 可查看玩家数据列表）。      |\n| `!!cb del <备份ID范围>` | 删除指定备份（支持单个ID、逗号分隔、连字符范围，如 `1,3-5`）。 |\n| `!!cb del all`      | 删除当前类型（动态/静态）的所有备份。                  |\n\n### 日志指令\n\n| 指令                      | 说明                       |\n| ----------------------- | ------------------------ |\n| `!!cb log list [<页数>]`  | 显示日志列表。                  |\n| `!!cb log show [<日志名>]` | 显示指定日志的详细内容（不指定则显示最新日志）。 |\n\n### 帮助与确认\n\n| 指令                 | 说明            |\n| ------------------ | ------------- |\n| `!!cb help [<指令>]` | 显示帮助信息。       |\n| `!!cb confirm`     | 确认当前等待中的危险操作。 |\n| `!!cb abort`       | 中止当前等待中的操作。   |\n| `!!cb reload`      | 重载插件配置。       |\n\n---\n\n## 📋 示例\n\n### 1. 备份当前区块（半径0）到静态备份，并附带注释\n```\n!!cb make 0 --static 保存出生点建筑\n```\n（玩家数据会自动备份，无需 `-d`）\n\n### 2. 备份主世界和下界的所有区域（维度0和-1）\n```\n!!cb dmake 0,-1 备份全主世界和下界\n```\n\n### 3. 恢复第3个备份，同时恢复玩家数据\n```\n!!cb back 3 -d\n```\n\n### 4. 删除动态备份中ID为1、2、5到10的备份\n```\n!!cb del 1,2,5-10\n```\n\n### 5. 查看日志列表第2页\n```\n!!cb log list 2\n```\n\n### 6. 显示最新日志详情\n```\n!!cb log show\n```\n\n---\n\n## ⚠️ 升级指南（从 v1.x 迁移到 v2.0.0）\n\n由于 v2.0.0 完全重构了备份格式和存储结构，旧版备份**无法直接兼容**。请按照以下步骤安全升级：\n\n1. **备份你的世界和旧版插件数据**（包括 `cb_multi`、`cb_static` 等文件夹）。\n2. 卸载旧版插件（删除旧版`.mcdr` 文件）。\n3. 安装新版插件和 `candy_tools` 插件，启动 MCDR 生成默认配置。\n4. 根据你的需求重新配置 `config.json`（特别是维度设置）。\n5. **重要**：如果你有重要的旧版备份需要保留，建议先用旧版插件将备份恢复到世界，然后用新版插件重新备份这些区域。\n6. **关于自定义备份**：新版插件暂时不支持旧版的自定义备份（custom）功能。我们计划在未来版本中开发一个功能更强大、更易于使用的自定义备份系统，敬请期待。当前版本仅支持区块级备份和区域级备份。\n7. 开始使用新版插件。\n\n> ⚠️ **注意**：新版配置字段与旧版完全不同，请勿直接复制旧版配置文件。\n\n---\n\n## ❓ 常见问题\n\n### Q1：为什么备份时提示“没有玩家数据”？\nA：你需要安装 [Carpet Mod](https://www.curseforge.com/minecraft/mc-mods/carpet) 并确保其正常工作，同时安装 [candy_tools](https://github.com/Passion-Never-Dissipate/candy_tools) 插件。另外，只有选区内的在线玩家才会被备份。\n\n### Q2：备份文件存储在什么位置？\nA：动态备份位于 `./cb_files/dynamic_storage/`，静态备份位于 `./cb_files/static_storage/`，回档前备份位于 `./cb_files/overwrite/`，日志位于 `./cb_files/logs/`。\n\n### Q3：如何添加模组维度（如暮色森林）？\nA：在配置文件的 `backup.dimension` 中添加新条目，指定一个唯一的 `integer_id` 和正确的 `region_folder` 路径。路径需相对于该维度的世界文件夹（通常为 `world` 或自定义世界名）。例如：\n```json\n\"twilightforest:twilight_forest\": {\n    \"integer_id\": -2,\n    \"world_name\": \"world\",\n    \"description\": \"暮色森林\",\n    \"region_folder\": [\n        \"dimensions/twilightforest/twilight_forest/region\",\n        \"dimensions/twilightforest/twilight_forest/entities\",\n        \"dimensions/twilightforest/twilight_forest/poi\"\n    ]\n}\n```\n\n### Q4：为什么回档时玩家数据没有恢复？\nA：需要在回档命令中添加 `-d` 参数，如 `!!cb back 3 -d`。同时确保备份时已经收集了玩家数据（即有在线玩家在选区内）。\n\n### Q5：如何取消正在等待确认的操作？\nA：输入 `!!cb abort` 即可中止当前任务。\n\n---\n\n## 🙏 鸣谢\n\n本插件在开发过程中参考并使用了 [Prime Backup](https://github.com/TISUnion/PrimeBackup) 的部分代码，特此感谢 Prime Backup 的作者及 TISUnion 组织。Prime Backup 是一个优秀的 Minecraft 备份插件，为我们提供了宝贵的思路和代码参考。\n\n---\n\n## 🤝 贡献与反馈\n\n- 项目地址：[GitHub](https://github.com/Passion-Never-Dissipate/Chunk_BackUp)\n- 反馈 Issue：[Issues](https://github.com/Passion-Never-Dissipate/Chunk_BackUp/issues)\n- 交流 QQ 群：**417086159**\n\n如果你喜欢这个插件，欢迎给个 Star ⭐，也欢迎提交 PR 一起改进！\n\n---\n\n> 💡 最后提醒：**备份文件夹内的文件请不要手动移动或修改**，否则可能导致备份失效。\n\n> 祝使用愉快！\n\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/Passion-Never-Dissipate/Chunk_BackUp/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "chunk_backup",
+    "latest_version": "2.0.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v2.0.2",
+        "name": "Chunk_BackUp-v2.0.2",
+        "tag_name": "v2.0.2",
+        "created_at": "2026-03-12T14:02:35Z",
+        "description": "修复如下问题：\r\n1.修复了某些情况下无法将玩家框选进数据备份范围内的问题\r\n2.修复了部分指令无法使用，报错的问题\r\n3.更改了部分指令的语法",
+        "prerelease": false,
+        "asset": {
+          "id": 373245540,
+          "name": "Chunk_BackUp-v2.0.2.mcdr",
+          "size": 100944,
+          "download_count": 78,
+          "created_at": "2026-03-13T17:51:26Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v2.0.2/Chunk_BackUp-v2.0.2.mcdr",
+          "hash_md5": "e3a9403bcf6f52e41a1c8aad6e230a05",
+          "hash_sha256": "d4613d0845bd1c648373b4653ada283b7a0c4c363e3a3ad3bba479c1d33b180c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk Backup",
+          "version": "2.0.2",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.1",
+            "candy_tools": ">=1.0.2"
+          },
+          "requirements": [
+            "mcdreforged>=2.15.1"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v2.0.1",
+        "name": "Chunk_BackUp-v2.0.1",
+        "tag_name": "v2.0.1",
+        "created_at": "2026-03-12T04:21:46Z",
+        "description": "1.修复了部分指令静态备份参数不可用的问题\r\n2.修复了!!cb back没有槽位时报错的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 372378491,
+          "name": "Chunk_BackUp-v2.0.1.mcdr",
+          "size": 100773,
+          "download_count": 22,
+          "created_at": "2026-03-12T14:13:09Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v2.0.1/Chunk_BackUp-v2.0.1.mcdr",
+          "hash_md5": "64ff186777c9b904f089e8890c509568",
+          "hash_sha256": "2d99ef2bf13c84db4a6ad4e12a464a47992077892d2ed4f66d795eb8b5cc591e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk Backup",
+          "version": "2.0.1",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.1",
+            "candy_tools": ">=1.0.1"
+          },
+          "requirements": [
+            "mcdreforged>=2.15.1"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v2.0.0",
+        "name": "Chunk_BackUp-v2.0.0",
+        "tag_name": "v2.0.0",
+        "created_at": "2026-03-11T16:21:04Z",
+        "description": "# Chunk Backup v2.0.0 —— 焕新登场！\r\n\r\n> ⚠️ **重要提醒**  \r\n> **v2.0.0 是一次完全重写的大版本升级，与旧版 v1.x 不兼容！**  \r\n> 旧版备份数据**无法直接在新版中使用**，请务必阅读下方的「升级指南」。\r\n\r\n---\r\n\r\n## ✨ 新版本亮点\r\n\r\n经过数月的重构与打磨，**Chunk Backup v2.0.0** 正式发布！本次更新带来了更强大的功能、更安全的操作以及更友好的用户体验。以下是主要变化：\r\n\r\n### 🧩 全新命令系统\r\n- 基于 MCDReforged 原生命令节点重写，支持 **Tab 补全**、参数提示和详细的指令帮助。\r\n- 指令更直观，告别旧版复杂难记的语法。例如：\r\n  - `!!cb make 5 -s \"我的备份\"` —— 半径备份并存储为静态备份。\r\n  - `!!cb back 3 -d` —— 回档第3个备份并同时恢复玩家数据。\r\n\r\n### 🛡️ 任务队列与确认机制\r\n- 所有耗时操作（备份、回档、删除）均作为独立任务运行，避免阻塞服务器主线程。\r\n- 新增 `!!cb confirm` 和 `!!cb abort` 指令，可随时确认或中断等待中的任务，彻底告别误操作。\r\n\r\n### 🔄 智能版本适配\r\n- 自动检测 Minecraft 服务端版本，无缝支持 **1.20.5/1.21（26.1+）** 后的新世界存储结构（`dimensions/minecraft/...`）。\r\n- 无需手动修改配置文件，插件自动切换路径规则。\r\n\r\n### 👤 玩家数据备份（需 Carpet Mod + candy_tools）\r\n- 集成 Carpet Mod 和 `candy_tools` 插件，备份时自动收集选区内的玩家数据（物品栏、坐标、成就等）。\r\n- 回档时添加 `-d` 参数即可同时恢复玩家数据，确保玩家进度与建筑同步。\r\n\r\n### 📜 完整操作日志\r\n- 每次备份、回档、删除操作都会生成详细日志，保存最近 **100 条** 记录。\r\n- 通过 `!!cb log list` 和 `!!cb log show` 可查看任务状态、执行者、执行时间及结果。\r\n\r\n### 🗂️ 备份索引文件\r\n- 每个备份目录下生成 `index.json`，明确记录备份范围与外部区块，确保备份的完整性和可恢复性。\r\n- **重要提示**：`info.json` 是备份的核心标识，**切勿手动删除或修改**，否则备份将失效。\r\n\r\n### ⚡ 高性能并发处理\r\n- 使用线程池并行处理多个区域的区块导出/合并操作，大幅提升备份与恢复速度。\r\n- 支持配置最大并发线程数（`max_workers`），在性能与资源占用间取得平衡。\r\n\r\n### 🌍 多维度支持\r\n- 配置文件支持自定义多个维度，可轻松添加模组维度（如暮色森林）。\r\n- 每个维度可指定世界文件夹、区域文件夹路径、描述和整数 ID（用于命令输入）。\r\n\r\n### 🛡️ 安全可靠的任务管理\r\n- **自动回滚保护**：回档前自动创建“回档前备份”（overwrite），若回档失败，插件会自动尝试恢复到此状态，最大限度保护存档。\r\n- 重型任务与轻型任务分离，互不干扰。\r\n\r\n### 🎮 人性化命令设计\r\n- 提供详细的指令帮助，输入 `!!cb help <指令>` 即可查看用法示例。\r\n- 支持 `-s`（静态备份）、`-d`（恢复玩家数据）、`-c`（跳过确认）等便捷参数。\r\n\r\n---\r\n\r\n## ⚠️ 不兼容性说明\r\n\r\n由于 v2.0.0 完全重构了备份元数据格式、目录结构和任务调度逻辑，因此：\r\n\r\n- **旧版本（v1.x）创建的备份无法直接在新版中恢复**。  \r\n  如果你有重要旧备份，建议先使用旧版插件将其恢复到世界，再使用新版插件重新备份。\r\n- **配置文件已大幅调整**，旧版配置文件（`chunk_backup.json`）无法自动迁移。  \r\n  请删除旧配置文件，让插件在首次加载时生成默认配置，然后根据你的需求重新修改。\r\n- **命令格式和权限体系已改变**，原 `!!cb make`、`!!cb back` 等指令的语法有所不同，请查阅本文档的「指令帮助」部分。\r\n\r\n---\r\n\r\n## 🚀 升级指南\r\n\r\n1. **备份你的世界和旧版插件数据**（包括 `cb_multi`、`cb_static` 等文件夹）。\r\n2. 卸载旧版插件（删除旧版 `.mcdr` 文件）。\r\n3. 安装新版插件及前置插件 `candy_tools`（必须）：\r\n   - `!!MCDR plugin install candy_tools`\r\n   - `!!MCDR plugin install chunk_backup`\r\n4. 启动 MCDR，插件会自动生成默认配置文件 `config/chunk_backup/config.json`。\r\n5. 根据你的需求修改配置文件（特别是维度设置），然后输入 `!!cb reload` 重载。\r\n6. **重要**：如果你有重要的旧版备份需要保留，请先用旧版插件将备份恢复到世界，然后用新版插件重新备份这些区域。\r\n7. 开始使用新版插件。\r\n\r\n> **关于自定义备份**：新版插件暂时不支持旧版的自定义备份（custom）功能。我们计划在未来版本中开发一个功能更强大、更易于使用的自定义备份系统，敬请期待。当前版本仅支持区块级备份和区域级备份。\r\n\r\n---\r\n\r\n**Chunk Backup v2.0.0** —— 更安全、更强大、更易用的区块备份插件，期待你的体验！",
+        "prerelease": false,
+        "asset": {
+          "id": 372053226,
+          "name": "Chunk_BackUp-v2.0.0.mcdr",
+          "size": 100775,
+          "download_count": 23,
+          "created_at": "2026-03-12T04:22:38Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v2.0.0/Chunk_BackUp-v2.0.0.mcdr",
+          "hash_md5": "d24cbe79e49a55dd7b23af8073cd42d6",
+          "hash_sha256": "f1c84ee3c6e73c126b2ee3e4631ddd309be154be0559076a7be12c43e977247a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk Backup",
+          "version": "2.0.0",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.1",
+            "candy_tools": ">=1.0.1"
+          },
+          "requirements": [
+            "mcdreforged>=2.15.1"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.8",
+        "name": "Chunk_BackUp-v1.3.8",
+        "tag_name": "v1.3.8",
+        "created_at": "2025-08-28T13:19:44Z",
+        "description": "修复了错误信息翻译键显示不正确的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 287138477,
+          "name": "Chunk_BackUp-v1.3.8.mcdr",
+          "size": 50151,
+          "download_count": 270,
+          "created_at": "2025-08-28T13:20:18Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.8/Chunk_BackUp-v1.3.8.mcdr",
+          "hash_md5": "fa018ff86e8e05315a030ed28bd24279",
+          "hash_sha256": "9e048d0b8a295a16a517c654c411421a7bcd91ed45fb67f1b70b0e0cf4dad456"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.8",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.7",
+        "name": "Chunk_BackUp-v1.3.7",
+        "tag_name": "v1.3.7",
+        "created_at": "2025-08-06T17:12:38Z",
+        "description": "修复了在x，z坐标大于10000000格时，!!cb make无法备份的问题，强烈建议更新!",
+        "prerelease": false,
+        "asset": {
+          "id": 279976449,
+          "name": "Chunk_BackUp-v1.3.7.mcdr",
+          "size": 50147,
+          "download_count": 86,
+          "created_at": "2025-08-06T17:16:34Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.7/Chunk_BackUp-v1.3.7.mcdr",
+          "hash_md5": "91ae43dcbb704771ca391435dca061fe",
+          "hash_sha256": "e77a5439fed51f292d6abdfa88da82c63cfb72b62662ffab0ba65a75e1fd6485"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.7",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.6",
+        "name": "Chunk_BackUp-v1.3.6",
+        "tag_name": "v1.3.6",
+        "created_at": "2025-07-26T03:03:01Z",
+        "description": "修复了使用!!cb make 创建备份时，备份半径超过限制时，游戏不会重新打开自动保存的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 276803425,
+          "name": "Chunk_BackUp-v1.3.6.mcdr",
+          "size": 50076,
+          "download_count": 80,
+          "created_at": "2025-07-27T13:43:18Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.6/Chunk_BackUp-v1.3.6.mcdr",
+          "hash_md5": "78c53ed83c731b9e16f49112f7c40454",
+          "hash_sha256": "76786e19b545c95dc9f5aa058e58a2e5a86992759fea0a90e8e721ebda4ec281"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.6",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.5",
+        "name": "Chunk_BackUp-v1.3.5",
+        "tag_name": "v1.3.5",
+        "created_at": "2025-07-26T03:03:01Z",
+        "description": "修复了帮助信息里一些提示语错误的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 276487022,
+          "name": "Chunk_BackUp-v1.3.5.mcdr",
+          "size": 50183,
+          "download_count": 45,
+          "created_at": "2025-07-26T03:06:12Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.5/Chunk_BackUp-v1.3.5.mcdr",
+          "hash_md5": "1313e9491a092a543a837e5aa69f04da",
+          "hash_sha256": "a94c5299e46d42fdfe5dd78907c14622b0680bcb1d99fe792af5c4cffe84121c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.5",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.4",
+        "name": "Chunk_BackUp-v1.3.4",
+        "tag_name": "v1.3.4",
+        "created_at": "2025-04-12T13:14:44Z",
+        "description": "不出意外这是1.3版本的最后一个小版本更新了，本次更新加入了对上一次回档的状态，信息显示，输入!!cb rollback即可查看，!!cb或!!cb list也可查看简略的回档信息显示",
+        "prerelease": false,
+        "asset": {
+          "id": 245815254,
+          "name": "Chunk_BackUp-v1.3.4.mcdr",
+          "size": 50053,
+          "download_count": 199,
+          "created_at": "2025-04-12T13:28:44Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.4/Chunk_BackUp-v1.3.4.mcdr",
+          "hash_md5": "a6c13d185cdd985a15291bdea23723ac",
+          "hash_sha256": "42400e44d05aef03a0d51abb618bd307b4d458c0d44163d967eb53bcf18a74dd"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.4",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.3",
+        "name": "Chunk_BackUp-v1.3.3",
+        "tag_name": "v1.3.3",
+        "created_at": "2025-04-10T09:54:21Z",
+        "description": "更改了一些不合理的代码，现在出现bug的概率会更小",
+        "prerelease": false,
+        "asset": {
+          "id": 245565422,
+          "name": "Chunk_BackUp-v1.3.3.mcdr",
+          "size": 48908,
+          "download_count": 35,
+          "created_at": "2025-04-11T14:11:57Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.3/Chunk_BackUp-v1.3.3.mcdr",
+          "hash_md5": "a9106b0f2f48ce2b8014081f90d708f9",
+          "hash_sha256": "e10093625a2213557be764e16ed0087f7df11d9b4bb7dc0b5c22c3698932dfcf"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.3",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.2",
+        "name": "Chunk_BackUp-v1.3.2",
+        "tag_name": "v1.3.2",
+        "created_at": "2025-04-10T09:54:21Z",
+        "description": "优化了文件大小统计速度",
+        "prerelease": false,
+        "asset": {
+          "id": 245243102,
+          "name": "Chunk_BackUp-v1.3.2.mcdr",
+          "size": 48940,
+          "download_count": 37,
+          "created_at": "2025-04-10T14:50:47Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.2/Chunk_BackUp-v1.3.2.mcdr",
+          "hash_md5": "9629400076ea93f0403ab0d165751b6b",
+          "hash_sha256": "5fbf92ae8ea4e6d381681acab4df588da0b6896628a62a45a1933e81546f0559"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.2",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.3.1",
+        "name": "Chunk_BackUp-v1.3.1",
+        "tag_name": "v1.3.1",
+        "created_at": "2025-04-10T07:45:06Z",
+        "description": "插件发布以来第一个重大更新\r\n1.增加了对自定义备份的支持，现在你可以创建一个自定义备份对象，并向其中添加子备份用于框选区块，一个自定义备份对象里可以包含不同维度的区块，在你框选完区块后，可以将自定义备份对象备份到槽位里，就像你使用普通备份一样，并且您在回档时也可以选择任意数量的子备份来进行回档，完整用法见readme。\r\n2.现在备份与回档支持多线程加速，调用的最大线程数你可以在配置文件里找到并修改它。\r\n3.修复了1.2.3及之前版本覆盖备份无法保存空区块的问题。\r\n4.修复了一些小bug。",
+        "prerelease": false,
+        "asset": {
+          "id": 245153440,
+          "name": "Chunk_BackUp-v1.3.1.mcdr",
+          "size": 48838,
+          "download_count": 48,
+          "created_at": "2025-04-10T08:39:34Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.3.1/Chunk_BackUp-v1.3.1.mcdr",
+          "hash_md5": "a7c8d313bd95ff192a716a66fe154342",
+          "hash_sha256": "c4d2f340e8a9fcff6a7d7b9167393ecc12a0af5c106d7745f325557dbe4a3593"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.3.1",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.2.3",
+        "name": "Chunk_BackUp-v1.2.3",
+        "tag_name": "v1.2.3",
+        "created_at": "2025-03-12T07:10:14Z",
+        "description": "现在你可以自定义获取玩家坐标，维度，打开世界保存，关闭世界保存，以及保存世界的指令了! 也可以自定义这些指令的返回值，以便于插件能适配更多的服务端!",
+        "prerelease": false,
+        "asset": {
+          "id": 237493817,
+          "name": "Chunk_BackUp-v1.2.3.mcdr",
+          "size": 40462,
+          "download_count": 71,
+          "created_at": "2025-03-14T14:21:17Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.2.3/Chunk_BackUp-v1.2.3.mcdr",
+          "hash_md5": "c0886b58827fe0d2aba884acb9eb2cf2",
+          "hash_sha256": "172a8c0c479e549b838f422a6d65049e09009f281fbd2f84e04219010755d4e9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.2.3",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.2.2",
+        "name": "Chunk_BackUp-v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2025-03-12T07:10:14Z",
+        "description": "现在对于头文件不完整的区域文件也会尝试读取区块数据，如果读取失败而该区块又在备份范围内，则将该区块按空状态备份",
+        "prerelease": false,
+        "asset": {
+          "id": 237042439,
+          "name": "Chunk_BackUp-v1.2.2.mcdr",
+          "size": 40282,
+          "download_count": 42,
+          "created_at": "2025-03-13T06:41:58Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.2.2/Chunk_BackUp-v1.2.2.mcdr",
+          "hash_md5": "8267b7a19bfd2970a1c61e4800a8accb",
+          "hash_sha256": "af305389a3d066cf4d2fde176d3cbfe514b4c3f0d35ef85b83321eaface20875"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.2.2",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.2.1",
+        "name": "Chunk_BackUp-v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2025-03-12T07:10:14Z",
+        "description": "修复了空状态无法回滚的问题（提升备份安全性），优化了扇区复用逻辑，与之前版本（小于1.2.1）的备份不兼容，不要使用以前的备份回档！！！！,强烈建议更新!",
+        "prerelease": false,
+        "asset": {
+          "id": 236946662,
+          "name": "Chunk_BackUp-v1.2.1.mcdr",
+          "size": 40593,
+          "download_count": 46,
+          "created_at": "2025-03-12T23:15:31Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.2.1/Chunk_BackUp-v1.2.1.mcdr",
+          "hash_md5": "60178dd207c9c4b3ead6c65bbfa8c24d",
+          "hash_sha256": "5c29688ce3a2bc5d8aecdd607cbb01773df56f6c36cb629d171eb3dd33abcdc7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.2.1",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.2.0",
+        "name": "Chunk_BackUp-v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2025-03-09T12:11:11Z",
+        "description": "更新了槽位具体内容显示，增加了用指令修改配置文件的功能",
+        "prerelease": false,
+        "asset": {
+          "id": 236398477,
+          "name": "Chunk_BackUp-v1.2.0.mcdr",
+          "size": 39891,
+          "download_count": 53,
+          "created_at": "2025-03-11T07:33:36Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.2.0/Chunk_BackUp-v1.2.0.mcdr",
+          "hash_md5": "915bb6a5c93677e2de117672fe5a1beb",
+          "hash_sha256": "3750141a78adb7fb3a6b3c9127f51196f5388c3a6f5cedc54701e0932046842a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.2.0",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.1.1",
+        "name": "Chunk_BackUp-v1.1.1",
+        "tag_name": "v1.1.1",
+        "created_at": "2025-03-09T12:11:11Z",
+        "description": "增加了英文支持，修复了一些翻译键不翻译的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 236109917,
+          "name": "Chunk_BackUp-v1.1.1.mcdr",
+          "size": 38365,
+          "download_count": 37,
+          "created_at": "2025-03-10T08:29:59Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.1.1/Chunk_BackUp-v1.1.1.mcdr",
+          "hash_md5": "a164ad853c0a2ba5d0ff992b57e402c2",
+          "hash_sha256": "20b28b6e78b517697820227e41691c9384612b493e336468c65b4ea4e90bc9f1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.1.1",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.1.0",
+        "name": "Chunk_BackUp-v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2025-03-08T14:21:03Z",
+        "description": "修复了不保存空状态的问题，对代码结构进行了优化，鲁棒性提升，修复了一些已知问题",
+        "prerelease": false,
+        "asset": {
+          "id": 235918621,
+          "name": "Chunk_BackUp-v1.1.0.mcdr",
+          "size": 35257,
+          "download_count": 44,
+          "created_at": "2025-03-09T12:20:39Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.1.0/Chunk_BackUp-v1.1.0.mcdr",
+          "hash_md5": "eeb1e973208a311be1058f3d183355d9",
+          "hash_sha256": "822f54a3040271d1a7d77892a398ec8049cb576d38fb0d81dfe5f1d7c079a7cf"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.1.0",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/tag/v1.0.0",
+        "name": "Chunk_BackUp-v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2025-03-08T00:27:42Z",
+        "description": "区块备份的第一个版本，可能会存在许多问题，可以的话还请多多反馈，后续会继续更新。",
+        "prerelease": false,
+        "asset": {
+          "id": 235740075,
+          "name": "Chunk_BackUp-v1.0.0.mcdr",
+          "size": 34167,
+          "download_count": 38,
+          "created_at": "2025-03-08T15:46:23Z",
+          "browser_download_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases/download/v1.0.0/Chunk_BackUp-v1.0.0.mcdr",
+          "hash_md5": "64a07136b55be0771c63887bcf6e84f7",
+          "hash_sha256": "05377b48021a2e2c285b52cea65130ca1f275358b013d84dc0f54d96dd3988a5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "chunk_backup",
+          "name": "Chunk BackUp",
+          "version": "1.0.0",
+          "link": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+          "authors": [
+            "FRUITS_CANDY",
+            "Bexerlmao"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.7.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.7.0"
+          ],
+          "description": {
+            "en_us": "A MCDR plugin that backs up or restores by chunk",
+            "zh_cn": "一个以区块为单位备份或回档的MCDR插件"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+    "name": "Chunk_BackUp",
+    "full_name": "Passion-Never-Dissipate/Chunk_BackUp",
+    "html_url": "https://github.com/Passion-Never-Dissipate/Chunk_BackUp",
+    "description": "一个以区块为单位多模式备份或回档的MCDR插件",
+    "archived": false,
+    "stargazers_count": 6,
+    "watchers_count": 6,
+    "forks_count": 0,
+    "readme": "# Chunk Backup —— 区块备份插件，v2.0.0 焕新登场！\n\n[![MCDReforged](https://img.shields.io/badge/MCDReforged-≥2.15.1-blue)](https://mcdreforged.com)\n[![Minecraft](https://img.shields.io/badge/Minecraft-1.16--26.1-green)]()\n[![GitHub release](https://img.shields.io/github/v/release/Passion-Never-Dissipate/Chunk_BackUp)]()\n\n> ⚠️ **警告**  \n> **v2.0.0 是一次完全重写的大版本升级，与旧版 v1.x 不兼容！**  \n> 旧版备份数据**无法直接在新版中使用**，请务必阅读下方的「升级指南」。\n\n> 💡 **提示**\n> - 当前版本支持 Minecraft 1.16以后的所有正式版，并自动适配26.1前后的新世界存储结构。\n> - 需要 MCDReforged **≥2.15.1** 和 **必须的前置插件** [candy_tools](https://github.com/Passion-Never-Dissipate/candy_tools) **≥1.0.2**（缺少它将导致插件无法正常工作）。\n> - 建议将服务端编码设为 UTF-8（详见配置说明）。\n> - 遇到问题先检查插件是否为最新版，并确认配置文件是否正确。\n> - 若发现问题或有改进建议，欢迎提交 Issue 或 PR，也可加入交流群：**417086159**。\n\n---\n\n## 📌 新版简介\n\n**Chunk Backup** 是一款以 **区块（chunk）** 为最小单位的 Minecraft 服务器备份插件。它只备份你指定的区块范围，而不是整个世界，从而大幅节省存储空间和操作时间。\n\n**v2.0.0 是一次脱胎换骨的重构**，我们重写了命令系统、任务调度、备份格式和错误处理，带来了更可靠、更易用的体验：\n\n- **全新命令树**：相较于以前复杂且难以理解的命令，新版本命令更容易理解，直观，功能更多。\n- **任务队列与确认机制**：所有耗时操作（备份、回档、删除）均进入队列，支持 `!!cb confirm` 和 `!!cb abort`，告别误操作。\n- **智能版本适配**：自动识别服务端版本，配置文件自动切换26.1版本前后的存储结构（`dimensions/minecraft/...`）。\n- **玩家数据备份**：拥有Carpet Mod时，备份时自动收集选区内的玩家数据，回档时可选择一并恢复。\n- **完整操作日志**：每次危险任务都会生成日志，可追溯任务状态、执行者和结果。\n- **备份索引文件**：每个备份目录下生成 `index.json`，明确记录备份范围与外部区块，确保可恢复性。\n\n---\n\n## 🚀 主要特性\n\n### 🧩 区块级精确操作\n- 支持三种选区方式：\n  - **半径模式**：以玩家所在区块为中心，备份 `2×半径+1` 边长的正方形区域（最小为单个区块）。\n  - **两点模式**：通过两个世界坐标确定矩形范围，自动转换为区块坐标。\n  - **维度模式**：备份整个维度的所有区域文件（如主世界、下界、末地）。\n\n### 📦 智能处理超大区块\n- 当区块数据超过 **1020 KiB** 时，自动将其内容存储为外部文件（`c.x.z.mcc`），区域文件中仅保留标记。\n- 备份与恢复时自动处理这些外部文件，完美兼容原版机制。\n\n### 👤 玩家数据备份（需 Carpet Mod 和 candy_tools）\n- 在安装 Carpet Mod 且启用 candy_tools 插件的情况下，备份时会自动备份选区内玩家的物品栏，坐标，成就等数据。\n- 回档时可选择 **同时恢复玩家数据**（需添加 `-d` 参数），确保玩家进度与区块同步。\n- 玩家数据独立存储，与区块备份分开管理，灵活可控。\n\n### 🔄 智能版本适配\n- 自动检测 Minecraft 服务端版本，配置文件自动切换26.1版本前后的存储结构（`dimensions/minecraft/...`）。\n- 无需手动修改配置文件，插件自动切换路径规则。\n\n### 🛡️ 安全可靠的任务管理\n- **任务队列**：所有耗时操作作为独立任务运行，避免阻塞服务器主线程。\n- **确认与中断**：\n  - `!!cb confirm` 确认危险操作，`!!cb abort` 随时中止等待中的任务。\n  - 重型任务（如回档）与轻型任务分离，互不干扰。\n- **自动回滚保护**：回档前自动创建“回档前备份”（overwrite），若回档失败，插件会自动尝试恢复到此状态，最大限度保护存档。\n\n### 📜 完整日志追溯\n- 每次备份、回档、删除操作都会生成详细日志，保存最近 **100 条** 记录。\n- 通过 `!!cb log list` 和 `!!cb log show` 可查看任务状态、执行者、执行时间及结果。\n- 日志文件以 JSON 格式存储，便于外部分析。\n\n### 🗂️ 备份索引文件\n- 每个备份目录下都会生成 `index.json`，明确记录：\n  - 备份类型（全区域/部分区块）\n  - 包含的区块范围\n  - 外部区块列表（若有）\n- **重要提示**：每个备份目录下的 `info.json` 文件存储了该备份的所有元数据（日期、注释、维度等），是备份有效的核心标识。**切勿手动删除或修改**，否则该备份将被视为无效，无法用于回档。\n\n### ⚡ 高性能并发处理\n- 使用线程池并行处理多个区域的区块导出/合并操作。\n- 支持配置最大并发线程数（`max_workers`），在性能与资源占用间取得平衡。\n\n### 🌍 多维度支持\n- 配置文件支持自定义多个维度，每个维度可指定：\n  - 世界文件夹名称\n  - 区域文件夹路径（支持多个，如 `region`、`entities`、`poi`）\n  - 维度描述和整数 ID（用于命令输入）\n- 开箱即支持主世界、下界、末地，也可轻松添加其他模组维度。\n\n### 🎮 人性化命令设计\n- 基于 MCDReforged 原生命令节点构建，支持 **Tab 补全** 和 **参数提示**。\n- 提供详细的指令帮助，输入 `!!cb help <指令>` 即可查看用法示例。\n- 支持 `-s`（静态备份）、`-d`（回档时恢复玩家数据）、`-c`（跳过确认）等便捷参数。\n\n---\n\n## 📦 安装\n\n1. **确保已安装前置插件**：`candy_tools` 是必须的前置插件，缺少它将导致 Chunk Backup 无法正常工作。请先安装 [candy_tools](https://github.com/Passion-Never-Dissipate/candy_tools) **≥1.0.2**。\n2. **安装 Chunk Backup**：你可以通过以下任意一种方式安装：\n   - **推荐：使用 MCDR 插件管理器**  \n     在游戏内或控制台执行命令：  \n     `!!MCDR plugin install chunk_backup`  \n     插件管理器将自动下载并安装最新版本。\n   - **手动安装**  \n     从 [GitHub Releases](https://github.com/Passion-Never-Dissipate/Chunk_BackUp/releases) 页面下载最新版本的插件（`.mcdr` 或源码包），放入 MCDR 的 `plugins` 文件夹。\n3. 启动/重启 MCDR，插件会自动生成配置文件 `config/chunk_backup/config.json`。\n4. 根据需要修改配置文件（详见下文「配置」），然后输入 `!!cb reload` 重载。\n\n> ⚠️ **注意**\n> - 若你的服务端使用 Spigot/Paper 等多世界文件夹结构，请确保在配置中为每个维度正确设置 `world_name` 和 `region_folder`。\n> - 如果服务端输出乱码，请参考 [MCDR 文档](https://docs.mcdreforged.com/zh-cn/latest/configuration.html#handler) 设置正确的处理器（handler）和 UTF-8 编码。\n\n---\n\n## ⚙️ 配置\n\n配置文件位于 `config/chunk_backup/config.json`。首次运行插件时会自动生成默认配置，请根据实际情况修改。\n\n### 根字段\n\n| 字段                  | 类型     | 默认值                 | 说明                                     |\n| ------------------- | ------ | ------------------- | -------------------------------------- |\n| `server_root`       | string | `\"./server\"`        | 服务端文件夹路径                               |\n| `storage_root`      | string | `\"./cb_files\"`      | 插件数据存储根目录                              |\n| `log_storage`       | string | `\"logs\"`            | 日志存储子目录（相对于 `storage_root`）            |\n| `static_storage`    | string | `\"static_storage\"`  | 静态备份存储子目录                              |\n| `dynamic_storage`   | string | `\"dynamic_storage\"` | 动态备份存储子目录                              |\n| `overwrite_storage` | string | `\"overwrite\"`       | 回档前自动备份存放目录                            |\n| `max_workers`       | int    | `4`                 | 文件操作的最大并发线程数                           |\n| `ensure_no_carpet`  | bool   | `false`             | 是否强制在未安装 Carpet Mod 时仍尝试玩家数据备份（可能导致错误） |\n| `config_version`    | string | 插件版本                | 配置文件版本（自动管理，请勿手动修改）                    |\n| `minecraft_version` | string | 自动检测                | 上次备份时的 Minecraft 版本，用于路径自动升级           |\n\n### 命令配置（`command`）\n\n#### `command.prefix`\n- 类型：string\n- 默认值：`\"!!cb\"`\n- 说明：插件指令的前缀，修改后需重载生效。\n\n#### `command.permission`\n权限级别字典，控制各子命令的访问权限。数值含义参考 [MCDR 权限系统](https://mcdreforged.readthedocs.io/zh_CN/latest/permission.html)。默认值如下：\n\n```json\n{\n    \"root\": 0,\n    \"make\": 1,\n    \"pmake\": 1,\n    \"dmake\": 1,\n    \"back\": 2,\n    \"restore\": 2,\n    \"del\": 2,\n    \"list\": 0,\n    \"show\": 0,\n    \"log\": 1,\n    \"help\": 0,\n    \"confirm\": 1,\n    \"abort\": 1,\n    \"reload\": 3\n}\n```\n\n#### `command.confirm_time_wait`\n- 类型：字符串（带单位的时间，如 `\"60s\"`）\n- 默认值：`\"60s\"`\n- 说明：执行危险操作时等待确认的超时时间。\n\n#### `command.restore_countdown_sec`\n- 类型：int\n- 默认值：`10`\n- 说明：回档前服务器关闭倒计时的秒数。\n\n### 服务端配置（`server`）\n\n#### `server.turn_off_auto_save`\n- 类型：bool\n- 默认值：`true`\n- 说明：备份时是否自动关闭自动保存（`save-off`），完成后重新开启。\n\n#### `server.commands`\nMinecraft 命令模板，用于执行特定操作。可修改以适应非原版服务端。\n\n- `get_entity_data`: 默认 `\"data get entity {name} {path}\"`，获取实体数据。\n- `save_all_worlds`: 默认 `\"save-all flush\"`，保存世界。\n- `auto_save_off`: 默认 `\"save-off\"`，关闭自动保存。\n- `auto_save_on`: 默认 `\"save-on\"`，开启自动保存。\n\n#### `server.data_getter_regex`\n正则表达式字典，用于解析 `data get entity` 命令的返回结果。默认包含：\n\n- `crood_getter`: 匹配坐标输出。\n- `dimension_getter`: 匹配维度输出。\n\n如果修改了服务端语言或输出格式，可能需要调整这些正则。\n\n#### `server.saved_world_regex`\n- 类型：字符串列表\n- 默认值：`[\"Saved the game\", \"Saved the world\"]`\n- 说明：匹配世界保存完成时的控制台输出，用于确认保存操作完成。\n\n#### `server.save_world_max_wait`\n- 类型：字符串（带单位的时间）\n- 默认值：`\"10min\"`\n- 说明：等待世界保存完成的最大超时时间。\n\n### 备份配置（`backup`）\n\n#### `backup.dimension`\n维度配置字典，键为维度名（如 `\"minecraft:overworld\"`），值为对象，包含：\n\n- `integer_id` (int): 用于命令中输入的数字 ID，必须唯一。\n- `world_name` (string): 世界文件夹名称（相对于 `server_root`）。\n- `description` (string): 维度描述（仅用于显示）。\n- `region_folder` (list of string): 区域文件夹路径列表，相对于 `world_name`。通常包含 `region`、`entities`、`poi`。插件会自动根据 Minecraft 版本调整路径，但也可手动设置。\n\n默认包含主世界、下界、末地。\n\n#### `backup.player_data`\n玩家数据文件路径配置，用于备份和恢复玩家相关文件。格式为字典，键为文件扩展名（如 `\".json\"`），值为文件夹列表。默认值会根据 Minecraft 版本自动切换（旧版与 26.1+ 路径不同）。\n\n#### `backup.max_dynamic_slot`\n- 类型：int\n- 默认值：`10`\n- 说明：动态备份最大槽位数，超过上限时自动删除最旧备份。\n\n#### `backup.max_static_slot`\n- 类型：int\n- 默认值：`50`\n- 说明：静态备份最大槽位数，超过上限时阻止新备份创建。\n\n#### `backup.max_chunk_length`\n- 类型：int\n- 默认值：`320`\n- 说明：允许备份的区块矩形最大边长（区块个数），用于限制过大范围。\n\n---\n\n## 📌 添加自定义维度\n\nChunk Backup 支持任意 Minecraft 维度（包括模组维度，如暮色森林、地狱、末地等）。你只需在配置文件中正确添加维度信息，即可对该维度执行备份与回档操作。\n\n### 1. 获取维度的合法名称\n\n在添加维度前，你需要知道该维度在游戏中的内部名称。有两种常用方法：\n\n- **F3 调试屏幕**  \n  在游戏中按下 F3 键，打开调试屏幕。在左上角可以看到当前所在维度的信息，例如 `twilightforest:twilight_forest`。\n\n  ![F3 调试屏幕示例](https://raw.githubusercontent.com/Passion-Never-Dissipate/Chunk_BackUp/main/images/before_use1.png)  \n  *（图片仅为示意，请以实际游戏内显示为准）*\n\n- **使用 `/data get entity` 命令**  \n  执行指令 `/data get entity <玩家名> Dimension`，控制台会返回当前维度的名称。例如：\n  ```\n  /data get entity Steve Dimension\n  ```\n  返回结果中会包含维度名，如 `\"twilightforest:twilight_forest\"`。\n\n  ![命令示例](https://raw.githubusercontent.com/Passion-Never-Dissipate/Chunk_BackUp/main/images/before_use2.png)\n\n### 2. 维度配置结构\n\n在配置文件 `config/chunk_backup/config.json` 中，找到 `backup.dimension` 字段。它是一个字典，**键为维度名**（如 `\"minecraft:overworld\"`），值为一个对象，包含以下字段：\n\n| 字段              | 类型     | 说明                                                                                                                                                                         |\n| --------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `integer_id`    | int    | 用于命令中输入的整数 ID，**必须唯一**（不能与其他维度重复）。建议使用自定义的负整数或大整数以避免与原版冲突。                                                                                                                 |\n| `world_name`    | string | 该维度所在的世界文件夹名称（相对于 `server_root`）。对于单世界服务端，通常为 `\"world\"`；对于多世界服务端，可能为其他名称。                                                                                                  |\n| `description`   | string | 维度的描述信息（仅用于显示，不影响功能）。                                                                                                                                                      |\n| `region_folder` | list   | 区域文件夹路径列表，相对于 `world_name`。通常需要包含 `region`、`entities`、`poi` 这三个子文件夹的路径（注意：在 Minecraft 26.1 版本后，路径可能变为 `dimensions/minecraft/overworld/region` 等，插件会自动适配，但如果你手动设置，请确保路径正确）。 |\n\n### 3. 确定 `region_folder` 路径\n\n`region_folder` 中的路径需要指向该维度下存储区域文件（`.mca`）的目录。\n- 对于 **原版单世界服务端**，各维度的路径通常是固定的：\n  - 主世界：`region`、`entities`、`poi`（直接位于世界文件夹下）\n  - 下界：`DIM-1/region`、`DIM-1/entities`、`DIM-1/poi`\n  - 末地：`DIM1/region`、`DIM1/entities`、`DIM1/poi`\n- 对于 **模组维度**（如暮色森林），路径通常形如 `dimensions/<modid>/<dimension>/region` 等。你可以通过查看服务端文件夹结构来确定。\n\n**提示**：插件会自动根据 Minecraft 版本切换路径规则（26.1 版本前后路径不同）。如果你不确定，可以先留空让插件自动生成默认值，然后根据实际情况微调。\n\n### 4. 完整示例：添加暮色森林维度\n\n假设你的服务器安装了暮色森林模组，其维度名为 `twilightforest:twilight_forest`，世界文件夹为 `world`，区域文件位于 `dimensions/twilightforest/twilight_forest/` 下。则配置如下：\n\n```json\n\"backup\": {\n    \"dimension\": {\n        \"minecraft:overworld\": {\n            \"integer_id\": 0,\n            \"world_name\": \"world\",\n            \"description\": \"主世界\",\n            \"region_folder\": [\n                \"region\",\n                \"entities\",\n                \"poi\"\n            ]\n        },\n        \"minecraft:the_nether\": {\n            \"integer_id\": -1,\n            \"world_name\": \"world\",\n            \"description\": \"下界\",\n            \"region_folder\": [\n                \"DIM-1/region\",\n                \"DIM-1/entities\",\n                \"DIM-1/poi\"\n            ]\n        },\n        \"minecraft:the_end\": {\n            \"integer_id\": 1,\n            \"world_name\": \"world\",\n            \"description\": \"末地\",\n            \"region_folder\": [\n                \"DIM1/region\",\n                \"DIM1/entities\",\n                \"DIM1/poi\"\n            ]\n        },\n        \"twilightforest:twilight_forest\": {\n            \"integer_id\": -2,\n            \"world_name\": \"world\",\n            \"description\": \"暮色森林\",\n            \"region_folder\": [\n                \"dimensions/twilightforest/twilight_forest/region\",\n                \"dimensions/twilightforest/twilight_forest/entities\",\n                \"dimensions/twilightforest/twilight_forest/poi\"\n            ]\n        }\n    },\n    // ... 其他备份配置\n}\n```\n\n### 5. 注意事项\n\n- **`integer_id` 必须唯一**：不能与已有维度重复。建议使用负整数或 100 以上的整数，以避免与未来 Minecraft 版本新增维度冲突。\n- **路径准确性**：如果 `region_folder` 路径错误，插件将无法找到对应的区域文件，导致备份失败。请务必检查服务端文件夹结构，确保路径正确。\n- **多世界服务端**：如果你的服务端使用 Spigot/Paper 等多世界服务端，不同维度可能位于不同的世界文件夹中，此时 `world_name` 应设置为对应的世界文件夹名称（例如 `world_nether`、`world_the_end` 或自定义名称）。\n- **修改后重载**：每次修改配置文件后，都需要在游戏或控制台执行 `!!cb reload` 使更改生效。\n\n---\n\n通过以上步骤，你可以轻松地将任何自定义维度纳入 Chunk Backup 的管理范围，享受精确的区块备份与恢复功能。\n\n## 🎮 指令帮助\n\n所有指令均以插件前缀（默认 `!!cb`）开头。支持 Tab 补全，输入 `!!cb help` 查看总览，`!!cb help <指令>` 查看详细用法。\n\n### 通用选项\n\n| 选项                | 含义                                      |\n| ----------------- | --------------------------------------- |\n| `-s`, `--static`  | 操作静态备份（不自动轮换）                           |\n| `-d`, `--data`    | 回档时同时恢复玩家数据（需 Carpet Mod 和 candy_tools） |\n| `-c`, `--confirm` | 跳过二次确认，直接执行                             |\n\n### 备份指令\n\n| 指令                                              | 说明                                                                |\n| ----------------------------------------------- | ----------------------------------------------------------------- |\n| `!!cb make <半径> [<注释>]`                         | 以玩家所在区块为中心，备份边长为 `2*半径+1` 的区块区域。**玩家数据会自动备份（若安装 Carpet）**，无需额外参数。 |\n| `!!cb pmake <x1> <z1> <x2> <z2> in <维度> [<注释>]` | 备份两个坐标点所确定的矩形区块范围。                                                |\n| `!!cb dmake <维度列表> [<注释>]`                      | 备份整个维度的所有区域文件（支持逗号分隔多个维度，如 `0,-1,1`）。                             |\n\n### 回档指令\n\n| 指令                   | 说明                        |\n| -------------------- | ------------------------- |\n| `!!cb back [<备份ID>]` | 回档到指定备份（不指定 ID 则使用最新的备份）。 |\n| `!!cb restore`       | 撤销上一次回档，恢复到回档前状态。         |\n\n### 管理指令\n\n| 指令                  | 说明                                   |\n| ------------------- | ------------------------------------ |\n| `!!cb list [<页数>]`  | 列出备份列表。                              |\n| `!!cb show <备份ID>`  | 显示指定备份的详细信息（添加 `-d` 可查看玩家数据列表）。      |\n| `!!cb del <备份ID范围>` | 删除指定备份（支持单个ID、逗号分隔、连字符范围，如 `1,3-5`）。 |\n| `!!cb del all`      | 删除当前类型（动态/静态）的所有备份。                  |\n\n### 日志指令\n\n| 指令                      | 说明                       |\n| ----------------------- | ------------------------ |\n| `!!cb log list [<页数>]`  | 显示日志列表。                  |\n| `!!cb log show [<日志名>]` | 显示指定日志的详细内容（不指定则显示最新日志）。 |\n\n### 帮助与确认\n\n| 指令                 | 说明            |\n| ------------------ | ------------- |\n| `!!cb help [<指令>]` | 显示帮助信息。       |\n| `!!cb confirm`     | 确认当前等待中的危险操作。 |\n| `!!cb abort`       | 中止当前等待中的操作。   |\n| `!!cb reload`      | 重载插件配置。       |\n\n---\n\n## 📋 示例\n\n### 1. 备份当前区块（半径0）到静态备份，并附带注释\n```\n!!cb make 0 --static 保存出生点建筑\n```\n（玩家数据会自动备份，无需 `-d`）\n\n### 2. 备份主世界和下界的所有区域（维度0和-1）\n```\n!!cb dmake 0,-1 备份全主世界和下界\n```\n\n### 3. 恢复第3个备份，同时恢复玩家数据\n```\n!!cb back 3 -d\n```\n\n### 4. 删除动态备份中ID为1、2、5到10的备份\n```\n!!cb del 1,2,5-10\n```\n\n### 5. 查看日志列表第2页\n```\n!!cb log list 2\n```\n\n### 6. 显示最新日志详情\n```\n!!cb log show\n```\n\n---\n\n## ⚠️ 升级指南（从 v1.x 迁移到 v2.0.0）\n\n由于 v2.0.0 完全重构了备份格式和存储结构，旧版备份**无法直接兼容**。请按照以下步骤安全升级：\n\n1. **备份你的世界和旧版插件数据**（包括 `cb_multi`、`cb_static` 等文件夹）。\n2. 卸载旧版插件（删除旧版`.mcdr` 文件）。\n3. 安装新版插件和 `candy_tools` 插件，启动 MCDR 生成默认配置。\n4. 根据你的需求重新配置 `config.json`（特别是维度设置）。\n5. **重要**：如果你有重要的旧版备份需要保留，建议先用旧版插件将备份恢复到世界，然后用新版插件重新备份这些区域。\n6. **关于自定义备份**：新版插件暂时不支持旧版的自定义备份（custom）功能。我们计划在未来版本中开发一个功能更强大、更易于使用的自定义备份系统，敬请期待。当前版本仅支持区块级备份和区域级备份。\n7. 开始使用新版插件。\n\n> ⚠️ **注意**：新版配置字段与旧版完全不同，请勿直接复制旧版配置文件。\n\n---\n\n## ❓ 常见问题\n\n### Q1：为什么备份时提示“没有玩家数据”？\nA：你需要安装 [Carpet Mod](https://www.curseforge.com/minecraft/mc-mods/carpet) 并确保其正常工作，同时安装 [candy_tools](https://github.com/Passion-Never-Dissipate/candy_tools) 插件。另外，只有选区内的在线玩家才会被备份。\n\n### Q2：备份文件存储在什么位置？\nA：动态备份位于 `./cb_files/dynamic_storage/`，静态备份位于 `./cb_files/static_storage/`，回档前备份位于 `./cb_files/overwrite/`，日志位于 `./cb_files/logs/`。\n\n### Q3：如何添加模组维度（如暮色森林）？\nA：在配置文件的 `backup.dimension` 中添加新条目，指定一个唯一的 `integer_id` 和正确的 `region_folder` 路径。路径需相对于该维度的世界文件夹（通常为 `world` 或自定义世界名）。例如：\n```json\n\"twilightforest:twilight_forest\": {\n    \"integer_id\": -2,\n    \"world_name\": \"world\",\n    \"description\": \"暮色森林\",\n    \"region_folder\": [\n        \"dimensions/twilightforest/twilight_forest/region\",\n        \"dimensions/twilightforest/twilight_forest/entities\",\n        \"dimensions/twilightforest/twilight_forest/poi\"\n    ]\n}\n```\n\n### Q4：为什么回档时玩家数据没有恢复？\nA：需要在回档命令中添加 `-d` 参数，如 `!!cb back 3 -d`。同时确保备份时已经收集了玩家数据（即有在线玩家在选区内）。\n\n### Q5：如何取消正在等待确认的操作？\nA：输入 `!!cb abort` 即可中止当前任务。\n\n---\n\n## 🙏 鸣谢\n\n本插件在开发过程中参考并使用了 [Prime Backup](https://github.com/TISUnion/PrimeBackup) 的部分代码，特此感谢 Prime Backup 的作者及 TISUnion 组织。Prime Backup 是一个优秀的 Minecraft 备份插件，为我们提供了宝贵的思路和代码参考。\n\n---\n\n## 🤝 贡献与反馈\n\n- 项目地址：[GitHub](https://github.com/Passion-Never-Dissipate/Chunk_BackUp)\n- 反馈 Issue：[Issues](https://github.com/Passion-Never-Dissipate/Chunk_BackUp/issues)\n- 交流 QQ 群：**417086159**\n\n如果你喜欢这个插件，欢迎给个 Star ⭐，也欢迎提交 PR 一起改进！\n\n---\n\n> 💡 最后提醒：**备份文件夹内的文件请不要手动移动或修改**，否则可能导致备份失效。\n\n> 祝使用愉快！\n\n",
+    "readme_url": "https://raw.githubusercontent.com/Passion-Never-Dissipate/Chunk_BackUp/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}

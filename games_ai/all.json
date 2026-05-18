@@ -1,0 +1,459 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "games_ai",
+    "name": "GamesAI",
+    "version": "0.5.1",
+    "link": "https://github.com/PengZixuan30/Games_AI",
+    "authors": [
+      "yello"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.15.0"
+    },
+    "requirements": [
+      "openai",
+      "requests"
+    ],
+    "description": {
+      "zh_cn": "此插件可以让你在游戏中使用AI",
+      "en_us": "This plugin allows you to use AI in the game"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "games_ai",
+    "authors": [
+      "yello"
+    ],
+    "repository": "https://github.com/PengZixuan30/Games_AI",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "<div align=\"center\">\n\n# GamesAI\n\nEnglish  |  [简体中文](https://github.com/PengZixuan30/Games_AI/tree/main//README.zh-CN.md)  |  [繁體中文](https://github.com/PengZixuan30/Games_AI/tree/main//README.zh-TW.md)\n\n[Report an Issue](https://github.com/PengZixuan30/Games_AI/issues/new)  |  [Share an Idea](https://github.com/PengZixuan30/Games_AI/discussions/new/choose)\n\n</div>\n\n> [!NOTE]\n> Welcome to version 0.5.1! This release introduces the prompt file feature — you can use `> xxx.md` in the `prompt` field of AI config to point to a prompt file. See [Configuration](#4all_ai). It also adds automatic error code detection and fixes some issues. See [What's New](#whats-new)\n\n> [!IMPORTANT]\n> Version 0.5.0 introduced custom tool support and created a `tools.py` file in the config folder. See [Custom Tools](#custom-tools). This version introduces the prompt file feature and creates a `prompt` folder in the config folder. See [Configuration](#4all_ai)\n\n<details>\n<summary>Table of Contents (click to expand)</summary>\n\n- [GamesAI](#gamesai)\n  - [Installation](#installation)\n  - [Usage](#usage)\n  - [Configuration](#configuration)\n    - [1.prefix](#1prefix)\n    - [2.permission](#2permission)\n    - [3.max\\_history](#3max_history)\n    - [4.all\\_ai](#4all_ai)\n    - [5.default\\_ai](#5default_ai)\n  - [Tools \\& Custom Tools](#tools--custom-tools)\n    - [Tools](#tools)\n    - [Custom Tools](#custom-tools)\n  - [What's New](#whats-new)\n    - [1. Prompt File Support](#1-prompt-file-support)\n    - [2. Automatic Error Code Detection](#2-automatic-error-code-detection)\n  - [Acknowledgements \\& Disclaimer](#acknowledgements--disclaimer)\n  - [License](#license)\n\n</details>\n\n## Installation\n\nRun the following command in the MCDR console to install the plugin:\n\n`!!MCDR plugin install games_ai`\n\n---\n\nAlternatively, get it from the [MCDR Plugin Repository](https://mcdreforged.com/plugin/games_ai) and place it in your plugin directory.\n\nIf you choose to install manually, install the Python packages `openai` and `requests` first:\n\n```bash\npip install openai requests\n```\n\n## Usage\n\nType `!!gamesai` anywhere to display all available features of this plugin.\n\n<details>\n<summary>\n\nAll `!!gamesai` Commands (click to expand)</summary>\n\n| Command              | Description                                                                        |\n| -------------------- | ---------------------------------------------------------------------------------- |\n| `!!gamesai clear`    | Clear your own chat history. Chat history is unrelated to the public database.     |\n| `!!gamesai clearall` | Clear all players' chat history. Chat history is unrelated to the public database. |\n| `!!gamesai reload`   | Reload the plugin configuration file.                                              |\n| `!!gamesai check`    | Check for plugin updates.                                                          |\n\n</details>\n\n---\n\nYou can also use `!!ask` directly to ask the AI questions, chat, or ask it to do things for you.\n\n<details>\n<summary>\n\nAll `!!ask` Commands (click to expand)</summary>\n\n| Command                      | Description                                                                                                                                                                                                                 |\n| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `!!ask <content>`            | Ask the AI a question, chat, or ask it to do something. `<content>` is what you want the AI to do or the question you want to ask.                                                                                          |\n| `!!ask -m <model> <content>` | Use a specific model to ask the AI a question, chat, or ask it to do something. `<model>` is the AI_ID or nickname of the model you want to use. `<content>` is what you want the AI to do or the question you want to ask. |\n\n</details>\n\n---\n\nType `!!data` for information about database commands.\n\n> [!TIP]\n> The database is automatically created when upgrading to version 0.3.0 or above.\n\n<details>\n<summary>\n\nAll `!!data` Commands (click to expand)</summary>\n\n| Command                      | Description                                                                                            |\n| ---------------------------- | ------------------------------------------------------------------------------------------------------ |\n| `!!data write <key> <value>` | Add a data entry to the public database. `<key>` must not contain spaces; `<value>` can be any string. |\n| `!!data add <key> <value>`   | Append `<value>` to an existing key in the public database. Creates a new key if it does not exist.    |\n| `!!data del <key>`           | Delete a data entry from the public database, regardless of whether the key exists.                    |\n| `!!data read <key>`          | Read the value associated with a key from the public database.                                         |\n| `!!data list`                | Read all entries in the public database.                                                               |\n| `!!data list keys`           | Read all keys in the public database.                                                                  |\n\n</details>\n\n## Configuration\n\nThe default configuration file structure is as follows:\n\n```json\n{\n  \"prefix\": \"[GamesAI]\",\n  \"permission\": 3,\n  \"max_history\": 10,\n  \"all_ai\": {\n      \"<Your AI ID>\":{\n          \"prompt\": \"You are a mature, reliable Minecraft bot tool named \\\"GamesAI\\\".\",\n          \"ai_name\": \"[GamesAI]\",\n          \"base_url\": \"<Your API Base URL>\",\n          \"ai_model\": \"<Your AI Model>\",\n          \"api_key\": \"<Your API Key>\",\n          \"thinking\": false\n      }\n    },\n  \"default_ai\": \"<Your AI ID>\"\n  }\n```\n\n---\n\nBelow is a brief introduction to each parameter:\n\n<details>\n\n<summary>Click to expand</summary>\n\n### 1.prefix\nType: `str`\n\nDefault: `[GamesAI]`\n\nThe plugin name used as a prefix in replies. May include Minecraft formatting codes.\n\n### 2.permission\nType: `int`\n\nDefault: `3`\n\nThe minimum permission level required to execute commands like `!!data`. See the [MCDR Permission Documentation](https://docs.mcdreforged.com/en/latest/permission.html).\n\n### 3.max_history\nType: `int`\n\nDefault: `10`\n\nThe maximum number of conversation turns retained per player. Unrelated to the public database.\n\n### 4.all_ai\nType: `dict`\n\nDefault: see file\n\nAll AI configuration entries, consisting of multiple sub-dictionaries. Each sub-dictionary represents one AI model, and its key serves as the plugin's internal AI_ID.\n\n**prompt**: Use this option to write a system prompt for each AI. Use `> xxx.md` to point the prompt to the `config/games_ai/prompt/xxx.md` file (any file type is supported).\n\n**ai_name**: Similar to `prefix`, but set per model. May include Minecraft formatting codes.\n\n**base_url**, **ai_model**, **api_key**: Same as previous related configuration, but now set per model.\n\n**thinking**: Enable or disable the model's thinking/reasoning mode. Defaults to `false` when omitted. Do not enable this for models that do not support a thinking mode — it may cause errors.\n\n### 5.default_ai\nType: `str`\n\nDefault: `<Your AI ID>`\n\nThe model used when a player simply uses `!!ask`. Should be one of the keys in the `all_ai` dictionary (i.e. the plugin's internal AI_ID). An incorrect value will prevent `!!ask` from working properly.\n\n</details>\n\n## Tools & Custom Tools\n\n### Tools\nThe GamesAI plugin provides many built-in tools, listed in the table below. If you want more tools, you can [submit a suggestion](https://github.com/PengZixuan30/Games_AI/issues/new) or use [Custom Tools](#custom-tools).\n\n<details>\n<summary>Click to view all built-in tools</summary>\n\n|        Tool ID        |          Parameters          | Description                                                                                                                                                                                                                                                    |\n| :-------------------: | :--------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n|  get_online_players   |             None             | Get the list of currently online players. Depends on the `online_player_api` plugin; automatically disabled if unavailable.                                                                                                                                    |\n|  get_whitelist_name   |             None             | Get the complete server whitelist. Depends on the `whitelist_api` plugin; automatically disabled if unavailable.                                                                                                                                               |\n|   add_to_whitelist    |            `name`            | Add a player to the whitelist. Depends on the `whitelist_api` plugin; automatically disabled if unavailable.                                                                                                                                                   |\n| remove_from_whitelist |            `name`            | Remove a player from the whitelist. Depends on the `whitelist_api` plugin; automatically disabled if unavailable.                                                                                                                                              |\n| search_minecraft_wiki |           `query`            | Let the AI search the Minecraft Wiki for more accurate answers.                                                                                                                                                                                                |\n|      calculator       |         `expression`         | A simple mathematical expression calculator.                                                                                                                                                                                                                   |\n|    item_caculator     | `expression`, `single_limit` | A mathematical expression calculator that converts results into Minecraft item notation (shulker boxes, stacks, items). Automatically adapts to stack size; defaults to 64 if not specified.                                                                   |\n|      add_pos_pos      |  `name`, `pos`, `dimension`  | Add a waypoint at a specified location. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                                                                 |\n|     add_pos_here      |            `name`            | Add a waypoint at the player's current location. Automatically disabled when executed from the console. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available. |\n|      remove_pos       |            `name`            | Delete a waypoint. The `where2go` version automatically converts names to IDs. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                          |\n|      search_pos       |            `name`            | Search for a waypoint. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                                                                                  |\n|      get_all_pos      |             None             | Get a list of all waypoints. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                                                                            |\n|     ai_read_data      |            `key`             | Read a single entry from the database.                                                                                                                                                                                                                         |\n|   ai_read_all_keys    |             None             | Get all keys from the database.                                                                                                                                                                                                                                |\n|     ai_write_data     |        `key`, `value`        | Write a data entry to the database (overwrite mode).                                                                                                                                                                                                           |\n|      ai_add_data      |        `key`, `value`        | Write a data entry to the database (append mode).                                                                                                                                                                                                              |\n|      ai_del_data      |            `key`             | Delete a data entry from the database.                                                                                                                                                                                                                         |\n\n</details>\n\n### Custom Tools\nCustomize tools by editing the `config/games_ai/tools/tools.py` file.\n\nLet's start by looking at the default content:\n\n```python\nfrom mcdreforged.command.command_source import CommandSource\nfrom games_ai.games_ai_tool import register_tool\n\n@register_tool(description=\"My Custom Tool\")\ndef my_custom_tool(source: CommandSource, ai_prefix: str):\n    return \"Tool execution completed\"\n```\n\n> [!IMPORTANT]\n> The `from games_ai.games_ai_tool import register_tool` import and the `@register_tool` decorator above the function definition **must** be present.\n\nAs you can see, the structure is very simple.\n\nNow I'll show you how to build a real tool. Let's use searching `baidu.com` as an example.\n\n<details>\n\n<summary>Click to expand</summary>\n\nThe best way to understand how to implement a Baidu search is to look at the built-in `search_minecraft_wiki` tool in the GamesAI source code:\n\n```python\n@register_tool(description=\"Search Minecraft Wiki for relevant information. Do not use this method to search for non-Minecraft content. If the search results page is returned, you can browse that page first and then perform a more precise query.\", tr_key=\"searching_minecraft_wiki\", parameters={\n    \"type\": \"object\",\n    \"properties\": {\n        \"query\": {\n            \"type\": \"string\",\n            \"description\": \"The search term, e.g. the name of an item, mob, or game mechanic.\"\n        }\n    },\n    \"required\": [\"query\"]\n})\ndef search_minecraft_wiki(source: CommandSource, ai_prefix: str, query: str):\n    source.reply(f'{ai_prefix}{source.get_server().rtr(\"games_ai.tools.searching_minecraft_wiki\", query=query)}')\n    lang = source.get_server().get_mcdr_language()\n    if lang == \"en_us\":\n        search_url = f\"https://minecraft.wiki/?search={query}\"\n    else:\n        search_url = f\"https://zh.minecraft.wiki/?search={query}\"\n    response = requests.get(search_url)\n    if response.status_code == 200:\n        return f\"Search results for {query}:\\n{response.content.decode('utf-8')}\"\n    else:\n        return \"Unable to access Minecraft Wiki for searching.\"\n```\n\nLet's start by looking at the tool registration. `description` is like a system prompt — it's mandatory and is provided to the AI. `tr_key` is an internal identifier; you do **not** need to include it when writing external `tools.py`. `parameters` defines the arguments the AI should pass in. You can decide whether to include it based on your actual needs. `properties` lists all the input parameters, and `required` specifies which are mandatory. Make sure `properties` and the function's parameter list correspond one-to-one.\n\nFor example:\n\n```python\n@register_tool(description=\"Search Baidu\")\n```\n\nHowever, searching Baidu obviously requires a search term, so:\n\n```python\n@register_tool(description=\"Search Baidu\", parameters={\n    \"type\": \"object\",\n    \"properties\": {\n        \"query\": {\n            \"type\": \"string\",\n            \"description\": \"The search term\"\n        }\n    },\n    \"required\": [\"query\"]\n})\n```\n\nGreat — you now know how to register a tool! Next, write the function definition:\n\n```python\ndef search_baidu(source: CommandSource, ai_prefix: str, query: str):\n```\n\nIn the code above, the `source` and `ai_prefix` parameters **must** be included because they are always passed in.\n\nThen write the function body:\n\n```python\ndef search_baidu(source: CommandSource, ai_prefix: str, query: str):\n    ...\n    return ...\n```\n\nThe function body can contain any operations you need. Just remember to always `return` a result — otherwise the AI won't be able to process the output properly.\n\nComplete `tools.py` example:\n\n```python\nimport requests\nfrom games_ai.games_ai_tool import register_tool\n\n@register_tool(\n    description=\"Use Baidu to search for information on the internet. Use this tool when you need real-time info, news, encyclopedia knowledge, etc.\",\n    parameters={\n        \"type\": \"object\",\n        \"properties\": {\n            \"query\": {\n                \"type\": \"string\",\n                \"description\": \"The keyword or question to search for on Baidu\"\n            }\n        },\n        \"required\": [\"query\"]\n    }\n)\ndef search_baidu(source, ai_prefix: str, query: str):\n    source.reply(f'{ai_prefix}Searching Baidu: {query}...')\n\n    try:\n        url = \"https://www.baidu.com/s\"\n        headers = {\n            \"User-Agent\": (\n                \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) \"\n                \"AppleWebKit/537.36 (KHTML, like Gecko) \"\n                \"Chrome/120.0.0.0 Safari/537.36\"\n            )\n        }\n        response = requests.get(url, params={\"wd\": query}, headers=headers, timeout=10)\n\n        if response.status_code != 200:\n            return f\"Baidu search failed, HTTP status code: {response.status_code}\"\n\n        # Extract plain text from page (strip HTML tags)\n        import re\n        text = response.text\n        # Remove script and style tag contents\n        text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.DOTALL | re.IGNORECASE)\n        text = re.sub(r'<style[^>]*>.*?</style>', '', text, flags=re.DOTALL | re.IGNORECASE)\n        # Remove HTML tags\n        text = re.sub(r'<[^>]+>', '', text)\n        # Collapse extra whitespace\n        text = re.sub(r'\\s+', ' ', text).strip()\n\n        # Truncate long content (keep first 3000 characters, suitable for AI context)\n        max_len = 3000\n        if len(text) > max_len:\n            text = text[:max_len] + \"\\n...(content truncated)\"\n\n        return f\"Baidu search results for 「{query}」:\\n{text}\"\n\n    except requests.Timeout:\n        return \"Baidu search request timed out. Please try again later.\"\n    except Exception as e:\n        return f\"Baidu search error: {str(e)}\"\n```\n\n</details>\n\n## What's New\n\n### 1. Prompt File Support\nYou can now point AI prompts to external files. Use `> xxx.md` in the `prompt` field to reference the `config/games_ai/prompt/xxx.md` file.\n\n### 2. Automatic Error Code Detection\nWhen an error occurs while accessing the AI, the error code and cause are now automatically identified and displayed.\n\n---\n\nAdditionally, this release fixes several issues.\n\n## Acknowledgements & Disclaimer\n\nSpecial thanks to the Wanghai Commune server for providing the foundation for testing this plugin.\n\nAll content generated by AI (LLM) models is unrelated to this plugin.\n\nAll consequences arising from custom tools are unrelated to this plugin.\n\n## License\n\nMIT License, Copyright (c) 2026 yello\n\n<div align = \"center\">\n\n---\n\n[Back to Top](#gamesai)\n\n</div>\n",
+      "zh_cn": "<div align=\"center\">\n\n# GamesAI\n\n[English](https://github.com/PengZixuan30/Games_AI/tree/main//README.md)  |  简体中文  |  [繁體中文](https://github.com/PengZixuan30/Games_AI/tree/main//README.zh-TW.md)\n\n[反馈问题](https://github.com/PengZixuan30/Games_AI/issues/new)  |  [反馈想法](https://github.com/PengZixuan30/Games_AI/discussions/new/choose)\n\n</div>\n\n> [!NOTE]\n> 欢迎使用版本0.5.1，当前版本加入了提示词文件化的功能，可以在AI配置中的`prompt`一项填入`> xxx.md`以指向提示词文件，见[配置](#4all_ai)；加入了错误码自动识别功能，修复了一些问题。见[本次更新](#本次更新)\n\n> [!IMPORTANT]\n> 0.5.0版本加入了自定义工具的功能，会在配置文件夹创建tools.py文件，见[自定义工具](#自定义工具)。此版本加入了提示词文件化的功能，会在配置文件夹创建prompt文件夹，见[配置](#4all_ai)\n\n<details>\n<summary>目录(点击展示)</summary>\n\n- [GamesAI](#gamesai)\n  - [安装](#安装)\n  - [使用](#使用)\n  - [配置](#配置)\n    - [1.prefix](#1prefix)\n    - [2.permission](#2permission)\n    - [3.max\\_history](#3max_history)\n    - [4.all\\_ai](#4all_ai)\n    - [5.default\\_ai](#5default_ai)\n  - [工具与自定义工具](#工具与自定义工具)\n    - [工具](#工具)\n    - [自定义工具](#自定义工具)\n  - [本次更新](#本次更新)\n    - [1.允许你将提示词文件化](#1允许你将提示词文件化)\n    - [2.加入了错误码自动识别的功能](#2加入了错误码自动识别的功能)\n  - [鸣谢与声明](#鸣谢与声明)\n  - [许可证](#许可证)\n\n</details>\n\n## 安装\n\n在MCDR控制台中使用如下命令以安装插件\\(鉴于现版本的MCDR下载器并不稳定，使用此命令可能无法下载最新版，不建议使用此命令安装\\)\n\n`!!MCDR plugin install games_ai`\n\n---\n\n或者在[MCDR插件仓库](https://mcdreforged.com/plugin/games_ai)中获取并安装到你的插件目录内\n\n如果选择手动安装，请先安装Python包OpenAI和requests，使用如下命令安装\n```bash\npip install openai requests\n```\n\n## 使用\n\n在任何地方输入命令`!!gamesai`以显示这个插件的所有功能\n\n<details>\n<summary>\n\n有关`!!gamesai`的所有指令(点击展开)</summary>\n\n| 指令                   | 用途                           |\n| -------------------- | ---------------------------- |\n| `!!gamesai clear`    | 清除玩家的历史聊天记录，历史聊天记录与公共数据库无关   |\n| `!!gamesai clearall` | 清除所有玩家的历史聊天记录，历史聊天记录与公共数据库无关 |\n| `!!gamesai reload`   | 重新加载插件配置文件                   |\n| `!!gamesai check`    | 检查插件更新                       |\n\n</details>\n\n---\n\n你也可以直接输入`!!ask`向AI提问或者聊天或者帮你做一些事情\n\n<details>\n<summary>\n\n有关`!!ask`的所有指令(点击展开)</summary>\n\n| 指令                           | 用途                                                                           |\n| ---------------------------- | ---------------------------------------------------------------------------- |\n| `!!ask <content>`            | 向AI提问或者聊天或者帮你做一些事情，content为你想让AI做的事情或者你想问AI的问题                               |\n| `!!ask -m <model> <content>` | 使用指定的模型向AI提问或者聊天或者帮你做一些事情，model为你想使用的模型的AI_ID或昵称，content为你想让AI做的事情或者你想问AI的问题 |\n\n</details>\n\n---\n\n输入`!!data`获取有关数据库指令的信息\n\n> [!TIP]\n> 更新到0.3.0及以上版本时会自动添加数据库\n\n<details>\n<summary>\n\n有关`!!gamesai`的所有指令(点击展开)</summary>\n\n| 指令                           | 用途                                      |\n| ---------------------------- | --------------------------------------- |\n| `!!data write <key> <value>` | 在公共数据库内添加一条数据，其中key不能包含空格，value可以是任意字符串 |\n| `!!data add <key> <value>`   | 将value追加到公共数据库中的key中，不存在时自动创建新key       |\n| `!!data del <key>`           | 在公共数据库内删除一条数据，无论key是否存在                 |\n| `!!data read <key>`          | 读取公共数据库中key对应的value                     |\n| `!!data list`                | 读取公共数据库中的所有内容                           |\n| `!!data list keys`           | 读取公共数据库中的所有key                          |\n\n</details>\n\n## 配置\n\n默认配置文件结构如下:\n\n```json\n{\n  \"prefix\": \"[GamesAI]\",\n  \"permission\": 3,\n  \"max_history\": 10,\n  \"all_ai\": {\n      \"<Your AI ID>\":{\n          \"prompt\": \"你是一名成熟、稳重的Minecraft机器人工具，你的名字叫做“GamesAI”\",\n          \"ai_name\": \"[GamesAI]\",\n          \"base_url\": \"<Your API Base URL>\",\n          \"ai_model\": \"<Your AI Model>\",\n          \"api_key\": \"<Your API Key>\",\n          \"thinking\": false\n      }\n    },\n  \"default_ai\": \"<Your AI ID>\"\n  }\n```\n\n---\n\n以下是每个参数的简介:\n\n### 1.prefix\n值的类型: str\n\n默认值: \\[GamesAI\\]\n\n填入插件的名称，以在插件的回复之前加上一个前缀，可以包含Minecraft格式化代码\n\n### 2.permission\n值的类型：int\n\n默认值：3\n\n执行`!!data`等指令所必须达到的权限，见[MCDR权限相关文档](https://docs.mcdreforged.com/zh-cn/latest/permission.html)\n\n\n### 3.max_history\n值的类型: int\n\n默认值: 10\n\n填入每个玩家最大可的保留历史记录，与公共数据库无关\n\n### 4.all_ai\n值的类型: dict\n\n默认值：见文件\n\n填入所有的AI信息，由多个字典组成，每个字典为一个AI模型，字典的键即为插件内部的AI_ID\n\n**prompt**: 这项配置用于为每个AI编写提示词。使用`> xxx.md`将提示词指向`config/games_ai/prompt/xxx.md`文件，不限文件类型\n\n**ai_name**: 这项配置与prefix功能类似，但是你现在需要单独为每一个模型设置，可以包含Minecraft格式化代码\n\n**base_url**, **ai_model**, **api_key**: 与以前的相关配置功能相同，但是你现在需要单独为每一个模型设置\n\n**thinking**: 这项配置用于 启用/禁用 模型的思考模式，不填时默认为false，切勿为没有思考模式的模型启用此项，那可能会出错\n\n### 5.default_ai\n值的类型: str\n\n默认值: \\<Your AI ID\\>\n\n填入当用户直接使用`!!ask`时使用的模型，应该填入all_ai字典中的某一个键\\(即为插件内部的AI_ID\\)，如果错填，会导致无法正常使用`!!ask`指令\n\n## 工具与自定义工具\n### 工具\nGamesAI插件提供了很多自带的工具，见下表。如果你想要更多的工具，可以选择[向作者投稿](https://github.com/PengZixuan30/Games_AI/issues/new)或者选择[自定义工具](#自定义工具)\n\n<details>\n<summary>点击查看所有的自带工具</summary>\n\n|         工具ID          |            传入参数             | 用途                                                                                                      |\n| :-------------------: | :-------------------------: | ------------------------------------------------------------------------------------------------------- |\n|  get_online_players   |              无              | 获取服务器内在线的玩家列表。依赖于`online_player_api`插件，不存在时自动关闭此工具                                                      |\n|  get_whitelist_name   |              无              | 获取服务器完整的白名单列表。依赖于`whitelist_api`插件，不存在时自动关闭此工具                                                          |\n|   add_to_whitelist    |           `name`            | 将某个玩家添加到白名单中。依赖于`whitelist_api`插件，不存在时自动关闭此工具                                                           |\n| remove_from_whitelist |           `name`            | 将某个玩家从白名单删除。依赖于`whitelist_api`插件，不存在时自动关闭此工具                                                            |\n| search_minecraft_wiki |           `query`           | 让AI搜索Minecraft Wiki，以确保回答更准确                                                                            |\n|      calculator       |        `expression`         | 简单的数学表达式计算器                                                                                             |\n|    item_caculator     | `expression`,`single_limit` | 数学表达式计算器，并将最终结果转换为物品计数法，即 盒、组、个，自动适应物品的堆叠数，不存在时默认使用64                                                   |\n|      add_pos_pos      |  `name`,`pos`,`dimension`   | 在指定位置添加一个坐标点。依赖于`where2go`或`location_marker`插件，两者都存在时，优先使用`where2go`，均不存在时，自动关闭此工具                      |\n|     add_pos_here      |           `name`            | 在玩家的位置添加一个坐标点，控制台执行时自动关闭此工具。依赖于`where2go`或`location_marker`插件，两者都存在时，优先使用`where2go`，均不存在时，自动关闭此工具       |\n|      remove_pos       |           `name`            | 删除一个坐标点，`where2go`版本会自动将name转换为id。依赖于`where2go`或`location_marker`插件，两者都存在时，优先使用`where2go`，均不存在时，自动关闭此工具 |\n|      search_pos       |           `name`            | 搜索一个坐标点。依赖于`where2go`或`location_marker`插件，两者都存在时，优先使用`where2go`，均不存在时，自动关闭此工具                           |\n|      get_all_pos      |              无              | 获取所有的坐标点列表.依赖于`where2go`或`location_marker`插件，两者都存在时，优先使用`where2go`，均不存在时，自动关闭此工具                        |\n|     ai_read_data      |            `key`            | 读取一条数据库内容                                                                                               |\n|   ai_read_all_keys    |              无              | 获取数据库中所有的键                                                                                              |\n|     ai_write_data     |        `key`,`value`        | 向数据库中写入一条数据\\(覆写模式\\)                                                                                     |\n|      ai_add_data      |        `key`,`value`        | 向数据库中写入一条数据\\(追加模式\\)                                                                                     |\n|      ai_del_data      |            `key`            | 删除数据库中的一条数据                                                                                             |\n\n</details>\n\n### 自定义工具\n通过修改`config/games_ai/tools/tools.py`文件来实现自定义修改工具\n\n先来看看默认值如何\n\n```python\nfrom mcdreforged.command.command_source import CommandSource\nfrom games_ai.games_ai_tool import register_tool\n\n@register_tool(description=\"My Custom Tool\")\ndef my_custom_tool(source: CommandSource, ai_prefix: str):\n    return \"Tool execution completed\"\n```\n\n> [!IMPORTANT]\n> 代码中的`from games_ai.games_ai_tool import register_tool`和函数定义前的`@register_tool`必须存在\n\n可见，这是十分简单的结构。\n\n接下来我将告诉你如何实践，比如下面的例子：搜索baidu.com\n\n<details>\n\n<summary>点击展开</summary>\n\n想要知道如何实现搜索baidu.com，参考GamesAI源代码中的工具`search_minecraft_wiki`无疑是最好的选择：\n\n```python\n@register_tool(description=\"搜索Minecraft Wiki以获取相关信息, 请不要使用此方法搜索与Minecraft无关的东西。如果返回了Search results页面, 你可以通过先浏览此页面, 再进行一次精确查询\", tr_key=\"searching_minecraft_wiki\", parameters={\n    \"type\": \"object\",\n    \"properties\": {\n        \"query\": {\n            \"type\": \"string\",\n            \"description\": \"要搜索的内容，例如某个物品、怪物、机制等的名称。\"\n        }\n    },\n    \"required\": [\"query\"]\n})\ndef search_minecraft_wiki(source: CommandSource, ai_prefix: str, query: str):\n    source.reply(f'{ai_prefix}{source.get_server().rtr(\"games_ai.tools.searching_minecraft_wiki\", query=query)}')\n    lang = source.get_server().get_mcdr_language()\n    if lang == \"en_us\":\n        search_url = f\"https://minecraft.wiki/?search={query}\"\n    else:\n        search_url = f\"https://zh.minecraft.wiki/?search={query}\"\n    response = requests.get(search_url)\n    if response.status_code == 200:\n        return f\"一下是搜索内容 {query} 的结果:\\n{response.content.decode('utf-8')}\"\n    else:\n        return \"无法访问Minecraft Wiki进行搜索\"\n```\n\n首先来看工具的注册，其中的`description`类似于提示词，是必填项，是给AI提供的；其中的`tr_key`是内部方法，外部编写tools.py时不需要包含此项；而`parameters`就是AI需要传入的参数，可根据实际情况决定是否填写，其中的`properties`用于填写所有的传入参数，其中的`required`项则表示有哪些参数是必填的，注意`properties`与函数定义中传入参数的位置关系，应该需要一一对应。\n\n例如：\n```python\n@register_tool(description=\"搜索百度\")\n```\n\n但是，搜索百度肯定需要传入搜索内容，所以：\n```python\n@register_tool(description=\"搜索百度\", parameters={\n    \"type\": \"object\",\n    \"properties\": {\n        \"query\": {\n            \"type\": \"string\",\n            \"description\": \"要搜索的内容\"\n        }\n    },\n    \"required\": [\"query\"]\n})\n```\n\n好了，你已经学会如何注册工具了，接下来就可以写函数定义了：\n```python\ndef search_baidu(source: CommandSource, ai_prefix: str, query: str):\n```\n\n上面的代码中，`source`和`ai_prefix`项必须编写，因为它们始终会被传入\n\n接下来写函数体：\n```python\ndef search_baidu(source: CommandSource, ai_prefix: str, query: str):\n    ...\n    return ...\n```\n\n函数体中可以是任何你需要的操作，最后记得一定要`return`，否则AI将无法正确处理结果\n\n`tools.py`的完整示例：\n```python\nimport requests\nfrom games_ai.games_ai_tool import register_tool\n\n@register_tool(\n    description=\"使用百度搜索互联网上的信息。当你需要查找实时信息、新闻、百科知识等时使用此工具。\",\n    parameters={\n        \"type\": \"object\",\n        \"properties\": {\n            \"query\": {\n                \"type\": \"string\",\n                \"description\": \"要在百度搜索的关键词或问题\"\n            }\n        },\n        \"required\": [\"query\"]\n    }\n)\ndef search_baidu(source, ai_prefix: str, query: str):\n    source.reply(f'{ai_prefix}正在搜索百度：{query}...')\n\n    try:\n        url = \"https://www.baidu.com/s\"\n        headers = {\n            \"User-Agent\": (\n                \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) \"\n                \"AppleWebKit/537.36 (KHTML, like Gecko) \"\n                \"Chrome/120.0.0.0 Safari/537.36\"\n            )\n        }\n        response = requests.get(url, params={\"wd\": query}, headers=headers, timeout=10)\n\n        if response.status_code != 200:\n            return f\"百度搜索失败，HTTP 状态码：{response.status_code}\"\n\n        # 简单提取页面文本（去除 HTML 标签）\n        import re\n        text = response.text\n        # 移除 script 和 style 标签内容\n        text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.DOTALL | re.IGNORECASE)\n        text = re.sub(r'<style[^>]*>.*?</style>', '', text, flags=re.DOTALL | re.IGNORECASE)\n        # 移除 HTML 标签\n        text = re.sub(r'<[^>]+>', '', text)\n        # 合并多余空白\n        text = re.sub(r'\\s+', ' ', text).strip()\n\n        # 截断过长内容（保留前 3000 字符，适合 AI 上下文）\n        max_len = 3000\n        if len(text) > max_len:\n            text = text[:max_len] + \"\\n...(内容已截断)\"\n\n        return f\"百度搜索「{query}」的结果：\\n{text}\"\n\n    except requests.Timeout:\n        return \"百度搜索请求超时，请稍后重试\"\n    except Exception as e:\n        return f\"百度搜索出错：{str(e)}\"\n```\n\n</details>\n\n## 本次更新\n### 1.允许你将提示词文件化\n允许你将AI的提示词使用`> xxx.md`指向`config/games_ai/prompt/xxx.md`文件\n\n### 2.加入了错误码自动识别的功能\n当访问AI出现错误时，自动识别错误并直接输出错误代码与错因\n\n---\n\n另外，本次更新修复了一些问题\n\n## 鸣谢与声明\n特别感谢望海公社服务器为此插件的测试提供了基础\n\nAI\\(LLM\\)模型生成的一切内容与此插件无关\n\n自定义工具造成的一切后果与本插件无关\n\n## 许可证\nMIT License, Copyright (c) 2026 yello\n\n<div align = \"center\">\n\n---\n\n[回到顶部](#gamesai)\n\n</div>\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/PengZixuan30/Games_AI/main/README.zh-CN.md",
+      "en_us": "https://raw.githubusercontent.com/PengZixuan30/Games_AI/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "games_ai",
+    "latest_version": "0.5.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.5.1",
+        "name": "Version0.5.1",
+        "tag_name": "0.5.1",
+        "created_at": "2026-05-16T14:26:37Z",
+        "description": "中文:\r\n\r\n本次更新了如下内容:\r\n - 提示词文件化\r\n - 错误码自动识别\r\n - 修复了一些问题\r\n\r\nEnglish:\r\n\r\nThis update follow with:\r\n - File-based prompts\r\n - Automatic error code identification\r\n - Fixed some issues",
+        "prerelease": false,
+        "asset": {
+          "id": 421868953,
+          "name": "GamesAI-v0.5.1.mcdr",
+          "size": 38321,
+          "download_count": 7,
+          "created_at": "2026-05-16T14:33:47Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.5.1/GamesAI-v0.5.1.mcdr",
+          "hash_md5": "9b78a3b2a98f7137bbc30a122bace9f4",
+          "hash_sha256": "ebd61b62c176198932887e4139eb794c508dfeebb116e5f465d56933c08c0d96"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.5.1",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "此插件可以让你在游戏中使用AI",
+            "en_us": "This plugin allows you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.5.0",
+        "name": "Version0.5.0",
+        "tag_name": "0.5.0",
+        "created_at": "2026-05-10T06:53:24Z",
+        "description": "中文:\r\n\r\n本次更新了如下内容:\r\n - 加入了自定义工具的功能\r\n - 加入了一些新的工具\r\n - 修复了一些问题\r\n\r\nEnglish:\r\n\r\nThis update following:\r\n - Custom tools\r\n - Some new tools\r\n - Fixed some issues",
+        "prerelease": false,
+        "asset": {
+          "id": 416501612,
+          "name": "GamesAI-v0.5.0.mcdr",
+          "size": 36690,
+          "download_count": 6,
+          "created_at": "2026-05-10T06:56:40Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.5.0/GamesAI-v0.5.0.mcdr",
+          "hash_md5": "250b7dc6f10520a2cc62e494ab1b9298",
+          "hash_sha256": "365b5f0eefec8d9702a31c3f924cb7c4c9706384f9d1a1c398455e98a1a540f2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.5.0",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "此插件可以让你在游戏中使用AI",
+            "en_us": "This plugin allows you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.4.2",
+        "name": "Version0.4.2",
+        "tag_name": "0.4.2",
+        "created_at": "2026-05-02T14:43:15Z",
+        "description": "中文：\r\n\r\n本次更新了以下内容：\r\n - 加入了AI自动查询Minecraft Wiki的功能，让信息更具准确性\r\n - 加入了`!!gamesai reload`指令，让你在修改配置文件后不再需要通过繁琐的步骤卸载并加载插件\r\n - 重构了部分代码结构，为以后制作自定义skills做好了基础\r\n - 修复了一些问题\r\n\r\nEnglish：\r\n\r\nThis update includes the following:\r\n- Added AI-powered automatic querying of the Minecraft Wiki for more accurate information.\r\n- Added the `!!gamesai reload` command, so you no longer need to go through the tedious steps of unloading and reloading the plugin after changing configuration files.\r\n- Refactored parts of the code structure, laying the foundation for creating custom skills in the future.\r\n- Fixed some issues.",
+        "prerelease": false,
+        "asset": {
+          "id": 410570946,
+          "name": "GamesAI-v0.4.2.mcdr",
+          "size": 23654,
+          "download_count": 15,
+          "created_at": "2026-05-02T14:47:09Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.4.2/GamesAI-v0.4.2.mcdr",
+          "hash_md5": "74a8ffb89b10161af82c6015d084cf4e",
+          "hash_sha256": "25efcbafca59d599ecc39d058cb9c8fcde373e3a870cf78d3b5af7cc34a2b1c5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.4.2",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "此插件可以让你在游戏中使用AI",
+            "en_us": "This plugin allows you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.4.1",
+        "name": "Version 0.4.1",
+        "tag_name": "0.4.1",
+        "created_at": "2026-05-01T12:00:22Z",
+        "description": "中文：\r\n\r\n本次更新添加如下内容：\r\n - 修复了自动版本更新的问题\r\n - 重构了工具调用方法，为以后添加自定义skills做了铺垫\r\n - 加入了 加入/移除 白名单的功能\r\n - 修复了一些问题\r\n\r\nEnglish:\r\n\r\nThis update includes the following changes:  \r\n- Fixed an issue with automatic version updates  \r\n- Refactored the tool calling method to pave the way for adding custom skills in the future  \r\n- Added the ability to add/remove whitelist entries  \r\n- Fixed various issues",
+        "prerelease": false,
+        "asset": {
+          "id": 409832974,
+          "name": "GamesAI-v0.4.1.mcdr",
+          "size": 21102,
+          "download_count": 14,
+          "created_at": "2026-05-01T12:03:32Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.4.1/GamesAI-v0.4.1.mcdr",
+          "hash_md5": "4a3a1a420b5b1a299eb5e15be63ae273",
+          "hash_sha256": "cce6ece1fa500f5da9ef492cbd930e403cd5a7fb7a2687c37fa8ca36fd8ddbd1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.4.1",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "此插件可以让你在游戏中使用AI",
+            "en_us": "This plugin allows you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.4.0",
+        "name": "Version0.4.0",
+        "tag_name": "0.4.0",
+        "created_at": "2026-04-26T05:00:57Z",
+        "description": "中文：\r\n\r\n本次更新了如下内容：\r\n - 加入了自动检查更新\r\n - 加入了多模型支持\r\n - 修复了一些问题\r\n\r\nEnglish:\r\n\r\nThe following content has been updated in this release:\r\n- Added automatic update checking\r\n- Added multi-model support\r\n- Fixed some issues",
+        "prerelease": false,
+        "asset": {
+          "id": 405735421,
+          "name": "GamesAI-v0.4.0.mcdr",
+          "size": 20485,
+          "download_count": 18,
+          "created_at": "2026-04-26T05:25:45Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.4.0/GamesAI-v0.4.0.mcdr",
+          "hash_md5": "579daa2233a33acff023ee42b70cce50",
+          "hash_sha256": "4349d05e35414059410429f7c381f48b678e9fb4cb8fa650a319c909b77f8f3d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.4.0",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0",
+            "online_player_api": ">=1.0.0",
+            "whitelist_api": ">=1.0.0"
+          },
+          "requirements": [
+            "openai",
+            "requests"
+          ],
+          "description": {
+            "zh_cn": "此插件可以将MCDR与支持OpenAI的AI进行结合，使得在游戏内也能使用AI",
+            "en_us": "This plugin can combine MCDR with AI that supports OpenAI, allowing you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.3.2",
+        "name": "Version 0.3.2",
+        "tag_name": "0.3.2",
+        "created_at": "2026-04-18T01:14:27Z",
+        "description": "中文：\r\n本次更新以下内容：\r\n - 本次更新对`!!data write`和`!!data add`指令，分别实现覆写和追加数据\r\n - 本次更新后不再需要在`system_message`中添加语言要求（当然，你也可以添加），现在插件会自动获取MCDR语言并设置AI使用此种语言回答\r\n - 修复了一些问题\r\n\r\nEnglish:\r\nThis update includes the following changes:\r\n- The `!!data write` and `!!data add` commands now respectively implement overwriting and appending data.\r\n- After this update, it is no longer necessary to add language requirements in `system_message` (though you may still do so if you wish). The plugin now automatically detects the MCDR language and instructs the AI to respond in that language.\r\n- Fixed some issues.",
+        "prerelease": false,
+        "asset": {
+          "id": 399046254,
+          "name": "GamesAI-v0.3.2.mcdr",
+          "size": 17465,
+          "download_count": 31,
+          "created_at": "2026-04-18T01:20:54Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.3.2/GamesAI-v0.3.2.mcdr",
+          "hash_md5": "4f0d6485001510cfc8b1fe0aa01091b3",
+          "hash_sha256": "71aa08f0f51b6a5cfcf3cc45e6466a27ec7f098a0048bb22e68993bcbf370039"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.3.2",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0",
+            "online_player_api": ">=1.0.0",
+            "whitelist_api": ">=1.0.0"
+          },
+          "requirements": [
+            "openai"
+          ],
+          "description": {
+            "zh_cn": "此插件可以将MCDR与支持OpenAI的AI进行结合，使得在游戏内也能使用AI",
+            "en_us": "This plugin can combine MCDR with AI that supports OpenAI, allowing you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.3.1",
+        "name": "GamesAI 0.3.1",
+        "tag_name": "0.3.1",
+        "created_at": "2026-04-12T06:06:01Z",
+        "description": "简体中文:\r\n本次更新了以下内容：\r\n - 加入了繁体中文支持\r\n - 加入了`!!data list`和`!!data list keys`指令，用于查询公共数据库中的所有数据和key这一列\r\n - 修复了一些问题\r\n\r\nEnglish:\r\nThis update includes the following:\r\n - Added Traditional Chinese support\r\n - Added `!!data list` and `!!data list keys` commands for querying all data and the list of keys in the public database\r\n - Fixed some issues\r\n\r\n繁体中文:\r\n本次更新了以下內容：\r\n - 加入繁體中文支援\r\n - 加入 `!!data list` 與 `!!data list keys` 指令，用於查詢公共資料庫中的所有資料與 key 列表\r\n - 修復了一些問題",
+        "prerelease": false,
+        "asset": {
+          "id": 394529684,
+          "name": "GamesAI-v0.3.1.mcdr",
+          "size": 15180,
+          "download_count": 12,
+          "created_at": "2026-04-12T06:15:12Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.3.1/GamesAI-v0.3.1.mcdr",
+          "hash_md5": "215e73e3339e3f05af4b78052439653f",
+          "hash_sha256": "81831b34163e67a78a08d8eb040406aa91a12368e6a6ad7a73d547635116948c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.3.1",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0",
+            "online_player_api": ">=1.0.0",
+            "whitelist_api": ">=1.0.0"
+          },
+          "requirements": [
+            "openai"
+          ],
+          "description": {
+            "zh_cn": "此插件可以将MCDR与支持OpenAI的AI进行结合，使得在游戏内也能使用AI",
+            "en_us": "This plugin can combine MCDR with AI that supports OpenAI, allowing you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.3.0",
+        "name": "GamesAI 0.3.0",
+        "tag_name": "0.3.0",
+        "created_at": "2026-04-11T14:12:51Z",
+        "description": "中文:\r\n本次更新如下内容:\r\n - 添加了Python包依赖的说明，以免使用MCDR指令自动安装时出现问题\r\n - 添加了公共数据库，现在可以通过指令`!!data`实现公有的数据添加\r\n - 修改了帮助信息的构建方法\r\n - 添加了配置`permission`，用于设置`!!data`等指令的权限要求\r\n\r\nEnglish:\r\nThis update includes the following changes:\r\n - Added instructions for Python package dependencies to prevent issues during automatic installation via MCDR commands\r\n - Added a public database; now public data can be added using the `!!data` command\r\n - Modified the method for constructing help messages\r\n - Added the `permission` configuration option to set the required permission level for commands such as `!!data`",
+        "prerelease": false,
+        "asset": {
+          "id": 394129261,
+          "name": "GamesAI-v0.3.0.mcdr",
+          "size": 11640,
+          "download_count": 16,
+          "created_at": "2026-04-11T14:21:17Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.3.0/GamesAI-v0.3.0.mcdr",
+          "hash_md5": "903ac1239fae01941a976ea427510b94",
+          "hash_sha256": "8f0913245e809d714014246f6b673e14347f610f9d844a3ecf5fcb62cb5ec27c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.3.0",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0",
+            "online_player_api": ">=1.0.0",
+            "whitelist_api": ">=1.0.0"
+          },
+          "requirements": [
+            "openai"
+          ],
+          "description": {
+            "zh_cn": "此插件可以将MCDR与支持OpenAI的AI进行结合，使得在游戏内也能使用AI",
+            "en_us": "This plugin can combine MCDR with AI that supports OpenAI, allowing you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.2.1",
+        "name": "GamesAI 0.2.1",
+        "tag_name": "0.2.1",
+        "created_at": "2026-04-04T04:14:27Z",
+        "description": "中文：\r\n此次更新内容：\r\n - 加入了英语支持\r\n - 修复了一些历史遗留问题\r\n - 将命令`!!openai`转为`!!gamesai`（命令`!!ask`保持不变）\r\n - 调整了默认配置的结构\r\n\r\nEnglish:\r\nThis update includes:\r\n - Added English support\r\n - Fixed some historical issues\r\n - This update will cause the command to switch from `!!openai` to `!!gamesai` (the command !!ask remains unchanged)\r\n - Adjusted the structure of the default configuration",
+        "prerelease": false,
+        "asset": {
+          "id": 388423446,
+          "name": "GamesAI-v0.2.1.mcdr",
+          "size": 8653,
+          "download_count": 22,
+          "created_at": "2026-04-04T04:27:04Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.2.1/GamesAI-v0.2.1.mcdr",
+          "hash_md5": "e2706a5a1bb332feef0df5995211efbc",
+          "hash_sha256": "e6f064ab1c18d0a6553003c69074c1f2333f148b71c2d33982d1dde3b480aa2e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "GamesAI",
+          "version": "0.2.1",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {
+            "online_player_api": ">=1.0.0",
+            "whitelist_api": ">=1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "此插件可以将MCDR与支持OpenAI的AI进行结合，使得在游戏内也能使用AI",
+            "en_us": "This plugin can combine MCDR with AI that supports OpenAI, allowing you to use AI in the game"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/PengZixuan30/Games_AI/releases/tag/0.2.0",
+        "name": "Game's AI 0.2.0",
+        "tag_name": "0.2.0",
+        "created_at": "2026-03-29T03:04:47Z",
+        "description": "[中文]\r\n这个插件的0.2.0版本是第一个正式版（测试阶段），以下是此插件的本次更新的内容：\r\n\r\n- 现在可以获取在线玩家列表与白名单列表了！\r\n\r\n[English]\r\nVersion 0.2.0 of this plugin is the first official release (testing phase). Here's what's new in this update:  \r\n\r\n- You can now view the list of online players and the whitelist!\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 383838868,
+          "name": "Game.sAI-v0.2.0.mcdr",
+          "size": 3569,
+          "download_count": 26,
+          "created_at": "2026-03-29T03:10:14Z",
+          "browser_download_url": "https://github.com/PengZixuan30/Games_AI/releases/download/0.2.0/Game.sAI-v0.2.0.mcdr",
+          "hash_md5": "caadc1879a2b1bcc55fa6a9916404714",
+          "hash_sha256": "ac4a32e4ec26a6270ddd7b1b4f8fc3a4e1ebc0711dcb098298743bcf8e43fd5e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "games_ai",
+          "name": "Game's AI",
+          "version": "0.2.0",
+          "link": "https://github.com/PengZixuan30/Games_AI",
+          "authors": [
+            "yello"
+          ],
+          "dependencies": {},
+          "requirements": [],
+          "description": {
+            "zh_cn": "此插件可以将MCDR与支持OpenAI的AI进行结合，使得在游戏内也能使用AI",
+            "en_us": "This plugin can combine MCDR with AI that supports OpenAI, allowing you to use AI in the game"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/PengZixuan30/Games_AI",
+    "name": "Games_AI",
+    "full_name": "PengZixuan30/Games_AI",
+    "html_url": "https://github.com/PengZixuan30/Games_AI",
+    "description": "This MCDR plugin allows you to use AI on the server and the games",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 1,
+    "readme": "<div align=\"center\">\n\n# GamesAI\n\nEnglish  |  [简体中文](https://github.com/PengZixuan30/Games_AI/tree/main//README.zh-CN.md)  |  [繁體中文](https://github.com/PengZixuan30/Games_AI/tree/main//README.zh-TW.md)\n\n[Report an Issue](https://github.com/PengZixuan30/Games_AI/issues/new)  |  [Share an Idea](https://github.com/PengZixuan30/Games_AI/discussions/new/choose)\n\n</div>\n\n> [!NOTE]\n> Welcome to version 0.5.1! This release introduces the prompt file feature — you can use `> xxx.md` in the `prompt` field of AI config to point to a prompt file. See [Configuration](#4all_ai). It also adds automatic error code detection and fixes some issues. See [What's New](#whats-new)\n\n> [!IMPORTANT]\n> Version 0.5.0 introduced custom tool support and created a `tools.py` file in the config folder. See [Custom Tools](#custom-tools). This version introduces the prompt file feature and creates a `prompt` folder in the config folder. See [Configuration](#4all_ai)\n\n<details>\n<summary>Table of Contents (click to expand)</summary>\n\n- [GamesAI](#gamesai)\n  - [Installation](#installation)\n  - [Usage](#usage)\n  - [Configuration](#configuration)\n    - [1.prefix](#1prefix)\n    - [2.permission](#2permission)\n    - [3.max\\_history](#3max_history)\n    - [4.all\\_ai](#4all_ai)\n    - [5.default\\_ai](#5default_ai)\n  - [Tools \\& Custom Tools](#tools--custom-tools)\n    - [Tools](#tools)\n    - [Custom Tools](#custom-tools)\n  - [What's New](#whats-new)\n    - [1. Prompt File Support](#1-prompt-file-support)\n    - [2. Automatic Error Code Detection](#2-automatic-error-code-detection)\n  - [Acknowledgements \\& Disclaimer](#acknowledgements--disclaimer)\n  - [License](#license)\n\n</details>\n\n## Installation\n\nRun the following command in the MCDR console to install the plugin:\n\n`!!MCDR plugin install games_ai`\n\n---\n\nAlternatively, get it from the [MCDR Plugin Repository](https://mcdreforged.com/plugin/games_ai) and place it in your plugin directory.\n\nIf you choose to install manually, install the Python packages `openai` and `requests` first:\n\n```bash\npip install openai requests\n```\n\n## Usage\n\nType `!!gamesai` anywhere to display all available features of this plugin.\n\n<details>\n<summary>\n\nAll `!!gamesai` Commands (click to expand)</summary>\n\n| Command              | Description                                                                        |\n| -------------------- | ---------------------------------------------------------------------------------- |\n| `!!gamesai clear`    | Clear your own chat history. Chat history is unrelated to the public database.     |\n| `!!gamesai clearall` | Clear all players' chat history. Chat history is unrelated to the public database. |\n| `!!gamesai reload`   | Reload the plugin configuration file.                                              |\n| `!!gamesai check`    | Check for plugin updates.                                                          |\n\n</details>\n\n---\n\nYou can also use `!!ask` directly to ask the AI questions, chat, or ask it to do things for you.\n\n<details>\n<summary>\n\nAll `!!ask` Commands (click to expand)</summary>\n\n| Command                      | Description                                                                                                                                                                                                                 |\n| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `!!ask <content>`            | Ask the AI a question, chat, or ask it to do something. `<content>` is what you want the AI to do or the question you want to ask.                                                                                          |\n| `!!ask -m <model> <content>` | Use a specific model to ask the AI a question, chat, or ask it to do something. `<model>` is the AI_ID or nickname of the model you want to use. `<content>` is what you want the AI to do or the question you want to ask. |\n\n</details>\n\n---\n\nType `!!data` for information about database commands.\n\n> [!TIP]\n> The database is automatically created when upgrading to version 0.3.0 or above.\n\n<details>\n<summary>\n\nAll `!!data` Commands (click to expand)</summary>\n\n| Command                      | Description                                                                                            |\n| ---------------------------- | ------------------------------------------------------------------------------------------------------ |\n| `!!data write <key> <value>` | Add a data entry to the public database. `<key>` must not contain spaces; `<value>` can be any string. |\n| `!!data add <key> <value>`   | Append `<value>` to an existing key in the public database. Creates a new key if it does not exist.    |\n| `!!data del <key>`           | Delete a data entry from the public database, regardless of whether the key exists.                    |\n| `!!data read <key>`          | Read the value associated with a key from the public database.                                         |\n| `!!data list`                | Read all entries in the public database.                                                               |\n| `!!data list keys`           | Read all keys in the public database.                                                                  |\n\n</details>\n\n## Configuration\n\nThe default configuration file structure is as follows:\n\n```json\n{\n  \"prefix\": \"[GamesAI]\",\n  \"permission\": 3,\n  \"max_history\": 10,\n  \"all_ai\": {\n      \"<Your AI ID>\":{\n          \"prompt\": \"You are a mature, reliable Minecraft bot tool named \\\"GamesAI\\\".\",\n          \"ai_name\": \"[GamesAI]\",\n          \"base_url\": \"<Your API Base URL>\",\n          \"ai_model\": \"<Your AI Model>\",\n          \"api_key\": \"<Your API Key>\",\n          \"thinking\": false\n      }\n    },\n  \"default_ai\": \"<Your AI ID>\"\n  }\n```\n\n---\n\nBelow is a brief introduction to each parameter:\n\n<details>\n\n<summary>Click to expand</summary>\n\n### 1.prefix\nType: `str`\n\nDefault: `[GamesAI]`\n\nThe plugin name used as a prefix in replies. May include Minecraft formatting codes.\n\n### 2.permission\nType: `int`\n\nDefault: `3`\n\nThe minimum permission level required to execute commands like `!!data`. See the [MCDR Permission Documentation](https://docs.mcdreforged.com/en/latest/permission.html).\n\n### 3.max_history\nType: `int`\n\nDefault: `10`\n\nThe maximum number of conversation turns retained per player. Unrelated to the public database.\n\n### 4.all_ai\nType: `dict`\n\nDefault: see file\n\nAll AI configuration entries, consisting of multiple sub-dictionaries. Each sub-dictionary represents one AI model, and its key serves as the plugin's internal AI_ID.\n\n**prompt**: Use this option to write a system prompt for each AI. Use `> xxx.md` to point the prompt to the `config/games_ai/prompt/xxx.md` file (any file type is supported).\n\n**ai_name**: Similar to `prefix`, but set per model. May include Minecraft formatting codes.\n\n**base_url**, **ai_model**, **api_key**: Same as previous related configuration, but now set per model.\n\n**thinking**: Enable or disable the model's thinking/reasoning mode. Defaults to `false` when omitted. Do not enable this for models that do not support a thinking mode — it may cause errors.\n\n### 5.default_ai\nType: `str`\n\nDefault: `<Your AI ID>`\n\nThe model used when a player simply uses `!!ask`. Should be one of the keys in the `all_ai` dictionary (i.e. the plugin's internal AI_ID). An incorrect value will prevent `!!ask` from working properly.\n\n</details>\n\n## Tools & Custom Tools\n\n### Tools\nThe GamesAI plugin provides many built-in tools, listed in the table below. If you want more tools, you can [submit a suggestion](https://github.com/PengZixuan30/Games_AI/issues/new) or use [Custom Tools](#custom-tools).\n\n<details>\n<summary>Click to view all built-in tools</summary>\n\n|        Tool ID        |          Parameters          | Description                                                                                                                                                                                                                                                    |\n| :-------------------: | :--------------------------: | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n|  get_online_players   |             None             | Get the list of currently online players. Depends on the `online_player_api` plugin; automatically disabled if unavailable.                                                                                                                                    |\n|  get_whitelist_name   |             None             | Get the complete server whitelist. Depends on the `whitelist_api` plugin; automatically disabled if unavailable.                                                                                                                                               |\n|   add_to_whitelist    |            `name`            | Add a player to the whitelist. Depends on the `whitelist_api` plugin; automatically disabled if unavailable.                                                                                                                                                   |\n| remove_from_whitelist |            `name`            | Remove a player from the whitelist. Depends on the `whitelist_api` plugin; automatically disabled if unavailable.                                                                                                                                              |\n| search_minecraft_wiki |           `query`            | Let the AI search the Minecraft Wiki for more accurate answers.                                                                                                                                                                                                |\n|      calculator       |         `expression`         | A simple mathematical expression calculator.                                                                                                                                                                                                                   |\n|    item_caculator     | `expression`, `single_limit` | A mathematical expression calculator that converts results into Minecraft item notation (shulker boxes, stacks, items). Automatically adapts to stack size; defaults to 64 if not specified.                                                                   |\n|      add_pos_pos      |  `name`, `pos`, `dimension`  | Add a waypoint at a specified location. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                                                                 |\n|     add_pos_here      |            `name`            | Add a waypoint at the player's current location. Automatically disabled when executed from the console. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available. |\n|      remove_pos       |            `name`            | Delete a waypoint. The `where2go` version automatically converts names to IDs. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                          |\n|      search_pos       |            `name`            | Search for a waypoint. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                                                                                  |\n|      get_all_pos      |             None             | Get a list of all waypoints. Depends on the `where2go` or `location_marker` plugin; prioritizes `where2go` when both are present; automatically disabled when neither is available.                                                                            |\n|     ai_read_data      |            `key`             | Read a single entry from the database.                                                                                                                                                                                                                         |\n|   ai_read_all_keys    |             None             | Get all keys from the database.                                                                                                                                                                                                                                |\n|     ai_write_data     |        `key`, `value`        | Write a data entry to the database (overwrite mode).                                                                                                                                                                                                           |\n|      ai_add_data      |        `key`, `value`        | Write a data entry to the database (append mode).                                                                                                                                                                                                              |\n|      ai_del_data      |            `key`             | Delete a data entry from the database.                                                                                                                                                                                                                         |\n\n</details>\n\n### Custom Tools\nCustomize tools by editing the `config/games_ai/tools/tools.py` file.\n\nLet's start by looking at the default content:\n\n```python\nfrom mcdreforged.command.command_source import CommandSource\nfrom games_ai.games_ai_tool import register_tool\n\n@register_tool(description=\"My Custom Tool\")\ndef my_custom_tool(source: CommandSource, ai_prefix: str):\n    return \"Tool execution completed\"\n```\n\n> [!IMPORTANT]\n> The `from games_ai.games_ai_tool import register_tool` import and the `@register_tool` decorator above the function definition **must** be present.\n\nAs you can see, the structure is very simple.\n\nNow I'll show you how to build a real tool. Let's use searching `baidu.com` as an example.\n\n<details>\n\n<summary>Click to expand</summary>\n\nThe best way to understand how to implement a Baidu search is to look at the built-in `search_minecraft_wiki` tool in the GamesAI source code:\n\n```python\n@register_tool(description=\"Search Minecraft Wiki for relevant information. Do not use this method to search for non-Minecraft content. If the search results page is returned, you can browse that page first and then perform a more precise query.\", tr_key=\"searching_minecraft_wiki\", parameters={\n    \"type\": \"object\",\n    \"properties\": {\n        \"query\": {\n            \"type\": \"string\",\n            \"description\": \"The search term, e.g. the name of an item, mob, or game mechanic.\"\n        }\n    },\n    \"required\": [\"query\"]\n})\ndef search_minecraft_wiki(source: CommandSource, ai_prefix: str, query: str):\n    source.reply(f'{ai_prefix}{source.get_server().rtr(\"games_ai.tools.searching_minecraft_wiki\", query=query)}')\n    lang = source.get_server().get_mcdr_language()\n    if lang == \"en_us\":\n        search_url = f\"https://minecraft.wiki/?search={query}\"\n    else:\n        search_url = f\"https://zh.minecraft.wiki/?search={query}\"\n    response = requests.get(search_url)\n    if response.status_code == 200:\n        return f\"Search results for {query}:\\n{response.content.decode('utf-8')}\"\n    else:\n        return \"Unable to access Minecraft Wiki for searching.\"\n```\n\nLet's start by looking at the tool registration. `description` is like a system prompt — it's mandatory and is provided to the AI. `tr_key` is an internal identifier; you do **not** need to include it when writing external `tools.py`. `parameters` defines the arguments the AI should pass in. You can decide whether to include it based on your actual needs. `properties` lists all the input parameters, and `required` specifies which are mandatory. Make sure `properties` and the function's parameter list correspond one-to-one.\n\nFor example:\n\n```python\n@register_tool(description=\"Search Baidu\")\n```\n\nHowever, searching Baidu obviously requires a search term, so:\n\n```python\n@register_tool(description=\"Search Baidu\", parameters={\n    \"type\": \"object\",\n    \"properties\": {\n        \"query\": {\n            \"type\": \"string\",\n            \"description\": \"The search term\"\n        }\n    },\n    \"required\": [\"query\"]\n})\n```\n\nGreat — you now know how to register a tool! Next, write the function definition:\n\n```python\ndef search_baidu(source: CommandSource, ai_prefix: str, query: str):\n```\n\nIn the code above, the `source` and `ai_prefix` parameters **must** be included because they are always passed in.\n\nThen write the function body:\n\n```python\ndef search_baidu(source: CommandSource, ai_prefix: str, query: str):\n    ...\n    return ...\n```\n\nThe function body can contain any operations you need. Just remember to always `return` a result — otherwise the AI won't be able to process the output properly.\n\nComplete `tools.py` example:\n\n```python\nimport requests\nfrom games_ai.games_ai_tool import register_tool\n\n@register_tool(\n    description=\"Use Baidu to search for information on the internet. Use this tool when you need real-time info, news, encyclopedia knowledge, etc.\",\n    parameters={\n        \"type\": \"object\",\n        \"properties\": {\n            \"query\": {\n                \"type\": \"string\",\n                \"description\": \"The keyword or question to search for on Baidu\"\n            }\n        },\n        \"required\": [\"query\"]\n    }\n)\ndef search_baidu(source, ai_prefix: str, query: str):\n    source.reply(f'{ai_prefix}Searching Baidu: {query}...')\n\n    try:\n        url = \"https://www.baidu.com/s\"\n        headers = {\n            \"User-Agent\": (\n                \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) \"\n                \"AppleWebKit/537.36 (KHTML, like Gecko) \"\n                \"Chrome/120.0.0.0 Safari/537.36\"\n            )\n        }\n        response = requests.get(url, params={\"wd\": query}, headers=headers, timeout=10)\n\n        if response.status_code != 200:\n            return f\"Baidu search failed, HTTP status code: {response.status_code}\"\n\n        # Extract plain text from page (strip HTML tags)\n        import re\n        text = response.text\n        # Remove script and style tag contents\n        text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.DOTALL | re.IGNORECASE)\n        text = re.sub(r'<style[^>]*>.*?</style>', '', text, flags=re.DOTALL | re.IGNORECASE)\n        # Remove HTML tags\n        text = re.sub(r'<[^>]+>', '', text)\n        # Collapse extra whitespace\n        text = re.sub(r'\\s+', ' ', text).strip()\n\n        # Truncate long content (keep first 3000 characters, suitable for AI context)\n        max_len = 3000\n        if len(text) > max_len:\n            text = text[:max_len] + \"\\n...(content truncated)\"\n\n        return f\"Baidu search results for 「{query}」:\\n{text}\"\n\n    except requests.Timeout:\n        return \"Baidu search request timed out. Please try again later.\"\n    except Exception as e:\n        return f\"Baidu search error: {str(e)}\"\n```\n\n</details>\n\n## What's New\n\n### 1. Prompt File Support\nYou can now point AI prompts to external files. Use `> xxx.md` in the `prompt` field to reference the `config/games_ai/prompt/xxx.md` file.\n\n### 2. Automatic Error Code Detection\nWhen an error occurs while accessing the AI, the error code and cause are now automatically identified and displayed.\n\n---\n\nAdditionally, this release fixes several issues.\n\n## Acknowledgements & Disclaimer\n\nSpecial thanks to the Wanghai Commune server for providing the foundation for testing this plugin.\n\nAll content generated by AI (LLM) models is unrelated to this plugin.\n\nAll consequences arising from custom tools are unrelated to this plugin.\n\n## License\n\nMIT License, Copyright (c) 2026 yello\n\n<div align = \"center\">\n\n---\n\n[Back to Top](#gamesai)\n\n</div>\n",
+    "readme_url": "https://raw.githubusercontent.com/PengZixuan30/Games_AI/main/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "connect_core",
+  "authors": [
+    "zhongbai233"
+  ],
+  "repository": "https://github.com/zhongbai2333/ConnectCore",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "api",
+    "management"
+  ],
+  "introduction": {
+    "en_us": "# ConnectCore\n\nThis is a plugin for MCDReforged that can also be used independently. It allows you to set up your server as a plugin control group, primarily used for communication between plugins across different sub-servers, such as providing APIs and communication support for cross-server chat. It offers high security and easy configuration, making it suitable for various server environments.\n\nEnglish | [简中](https://github.com/zhongbai2333/ConnectCore/tree/master/README_zh.md)\n\n## Usage\n\n### Standalone Usage\n\n1. Place the `ConnectCore.pyz` file in an empty folder.\n2. Run the following command in the terminal:\n   `python ConnectCore.pyz server` or `python ConnectCore.pyz client` to start the server or client.\n3. Follow the prompts to configure.\n\n### Usage as an MCDR Plugin\n\n1. Place the `ConnectCore.pyz` file in the MCDR plugin directory (usually the `plugins` folder).\n2. Start the MCDR server, then use the `!!connectcore init` command to enable the initialization process.\n3. Follow the prompts to configure.\n\n## Development\n\n- A detailed English development documentation can be found on the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki/%5BDevelop%5D-API).\n- For sample plugins, please visit [ExamplePlugin](https://github.com/zhongbai2333/ExamplePlugin).\n\n## Notes\n\n- Ensure that your server and client can properly connect to the network.\n- A group of servers has only one server-side instance, but multiple clients can connect.\n- If you encounter any issues, please refer to the [WIKI](https://github.com/zhongbai2333/ConnectCore/wiki) or contact the developer.\n",
+    "zh_cn": "# ConnetCore\n\n这是一个MCDReforged的前置插件，也可以独立使用，用于将你的服务器建立成插件控制群组，主要用于子服务器间插件的通信，比如为跨服聊天提供API和通信支持。拥有较高的安全性和简易的配置，适合各种服务器环境。\n\n[English](https://github.com/zhongbai2333/ConnectCore/tree/master/README.md) | 简中\n\n## 使用方法\n\n### 独立使用\n\n1. 将`ConnectCore.pyz`文件放在一个空文件夹内。\n2. 在命令行中运行以下命令：\n   `python ConnectCore.pyz server` 或者 `python ConnectCore.pyz client` 以启服务端或客户端。\n3. 根据提示进行配置。\n\n### 作为MCDR插件使用\n\n1. 将`ConnectCore.pyz`文件放在MCDR的插件目录内（通常是`plugins`文件夹）。\n2. 启动MCDR服务器，然后使用`!!connectcore init`命令来启用初始化程序。\n3. 根据提示进行配置。\n\n## 开发\n\n- 详细的中文开发文档可以在[DOCS](https://github.com/zhongbai2333/ConnectCore/tree/master/doc)中找到。\n- 样例插件请前往[ExamplePlugin](https://github.com/zhongbai2333/ExamplePlugin)\n\n## 注意事项\n\n- 确保你的服务器和客户端能够正确连接到网络。\n- 一组服务器只有一个服务端，可以有多个客户端\n- 如果你遇到任何问题，请查看插件的[WIKI](https://github.com/zhongbai2333/ConnectCore/wiki)或联系开发者。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/zhongbai2333/ConnectCore/master/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/zhongbai2333/ConnectCore/master/README_zh.md"
+  }
+}

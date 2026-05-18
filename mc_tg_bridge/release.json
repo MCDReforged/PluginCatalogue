@@ -1,0 +1,49 @@
+{
+  "schema_version": 8,
+  "id": "mc_tg_bridge",
+  "latest_version": "1.2.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Azusa-mikan/minecraft_telegram_bridge/releases/tag/v1.2.1",
+      "name": "v.1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2026-04-19T16:55:29Z",
+      "description": "[update log](https://github.com/Azusa-mikan/telegram_bridge/commit/4c8b3d1bd06bb4828c8997be10c540d1da0518ba)",
+      "prerelease": false,
+      "asset": {
+        "id": 400057956,
+        "name": "MinecraftTelegramBridge-v1.2.1.mcdr",
+        "size": 13763,
+        "download_count": 16,
+        "created_at": "2026-04-19T16:57:58Z",
+        "browser_download_url": "https://github.com/Azusa-mikan/minecraft_telegram_bridge/releases/download/v1.2.1/MinecraftTelegramBridge-v1.2.1.mcdr",
+        "hash_md5": "610d7141844e05db8e6b44ef29942ea2",
+        "hash_sha256": "e020df7389516ad61516f85ed08859e10efae9b60b88a87749c2d330382368f0"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mc_tg_bridge",
+        "name": "Minecraft Telegram Bridge",
+        "version": "1.2.1",
+        "link": "https://github.com/Azusa-mikan/minecraft_telegram_bridge",
+        "authors": [
+          "Azusa-mikan"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15",
+          "mg_events": ">=1.1.2",
+          "minecraft_data_api": ">=1.6.1"
+        },
+        "requirements": [
+          "pydantic>=2.12.5",
+          "python-telegram-bot[rate-limiter]==22.7"
+        ],
+        "description": {
+          "zh_cn": "使用 Telegram Bot 控制你的 Minecraft 服务器，具备聊天同步/事件转发",
+          "en_us": "Control your Minecraft server via Telegram Bot, with chat sync and event forwarding"
+        }
+      }
+    }
+  ]
+}

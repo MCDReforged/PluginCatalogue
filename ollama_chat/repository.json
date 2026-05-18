@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+  "name": "OllamaChat_MCDR",
+  "full_name": "mcraftbbs/OllamaChat_MCDR",
+  "html_url": "https://github.com/mcraftbbs/OllamaChat_MCDR",
+  "description": "The officially developed OllamaChat plugin MCDR version",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "Some code writing techniques are inspired by reference: https://github.com/gubaiovo/MCDR_chat_with_ai\n# OllamaChat\n\n[The officially developed OllamaChat plugin MCDR version]\n\n📜 LICENSE: **GNU GPLv3** [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)\n\nA Minecraft server plugin for MCDReforged that enables players to chat with AI using either Ollama or OpenAI.\n\n## 📦 Dependencies\n- Main Dependency: [MCDReforged](https://github.com/MCDReforged/MCDReforged) v2.x\n- *Required Dependency*: [uuid_api](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/uuid_api) (GPLv3)\n\n## Features\n- Chat with AI in Minecraft.\n- Supports both Ollama (local) and OpenAI (API) backends.\n- Customizable AI label and setup prompts.\n- View and reset chat history.\n\n## Installation\n1. Ensure [MCDReforged](https://github.com/MCDReforged/MCDReforged) is installed on your server.\n2. Install required Python dependencies:\n   ```bash\n   pip install openai requests\n   ```\n3. Place the plugin files in the `plugins` folder of your MCDReforged server.\n4. Restart the server to generate the default configuration.\n\n## Commands\nAll commands are prefixed with `!!oc` and can only be used by players.\n\n| Command               | Description             | Example        |\n| --------------------- | ----------------------- | -------------- |\n| `!!oc guide`          | Show this command guide | `!!oc guide`   |\n| `!!oc records`        | View chat history       | `!!oc records` |\n| `!!oc reset`          | Clear chat history      | `!!oc reset`   |\n| `!!oc chat <message>` | Chat with the AI        | `!!oc chat Hi` |\n\n## Support\n- Report issues or suggest features on GitHub/[community server](https://chat.sarskin.cn/invite/iHgI6LTX)..\n",
+  "readme_url": "https://raw.githubusercontent.com/mcraftbbs/OllamaChat_MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

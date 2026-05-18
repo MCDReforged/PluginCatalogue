@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+  "name": "PiPInstaller-MCDR",
+  "full_name": "Mooling0602/PiPInstaller-MCDR",
+  "html_url": "https://github.com/Mooling0602/PiPInstaller-MCDR",
+  "description": "为面板服解决Python依赖安装问题！",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# PiPInstaller-MCDR\n\n为面板服解决Python依赖安装问题！\n\n> For English users: I'm sorry but please translate by yourself, AI tools would be fine.\n> \n> PRs for translation are welcome.\n\n## 用法\n\n**注意：使用前通过插件报错和使用文档等信息，确认你需要额外安装的Python依赖的PyPI包名！**\n\n**对于较为复杂需要较长安装时间的Python包，你应该另开终端/控制台/Shell手动安装和管理会话！**\n\n在MCDR的控制台上使用`!!pipi <包名（可限定版本）>`或`!!pip install <包名（可限定版本）>`从PyPI安装所需的Python依赖。使用空格分隔多个包名。\n> 目前不支持在游戏客户端中执行这些指令，如果你这么做，插件将提示请在控制台上执行。\n\n### 安装过程控制\n\n> 于0.2.1添加\n\n安装插件Command Aliases后，可以通过`!!pipi enable_aliases`启用命令别名。\n> 使用`!!MCDR plg install command_aliases --confirm`来安装此可选依赖。\n\n命令别名将被注册到`config/command_aliases/config.json`中。\n\n> 于v0.2.0添加\n\n`!!pip install <package> [-q]` - 安装Python（PyPI）包，支持空格分割多个包名，支持用`-q`参数静默安装。\n> 也可以使用`!!pipi <package> [-q]`\n\n`!!pip cancel` - 取消当前进行中的安装任务\n> 在启用命令别名后，也可以使用`!!pipc`\n\n`!!pip status` - 查看当前进行中的安装任务状态\n> 在启用命令别名后，也可以使用`!!pips`\n\n## 声明\n\n- **MCDReforged的开发者没有计划提供类似直接补全安装插件缺失的PyPI依赖的功能，因此不要向他们发出于此相关的任何功能请求。**\n- **若在使用插件的命令时遇到问题，可在此仓库发起Issues进行反馈；若在MCDR外使用变相解决的办法，则你需要自行确认MCDR的命令是否在你的操作环境中可用，并且你应该知道这种做法是不受推荐的，请不要因为在使用此方法遇到问题时向MCDR的开发者反馈**\n- **你应该详细阅读这篇[安装相关文档](https://docs.mcdreforged.com/zh-cn/latest/quick_start/install.html#)，构建完整的Python环境管理体系，这才是解决Python依赖问题的根本所在**\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/PiPInstaller-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "kill_server",
+    "name": "KillServer",
+    "version": "1.1.0",
+    "link": null,
+    "authors": [
+      "xieyuen"
+    ],
+    "dependencies": {
+      "python": ">=3.12",
+      "mcdreforged": ">=2.15"
+    },
+    "requirements": [
+      "dowhen",
+      "mcdreforged>=2.15.0"
+    ],
+    "description": {
+      "en_us": "Force to kill mc server",
+      "zh_cn": "强制关闭 Minecraft 服务端"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "kill_server",
+    "authors": [
+      "xieyuen"
+    ],
+    "repository": "https://github.com/xieyuen/MCDR-Plugins",
+    "branch": "master",
+    "related_path": "src/KillServer",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "﻿# KillServer\n\n在关服卡死时强制关闭服务器\n\n> [!WARNING]\n> 此插件使用 [dowhen](http://github.com/gaogaotiantian/dowhen/) 模块实现, 可能不够稳定\n\n> [!TIP]\n> BUG Report: [GitHub issues](https://github.com/xieyuen/MCDR-Plugins/issues/new)\n\n## 介绍\n\n对于下面的情况(实际可能还有更多适用的情况):\n\n1. Fabric 服务器卡死不关闭\n   - [MCDReforged/MCDReforged#150](https://github.com/MCDReforged/MCDReforged/issues/150)\n   - [EngineHub/WorldEdit#2459](https://github.com/EngineHub/WorldEdit/issues/2459)\n2. `pause` 命令诱发用户Ctrl+C操作，导致 MCDR 关闭与存档恢复冲突，最终致使存档损坏\n   - [TISUnion/PrimeBackup#85](https://github.com/TISUnion/PrimeBackup/issues/85)\n   - [MCDReforged/MCDReforged#394](https://github.com/MCDReforged/MCDReforged/issues/394)\n\n本插件提供监听服务器关闭并且在这些情况下强制关闭服务器的功能, 给小白腐竹们提供一个简单且无脑的解决方案\n\n## 使用方法\n\n直接安装到 MCDR 的插件文件夹下即可, 可以从 [GitHub](https://github/xieyuen/MCDR-Plugins)\n或 [PluginCatalogue](https://mcdreforged.com/zh-CN/plugin/kill_server) 手动下载插件文件\n\n你也可以用下面的 MCDR 命令安装 KillServer\n\n```mcdr\n!!MCDR plg install kill_server\n```\n\n安装后只需要注意服务器关闭不要用 Minecraft 原生的 `/stop` 命令, 换用 MCDR 命令来关闭,\n比如 `!!MCDR server stop` `!!MCDR server restart`\n\n> 你都用 MCDR 了竟然还不知道原生 `/stop` 会让 MCDR 关闭吗?<br>\n> 你都用 MCDR 了竟然还用不支持运行时回档的备份模组而不是 PrimeBackup、QuickBackupM 吗?\n\n## 配置\n\n|      配置项       |   类型    |   默认值   | 含义                                                              | 注释      |\n| :------------: | :-----: | :-----: | --------------------------------------------------------------- | ------- |\n|    `enable`    | `bool`  | `True`  | 是否启用插件                                                          | 不影响事件分发 |\n| `waiting_time` | `float` |  `60`   | 等待服务器关闭的时间, 超时强制关闭                                              | 单位为秒    |\n|  `mcdr_only`   | `bool`  | `False` | 是否只监听 [`PluginStoppingServerEvent`](#PluginStoppingServerEvent) |         |\n\n## 新的事件\n\n见 [Read the Docs 文档](https://mcdr-plugins.readthedocs.io/zh-cn/latest/kill_server/events.html)\n\n> [!IMPORTANT]\n> 自 1.1.0 版本起, 插件事件已经完全重构,\n> 使用 `from kill_server import *` 导入 `ServerStoppingEvent` 这些事件变量的的已不再适用, \n> 它们全部合并到了 [`ServerEvents`](https://mcdr-plugins.readthedocs.io/zh-cn/latest/kill_server/events.html#kill_server.events.server_event.ServerEvents) 中\n> \n> 使用事件 ID 监听事件的, 依然可以继续使用\n\n",
+      "zh_cn": "﻿# KillServer\n\n在关服卡死时强制关闭服务器\n\n> [!WARNING]\n> 此插件使用 [dowhen](http://github.com/gaogaotiantian/dowhen/) 模块实现, 可能不够稳定\n\n> [!TIP]\n> BUG Report: [GitHub issues](https://github.com/xieyuen/MCDR-Plugins/issues/new)\n\n## 介绍\n\n对于下面的情况(实际可能还有更多适用的情况):\n\n1. Fabric 服务器卡死不关闭\n   - [MCDReforged/MCDReforged#150](https://github.com/MCDReforged/MCDReforged/issues/150)\n   - [EngineHub/WorldEdit#2459](https://github.com/EngineHub/WorldEdit/issues/2459)\n2. `pause` 命令诱发用户Ctrl+C操作，导致 MCDR 关闭与存档恢复冲突，最终致使存档损坏\n   - [TISUnion/PrimeBackup#85](https://github.com/TISUnion/PrimeBackup/issues/85)\n   - [MCDReforged/MCDReforged#394](https://github.com/MCDReforged/MCDReforged/issues/394)\n\n本插件提供监听服务器关闭并且在这些情况下强制关闭服务器的功能, 给小白腐竹们提供一个简单且无脑的解决方案\n\n## 使用方法\n\n直接安装到 MCDR 的插件文件夹下即可, 可以从 [GitHub](https://github/xieyuen/MCDR-Plugins)\n或 [PluginCatalogue](https://mcdreforged.com/zh-CN/plugin/kill_server) 手动下载插件文件\n\n你也可以用下面的 MCDR 命令安装 KillServer\n\n```mcdr\n!!MCDR plg install kill_server\n```\n\n安装后只需要注意服务器关闭不要用 Minecraft 原生的 `/stop` 命令, 换用 MCDR 命令来关闭,\n比如 `!!MCDR server stop` `!!MCDR server restart`\n\n> 你都用 MCDR 了竟然还不知道原生 `/stop` 会让 MCDR 关闭吗?<br>\n> 你都用 MCDR 了竟然还用不支持运行时回档的备份模组而不是 PrimeBackup、QuickBackupM 吗?\n\n## 配置\n\n|      配置项       |   类型    |   默认值   | 含义                                                              | 注释      |\n| :------------: | :-----: | :-----: | --------------------------------------------------------------- | ------- |\n|    `enable`    | `bool`  | `True`  | 是否启用插件                                                          | 不影响事件分发 |\n| `waiting_time` | `float` |  `60`   | 等待服务器关闭的时间, 超时强制关闭                                              | 单位为秒    |\n|  `mcdr_only`   | `bool`  | `False` | 是否只监听 [`PluginStoppingServerEvent`](#PluginStoppingServerEvent) |         |\n\n## 新的事件\n\n见 [Read the Docs 文档](https://mcdr-plugins.readthedocs.io/zh-cn/latest/kill_server/events.html)\n\n> [!IMPORTANT]\n> 自 1.1.0 版本起, 插件事件已经完全重构,\n> 使用 `from kill_server import *` 导入 `ServerStoppingEvent` 这些事件变量的的已不再适用, \n> 它们全部合并到了 [`ServerEvents`](https://mcdr-plugins.readthedocs.io/zh-cn/latest/kill_server/events.html#kill_server.events.server_event.ServerEvents) 中\n> \n> 使用事件 ID 监听事件的, 依然可以继续使用\n\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/xieyuen/MCDR-Plugins/master/src/KillServer/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/xieyuen/MCDR-Plugins/master/src/KillServer/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "kill_server",
+    "latest_version": "1.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v1.1.0",
+        "name": "KillServer 1.1.0",
+        "tag_name": "kill_server-v1.1.0",
+        "created_at": "2026-03-14T13:03:02Z",
+        "description": "## What's Changed\r\n* [Feature] Configuration Validation Implementation by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/27\r\n* KillServer v1.0.0 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/34\r\n* docs: 添加 MCDR 插件文档 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/36\r\n* fix: fail to load docstring by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/37\r\n\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/kill_server-v1.0.0...kill_server-v1.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 373748956,
+          "name": "KillServer-v1.1.0.mcdr",
+          "size": 5676,
+          "download_count": 31,
+          "created_at": "2026-03-14T13:07:19Z",
+          "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v1.1.0/KillServer-v1.1.0.mcdr",
+          "hash_md5": "3ca55205cdbf8e0cbd88c2800b9e7ed4",
+          "hash_sha256": "e9174f6503dfd0749734d904d109cc12c94808a7f1429811cc9fdb8d3b995cbf"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "kill_server",
+          "name": "KillServer",
+          "version": "1.1.0",
+          "link": null,
+          "authors": [
+            "xieyuen"
+          ],
+          "dependencies": {
+            "python": ">=3.12",
+            "mcdreforged": ">=2.15"
+          },
+          "requirements": [
+            "dowhen",
+            "mcdreforged>=2.15.0"
+          ],
+          "description": {
+            "en_us": "Force to kill mc server",
+            "zh_cn": "强制关闭 Minecraft 服务端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v1.0.0",
+        "name": "KillServer v1.0.0",
+        "tag_name": "kill_server-v1.0.0",
+        "created_at": "2026-02-24T07:44:01Z",
+        "description": "## Added\r\n\r\n- 新增 `pause` 提示\r\n- 新增 `__all__` 声明\r\n- 新增 `mcdr_only` 配置项\r\n\r\n## Changed\r\n\r\n- 更新文档说明\r\n- handler的移除转移到 `on_unload`\r\n\r\n---\r\n\r\n## What's Changed\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/6caea4f...kill_server-v1.0.0\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 361323344,
+          "name": "KillServer-v1.0.0.mcdr",
+          "size": 2563,
+          "download_count": 26,
+          "created_at": "2026-02-24T07:56:05Z",
+          "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v1.0.0/KillServer-v1.0.0.mcdr",
+          "hash_md5": "a412266ae20093c94175805a0a8d8398",
+          "hash_sha256": "d55039595a99ff8e194b05cbeffb5cfc07bb551e495c40985a102dd7ef24c654"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "kill_server",
+          "name": "KillServer",
+          "version": "1.0.0",
+          "link": null,
+          "authors": [
+            "xieyuen"
+          ],
+          "dependencies": {
+            "python": ">=3.12",
+            "mcdreforged": ">=2.15"
+          },
+          "requirements": [
+            "dowhen",
+            "mcdreforged>=2.15.0"
+          ],
+          "description": {
+            "en_us": "Force to kill mc server",
+            "zh_cn": "强制关闭 Minecraft 服务端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v0.1.2",
+        "name": "KillServer v0.1.2",
+        "tag_name": "kill_server-v0.1.2",
+        "created_at": "2026-02-20T08:43:08Z",
+        "description": "## Added\r\n\r\n- new LiteralEvents:` ServerStoppingEvent`, `PluginStoppingServerEvent`, `WorldSavedEvent`\r\n\r\n## Changed\r\n\r\n- update MCDR version requirements\r\n\r\n---\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/kill_server-v0.1.1...kill_server-v0.1.2\r\n\r\nrelate pr: #31 ",
+        "prerelease": false,
+        "asset": {
+          "id": 359069016,
+          "name": "KillServer-v0.1.2.mcdr",
+          "size": 1991,
+          "download_count": 21,
+          "created_at": "2026-02-20T08:50:05Z",
+          "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v0.1.2/KillServer-v0.1.2.mcdr",
+          "hash_md5": "befa42f1e14c0ea2d7681bd312a7c13e",
+          "hash_sha256": "9ef48d825428875b7498836830cccca933fcf48b2ceed7029904ebd97bd18654"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "kill_server",
+          "name": "KillServer",
+          "version": "0.1.2",
+          "link": null,
+          "authors": [
+            "xieyuen"
+          ],
+          "dependencies": {
+            "python": ">=3.12",
+            "mcdreforged": ">=2.15"
+          },
+          "requirements": [
+            "dowhen",
+            "mcdreforged>=2.15.0"
+          ],
+          "description": {
+            "en_us": "Force to kill mc server",
+            "zh_cn": "强制关闭 Minecraft 服务端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v0.1.1",
+        "name": "KillServer 0.1.1",
+        "tag_name": "kill_server-v0.1.1",
+        "created_at": "2026-02-17T16:36:12Z",
+        "description": "## Fixed\r\n\r\n- incorrect return value\r\n\r\n---\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/kill_server-v0.1.0...kill_server-v0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 357929765,
+          "name": "KillServer-v0.1.1.mcdr",
+          "size": 1437,
+          "download_count": 20,
+          "created_at": "2026-02-18T13:01:21Z",
+          "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v0.1.1/KillServer-v0.1.1.mcdr",
+          "hash_md5": "dbb191c96438ab36893178c2ae1950e1",
+          "hash_sha256": "706acfaef5b23aebbb7f5af02347d39af432fe52b48090a3efb463bdc21496ea"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "kill_server",
+          "name": "KillServer",
+          "version": "0.1.1",
+          "link": null,
+          "authors": [
+            "xieyuen"
+          ],
+          "dependencies": {
+            "python": ">=3.12",
+            "mcdreforged": ">=2.10"
+          },
+          "requirements": [
+            "dowhen",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Force to kill mc server",
+            "zh_cn": "强制关闭 Minecraft 服务端"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/xieyuen/MCDR-Plugins/releases/tag/kill_server-v0.1.0",
+        "name": "KillServer 0.1.0",
+        "tag_name": "kill_server-v0.1.0",
+        "created_at": "2026-02-17T15:22:50Z",
+        "description": "在关服卡死时强制关闭服务器\r\n\r\n> [!WARNING]\r\n> 此插件使用 [dowhen](http://github.com/gaogaotiantian/dowhen/) 模块实现, 可能不够稳定\r\n\r\n## 介绍\r\n\r\n对于下面的两种情况(实际可能还有更多适用的情况):\r\n\r\n- Fabric 服务器卡死不关闭\r\n  - [MCDReforged/MCDReforged#150](https://github.com/MCDReforged/MCDReforged/issues/150)\r\n  - [EngineHub/WorldEdit#2459](https://github.com/EngineHub/WorldEdit/issues/2459)\r\n- `pause` 命令诱发用户Ctrl+C操作，导致 MCDR 关闭与存档恢复冲突，最终致使存档损坏\r\n  - [#85](https://github.com/TISUnion/PrimeBackup/issues/85)),\r\n\r\n\r\n本插件提供监听服务器关闭并且在这些情况下强制关闭服务器的功能, 给小白腐竹们提供一个简单且无脑的解决方案\r\n\r\n## 配置\r\n\r\n本插件只有一项配置: `waiting_time`\r\n\r\n这个配置是等待服务器关闭的时间, **单位为秒**, 默认为 60 秒\r\n\r\n## What's Changed\r\n* MCDRpost v3.4.0 by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/23\r\n* hotfix: 更新 README by @xieyuen in https://github.com/xieyuen/MCDR-Plugins/pull/26\r\n\r\n**Full Changelog**: https://github.com/xieyuen/MCDR-Plugins/compare/master...kill_server-v0.1.0\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 357398579,
+          "name": "KillServer-v0.1.0.mcdr",
+          "size": 1424,
+          "download_count": 25,
+          "created_at": "2026-02-17T15:29:27Z",
+          "browser_download_url": "https://github.com/xieyuen/MCDR-Plugins/releases/download/kill_server-v0.1.0/KillServer-v0.1.0.mcdr",
+          "hash_md5": "2dde4daa92ccaaa4a2cd2157f3f3748c",
+          "hash_sha256": "298a0bcdcc705040412dcccb87fa5ec4031dfc1b5cd334223e5b9d83a7e2655d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "kill_server",
+          "name": "KillServer",
+          "version": "0.1.0",
+          "link": null,
+          "authors": [
+            "xieyuen"
+          ],
+          "dependencies": {
+            "python": ">=3.12",
+            "mcdreforged": ">=2.10"
+          },
+          "requirements": [
+            "dowhen",
+            "mcdreforged"
+          ],
+          "description": {
+            "en_us": "Force to kill mc server",
+            "zh_cn": "强制关闭 Minecraft 服务端"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/xieyuen/MCDR-Plugins",
+    "name": "MCDR-Plugins",
+    "full_name": "xieyuen/MCDR-Plugins",
+    "html_url": "https://github.com/xieyuen/MCDR-Plugins",
+    "description": "Some MCDR plugins",
+    "archived": false,
+    "stargazers_count": 4,
+    "watchers_count": 4,
+    "forks_count": 1,
+    "readme": "﻿# KillServer\n\n在关服卡死时强制关闭服务器\n\n> [!WARNING]\n> 此插件使用 [dowhen](http://github.com/gaogaotiantian/dowhen/) 模块实现, 可能不够稳定\n\n> [!TIP]\n> BUG Report: [GitHub issues](https://github.com/xieyuen/MCDR-Plugins/issues/new)\n\n## 介绍\n\n对于下面的情况(实际可能还有更多适用的情况):\n\n1. Fabric 服务器卡死不关闭\n   - [MCDReforged/MCDReforged#150](https://github.com/MCDReforged/MCDReforged/issues/150)\n   - [EngineHub/WorldEdit#2459](https://github.com/EngineHub/WorldEdit/issues/2459)\n2. `pause` 命令诱发用户Ctrl+C操作，导致 MCDR 关闭与存档恢复冲突，最终致使存档损坏\n   - [TISUnion/PrimeBackup#85](https://github.com/TISUnion/PrimeBackup/issues/85)\n   - [MCDReforged/MCDReforged#394](https://github.com/MCDReforged/MCDReforged/issues/394)\n\n本插件提供监听服务器关闭并且在这些情况下强制关闭服务器的功能, 给小白腐竹们提供一个简单且无脑的解决方案\n\n## 使用方法\n\n直接安装到 MCDR 的插件文件夹下即可, 可以从 [GitHub](https://github/xieyuen/MCDR-Plugins)\n或 [PluginCatalogue](https://mcdreforged.com/zh-CN/plugin/kill_server) 手动下载插件文件\n\n你也可以用下面的 MCDR 命令安装 KillServer\n\n```mcdr\n!!MCDR plg install kill_server\n```\n\n安装后只需要注意服务器关闭不要用 Minecraft 原生的 `/stop` 命令, 换用 MCDR 命令来关闭,\n比如 `!!MCDR server stop` `!!MCDR server restart`\n\n> 你都用 MCDR 了竟然还不知道原生 `/stop` 会让 MCDR 关闭吗?<br>\n> 你都用 MCDR 了竟然还用不支持运行时回档的备份模组而不是 PrimeBackup、QuickBackupM 吗?\n\n## 配置\n\n|      配置项       |   类型    |   默认值   | 含义                                                              | 注释      |\n| :------------: | :-----: | :-----: | --------------------------------------------------------------- | ------- |\n|    `enable`    | `bool`  | `True`  | 是否启用插件                                                          | 不影响事件分发 |\n| `waiting_time` | `float` |  `60`   | 等待服务器关闭的时间, 超时强制关闭                                              | 单位为秒    |\n|  `mcdr_only`   | `bool`  | `False` | 是否只监听 [`PluginStoppingServerEvent`](#PluginStoppingServerEvent) |         |\n\n## 新的事件\n\n见 [Read the Docs 文档](https://mcdr-plugins.readthedocs.io/zh-cn/latest/kill_server/events.html)\n\n> [!IMPORTANT]\n> 自 1.1.0 版本起, 插件事件已经完全重构,\n> 使用 `from kill_server import *` 导入 `ServerStoppingEvent` 这些事件变量的的已不再适用, \n> 它们全部合并到了 [`ServerEvents`](https://mcdr-plugins.readthedocs.io/zh-cn/latest/kill_server/events.html#kill_server.events.server_event.ServerEvents) 中\n> \n> 使用事件 ID 监听事件的, 依然可以继续使用\n\n",
+    "readme_url": "https://raw.githubusercontent.com/xieyuen/MCDR-Plugins/master/src/KillServer/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  }
+}
