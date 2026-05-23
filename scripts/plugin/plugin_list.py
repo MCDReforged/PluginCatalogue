@@ -132,6 +132,11 @@ class PluginList(List[Plugin]):
 			except Exception as e:
 				log.exception('Storing info for plugin {}'.format(plugin))
 				reporter.record_plugin_failure(plugin.id, 'Store plugin info', e)
+		for plugin in self:
+			try:
+				plugin.generate_and_save_update_report()
+			except Exception:
+				log.exception('Failed to create update report for plugin {}'.format(plugin))
 
 		# make and store plugin summary
 		meta_summary = PluginMetaSummary(

@@ -15,6 +15,7 @@ from meta.plugin_all import AllOfAPlugin
 from meta.release import ReleaseSummary
 from meta.repos import RepositoryInfo
 from meta.request_meta import RequestMeta, REQUEST_META_DEFAULT_TTL
+from meta.update_report import PluginUpdateReport
 from plugin.cache import PluginRequestCacheManager
 from plugin.label import Label, get_label_set
 from utils import file_utils, markdown_utils
@@ -105,6 +106,7 @@ class Plugin:
 	meta_info: Optional[MetaInfo] = None
 	release_summary: Optional[ReleaseSummary] = None
 	repository_info: Optional[RepositoryInfo] = None
+	update_report: Optional[PluginUpdateReport] = None
 
 	def __init__(self, plugin_id: str):
 		self.__introduction: Optional[BundledText] = None
@@ -297,6 +299,16 @@ class Plugin:
 			raise RuntimeError('self.__new_request_meta is not initialized, please call `reuse_old_fetch_results` first')
 		file_utils.save_json(self.__new_request_meta.serialize(), self.__request_meta_file)
 
+	# ========================= UpdateReport =========================
+
+	@property
+	def __update_report_file(self) -> Path:
+		return constants.META_FOLDER / self.id / 'update_report.json'
+
+	def generate_and_save_update_report(self):
+		self.update_report = reporter.create_plugin_update_report(self.id)
+		file_utils.save_json(self.update_report.serialize(), self.__update_report_file)
+
 	# ========================= Request Cache =========================
 
 	@property
@@ -472,11 +484,14 @@ class Plugin:
 			log.warning('({}) [create all] release_summary unavailable'.format(self.id))
 		if not self.repository_info:
 			log.warning('({}) [create all] repository_info unavailable'.format(self.id))
+		if not self.update_report:
+			log.warning('({}) [create all] update_report unavailable'.format(self.id))
 		aop = AllOfAPlugin(
 			meta=self.meta_info,
 			plugin=self.generate_formatted_plugin_info(),
 			release=self.release_summary,
 			repository=self.repository_info,
+			update_report=self.update_report,
 		)
 		file_utils.save_json(aop.serialize(), constants.META_FOLDER / self.id / 'all.json', with_gz=True)
 		return aop
