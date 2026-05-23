@@ -7,6 +7,7 @@ from typing import Optional, List, Dict, Union, Callable, Any, Type, TypeVar
 from typing_extensions import Literal
 
 from common import constants, log
+from common.exceptions import ResponseJsonDecodeError, UnexpectedResponseStatusError
 from common.report import reporter
 from common.translation import Text, BundledText, LANGUAGES, get_file_name, with_language
 from meta.author import Author
@@ -203,11 +204,11 @@ class Plugin:
 	async def get_repos_json(self, file_path: str, **kwargs) -> dict:
 		resp = await self.repos.request_repos_file(file_path, **kwargs)
 		if resp.status_code != 200:
-			raise Exception('status code {} (should be 200) when fetching json {} from {}'.format(resp.status_code, file_path, resp.url))
+			raise UnexpectedResponseStatusError(url=resp.url, status_code=resp.status_code, expected='200', content=resp.content)
 		try:
 			return resp.json()
 		except JSONDecodeError:
-			raise Exception('Failed to decode json from response! url: {}, status_code {}: {}'.format(resp.url, resp.status_code, resp.content)) from None
+			raise ResponseJsonDecodeError(url=resp.url, status_code=resp.status_code, content=resp.content) from None
 
 	async def get_repos_text(self, file_path: str, default: Optional[str] = None, **kwargs) -> str:
 		resp = await self.repos.request_repos_file(file_path, **kwargs)
@@ -215,7 +216,7 @@ class Plugin:
 			if default is not None:
 				return default
 			else:
-				raise Exception('status code {} (should be 200) when fetching text {} from {}'.format(resp.status_code, file_path, resp.url))
+				raise UnexpectedResponseStatusError(url=resp.url, status_code=resp.status_code, expected='200', content=resp.content)
 		return resp.text
 
 	def __read_old_file(self, path: Path, clazz: Type[_S], what: str) -> Optional[_S]:

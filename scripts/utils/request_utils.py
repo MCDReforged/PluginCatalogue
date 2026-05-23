@@ -13,6 +13,7 @@ from multidict import CIMultiDictProxy
 from typing_extensions import Self
 
 from common import constants, log
+from common.exceptions import UnexpectedResponseStatusError
 from common.report import reporter
 
 
@@ -104,7 +105,7 @@ async def request_github_api(url: str, *, params: dict = None, etag: str = '', r
 		headers['Authorization'] = 'token {}'.format(api_token)
 	response = await request_get(url, headers=headers, params=params, retries=retries)
 	if response.status_code != 200 and response.status_code != 304:
-		raise Exception('Un-expected status code {}: {}'.format(response.status_code, response.content))
+		raise UnexpectedResponseStatusError(url=response.url, status_code=response.status_code, expected='200 or 304', content=response.content)
 	try:
 		new_etag = response.headers['ETag']
 	except KeyError:

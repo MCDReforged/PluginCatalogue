@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Set
 
 from common import constants, log
+from common.exceptions import AssetDownloadError
 from common.report import reporter
 from meta.cache import RequestCache, ReleasePageResponse, RepositoryResponse, AssetData, ASSET_DATA_DEFAULT_TTL
 from meta.plugin import MetaInfo
@@ -77,7 +78,7 @@ class PluginRequestCacheManager:
 			log.info('Downloading asset {} from {!r} for inspection'.format(asset_id, download_url))
 			rsp = await request_utils.request_get(download_url)
 			if rsp.status_code != 200:
-				raise Exception('download asset from {} failed: {} {}'.format(download_url, rsp.status_code, rsp.content))
+				raise AssetDownloadError(download_url=download_url, status_code=rsp.status_code, content=rsp.content)
 
 			file_buf = rsp.content
 			with zipfile.ZipFile(BytesIO(file_buf), 'r') as f:
