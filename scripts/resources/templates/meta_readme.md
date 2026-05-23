@@ -13,6 +13,7 @@ repos_root/
 |   +-- repository.json  # Json object: RepositoryInfo
 |   +-- all.json         # Json object: AllOfAPlugin
 |   +-- all.json.gz      # A gz-compressed "all.json"
+|   +-- update_report.json # Json object: PluginUpdateReport
 |
 +-- another_plugin/   # Another plugin with id "another_plugin"
 |   +-- meta.json
@@ -32,13 +33,14 @@ repos_root/
 +-- plugins.json.gz           # A gz-compressed "plugins.json"
 ```
 
-| What you want                                                                                     | Where to get                               |
-|---------------------------------------------------------------------------------------------------|--------------------------------------------|
-| Everything possible in the meta repository                                                        | [`everything.json`](#Everything)           |
-| Everything in the meta repository, but don't need those textual introduction / description things | [`everything_slim.json`](#slim-everything) |
-| Summary of all plugins, i.e. what plugins does the meta repository have                           | [`plugins.json`](#PluginMetaSummary)       |
-| Summary of plugin authors                                                                         | [`authors.json`](#AuthorSummary)           |
-| Information of a specified plugin                                                                 | `<plugin_id>/xxx.json`                     |
+| What you want                                                                                     | Where to get                                            |
+|---------------------------------------------------------------------------------------------------|---------------------------------------------------------|
+| Everything possible in the meta repository                                                        | [`everything.json`](#Everything)                        |
+| Everything in the meta repository, but don't need those textual introduction / description things | [`everything_slim.json`](#slim-everything)              |
+| Summary of all plugins, i.e. what plugins does the meta repository have                           | [`plugins.json`](#PluginMetaSummary)                    |
+| Summary of plugin authors                                                                         | [`authors.json`](#AuthorSummary)                        |
+| Information of a specified plugin                                                                 | `<plugin_id>/xxx.json`                                  |
+| Warnings and failures generated during update for a specified plugin                              | [`<plugin_id>/update_report.json`](#PluginUpdateReport) |
 
 ### Object definition
 
@@ -109,6 +111,29 @@ If you also want to get the [ReleaseInfo](#ReleaseInfo), use [`everything.json`]
     "my_plugin": {/* PluginInfo */},
     // ...
   }
+}
+```
+
+#### PluginUpdateReport
+
+Warning and failure records generated during plugin update. Both fields are empty lists if there are no records.
+
+```json5
+{
+  "failures": [
+    {
+      "message": "Store plugin info",
+      "error_type": "UnexpectedResponseStatusError",  // nullable
+      "error_message": "unexpected status code 404 (expected 200) for https://example.com"  // nullable
+    }
+  ],
+  "warnings": [
+    {
+      "message": "Bad meta version '1.2' for tag 'v1.2.3'",
+      "error_type": "ValueError",  // nullable
+      "error_message": "invalid version"  // nullable
+    }
+  ]
 }
 ```
 
