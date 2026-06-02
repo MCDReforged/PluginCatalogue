@@ -26,6 +26,7 @@ from typing import Iterable, Optional
 from common.constants import REPOS_ROOT
 from common.report import reporter
 from meta.release import ReleaseInfo
+from meta.update_report import PluginUpdateReportEntry
 from plugin.plugin_list import Plugin, PluginList
 
 COMMENT_SIGN = '<!-- report -->'
@@ -174,7 +175,7 @@ def report_removed(plugin_id: str):
     return report
 
 
-def report_init_failed(failures: dict[str, list[str]]):
+def report_init_failed(failures: dict[str, list[PluginUpdateReportEntry]]):
     """Check if there's any plugin failed to initialize. If so, report it."""
 
     report = ''
@@ -186,7 +187,7 @@ def report_init_failed(failures: dict[str, list[str]]):
 
 '''
     for plugin_id, messages in failures.items():
-        if any(re.match("Initialize plugin .+ failed", msg) for msg in messages):
+        if any(re.match("Initialize plugin .+ failed", str(msg)) for msg in messages):
             report += header.format(
                 plugin_id=plugin_id,
                 message='\n'.join(f'> - {i}' for i in messages)
@@ -201,8 +202,8 @@ def report_plugin(plugin: Plugin, tag: Tag) -> str:
 | Info | Value | Valid |
 | --- | --- | --- |
 '''
-    failures: Optional[list[str]] = reporter.failures.get(plugin.id, [])
-    warnings: Optional[list[str]] = reporter.warnings.get(plugin.id, [])
+    failures: Optional[list[str]] = [str(ent) for ent in reporter.failures.get(plugin.id, [])]
+    warnings: Optional[list[str]] = [str(ent) for ent in reporter.warnings.get(plugin.id, [])]
     latest_release: Optional[ReleaseInfo] = plugin.release_summary.get_latest_release()
 
     # --- PluginInfo rows --- 

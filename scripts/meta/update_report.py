@@ -10,6 +10,14 @@ class PluginUpdateReportEntry(Serializable):
 	error_type: Optional[str] = None
 	error_message: Optional[str] = None
 
+	def format(self) -> str:
+		if self.error_type is None:
+			return self.message
+		return '{}: ({}) {}'.format(self.message, self.error_type, self.error_message)
+
+	def __str__(self):
+		return self.format()
+
 
 class PluginUpdateReport(Serializable):
 	"""

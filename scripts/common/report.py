@@ -35,9 +35,7 @@ class Reporter:
 
 	@classmethod
 	def __format_entry(cls, entry: PluginUpdateReportEntry) -> str:
-		if entry.error_type is None:
-			return entry.message
-		return '{}: ({}) {}'.format(entry.message, entry.error_type, entry.error_message)
+		return entry.format()
 
 	def record_command(self, command: str):
 		with self.__lock:
