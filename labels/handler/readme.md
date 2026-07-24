@@ -1,0 +1,21 @@
+**English** | [中文](readme-zh_cn.md)
+
+\>\>\> [Back to index](/readme.md)
+
+# Handler
+
+Plugin Index with label `Handler`
+
+Plugin Amount: 8
+
+| Plugin Name | Authors | Description | Last Update | Labels |
+| --- | --- | --- | --- | --- |
+| [BedrockLiteloaderHandler](/plugins/bedrock_liteloader_handler/readme.md) | [Elec glacier](https://github.com/Elec-Glacier), [jiangyan](https://github.com/jiangyan03) | A handler which allows BDS(bedrock dedicated server) to use MCDR | 2026/05/07 | [`Handler`](/labels/handler/readme.md) |
+| [CleanRoom Server Handler](/plugins/cleanroom_handler/readme.md) | [Cmmmmmm](https://github.com/CmmmmmmLau) | A Server Handler for CleanRoom in Minecraft 1.12.2 on Java21 | 2024/11/04 | [`Handler`](/labels/handler/readme.md) |
+| [Commandblock Handler](/plugins/commandblock_handler/readme.md) | [Dainsleif](https://github.com/Dainsleif233) | Enable MCDR commands for function and commandblock. | 2025/02/13 | [`Handler`](/labels/handler/readme.md) |
+| [LBS Velocity Handler](/plugins/lbs_velocity_handler/readme.md) | [Ra1ny_Yuki](https://github.com/Ra1ny-Yuki) | Better Velocity server handler | 2024/11/05 | [`Handler`](/labels/handler/readme.md) |
+| [LeavesHandler](/plugins/leaves_handler/readme.md) | [Mooling0602](https://github.com/Mooling0602) | A server handler for Leaves(a fork of Paper). | 2026/05/21 | [`Handler`](/labels/handler/readme.md) |
+| [Title Prefix Handler](/plugins/title_prefix_handler/readme.md) | [DCS](https://github.com/ayuan94/) | MCDR handler plugin that fixes player name parsing when title prefixes are added by Team prefixes. | 2026/05/24 | [`Handler`](/labels/handler/readme.md) |
+| [Unified Handler](/plugins/unified_handler/readme.md) | [Alex3236](https://github.com/Alex3236) | ✨ YAML-driven universal server handler, simple, easy to use, and extensible | 2026/05/29 | [`Handler`](/labels/handler/readme.md) |
+| [VanillaTeamHandler](/plugins/vanilla_team_handler/readme.md) | [Mooling0602](https://github.com/Mooling0602) | A handler for MCDReforged to parse chat messages from team members. | 2025/09/30 | [`Handler`](/labels/handler/readme.md) |
+
