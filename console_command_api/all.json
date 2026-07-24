@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "console_command_api",
+    "name": "Console Command API",
+    "version": "1.0.1",
+    "link": null,
+    "authors": [
+      "Xc_Star"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [
+      "fastapi",
+      "uvicorn",
+      "pydantic",
+      "mcdreforged>=2.0.0"
+    ],
+    "description": {
+      "en_us": "Execute console commands via HTTP API and get responses",
+      "zh_cn": "通过 HTTP API 执行控制台命令并获取响应"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "console_command_api",
+    "authors": [
+      "Xc_Star"
+    ],
+    "repository": "https://github.com/Xc-Star/console_command_api",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "api"
+    ],
+    "introduction": {
+      "en_us": "# Console Command API\n\n[English](https://github.com/Xc-Star/console_command_api/tree/main/./README.md) | [简体中文](https://github.com/Xc-Star/console_command_api/tree/main/./README.zh_cn.md)\n\nConsole Command API is an MCDReforged plugin that exposes a small HTTP API for executing commands and reading their output.\n\nIt supports both command paths:\n\n- Commands starting with `!!` are treated as MCDR commands\n- Commands without `!!` are treated as Minecraft server console commands\n\n## Features\n\n- Execute MCDR commands over HTTP\n- Execute Minecraft server console commands over HTTP\n- Return captured command output in the HTTP response\n- Bearer token authentication\n- Simple health check endpoint\n\n## Requirements\n\n- Python environment compatible with your MCDR installation\n- `mcdreforged>=2.0.0`\n- `fastapi`\n- `uvicorn`\n- `pydantic`\n\n## Configuration\n\nThe plugin will generate its config automatically on first load.\n\nCurrent config fields:\n\n```json\n{\n  \"token\": \"\",\n  \"timeout\": 5.0,\n  \"idle_timeout\": 0.2,\n  \"host\": \"0.0.0.0\",\n  \"port\": 8000\n}\n```\n\n### Fields\n\n- `token`: Bearer token used by the HTTP API. If empty, the plugin generates one automatically on first load.\n- `timeout`: Maximum time in seconds to wait for command output.\n- `idle_timeout`: Additional quiet window in seconds for MCDR command output collection.\n- `host`: HTTP bind address.\n- `port`: HTTP listen port.\n\n## API\n\n### Authentication\n\nAll endpoints use Bearer token authentication:\n\n```http\nAuthorization: Bearer <token>\n```\n\n### `GET /health`\n\nReturns the plugin health status.\n\nExample response:\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"status\": \"ok\",\n    \"server_running\": true\n  }\n}\n```\n\n### `POST /execute`\n\nExecutes a command and returns captured output.\n\nRequest body:\n\n```json\n{\n  \"command\": \"!!MCDR plugin list\"\n}\n```\n\n### Command routing\n\n- `!!MCDR plugin list` -> executed as an MCDR command\n- `list` -> executed as a Minecraft server console command\n\nExample success response:\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"request_id\": \"2b0f0f34-2f0f-4d97-9e2f-123456789abc\",\n    \"command\": \"!!MCDR plugin list\",\n    \"command_type\": \"mcdr\",\n    \"output\": [\n      \"...\"\n    ],\n    \"output_text\": \"...\",\n    \"timed_out\": false\n  }\n}\n```\n\nExample error response:\n\n```json\n{\n  \"code\": 401,\n  \"msg\": \"Invalid authentication token\",\n  \"data\": null\n}\n```\n\n## Notes\n\n- MCDR commands are captured through a custom `CommandSource` plus temporary log capture.\n- Minecraft server commands are captured from server console output by using start/end markers.\n- Minecraft server commands require the game server to be running.\n- To avoid mixed output between concurrent requests, command execution is serialized.\n\n## License\n\nThis project is licensed under the MIT License. See [LICENSE](https://github.com/Xc-Star/console_command_api/tree/main/./LICENSE) for details.\n",
+      "zh_cn": "# Console Command API\n\n[English](https://github.com/Xc-Star/console_command_api/tree/main/./README.md) | [简体中文](https://github.com/Xc-Star/console_command_api/tree/main/./README.zh_cn.md)\n\nConsole Command API 是一个 MCDReforged 插件，用于通过 HTTP API 执行命令并获取输出结果。\n\n它同时支持两类命令：\n\n- 以 `!!` 开头的命令会被当作 MCDR 命令执行\n- 不以 `!!` 开头的命令会被当作 Minecraft 服务端控制台命令执行\n\n## 功能\n\n- 通过 HTTP 执行 MCDR 命令\n- 通过 HTTP 执行 Minecraft 服务端控制台命令\n- 在 HTTP 响应中返回捕获到的命令输出\n- 使用 Bearer Token 进行鉴权\n- 提供简单的健康检查接口\n\n## 依赖\n\n- 与当前 MCDR 运行环境兼容的 Python\n- `mcdreforged>=2.0.0`\n- `fastapi`\n- `uvicorn`\n- `pydantic`\n\n## 配置\n\n插件首次加载时会自动生成配置文件。\n\n当前配置项如下：\n\n```json\n{\n  \"token\": \"\",\n  \"timeout\": 5.0,\n  \"idle_timeout\": 0.2,\n  \"host\": \"0.0.0.0\",\n  \"port\": 8000\n}\n```\n\n### 字段说明\n\n- `token`：HTTP API 使用的 Bearer Token。如果为空，插件首次加载时会自动生成。\n- `timeout`：等待命令输出的最长时间，单位为秒。\n- `idle_timeout`：MCDR 命令输出收集时额外等待的静默窗口，单位为秒。\n- `host`：HTTP 服务绑定地址。\n- `port`：HTTP 服务监听端口。\n\n## API\n\n### 鉴权\n\n所有接口都使用 Bearer Token：\n\n```http\nAuthorization: Bearer <token>\n```\n\n### `GET /health`\n\n返回插件当前健康状态。\n\n示例响应：\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"status\": \"ok\",\n    \"server_running\": true\n  }\n}\n```\n\n### `POST /execute`\n\n执行命令并返回捕获到的输出。\n\n请求体：\n\n```json\n{\n  \"command\": \"!!MCDR plugin list\"\n}\n```\n\n### 命令路由规则\n\n- `!!MCDR plugin list` -> 按 MCDR 命令执行\n- `list` -> 按 Minecraft 服务端控制台命令执行\n\n成功响应示例：\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"request_id\": \"2b0f0f34-2f0f-4d97-9e2f-123456789abc\",\n    \"command\": \"!!MCDR plugin list\",\n    \"command_type\": \"mcdr\",\n    \"output\": [\n      \"...\"\n    ],\n    \"output_text\": \"...\",\n    \"timed_out\": false\n  }\n}\n```\n\n错误响应示例：\n\n```json\n{\n  \"code\": 401,\n  \"msg\": \"Invalid authentication token\",\n  \"data\": null\n}\n```\n\n## 说明\n\n- MCDR 命令通过自定义 `CommandSource` 和临时日志捕获来收集输出。\n- Minecraft 服务端命令通过服务端输出中的开始/结束标记来截取响应。\n- Minecraft 服务端命令要求游戏服务端已经处于运行状态。\n- 为了避免并发请求之间的输出互相串台，插件会串行执行命令请求。\n\n## 许可证\n\n本项目使用 MIT License。详见 [LICENSE](https://github.com/Xc-Star/console_command_api/tree/main/./LICENSE)。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Xc-Star/console_command_api/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Xc-Star/console_command_api/main/README.zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "console_command_api",
+    "latest_version": "1.0.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Xc-Star/console_command_api/releases/tag/v1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2026-05-09T06:24:43Z",
+        "description": "**Full Changelog**: https://github.com/Xc-Star/console_command_api/compare/v1.0.0...v1.0.1",
+        "prerelease": false,
+        "asset": {
+          "id": 415854636,
+          "name": "ConsoleCommandAPI-v1.0.1.mcdr",
+          "size": 7118,
+          "download_count": 41,
+          "created_at": "2026-05-09T06:27:05Z",
+          "browser_download_url": "https://github.com/Xc-Star/console_command_api/releases/download/v1.0.1/ConsoleCommandAPI-v1.0.1.mcdr",
+          "hash_md5": "6f78988474fa740eb8ee5ac428747eac",
+          "hash_sha256": "b693ca95f867fdf5bcfa7ce23a90996a5d60539f3d213b1cefcc974ee82fceee"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "console_command_api",
+          "name": "Console Command API",
+          "version": "1.0.1",
+          "link": null,
+          "authors": [
+            "Xc_Star"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "fastapi",
+            "uvicorn",
+            "pydantic",
+            "mcdreforged>=2.0.0"
+          ],
+          "description": {
+            "en_us": "Execute console commands via HTTP API and get responses",
+            "zh_cn": "通过 HTTP API 执行控制台命令并获取响应"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Xc-Star/console_command_api/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2026-05-08T16:04:51Z",
+        "description": "**Full Changelog**: https://github.com/Xc-Star/console_command_api/commits/v1.0.0",
+        "prerelease": false,
+        "asset": {
+          "id": 415388109,
+          "name": "ConsoleCommandAPI-v1.0.0.mcdr",
+          "size": 7127,
+          "download_count": 9,
+          "created_at": "2026-05-08T16:06:16Z",
+          "browser_download_url": "https://github.com/Xc-Star/console_command_api/releases/download/v1.0.0/ConsoleCommandAPI-v1.0.0.mcdr",
+          "hash_md5": "6111fdecd4766ac31157006a88d5065d",
+          "hash_sha256": "8dfd97e26a296166c129c60175c3d32cd7e92fbe3591734cee84bdc83039062f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "console_command_api",
+          "name": "Console Command API",
+          "version": "1.0.0",
+          "link": null,
+          "authors": [
+            "Xc_Star"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [
+            "fastapi>=0.100.0",
+            "uvicorn>=0.20.0",
+            "pydantic>=2.0.0",
+            "mcdreforged>=2.0.0"
+          ],
+          "description": {
+            "en_us": "Execute console commands via HTTP API and get responses",
+            "zh_cn": "通过 HTTP API 执行控制台命令并获取响应"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Xc-Star/console_command_api",
+    "name": "console_command_api",
+    "full_name": "Xc-Star/console_command_api",
+    "html_url": "https://github.com/Xc-Star/console_command_api",
+    "description": "An MCDReforged plugin that executes commands over HTTP and returns captured MCDR command output in the response.",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 0,
+    "readme": "# Console Command API\n\n[English](https://github.com/Xc-Star/console_command_api/tree/main/./README.md) | [简体中文](https://github.com/Xc-Star/console_command_api/tree/main/./README.zh_cn.md)\n\nConsole Command API is an MCDReforged plugin that exposes a small HTTP API for executing commands and reading their output.\n\nIt supports both command paths:\n\n- Commands starting with `!!` are treated as MCDR commands\n- Commands without `!!` are treated as Minecraft server console commands\n\n## Features\n\n- Execute MCDR commands over HTTP\n- Execute Minecraft server console commands over HTTP\n- Return captured command output in the HTTP response\n- Bearer token authentication\n- Simple health check endpoint\n\n## Requirements\n\n- Python environment compatible with your MCDR installation\n- `mcdreforged>=2.0.0`\n- `fastapi`\n- `uvicorn`\n- `pydantic`\n\n## Configuration\n\nThe plugin will generate its config automatically on first load.\n\nCurrent config fields:\n\n```json\n{\n  \"token\": \"\",\n  \"timeout\": 5.0,\n  \"idle_timeout\": 0.2,\n  \"host\": \"0.0.0.0\",\n  \"port\": 8000\n}\n```\n\n### Fields\n\n- `token`: Bearer token used by the HTTP API. If empty, the plugin generates one automatically on first load.\n- `timeout`: Maximum time in seconds to wait for command output.\n- `idle_timeout`: Additional quiet window in seconds for MCDR command output collection.\n- `host`: HTTP bind address.\n- `port`: HTTP listen port.\n\n## API\n\n### Authentication\n\nAll endpoints use Bearer token authentication:\n\n```http\nAuthorization: Bearer <token>\n```\n\n### `GET /health`\n\nReturns the plugin health status.\n\nExample response:\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"status\": \"ok\",\n    \"server_running\": true\n  }\n}\n```\n\n### `POST /execute`\n\nExecutes a command and returns captured output.\n\nRequest body:\n\n```json\n{\n  \"command\": \"!!MCDR plugin list\"\n}\n```\n\n### Command routing\n\n- `!!MCDR plugin list` -> executed as an MCDR command\n- `list` -> executed as a Minecraft server console command\n\nExample success response:\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"request_id\": \"2b0f0f34-2f0f-4d97-9e2f-123456789abc\",\n    \"command\": \"!!MCDR plugin list\",\n    \"command_type\": \"mcdr\",\n    \"output\": [\n      \"...\"\n    ],\n    \"output_text\": \"...\",\n    \"timed_out\": false\n  }\n}\n```\n\nExample error response:\n\n```json\n{\n  \"code\": 401,\n  \"msg\": \"Invalid authentication token\",\n  \"data\": null\n}\n```\n\n## Notes\n\n- MCDR commands are captured through a custom `CommandSource` plus temporary log capture.\n- Minecraft server commands are captured from server console output by using start/end markers.\n- Minecraft server commands require the game server to be running.\n- To avoid mixed output between concurrent requests, command execution is serialized.\n\n## License\n\nThis project is licensed under the MIT License. See [LICENSE](https://github.com/Xc-Star/console_command_api/tree/main/./LICENSE) for details.\n",
+    "readme_url": "https://raw.githubusercontent.com/Xc-Star/console_command_api/main/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

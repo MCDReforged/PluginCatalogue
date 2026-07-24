@@ -1,0 +1,30 @@
+{
+  "failures": [
+    {
+      "message": "Fetch repository failed",
+      "error_type": "UnexpectedResponseStatusError",
+      "error_message": "unexpected status code 404 (expected 200 or 304) for https://api.github.com/repos/gubaiovo/MCDR_hitokoto"
+    },
+    {
+      "message": "Fetch custom introduction file in language en_us from doc/README.md failed",
+      "error_type": "UnexpectedResponseStatusError",
+      "error_message": "unexpected status code 404 (expected 200) for https://raw.githubusercontent.com/gubaiovo/MCDR_hitokoto/main/hitokoto/doc/README.md"
+    },
+    {
+      "message": "Fetch meta failed",
+      "error_type": "UnexpectedResponseStatusError",
+      "error_message": "unexpected status code 404 (expected 200) for https://raw.githubusercontent.com/gubaiovo/MCDR_hitokoto/main/hitokoto/mcdreforged.plugin.json"
+    },
+    {
+      "message": "Fetch release failed",
+      "error_type": "UnexpectedResponseStatusError",
+      "error_message": "unexpected status code 404 (expected 200 or 304) for https://api.github.com/repos/gubaiovo/MCDR_hitokoto/releases?page=1&per_page=100"
+    },
+    {
+      "message": "Fetch custom introduction file in language zh_cn from doc/README_CN.md failed",
+      "error_type": "UnexpectedResponseStatusError",
+      "error_message": "unexpected status code 404 (expected 200) for https://raw.githubusercontent.com/gubaiovo/MCDR_hitokoto/main/hitokoto/doc/README_CN.md"
+    }
+  ],
+  "warnings": []
+}

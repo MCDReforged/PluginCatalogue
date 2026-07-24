@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Xc-Star/console_command_api",
+  "name": "console_command_api",
+  "full_name": "Xc-Star/console_command_api",
+  "html_url": "https://github.com/Xc-Star/console_command_api",
+  "description": "An MCDReforged plugin that executes commands over HTTP and returns captured MCDR command output in the response.",
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 0,
+  "readme": "# Console Command API\n\n[English](https://github.com/Xc-Star/console_command_api/tree/main/./README.md) | [简体中文](https://github.com/Xc-Star/console_command_api/tree/main/./README.zh_cn.md)\n\nConsole Command API is an MCDReforged plugin that exposes a small HTTP API for executing commands and reading their output.\n\nIt supports both command paths:\n\n- Commands starting with `!!` are treated as MCDR commands\n- Commands without `!!` are treated as Minecraft server console commands\n\n## Features\n\n- Execute MCDR commands over HTTP\n- Execute Minecraft server console commands over HTTP\n- Return captured command output in the HTTP response\n- Bearer token authentication\n- Simple health check endpoint\n\n## Requirements\n\n- Python environment compatible with your MCDR installation\n- `mcdreforged>=2.0.0`\n- `fastapi`\n- `uvicorn`\n- `pydantic`\n\n## Configuration\n\nThe plugin will generate its config automatically on first load.\n\nCurrent config fields:\n\n```json\n{\n  \"token\": \"\",\n  \"timeout\": 5.0,\n  \"idle_timeout\": 0.2,\n  \"host\": \"0.0.0.0\",\n  \"port\": 8000\n}\n```\n\n### Fields\n\n- `token`: Bearer token used by the HTTP API. If empty, the plugin generates one automatically on first load.\n- `timeout`: Maximum time in seconds to wait for command output.\n- `idle_timeout`: Additional quiet window in seconds for MCDR command output collection.\n- `host`: HTTP bind address.\n- `port`: HTTP listen port.\n\n## API\n\n### Authentication\n\nAll endpoints use Bearer token authentication:\n\n```http\nAuthorization: Bearer <token>\n```\n\n### `GET /health`\n\nReturns the plugin health status.\n\nExample response:\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"status\": \"ok\",\n    \"server_running\": true\n  }\n}\n```\n\n### `POST /execute`\n\nExecutes a command and returns captured output.\n\nRequest body:\n\n```json\n{\n  \"command\": \"!!MCDR plugin list\"\n}\n```\n\n### Command routing\n\n- `!!MCDR plugin list` -> executed as an MCDR command\n- `list` -> executed as a Minecraft server console command\n\nExample success response:\n\n```json\n{\n  \"code\": 200,\n  \"msg\": \"success\",\n  \"data\": {\n    \"request_id\": \"2b0f0f34-2f0f-4d97-9e2f-123456789abc\",\n    \"command\": \"!!MCDR plugin list\",\n    \"command_type\": \"mcdr\",\n    \"output\": [\n      \"...\"\n    ],\n    \"output_text\": \"...\",\n    \"timed_out\": false\n  }\n}\n```\n\nExample error response:\n\n```json\n{\n  \"code\": 401,\n  \"msg\": \"Invalid authentication token\",\n  \"data\": null\n}\n```\n\n## Notes\n\n- MCDR commands are captured through a custom `CommandSource` plus temporary log capture.\n- Minecraft server commands are captured from server console output by using start/end markers.\n- Minecraft server commands require the game server to be running.\n- To avoid mixed output between concurrent requests, command execution is serialized.\n\n## License\n\nThis project is licensed under the MIT License. See [LICENSE](https://github.com/Xc-Star/console_command_api/tree/main/./LICENSE) for details.\n",
+  "readme_url": "https://raw.githubusercontent.com/Xc-Star/console_command_api/main/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

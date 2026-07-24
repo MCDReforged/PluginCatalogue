@@ -1,0 +1,44 @@
+{
+  "schema_version": 8,
+  "id": "unified_handler",
+  "latest_version": "0.2.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/alex3236/UnifiedHandler/releases/tag/v0.2.1",
+      "name": "v0.2.1",
+      "tag_name": "v0.2.1",
+      "created_at": "2026-05-29T12:22:32Z",
+      "description": "chore: bump version to 0.2.1\r\n\r\n### Hotfix\r\n- commandblock: remove extra quotes from pseudo player names\r\n\r\n### Fixed\r\n- commandblock: [@] and [Server] pseudo-players now handle [Not Secure] prefix correctly (e.g. [Not Secure] [@] !!MCDR)\r\n### Added\r\n- !!uh update command: list outdated builtin profiles, confirm within 10s, overwrite + reload\r\n- Update reminder on load: _sync_builtin_profiles now shows a consolidated summary with the update command\r\n- $schema directive added to all builtin profile YAML files (GitHub raw URL) for editor autocompletion\r\n- Agent usage example video linked in agent profile analysis docs\r\n### Changed\r\n- Install instructions: !!MCDR plugin install unified_handler now preferred over manual install\r\n- AGENTS.md merged into CLAUDE.md, replaced with symlink\r\n- README configuration section: case 2 collapsed by default, verification guide linked after config\r\n- Handler verification guide (formerly \"troubleshooting guide\") repositioned as a proactive check-first document\r\n- profile.schema.json $id corrected to repo URL\r\n### Tests\r\n- 22 new tests in tests/test_debug.py covering debug mode, lifecycle tracking, and player source tracking\r\n- 2 new [Not Secure] tests in tests/test_commandblock.py\r\n\r\n**Full Changelog**: https://github.com/alex3236/UnifiedHandler/compare/v0.2.0...v0.2.1\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 433030596,
+        "name": "UnifiedHandler-v0.2.1.mcdr",
+        "size": 24455,
+        "download_count": 40,
+        "created_at": "2026-05-29T12:56:23Z",
+        "browser_download_url": "https://github.com/alex3236/UnifiedHandler/releases/download/v0.2.1/UnifiedHandler-v0.2.1.mcdr",
+        "hash_md5": "e7e161e777ecc2a5bb3d14e0cee5182d",
+        "hash_sha256": "8834359077ea309f426cd589f5a1850d0df6fe954cfd500d63775838365f105a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "unified_handler",
+        "name": "Unified Handler",
+        "version": "0.2.1",
+        "link": "https://github.com/alex3236/UnifiedHandler",
+        "authors": [
+          "Alex3236"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "✨ YAML-driven universal server handler, simple, easy to use, and extensible",
+          "zh_cn": "✨ YAML 驱动的万能服务端处理器，简单、易用、可扩展"
+        }
+      }
+    }
+  ]
+}

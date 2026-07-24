@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Passion-Never-Dissipate/Auto-Execute",
+  "name": "Auto-Execute",
+  "full_name": "Passion-Never-Dissipate/Auto-Execute",
+  "html_url": "https://github.com/Passion-Never-Dissipate/Auto-Execute",
+  "description": "一个便携化批量执行指令的MCDR插件",
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 0,
+  "readme": "# Auto-Execute\n---------\n一个以脚本为单位存储各类指令多模式执行的MCDR插件\n\n模式(服务器启动时执行,手动执行,循环执行,间隔执行)\n\n需要 `v2.6.0` 以上的 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n\n部分代码参考了 Fallen-Breath 的 [QuickBackupM](https://github.com/TISUnion/QuickBackupM).\n\n## 命令基本说明\n\n`!!ae` 显示帮助信息\n\n`!!ae make <脚本名>` 创建一个脚本用于存储指令\n\n`!!ae add <脚本名> <指令>` 往脚本里添加一条指令,脚本里的的指令具有顺序\n\n`!!ae insert <脚本名> <行> <指令>` 在脚本指定行插入一条指令,可以理解为插队,指令的行数可以使用!!ae look <脚本id>查看\n\n`!!ae del <脚本名> <指令>` 删除脚本里的一条指令,如出现重复指令，则删除更靠前的指令\n\n`!!ae re <脚本名> <行范围>` 删除脚本指定行数的指令,行范围可以是单独的数字,也可以是一个区间,例如1-3表示1到3行\n\n`!!ae remove <脚本名>` 删除一个脚本\n\n`!!ae list` 查看所有存在且格式无误的脚本\n\n`!!ae auto_list` 查看所有服务器启动后自启的脚本\n\n`!!ae run_list` 查看正在运行的脚本\n\n`!!ae look <脚本名>` 查看脚本详情\n\n`!!ae run <脚本名>` 通过指令运行脚本\n\n`!!ae auto <脚本名>` 打开或者关闭某个脚本自启\n\n`!!ae des <脚本名> <简介>` 修改脚本的简介\n\n`!!ae set <脚本名> <权限等级>` 修改脚本的独立权限，权限等级应为一个整数\n\n`!!ae reload` 重载插件，这会使正在运行的脚本终止运行\n\n除了以上MCDR指令，还有着专用于脚本的指令（只能作用于脚本内）\n\n`@ae sleep <时间>` 使脚本暂停一段时间，单位为秒，可以为小数，例如@ae sleep 60使得脚本运行于此时间隔60秒后继续执行剩余指令\n\n`@ae loop <时间>` 置于脚本末尾，用法和sleep类似，区别在于暂停结束后不会执行剩余指令，而是循环当前脚本。\n\n## 配置文件说明\n\n如果你不太熟悉json文件格式，建议您使用指令完成操作，而不是修改配置文件\n\n### AutoExecute\n\n路径：`config/AutoExecute.json`\n\n#### minimum_permission_level\n\n使用各指令的最低权限要求\n\n如果一个脚本的权限高于对脚本进行操作的指令（如add,insert,del,re,remove,set,run,auto,des）的权限，那么对该脚本进行操作需要的权限以其独立权限为准。\n\n#### auto_execute_list\n\n一个用于存放服务器启动后自启脚本的列表\n\n例如[主世界伪和平,地狱伪和平,末地伪和平]\n\n列表内脚本启动具有顺序性，每个脚本会在一个独立线程上运行，因此不会阻塞，例如在启动<主世界伪和平>这个脚本后，主线程不会等待该脚本运行完毕才执行下一个脚本，而是启动下一个脚本。\n\n#### turn_off_auto_execute\n\n是否关闭自动启动 默认为false\n\n设置为true后服务器启动时自启列表里的脚本不会被执行\n\n## 脚本基本构成\n### 1.创建一个脚本\n第一次运行插件后，会看到一个为Auto_execute_script的文件夹，这就是存放脚本的地方。\n创建一个脚本有两种方式，一种是通过create指令来创建，一种是手动创建。脚本为json格式，如果内容格式不正确，脚本会无法识别，下面给出了一个默认的脚本内容模板。\n```\n{\n    \"description\": \"\",\n    \"single_permission\": 0,\n    \"command\": []\n}\n```\n### 2.脚本内容\n\n#### description\n脚本的简介，默认为空，为字符串\n\n#### single_permission\n脚本单独权限，默认为0，如果一个脚本的权限高于对脚本进行操作的指令（如add,insert,del,re,remove,set,run,auto,des）的权限，那么对该脚本进行操作需要的权限以其独立权限为准。\n\n#### command\n一个存放脚本命令的列表，默认为空，执行时具有顺序，可以存放三种类型的指令，MCDR指令，Minecraft指令，脚本专用指令\n\nMinecraft指令必须以/开头，否则脚本不会执行\n\n脚本专属指令以@ae开头，具体指令见命令基本说明\n\n\n\n\n\n\n\n\n\n",
+  "readme_url": "https://raw.githubusercontent.com/Passion-Never-Dissipate/Auto-Execute/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

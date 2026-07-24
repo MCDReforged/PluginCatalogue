@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "color_me",
+    "name": "ColorMe",
+    "version": "1.0.1",
+    "link": "https://github.com/Apricityx/ColorMe",
+    "authors": [
+      "Apricityx_"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged~=2.14.7"
+    ],
+    "description": {
+      "en_us": "Players can change their name color by themselves!",
+      "zh_cn": "让玩家自行更改名字颜色！"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "color_me",
+    "authors": [
+      "Apricityx_"
+    ],
+    "repository": "https://github.com/Apricityx/ColorMe",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "[[中文]](https://github.com/Apricityx/ColorMe/tree/master/introduction/./introduction-zh_cn.md) | [英文]\n### A simple plugin that makes players able to choose their own nickname color by commands below:\n\n```\n!!color <color>\n```\n\n## BEWARE: This plugin works by making players join different teams, please make sure your server doesn't rely on /team command.\n\n## After enabling this plugin, you need to run the following command to initialize:\n```\n!!color install\n```\n\nThis will create several teams for players to join and adjust their nickname color.\n\nWhen you don't need this plugin anymore, run the following command to remove the teams:\n\n```\n!!color uninstall\n```\n",
+      "zh_cn": "[中文] | [[英文]](https://github.com/Apricityx/ColorMe/tree/master/introduction/./introduction-zh_cn.md)\n### 这是一个简单的插件，可以让玩家通过以下命令来选择自己的名字颜色：\n\n## 注意：此插件原理是通过让玩家加入不同颜色的队伍来实现，请注意你的服务器是否依赖/team命令。\n\n## 在启用插件后需要执行以下命令来初始化：\n\n```\n!!color install\n```\n\n这会新增若干个队伍，通过加入队伍来调整名字的颜色。\n\n当不在需要此插件时，执行以下命令来删除队伍：\n\n```\n!!color uninstall\n```\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/introduction/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/introduction/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "color_me",
+    "latest_version": "1.0.2",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Apricityx/ColorMe/releases/tag/1.0.2",
+        "name": "ColorMe v1.0.2",
+        "tag_name": "1.0.2",
+        "created_at": "2025-10-28T14:04:46Z",
+        "description": "修了一个因多打了一个空格导致的BUG。",
+        "prerelease": false,
+        "asset": {
+          "id": 309727353,
+          "name": "ColorMe-v1.0.2.mcdr",
+          "size": 18259,
+          "download_count": 74,
+          "created_at": "2025-10-28T15:14:00Z",
+          "browser_download_url": "https://github.com/Apricityx/ColorMe/releases/download/1.0.2/ColorMe-v1.0.2.mcdr",
+          "hash_md5": "440559898522316890bbba116ef385b1",
+          "hash_sha256": "a1f1eb2034463a50bdb10340c121acbee0ecece90b4afa3e6d8703c047f0ad47"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "color_me",
+          "name": "ColorMe",
+          "version": "1.0.2",
+          "link": "https://github.com/Apricityx/ColorMe",
+          "authors": [
+            "Apricityx_"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.14.7"
+          ],
+          "description": {
+            "en_us": "Players can change their name color by themselves!",
+            "zh_cn": "让玩家自行更改名字颜色！"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Apricityx/ColorMe",
+    "name": "ColorMe",
+    "full_name": "Apricityx/ColorMe",
+    "html_url": "https://github.com/Apricityx/ColorMe",
+    "description": "让名字五彩斑斓！",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "[[中文]](https://github.com/Apricityx/ColorMe/tree/master/./introduction/introduction-zh_cn.md) | [英文]\n### A simple plugin that makes players able to choose their own nickname color by commands below:\n\n```\n!!color <color>\n```\n\n## BEWARE: This plugin works by making players join different teams, please make sure your server doesn't rely on /team command.\n\n## After enabling this plugin, you need to run the following command to initialize:\n```\n!!color install\n```\n\nThis will create several teams for players to join and adjust their nickname color.\n\nWhen you don't need this plugin anymore, run the following command to remove the teams:\n\n```\n!!color uninstall\n```\n",
+    "readme_url": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": [
+      {
+        "message": "Bad plugin id in tag '1.0.0' asset 'Colorful_ID-v1.0.1.mcdr', found 'colorful_id'",
+        "error_type": null,
+        "error_message": null
+      }
+    ]
+  }
+}

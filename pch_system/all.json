@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "pch_system",
+    "name": "PCH System",
+    "version": "0.8.0",
+    "link": "https://github.com/YuShenLiu06/PCHSystem",
+    "authors": [
+      "YuShen"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.14.0",
+      "uuid_api_remake": "*",
+      "minecraft_data_api": "*"
+    },
+    "requirements": [
+      "requests>=2.31"
+    ],
+    "description": {
+      "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "pch_system",
+    "authors": [
+      "YuShen"
+    ],
+    "repository": "https://github.com/YuShenLiu06/PCHSystem",
+    "branch": "main",
+    "related_path": "McdrPlugin",
+    "labels": [
+      "tool",
+      "information"
+    ],
+    "introduction": {
+      "zh_cn": "# HTCMC Project Contribution & Honor System\n\n> 面向白名单生电社区服的**项目制工程贡献与荣誉体系**。把「工程项目协作 + 积分激励」搬进 Minecraft：玩家在游戏里协作完成工程项目，系统跟踪每位参与者的贡献，完结后归档沉淀，（将来）按贡献结算积分与称号。流程全自动。\n\n> ⚠️ **仍在开发中**：当前已交付身份主锚（Web 账号绑多身份）/ 项目协作（含协管员角色）/ 归档 / 通知 / 一键部署；积分、称号等核心玩法尚未落地。见[开发状态](#开发状态)。\n\n---\n\n## 功能特性\n\n### 特性\n\n- **后端分离**：游戏内端与后端完全分离（不强制绑定MCDR），后端可独立部署，游戏内端仅作为客户端。由于前后端分离，在未来可以甚至实现以下功能：\n  - 跨服务器同步数据：多个服务器的 MCDR 指向同一个后端，无缝同步\n  - 更好的多平台支持：由于后端所有操作由 FASTAPI 封装，你可以以很少的代码完成其他平台的开发（如fabric，forge，neoforge，的客户端开发，或者 Bukkit、Spigot等平台的开发）\n  - 不强制依赖 MCDR：由于前后端分离，你甚至可以在服主不添加该插件的前提下进行部署，如 2b2t 等无政府服务器等的组织备货\n- **独立前端**：提供独立的 Web 前端，玩家可在 Web 端查看项目进度、编辑材料清单、上传投影 / 蓝图等，不进游戏也能协作；游戏端或 MCDR 重启时，Web 端仍可独立访问\n- **兼容性强**：基于MCDR的强大兼容性，可以在几乎所有的我的世界版本上面运行\n\n### 功能（已实现）\n\n- **游戏内登录后台**：`!!PCH login` 一键生成登录链接，点击直接进入 web 页面方便操作\n- **项目协作（在线表格）**：完整的项目材料清单协作——认领材料、多人累计上交、交付确认、打回返工、解除锁定，Web 端与游戏端**对等操作**\n  - 一键提交：支持一键扫描背包（支持潜影盒内物品）上报进度。\n  - 投影 / 蓝图一键建表：上传 `.litematic` 投影或机械动力 `.nbt` 蓝图，自动解析方块、翻译成中文名、生成材料清单（支持原版与 Create 模组物品）（仅 web 端支持）\n  - 子物品：一键通过倍数（支持小数）来直接生成子一级的合成物品的清单\n  - 快捷命令：游戏内大量命令已经通过可点击的方式来达到便携化，尽可能的减少手打命令的状况\n  - 智能数量换算：自动将数量换算成可读性更高的 个/组/盒 （正在考虑加入箱盒）\n  - 游戏内快速读取手持 `registry-id` 直接更改所需的物品 id，新增物品，去除手打物品 id 的苦恼\n  - Web 端行编辑：在线编辑材料行（名称 / 数量 / `registry-id`），与游戏端操作对等\n- **项目归档**：项目完结自动生成归档文档 + 贡献占比饼图，精确记录每位参与者的贡献\n- **通知投递**：认领 / 交付 / 打回 / 项目状况变化 / 上交等事件游戏内自动通知，离线期间的通知上线补推\n\n![一览](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/../McdrPlugin/docs/img/sheet-mc.png)\n\n### 规划中（尚未实现）\n\n- **积分体系**：提供统一积分层，管理相关内容\n  - 提供统一积分入账层\n  - 提供统一积分出账层\n  - 提供积分排行榜\n  - 完善项目归档自动结算积分\n- **指数增长称号**：积分达标自动解锁，聊天前缀差异化，高阶全服公告\n- **项目协作（施工阶段）**：真正校验建造放置（当前施工阶段为占位）\n  - 提供实时的计分板进度显示\n- **Wiki 归档同步**：归档内容双向同步到 wiki.js\n  - 项目权限继承：将项目拥有者，admin，自动拥有该篇归档 wiki 的编辑权限\n\n---\n\n## 部署\n\n### 一键脚本（推荐）\n\n面向服主，一条命令完成 Docker 安装、国内网络镜像自适应、配置生成、起服务、数据库迁移、前端构建、`pch_system` 插件部署与 token 双写：\n\n```bash\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\ncd PCHSystem\nbash Scripts/install.sh    # 首次安装（交互式，幂等）\nbash Scripts/update.sh     # 之后日常更新\n```\n\n完整选项（镜像策略、排错、密钥轮换、禁用前端容器等）见 [`Scripts/README.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././Scripts/README.md)。\n\n### 手动（docker compose）\n\n```bash\ncp .env.example .env       # 按需改密钥\ndocker compose up -d       # 起 postgres + backend + web（前端默认由 web 容器托管）\ncurl http://localhost:8000/healthz\n```\n\n> `.env` 的 `COMPOSE_PROFILES=web` 默认启用前端 web 容器（nginx 托管 `dist` + 反代 `/api`）；清空即禁用，改由自有 nginx 托管。详见 [`Docs/RUNBOOK.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././Docs/RUNBOOK.md)。\n\n> 本项目**不含 Minecraft 服务端**：MCDReforged 由你持有，插件经 HTTP 与后端通信。MCDR 插件本身的部署见 [`McdrPlugin/README.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././McdrPlugin/README.md)。\n\n---\n\n## 架构\n\n三端分离：**后端（FastAPI + PostgreSQL）** 是唯一数据拥有者；**Web 端（Vue3）** 是浏览器后台；**游戏端（MCDR 插件）** 是纯客户端，不直连数据库，只经 HTTP 与后端通信。前端默认由 compose 的 web 容器（nginx）托管。\n\n![architecture](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/../Image/architecture.png)\n\n完整架构图、ADR、跨服务流程见 [`Docs/architecture.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././Docs/architecture.md)。\n\n---\n\n## 开发状态\n\n| 状态    | 模块                                                                       |\n| ----- | ------------------------------------------------------------------------ |\n| ✅ 已交付 | 登录鉴权（Web 账号绑多身份 + 密码登录）、项目协作（在线表格 + 协管员角色）、投影 / 蓝图解析、材料上交、项目归档、通知投递、一键部署 |\n| 🚧 规划中 | 积分结算、指数称号、施工方块检测、Wiki 同步、风控告警                                            |\n\n详见 [`TODO.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././TODO.md) 与 [`CHANGELOG.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././CHANGELOG.md)。\n\n---\n\n## 开发与贡献\n\n- 部署 / 排错 / 回滚：[`Docs/RUNBOOK.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././Docs/RUNBOOK.md)\n- 分支 / Commit / 发布规范：[`CONTRIBUTING.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././CONTRIBUTING.md)\n- 根规范（红线、命名）：[`CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././CLAUDE.md)\n- 各端开发指引：[`Backend/CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././Backend/CLAUDE.md) · [`Frontend/CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././Frontend/CLAUDE.md) · [`McdrPlugin/CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././McdrPlugin/CLAUDE.md)\n\n提 PR 前请先读 [`CONTRIBUTING.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././CONTRIBUTING.md) 与 [`CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././CLAUDE.md) §3 红线；涉及 MCDR 的改动须先联网核实 API（根 [`CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/.././CLAUDE.md) §0 S-1）。\n"
+    },
+    "introduction_urls": {
+      "zh_cn": "https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/../README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "pch_system",
+    "latest_version": "0.8.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.8.0",
+        "name": "pch_system-v0.8.0",
+        "tag_name": "pch_system-v0.8.0",
+        "created_at": "2026-07-20T13:16:14Z",
+        "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n## 破坏性变更\r\n\r\n**数据库迁移（0014 → 0015 → 0016，不可跳）**\r\n- `0014`：新增 `users.web_accounts`（Web 账号主表）、`users.bind_tokens`（绑定短码）；`users.players` 加 `web_account_id` 外键（不回填，NULL 即未绑）。\r\n- `0015`：`users.web_accounts` 加 `display_name`（自定义昵称）。\r\n- `0016`：新增 `sheets.sheet_managers`（项目协管员，锚 `web_account_id`）。\r\n- 业务表（sheets / score 等）零改动；升级前建议 `pg_dump` 快照。\r\n\r\n**登录凭证失效（强制重登）**\r\n- JWT `sub` 由 `player_uuid` 改为 `web_account_id`（+ `active_uuid` claim），**所有现有会话立即失效**。\r\n- 三端用户需重新登录：游戏内 `!!PCH login`、网页端 `/login`。\r\n- 首次 `!!PCH login` 会自动建临时 Web 账号挂接，玩家可后续注册转永久或绑定已有账号。\r\n\r\n**一行版**：跑迁移 `alembic upgrade head` → 通知全员重登 → 旧 token 全部作废。\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n适配身份主锚升级与项目协管员机制，部署脚本健壮性增强。**破坏性变更：所有玩家需重新 `!!PCH login` 登录。**\r\n\r\n### Added\r\n\r\n- **`!!PCH bind` 绑定多身份**：游戏内出短码到网页端输入，或反向；一个账号可绑多个身份，换服 / 改名后积分与贡献不丢。\r\n- **协管员命令**：`!!PCH sheet manager <编号> add|remove|list <玩家名>`；协管员可协助拥有者进行操作，可以新增物品、删除物品、打回、更改进度等；不能删除 、 改名 、 归档操作。\r\n- 同账号不同身份建的项目、认领的行可互相操作。\r\n\r\n### Fixed\r\n\r\n- 对归档项目操作显示「项目已归档，只读」，不再报服务暂不可用；一键提交整体短路不刷屏（issue #7）。\r\n\r\n### 运维（部署脚本）\r\n\r\n- 重装 / 更新自动补全 `.env` 新增项；撞 web 端口自动清理残留容器并询问，不再异常退出。\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 483492813,
+          "name": "pch_system-v0.8.0.mcdr",
+          "size": 59006,
+          "download_count": 6,
+          "created_at": "2026-07-20T13:30:51Z",
+          "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.8.0/pch_system-v0.8.0.mcdr",
+          "hash_md5": "184f16f0808cbb2aa7bc877fdf2834ac",
+          "hash_sha256": "8680a43e14493877e0e6cace97de55c9464c9f4fc7c0abe99311f670e959316a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pch_system",
+          "name": "PCH System",
+          "version": "0.8.0",
+          "link": "https://github.com/YuShenLiu06/PCHSystem",
+          "authors": [
+            "YuShen"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0",
+            "uuid_api_remake": "*",
+            "minecraft_data_api": "*"
+          },
+          "requirements": [
+            "requests>=2.31"
+          ],
+          "description": {
+            "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.7.1",
+        "name": "pch_system-v0.7.1",
+        "tag_name": "pch_system-v0.7.1",
+        "created_at": "2026-07-14T04:21:13Z",
+        "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n## 破坏性变更\r\n\r\n- **McdrPlugin结构变更**：拍平了嵌套的 pch_system 文件夹，现在更加精简\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n更新脚本支持 mac 修复python 依赖无法正确解读的问题\r\n\r\n### Added\r\n\r\n- **macOS 部署支持**：一键安装 / 更新脚本（`install.sh` / `update.sh`）现可在 macOS 上运行（此前仅支持 Linux），自动适配 Docker Desktop 与 BSD 版工具差异。\r\n\r\n### Fixed\r\n\r\n- **从 catalogue 安装时自动装依赖**：经 `!!MCDR plugin install` 或 PluginCatalogue 安装本插件时，现在会正确一并安装 Python 依赖；此前因依赖清单未放在插件根，依赖不会被自动安装。\r\n\r\n### Docs\r\n\r\n- 更新 README 的表现效果\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 476265546,
+          "name": "pch_system-v0.7.1.mcdr",
+          "size": 52907,
+          "download_count": 8,
+          "created_at": "2026-07-14T04:24:44Z",
+          "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.7.1/pch_system-v0.7.1.mcdr",
+          "hash_md5": "01906d3b23276c38ce9d62753f638ac9",
+          "hash_sha256": "704bb76692252e998bf8b60759f71311633d875749880d10e495be356d052572"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pch_system",
+          "name": "PCH System",
+          "version": "0.7.1",
+          "link": "https://github.com/YuShenLiu06/PCHSystem",
+          "authors": [
+            "YuShen"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0",
+            "uuid_api_remake": "*",
+            "minecraft_data_api": "*"
+          },
+          "requirements": [
+            "requests>=2.31"
+          ],
+          "description": {
+            "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.7.0",
+        "name": "pch_system-v0.7.0",
+        "tag_name": "pch_system-v0.7.0",
+        "created_at": "2026-07-12T13:00:34Z",
+        "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更改\r\n\r\n插件 id 由 `htcmc_auth` 改为 `pch_system`（与项目名一致），首个以新 id 发布的正式版本；同步改进项目部署与发布流程。\r\n\r\n### Changed\r\n\r\n- **插件 id 改名 `htcmc_auth` → `pch_system`**：插件不止登录鉴权，还含材料协作 / 一键提交 / 通知。**已部署实例需迁移**：删旧 `plugins/htcmc_auth/`（否则双注册 `!!PCH` 冲突），`config/htcmc_auth/` 搬到 `config/pch_system/`；`Scripts/update.sh` 自动处理。\r\n\r\n### Added\r\n\r\n- **部署与发布流程改进**：tag 驱动半自动发布（push `pch_system-v*` → CI 构建 `.mcdr` + 草稿 Release）；前端默认 `docker compose` 容器托管（nginx + `/api` 反代，`COMPOSE_PROFILES=web` 可关）；端口可配（`*_PORT`）+ 镜像构建走国内源加速；`update.sh` 按变更智能重建 web 镜像。\r\n\r\n### Fixed\r\n\r\n- **`update.sh` 不再误报「需重启 MCDR」**：plugin.json 字段变更统一提示 `!!MCDR plugin reload`（reload 重校依赖，无需重启）。\r\n- **自检「部署」链接更精准**：`!!PCH status` 后端未配置提示改为指向 RUNBOOK 部署手册。\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 474399982,
+          "name": "pch_system-v0.7.0.mcdr",
+          "size": 52781,
+          "download_count": 9,
+          "created_at": "2026-07-12T13:04:16Z",
+          "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.7.0/pch_system-v0.7.0.mcdr",
+          "hash_md5": "ef29217288912add627f084b90c897ec",
+          "hash_sha256": "a77e2ea025e411d9fa23e48b15fa00af3426496a019354189b43c7f8445fdec5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "pch_system",
+          "name": "PCH System",
+          "version": "0.7.0",
+          "link": "https://github.com/YuShenLiu06/PCHSystem",
+          "authors": [
+            "YuShen"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0",
+            "uuid_api_remake": "*",
+            "minecraft_data_api": "*"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/YuShenLiu06/PCHSystem",
+    "name": "PCHSystem",
+    "full_name": "YuShenLiu06/PCHSystem",
+    "html_url": "https://github.com/YuShenLiu06/PCHSystem",
+    "description": "面向生电社区服的项目制工程贡献与荣誉体系系统。 三端分离（Web 端 · 游戏端 · 后端），包含在线表格，施工进度，一键归档等相关功能。使用Mcdr来完成游戏端相关功能",
+    "archived": false,
+    "stargazers_count": 7,
+    "watchers_count": 7,
+    "forks_count": 2,
+    "readme": "# PCH System\n\nPCHSystem 的**游戏内端**——把「项目制工程协作 + 荣誉激励」搬进 Minecraft：玩家在游戏里登录后台、协作完成工程项目、提交材料、（将来）赚取积分与称号。\n\n> ⚠️ **非即装即用 · 强依赖后端**\n> 本插件是 [PCHSystem](https://github.com/YuShenLiu06/PCHSystem) 后端（FastAPI + PostgreSQL）的游戏内客户端，**必须先自部署后端**才能工作。单独安装本插件不会有任何功能——所有命令都是对后端的 HTTP 调用，插件市场 / `!!MCDR plugin install` **不进行完整部署** 具体查看 [部署](#部署) 章节。\n> \n> ⚠️ **仍在开发中**：当前版本仅实现了规划功能的一部分（见下方「开发状态」），积分、称号等核心玩法尚未交付。\n\n完整文档：见[主仓库](https://github.com/YuShenLiu06/PCHSystem) `Docs/`。\n\n---\n\n## 功能特性\n\n### 特性\n\n- **后端分离**：游戏内端与后端完全分离，后端可独立部署，游戏内端仅作为客户端。同时由于后端的原理，理论上支持**跨服 / 跨平台**协作。\n- **独立前端**：提供独立的 Web 前端，玩家可在 Web 端查看项目进度、编辑材料清单、上传投影 / 蓝图等，不进游戏也能协作；游戏端或 MCDR 重启时，Web 端仍可独立访问\n\n### 功能（已实现）\n\n- **游戏内登录后台**：`!!PCH login` 一键生成登录链接，点击直接进入 web 页面方便操作\n- **身份绑定**：`!!PCH bind` 把当前游戏身份绑到 Web 账号，一个账号可绑多个身份（跨服 / 改名后积分与贡献不丢）；支持网页端密码登录、临时账号转永久、项目协管员授权\n\n  ![游戏内登录链接](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/login.gif)\n\n- **项目协作（在线表格）**：完整的项目材料清单协作——认领材料、多人累计上交、交付确认、打回返工、解除锁定，Web 端与游戏端**对等操作**\n\n  ![Web 端项目协作总览](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-web-edit.png)\n  ![游戏内项目协作总览](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-mc.png)\n\n  - 一键提交：支持一键扫描背包（支持潜影盒内物品）上报进度。\n\n    ![一键扫背包提交](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/submit.gif)\n\n  - 投影 / 蓝图一键建表：上传 `.litematic` 投影或机械动力 `.nbt` 蓝图，自动解析方块、翻译成中文名、生成材料清单（支持原版与 Create 模组物品）（仅 web 端支持）\n\n    ![Web 端项目协作总览](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-web.png)\n  - 子物品：一键通过倍数（支持小数）来直接生成子一级的合成物品的清单\n\n    ![Web 端子物品树状视图](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-web-subview.png)\n    ![Web 端新增子物品](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-web-subadd.png)\n\n  - 快捷命令：游戏内大量命令已经通过可点击的方式来达到便携化，尽可能的减少手打命令的状况\n\n    ![游戏内可点击快捷命令](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/commad-mc.gif)\n\n  - 智能数量换算：自动将数量换算成可读性更高的 个/组/盒 （正在考虑加入箱盒）\n\n    ![智能数量换算（个/组/盒）](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-mc-amounts.png)\n\n  - 游戏内快速读取手持 `registry-id` 直接更改所需的物品 id，新增物品，去除手打物品 id 的苦恼\n\n    ![手持物品读取 registry-id](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/display-id-registyr.gif)\n\n  - Web 端行编辑：在线编辑材料行（名称 / 数量 / `registry-id`），与游戏端操作对等\n\n    ![Web 端行编辑器](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/sheet-web-edit.png)\n\n- **项目归档**：项目完结自动生成归档文档 + 贡献占比饼图，精确记录每位参与者的贡献\n\n  ![项目归档与贡献占比](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/archived.png)\n\n- **通知投递**：认领 / 交付 / 打回 / 项目状况变化 / 上交等事件游戏内自动通知，离线期间的通知上线补推\n\n  ![通知投递示例 1](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/notify-1.png)\n  ![通知投递示例 2](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/notify-2.png)\n  ![通知投递示例 3](https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/docs/img/notify-3.png)\n\n### 规划中（尚未实现）\n\n- **积分体系**：提供统一积分层，管理相关内容\n  - 提供统一积分入账层\n  - 提供统一积分出账层\n  - 提供积分排行榜\n  - 完善项目归档自动结算积分\n- **指数增长称号**：积分达标自动解锁，聊天前缀差异化，高阶全服公告\n- **项目协作（施工阶段）**：真正校验建造放置（当前施工阶段为占位）\n  - 提供实时的计分板进度显示\n- **Wiki 归档同步**：归档内容双向同步到 wiki.js\n  - 项目权限继承：将项目拥有者，admin，自动拥有该篇归档 wiki 的编辑权限\n- **管理员后台**：提供管理员后台，方便管理。\n\n> 详见下方「开发状态」与 [`TODO.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../TODO.md)。\n\n---\n\n## 玩法一览\n\nPCHSystem 面向**白名单生电社区服**，围绕「**项目制协作 + 积分作为目标驱动**」组织玩法。游戏内端是这套体系的操作入口。\n\n- **项目制协作**：玩家发起或参与工程项目。负责人导入投影生成材料清单，参与者认领材料、上交 / 放置，系统跟踪进度，完结后归档沉淀。\n- **黄皮子积分**（*规划中*）：项目设固定积分池，按玩家交付 / 贡献占比分配——物品收集类按材料占比；建造放置类按放置 + 收集加权；负责人享额外奖励。\n- **荣誉激励**（*规划中*）：总榜 / 赛季榜 / 项目榜；积分达标解锁指数增长的称号，聊天前缀展示，高阶称号解锁社区权益。\n\n> 完整玩法设计见 [`Docs/guied.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/guied.md)。⚠️ **积分 / 称号 / 自治等玩法依赖的后端能力尚未交付，当前主要可用的是项目协作与归档。**\n\n## 依赖\n\n### MCDR 插件依赖\n\n| 插件                                                          | 版本 / 来源                                                                           | 用途                  |\n| ----------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------- |\n| [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) | `>= 2.14.0`                                                                       | 运行时                 |\n| `uuid_api_remake`                                           | [gubaiovo/MCDR_uuid_api_remake](https://github.com/gubaiovo/MCDR_uuid_api_remake) | 离线模式 UUID 推导        |\n| `minecraft_data_api`                                        | MCDR 插件市场搜索 `MinecraftDataAPI`                                                    | 物品 / NBT 查询（一键提交依赖） |\n\n> `!!MCDR plugin install` 是否会自动安装上述前置插件尚未最终确认，建议手动预装。\n\n### ⚠️ 后端服务（必需）\n\n本插件**强依赖 PCHSystem 后端**（FastAPI + PostgreSQL），后端需另行部署：\n\n- 所有 `!!PCH / !!sheet / !!submit` 命令经 HTTP 调用后端；\n- 插件**不存储业务数据**——积分、项目、权限全在后端 PostgreSQL；\n- 后端**不是 MCDR 插件**，不在 MCDR 运行时模型内，插件市场装不出。\n\n---\n\n## 部署\n\n「部署插件」=「部署 PCHSystem 全栈 + 把插件放进 MCDR」。两条路：\n\n### A. 快速部署（一键脚本 · 推荐）\n\n```bash\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\n\n#也可以使用 gitee 镜像站\n\ngit clone https://gitee.com/yushenliu03/PCHSystem.git\n\ncd PCHSystem\nbash Scripts/install.sh\n```\n\n自动完成：检测/安装 Docker、国内网络镜像自适应、生成配置（含强随机密钥）、起容器 + 跑数据库迁移、构建前端、把 `pch_system` 拷到你的 MCDR `plugins/` 并填好 `service_token`。完整选项与边界见 [`Scripts/README.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Scripts/README.md)。\n\n**智能检测**：在 **游戏内** 使用 `!!PCH status` 检验是否正确部署\n\n### B. 手动部署\n\n按 [`Docs/RUNBOOK.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/RUNBOOK.md) §3：\n\n---\n\n## 游戏内命令\n\n| 命令                                                                             | 说明                         |\n| ------------------------------------------------------------------------------ | -------------------------- |\n| `!!PCH login`                                                                  | 申请 Web 登录，回显可点击链接          |\n| `!!PCH bind` / `!!PCH bind <短码>`                                               | 发起 / 确认绑定，把游戏身份挂到 Web 账号   |\n| `!!PCH sheet manager <编号> add|remove|list <玩家名>`                               | 项目协管员授予 / 撤销 / 查看          |\n| `!!PCH sheet list / view / add / claim / deliver / contribute / advance / ...` | 项目协作全套                     |\n| `!!sheet` / `!!sheet <id>`                                                     | 快速重开上次 / 指定项目              |\n| `!!submit` / `!!submit <id>`                                                   | 一键扫背包提交匹配材料到上次打开的项目 / 制定项目 |\n| `!!PCH sheet list -m / -c / -t / -a / -l`                                      | 列表筛选简写旗标（可组合，如 `-ma`）      |\n\n\n> 完整命令树（含积分、称号等**开发中**命令）见 [`McdrPlugin/CLAUDE.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/./CLAUDE.md) §4。\n\n---\n\n## ⚠️ 开发状态（未完成）\n\n**当前版本仅实现了规划中的部分功能，后续版本会持续更新。**\n\n| 状态    | 模块                                                                         |\n| ----- | -------------------------------------------------------------------------- |\n| ✅ 已交付 | 登录鉴权（Web 账号绑多身份 + 密码登录）、项目协作（sheets + 协管员角色）、投影 / 蓝图解析、材料上交、项目归档、通知投递、一键部署 |\n| 🚧 规划中 | 积分结算、称号系统、施工方块检测、Wiki 同步、风控告警、社区自治                                         |\n\n因此游戏内部分命令（如积分 `!!PCH score`、称号 `!!PCH title`）对应的后端能力**尚未落地**，待后续版本补齐。完整待办见 [`TODO.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../TODO.md)，已交付变更见 [`CHANGELOG.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../CHANGELOG.md)。\n\n---\n\n## 相关链接\n\n| 内容        | 路径                                                                                                                                                        |\n| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| 主仓库       | <https://github.com/YuShenLiu06/PCHSystem>                                                                                                                |\n| 玩法设计      | [`Docs/guied.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/guied.md)                                                         |\n| 工程架构总览    | [`Docs/architecture.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/architecture.md)                                           |\n| 本插件架构（权威） | [`Docs/architecture/services/mcdr-plugin.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/architecture/services/mcdr-plugin.md) |\n| 发布策略报告    | [`Docs/Reports/mcdr-publishing-strategy.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/Reports/mcdr-publishing-strategy.md)   |\n| 部署脚本说明    | [`Scripts/README.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Scripts/README.md)                                                 |\n| 运维手册      | [`Docs/RUNBOOK.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../Docs/RUNBOOK.md)                                                     |\n| 变更日志      | [`CHANGELOG.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../CHANGELOG.md)                                                           |\n| 待办清单      | [`TODO.md`](https://github.com/YuShenLiu06/PCHSystem/tree/main/McdrPlugin/../TODO.md)                                                                     |\n",
+    "readme_url": "https://raw.githubusercontent.com/YuShenLiu06/PCHSystem/main/McdrPlugin/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

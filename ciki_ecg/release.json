@@ -1,0 +1,89 @@
+{
+  "schema_version": 8,
+  "id": "ciki_ecg",
+  "latest_version": "2.1.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Crystal0404/CikiECG/releases/tag/2.1.0",
+      "name": "CikiECG v2.1.0",
+      "tag_name": "2.1.0",
+      "created_at": "2026-06-30T13:56:20Z",
+      "description": "## New\r\n1. Supports automatic shutdown on Linux **(requires configuring sudo permissions)**\r\n2. All ciphertexts will be padded to 38 bytes to obscure the length information.\r\n3. Supports key regeneration.\r\n\r\n**Do not mix this version with older versions; they are incompatible!**",
+      "prerelease": false,
+      "asset": {
+        "id": 462211171,
+        "name": "CikiECG-v2.1.0.pyz",
+        "size": 20910,
+        "download_count": 19,
+        "created_at": "2026-06-30T14:05:17Z",
+        "browser_download_url": "https://github.com/Crystal0404/CikiECG/releases/download/2.1.0/CikiECG-v2.1.0.pyz",
+        "hash_md5": "27f079657cad0eaecd83df64bc025730",
+        "hash_sha256": "698ff83ff756d2c05d4b448997aff78ccae09d70e78229c6ce96093eb8019474"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "ciki_ecg",
+        "name": "Ciki ECG",
+        "version": "2.1.0",
+        "link": "https://github.com/Crystal0404/CikiECG",
+        "authors": [
+          "Crystal0404"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7"
+        },
+        "requirements": [
+          "mcdreforged>=2.15.7",
+          "pydantic>=2.13.3",
+          "cryptography>=48.0.0",
+          "colorlog>=6.10.1",
+          "ping3>=5.1.5"
+        ],
+        "description": {
+          "en_us": "Shut down your server during a power outage!",
+          "zh_cn": "在停电时关闭你的服务器!"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Crystal0404/CikiECG/releases/tag/2.0.0-beta.2",
+      "name": "CikiECG v2.0.0-beta.2",
+      "tag_name": "2.0.0-beta.2",
+      "created_at": "2026-05-11T08:53:33Z",
+      "description": "## Change\r\n1. Change the license to GPL-v3.",
+      "prerelease": false,
+      "asset": {
+        "id": 417338686,
+        "name": "CikiECG-v2.0.0-beta.2.pyz",
+        "size": 20265,
+        "download_count": 53,
+        "created_at": "2026-05-11T10:05:31Z",
+        "browser_download_url": "https://github.com/Crystal0404/CikiECG/releases/download/2.0.0-beta.2/CikiECG-v2.0.0-beta.2.pyz",
+        "hash_md5": "505033f5ebf0ff4b23b4bc3e58e35d5b",
+        "hash_sha256": "9deff7d1a2f9dfbe8d8d6a9eca17e7bcff3976304ff9df3642fbdaae0d20f6df"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "ciki_ecg",
+        "name": "Ciki ECG",
+        "version": "2.0.0-beta.2",
+        "link": "https://github.com/Crystal0404/CikiECG",
+        "authors": [
+          "Crystal0404"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7"
+        },
+        "requirements": [
+          "mcdreforged >= 2.15.7",
+          "pydantic >= 2.13.3",
+          "cryptography >= 48.0.0"
+        ],
+        "description": {
+          "zh_cn": "在停电时关闭你的服务器!"
+        }
+      }
+    }
+  ]
+}

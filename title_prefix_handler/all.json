@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "title_prefix_handler",
+    "name": "Title Prefix Handler",
+    "version": "1.0.0",
+    "link": "https://github.com/ayuan94/TitlePrefixHandler",
+    "authors": [
+      "DCS"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.14.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.14.0"
+    ],
+    "description": {
+      "en_us": "MCDR handler plugin that fixes player name parsing when title prefixes are added by Team prefixes."
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "title_prefix_handler",
+    "authors": [
+      "DCS"
+    ],
+    "repository": "https://github.com/ayuan94/TitlePrefixHandler",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "handler"
+    ],
+    "introduction": {
+      "en_us": "# Title Prefix Handler\n\nA lightweight MCDReforged handler designed to fix player name parsing when the `DCSTitleManager` plugin applies title prefixes via Minecraft `Team` prefixes.\n\n## Why use this handler\n\n`DCSTitleManager` adds title prefixes to player names by modifying `Team` prefixes. In some handler configurations, this can cause player names to be mis-parsed when chat messages contain multiple bracketed prefixes.\n\nThis handler removes the extra title prefix from the raw server output before MCDR parses the player name, allowing the title manager plugin to work correctly without breaking chat parsing.\n\n## Features\n\n- Removes the third title prefix segment from server output\n- Preserves the actual player name and chat content\n- Compatible with MCDReforged >= 2.14.0\n- Minimal, single-file handler implementation\n\n## Installation\n\n1. Download the handler package and place it in your MCDR plugin directory.\n2. Ensure `mcdreforged` is installed in your Python environment.\n3. Enable the handler in the MCDR configuration.\n\n## Usage\n\nAdd the handler to your MCDR configuration and enable it before loading `DCSTitleManager`.\n\n```python\nimport re\nfrom mcdreforged.handler.impl import VanillaHandler\n\nPLUGIN_METADATA = {\n    'id': 'title_prefix_handler',\n    'version': '1.0.0',\n}\n\nclass TitlePrefixHandler(VanillaHandler):\n    def get_name(self) -> str:\n        return 'title_prefix_handler'\n\n    def pre_parse_server_stdout(self, text: str):\n        text = super().pre_parse_server_stdout(text)\n        text = re.sub(\n            r'^(.*?\\[[^]]+\\].*?\\[[^]]+\\].*?)\\[[^]]+\\]\\s+',\n            r'\\1',\n            text\n        )\n        return text\n\n    def parse_server_stdout(self, text: str):\n        info = super().parse_server_stdout(text)\n        if info.player is None:\n            m = re.fullmatch(r'<\\[[^]]+](?P<name>[^>]+)> (?P<message>.*)', info.content)\n            if m is not None:\n                name = m['name'].strip()\n                if self._verify_player_name(name):\n                    info.player, info.content = name, m['message']\n        return info\n\n\ndef on_load(server, prev_module):\n    server.register_server_handler(TitlePrefixHandler())\n```\n\n## Notes\n\n- Use this handler together with `DCSTitleManager`.\n- Clear existing Minecraft `Team` state before enabling the handler to avoid prefix conflicts.\n\n## License\n\nThis project is released under the GPL-3.0 License.\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/ayuan94/TitlePrefixHandler/master/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "title_prefix_handler",
+    "latest_version": "1.0.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/ayuan94/TitlePrefixHandler/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2026-05-24T08:20:57Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 428440733,
+          "name": "TitlePrefixHandler-v1.0.0.mcdr",
+          "size": 2620,
+          "download_count": 65,
+          "created_at": "2026-05-24T08:26:38Z",
+          "browser_download_url": "https://github.com/ayuan94/TitlePrefixHandler/releases/download/v1.0.0/TitlePrefixHandler-v1.0.0.mcdr",
+          "hash_md5": "33ba9d2015c86227e054141bf682d633",
+          "hash_sha256": "3977f9cb7e06e7a8516d5be693830d06e465c4bf25498b5b71098878ca04e587"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "title_prefix_handler",
+          "name": "Title Prefix Handler",
+          "version": "1.0.0",
+          "link": "https://github.com/ayuan94/TitlePrefixHandler",
+          "authors": [
+            "DCS"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.14.0"
+          ],
+          "description": {
+            "en_us": "MCDR handler plugin that fixes player name parsing when title prefixes are added by Team prefixes."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/ayuan94/TitlePrefixHandler",
+    "name": "TitlePrefixHandler",
+    "full_name": "ayuan94/TitlePrefixHandler",
+    "html_url": "https://github.com/ayuan94/TitlePrefixHandler",
+    "description": "A lightweight MCDReforged handler designed to fix player name parsing when the `DCSTitleManager` plugin applies title prefixes via Minecraft `Team` prefixes.",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 0,
+    "readme": "# Title Prefix Handler\n\nA lightweight MCDReforged handler designed to fix player name parsing when the `DCSTitleManager` plugin applies title prefixes via Minecraft `Team` prefixes.\n\n## Why use this handler\n\n`DCSTitleManager` adds title prefixes to player names by modifying `Team` prefixes. In some handler configurations, this can cause player names to be mis-parsed when chat messages contain multiple bracketed prefixes.\n\nThis handler removes the extra title prefix from the raw server output before MCDR parses the player name, allowing the title manager plugin to work correctly without breaking chat parsing.\n\n## Features\n\n- Removes the third title prefix segment from server output\n- Preserves the actual player name and chat content\n- Compatible with MCDReforged >= 2.14.0\n- Minimal, single-file handler implementation\n\n## Installation\n\n1. Download the handler package and place it in your MCDR plugin directory.\n2. Ensure `mcdreforged` is installed in your Python environment.\n3. Enable the handler in the MCDR configuration.\n\n## Usage\n\nAdd the handler to your MCDR configuration and enable it before loading `DCSTitleManager`.\n\n```python\nimport re\nfrom mcdreforged.handler.impl import VanillaHandler\n\nPLUGIN_METADATA = {\n    'id': 'title_prefix_handler',\n    'version': '1.0.0',\n}\n\nclass TitlePrefixHandler(VanillaHandler):\n    def get_name(self) -> str:\n        return 'title_prefix_handler'\n\n    def pre_parse_server_stdout(self, text: str):\n        text = super().pre_parse_server_stdout(text)\n        text = re.sub(\n            r'^(.*?\\[[^]]+\\].*?\\[[^]]+\\].*?)\\[[^]]+\\]\\s+',\n            r'\\1',\n            text\n        )\n        return text\n\n    def parse_server_stdout(self, text: str):\n        info = super().parse_server_stdout(text)\n        if info.player is None:\n            m = re.fullmatch(r'<\\[[^]]+](?P<name>[^>]+)> (?P<message>.*)', info.content)\n            if m is not None:\n                name = m['name'].strip()\n                if self._verify_player_name(name):\n                    info.player, info.content = name, m['message']\n        return info\n\n\ndef on_load(server, prev_module):\n    server.register_server_handler(TitlePrefixHandler())\n```\n\n## Notes\n\n- Use this handler together with `DCSTitleManager`.\n- Clear existing Minecraft `Team` state before enabling the handler to avoid prefix conflicts.\n\n## License\n\nThis project is released under the GPL-3.0 License.\n",
+    "readme_url": "https://raw.githubusercontent.com/ayuan94/TitlePrefixHandler/master/README.md",
+    "license": {
+      "key": "other",
+      "name": "Other",
+      "spdx_id": "NOASSERTION",
+      "url": null
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

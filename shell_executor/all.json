@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "shell_executor",
+    "name": "ShellExecutor",
+    "version": "0.0.1",
+    "link": "https://github.com/Mooling0602/ShellExecutor-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.14.1"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Quickly execute shell commands in MCDR console or in the game.",
+      "zh_cn": "快速的在 MCDR 控制台或游戏内执行 shell 命令。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "shell_executor",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/ShellExecutor-MCDR",
+    "branch": "main",
+    "related_path": "src",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "- English\n- [中文（简体）](https://github.com/Mooling0602/ShellExecutor-MCDR/tree/main/src/../README_zh_CN.md)\n\n# ShellExecutor-MCDR\nQuickly execute shell commands in MCDR console or in the game.\n> Require MCDR permission level reach 4 to use.\n\n## Usage\nUse `!!shell <command>` to execute a command in default shell environment.\n> Commands include spaces should be quoted by `\"`, like this: `!!shell \"ls server/mods/\"`\n\nDefault alias for `!!shell` is `$`, install [Command Aliases](https://mcdreforged.com/plugin/command_aliases) to activate this feature.\n\n## NOTE\n- Support Linux shell at present, the plugin may not work properly on other operating systems.\n> Test on Windows is welcome, feel free to submit an issue if you find any problem.\n\n- Do not execute TUI binaries in ShellExecutor, it may break rendering the MCDR console and even freezes it. I've no idea to solve this problem at present, if you have any solution, please submit an issue or a pull request, thanks.\n",
+      "zh_cn": "- 中文（简体）\n- [English](https://github.com/Mooling0602/ShellExecutor-MCDR/tree/main/src/../README.md)\n\n# ShellExecutor-MCDR\n在 MCDR 控制台或游戏中快速执行 shell 命令。\n> 需要 MCDR 权限等级达到 4 才能使用。\n\n## 用法\n使用 `!!shell <command>` 在默认 shell 环境中执行命令。\n> 包含空格的命令应该用 `\"` 引起来，例如：`!!shell \"ls server/mods/\"`\n\n`!!shell` 的默认别名是 `$`，安装 [Command Aliases](https://mcdreforged.com/plugin/command_aliases) 来激活此功能（命令别名）。\n\n## 注意\n- 目前支持 Linux shell，插件可能在其他操作系统上无法正常工作。\n> 欢迎在 Windows 上测试，如果发现任何问题，请随时提交 issue。\n\n- 不要在 ShellExecutor 中执行 TUI 二进制文件，这可能会打断 MCDR 控制台的渲染，甚至导致冻结。我没有解决这个问题的办法，如果你有任何解决方案，请提交 issue 或 pull request，谢谢。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/ShellExecutor-MCDR/main/src/../README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/ShellExecutor-MCDR/main/src/../README_zh_CN.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "shell_executor",
+    "latest_version": "0.0.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/ShellExecutor-MCDR/releases/tag/0.0.1",
+        "name": "v0.0.1",
+        "tag_name": "0.0.1",
+        "created_at": "2026-05-15T12:08:20Z",
+        "description": "**What's changed**\n\n🎉Congratulations! This is the first version of this plugin.\n\n- feat: command system and process control\n\n> 首个插件版本，实现了命令系统和进程控制。\n\n**Full changelog**: https://github.com/Mooling0602/ShellExecutor-MCDR/compare/0.0.1\n",
+        "prerelease": false,
+        "asset": {
+          "id": 420981886,
+          "name": "ShellExecutor-v0.0.1.mcdr",
+          "size": 4758,
+          "download_count": 17,
+          "created_at": "2026-05-15T12:08:44Z",
+          "browser_download_url": "https://github.com/Mooling0602/ShellExecutor-MCDR/releases/download/0.0.1/ShellExecutor-v0.0.1.mcdr",
+          "hash_md5": "073a2bae3eba964fb539a0cb2c99b37e",
+          "hash_sha256": "38c314a1adf2968de1fbc0d85ec7100ba8f8f76486f747e30fe0870a829a6405"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "shell_executor",
+          "name": "ShellExecutor",
+          "version": "0.0.1",
+          "link": "https://github.com/Mooling0602/ShellExecutor-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.14.1"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Quickly execute shell commands in MCDR console or in the game.",
+            "zh_cn": "快速的在 MCDR 控制台或游戏内执行 shell 命令。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/ShellExecutor-MCDR",
+    "name": "ShellExecutor-MCDR",
+    "full_name": "Mooling0602/ShellExecutor-MCDR",
+    "html_url": "https://github.com/Mooling0602/ShellExecutor-MCDR",
+    "description": "Quickly execute shell commands in MCDR console or in the game.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "- English\n- [中文（简体）](https://github.com/Mooling0602/ShellExecutor-MCDR/tree/main/README_zh_CN.md)\n\n# ShellExecutor-MCDR\nQuickly execute shell commands in MCDR console or in the game.\n> Require MCDR permission level reach 4 to use.\n\n## Usage\nUse `!!shell <command>` to execute a command in default shell environment.\n> Commands include spaces should be quoted by `\"`, like this: `!!shell \"ls server/mods/\"`\n\nDefault alias for `!!shell` is `$`, install [Command Aliases](https://mcdreforged.com/plugin/command_aliases) to activate this feature.\n\n## NOTE\n- Support Linux shell at present, the plugin may not work properly on other operating systems.\n> Test on Windows is welcome, feel free to submit an issue if you find any problem.\n\n- Do not execute TUI binaries in ShellExecutor, it may break rendering the MCDR console and even freezes it. I've no idea to solve this problem at present, if you have any solution, please submit an issue or a pull request, thanks.\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/ShellExecutor-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

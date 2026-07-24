@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "leaves_handler",
+    "name": "LeavesHandler",
+    "version": "0.2.0",
+    "link": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+    "authors": [
+      "Mooling0602"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.13.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "A server handler for Leaves(a fork of Paper).",
+      "zh_cn": "适用于Leaves（Paper的一个分支）的服务端处理器。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "leaves_handler",
+    "authors": [
+      "Mooling0602"
+    ],
+    "repository": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+    "branch": "main",
+    "related_path": "src",
+    "labels": [
+      "handler"
+    ],
+    "introduction": {
+      "en_us": "# LeavesHandler-MCDR\nA plugin-build server handler of MCDReforged for Leaves(a fork of Paper).\n\n> 一个为MCDReforged开发的插件式服务端处理器，适用于Leaves（一个Paper的分支）。\n\n## HandlerMixin Spec / HandlerMixin 规范\nLeavesHandler is a standalone server handler, does not provide any handler mixin class.\n\nBut it does support and could be managed by [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR).\n\n> LeavesHandler 是一个独立的服务端处理器，不提供任何 handler mixin 类。\n> \n> 但它支持 [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR) 并可受其管理。\n\n## NOTE / 注意事项\nLeavesHandler is only designed for English log outputs.\n\nLeavesHandler 设计时仅考虑了英文日志输出，不保证能够在中文日志下正常工作，建议不要修改服务端的相关默认配置。\n",
+      "zh_cn": "# LeavesHandler-MCDR\nA plugin-build server handler of MCDReforged for Leaves(a fork of Paper).\n\n> 一个为MCDReforged开发的插件式服务端处理器，适用于Leaves（一个Paper的分支）。\n\n## HandlerMixin Spec / HandlerMixin 规范\nLeavesHandler is a standalone server handler, does not provide any handler mixin class.\n\nBut it does support and could be managed by [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR).\n\n> LeavesHandler 是一个独立的服务端处理器，不提供任何 handler mixin 类。\n> \n> 但它支持 [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR) 并可受其管理。\n\n## NOTE / 注意事项\nLeavesHandler is only designed for English log outputs.\n\nLeavesHandler 设计时仅考虑了英文日志输出，不保证能够在中文日志下正常工作，建议不要修改服务端的相关默认配置。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Mooling0602/LeavesHandler-MCDR/main/src/../README.md",
+      "zh_cn": "https://raw.githubusercontent.com/Mooling0602/LeavesHandler-MCDR/main/src/../README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "leaves_handler",
+    "latest_version": "0.2.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Mooling0602/LeavesHandler-MCDR/releases/tag/0.2.0",
+        "name": "v0.2.0",
+        "tag_name": "0.2.0",
+        "created_at": "2026-05-21T14:14:56Z",
+        "description": "- feat!: refactor code structure and support \"HandlerMixin Spec\"\n\n> 重构了代码结构并适配了“HandlerMixin 规范”。\n\n**Full changelog**: https://github.com/Mooling0602/LeavesHandler-MCDR/compare/0.1.1...0.2.0\n",
+        "prerelease": false,
+        "asset": {
+          "id": 426205280,
+          "name": "LeavesHandler-v0.2.0.mcdr",
+          "size": 2264,
+          "download_count": 44,
+          "created_at": "2026-05-21T14:15:31Z",
+          "browser_download_url": "https://github.com/Mooling0602/LeavesHandler-MCDR/releases/download/0.2.0/LeavesHandler-v0.2.0.mcdr",
+          "hash_md5": "adc4d91948df3c23dcb89ea82ad6adac",
+          "hash_sha256": "2adfabb43e2bf8c5d6f3f2d02d3f76c937f63c6630402bbeac19099f37cf806a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "leaves_handler",
+          "name": "LeavesHandler",
+          "version": "0.2.0",
+          "link": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A server handler for Leaves(a fork of Paper).",
+            "zh_cn": "适用于Leaves（Paper的一个分支）的服务端处理器。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/LeavesHandler-MCDR/releases/tag/0.1.1",
+        "name": "v0.1.1",
+        "tag_name": "0.1.1",
+        "created_at": "2025-01-27T11:59:57Z",
+        "description": "`en_us`\r\n## What's Changed\r\n* chore: remove requirement strip_ansi by @alex3236 in https://github.com/Mooling0602/LeavesHandler-MCDR/pull/1\r\n\r\n## New Contributors\r\n* @alex3236 made their first contribution in https://github.com/Mooling0602/LeavesHandler-MCDR/pull/1\r\n\r\n`zh_cn`\r\n## 变更\r\n\r\n移除了对pypi包strip_ansi的依赖（感谢@alex3236的贡献）。\r\n\r\n> **Full Changelog**: https://github.com/Mooling0602/LeavesHandler-MCDR/compare/0.1.0...0.1.1",
+        "prerelease": false,
+        "asset": {
+          "id": 223917264,
+          "name": "LeavesHandler-v0.1.1.mcdr",
+          "size": 1579,
+          "download_count": 141,
+          "created_at": "2025-01-27T12:11:46Z",
+          "browser_download_url": "https://github.com/Mooling0602/LeavesHandler-MCDR/releases/download/0.1.1/LeavesHandler-v0.1.1.mcdr",
+          "hash_md5": "3165c40e8d625ed410dce632bbce5661",
+          "hash_sha256": "88960c576bf1896f261f3c494c8365927f7e660ed0dc0e2d136f460047d7ae5d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "leaves_handler",
+          "name": "LeavesHandler",
+          "version": "0.1.1",
+          "link": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "A server handler for Leaves(a fork of Paper).",
+            "zh_cn": "适用于Leaves（Paper的一个分支）的服务端处理器。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Mooling0602/LeavesHandler-MCDR/releases/tag/0.1.0",
+        "name": "v0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2024-12-10T09:59:51Z",
+        "description": "- Initial build.\r\n\r\n**Full Changelog**: https://github.com/Mooling0602/LeavesHandler-MCDR/commits/0.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 212340216,
+          "name": "LeavesHandler-v0.1.0.mcdr",
+          "size": 1819,
+          "download_count": 49,
+          "created_at": "2024-12-10T10:02:12Z",
+          "browser_download_url": "https://github.com/Mooling0602/LeavesHandler-MCDR/releases/download/0.1.0/LeavesHandler-v0.1.0.mcdr",
+          "hash_md5": "f6b6e1bf32cbe874024e313773f16552",
+          "hash_sha256": "c554c22b3683118c314df465b1ef51a2decf7f2bcf8e585437d5f1d5a9fcff1d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "leaves_handler",
+          "name": "LeavesHandler",
+          "version": "0.1.0",
+          "link": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+          "authors": [
+            "Mooling0602"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "strip_ansi"
+          ],
+          "description": {
+            "en_us": "A server handler for Leaves(a fork of Paper).",
+            "zh_cn": "适用于Leaves（Paper的一个分支）的服务端处理器。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+    "name": "LeavesHandler-MCDR",
+    "full_name": "Mooling0602/LeavesHandler-MCDR",
+    "html_url": "https://github.com/Mooling0602/LeavesHandler-MCDR",
+    "description": "A plugin-build server handler of MCDReforged for Leaves(a fork of Paper).",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 1,
+    "readme": "# LeavesHandler-MCDR\nA plugin-build server handler of MCDReforged for Leaves(a fork of Paper).\n\n> 一个为MCDReforged开发的插件式服务端处理器，适用于Leaves（一个Paper的分支）。\n\n## HandlerMixin Spec / HandlerMixin 规范\nLeavesHandler is a standalone server handler, does not provide any handler mixin class.\n\nBut it does support and could be managed by [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR).\n\n> LeavesHandler 是一个独立的服务端处理器，不提供任何 handler mixin 类。\n> \n> 但它支持 [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR) 并可受其管理。\n\n## NOTE / 注意事项\nLeavesHandler is only designed for English log outputs.\n\nLeavesHandler 设计时仅考虑了英文日志输出，不保证能够在中文日志下正常工作，建议不要修改服务端的相关默认配置。\n",
+    "readme_url": "https://raw.githubusercontent.com/Mooling0602/LeavesHandler-MCDR/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "mcdr_listener_ws_server",
+    "name": "mcdr_listener_ws_server",
+    "version": "0.6.3",
+    "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+    "authors": [
+      "VincentZyu"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.13.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.13.0",
+      "websockets>=15.0.0",
+      "Pillow>=10.0.0",
+      "requests>=2.32.0"
+    ],
+    "description": {
+      "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+      "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "mcdr_listener_ws_server",
+    "authors": [
+      "VincentZyu"
+    ],
+    "repository": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "information",
+      "management",
+      "api"
+    ],
+    "introduction": {
+      "en_us": "🌐💬📡 WebSocket server for group-server bridge: forward player chat/join/leave events to chat platforms, receive text and images with in-game rendering, support remote command execution via RCON. 🎮🔗\n\n- 🔑 Token authentication for secure WebSocket connections\n- 🖼️ Image host whitelist for safe image rendering\n\nFor more details, refer to [README](https://github.com/VincentZyuApps/mcdr_listener_ws_server/blob/main/README.en-us.md)\n",
+      "zh_cn": "🌐💬📡 群服互通 WebSocket 服务端：将玩家聊天和进出服事件推送到聊天平台，接收平台文字与图片消息并在游戏内渲染展示，支持通过 RCON 远程执行服务器命令。🎮🔗\n\n- 🔑 支持 Token 认证，保障 WebSocket 连接安全\n- 🖼️ 图片域名白名单，安全渲染展示\n\n更多信息请阅读 [README](https://github.com/VincentZyuApps/mcdr_listener_ws_server)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/mcdr_listener_ws_server/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/mcdr_listener_ws_server/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "mcdr_listener_ws_server",
+    "latest_version": "0.6.3",
+    "latest_version_index": 2,
+    "releases": [
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-rc.5",
+        "name": "mcdr_listener_ws_server v0.6.3-rc.5",
+        "tag_name": "v0.6.3-rc.5",
+        "created_at": "2026-06-18T19:17:23Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.3-rc.5/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-rc.5)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.3-rc.5.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-rc.5/mcdr_listener_ws_server-v0.6.3-rc.5.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n> docs: update readme\n> \n> chore: bump version to 0.6.3-rc.5, 顺便看看https://mcdreforged.com/zh-CN/plugins多快刷新捏。\n> \n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-18 19:18 UTC\n- **Commit**: [`0c40c15`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/0c40c15942e839682a1790dcd649b43f32416805)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.6.3-rc.4...v0.6.3-rc.5\n",
+        "prerelease": false,
+        "asset": {
+          "id": 451509046,
+          "name": "mcdr_listener_ws_server-v0.6.3-rc.5.mcdr",
+          "size": 22737,
+          "download_count": 8,
+          "created_at": "2026-06-18T19:18:28Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-rc.5/mcdr_listener_ws_server-v0.6.3-rc.5.mcdr",
+          "hash_md5": "dc734367b7dcd27387beeb24b2d32280",
+          "hash_sha256": "f27e0353b1ca48f2f7d3690ce48b8bc0e77bd4a5efc43054c7c83bf5661acb02"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.3-rc.5",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-rc.4",
+        "name": "mcdr_listener_ws_server v0.6.3-rc.4",
+        "tag_name": "v0.6.3-rc.4",
+        "created_at": "2026-06-18T17:57:24Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.3-rc.4/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-rc.4)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.3-rc.4.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-rc.4/mcdr_listener_ws_server-v0.6.3-rc.4.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n> build release. docs: 添加 Levilamina 插件的交叉引用，更新版本号\n> >> ### README.md / README.en-us.md\n> >>   - 在互通架构章节 Minecraft Java服务器一侧 增加基岩版 LeviLamina 插件的交叉引用\n> >>   - 英文版同步更新\n> >> ### .github/workflows/build.yml\n> >>   - 细节调整\n> >> ### mcdreforged.plugin.json\n> >>   - bump version: 0.6.3-rc.1 → 0.6.3-rc.4\n> \n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-18 17:58 UTC\n- **Commit**: [`cb89f1f`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/cb89f1f2895ccafd421225f9b772133f8e46fdd5)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.6.3-rc.1...v0.6.3-rc.4\n",
+        "prerelease": false,
+        "asset": {
+          "id": 451451835,
+          "name": "mcdr_listener_ws_server-v0.6.3-rc.4.mcdr",
+          "size": 22737,
+          "download_count": 4,
+          "created_at": "2026-06-18T17:58:26Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-rc.4/mcdr_listener_ws_server-v0.6.3-rc.4.mcdr",
+          "hash_md5": "752bfe404cf27c91ce1773bdbbfb2782",
+          "hash_sha256": "99b1844e32f284731bc4ca624274064a10844c2cb196618b4e3a062df0607ff5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.3-rc.4",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3",
+        "name": "mcdr_listener_ws_server v0.6.3",
+        "tag_name": "v0.6.3",
+        "created_at": "2026-06-18T19:32:28Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.3/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.3.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3/mcdr_listener_ws_server-v0.6.3.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n> chore: bump verson to 0.6.3\n> \n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-18 19:33 UTC\n- **Commit**: [`b047f2e`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/b047f2e6deb9e56d752acf1ebc302a567b1bb74c)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.6.3-rc.5...v0.6.3\n",
+        "prerelease": false,
+        "asset": {
+          "id": 451519772,
+          "name": "mcdr_listener_ws_server-v0.6.3.mcdr",
+          "size": 22732,
+          "download_count": 26,
+          "created_at": "2026-06-18T19:33:47Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3/mcdr_listener_ws_server-v0.6.3.mcdr",
+          "hash_md5": "d48ce44d9fec0cc5b2f5307ee4961dde",
+          "hash_sha256": "147072a8596d72360fc7a399b86ac0960f513cf8bf75b7f8409f5a6b4d3e2d94"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.3",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-rc.1",
+        "name": "mcdr_listener_ws_server v0.6.3-rc.1",
+        "tag_name": "v0.6.3-rc.1",
+        "created_at": "2026-06-02T16:10:10Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.3-rc.1/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-rc.1)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.3-rc.1.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-rc.1/mcdr_listener_ws_server-v0.6.3-rc.1.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n- docs + refactor(log): 文档大幅补强，日志标签统一【】→【-- --】，版本升为 0.6.3-rc.1 .github/release_template.md       - clone 命令补 ./plugins/ 路径 CHANGELOG.md                      - 补齐 0.5.0-beta.2 ~ 0.6.3-beta.2 版本记录 README.en-us.md                   - 新增快速上手 / 已知限制 / 事件日志；图片广播说明修正；clone 路径补全 README.md                         - 新增快速上手 / 已知限制 / 事件日志；图片广播说明修正；结构调整；clone 路径补全 lang/zh_cn.yml                    - leave_broadcast: Bye {player} -> {player} 离开了服务器 mcdr_listener_ws_server/__init__.py       - 日志标签 【】 -> 【-- --】(6处) mcdr_listener_ws_server/config.py         - 日志标签 【】 -> 【-- --】(2处) mcdr_listener_ws_server/events.py         - 日志标签 【】 -> 【-- --】(7处) mcdr_listener_ws_server/image_cache.py    - 日志标签 【】 -> 【-- --】(5处) mcdr_listener_ws_server/image_handler.py  - 日志标签 【】 -> 【-- --】(3处) mcdr_listener_ws_server/image_renderer.py - 日志标签 【】 -> 【-- --】(10处) mcdr_listener_ws_server/ws_server.py      - 日志标签 【】 -> 【-- --】(12处) mcdreforged.plugin.json           - 版本号: 0.6.3-beta.2 -> 0.6.3-rc.1 (`86be831`)\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 16:11 UTC\n- **Commit**: [`86be831`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/86be8310417754acae2b5c6881580f4967dbcab1)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.6.3-beta.2...v0.6.3-rc.1\n",
+        "prerelease": false,
+        "asset": {
+          "id": 436378175,
+          "name": "mcdr_listener_ws_server-v0.6.3-rc.1.mcdr",
+          "size": 22735,
+          "download_count": 30,
+          "created_at": "2026-06-02T16:11:16Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-rc.1/mcdr_listener_ws_server-v0.6.3-rc.1.mcdr",
+          "hash_md5": "11d0e28e5fd6103f3ee7ddfe5aa699de",
+          "hash_sha256": "a18c38d09e92f284d1274770db5a672da96fe6d159d40a296c7f6750c491e708"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.3-rc.1",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-beta.2",
+        "name": "mcdr_listener_ws_server v0.6.3-beta.2",
+        "tag_name": "v0.6.3-beta.2",
+        "created_at": "2026-06-02T12:45:02Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.3-beta.2/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-beta.2)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.3-beta.2.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-beta.2/mcdr_listener_ws_server-v0.6.3-beta.2.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n- feat: add git clone instructions to README; add config deserialization fallback - Add GitHub / Gitee git clone instructions in Installation section - Add view_image_cooldown_ms config field (5555ms default) - Wrap load_config_simple with try/except for graceful fallback - Bump version to 0.6.3-beta.2 (`56fdec6`)\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 12:45 UTC\n- **Commit**: [`56fdec6`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/56fdec6adc946055d5ec42e9b2ef89f7faca0783)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.6.3-beta.1...v0.6.3-beta.2\n",
+        "prerelease": false,
+        "asset": {
+          "id": 436215370,
+          "name": "mcdr_listener_ws_server-v0.6.3-beta.2.mcdr",
+          "size": 22699,
+          "download_count": 10,
+          "created_at": "2026-06-02T12:45:53Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-beta.2/mcdr_listener_ws_server-v0.6.3-beta.2.mcdr",
+          "hash_md5": "96a43f953ab4dde13ff4c7d84b174535",
+          "hash_sha256": "4d5d5b0a205ec12d966ddda7ab96b930954c28980ff9aa70cd65b381dddebeb2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.3-beta.2",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-beta.1",
+        "name": "mcdr_listener_ws_server v0.6.3-beta.1",
+        "tag_name": "v0.6.3-beta.1",
+        "created_at": "2026-06-02T08:41:02Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.3-beta.1/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.3-beta.1)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.3-beta.1.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-beta.1/mcdr_listener_ws_server-v0.6.3-beta.1.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n- ✨ feat(image_cache): 支持按域名单独配置下载代理 📡 图片下载新增按域名配置代理功能，支持一些聊天平台的图片url走代理，比如 Discord CDN 变更内容： - config.py: 新增 ImageHostEntry 数据类，image_host_whitelist 改为结构化条目（host + proxy） - image_cache.py: 新增 _build_host_map()、_get_proxy_for_host()，download_image() 按域名动态选择代理 - image_handler.py: 类型注解兼容新结构 - default_config.yml: 添加 Discord CDN 域名（cdn.discordapp.com / media.discordapp.net），默认走 http://127.0.0.1:7890 代理 - mcdreforged.plugin.json: v0.6.0-beta.1 → v0.6.1-beta.1 - README.md / README.en-us.md: 补充互通架构标题、Koishi 接入详情（OneBot v11 / Discord Bot API）、双色 Koishi badge (`e0f3109`)\n- ✨ feat: 新增 strip_message_whitespace 配置项，重构图片渲染支持玩家位置固定 v0.6.1-beta.1 → v0.6.2-beta.1 变更内容： - config.py: 新增 strip_message_whitespace 配置项（默认 true），清理消息中的换行和制表符 - ws_server.py / message_formatter.py: 注入 strip_message_whitespace 配置，发送前对群名/昵称/消息内容做空白符压缩 - image_renderer.py: 图片渲染改为固定位置模式，通过 RCON 获取玩家坐标和视角方向，用三角函数计算各像素的世界坐标，避免 @s 逐像素执行的性能问题（RCON 失败时自动回退 @s） - __init__.py: 传递 strip_message_whitespace 到 WebSocketHandler - default_config.yml: 添加 strip_message_whitespace 配置项注释 - README.md / README.en-us.md: 配置表格更新，image_host_whitelist 示例更新为结构化 YAML 格式 (`c3d6d89`)\n- feat: add !!view_image cooldown (config + i18n + RText CD hint); rebrand docs with OneBot v11/Discord screenshots; update Koishi badge to flat style - Add view_image_cooldown_ms config (default 5555ms) - Add server-wide cooldown check in ImageHandler.view_image() - Add colored RText cooldown message with i18n (zh_cn/en_us) - Bump version to 0.6.3-beta.1 - Split screenshots by platform (OneBot v11 / Discord) - Reformat README headings to h4/h5 hierarchy - Switch Koishi badge from flat-square to flat style (`9433dbb`)\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 08:43 UTC\n- **Commit**: [`9433dbb`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/9433dbbc3150e24b9b4279d7d85eaddf1ec312e8)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.6.0-beta.1...v0.6.3-beta.1\n",
+        "prerelease": false,
+        "asset": {
+          "id": 436042604,
+          "name": "mcdr_listener_ws_server-v0.6.3-beta.1.mcdr",
+          "size": 22626,
+          "download_count": 7,
+          "created_at": "2026-06-02T08:43:33Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.3-beta.1/mcdr_listener_ws_server-v0.6.3-beta.1.mcdr",
+          "hash_md5": "44593a4233c8fb9a770249040f24cb58",
+          "hash_sha256": "9dc5fd614697ac267fb1c5fa92947d3cbd145b9fcf4a48a766b667df6f68e66c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.3-beta.1",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.0-beta.1",
+        "name": "mcdr_listener_ws_server v0.6.0-beta.1",
+        "tag_name": "v0.6.0-beta.1",
+        "created_at": "2026-06-02T07:06:24Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.6.0-beta.1/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.6.0-beta.1)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.6.0-beta.1.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.0-beta.1/mcdr_listener_ws_server-v0.6.0-beta.1.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n- ✨ bump: v0.5.0-beta.6 → v0.6.0-beta.1 📦 版本号升级，同步服务端描述与 README socialify banner 变更内容： - mcdreforged.plugin.json: 版本升级至 v0.6.0-beta.1，更新中英文描述 - README.md / README.en-us.md: socialify banner 描述同步更新 - .github/workflows/build.md: CI/CD 关键词表格文案优化 (`5e1c5df`)\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 07:07 UTC\n- **Commit**: [`5e1c5df`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/5e1c5df373dcec028010216836f47052824e796b)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.5.0-beta.6...v0.6.0-beta.1\n",
+        "prerelease": false,
+        "asset": {
+          "id": 435976340,
+          "name": "mcdr_listener_ws_server-v0.6.0-beta.1.mcdr",
+          "size": 20564,
+          "download_count": 8,
+          "created_at": "2026-06-02T07:07:18Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.6.0-beta.1/mcdr_listener_ws_server-v0.6.0-beta.1.mcdr",
+          "hash_md5": "9838a0bc565807aa75a9af0c1ceb1e75",
+          "hash_sha256": "9b68191629d387ba7239bdd671c026f6b7a6e321143b33a867bbd9245cb2a0bf"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.6.0-beta.1",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.5.0-beta.6",
+        "name": "mcdr_listener_ws_server v0.5.0-beta.6",
+        "tag_name": "v0.5.0-beta.6",
+        "created_at": "2026-06-02T06:07:01Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/v0.5.0-beta.6/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.5.0-beta.6)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-v0.5.0-beta.6.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.5.0-beta.6/mcdr_listener_ws_server-v0.5.0-beta.6.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录，也可以克隆仓库源代码：\n\n   ```bash\n   # GitHub\n   git clone https://github.com/VincentZyuApps/mcdr_listener_ws_server.git\n   # 或 Gitee（国内加速）\n   git clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git\n   ```\n2. 根据需要修改配置文件 `config/mcdr_listener_ws_server/config.yml`（首次加载后自动生成）\n3. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n4. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n- v0.5.0-beta.6: 修复 workflow 缺失的 check job，添加 YAML 检查脚本 - 恢复 build.yml 中误删的 check job - 添加 check_yaml.sh 脚本用于本地 YAML 语法验证 (`2540203`)\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 06:07 UTC\n- **Commit**: [`2540203`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/254020391b72c9af9dd63811ad6246f89b7e3686)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.5.0-beta.5...v0.5.0-beta.6\n",
+        "prerelease": false,
+        "asset": {
+          "id": 435936650,
+          "name": "mcdr_listener_ws_server-v0.5.0-beta.6.mcdr",
+          "size": 20557,
+          "download_count": 8,
+          "created_at": "2026-06-02T06:07:57Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.5.0-beta.6/mcdr_listener_ws_server-v0.5.0-beta.6.mcdr",
+          "hash_md5": "671f28a2dcd5d986992d79880317bc95",
+          "hash_sha256": "7d85abc287dd8b4941672a48516b92af12a5d8954279c4129cf40f18b1a87db0"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.5.0-beta.6",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "📡 Group-server bridge, beyond text: bi-directional game events and group messages, in-game image rendering, RCON remote execution",
+            "zh_cn": "📡 群服互通网关，不止文字：游戏事件与群消息双向互通、图片消息游戏内渲染、RCON 远程命令执行"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.5.0-beta.4",
+        "name": "mcdr_listener_ws_server v0.5.0-beta.4",
+        "tag_name": "v0.5.0-beta.4",
+        "created_at": "2026-06-02T04:55:18Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/vv0.5.0-beta.4/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/vv0.5.0-beta.4)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-vv0.5.0-beta.4.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.5.0-beta.4/mcdr_listener_ws_server-vv0.5.0-beta.4.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录\n2. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n3. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n- v0.5.0-beta.4: 拆分 sync-gitee-code 为独立 workflow，重构 build.md 流水线说明 🔧 Chore - 从 build.yml 中拆出 sync-gitee-code job，新建 sync-gitee-code.yml 独立管理 - build.yml 不再包含代码同步逻辑，专注 build __COMMIT_LOG__ release 📚 Docs - build.md 流水线阶段图恢复原始树状结构，标注独立 workflow - mermaid 流程图拆分 build.yml / sync-gitee-code.yml 两块 - Gitee 节点统一中文标注【Gitee码云】+ 红橙配色 - 同步更新 Gitee 同步章节说明 (`9a195f8`)\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 04:56 UTC\n- **Commit**: [`9a195f8`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/9a195f80a7a1edb8d32cef3fc31108eb0a6280f7)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.5.0-beta.3...v0.5.0-beta.4\n",
+        "prerelease": false,
+        "asset": {
+          "id": 435894903,
+          "name": "mcdr_listener_ws_server-v0.5.0-beta.4.mcdr",
+          "size": 20651,
+          "download_count": 9,
+          "created_at": "2026-06-02T04:56:02Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.5.0-beta.4/mcdr_listener_ws_server-v0.5.0-beta.4.mcdr",
+          "hash_md5": "8345e421f3ca8ee79ad77dff635146b4",
+          "hash_sha256": "1d64014db318ee36e8ea595db2e428c1f1a130b2a1701c65e1992fa659a51316"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.5.0-beta.4",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "Group-server bridge beyond text: WebSocket server for MC, forwarding player chat/join/leave events to chat platforms; receiving text and images from platforms with in-game display entity rendering.",
+            "zh_cn": "群服互通，不止于文字：在 MC 服务器开启 WebSocket 服务，将玩家聊天和进出服事件推送到聊天平台；接收平台文字与图片消息，图片以 display 实体在游戏内渲染展示。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/v0.5.0-beta.3",
+        "name": "mcdr_listener_ws_server v0.5.0-beta.3",
+        "tag_name": "v0.5.0-beta.3",
+        "created_at": "2026-06-02T04:47:14Z",
+        "description": "<div align=center>\n\n[![Downloads](https://img.shields.io/github/downloads/VincentZyuApps/mcdr_listener_ws_server/vv0.5.0-beta.3/total?style=flat-square&logo=github)](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/tag/vv0.5.0-beta.3)\n[![MCDR](https://img.shields.io/badge/MCDR-v2-fac00f?style=flat-square&labelColor=3876a9)](https://mcdreforged.com/zh-CN)\n\n</div>\n\n### ⬇️ Downloads\n\n| 文件 | 说明 |\n|------|------|\n| [📦 `mcdr_listener_ws_server-vv0.5.0-beta.3.mcdr`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.5.0-beta.3/mcdr_listener_ws_server-vv0.5.0-beta.3.mcdr) | MCDR 插件包，放入 `plugins/` 目录即可 |\n\n### 📥 安装方法\n\n1. 下载 `.mcdr` 文件放入 MCDR 的 `plugins/` 目录\n2. 确保已安装依赖：\n\n   ```bash\n   pip install mcdreforged websockets>=15.0.0 Pillow>=10.0.0 requests>=2.32.0\n   ```\n\n3. 在 MCDR 控制台执行：`!!MCDR plg reload mcdr_listener_ws_server`\n\n---\n\n### 📋 更新说明\n\n\n\n---\n\n### 📊 Build Info\n\n- **Build date**: 2026-06-02 04:48 UTC\n- **Commit**: [`2227c51`](https://github.com/VincentZyuApps/mcdr_listener_ws_server/commit/2227c5140cd98ceda56681b35233105e60f02852)\n- **Full Changelog**: https://github.com/VincentZyuApps/mcdr_listener_ws_server/compare/v0.5.0-beta.2...v0.5.0-beta.3\n",
+        "prerelease": false,
+        "asset": {
+          "id": 435890520,
+          "name": "mcdr_listener_ws_server-v0.5.0-beta.3.mcdr",
+          "size": 20651,
+          "download_count": 8,
+          "created_at": "2026-06-02T04:48:06Z",
+          "browser_download_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server/releases/download/v0.5.0-beta.3/mcdr_listener_ws_server-v0.5.0-beta.3.mcdr",
+          "hash_md5": "5f4867d9cf7df52091da9ba05394f318",
+          "hash_sha256": "1cc513dfdf9090cdd0e19cd7b9b87a4e6517a5173028d8964bd3919247c4bbc5"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "mcdr_listener_ws_server",
+          "name": "mcdr_listener_ws_server",
+          "version": "0.5.0-beta.3",
+          "link": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+          "authors": [
+            "VincentZyu"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.13.0",
+            "websockets>=15.0.0",
+            "Pillow>=10.0.0",
+            "requests>=2.32.0"
+          ],
+          "description": {
+            "en_us": "Group-server bridge beyond text: WebSocket server for MC, forwarding player chat/join/leave events to chat platforms; receiving text and images from platforms with in-game display entity rendering.",
+            "zh_cn": "群服互通，不止于文字：在 MC 服务器开启 WebSocket 服务，将玩家聊天和进出服事件推送到聊天平台；接收平台文字与图片消息，图片以 display 实体在游戏内渲染展示。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+    "name": "mcdr_listener_ws_server",
+    "full_name": "VincentZyuApps/mcdr_listener_ws_server",
+    "html_url": "https://github.com/VincentZyuApps/mcdr_listener_ws_server",
+    "description": "🌐💬📡 群服互通，不止于文字。在 MC 服务器开启 WebSocket 服务，将玩家聊天和进出服事件推送到聊天平台；同时接收平台文字与图片消息，图片以 display 实体在游戏内渲染展示。🎮🔗",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 2,
+    "readme": "![mcdr_listener_ws_server](https://socialify.git.ci/VincentZyuApps/mcdr_listener_ws_server/image?custom_description=%F0%9F%93%A1%20%E7%BE%A4%E6%9C%8D%E4%BA%92%E9%80%9A%E7%BD%91%E5%85%B3%EF%BC%8C%E4%B8%8D%E6%AD%A2%E6%96%87%E5%AD%97%EF%BC%9A%E6%B8%B8%E6%88%8F%E4%BA%8B%E4%BB%B6%E4%B8%8E%E7%BE%A4%E6%B6%88%E6%81%AF%E5%8F%8C%E5%90%91%E4%BA%92%E9%80%9A%E3%80%81%E5%9B%BE%E7%89%87%E6%B6%88%E6%81%AF%E6%B8%B8%E6%88%8F%E5%86%85%E6%B8%B2%E6%9F%93%E3%80%81RCON%20%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C&description=1&font=JetBrains+Mono&forks=1&issues=1&language=1&logo=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F63280128%3Fs%3D200%26v%3D4&name=1&owner=1&pattern=Plus&pulls=1&stargazers=1&theme=Auto)\n\n# mcdr_listener_ws_server\n\n> **[📖 中文](https://github.com/VincentZyuApps/mcdr_listener_ws_server/tree/main/README.md)**\n> **[📖 English](https://github.com/VincentZyuApps/mcdr_listener_ws_server/tree/main/README.en-us.md)**\n\n> 📦 **[构建工作流 / Build Workflow](https://github.com/VincentZyuApps/mcdr_listener_ws_server/tree/main/.github/workflows/build.md)** — 版本发布流程与构建配置\n\n[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/VincentZyuApps/mcdr_listener_ws_server)\n[![Gitee](https://img.shields.io/badge/Gitee-C71D23?style=for-the-badge&logo=gitee&logoColor=white)](https://gitee.com/vincent-zyu/mcdr_listener_ws_server)\n\n[![MCDR](https://img.shields.io/badge/for-MCDReforged%202-fac00f?style=for-the-badge&labelColor=3876a9&logo=python&logoColor=white)](https://mcdreforged.com/zh-CN)\n\n[![QQ群](https://img.shields.io/badge/QQ群-1085190201-12B7F5?style=flat-square&logo=qq&logoColor=white)](https://qm.qq.com/q/4vjto4V7Di)\n\n<p><del>💬 插件使用问题 / 🐛 Bug反馈 / 👨‍💻 插件开发交流，欢迎加入QQ群：<b>259248174</b>   🎉（这个群G了</del> </p> \n<p>💬 插件使用问题 / 🐛 Bug反馈 / 👨‍💻 插件开发交流，欢迎加入QQ群：<b>1085190201</b> 🎉</p>\n<p>💡 在群里直接艾特我，回复的更快哦~ ✨</p>\n\n---\n\n## 🚀 3 分钟快速上手\n\n### Step 1: 配置 WebSocket 服务\n\n1. 将插件放入 MCDR 插件目录，安装依赖: `uv pip install -r requirements.txt`\n2. 加载插件，编辑生成的 `config/mcdr_listener_ws_server/config.yml`\n3. 修改 `ws_token` 为你自己的密码\n4. 确认 `host`（默认 `0.0.0.0`）和 `port`（默认 `60601`）可被客户端访问\n\n### Step 2: 配置 Koishi 客户端\n\n在 Koishi 端安装 `mclistener-ws-client`，配置:\n- `wsServerUrl`: 指向本插件的 WebSocket 地址\n- `wsToken`: 与服务端 `ws_token` 一致\n- `sourcePlatformList` / `targetPlatformChannelList`: 你的群/频道\n\n### Step 3: 验证\n\n- 群里发消息 → 游戏内应显示 `[群名] (群号) 昵称: 消息`\n- 游戏内说话 → 群里应收到玩家聊天消息\n\n> 💡 图片渲染和远程命令需额外配置 RCON，见下方说明。\n\n---\n\n## 📡 互通架构\n\n### 聊天平台一侧\n\n聊天平台 **图文消息** ⇄ Minecraft Java服务器 **文字消息与进出服事件** 的群服互通插件。\n\n支持 Koishi Bot 接入，理论上 Koishi 支持的大部分聊天平台均可使用。\n> 已有现成的 Koishi 插件: [![Koishi Plugin](https://img.shields.io/badge/Koishi-Plugin-6c5cb5?style=flat&logo=typescript&logoColor=white&labelColor=5546a3)](https://koishi.chat) https://github.com/VincentZyuApps/koishi-plugin-mclistener-ws-client\n\n- **QQ 接入（OneBot v11 协议端）**：Koishi 通过 `@koishijs/plugin-adapter-onebot` 适配器，对接 OneBot v11 协议的实现端（如 [LLOneBot](https://github.com/LLOneBot/LLOneBot)、[NapCat](https://github.com/NapNeko/NapCatQQ)、[Lagrange.OneBot](https://github.com/LagrangeDev/Lagrange.Core) 等），由协议端连接 QQ 服务器，实现 QQ 群消息的双向互通。\n\n- **Discord 接入（Discord Bot API）**：Koishi 通过 `@koishijs/plugin-adapter-discord` 适配器，在 Discord Developer Portal 创建 Bot 应用并获取 Token，直连 Discord Gateway API，实现 Discord 频道消息的双向互通。\n- **更多平台**：Kook、Telegram 等 Koishi 支持的平台均可\n\n> 我自己的测试环境和生产环境: QQ（OneBot v11 / LLOneBot）/ Discord\n\n> 当然你也可以自己编写插件把他接入到其他的Bot框架，比如[Koishi](https://koishi.chat/zh-CN/manual/starter/boilerplate.html)，[Nonebot2](https://nonebot.dev/docs/quick-start)，[Astrbot](https://docs.astrbot.app/deploy/astrbot/docker.html)等等，或者其他任何形式的Web应用的 [WebSocket](https://github.com/websockets/ws)客户端接入。\n\n### Minecraft Java服务器一侧\n\n支持 MCDReforged 兼容的部分 Minecraft Java 服务端发行版。\n> 我自己的测试环境和生产环境: [Spigot](https://www.spigotmc.org/) / [Paper](https://papermc.io/) 1.21.8\n> \n> 如果你运行的是 **基岩版 (BDS + LeviLamina)**，请使用 [![LeviLamina](https://img.shields.io/badge/for-LeviLamina-7FA973?style=flat&labelColor=2C5E3B&logo=cplusplus&logoColor=white)](https://github.com/VincentZyuApps/levilamina-plugin-mclistener-ws-server) [levilamina-plugin-mclistener-ws-server](https://github.com/VincentZyuApps/levilamina-plugin-mclistener-ws-server)（与本插件使用同一 WebSocket 协议，可共用 Koishi 客户端）。\n\n--- \n\n## 👀 它能做什么\n\n#### **→ 聊天平台 → MC 服务器**\n- 文字消息转发到游戏内\n- 图片消息以 tellraw 可点击文本广播给所有在线玩家，点击后触发 `!!view_image` 渲染为 `text_display` 实体\n##### **QQ（OneBot v11）**: ![](https://raw.githubusercontent.com/VincentZyuApps/mcdr_listener_ws_server/main/docs/images/preview-onebotv11-chat-platform-to-mc-server.png)\n##### **Discord**: ![](https://raw.githubusercontent.com/VincentZyuApps/mcdr_listener_ws_server/main/docs/images/preview-discord-chat-platform-to-mc-server.png)\n\n#### **→ MC 服务器 → 聊天平台**\n- 玩家聊天消息转发到平台\n- 玩家加入/退出服务器通知转发到平台\n##### **QQ（OneBot v11）**: ![](https://raw.githubusercontent.com/VincentZyuApps/mcdr_listener_ws_server/main/docs/images/preview-mc-server-to-onebotv11-chat-platform.png)\n\n#### **→ MC 服务器内**\n- 玩家可用 `!!view_image <url>` 命令手动查看远程图片\n\n#### **→ 聊天平台 → MC 服务器（远程命令执行）**\n- 通过聊天平台远程执行 MC 服务器 RCON 命令，结果回传至聊天平台\n##### **QQ（OneBot v11）**: ![](https://raw.githubusercontent.com/VincentZyuApps/mcdr_listener_ws_server/main/docs/images/preview-exec-rcon-command-at-chat-platform.png)\n\n---\n\n## ⚠️ 前置条件：启用 RCON\n\n以下核心功能**必须**启用 RCON 才能使用：\n- 🖼️ **游戏内展示外部图片**（`!!view_image` 命令 + 图片消息渲染）\n- 🖥️ **远程命令执行**（从聊天平台执行 MC 服务器命令并返回结果）\n\n> 如果你只需要基础的文字消息转发和进出服通知，可以跳过此步骤。\n\n### 配置步骤\n\n**1. Minecraft 服务器** — 在 `server.properties` 中启用 RCON：\n```properties\nenable-rcon=true\nrcon.port=25575\nrcon.password=你的RCON密码\n```\n\n**2. MCDR 主配置文件** — 在 MCDR 的 `config.yml` 中配置 RCON（插件通过 MCDR 的 RCON 接口执行命令）：\n```yaml\nrcon:\n  enable: true\n  address: 127.0.0.1\n  port: 25575\n  password: 你的RCON密码\n```\n\n## 安装\n\n将插件放入 MCDR 插件目录，确保依赖已安装：\n\n- `mcdreforged >= 2.13.0`\n- `websockets >= 15.0.0`\n- `Pillow >= 10.0.0`\n- `requests >= 2.32.0`\n\n```bash\ngit clone https://github.com/VincentZyuApps/mcdr_listener_ws_server ./plugins/mcdr_listener_ws_server\n# 或国内镜像\ngit clone https://gitee.com/vincent-zyu/mcdr_listener_ws_server.git ./plugins/mcdr_listener_ws_server\n```\n\n```powershell\nuv pip install mcdreforged\nuv pip install -r requirements.txt\n```\n\n> 若在 Windows 下运行，建议MCDR的`config.yml`的encoding和coding都改成`GBK`，避免 emoji 等字符问题。Linux可以都用utf-8\n\n## 配置\n\n首次加载后自动从 `resources/` 释放默认配置模板到 `config/mcdr_listener_ws_server/config.yml`，主要选项：\n\n> 插件支持国际化（i18n），玩家可见消息文本可在 `lang/` 目录下按需修改（`zh_cn.yml` / `en_us.yml`）。\n\n| 配置项                               | 说明                                            | 默认值                                                                                                         |\n| --------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |\n| `host`                            | 🌐 监听地址                                        | `0.0.0.0`                                                                                                   |\n| `port`                            | 🔌 监听端口                                        | `60601`                                                                                                     |\n| `ws_token`                        | 🔑 WebSocket 连接 Token（空字符串=不校验）⚠️ 默认值仅用于测试     | `\"test12345\"`                                                                                               |\n| `enable_remote_exec_command`      | ⚡ 启用远程命令执行                                    | `false`                                                                                                     |\n| `remote_exec_command_whitelist`   | 🛡️ 远程命令前缀白名单（空列表=不限制）                         | `[]`                                                                                                        |\n| `remote_exec_command_timeout_sec` | ⏱️ 命令执行超时（秒）                                  | `10`                                                                                                        |\n| `remote_exec_result_max_length`   | 📏 返回结果最大字符数，超长截断                              | `4000`                                                                                                      |\n| `strip_message_whitespace`        | 🧹 清理消息中的换行和制表符（`\\n` `\\r` `\\t` → 空格，避免游戏内消息断裂） | `true`                                                                                                      |\n| `cache_dir`                       | 📂 图片缓存目录                                      | `./cache/mcdr_listener_ws_server/images/`                                                                   |\n| `image_max_side_length`           | 📐 图片最大边长                                      | `64`                                                                                                        |\n| `image_duration_sec`              | ⏱️ 图片展示时长（秒）                                  | `10`                                                                                                        |\n| `image_cache_ttl_sec`             | 🧹 图片缓存保留时长（秒）                                 | `180`                                                                                                       |\n| `image_host_whitelist`            | 🛡️ 图片域名白名单，每个域名可单独配置代理（空=直连，填代理地址=走代理）        | `multimedia.nt.qq.com.cn`(直连), `gxh.vip.qq.com`(直连), `cdn.discordapp.com`(走代理), `media.discordapp.net`(走代理) |\n\n> 如需本地测试（本地起一个 WS 客户端模拟聊天平台接入），可在生成的配置文件 `config/mcdr_listener_ws_server/config.yml` 中将 `127.0.0.1` 加入 `image_host_whitelist`：\n> ```yaml\n> image_host_whitelist:\n>   - host: multimedia.nt.qq.com.cn\n>   - host: gxh.vip.qq.com\n>   - host: cdn.discordapp.com\n>     proxy: http://127.0.0.1:7890\n>   - host: media.discordapp.net\n>     proxy: http://127.0.0.1:7890\n>   - host: 127.0.0.1\n> ```\n\n## 命令\n\n### `!!view_image <url>`\n\n玩家执行后在面前以 `text_display` 展示远程图片。  \n需满足：由玩家执行 + 图片域名在白名单内。  \n命令反馈文本从 `lang/` 语言文件读取，支持自定义。\n\n## WebSocket 事件格式\n\n### 服务端广播事件\n\n#### 玩家进入 🎉\n\n```json\n{\n    \"type\": \"player_join\",\n    \"player_name\": \"some_name\"\n}\n```\n\n#### 玩家离开 😢\n\n```json\n{\n    \"type\": \"player_leave\",\n    \"player_name\": \"some_name\"\n}\n```\n\n#### 玩家聊天 💬\n\n```json\n{\n    \"type\": \"player_chat\",\n    \"player_name\": \"some_name\",\n    \"content\": \"some_content\"\n}\n```\n\n### 客户端入站事件\n\n客户端向服务端发送以下 JSON 消息。\n\n#### 平台消息转发 📨\n\n```json\n{\n    \"type\": \"chat_platform_to_server\",\n    \"nickname\": \"用户名\",\n    \"message\": \"消息内容\",\n    \"group_id\": \"123456\",\n    \"group_name\": \"群名称\",\n    \"images\": [\n        {\n            \"url\": \"https://example.com/image.png\",\n            \"name\": \"image.png\"\n        }\n    ]\n}\n```\n\n`images` 字段可选，携带时会在游戏内以 `text_display` 实体渲染展示图片。\n\n#### 远程命令执行 🖥️\n\n```json\n{\n    \"type\": \"external_command_to_server\",\n    \"command\": \"list\"\n}\n```\n\n服务端执行后将返回结果：\n\n```json\n{\n    \"type\": \"command_result\",\n    \"command\": \"list\",\n    \"result\": \"...\"\n}\n```\n\n---\n\n## ⚠️ 一些已知限制\n\n- **图片域名需在白名单**: 图片 URL 的域名必须在 `image_host_whitelist` 中，否则不会下载/渲染\n- **`!!view_image` 全服冷却**: 该命令有全服共享冷却（默认 5.5 秒），冷却期间其他玩家无法使用\n- **远程命令需双边配置**: 需要同时开启插件 `enable_remote_exec_command` 和客户端相应配置\n- **Windows 编码**: Windows Powershell下运行 MCDR 的 `config.yml` 建议将 encoding和decoding 设为 `GBK`，避免一些字符的编码问题比如emoji，Linux可以都用utf-8\n",
+    "readme_url": "https://raw.githubusercontent.com/VincentZyuApps/mcdr_listener_ws_server/main/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}
