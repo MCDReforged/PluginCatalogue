@@ -32,13 +32,13 @@ jobs:
       (github.event.action != 'labeled' || github.event.label.name == 'recheck')
 
     steps:
-      # Checkout base repo
+      # 1. Checkout base repo
       - name: Checkout target base branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.base.sha }}
   
-      # Checkout PR code
+      # 2. Checkout PR code
       - name: Checkout PR code
         uses: actions/checkout@v4
         with:
