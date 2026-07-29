@@ -32,19 +32,26 @@ jobs:
       (github.event.action != 'labeled' || github.event.label.name == 'recheck')
 
     steps:
-      - uses: actions/checkout@v4
+      # Checkout base repo
+      - name: Checkout target base branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+  
+      # Checkout PR code
+      - name: Checkout PR code
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-      
-      - uses: actions/checkout@v4
-        with:
-          path: original-repo
-      
-      - name: Setup Scripts
-        # Always use scripts from the original repo, for latest features and security reasons
+          path: pr-repo
+          allow-unsafe-pr-checkout: true
+
+      # 3. Copy plugins/ from PR repo
+      - name: Sync PR plugins
         run: |
-          rm -rf scripts .github
-          cp -r original-repo/{scripts,.github} .
+          rm -rf plugins/
+          cp -r pr-repo/plugins .
+          rm -rf pr-repo
 
       - uses: actions/setup-python@v5
         with:
@@ -53,7 +60,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('scripts/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-:
 
