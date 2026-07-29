@@ -34,13 +34,13 @@ jobs:
     steps:
       # 1. Checkout base repo
       - name: Checkout target base branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.base.sha }}
   
       # 2. Checkout PR code
       - name: Checkout PR code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           path: pr-repo
@@ -53,11 +53,11 @@ jobs:
           cp -r pr-repo/plugins .
           rm -rf pr-repo
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v6
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('scripts/requirements.txt') }}
