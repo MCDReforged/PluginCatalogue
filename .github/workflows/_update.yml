@@ -19,6 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -41,11 +43,36 @@ jobs:
           cd ./scripts
           pip install -r requirements.txt
 
+      - name: Detect changed plugins
+        id: detect-changes
+        if: inputs.check
+        run: |
+          if git rev-parse --verify HEAD~1 > /dev/null 2>&1; then
+            CHANGED=$(git diff --name-only HEAD~1 HEAD -- plugins/ | sed -n 's|^plugins/\([^/]*\)/.*|\1|p' | sort -u | tr '\n' ',')
+            CHANGED="${CHANGED%,}"
+            NON_PLUGIN=$(git diff --name-only HEAD~1 HEAD | grep -v '^plugins/' | wc -l | tr -d ' ')
+          else
+            CHANGED=""
+            NON_PLUGIN=0
+          fi
+          echo "plugins=$CHANGED" >> $GITHUB_OUTPUT
+          echo "has_non_plugin_changes=$([ "$NON_PLUGIN" -gt 0 ] && echo true || echo false)" >> $GITHUB_OUTPUT
+          echo "Changed plugins: ${CHANGED:-none}"
+          echo "Non-plugin changes: $NON_PLUGIN"
+
       - name: Do the update
+        # Three cases when inputs.check is true:
+        #   1. Changes outside plugins/ exist  → check all plugins strictly (python main.py all)
+        #   2. Only plugin changes             → strict check for changed plugins only, then full update
+        #   3. No changes detected             → full update without strict check
+        # When inputs.check is false, always run without strict check.
         run: |
           cd ./scripts
-          if [ "${{ inputs.check }}" = "true" ]; then
+          if [ "${{ inputs.check }}" = "true" ] && [ "${{ steps.detect-changes.outputs.has_non_plugin_changes }}" = "true" ]; then
             python main.py all
+          elif [ "${{ inputs.check }}" = "true" ] && [ -n "${{ steps.detect-changes.outputs.plugins }}" ]; then
+            python main.py check --targets "${{ steps.detect-changes.outputs.plugins }}"
+            python main.py all --no-check
           else
             python main.py all --no-check
           fi
