@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "player_watchdog",
+  "authors": [
+    "LinHouyu"
+  ],
+  "repository": "https://github.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "management",
+    "information"
+  ],
+  "introduction": {
+    "zh_cn": "# Player Watchdog\n\n一个基于 [MCDReforged](https://mcdreforged.com/) 的插件，用于定时记录在线玩家的坐标、维度和物品信息，并保存为 CSV 文件，方便用 Excel 查看和分析。\n\n## 功能特性\n- **自动记录在线玩家信息**  \n  每隔固定时间（默认 5 秒）获取所有在线玩家的：\n  - 坐标（X, Y, Z）\n  - 所在维度（主世界 / 地狱 / 末地）\n  - 物品栏（Inventory）\n- **CSV 格式输出**\n  - 文件体积小，长期保存无压力\n  - 可直接用 Excel 打开，支持筛选、排序、统计\n  - 字段：时间、玩家、维度、X、Y、Z、物品\n  - <img width=\"1620\" height=\"393\" alt=\"image\" src=\"https://github.com/user-attachments/assets/10fd545f-f901-4d63-9106-b265f3822aba\" />\n\n## 使用方法\n1. 将本插件文件夹放入 `plugins/` 目录\n2. 确保已安装并启用 [Minecraft Data API](https://mcdreforged.com/zh-CN/plugin/minecraft_data_api) 插件\n3. 在 MCDR 的 Python 环境中安装依赖：\n   ```bash\n   pip install hjson\n   ```\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/LinHouYu/Watch_dog_online_players_with_coords_and_dim/main/README.md"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "mcdr_command_http_api",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/mcdr_command_http_api",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "# MCDR Command HTTP API\n\n> 提供 HTTP 调用 MCDR 命令的接口\n\n## 依赖\n\n| 插件 | 版本 |\n| - | - |\n| [fastapi_mcdr](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr) | \\>=2.0.0 |\n\n## 配置\n\n配置文件路径：`config/mcdr_command_http_api/config.json`\n\n| 配置项 | 默认值 | 说明 |\n| - | - | - |\n| `token` | 随机生成 | 接口鉴权 Token，首次加载时自动生成 |\n\n## 接口\n\n所有接口均挂载在 `/mcdr_command_http_api` 路径下。\n\n### 鉴权\n\n请求时需在 HTTP Header 中携带 Bearer Token：\n\n```http\nAuthorization: Bearer <token>\n```\n\n### POST /mcdr_command_http_api/execute\n\n在 MCDR 命令系统中执行一条命令。\n\n#### 请求体\n\n```json\n{\n  \"command\": \"!!MCDR status\"\n}\n```\n\n| 字段 | 类型 | 说明 |\n| - | - | - |\n| `command` | `string` | 要执行的 MCDR 命令 |\n\n#### 响应\n\n```json\n{\n  \"status\": \"ok\",\n  \"command\": \"!!MCDR status\"\n}\n```\n\n#### 错误码\n\n| 状态码 | 说明 |\n| - | - |\n| `401` | Token 无效 |\n\n## 在线调试\n\n启动 MCDR 后访问 `http://<服务器IP>:8080/mcdr_command_http_api/docs` 可使用 Swagger UI 在线测试接口。\n",
+    "zh_cn": "# MCDR Command HTTP API\n\n> 提供 HTTP 调用 MCDR 命令的接口\n\n## 依赖\n\n| 插件 | 版本 |\n| - | - |\n| [fastapi_mcdr](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/fastapi_mcdr) | \\>=2.0.0 |\n\n## 配置\n\n配置文件路径：`config/mcdr_command_http_api/config.json`\n\n| 配置项 | 默认值 | 说明 |\n| - | - | - |\n| `token` | 随机生成 | 接口鉴权 Token，首次加载时自动生成 |\n\n## 接口\n\n所有接口均挂载在 `/mcdr_command_http_api` 路径下。\n\n### 鉴权\n\n请求时需在 HTTP Header 中携带 Bearer Token：\n\n```http\nAuthorization: Bearer <token>\n```\n\n### POST /mcdr_command_http_api/execute\n\n在 MCDR 命令系统中执行一条命令。\n\n#### 请求体\n\n```json\n{\n  \"command\": \"!!MCDR status\"\n}\n```\n\n| 字段 | 类型 | 说明 |\n| - | - | - |\n| `command` | `string` | 要执行的 MCDR 命令 |\n\n#### 响应\n\n```json\n{\n  \"status\": \"ok\",\n  \"command\": \"!!MCDR status\"\n}\n```\n\n#### 错误码\n\n| 状态码 | 说明 |\n| - | - |\n| `401` | Token 无效 |\n\n## 在线调试\n\n启动 MCDR 后访问 `http://<服务器IP>:8080/mcdr_command_http_api/docs` 可使用 Swagger UI 在线测试接口。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/mcdr_command_http_api/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/mcdr_command_http_api/readme.md"
+  }
+}

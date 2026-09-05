@@ -1,0 +1,123 @@
+{
+  "schema_version": 8,
+  "id": "chest_scanner_lib",
+  "latest_version": "1.0.2",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/YuShenLiu06/mcdr-chest-scanner/releases/tag/v1.0.2",
+      "name": "v1.0.2",
+      "tag_name": "v1.0.2",
+      "created_at": "2026-08-15T02:44:59Z",
+      "description": "Fix:\r\n- 更新缺少的插件依赖，现在 `minecraft_data_api` 已经作为依赖被加入元数据",
+      "prerelease": false,
+      "asset": {
+        "id": 515224575,
+        "name": "chest_scanner_lib-v1.0.2.mcdr",
+        "size": 9156,
+        "download_count": 19,
+        "created_at": "2026-08-15T02:45:25Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/mcdr-chest-scanner/releases/download/v1.0.2/chest_scanner_lib-v1.0.2.mcdr",
+        "hash_md5": "e57467ef261615bd0ee4e4310f9e25df",
+        "hash_sha256": "5d183c1baf22b4017d6e7edc1a17c4d8867f7687e19498f3a47849e41f421b14"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "chest_scanner_lib",
+        "name": "ChestScannerLib",
+        "version": "1.0.2",
+        "link": "https://github.com/YuShenLiu06/mcdr-chest-scanner",
+        "authors": [
+          "YuShenLiu06"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "hjson>=3.1"
+        ],
+        "description": {
+          "en_us": "MCDReforged library: scan and read container contents via player crosshair or coordinates",
+          "zh_cn": "MCDReforged 库插件：通过玩家准星指向或指定坐标获取箱子内容，支持大箱子"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/mcdr-chest-scanner/releases/tag/v1.0.1",
+      "name": "v1.0.1",
+      "tag_name": "v1.0.1",
+      "created_at": "2026-08-14T15:09:13Z",
+      "description": "Chore:\r\n\r\n- 更新元文件描述，让其功能更加凸显",
+      "prerelease": false,
+      "asset": {
+        "id": 514567474,
+        "name": "chest_scanner_lib-v1.0.1.mcdr",
+        "size": 9137,
+        "download_count": 12,
+        "created_at": "2026-08-14T15:18:05Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/mcdr-chest-scanner/releases/download/v1.0.1/chest_scanner_lib-v1.0.1.mcdr",
+        "hash_md5": "c6fcd6be137b6a7a5f5d2b0daaf2b094",
+        "hash_sha256": "6e5b68f8162a084640a21cc14912ec7fb8350ba39506aa4311ba38c8bd4b65d0"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "chest_scanner_lib",
+        "name": "ChestScannerLib",
+        "version": "1.0.1",
+        "link": "https://github.com/YuShenLiu06/mcdr-chest-scanner",
+        "authors": [
+          "YuShenLiu06"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0"
+        },
+        "requirements": [
+          "hjson>=3.1"
+        ],
+        "description": {
+          "en_us": "MCDReforged library: scan and read container contents via player crosshair or coordinates",
+          "zh_cn": "MCDReforged 库插件：通过玩家准星指向或指定坐标获取箱子内容，支持大箱子"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/mcdr-chest-scanner/releases/tag/v1.0.0",
+      "name": "v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2026-08-08T05:32:26Z",
+      "description": "# ChestScannerLib v1.0.0\r\n\r\nMCDReforged 容器扫描库：DDA 射线投射 + 双联合并 + SNBT 解析。\r\n\r\n## 功能\r\n\r\n- **准星射线扫描** — DDA 体素遍历，逐格探测不跳格\r\n- **双联容器合并** — 自动检测 `type`/`facing`，合并 54 格\r\n- **陷阱箱兼容** — `minecraft:chest` + `minecraft:trapped_chest`\r\n- **SNBT 解析** — 支持 1.20.5+ `components` 及旧版 `BlockEntityTag`\r\n\r\n## 安装\r\n\r\n```json\r\n{\r\n  \"dependencies\": {\r\n    \"chest_scanner_lib\": \">=1.0.0\"\r\n  }\r\n}",
+      "prerelease": false,
+      "asset": {
+        "id": 506084002,
+        "name": "chest_scanner_lib-v1.0.0.mcdr",
+        "size": 9118,
+        "download_count": 15,
+        "created_at": "2026-08-08T05:33:10Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/mcdr-chest-scanner/releases/download/v1.0.0/chest_scanner_lib-v1.0.0.mcdr",
+        "hash_md5": "8d4f75aca7f7a131c2e0d10fa14d25b7",
+        "hash_sha256": "d639cd0d9ef25e04557a6623e638d85608096cd88b657bd80aee78334f08c94e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "chest_scanner_lib",
+        "name": "ChestScannerLib",
+        "version": "1.0.0",
+        "link": "https://github.com/YuShenLiu06/mcdr-chest-scanner",
+        "authors": [
+          "YuShenLiu06"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0"
+        },
+        "requirements": [
+          "hjson>=3.1"
+        ],
+        "description": {
+          "en_us": "DDA block raycast + chest scanning + double chest merge + SNBT parsing utility library",
+          "zh_cn": "DDA 方块射线投射 + 容器扫描 + 双联容器合并 + SNBT 解析工具库"
+        }
+      }
+    }
+  ]
+}

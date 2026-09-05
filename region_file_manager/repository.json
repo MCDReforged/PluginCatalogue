@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/judamar/RegionFileManager",
+  "name": "RegionFileManager",
+  "full_name": "judamar/RegionFileManager",
+  "html_url": "https://github.com/judamar/RegionFileManager",
+  "description": "Plugin for managing files from regions of the world.",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "English | [Español](https://github.com/judamar/RegionFileManager/tree/master/README-es.md)\n# Region File Manager (RFM)\n\n[![GitHub downloads](https://img.shields.io/github/downloads/judamar/RegionFileManager/total?label=Github%20downloads&logo=github)](https://github.com/judamar/RegionFileManager/releases)\n\nThis is a plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) that allows you to manage region files on a Minecraft server.\n\n## Description\n\nThe Region File Manager (RFM) plugin is a useful tool for managing regions in your Minecraft world. It allows you to perform tasks such as saving, restoring, deleting, and listing regions with ease.\n\n## Commands\n\nThe RFM plugin adds the following commands:\n\n- `!!rfm save <x> <z> <dim> <name>`: Save a region to a new folder.\n- `!!rfm restore <name>`: Restore the specified region.\n- `!!rfm remove <x> <z> <dim>`: Remove the specified region file from the world.\n- `!!rfm list`: Show a list of saved regions.\n- `!!rfm del <name>`: Delete a region from the list.\n- `!!rfm abort`: Abort a currently running restoration operation.\n\n`1`: for the end.\n`0`: for the overworld.\n`-1`: for the nether.\n\n## Configuration\n\nYou can configure the plugin's behavior in the `config.json` file with the following options:\n\n- **prefix**: Defines the prefix for the plugin's commands.\n- **recognized_cmds**: List of recognized commands by the plugin.\n- **regions_path_over**: Path to the regions in the main world (Overworld).\n- **regions_path_nether**: Path to the regions in the Nether.\n- **regions_path_end**: Path to the regions in the End.\n- **dst_path**: Path where the regions are saved.\n- **dst_path_over**: Path for Overworld regions.\n- **dst_path_nether**: Path for Nether regions.\n- **dst_path_end**: Path for End regions.\n- **minimum_permission_level**: Minimum permission level required to use the plugin.\n\nMake sure that the paths are correct based on your Minecraft server's structure.\nIt should still work without modifying anything.\n\n### Default configuration:\n\n```json\n{\n    \"prefix\": \"!!rfm\",\n    \"recognized_cmds\": [\n        \"save\",\n        \"restore\",\n        \"remove\",\n        \"list\",\n        \"del\",\n        \"abort\"\n    ],\n    \"regions_path_over\": \"./server/world/region/\",\n    \"regions_path_nether\": \"./server/world/DIM-1/region/\",\n    \"regions_path_end\": \"./server/world/DIM1/region/\",\n    \"dst_path\": \"./regions_folder/\",\n    \"dst_path_over\": \"./regions_folder/overworld/\",\n    \"dst_path_nether\": \"./regions_folder/nether/\",\n    \"dst_path_end\": \"./regions_folder/end/\",\n    \"minimum_permission_level\": 3\n}\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/judamar/RegionFileManager/master/README.md",
+  "license": {
+    "key": "cc0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "spdx_id": "CC0-1.0",
+    "url": "https://api.github.com/licenses/cc0-1.0"
+  }
+}

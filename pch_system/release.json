@@ -1,0 +1,479 @@
+{
+  "schema_version": 8,
+  "id": "pch_system",
+  "latest_version": "0.10.2",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.10.2",
+      "name": "pch_system-v0.10.2",
+      "tag_name": "pch_system-v0.10.2",
+      "created_at": "2026-08-31T14:16:22Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\n\n## 这是什么\n\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\n\n## 首次部署（全栈 · 推荐）\n\n```bash\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\ncd PCHSystem\nbash Scripts/install.sh\n```\n\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\n\n## 升级（已部署）\n\n```bash\nbash Scripts/update.sh\n```\n\n> 详情参考 [`部署流程`](Docs/runbook.md#3-部署流程)\n\n## 依赖\n\n- **MCDReforged ≥ 2.14.0**\n- 插件依赖：`chest_scanner_lib`（硬依赖）、`uuid_api_remake`、`minecraft_data_api`——`install.sh` / `update.sh` 自动检测补装，无需手动下载\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\n\n## 更新内容\n\n子材料协作大修：可单独认领交付，父项备齐后整单锁定。\n\n### Fixed\n\n- **子材料行（子物品）无法认领/更改状态/交付（[#80](https://github.com/YuShenLiu06/PCHSystem/issues/80)）**——现可像普通材料一样单独认领、解除、交付；认领父项时自动连带认领其未认领的锁定子材料；认领后再新建的子材料自动归认领人。\n- **父项备齐后子材料整单锁定**：父项交齐（标备齐）后，其子材料的认领/交付/改动/删除会被拒绝并提示「父行已备齐，子行已锁定」；打回父项即恢复。\n- `!!PCH sheet view` 锁定行（含子行）显示交付进度 `delivered/need`。\n- 批量提交（`!!submitc` / `!!PCH sheet submit`）回执：未认领行的「需先认领」不再被折叠成「与您无关」；操作被拒时显示具体原因，不再是笼统的「状态非法」。\n\n---\n\n## 配套前后端变化（pch_system-v0.10.1 → pch_system-v0.10.2 期间）\n\n### backend-v0.10.2（2026-08-31）\n\nsheets 子物品生命周期闭环。\n\n- 修复：**子物品生命周期（[#80](https://github.com/YuShenLiu06/PCHSystem/issues/80)）**：子行与普通行共用状态机、可独立协作；父行备齐后子行全部写操作拒绝（409 附中文原因），父行打回或需求上调自动解冻，存量数据无需迁移；解除父行只连带解除同认领者的锁定子行（他人认领的保留）；父行改模式不再连带改子行模式；修复 `0.07×100` 类级联重算进位多算 1。\n- 修复：并发加入施工撞唯一约束时不再报 500（补缺失 import，恢复兜底重试）。\n\n### frontend-v0.11.2（2026-08-31）\n\n- 修复：**子物品行放开操作**：可认领/解除、切换模式，锁定子行显示交付进度列。\n- 修复：**父项备齐后子行显示锁定状态**：状态列显示「已锁定」、操作列显示原因，操作与删除入口同步隐藏。\n\n",
+      "prerelease": false,
+      "asset": {
+        "id": 538095860,
+        "name": "pch_system-v0.10.2.mcdr",
+        "size": 83132,
+        "download_count": 2,
+        "created_at": "2026-08-31T14:21:48Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.10.2/pch_system-v0.10.2.mcdr",
+        "hash_md5": "569421ee728e304cfe85b48b859cf44a",
+        "hash_sha256": "caa2a4e396f7cdd13d85d4cb49bd02845a7580bbae81d90ff04ad45b2425c089"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.10.2",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*",
+          "chest_scanner_lib": ">=1.0.1"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.10.1",
+      "name": "pch_system-v0.10.1",
+      "tag_name": "pch_system-v0.10.1",
+      "created_at": "2026-08-22T07:31:29Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/runbook.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`chest_scanner_lib`（硬依赖）、`uuid_api_remake`、`minecraft_data_api`——`install.sh` / `update.sh` 自动检测补装，无需手动下载\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n部署脚本修复：MCDR 跑在容器里（宿主机无 `mcdreforged` CLI）时，依赖插件也能自动补装。\r\n\r\n### Fixed\r\n\r\n- **部署脚本（运维）**：MCDR 容器化部署时依赖插件补装必败（[#73](https://github.com/YuShenLiu06/PCHSystem/issues/73)）。现 `pim` 不可用时自动回退老方案——直连各插件 GitHub Releases（下载失败自动试镜像链）原子落盘 `.mcdr` 到 `plugins/`（zip 内插件 id 校验）；Python 依赖不自动装，按部署形态给出容器 / venv 手动指引；失败时输出对应 Releases 链接。\r\n\r\n---\r\n\r\n## 配套前后端变化（pch_system-v0.10.0 → pch_system-v0.10.1 期间）\r\n\r\n### backend-v0.10.1（2026-08-22）\r\n\r\n托管管理账号可用性修复与安全加固。\r\n\r\n- **托管账号绑定管理玩家**：`ADMIN_*` 托管账号现同步绑定同名管理玩家——登录 JWT 带 `active_uuid`，admin 可直接执行建项目、编辑等全部玩家级写操作，不再报 `missing active_uuid`；同名玩家已被其他账号绑定时不再抢占（告警并回退只读形态）。\r\n- **OpenAPI 文档增强**：鉴权头声明为 security schemes（`/docs` 出现 Authorize 按钮），全部端点补中文摘要。\r\n\r\n- 修复：无绑定玩家的托管账号登录后访问「个人信息」「施工管理」被 401 `missing active_uuid` 踢回登录页（[#74](https://github.com/YuShenLiu06/PCHSystem/issues/74)）——admin 端点鉴权升 account 级（admin 不再要求绑定玩家）；`GET /me` 对无玩家账号返回 `active_uuid=null`；续签放行无玩家账号；材料表 / 施工进度对无玩家账号开放只读浏览（写操作仍需玩家身份）。\r\n- 修复：施工 mod 源审批复验：`active_uuid` 须仍属当前 admin 账号才记为审批人（玩家迁移到其他账号后，旧 token 不再冒名）。\r\n\r\n- 安全：**阻断托管账号同名提权**：`ADMIN_*` 同名管理玩家改为不可登录锚点——任何人以管理员用户名同名进离线服后，经 `!!PCH login` 无密码换 owner JWT 的提权链被切断；历史挂靠产物同步收回并告警。\r\n\r\n### frontend-v0.11.1（2026-08-22）\r\n\r\n- **注册入口**：登录页新增「注册」，引导到游戏内 `!!PCH login` 完成账号注册与绑定。\r\n\r\n- 修复：无绑定玩家的托管管理账号登录后浏览「个人信息 / 施工管理」不再被 401 踢回登录页（[#74](https://github.com/YuShenLiu06/PCHSystem/issues/74)，与 backend-v0.10.1 配套）。\r\n- 修复：web 入口 `index.html` 加 `Cache-Control: no-cache`——发版后浏览器不再继续跑旧 bundle 引用旧 chunk（`/assets/` 仍一年强缓存）。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 524797688,
+        "name": "pch_system-v0.10.1.mcdr",
+        "size": 82627,
+        "download_count": 7,
+        "created_at": "2026-08-22T07:37:56Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.10.1/pch_system-v0.10.1.mcdr",
+        "hash_md5": "1f0f780614b691a8d545e2f040d6ed07",
+        "hash_sha256": "b20a04bed45407b1a56ce5185d4d28884da4b8b956b0ea7818d683ace3c12dc9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.10.1",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*",
+          "chest_scanner_lib": ">=1.0.1"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.10.0",
+      "name": "pch_system-v0.10.0",
+      "tag_name": "pch_system-v0.10.0",
+      "created_at": "2026-08-19T09:35:33Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/runbook.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`chest_scanner_lib`（**v0.10.0 新增，硬依赖**）、`uuid_api_remake`、`minecraft_data_api`——`install.sh` / `update.sh` 经 MCDR `pim` 自动检测补装，无需手动下载\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n## 破坏性变更\r\n\r\n**v0.10.0 起箱子扫描剥离为独立插件 `chest_scanner_lib`（硬依赖）。旧部署（<0.10.0）升级后，`!!MCDR plugin reload pch_system` 会因依赖缺失被 MCDR 卸载（重启也无效）。**\r\n\r\n恢复：在仓库内**再执行一次 `bash Scripts/update.sh`**（v0.10.0 脚本会自动检测并补装缺失依赖），随后游戏内 reload 即可；或参照下文「更新内容」手动 `pim` 安装。\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n⚠️ **破坏性变更**：箱子扫描剥离为独立插件，本版起 `pch_system` 硬依赖 [`chest_scanner_lib`](https://github.com/YuShenLiu06/mcdr-chest-scanner)。**旧部署（<0.10.0）升级后，`!!MCDR plugin reload pch_system` 会因依赖缺失被卸载（重启也无效）**。恢复方法（任选其一）：\r\n\r\n- 仓库内再执行一次 `bash Scripts/update.sh`（新版会自动检测并补装缺失依赖），随后 reload；\r\n- 手动安装：`mcdreforged pim download chest_scanner_lib -o <plugins 目录>` → `mcdreforged pim pipi <下载的 .mcdr 文件>` → `!!MCDR plugin reload pch_system`。\r\n\r\n### Changed\r\n\r\n- **箱子扫描独立成库**：`!!submitc` / `!!PCH sheet submitchest` 的扫描实现（RCON 读箱、准星检测、SNBT 解析、双联合并）剥离为官方插件目录收录的外部插件 `chest_scanner_lib`（`>=1.0.1`），随依赖自动安装；游戏内命令用法不变。内嵌 `chest_scanner.py` 移除，插件自身不再需要 `hjson` Python 依赖。\r\n\r\n### Added\r\n\r\n- **部署脚本（运维）**：依赖插件安装改走 MCDR 原生 `pim` CLI——install.sh 缺失自动安装（交互确认）；update.sh **每次执行自动补装缺失依赖**（置于版本比对之前，「已是最新」也生效——旧部署升级断裂后再跑一次 update 即恢复），另新增 `--upgrade-plugins` 主动升级已装依赖到 latest（换文件防同 id 双载）；依赖 id 清单从 `mcdreforged.plugin.json` 运行时解析，杜绝清单漂移；TestServer 构建同链路。\r\n\r\n\r\n---\r\n\r\n## 配套前后端变化（pch_system-v0.9.3 → v0.10.0 期间）\r\n\r\n建议随本版一并升级（`bash Scripts/update.sh` 全栈更新；backend 含数据库迁移 0024，部署脚本自动执行）：\r\n\r\n### backend-v0.10.0（2026-08-19）· 积分层上线\r\n\r\n- **积分记账 API**：积分批量入账 / 出账与多角色流水分页；每笔变动单独记账、不可篡改、附记账后余额，可完整审计回溯；支持防重复提交、透支开关、记账站内通知。\r\n- **管理员调分 API**：管理员/拥有者调增调减玩家积分（原因必填、可附备注），玩家收可读通知、操作入审计日志；配套玩家名联想接口。\r\n- **余额排名与按账号流水**：玩家积分余额排名接口（余额由流水累加重建）；流水查询支持按账号过滤，供后台下钻。\r\n- **托管管理账号**：`.env` 配置用户名/密码后，启动自动创建/更新不绑定任何玩家的管理员账号，专用于纯后台管理。\r\n- 修复：负余额账号入账不再被透支守卫静默跳过；托管账号撞名接管不再静默（打警示日志）；调分通知附备注时文案完整。\r\n\r\n### frontend-v0.11.0（2026-08-19）· 积分管理页\r\n\r\n- **积分管理页**：管理员/拥有者新增「积分管理」——「积分流水」按玩家/时间筛选（服务端分页），「玩家积分」展示余额排名（负余额红标），点击行下钻该账号流水抽屉（自带分页）。\r\n- **调分弹窗**：入账/出账方向预览，透支开关仅出账可用，原因与备注有中文提示；调分后余额即时刷新。\r\n- **托管账号登录**：登录支持无绑定玩家的托管管理账号，「我的身份」入口按是否绑定显隐。\r\n- 修复：下拉框/输入框聚焦描边错位（双框）；积分页「N 条/页」切换档位不生效。\r\n\r\n### frontend-v0.10.0（2026-08-15 · 与 pch_system-v0.9.3 同批发布）\r\n\r\n> 若前端仍停留在 v0.9.x：此版为界面全面换新——与 wiki 统一的深板岩 + 草方块绿视觉；亮/暗主题（自动跟随系统 + 顶栏三态切换）；顶部导航栏 + 品牌 logo + 用户区（窄屏折叠抽屉）；材料表「换算」列按盒/组/个分段、交付进度组刻度条；404 页与动态标签页标题。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 520704128,
+        "name": "pch_system-v0.10.0.mcdr",
+        "size": 82626,
+        "download_count": 7,
+        "created_at": "2026-08-19T10:28:27Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.10.0/pch_system-v0.10.0.mcdr",
+        "hash_md5": "55fdeba78f5f32d3d7284361e38ce5bc",
+        "hash_sha256": "65101bc12800edf505474b27ebd3bef95a83faa4c47150bcbd3709a64105aef0"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.10.0",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*",
+          "chest_scanner_lib": ">=1.0.1"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.9.3",
+      "name": "pch_system-v0.9.3",
+      "tag_name": "pch_system-v0.9.3",
+      "created_at": "2026-08-15T01:41:51Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/runbook.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n## 破坏性变更\r\n\r\n<!-- 若本版本含 BREAKING CHANGE，在此说明升级注意事项 / 配置迁移；无则删此段 -->\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n后端不可达时不再刷屏报错：自动降频重试，恢复后回到正常频率。\r\n\r\n### Fixed\r\n\r\n- **日志刷屏修复（#62）**：后端离线时，通知轮询与施工追踪器不再每次失败都记一条错误（首次保留、后续静默）；轮询改为指数退避（最长 60 秒一次），期间游戏内提示「⚠ 后端不可达」并指引 `!!PCH status`，后端恢复时提示「✓ 后端已恢复」。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 520708963,
+        "name": "pch_system-v0.9.3.mcdr",
+        "size": 88453,
+        "download_count": 2,
+        "created_at": "2026-08-19T10:34:04Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.9.3/pch_system-v0.9.3.mcdr",
+        "hash_md5": "b67bdf1821e4ff71dcb80f9514e618a6",
+        "hash_sha256": "c2ec80db4cf1ff7be99bbbac51f431201d60cb7acfd9e3423b30697515029d60"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.9.3",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31",
+          "hjson>=3.1"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.9.2",
+      "name": "pch_system-v0.9.2",
+      "tag_name": "pch_system-v0.9.2",
+      "created_at": "2026-08-08T01:16:43Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/runbook.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n## [backend-v0.9.2] - 2026-08-08\r\n\r\n绑定时返回可直接打开的链接；改物品 ID 与已有行重复时自动合并。\r\n\r\n### Added\r\n\r\n- **绑定链接**：绑定接口现在返回可直接打开的链接，游戏端用它生成可点击文本，点一下就跳到绑定页面。\r\n- **改 ID 自动合并（#53）**：改物品 ID 时如果和表里另一行重复，两行自动合并成一行——数量累加、贡献记录不丢，不用手动删。\r\n\r\n### Fixed\r\n\r\n- **合并偶尔报错**：合并两行时偶尔触发唯一约束冲突报错，已修复。\r\n- **同名查询崩溃**：按物品名查找时命中多行会导致服务器崩溃，已修复。\r\n- **合并后贡献量清零**：合并时贡献者的历史贡献量没有正确累加，已修复。\r\n- **手动参数被忽略**：合并时手动指定的数量和模式被覆盖，已修复。\r\n\r\n---\r\n\r\n## [frontend-v0.9.2] - 2026-08-08\r\n\r\n绑定页面支持自动填短码；未登录时点绑定链接会先跳登录，登录后自动回来。\r\n\r\n### Added\r\n\r\n- **绑定更顺畅（#54）**：从游戏内点绑定链接打开网页时，短码自动填好；如果还没登录，会先跳到登录页，登录（或兑换）后自动回到绑定页，不用手动再找。\r\n\r\n---\r\n\r\n## [pch_system-v0.9.2] - 2026-08-08\r\n\r\n新增箱子一键提交（`!!submitc`）；绑定回执变成可点击链接；改物品 ID 时自动改名并合并重复。\r\n\r\n### Added\r\n\r\n- **`!!submitc` 箱子一键提交（#48）**：看着箱子输入 `!!submitc`，自动读取里面的东西批量提交到项目表；也可以指定坐标 `!!submitc <表id> <x> <y> <z>`。不带参数就提交到上次打开的表。\r\n- **绑定链接可点击（#54）**：`!!PCH bind` 的回执现在带一个可点击的链接，点一下直接打开网页绑定页，短码自动填好。\r\n- **改 ID 自动改名 + 合并（#53）**：用 `!!PCH sheet setreg` 改物品 ID 时，物品名自动跟着变成新 ID 对应的中文名；如果新 ID 跟表里另一行重复，两行自动合并。",
+      "prerelease": false,
+      "asset": {
+        "id": 505880699,
+        "name": "pch_system-v0.9.2.mcdr",
+        "size": 85962,
+        "download_count": 14,
+        "created_at": "2026-08-08T01:21:38Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.9.2/pch_system-v0.9.2.mcdr",
+        "hash_md5": "589e91e67e13d5c2e2b71e8cdf20b3a0",
+        "hash_sha256": "699d54ee9c3ddbc6c825eb33b33d0c1e7fcfe0413e5fc45c3309338d78132369"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.9.2",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31",
+          "hjson>=3.1"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.9.1",
+      "name": "pch_system-v0.9.1",
+      "tag_name": "pch_system-v0.9.1",
+      "created_at": "2026-08-06T12:09:14Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n### [backend-v0.9.1] - 2026-08-06\r\n\r\n协管员通知正确显示操作者名称。\r\n\r\n#### Fixed\r\n\r\n- **协管员通知显示操作者名称（#45）**：被任命或撤销协管员时，游戏内通知正确显示是谁操作的，不再丢失」。\r\n\r\n---\r\n\r\n### [frontend-v0.9.1] - 2026-08-06\r\n\r\n施工进度折线图不再中途断开；项目详情页新增 CSV 导出。\r\n\r\n#### Added\r\n\r\n- **CSV 导出**：项目详情页可一键下载当前材料清单 CSV 文件。\r\n\r\n#### Fixed\r\n\r\n- **折线图不再中途断开**：施工进度折线图在最后一次上报距当前较久时，线保持末值水平延伸到图表右边缘，不再在旧数据点处断开。\r\n\r\n---\r\n\r\n### [pch_system-v0.9.1] - 2026-08-06\r\n\r\n`sheet add/addhand` 进度模式恢复正常。\r\n\r\n#### Fixed\r\n\r\n- **进度模式修复（#47）**：游戏内 `!!PCH sheet add/addhand ... progress` 命令现在正确创建进度类型行，不再总是创建锁定类型行。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 503900323,
+        "name": "pch_system-v0.9.1.mcdr",
+        "size": 78068,
+        "download_count": 23,
+        "created_at": "2026-08-06T12:15:04Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.9.1/pch_system-v0.9.1.mcdr",
+        "hash_md5": "097f14685baf9dc685e8638dc69aec95",
+        "hash_sha256": "b49d3148be01b2948d28b16ab862dad517838128b378ae070873c2aef56793e8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.9.1",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.9.0",
+      "name": "pch_system-v0.9.0",
+      "tag_name": "pch_system-v0.9.0",
+      "created_at": "2026-07-28T17:07:59Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n### pch_system-v0.9.0: 施工进度\r\n\r\n现在可以统计施工的建造进度了！\r\n\r\n> 详情见其他两端的 `CHANGELOG`\r\n\r\n<img width=\"1832\" height=\"1590\" alt=\"image\" src=\"https://github.com/user-attachments/assets/e0b58f2f-def7-481c-8b77-abdb1e813611\" />\r\n\r\n### Added\r\n\r\n- **施工进度追踪器**：默认开启，自动读取在线玩家 stats 差值上报施工放置贡献（约 30 秒一次），无需客户端模组。\r\n- **施工命令**：`!!PCH construction join [编号]` / `leave` / `current` / `status`——加入、退出、查看当前项目与追踪器状态。\r\n- **配置项**：`construction_enabled`（总开关，默认开）、`construction_flush_interval_seconds`、`world_stats_dir`、`construction_max_batch`、`construction_track_breaking`（挖掘，预留关）。\r\n\r\n### Changed\r\n\r\n- **`!!submit` 改走后端批量端点**：逐行裁决由后端统一处理，回执观感不变。\r\n\r\n### Fixed\r\n\r\n- `!!submit` 回执对未知动作逐行展示，不再隐式折叠。\r\n\r\n### Notes\r\n\r\n- 当前默认追踪器仅统计方块放置，不含挖掘。\r\n- 多项目同时施工需 `join` 指定项目，或 Web 端切客户端模组精确上报。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 492974954,
+        "name": "pch_system-v0.9.0.mcdr",
+        "size": 78018,
+        "download_count": 15,
+        "created_at": "2026-07-28T17:13:39Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.9.0/pch_system-v0.9.0.mcdr",
+        "hash_md5": "69230f7e083106b16dc36714d759efcb",
+        "hash_sha256": "db7c626c3c8dab042e541710d2b39e68fb28dcbac6874840748b5d152865a63e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.9.0",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.8.2",
+      "name": "pch_system-v0.8.2",
+      "tag_name": "pch_system-v0.8.2",
+      "created_at": "2026-07-25T06:08:26Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n**重要更新（部署脚本热修）**：修复 `.env` 已含全部所需键时 `Scripts/update.sh` 拉取新代码后静默退出、跳过后续部署步骤的问题。**此前已运行过更新脚本但疑似未跑完的实例，请按下方「升级指引」重跑一次。**\r\n\r\n### Fixed\r\n\r\n- **更新脚本半途中断**：当 `.env` 已补齐所有所需键时，`Scripts/update.sh` 会在拉取新版代码后立即静默退出，跳过容器重建、数据库迁移、前端构建与部署记录刷新，实例卡在「代码已新版、容器与迁移仍停留旧版」的半途中断状态。现已修复，更新可一次跑完全流程。\r\n- **版本号元数据**：`McdrPlugin/mcdreforged.plugin.json` 的 `version` 由 0.8.1 补齐为 0.8.2（与发版线一致）；`archive_name: pch_system-v{version}` 按 plugin.json 的 version 打包，漏改会使 v0.8.2 的 `.mcdr` 产物误命名（首次发版曾产出 `pch_system-v0.8.1.mcdr`）。\r\n\r\n### 升级指引\r\n\r\n- **已处于半途中断状态的实例**（`.env` 无缺键，上一轮卡在拉取代码之后）：**不能直接重跑 `bash Scripts/update.sh`**——当前磁盘上的 `update.sh` 仍是旧的有 bug 版本（修复在 v0.8.2 才进入），bash 启动时已把有 bug 的 `ensure_env_keys_update` 读入内存，`do_checkout` 改磁盘不会重载内存函数，重跑仍会在同一处中断；且即便先手动切到 v0.8.2 再无参重跑，`fetch_and_compare` 会因工作树 HEAD 已等于最新 tag 而 `exit 0`，跳过迁移与重建。\r\n\r\n  正确做法是**先把工作树切到 v0.8.2（让 bash 读到修复版脚本），再用 `--no-sync` 跳过 fetch/checkout、直接补齐后续步骤**：\r\n\r\n  ```bash\r\n  git fetch --all --tags\r\n  git checkout pch_system-v0.8.2\r\n  bash Scripts/update.sh --no-sync\r\n  ```\r\n\r\n  `--no-sync` 用部署记录（仍停在中断前的旧版本）作 diff 基准，正确识别「代码已新版、容器与迁移仍滞后」，按需执行容器重建 / 数据库迁移 / 前端构建 / MCDR 更新，并在 `verify_and_summary` 把部署记录推进到 v0.8.2。若工作区存在本地改动，脚本自带的 dirty 保护会先提示并拒绝运行，按提示处理后再重跑即可。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 489205910,
+        "name": "pch_system-v0.8.2.mcdr",
+        "size": 59130,
+        "download_count": 17,
+        "created_at": "2026-07-25T06:11:52Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.8.2/pch_system-v0.8.2.mcdr",
+        "hash_md5": "5bd7fdabeb07957ea31aabf65dce7158",
+        "hash_sha256": "aab13e97a2aaf664ecdf5bc4e46f77e0758c8f37f524fa4b2add248f0800f4fe"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.8.2",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.8.1",
+      "name": "pch_system-v0.8.1",
+      "tag_name": "pch_system-v0.8.1",
+      "created_at": "2026-07-25T03:43:41Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n补齐项目阶段流转通知缺口（issue #4），参与者不再漏知关键进度。无破坏性变更。\r\n\r\n### Added\r\n\r\n- **项目阶段流转通知**：项目进入施工阶段或被归档时，全体参与者（拥有者、协管员、材料认领人、进度贡献者）都会收到一条游戏内通知；触发者本人不再收到自己触发的流转通知。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 489109396,
+        "name": "pch_system-v0.8.1.mcdr",
+        "size": 59130,
+        "download_count": 15,
+        "created_at": "2026-07-25T03:49:02Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.8.1/pch_system-v0.8.1.mcdr",
+        "hash_md5": "12cc7f6e8cd2a832bb7846d8af674b1b",
+        "hash_sha256": "bd99c435b37f16e15d19ef6d1fd5fa03b00ed2d0436ab5b71b881edde3a5cc1f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.8.1",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.8.0",
+      "name": "pch_system-v0.8.0",
+      "tag_name": "pch_system-v0.8.0",
+      "created_at": "2026-07-20T13:16:14Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n## 破坏性变更\r\n\r\n**数据库迁移（0014 → 0015 → 0016，不可跳）**\r\n- `0014`：新增 `users.web_accounts`（Web 账号主表）、`users.bind_tokens`（绑定短码）；`users.players` 加 `web_account_id` 外键（不回填，NULL 即未绑）。\r\n- `0015`：`users.web_accounts` 加 `display_name`（自定义昵称）。\r\n- `0016`：新增 `sheets.sheet_managers`（项目协管员，锚 `web_account_id`）。\r\n- 业务表（sheets / score 等）零改动；升级前建议 `pg_dump` 快照。\r\n\r\n**登录凭证失效（强制重登）**\r\n- JWT `sub` 由 `player_uuid` 改为 `web_account_id`（+ `active_uuid` claim），**所有现有会话立即失效**。\r\n- 三端用户需重新登录：游戏内 `!!PCH login`、网页端 `/login`。\r\n- 首次 `!!PCH login` 会自动建临时 Web 账号挂接，玩家可后续注册转永久或绑定已有账号。\r\n\r\n**一行版**：跑迁移 `alembic upgrade head` → 通知全员重登 → 旧 token 全部作废。\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n适配身份主锚升级与项目协管员机制，部署脚本健壮性增强。**破坏性变更：所有玩家需重新 `!!PCH login` 登录。**\r\n\r\n### Added\r\n\r\n- **`!!PCH bind` 绑定多身份**：游戏内出短码到网页端输入，或反向；一个账号可绑多个身份，换服 / 改名后积分与贡献不丢。\r\n- **协管员命令**：`!!PCH sheet manager <编号> add|remove|list <玩家名>`；协管员可协助拥有者进行操作，可以新增物品、删除物品、打回、更改进度等；不能删除 、 改名 、 归档操作。\r\n- 同账号不同身份建的项目、认领的行可互相操作。\r\n\r\n### Fixed\r\n\r\n- 对归档项目操作显示「项目已归档，只读」，不再报服务暂不可用；一键提交整体短路不刷屏（issue #7）。\r\n\r\n### 运维（部署脚本）\r\n\r\n- 重装 / 更新自动补全 `.env` 新增项；撞 web 端口自动清理残留容器并询问，不再异常退出。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 483492813,
+        "name": "pch_system-v0.8.0.mcdr",
+        "size": 59006,
+        "download_count": 14,
+        "created_at": "2026-07-20T13:30:51Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.8.0/pch_system-v0.8.0.mcdr",
+        "hash_md5": "184f16f0808cbb2aa7bc877fdf2834ac",
+        "hash_sha256": "8680a43e14493877e0e6cace97de55c9464c9f4fc7c0abe99311f670e959316a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.8.0",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.7.1",
+      "name": "pch_system-v0.7.1",
+      "tag_name": "pch_system-v0.7.1",
+      "created_at": "2026-07-14T04:21:13Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n> 详情参考 [`部署流程`](Docs/RUNBOOK.md#3-部署流程)\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n## 破坏性变更\r\n\r\n- **McdrPlugin结构变更**：拍平了嵌套的 pch_system 文件夹，现在更加精简\r\n\r\n---\r\n\r\n## 更新内容\r\n\r\n更新脚本支持 mac 修复python 依赖无法正确解读的问题\r\n\r\n### Added\r\n\r\n- **macOS 部署支持**：一键安装 / 更新脚本（`install.sh` / `update.sh`）现可在 macOS 上运行（此前仅支持 Linux），自动适配 Docker Desktop 与 BSD 版工具差异。\r\n\r\n### Fixed\r\n\r\n- **从 catalogue 安装时自动装依赖**：经 `!!MCDR plugin install` 或 PluginCatalogue 安装本插件时，现在会正确一并安装 Python 依赖；此前因依赖清单未放在插件根，依赖不会被自动安装。\r\n\r\n### Docs\r\n\r\n- 更新 README 的表现效果\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 476265546,
+        "name": "pch_system-v0.7.1.mcdr",
+        "size": 52907,
+        "download_count": 18,
+        "created_at": "2026-07-14T04:24:44Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.7.1/pch_system-v0.7.1.mcdr",
+        "hash_md5": "01906d3b23276c38ce9d62753f638ac9",
+        "hash_sha256": "704bb76692252e998bf8b60759f71311633d875749880d10e495be356d052572"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.7.1",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [
+          "requests>=2.31"
+        ],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/YuShenLiu06/PCHSystem/releases/tag/pch_system-v0.7.0",
+      "name": "pch_system-v0.7.0",
+      "tag_name": "pch_system-v0.7.0",
+      "created_at": "2026-07-12T13:00:34Z",
+      "description": "> ⚠️ 本插件需配合 **PCHSystem 后端**使用，单独安装 `.mcdr` 无法工作。\r\n\r\n## 这是什么\r\n\r\nPCH System 是 PCHSystem 的游戏内客户端（MCDReforged 插件）：材料协作收集、项目三阶段进度管理、积分 / 称号、通知投递等全在游戏内 `!!PCH` 命令完成。所有功能经 HTTP 调用后端，**必须先部署后端**。\r\n\r\n## 首次部署（全栈 · 推荐）\r\n\r\n```bash\r\ngit clone https://github.com/YuShenLiu06/PCHSystem.git\r\ncd PCHSystem\r\nbash Scripts/install.sh\r\n```\r\n\r\n脚本一键完成：docker / 镜像自适应 → 生成 `.env` → 起 postgres+backend+web → 数据库迁移 → 前端构建 → 拷贝插件 + 生成 config.json。完成后游戏内 `!!MCDR plugin reload pch_system` → `!!PCH status`（自检）→ `!!PCH login`。\r\n\r\n## 升级（已部署）\r\n\r\n```bash\r\nbash Scripts/update.sh\r\n```\r\n\r\n## 依赖\r\n\r\n- **MCDReforged ≥ 2.14.0**\r\n- 插件依赖：`uuid_api_remake`、`minecraft_data_api`（`install.sh` 会检测并提示安装）\r\n- **PCHSystem 后端（必需）** + 前端（可选）：见上「首次部署」\r\n\r\n---\r\n\r\n## 更改\r\n\r\n插件 id 由 `htcmc_auth` 改为 `pch_system`（与项目名一致），首个以新 id 发布的正式版本；同步改进项目部署与发布流程。\r\n\r\n### Changed\r\n\r\n- **插件 id 改名 `htcmc_auth` → `pch_system`**：插件不止登录鉴权，还含材料协作 / 一键提交 / 通知。**已部署实例需迁移**：删旧 `plugins/htcmc_auth/`（否则双注册 `!!PCH` 冲突），`config/htcmc_auth/` 搬到 `config/pch_system/`；`Scripts/update.sh` 自动处理。\r\n\r\n### Added\r\n\r\n- **部署与发布流程改进**：tag 驱动半自动发布（push `pch_system-v*` → CI 构建 `.mcdr` + 草稿 Release）；前端默认 `docker compose` 容器托管（nginx + `/api` 反代，`COMPOSE_PROFILES=web` 可关）；端口可配（`*_PORT`）+ 镜像构建走国内源加速；`update.sh` 按变更智能重建 web 镜像。\r\n\r\n### Fixed\r\n\r\n- **`update.sh` 不再误报「需重启 MCDR」**：plugin.json 字段变更统一提示 `!!MCDR plugin reload`（reload 重校依赖，无需重启）。\r\n- **自检「部署」链接更精准**：`!!PCH status` 后端未配置提示改为指向 RUNBOOK 部署手册。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 474399982,
+        "name": "pch_system-v0.7.0.mcdr",
+        "size": 52781,
+        "download_count": 9,
+        "created_at": "2026-07-12T13:04:16Z",
+        "browser_download_url": "https://github.com/YuShenLiu06/PCHSystem/releases/download/pch_system-v0.7.0/pch_system-v0.7.0.mcdr",
+        "hash_md5": "ef29217288912add627f084b90c897ec",
+        "hash_sha256": "a77e2ea025e411d9fa23e48b15fa00af3426496a019354189b43c7f8445fdec5"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "pch_system",
+        "name": "PCH System",
+        "version": "0.7.0",
+        "link": "https://github.com/YuShenLiu06/PCHSystem",
+        "authors": [
+          "YuShen"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.14.0",
+          "uuid_api_remake": "*",
+          "minecraft_data_api": "*"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "材料协作收集与项目进度管理，联动 Web 后台"
+        }
+      }
+    }
+  ]
+}

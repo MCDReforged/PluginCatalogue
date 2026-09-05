@@ -1,0 +1,104 @@
+{
+  "NOTICE": "Not public API, DO NOT use this file",
+  "release_pages": {
+    "1": {
+      "etag": "\"ceead994eebb9df5e70769abf50d74926dcc1d5ef4c95e14cb798989c92108d5\"",
+      "data": "H4sIAJHwmmoC/+1XbW/bNhD+K4bzLagtinqlgKLI0hYosLTdmrVZ60KgKErWqjeIlN3EyH/fkZIVL8mSuLU/bPAHw9bx7jn6jnqOz5fVuG3ycTAaz6WsRWAYtM6maSbnbTRlVWE0vK6EccEmHyRtDFaVosp5CCsFLeMQnMEj51RwYVi+iVzkmc742WhMheBShLsHNzpklaOt84rGt3N0VrGjPKsXJS34s5xGPL9WSeeyyG+n3Ej1pCSSpsYCT80pUohZDFhDXlW7Vs6rBoyrcV6lWalS9biDP0EmJg6y4LmsYh5q4/js5W/ux4u3Ofvr2/Ls/I3z9vzkSndjQSH4Tje0dV2pVvAGdi15KfU/aY11jheL57ZCSZsep0umW/BgfxXkUPenF095JlWeV0sID7dIYQxRNxBZmf4ABEStjErOORQNlnXn00zI7bajI1b6C2qmQQTYGx5vBdPHwIaWJexlpc9zh9ZGgjVZLTM4btthbkYqqKpJaZld0e2hIFIj6Ldsq0gdoUL5Ak7ddrFdyMqom2xB2eV1twPGswVU9wfwbsUqOHlZcxX/Bzjqww7f4SLjy3C9UrdRnjHdiUzykMaFflsTmgt+/c9X8/dX4bfly3cfLsL8k7A/yeqzxgQqCBXDKJcbSoANpVxq8shkJuZqtaCArTDveMcNTeQ6rSKIomgljXK+Yasb3tPPhpE1nEr4y1RFjzHC7gSRCcLnyAtsHGD0uaPZ+N+97MB0tZcuhZg/6tfTdzD6ssPR04Eajo2ARi0bDzQ5WG4142SzGen7X74Xm6U97XKddqlO3r+ZdMWeFizWXdPjADzLNs+HQcQPlH2g7ANl/8cpu3+fBn9a1+Cva2xUTHI5ERJos+hPhtROPQHEHeyVsvmu7yluzlIuNCGKOcWOGxBukSiivmlaCaYMuSxxXBwR6jmI4DhCpp24HDNEbZcRziLqIoQTamPqJp4dacKHU6WvvqxqSwVumo+xuRXY5uNsDl6W9oqaaqlKN2T6yRvvGqe/9hoPM+z1124GRjTPf1pC9DgbF+6rrN4Jco+zgRxV8aWCPDoadcZZMyvV5wgsr7PvPFYPk9GstRPOZ61DULwUs9bDtj9rXQ8zWOEohhXTg99OFBFYdX171hJHRRCf+GM4p7vUbSbxXcsleC+6bQ2+b912K8/+dJs6peaNblvnPei2wyXgcAn4v+u281e/tmd3dNtACU/SbYP3TnWbA2P8HLkBttcz/L5JP3h5AfYf0G13/fap22zT8R0baHSgycHykG778/LiRDyi23SxD7rtQNkHyj7otqfoNs80/ft0W+QSi1HiJL7rJXHiRCyhHuPYogQR4lIndpFjkcSKsWlFJuMJY8SzOfdxwjjn9+o2Bz/G5l6AnKewOfL2rNs0kRoPM+x+dNswL3eu2wbktW47Pn4Nk2F0OqdlymEgHB8Hoy1LB79r2vAOHE2n0z7L9de/AR7W+S5sGwAA",
+      "empty": false
+    },
+    "2": {
+      "etag": "\"ef0b200f23451d4ed211633c01a706cfe75afc0b3512842a3194480bf1ab7599\"",
+      "data": "H4sIALSEg2oC/4uOBQApu0wNAgAAAA==",
+      "empty": true
+    }
+  },
+  "asset_data": {
+    "415854636": {
+      "meta": {
+        "schema_version": 4,
+        "id": "console_command_api",
+        "name": "Console Command API",
+        "version": "1.0.1",
+        "link": null,
+        "authors": [
+          "Xc_Star"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "mcdreforged>=2.0.0"
+        ],
+        "description": {
+          "en_us": "Execute console commands via HTTP API and get responses",
+          "zh_cn": "通过 HTTP API 执行控制台命令并获取响应"
+        }
+      },
+      "size": 7118,
+      "hash_md5": "6f78988474fa740eb8ee5ac428747eac",
+      "hash_sha256": "b693ca95f867fdf5bcfa7ce23a90996a5d60539f3d213b1cefcc974ee82fceee",
+      "ttl": 100
+    },
+    "496303617": {
+      "meta": {
+        "schema_version": 4,
+        "id": "console_command_api",
+        "name": "Console Command API",
+        "version": "2.0.0",
+        "link": null,
+        "authors": [
+          "Xc_Star"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "websockets>=12.0",
+          "mcdreforged>=2.0.0"
+        ],
+        "description": {
+          "en_us": "Execute console commands via WebSocket and get responses (v2)",
+          "zh_cn": "通过 WebSocket 执行控制台命令并获取响应 (v2)"
+        }
+      },
+      "size": 8684,
+      "hash_md5": "82041c2d1b4b3f8a0f125dd6e3036b08",
+      "hash_sha256": "3274f1a317740614cdd49fbec3ee2223d2747d1f5c38eff6b524246e0c7cf02e",
+      "ttl": 76
+    },
+    "540810342": {
+      "meta": {
+        "schema_version": 4,
+        "id": "console_command_api",
+        "name": "Console Command API",
+        "version": "2.1.0",
+        "link": null,
+        "authors": [
+          "Xc_Star"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "websockets==12.0",
+          "mcdreforged>=2.0.0"
+        ],
+        "description": {
+          "en_us": "Execute console commands via WebSocket and get responses (v2)",
+          "zh_cn": "通过 WebSocket 执行控制台命令并获取响应 (v2)"
+        }
+      },
+      "size": 8687,
+      "hash_md5": "4a73ce08b897d0125e6b2e1b08b36e50",
+      "hash_sha256": "9e39bba8113f2ac06cf562b9a75092db014f6e2c0a46c9ecba6002fa42a6f74b",
+      "ttl": 100
+    }
+  },
+  "repos_info": {
+    "etag": "\"492ac46a1471d74c1c35c8c24cb8639a2533dab5a314e24c964357e626a9ff80\"",
+    "data": "H4sIACEMmGoC/62YbW/bNhCA/4rgr0ss23lZYmDoimXYCixt13prkGEQKOksMaZEjqTs2oL/+46kJEvuMsexviTWiffweDoe71gOaDyYeuPJxcV4fHN1dXnmDXIeQ2DFg0/BIrn78PkhYF+SgXlFMjDyiOeKMwginmUkjwMiqHk9LxgL6jEP0flnTaT/zFgh6ZJoM3JOmAKU8FUOEp/LAeMJzVsMM94adDsaT26vRhddK+/vfr/+8+E9i54Wq/vZu6v3s7cbo0JwAiKDQjIzKtVaqKnvO6kaJlSnRVgokGihhlwP0UK/8Os53ix/uDSURFYcN5kR7RMFrWgOgUjlt0xPdcb2rWiNb42cc8b4CtWDI6bwG60dgubJKxCoVfpcp4BOw9dbu3yq9HHmWI3S/kOfWYhCuYT4KEylgwaZuNiWvgTBHa0IVSSp0BRD6zhmW9OguExITjfkeBRqWoKx6jhNq2FUYYlRd5yuUyl9u3ui9dZZEAFdondfwdvTNTi9Fnb//oEDbbDj/2BJYRXUb0QRMhrZL0E1BCTO7G61+3j74nh/LjHE0HwiA3ibe/c/3X2COTocYk+wAnODp1OiPfgKUaFBeRVBeXwJ0vt1Nvvo4aMnQRcyx9dE4A9UNqB6sMcLLQrtWRjgWCXQHhi6PSQXrcT0/w61n/PQogzx0Jc5CPItxeAWsD6dZiCl+Vvv0giTAAm5JJrL0/EdWtl5tLNpINnps1iKTbKc9+BhS7HHjVIFvGxHHaZamGo2b15kYZVde5pgt3uJUjTJAU5nNqTSbw6DUJI8SnuA16Cy+uUigiQ9BARxeTlkPDydhoN9Syp9lZLqQNRBL5YatgF10RLm/aANaIfWso+YsCZLGxM1GI9pjfFxOrsG+WWNZiRPCpL0wG5IdTGSkA3IXmyuUC5/5lrSsOgpfe5graIn7MXsHWu/nuqL7c5v65Qso7oPf1hOd7P0BTdx/c0ERtBLdq5BnczvDpjqVV8nzH/OVLU3/YSkAfnld4LotHaSIBL68JHh+GVIsIgcDodlCsSVJRnIPnKAw9gzUkYpFr0nE8sahHVZRrRtUebW5Bh7FsZJfLrVDamJmb7KkU6MCOzcTwdbSoebUQZK87yP79egOjPkXNM5jV7UwR2epEMr3yiaR3BGGDvD4NQ0ohj32CRXp1MIrI+jyWBwSSSDqp1jQPo4UGtQ6Vf1fQyC8XU/Oa3FsmlAAtHYRhJtqJPR5Pp8dHU+upmNr6ej0XQyebStpIi/GXV7PprMRt9PLyfTyc2ji0WVPjfocjq+fqyzf7UG/PniBtMs0h55Km2p/7hTnr5AOWIYha9rcJv5l/nrO+SUZyCwmkHtHHec7cM35mly2S1vIl7kxotjFK+IxoJ7T1jXRcaOj2uduiM7JSpwOQLlWhZQyYTkTxDpPekuQ+06ZiNf0QXd07cVWHdUTFVUYKdh7mN2b1y7XFs6solESl7f5VWrrtJv3FJEHAlZR8QF5NVyOkRGI8CG3144YhNsXJC5j1PfYN6/m3m/VaOMY0X8tb5xfDc7fA9YTaD8Gtu+sYyuZ7+wp8cvV5vH2c+bgbk2IeYKzpwlC0wxO89RFWjIBOtelq4grKqfwLRpfD7HzuGfgsrO2q3XzaWseYfZs/Xp2uLAbl9T/QmOVltfoDW2b+CCRkbtr7/xaUkVDSmjet29B3IXE86vLX9Xkjr0qqCLYU4KpgPX+Vm/E2oDT4DMaBMM5aBzs3TmxmnSEZlk0XrEktmF8+49Y9Wit/bSIROB27+aLyCvb3Rz0CtcQydA2hV3I9/+C+74oq8yFwAA"
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "schema_version": 8,
+  "id": "mirror_mcsmcdr",
+  "latest_version": "1.7.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.7.0",
+      "name": "v1.7.0",
+      "tag_name": "v1.7.0",
+      "created_at": "2026-09-04T14:02:57Z",
+      "description": "# News\r\n- 配置文件从`json`格式变更为`YAML`，并支持`YAML`的简化配置写法，例如`mcsm.uuid``display.server_name`\r\n- 旧版`json`配置文件将自动创建为`.json.back`备份，并自动升级为新的`YAML`格式\r\n- 配置文件内嵌多语言支持的注释，便于快捷调整配置\r\n- 简化了`subprocess`下的日志输出\r\n\r\n# Changes\r\n- 重构了配置文件序列化类和配置文件加载器\r\n- 命令回显中的插件版本号改为从`metadata`中自动读取\r\n\r\n# TODOs\r\n- [ ] 联动`PrimeBackup`，支持自动备份\r\n- [ ] 延迟同步与`abort`命令",
+      "prerelease": false,
+      "asset": {
+        "id": 544444590,
+        "name": "MirrorMcsmcdR-v1.7.0.mcdr",
+        "size": 48477,
+        "download_count": 3,
+        "created_at": "2026-09-04T14:20:12Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.7.0/MirrorMcsmcdR-v1.7.0.mcdr",
+        "hash_md5": "54848f2682436384a07bd301d99e0b9c",
+        "hash_sha256": "0754cb5f20b795a734d6aabfc84fc0b17bc1c6c1892642b853bef0295fd43f2e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.7.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.6.0",
+      "name": "v1.6.0",
+      "tag_name": "v1.6.0",
+      "created_at": "2026-08-31T15:25:05Z",
+      "description": "# News\r\n\r\n- 新增 `subprocess` 启动模式，在极端情况下（如面板服）也可以启动镜像服了\r\n- 新增 `!!mirror log enable|disable|[count]` 和 `!!mirror execute <cmd>` 指令，目前仅支持 `subprocess` 模式，用于便捷地查看镜像服日志输出和执行指令\r\n- 新增 `console` 权限，可设置部分命令仅允许通过终端执行\r\n- 新增 `terminal.console_log` 配置项，用于搭配 `subprocess` 模式，配置是否默认启用日志输出\r\n\r\n# Changes\r\n\r\n- 配置项 `terminal.system` 更改为 `terminal.proxy_type` ，若先前的该配置项为 `null`（自动识别系统类型），则无需更改；否则需要手动更新配置文件\r\n- `terminal.proxy_type` 大小写不敏感\r\n\r\n# Fixes\r\n- 更新了语言文件\r\n- 重构部分模块，提升代码质量",
+      "prerelease": false,
+      "asset": {
+        "id": 538180364,
+        "name": "MirrorMcsmcdR-v1.6.0.mcdr",
+        "size": 41587,
+        "download_count": 5,
+        "created_at": "2026-08-31T15:36:33Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.6.0/MirrorMcsmcdR-v1.6.0.mcdr",
+        "hash_md5": "3b13139b8a09a4db9e368a79246a819f",
+        "hash_sha256": "d5c8cad0e5dff1f8632f1ca787e4fb6227b225c2ef257a068a159e8684857e4d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.6.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.5.0",
+      "name": "v1.5.0",
+      "tag_name": "v1.5.0",
+      "created_at": "2026-08-19T15:45:16Z",
+      "description": "# News\r\n\r\n- 增强对 Linux Screen 启动镜像服的支持，加入`kill [-f|--force]`选项\r\n- **[实验性功能]** 支持 Windows 下的`stop`命令\r\n- 支持 Windows 的`kill`命令\r\n- 支持 MCSM 的 `kill --force`命令\r\n- 新增`history`命令，现在可以查看同步历史记录了\r\n\r\n# Fixes\r\n\r\n- 修复控制台中线程名字符串格式错误，出现`{TITLE}`的问题\r\n- 文件同步锁使用更加线程安全的方案\r\n- 重构部分模块",
+      "prerelease": false,
+      "asset": {
+        "id": 521034209,
+        "name": "MirrorMcsmcdR-v1.5.0.mcdr",
+        "size": 37686,
+        "download_count": 10,
+        "created_at": "2026-08-19T15:50:02Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.5.0/MirrorMcsmcdR-v1.5.0.mcdr",
+        "hash_md5": "17f006543fb6561e636400c39765856f",
+        "hash_sha256": "a8b59f2ca0f75cccedcc216c5c4abac67315b272eac12288231f4c2867e34e56"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.5.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.4.1",
+      "name": "v1.4.1",
+      "tag_name": "v1.4.1",
+      "created_at": "2025-08-23T08:51:06Z",
+      "description": "# News\r\n- 优化对Linux screen的检测与支持\r\n- 部分错误信息调整为仅输出到终端，防止敏感信息泄露\r\n\r\n# Fixes\r\n- 修复`en_us`语言中的部分错误",
+      "prerelease": false,
+      "asset": {
+        "id": 285419062,
+        "name": "MirrorMcsmcdR-v1.4.1.mcdr",
+        "size": 32029,
+        "download_count": 302,
+        "created_at": "2025-08-23T08:52:40Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.4.1/MirrorMcsmcdR-v1.4.1.mcdr",
+        "hash_md5": "f57facada1437876117fd4e5c203fe77",
+        "hash_sha256": "2eda7ba122525df109b422e3cd0a1322494e3b16751031b21f67e9e1c0f8839d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.4.1",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.4.0",
+      "name": "v1.4.0",
+      "tag_name": "v1.4.0",
+      "created_at": "2025-05-23T16:06:22Z",
+      "description": "# News\r\n- 区块操作工具完成，预计在v1.5.0加入区块同步功能\r\n- 自动检查`mcsm` `rcon` `terminal`的配置项，并在加载时提示哪些键值存在问题\r\n- 现在上述三个接口可以被分别独立加载了，即其中一个接口配置存在问题不会阻碍其余两个接口的加载与使用\r\n- 使用`!!mirror`指令时自动显示接口配置与启用状态\r\n- 优化部分回显\r\n\r\n# Fixes\r\n- 修复在除`!!mirror status`指令中获取status时，部分翻译键名调用错误的问题\r\n- 修复Windows系统下启用`terminal`的严格检查`regex_strict`失效的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 257508894,
+        "name": "MirrorMcsmcdR-v1.4.0.mcdr",
+        "size": 28304,
+        "download_count": 129,
+        "created_at": "2025-05-23T17:10:05Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.4.0/MirrorMcsmcdR-v1.4.0.mcdr",
+        "hash_md5": "f5120aaf05822168fb46bdbc7e098512",
+        "hash_sha256": "56ab807c38eda5f8aae15c5c069d1e59ebc1df46c1b9e6b3507d8fb695e29c38"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.4.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.3.6",
+      "name": "v1.3.6",
+      "tag_name": "v1.3.6",
+      "created_at": "2024-08-30T11:44:07Z",
+      "description": "# Fixes\r\n- 修复实际检查权限与README描述不一致的问题，现在使用`has_permission`函数检查指令权限（ #15 ）",
+      "prerelease": false,
+      "asset": {
+        "id": 189347787,
+        "name": "MirrorMcsmcdR-v1.3.6.mcdr",
+        "size": 25944,
+        "download_count": 176,
+        "created_at": "2024-08-30T11:48:35Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.3.6/MirrorMcsmcdR-v1.3.6.mcdr",
+        "hash_md5": "b36ef9417c25d8e35411b67237f7007a",
+        "hash_sha256": "4e7909a1ec8780642e687bd04b51ec59d59e2090b1decc6afddd509fbc15b093"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.3.6",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.3.5",
+      "name": "v1.3.5",
+      "tag_name": "v1.3.5",
+      "created_at": "2024-08-01T11:10:14Z",
+      "description": "# Fixes\r\n- 修复了sync时无法获取status时，提示信息对应的语言文件错误的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 183196498,
+        "name": "MirrorMcsmcdR-v1.3.5.mcdr",
+        "size": 25953,
+        "download_count": 82,
+        "created_at": "2024-08-01T11:11:24Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.3.5/MirrorMcsmcdR-v1.3.5.mcdr",
+        "hash_md5": "fc6f42d67781120d7b2d334a20bf7a1a",
+        "hash_sha256": "949cc4da54e08405dca9f79aa6b0bd76c8a0b3ddc05dcb0385ac4aee62d990b6"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.3.5",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.3.4",
+      "name": "v1.3.4",
+      "tag_name": "v1.3.4",
+      "created_at": "2024-07-25T05:44:32Z",
+      "description": "# Fixes\r\n- 优化部分回显`reply`->`broadcast`\r\n  + 权限不足或执行失败时使用`reply`，即其他玩家看不到回显；执行成功时使用`broadcast`，即其他玩家和控制台可以看到回显",
+      "prerelease": false,
+      "asset": {
+        "id": 181714606,
+        "name": "MirrorMcsmcdR-v1.3.4.mcdr",
+        "size": 25893,
+        "download_count": 60,
+        "created_at": "2024-07-25T05:47:10Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.3.4/MirrorMcsmcdR-v1.3.4.mcdr",
+        "hash_md5": "2f90f7f17cbcc0fd8163d003facfefbb",
+        "hash_sha256": "ab7c6647448fd5fa7063a4b23345d3d5837720ba6c62cad594690b944ae454c8"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.3.4",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.3.3",
+      "name": "v1.3.3",
+      "tag_name": "v1.3.3",
+      "created_at": "2024-07-24T09:14:49Z",
+      "description": "# Fixes\r\n- 修复了Windows下使用terminal获取status时，启用严格匹配后报错的问题 #10 \r\n- 修复了`status`命令报错没有捕获并回显的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 181519077,
+        "name": "MirrorMcsmcdR-v1.3.3.mcdr",
+        "size": 25898,
+        "download_count": 50,
+        "created_at": "2024-07-24T09:16:40Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.3.3/MirrorMcsmcdR-v1.3.3.mcdr",
+        "hash_md5": "057a40f623ed75e6499554f1224fd0fd",
+        "hash_sha256": "259542ffa128a6d19fff7cb2a049db744acd600321fd3201d6e3dd16e41a8205"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.3.3",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.3.2",
+      "name": "v1.3.2",
+      "tag_name": "v1.3.2",
+      "created_at": "2024-07-21T11:41:55Z",
+      "description": "# Fixes\r\n- 修复了文件同步时，目标文件夹不存在会报错的问题\r\n- 修复了文件同步时，目标文件不存在会跳过同步的问题\r\n- 修复了配置`rcon`但未配置`terminal`时无法使用`status`命令的问题\r\n- 简化部分代码",
+      "prerelease": false,
+      "asset": {
+        "id": 180904820,
+        "name": "MirrorMcsmcdR-v1.3.2.mcdr",
+        "size": 25898,
+        "download_count": 53,
+        "created_at": "2024-07-21T11:42:39Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.3.2/MirrorMcsmcdR-v1.3.2.mcdr",
+        "hash_md5": "be0b10b36e75eca713c6692b230c5770",
+        "hash_sha256": "79d19dff4b967959472cf74c2af09c0df6eeb7a2f0fff774a2e3f59a88f672ba"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.3.2",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个多功能的完善的控制镜像服的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.3.1",
+      "name": "v1.3.1",
+      "tag_name": "v1.3.1",
+      "created_at": "2024-07-02T09:02:36Z",
+      "description": "# News\r\n- 通过`terminal`启动镜像服时，若找不到服务端目录将会提示\r\n- 优化`terminal`启动命令\r\n\r\n# Fixes\r\n- 实测`MCSManager-v10.2.1`的API现已可用\r\n- 修复了Linux无法使用`terminal`执行`stop`命令的问题\r\n- 修复了`zh_cn`语言文件中部分存在歧义的表述",
+      "prerelease": false,
+      "asset": {
+        "id": 177173812,
+        "name": "MirrorMcsmcdR-v1.3.1.mcdr",
+        "size": 25856,
+        "download_count": 74,
+        "created_at": "2024-07-02T09:06:19Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.3.1/MirrorMcsmcdR-v1.3.1.mcdr",
+        "hash_md5": "9b42209e7ab602de87643c20aa875183",
+        "hash_sha256": "82ae4a6fca58d1c53ea5d596e8f8944e66c75f0be2de9fbee6376da1863a7c19"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.3.1",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.6.0"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个基于MCSM的镜像服控制的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.2.1",
+      "name": "v1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2024-04-28T06:36:32Z",
+      "description": "**BUG FIX**\r\n- 修复了镜像服运行时进行同步和自动重启，需要确认停止指令且停止后不进行同步的问题。现在自动重启的停服指令不需要确认了\r\n- 修复了`!!mirror status`失效的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 164705757,
+        "name": "MirrorMcsmcdR-v1.2.1.mcdr",
+        "size": 21601,
+        "download_count": 96,
+        "created_at": "2024-04-28T06:38:18Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.2.1/MirrorMcsmcdR-v1.2.1.mcdr",
+        "hash_md5": "3929d7a30f557cf89a4fd565f3c6c931",
+        "hash_sha256": "c84274ea84cf241a845777eb4104a1a94a4f8368a3ef84835005235046a48a7b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.2.1",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个基于MCSM的镜像服控制的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.2.0",
+      "name": "v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2024-04-27T14:54:02Z",
+      "description": "**\\[注意\\]** 从旧版本更新时务必将配置文件中`mcsm`下的`enable`设置为`true`\r\n\r\n- 新增了功能完善的`confirm`操作确认功能\r\n- 计划配置`lang`语言文件\r\n- 计划支持`cmd`启动服务端\r\n- 优化了文件目录结构\r\n- 常规优化",
+      "prerelease": false,
+      "asset": {
+        "id": 164700405,
+        "name": "MirrorMcsmcdR-v1.2.0.mcdr",
+        "size": 21610,
+        "download_count": 51,
+        "created_at": "2024-04-28T05:46:54Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.2.0/MirrorMcsmcdR-v1.2.0.mcdr",
+        "hash_md5": "1518bdba5fe5c7975aa0db4e292cab2f",
+        "hash_sha256": "abcaaca3019ee640ffe1986cffcd63682ad7ee881d9c82a7f5f6e0ab8a115b2c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.2.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个基于MCSM的镜像服控制的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.1.0",
+      "name": "v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2024-04-07T12:07:57Z",
+      "description": "- 更完善的配置文件自动检查补全功能\r\n- 可针对所选镜像服的配置文件进行热重载\r\n- 镜像服同步自动重启\r\n- 显示优化\r\n- 部分代码优化",
+      "prerelease": false,
+      "asset": {
+        "id": 160771305,
+        "name": "MirrorMcsmcdR-v1.1.0.mcdr",
+        "size": 19421,
+        "download_count": 45,
+        "created_at": "2024-04-07T12:08:27Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.1.0/MirrorMcsmcdR-v1.1.0.mcdr",
+        "hash_md5": "f3e1267338f1eb76c3b49615653788ae",
+        "hash_sha256": "8e2677b21084cb4309acb975e91fc1bfaf3041231720b5bdf0ec2f3b1a50d813"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.1.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个基于MCSM的镜像服控制的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v1.0.1",
+      "name": "v1.0.1",
+      "tag_name": "v1.0.1",
+      "created_at": "2024-04-06T09:05:05Z",
+      "description": "- 如果要从v0.1升级至v1.0，请按README中新的配置文件示例修改你的配置文件\r\n- 支持了多镜像服控制\r\n- 目标服务端目录`target`支持了列表，现在可以同时向多个目标目录进行同步了\r\n- 添加了`ignore_inexistent_target_path`\r\n- 修改了MCDR指令注册方式\r\n- 优化显示",
+      "prerelease": false,
+      "asset": {
+        "id": 160622686,
+        "name": "MirrorMcsmcdR-v1.0.1.mcdr",
+        "size": 18622,
+        "download_count": 54,
+        "created_at": "2024-04-06T09:05:50Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v1.0.1/MirrorMcsmcdR-v1.0.1.mcdr",
+        "hash_md5": "a7461adaa804bca30a9486acdc5b0ad5",
+        "hash_sha256": "b8f337c1f0a1bd38bde99432af22d4a4fd76913f9ae4305b475362833e13f04d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "1.0.1",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [
+          "xxhash>=3"
+        ],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个基于MCSM的镜像服控制的MCDR插件"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/tag/v0.1.0",
+      "name": "v0.1.0",
+      "tag_name": "v0.1.0",
+      "created_at": "2024-01-06T08:32:06Z",
+      "description": "",
+      "prerelease": false,
+      "asset": {
+        "id": 144067743,
+        "name": "MirrorMcsmcdR-v0.1.0.mcdr",
+        "size": 5637,
+        "download_count": 52,
+        "created_at": "2024-01-06T08:32:34Z",
+        "browser_download_url": "https://github.com/LazyAlienServer/MirrorMcsmcdR/releases/download/v0.1.0/MirrorMcsmcdR-v0.1.0.mcdr",
+        "hash_md5": "b0bb3ad0016c75fb0256fca79e9fdbaf",
+        "hash_sha256": "e23ea0c103f69b85e4ef7df953f9814160aa9768e047898314c7a8b558e45b79"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_mcsmcdr",
+        "name": "MirrorMcsmcdR",
+        "version": "0.1.0",
+        "link": "https://github.com/LazyAlienServer/MirrorMcsmcdR",
+        "authors": [
+          "tanh_Heng"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.1.2"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "A mirror server manager MCDR plugin, based on MCSManager.",
+          "zh_cn": "一个基于MCSM的镜像服控制的MCDR插件"
+        }
+      }
+    }
+  ]
+}

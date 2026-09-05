@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "pcc",
+  "authors": [
+    "zyxkad"
+  ],
+  "repository": "https://github.com/kmcsr/pcc_mcdr",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "\n- English\n- [中文](https://github.com/kmcsr/pcc_mcdr/tree/main/README_zh.MD)\n\n# PCC\n\nA MCDR plugin allows you send MCDR commands privately.  \nIt also support to autocomplete MCDR commands in game without any mods install in the client.\n\nRequire `enable_packet_proxy` set to `true` in `loginproxy/config.json`\n\nDoes not support Minecraft earier than 1.19.2.\n\nTested version: 1.19.2, 1.21.1\n\n## Dependencies\n\n| ID                                                      | Release Link                                         |\n| ------------------------------------------------------- | ---------------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr)                | <https://github.com/kmcsr/kpi_mcdr/releases>         |\n| [loginproxy](https://github.com/kmcsr/login_proxy_mcdr) | <https://github.com/kmcsr/login_proxy_mcdr/releases> |\n\n## Usage\n\nThis plugin will register MCDR commands to Minecraft command tree after player login,\nYou can use `/!!` as the prefix to be able to autocomplete MCDR commands.\n\nPCC assume all the texts that starts with `!!` or `/!!` is MCDR commands. The commands that not begin with `!!` will not be proxied by PCC.\n\n## Options\n\n### `register_vanilla_command`\n\nWhen enabling, PCC will register a dynamic command node which is called `<!!MCDR-command>` to autocomlete MCDR commands that sent in Minecraft command form.  \nEnabled by default\n\n### `proxy_mcdr_chat_command`\n\nWhen enabling, PCC will proxy MCDR commands which sent in chat form, and prevent it from being send to the Minecraft server.\nThis might cause some plugins cannot parse its commands.  \nEnabled by default\n\n### `chat_preview_suggestion`\n\nWhen enabling, PCC will request the clients send its chat preview to this plugin, which make PCC be able to parse MCDR commands and returns suggestions.  \nDisabled by default\n\n",
+    "zh_cn": "\n- [English](https://github.com/kmcsr/pcc_mcdr/tree/main/README.MD)\n- 中文\n\n# PCC\n\n一个允许你默默发送 MCDR 指令的插件.  \n也允许你在游戏内自动补全 MCDR 指令\n\n需要将 `loginproxy/config.json` 下的 `enable_packet_proxy` 选项设为 `true`\n\n不支持小于 1.19.2 的版本\n\n实测 1.19.2, 1.21.1 可用, 其他版本未知\n\n## 特性\n\n- 动态补全\n- 完整的权限检查\n\n## 依赖\n\n| ID                                                      | 下载链接                                                 |\n| ------------------------------------------------------- | ---------------------------------------------------- |\n| [kpi](https://github.com/kmcsr/kpi_mcdr)                | <https://github.com/kmcsr/kpi_mcdr/releases>         |\n| [loginproxy](https://github.com/kmcsr/login_proxy_mcdr) | <https://github.com/kmcsr/login_proxy_mcdr/releases> |\n\n## 用法\n\n本插件加载后会在玩家登录后将 MCDR 指令注册到 Minecraft 指令树内,\n仅需使用 `/!!` 前缀自动补全 MCDR 指令.\n\nPCC 假设所有以 `!!` 或 `/!!` 开头的文本为 MCDR 指令. 不以 `!!` 开头的 MCDR 指令无法被 PCC 正确代理.\n\n## 选项\n\n### `register_vanilla_command`\n\n启用后, PCC 会在玩家登录后注册一个名为 `<!!MCDR-command>` 的动态指令节点以自动补全使用 Minecraft 指令形式发送的 MCDR 指令.  \n默认启用\n\n### `proxy_mcdr_chat_command`\n\n启用后, PCC 会代理文本态的 MCDR 指令, 并阻止其被发送到服务端. 可能会导致部分旧版插件无法执行指令.  \n默认启用\n\n### `chat_preview_suggestion`\n\n启用后, PCC 会要求客户端在打开聊天栏时动态发送聊天内容到服务端, 解析 MCDR 指令并返回建议选项.  \n默认禁用\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/kmcsr/pcc_mcdr/main/README.MD",
+    "zh_cn": "https://raw.githubusercontent.com/kmcsr/pcc_mcdr/main/README_zh.MD"
+  }
+}

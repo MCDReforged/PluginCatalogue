@@ -1,0 +1,195 @@
+{
+  "schema_version": 8,
+  "id": "zaiganma_livestatus",
+  "latest_version": "1.1.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.1.1",
+      "name": "v1.1.1",
+      "tag_name": "1.1.1",
+      "created_at": "2026-08-29T06:07:48Z",
+      "description": "### ZaiGanMa (LiveStatus) v1.1.1\r\n\r\n#### 新增\r\n- `!!zgm history` 无参数查看自己的历史\r\n- 历史记录显示颜色 + 加粗格式\r\n- 权限统一管理（op_permission_level，默认 3）\r\n- 帮助菜单隐私设置点击式（[公开] [私密]）\r\n- 移除 uuid_api 强制依赖，有则用，无则降级\r\n\r\n#### 优化\r\n- 重载后自动从数据库恢复状态\r\n- 精简导入结构\r\n\r\n#### 修复\r\n- 修复 `!!zgm history` 无参数报错\r\n- 修复重载后状态不同步\r\n- 修复权限检查失效\r\n- 修复颜色代码显示为文本",
+      "prerelease": false,
+      "asset": {
+        "id": 534838868,
+        "name": "ZaiGanMa.LiveStatus.-v1.1.1.mcdr",
+        "size": 14448,
+        "download_count": 4,
+        "created_at": "2026-08-29T06:08:22Z",
+        "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.1.1/ZaiGanMa.LiveStatus.-v1.1.1.mcdr",
+        "hash_md5": "fd8073d5e17d87d61f733a5332d209ac",
+        "hash_sha256": "20e658d8e02668e3ea451c38e1ecf27e4b708cf9e2e80b01e9d6c26ad760eed9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "zaiganma_livestatus",
+        "name": "ZaiGanMa (LiveStatus)",
+        "version": "1.1.1",
+        "link": "https://github.com/man8in/zaiganma-livestatus",
+        "authors": [
+          "man8in"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "minecraft_data_api": ">=1.6.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+          "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+          "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.1.0",
+      "name": "v1.1.0",
+      "tag_name": "1.1.0",
+      "created_at": "2026-08-16T08:01:15Z",
+      "description": "### ZaiGanMa (LiveStatus) v1.1.0\r\n\r\n#### 新增\r\n- 预设状态：玩家可设置预设状态，下次上线自动生效（!!zgm preset / pending / cancel_pending）\r\n- 状态历史记录：自动记录每次状态变更，最多保存 10 条（!!zgm history [玩家名]）\r\n- 历史隐私控制：玩家可设置历史记录是否公开（!!zgm history privacy <true/false>）\r\n- HTTP API：外部程序可读写玩家状态，默认端口 8123\r\n- UUID 自动适配：正版/离线服务器自动适配，无需手动配置\r\n- 假人自动识别：自动识别 Carpet 假人（bot_ 前缀）\r\n- 新增配置项：default_status、api_host、api_port\r\n\r\n#### 优化\r\n- !!zgm <玩家名> 支持离线玩家查询\r\n- 优化显示界面，区分\"手动设置\"和\"默认\"模式\r\n- 优化颜色显示逻辑\r\n\r\n#### 修复\r\n- 修复预设状态不自动应用的 Bug\r\n- 修复离线玩家查询显示\"暂无状态数据\"的问题\r\n- 修复玩家上线时状态被覆盖的问题\r\n- 修复颜色代码显示为文本的问题\r\n\r\n#### 依赖\r\n- 新增 minecraft_data_api >= 1.6.0（必须）\r\n- 新增 uuid_api >= 1.0.0（必须）",
+      "prerelease": false,
+      "asset": {
+        "id": 516590837,
+        "name": "ZaiGanMa.LiveStatus.-v1.1.0.mcdr",
+        "size": 14567,
+        "download_count": 16,
+        "created_at": "2026-08-16T08:06:02Z",
+        "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.1.0/ZaiGanMa.LiveStatus.-v1.1.0.mcdr",
+        "hash_md5": "2345598cee60a82a38041b4128f2d1ed",
+        "hash_sha256": "458a9c995a46fa98cfce17684c89c8085ba7ca8eb1a4df6559ca4b7a40ddbeb1"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "zaiganma_livestatus",
+        "name": "ZaiGanMa (LiveStatus)",
+        "version": "1.1.0",
+        "link": "https://github.com/man8in/zaiganma-livestatus",
+        "authors": [
+          "man8in"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "minecraft_data_api": ">=1.6.0",
+          "uuid_api": ">=1.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+          "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+          "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.0.2",
+      "name": "v1.0.2",
+      "tag_name": "1.0.2",
+      "created_at": "2026-08-06T07:29:44Z",
+      "description": "### ZaiGanMa (LiveStatus) v1.0.2\r\n\r\n#### 修复\r\n- 修复 `!!zgm lib reset` 重置状态库无效的问题（强制覆盖逻辑从重载转移至 reset）\r\n- 修复 `!!zgm lib` 显示状态数量不正确的问题\r\n\r\n#### 优化\r\n- 重载插件不再自动重置状态库，保留玩家添加的状态\r\n\r\n#### 新增\r\n- 无",
+      "prerelease": false,
+      "asset": {
+        "id": 503631950,
+        "name": "ZaiGanMa.LiveStatus.-v1.0.2.mcdr",
+        "size": 8904,
+        "download_count": 20,
+        "created_at": "2026-08-06T07:32:13Z",
+        "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.0.2/ZaiGanMa.LiveStatus.-v1.0.2.mcdr",
+        "hash_md5": "3017206c252161e12ac8a24f54d72d23",
+        "hash_sha256": "754a6a293d5aba86246e753ab46ca86963165fce59f6977727052959d1371698"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "zaiganma_livestatus",
+        "name": "ZaiGanMa (LiveStatus)",
+        "version": "1.0.2",
+        "link": "https://github.com/man8in/zaiganma-livestatus",
+        "authors": [
+          "man8in"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+          "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+          "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.0.1",
+      "name": "v1.0.1",
+      "tag_name": "1.0.1",
+      "created_at": "2026-08-04T18:13:47Z",
+      "description": "### ZaiGanMa (LiveStatus) v1.0.1\r\n\r\n#### 完善功能\r\n- 完善管理员设置面板 (`!!zgm config panel`)\r\n- 完善状态总开关 (`!!zgm config show_status true/false`)，关闭时清空所有玩家状态\r\n- 完善 `!!zgm config max_length <数字>` 调整状态字数限制\r\n- 完善 `!!zgm clib` 颜色库指令\r\n- 完善 `!!zgm lib reset` 重置状态库\r\n\r\n#### 优化\r\n- 设置面板支持点击填入指令\r\n- 管理员操作全服广播通知\r\n- 完善帮助菜单\r\n\r\n#### 修复\r\n- 修复 `show_status` 关闭后仍可设置状态的问题\r\n- 修复自定义处理器正则匹配问题\r\n- 修复 Team 操作消息过滤",
+      "prerelease": false,
+      "asset": {
+        "id": 501662652,
+        "name": "ZaiGanMa.LiveStatus.-v1.0.1.mcdr",
+        "size": 9335,
+        "download_count": 13,
+        "created_at": "2026-08-04T18:16:46Z",
+        "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.0.1/ZaiGanMa.LiveStatus.-v1.0.1.mcdr",
+        "hash_md5": "e2e2aaa4d1216e798f25a1dd2322e699",
+        "hash_sha256": "0d1dea1b5007f6fa31a2665011702bbe9d8b815d76d20ce920a7296ef2af2fd7"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "zaiganma_livestatus",
+        "name": "ZaiGanMa (LiveStatus)",
+        "version": "1.0.1",
+        "link": "https://github.com/man8in/zaiganma-livestatus",
+        "authors": [
+          "man8in"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+          "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+          "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.0.0",
+      "name": "v1.0.0",
+      "tag_name": "1.0.0",
+      "created_at": "2026-07-31T10:05:52Z",
+      "description": "### ZaiGanMa (LiveStatus) v1.0.0\r\n\r\n允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中。\r\n\r\n#### 功能特性\r\n- ✅ 聊天框显示状态前缀\r\n- ✅ TAB 列表显示状态\r\n- ✅ 手动设置状态 (`!!zgm set`)\r\n- ✅ 清除状态 (`!!zgm clear`)\r\n- ✅ 自定义颜色 (`!!zgm color`)\r\n- ✅ 状态库系统 (`!!zgm lib`)\r\n- ✅ 随机推荐 (`!!zgm suggest`)\r\n\r\n#### 安装\r\n将 `.mcdr` 文件放入 `plugins` 文件夹，重启 MCDR。\r\n\r\n#### 依赖\r\n- MCDR >= 2.13.0\r\n- Minecraft Data API (可选)",
+      "prerelease": false,
+      "asset": {
+        "id": 500995883,
+        "name": "ZaiGanMa.LiveStatus.-v1.0.0.mcdr",
+        "size": 7912,
+        "download_count": 14,
+        "created_at": "2026-08-04T06:41:52Z",
+        "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.0.0/ZaiGanMa.LiveStatus.-v1.0.0.mcdr",
+        "hash_md5": "5cda0cd1c8f67461db57ee815b1f0cba",
+        "hash_sha256": "30b7292dd8dfc908e163e52c706ef0d17323f444e070cfb7e9e3314a990e74da"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "zaiganma_livestatus",
+        "name": "ZaiGanMa (LiveStatus)",
+        "version": "1.0.0",
+        "link": "https://github.com/man8in/zaiganma-livestatus",
+        "authors": [
+          "man8in"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "在 TAB 列表和聊天框中实时显示玩家当前行为状态",
+          "en_us": "Display the current behavior status of players in the TAB list and chat box in real time"
+        }
+      }
+    }
+  ]
+}

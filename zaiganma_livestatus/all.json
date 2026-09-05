@@ -1,0 +1,262 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "zaiganma_livestatus",
+    "name": "ZaiGanMa (LiveStatus)",
+    "version": "1.1.1",
+    "link": "https://github.com/man8in/zaiganma-livestatus",
+    "authors": [
+      "man8in"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0",
+      "minecraft_data_api": ">=1.6.0"
+    },
+    "requirements": [],
+    "description": {
+      "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+      "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+      "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "zaiganma_livestatus",
+    "authors": [
+      "man8in"
+    ],
+    "repository": "https://github.com/man8in/zaiganma-livestatus",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "<div align=\"center\">\n\n# ZaiGanMa (LiveStatus) for MCDReforged\n\n[简体中文](https://github.com/man8in/zaiganma-livestatus/tree/main//README.zh-CN.md)  |  [繁體中文](https://github.com/man8in/zaiganma-livestatus/tree/main//README.zh-TW.md)\n\n[Report an Issue](https://github.com/man8in/zaiganma-livestatus/issues)  |  [Share an Idea](https://github.com/man8in/zaiganma-livestatus/discussions)\n\n</div>\n\n> [!NOTE]\n> **ZaiGanMa (LiveStatus)** is a lightweight MCDR plugin that allows players to set their own status tags and display them in the chat box and TAB list. Based on Minecraft's native Team mechanism.\n\n## 📋 Table of Contents\n\n- [Features](#-features)\n- [Installation](#installation)\n- [Dependencies](#dependencies)\n- [Usage](#usage)\n- [HTTP API](#-http-api)\n- [Configuration](#configuration)\n- [Supported Colors](#supported-colors)\n- [License](#license)\n\n## ✨ Features\n\n- ✅ Set/clear manual status (`!!zgm set / clear`)\n- ✅ Set status color (`!!zgm color`)\n- ✅ **Preset status** - visible offline, auto-apply on join (`!!zgm preset / pending / cancel_pending`)\n- ✅ Query any player's status (**supports offline players**) (`!!zgm <player>`)\n- ✅ **Status history** with privacy control (`!!zgm history`)\n- ✅ Status library management (`!!zgm lib`)\n- ✅ Random status suggestion (`!!zgm suggest`)\n- ✅ **HTTP API** for external program integration\n- ✅ Auto-detect bots (`bot_` prefix)\n- ✅ Admin config panel (`!!zgm config`)\n\n## Installation\n\nRun the following command in the MCDR console:\n\n```\n!!MCDR plugin install zaiganma_livestatus\n```\n\nAlternatively, download the `.mcdr` file from the [Releases page](https://github.com/man8in/zaiganma-livestatus/releases) and place it in your `plugins` folder.\n\n## Dependencies\n\n| Dependency         | Version  | Required   |\n| ------------------ | -------- | ---------- |\n| MCDR               | >= 2.0.0 | ✅ Yes      |\n| minecraft_data_api | >= 1.6.0 | ✅ Yes      |\n| uuid_api           | >= 1.0.0 | ❌ Optional |\n\n> [!TIP]\n> `uuid_api` is optional. If installed, it improves offline-player UUID resolution; the plugin degrades gracefully without it.\n\n## Usage\n\n| Command                              | Description                                         |\n| ------------------------------------ | --------------------------------------------------- |\n| `!!zgm`                              | View your own status                                |\n| `!!zgm <player>`                     | View another player's status (**supports offline**) |\n| `!!zgm set <text>`                   | Set your status                                     |\n| `!!zgm clear`                        | Clear your status                                   |\n| `!!zgm color <color>`                | Set status color                                    |\n| `!!zgm clib`                         | View available colors                               |\n| `!!zgm preset <text>`                | Set preset status (auto-apply on next join)         |\n| `!!zgm pending`                      | Check your preset status                            |\n| `!!zgm cancel_pending`               | Cancel your preset status                           |\n| `!!zgm history [player]`             | View status history (self if empty)                 |\n| `!!zgm history privacy <true/false>` | Set history privacy                                 |\n| `!!zgm lib`                          | View status library (click to use)                  |\n| `!!zgm lib add <text>`               | Add status to library                               |\n| `!!zgm lib remove <text>`            | Remove status from library                          |\n| `!!zgm lib reload`                   | Reload status library from file                     |\n| `!!zgm lib reset`                    | Reset status library to default (admin only)        |\n| `!!zgm suggest`                      | Get a random status suggestion                      |\n| `!!zgm config`                       | View configuration panel (admin only)               |\n\n> [!TIP]\n> Click on any status in `!!zgm lib`, `!!zgm clib`, `!!zgm suggest`, or `!!zgm config` to automatically fill the command into your chat bar, then press Enter to confirm.\n\n## 🔌 HTTP API\n\nZaiGanMa includes a built-in HTTP API server that allows external programs (such as QQ bots, web panels, mobile apps, etc.) to read and write player status via HTTP requests.\n\nThe API server starts automatically with the plugin — no extra setup required. When the plugin loads successfully, the MCDR log will show:\n\n```\n[ZaiGanMa] API 服务器已启动 http://0.0.0.0:8123\n```\n\n| Item          | Value                                |\n| ------------- | ------------------------------------ |\n| Base URL      | `http://<your-server-IP>:8123`       |\n| GET endpoint  | `/api/status/get?uuid=<player-UUID>` |\n| POST endpoint | `/api/status/set`                    |\n\n> The listen address and port are controlled by `api_host` / `api_port` in the [Configuration](#configuration) section.\n\n### 1️⃣ GET /api/status/get?uuid=<player-UUID>\n\nQuery the current status of a specified player.\n\nRequest example:\n\n```bash\ncurl \"http://127.0.0.1:8123/api/status/get?uuid=069a79f4-44e9-4726-a5be-fca90e38aaf5\"\n```\n\nSuccess response:\n\n```json\n{\n  \"success\": true,\n  \"data\": {\n    \"name\": \"man8in\",\n    \"status\": \"Mining\",\n    \"color\": \"gold\",\n    \"has_pending\": false,\n    \"updated_at\": 1723705800\n  }\n}\n```\n\n| Field       | Type    | Description                            |\n| ----------- | ------- | -------------------------------------- |\n| name        | string  | Player name                            |\n| status      | string  | Current status text                    |\n| color       | string  | Status color name                      |\n| has_pending | boolean | Whether a pending preset status exists |\n| updated_at  | integer | Status update timestamp                |\n\nFailure response:\n\n```json\n{\n  \"success\": false,\n  \"error\": \"Player not found\"\n}\n```\n\n### 2️⃣ POST /api/status/set\n\nSet a player's status.\n\nRequest format:\n\n```\nPOST http://<your-server-IP>:8123/api/status/set\nContent-Type: application/json\n```\n\nRequest parameters:\n\n| Parameter | Type    | Required | Default | Description                                    |\n| --------- | ------- | -------- | ------- | ---------------------------------------------- |\n| uuid      | string  | ✅ Yes    | -       | Player UUID                                    |\n| name      | string  | ✅ Yes    | -       | Player name                                    |\n| status    | string  | ✅ Yes    | -       | Status text                                    |\n| color     | string  | ❌ No     | white   | Color name                                     |\n| pending   | boolean | ❌ No     | true    | true = preset status, false = immediate effect |\n\nRequest example (preset status):\n\n```bash\ncurl -X POST http://127.0.0.1:8123/api/status/set \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"uuid\":\"069a79f4-44e9-4726-a5be-fca90e38aaf5\",\"name\":\"man8in\",\"status\":\"Going to eat\",\"color\":\"yellow\",\"pending\":true}'\n```\n\nSuccess response:\n\n```json\n{\n  \"success\": true,\n  \"message\": \"Status set successfully\",\n  \"pending\": true\n}\n```\n\nRequest example (immediate effect):\n\n```bash\ncurl -X POST http://127.0.0.1:8123/api/status/set \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"uuid\":\"069a79f4-44e9-4726-a5be-fca90e38aaf5\",\"name\":\"man8in\",\"status\":\"Mining\",\"color\":\"gold\",\"pending\":false}'\n```\n\nFailure response:\n\n```json\n{\n  \"success\": false,\n  \"error\": \"Missing uuid\"\n}\n```\n\n### 🔒 Security Recommendations\n\n> [!WARNING]\n> The API has **no authentication by default**. If you expose it to the public network, configure security measures based on your actual needs.\n\n**1. Restrict listen address**\n\nIf you only need local access (e.g., a QQ bot running on the same machine as MCDR), change `api_host` to `127.0.0.1` — only programs on the local machine can then access the API.\n\n**2. Change the default port**\n\nAvoid using the default port to reduce the risk of being scanned (e.g., `38123`).\n\n**3. Firewall restrictions**\n\nUse a firewall (e.g., iptables, ufw) to restrict access to specific IPs:\n\n```bash\n# Only allow 192.168.1.100 to access port 8123\nufw allow from 192.168.1.100 to any port 8123\n```\n\n**4. Add token authentication (advanced)**\n\nFor more advanced security control, add Token authentication in the API handler yourself. Add the following at the beginning of the `StatusAPIHandler` class:\n\n```python\nAPI_TOKEN = \"your_secret_token_here\"\n\ndef do_GET(self):\n    token = self.headers.get('Authorization', '').replace('Bearer ', '')\n    if token != self.API_TOKEN:\n        self._send_json(401, {'error': 'Unauthorized'})\n        return\n    # ... original code\n```\n\n### 💻 Integration Examples\n\n**Python (QQ bot):**\n\n```python\nimport requests\n\nAPI_BASE = \"http://127.0.0.1:8123\"\n\ndef get_player_status(uuid):\n    resp = requests.get(f\"{API_BASE}/api/status/get\", params={\"uuid\": uuid})\n    return resp.json()\n\ndef set_player_status(uuid, name, status, color=\"white\", pending=True):\n    resp = requests.post(f\"{API_BASE}/api/status/set\", json={\n        \"uuid\": uuid,\n        \"name\": name,\n        \"status\": status,\n        \"color\": color,\n        \"pending\": pending\n    })\n    return resp.json()\n```\n\n**JavaScript (Node.js):**\n\n```javascript\nconst axios = require('axios');\n\nconst API_BASE = 'http://127.0.0.1:8123';\n\nasync function getPlayerStatus(uuid) {\n    const resp = await axios.get(`${API_BASE}/api/status/get`, { params: { uuid } });\n    return resp.data;\n}\n\nasync function setPlayerStatus(uuid, name, status, color = 'white', pending = true) {\n    const resp = await axios.post(`${API_BASE}/api/status/set`, {\n        uuid,\n        name,\n        status,\n        color,\n        pending\n    });\n    return resp.data;\n}\n```\n\n### ❓ FAQ\n\n**Q1: API request returns 404?**\n\nIncorrect URL path or the API server is not running. Check that the MCDR log shows `[ZaiGanMa] API 服务器已启动 http://...` and that the request URL path is correct (case-sensitive).\n\n**Q2: Returns `{\"success\": false, \"error\": \"Player not found\"}`?**\n\nNo player record for that UUID in the database. The player needs to have set a status at least once to have a record.\n\n**Q3: How to get a player's UUID?**\n\n- Use `!!zgm` in-game or query history (may be displayed depending on server configuration)\n- Use the uuid_api plugin:\n\n```python\nuuid_api = server.get_plugin_instance('uuid_api')\nuuid = uuid_api.get_uuid('man8in')\n```\n\n- Or query the database directly:\n\n```bash\nsqlite3 config/zaiganma_livestatus/zaigamma.db \"SELECT uuid, name FROM player_status;\"\n```\n\n**Q4: API didn't change after modifying config?**\n\nReload the plugin:\n\n```\n!!MCDR reload ZaiGanMa\n```\n\n**Q5: Can the API be accessed cross-origin?**\n\nYes. The API adds `Access-Control-Allow-Origin: *` to the response headers, supporting cross-origin requests.\n\n## Configuration\n\nThe plugin generates config.json on first run:\n\n| Key                      | Type    | Default | Description                                                             |\n| ------------------------ | ------- | ------- | ----------------------------------------------------------------------- |\n| show_status              | boolean | true    | Master switch for status display                                        |\n| default_status           | string  | 在线      | Default status text                                                     |\n| max_length               | integer | 8       | Max status text length                                                  |\n| allow_color              | boolean | true    | Allow custom colors                                                     |\n| manual_status_timeout    | integer | 180     | Manual status timeout (minutes, 0 = forever)                            |\n| api_host                 | string  | 0.0.0.0 | HTTP API bind address                                                   |\n| api_port                 | integer | 8123    | HTTP API port                                                           |\n| library_entry_max_length | integer | 8       | Max status library entry length                                         |\n| op_permission_level      | integer | 3       | Permission level for admin commands (config panel, library reset, etc.) |\n\n## Supported Colors\n\nblack, dark_blue, dark_green, dark_aqua, dark_red, dark_purple, gold, gray, dark_gray, blue, green, aqua, red, light_purple, yellow, white\n\nAlso supports hex colors like `#FF6B6B`.\n\n## License\n\nMIT\n\n## Author\n\nman8in — [GitHub](https://github.com/man8in)\n",
+      "zh_cn": "<div align=\"center\">\n\n# ZaiGanMa (LiveStatus) for MCDReforged\n\n[English](https://github.com/man8in/zaiganma-livestatus/tree/main//README.md) | [繁體中文](https://github.com/man8in/zaiganma-livestatus/tree/main//README.zh-TW.md)\n\n[反馈问题](https://github.com/man8in/zaiganma-livestatus/issues) | [提供建议](https://github.com/man8in/zaiganma-livestatus/discussions)\n\n</div>\n\n> [!NOTE]\n> ZaiGanMa (LiveStatus) 是一款轻量级 MCDR 插件，允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中。基于 Minecraft 原版 Team 机制。\n\n## 📋 目录\n\n- [功能特性](#-功能特性)\n- [安装](#安装)\n- [依赖](#依赖)\n- [使用说明](#使用说明)\n- [HTTP API](#-http-api)\n- [配置说明](#配置说明)\n- [支持的颜色](#支持的颜色)\n- [开源协议](#开源协议)\n\n## ✨ 功能特性\n\n- ✅ 设置/清除手动状态 (`!!zgm set / clear`)\n- ✅ 设置状态颜色 (`!!zgm color`)\n- ✅ **预设状态** - 离线可见，上线自动生效 (`!!zgm preset / pending / cancel_pending`)\n- ✅ 查询任意玩家状态（**支持离线玩家**）(`!!zgm <玩家名>`)\n- ✅ **状态历史记录** 及隐私控制 (`!!zgm history`)\n- ✅ 状态库管理 (`!!zgm lib`)\n- ✅ 随机推荐状态 (`!!zgm suggest`)\n- ✅ **HTTP API** 外部程序集成\n- ✅ 自动识别假人 (`bot_` 前缀)\n- ✅ 管理员配置面板 (`!!zgm config`)\n\n## 安装\n\n在 MCDR 控制台执行：\n\n```\n!!MCDR plugin install zaiganma_livestatus\n```\n\n或者从 [Releases 页面](https://github.com/man8in/zaiganma-livestatus/releases) 下载 `.mcdr` 文件放入 `plugins` 文件夹。\n\n## 依赖\n\n| 依赖                 | 版本       | 必要性  |\n| ------------------ | -------- | ---- |\n| MCDR               | >= 2.0.0 | ✅ 必须 |\n| minecraft_data_api | >= 1.6.0 | ✅ 必须 |\n| uuid_api           | >= 1.0.0 | ⭕ 可选 |\n\n> [!TIP]\n> `uuid_api` 为可选依赖：安装后可改善离线玩家的 UUID 解析，未安装时插件会自动降级，不影响核心功能。\n\n## 使用说明\n\n| 指令                                   | 说明               |\n| ------------------------------------ | ---------------- |\n| `!!zgm`                              | 查看自己的状态          |\n| `!!zgm <玩家名>`                        | 查看他人状态（**支持离线**） |\n| `!!zgm set <文字>`                     | 设置状态             |\n| `!!zgm clear`                        | 清除状态             |\n| `!!zgm color <颜色>`                   | 设置状态颜色           |\n| `!!zgm clib`                         | 查看可用颜色           |\n| `!!zgm preset <文字>`                  | 设置预设状态（下次上线自动生效） |\n| `!!zgm pending`                      | 查看预设状态           |\n| `!!zgm cancel_pending`               | 取消预设状态           |\n| `!!zgm history [玩家名]`                | 查看状态历史（不填则查看自己）  |\n| `!!zgm history privacy <true/false>` | 设置历史隐私           |\n| `!!zgm lib`                          | 查看状态库（点击使用）      |\n| `!!zgm lib add <文字>`                 | 添加状态到库           |\n| `!!zgm lib remove <文字>`              | 从库删除状态           |\n| `!!zgm lib reload`                   | 从文件重载状态库         |\n| `!!zgm lib reset`                    | 重置状态库为默认（仅限管理员）  |\n| `!!zgm suggest`                      | 随机推荐状态           |\n| `!!zgm config`                       | 查看配置面板（仅限管理员）    |\n\n> [!TIP]\n> 在 `!!zgm lib`、`!!zgm clib`、`!!zgm suggest`、`!!zgm config` 中点击状态可自动填入指令，按回车确认即可。\n\n## 🔌 HTTP API\n\nZaiGanMa 内置了一个 HTTP API 服务器，允许外部程序（如 QQ 机器人、Web 面板、手机 App 等）通过 HTTP 请求读写玩家状态。\n\nAPI 服务器默认随插件一起启动，无需额外操作。插件加载成功时，MCDR 日志中会显示：\n\n```\n[ZaiGanMa] API 服务器已启动 http://0.0.0.0:8123\n```\n\n| 项目      | 值                               |\n| ------- | ------------------------------- |\n| 基础地址    | `http://你的服务器IP:8123`           |\n| GET 接口  | `/api/status/get?uuid=<玩家UUID>` |\n| POST 接口 | `/api/status/set`               |\n\n> 监听地址和端口由[配置说明](#配置说明)中的 `api_host` / `api_port` 控制。\n\n### 1️⃣ GET /api/status/get?uuid=<玩家UUID>\n\n查询指定玩家的当前状态。\n\n请求示例：\n\n```bash\ncurl \"http://127.0.0.1:8123/api/status/get?uuid=069a79f4-44e9-4726-a5be-fca90e38aaf5\"\n```\n\n成功返回：\n\n```json\n{\n  \"success\": true,\n  \"data\": {\n    \"name\": \"man8in\",\n    \"status\": \"挖矿中\",\n    \"color\": \"gold\",\n    \"has_pending\": false,\n    \"updated_at\": 1723705800\n  }\n}\n```\n\n| 字段          | 类型      | 说明          |\n| ----------- | ------- | ----------- |\n| name        | string  | 玩家名称        |\n| status      | string  | 当前状态内容      |\n| color       | string  | 状态颜色名称      |\n| has_pending | boolean | 是否有待生效的预设状态 |\n| updated_at  | integer | 状态更新时间戳     |\n\n失败返回：\n\n```json\n{\n  \"success\": false,\n  \"error\": \"Player not found\"\n}\n```\n\n### 2️⃣ POST /api/status/set\n\n设置玩家的状态。\n\n请求格式：\n\n```\nPOST http://你的服务器IP:8123/api/status/set\nContent-Type: application/json\n```\n\n请求参数：\n\n| 参数      | 类型      | 必填  | 默认值   | 说明                   |\n| ------- | ------- | --- | ----- | -------------------- |\n| uuid    | string  | ✅ 是 | -     | 玩家 UUID              |\n| name    | string  | ✅ 是 | -     | 玩家名称                 |\n| status  | string  | ✅ 是 | -     | 状态内容                 |\n| color   | string  | ❌ 否 | white | 颜色名称                 |\n| pending | boolean | ❌ 否 | true  | true=预设状态，false=立即生效 |\n\n请求示例（预设状态）：\n\n```bash\ncurl -X POST http://127.0.0.1:8123/api/status/set \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"uuid\":\"069a79f4-44e9-4726-a5be-fca90e38aaf5\",\"name\":\"man8in\",\"status\":\"去吃饭了\",\"color\":\"yellow\",\"pending\":true}'\n```\n\n成功返回：\n\n```json\n{\n  \"success\": true,\n  \"message\": \"Status set successfully\",\n  \"pending\": true\n}\n```\n\n请求示例（立即生效）：\n\n```bash\ncurl -X POST http://127.0.0.1:8123/api/status/set \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"uuid\":\"069a79f4-44e9-4726-a5be-fca90e38aaf5\",\"name\":\"man8in\",\"status\":\"正在挖矿\",\"color\":\"gold\",\"pending\":false}'\n```\n\n失败返回：\n\n```json\n{\n  \"success\": false,\n  \"error\": \"Missing uuid\"\n}\n```\n\n### 🔒 安全建议\n\n> [!WARNING]\n> API 默认**没有身份验证**。如需公网访问，请根据实际情况配置安全措施。\n\n**1. 限制监听地址**\n\n如果只需要本地访问（如与 MCDR 同机运行的 QQ 机器人），将 `api_host` 改为 `127.0.0.1`，这样只有本机程序可以访问 API。\n\n**2. 修改默认端口**\n\n避免使用默认端口，降低被扫描的风险（如改为 `38123`）。\n\n**3. 防火墙限制**\n\n使用防火墙（如 iptables、ufw）限制只能特定 IP 访问：\n\n```bash\n# 只允许 192.168.1.100 访问 8123 端口\nufw allow from 192.168.1.100 to any port 8123\n```\n\n**4. 添加 Token 验证（高级）**\n\n如果需要更高级的安全控制，可以自行在 API 处理器中添加 Token 验证。在 `StatusAPIHandler` 类的开头添加：\n\n```python\nAPI_TOKEN = \"your_secret_token_here\"\n\ndef do_GET(self):\n    token = self.headers.get('Authorization', '').replace('Bearer ', '')\n    if token != self.API_TOKEN:\n        self._send_json(401, {'error': 'Unauthorized'})\n        return\n    # ... 原有代码\n```\n\n### 💻 集成示例\n\n**Python（QQ 机器人）：**\n\n```python\nimport requests\n\nAPI_BASE = \"http://127.0.0.1:8123\"\n\ndef get_player_status(uuid):\n    resp = requests.get(f\"{API_BASE}/api/status/get\", params={\"uuid\": uuid})\n    return resp.json()\n\ndef set_player_status(uuid, name, status, color=\"white\", pending=True):\n    resp = requests.post(f\"{API_BASE}/api/status/set\", json={\n        \"uuid\": uuid,\n        \"name\": name,\n        \"status\": status,\n        \"color\": color,\n        \"pending\": pending\n    })\n    return resp.json()\n```\n\n**JavaScript（Node.js）：**\n\n```javascript\nconst axios = require('axios');\n\nconst API_BASE = 'http://127.0.0.1:8123';\n\nasync function getPlayerStatus(uuid) {\n    const resp = await axios.get(`${API_BASE}/api/status/get`, { params: { uuid } });\n    return resp.data;\n}\n\nasync function setPlayerStatus(uuid, name, status, color = 'white', pending = true) {\n    const resp = await axios.post(`${API_BASE}/api/status/set`, {\n        uuid,\n        name,\n        status,\n        color,\n        pending\n    });\n    return resp.data;\n}\n```\n\n### ❓ 常见问题\n\n**Q1：API 请求返回 404？**\n\nURL 路径错误或 API 服务器未启动。确认 MCDR 日志中有 `[ZaiGanMa] API 服务器已启动 http://...`，并确认请求的 URL 路径正确（区分大小写）。\n\n**Q2：返回 `{\"success\": false, \"error\": \"Player not found\"}`？**\n\n数据库中没有该 UUID 对应的玩家记录。玩家需要至少设置过一次状态，才会在数据库中有记录。\n\n**Q3：如何获取玩家的 UUID？**\n\n- 在游戏内使用 `!!zgm` 或查询历史（根据服务器配置可能显示）\n- 使用 uuid_api 插件：\n\n```python\nuuid_api = server.get_plugin_instance('uuid_api')\nuuid = uuid_api.get_uuid('man8in')\n```\n\n- 或直接查询数据库：\n\n```bash\nsqlite3 config/zaiganma_livestatus/zaigamma.db \"SELECT uuid, name FROM player_status;\"\n```\n\n**Q4：修改配置后 API 没有变化？**\n\n需要重载插件：\n\n```\n!!MCDR reload ZaiGanMa\n```\n\n**Q5：API 可以跨域访问吗？**\n\n可以。API 已在响应头中添加 `Access-Control-Allow-Origin: *`，支持跨域请求。\n\n## 配置说明\n\n首次运行自动生成 config.json：\n\n| 配置项                      | 类型      | 默认值     | 说明                    |\n| ------------------------ | ------- | ------- | --------------------- |\n| show_status              | boolean | true    | 状态显示总开关               |\n| default_status           | string  | 在线      | 默认状态文字                |\n| max_length               | integer | 8       | 状态最大字数                |\n| allow_color              | boolean | true    | 允许自定义颜色               |\n| manual_status_timeout    | integer | 180     | 手动状态超时（分钟，0 为永久）      |\n| api_host                 | string  | 0.0.0.0 | HTTP API 监听地址         |\n| api_port                 | integer | 8123    | HTTP API 端口           |\n| library_entry_max_length | integer | 8       | 状态库条目最大字数             |\n| op_permission_level      | integer | 3       | 管理指令权限等级（配置面板、重置状态库等） |\n\n## 支持的颜色\n\nblack、dark_blue、dark_green、dark_aqua、dark_red、dark_purple、gold、gray、dark_gray、blue、green、aqua、red、light_purple、yellow、white\n\n也支持十六进制颜色，如 `#FF6B6B`。\n\n## 开源协议\n\nMIT\n\n## 作者\n\nman8in — [GitHub](https://github.com/man8in)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/man8in/zaiganma-livestatus/main/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/man8in/zaiganma-livestatus/main/README.zh-CN.md",
+      "zh_tw": "https://raw.githubusercontent.com/man8in/zaiganma-livestatus/main/README.zh-TW.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "zaiganma_livestatus",
+    "latest_version": "1.1.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.1.1",
+        "name": "v1.1.1",
+        "tag_name": "1.1.1",
+        "created_at": "2026-08-29T06:07:48Z",
+        "description": "### ZaiGanMa (LiveStatus) v1.1.1\r\n\r\n#### 新增\r\n- `!!zgm history` 无参数查看自己的历史\r\n- 历史记录显示颜色 + 加粗格式\r\n- 权限统一管理（op_permission_level，默认 3）\r\n- 帮助菜单隐私设置点击式（[公开] [私密]）\r\n- 移除 uuid_api 强制依赖，有则用，无则降级\r\n\r\n#### 优化\r\n- 重载后自动从数据库恢复状态\r\n- 精简导入结构\r\n\r\n#### 修复\r\n- 修复 `!!zgm history` 无参数报错\r\n- 修复重载后状态不同步\r\n- 修复权限检查失效\r\n- 修复颜色代码显示为文本",
+        "prerelease": false,
+        "asset": {
+          "id": 534838868,
+          "name": "ZaiGanMa.LiveStatus.-v1.1.1.mcdr",
+          "size": 14448,
+          "download_count": 4,
+          "created_at": "2026-08-29T06:08:22Z",
+          "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.1.1/ZaiGanMa.LiveStatus.-v1.1.1.mcdr",
+          "hash_md5": "fd8073d5e17d87d61f733a5332d209ac",
+          "hash_sha256": "20e658d8e02668e3ea451c38e1ecf27e4b708cf9e2e80b01e9d6c26ad760eed9"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zaiganma_livestatus",
+          "name": "ZaiGanMa (LiveStatus)",
+          "version": "1.1.1",
+          "link": "https://github.com/man8in/zaiganma-livestatus",
+          "authors": [
+            "man8in"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.6.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+            "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+            "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "1.1.0",
+        "created_at": "2026-08-16T08:01:15Z",
+        "description": "### ZaiGanMa (LiveStatus) v1.1.0\r\n\r\n#### 新增\r\n- 预设状态：玩家可设置预设状态，下次上线自动生效（!!zgm preset / pending / cancel_pending）\r\n- 状态历史记录：自动记录每次状态变更，最多保存 10 条（!!zgm history [玩家名]）\r\n- 历史隐私控制：玩家可设置历史记录是否公开（!!zgm history privacy <true/false>）\r\n- HTTP API：外部程序可读写玩家状态，默认端口 8123\r\n- UUID 自动适配：正版/离线服务器自动适配，无需手动配置\r\n- 假人自动识别：自动识别 Carpet 假人（bot_ 前缀）\r\n- 新增配置项：default_status、api_host、api_port\r\n\r\n#### 优化\r\n- !!zgm <玩家名> 支持离线玩家查询\r\n- 优化显示界面，区分\"手动设置\"和\"默认\"模式\r\n- 优化颜色显示逻辑\r\n\r\n#### 修复\r\n- 修复预设状态不自动应用的 Bug\r\n- 修复离线玩家查询显示\"暂无状态数据\"的问题\r\n- 修复玩家上线时状态被覆盖的问题\r\n- 修复颜色代码显示为文本的问题\r\n\r\n#### 依赖\r\n- 新增 minecraft_data_api >= 1.6.0（必须）\r\n- 新增 uuid_api >= 1.0.0（必须）",
+        "prerelease": false,
+        "asset": {
+          "id": 516590837,
+          "name": "ZaiGanMa.LiveStatus.-v1.1.0.mcdr",
+          "size": 14567,
+          "download_count": 16,
+          "created_at": "2026-08-16T08:06:02Z",
+          "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.1.0/ZaiGanMa.LiveStatus.-v1.1.0.mcdr",
+          "hash_md5": "2345598cee60a82a38041b4128f2d1ed",
+          "hash_sha256": "458a9c995a46fa98cfce17684c89c8085ba7ca8eb1a4df6559ca4b7a40ddbeb1"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zaiganma_livestatus",
+          "name": "ZaiGanMa (LiveStatus)",
+          "version": "1.1.0",
+          "link": "https://github.com/man8in/zaiganma-livestatus",
+          "authors": [
+            "man8in"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0",
+            "minecraft_data_api": ">=1.6.0",
+            "uuid_api": ">=1.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+            "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+            "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.0.2",
+        "name": "v1.0.2",
+        "tag_name": "1.0.2",
+        "created_at": "2026-08-06T07:29:44Z",
+        "description": "### ZaiGanMa (LiveStatus) v1.0.2\r\n\r\n#### 修复\r\n- 修复 `!!zgm lib reset` 重置状态库无效的问题（强制覆盖逻辑从重载转移至 reset）\r\n- 修复 `!!zgm lib` 显示状态数量不正确的问题\r\n\r\n#### 优化\r\n- 重载插件不再自动重置状态库，保留玩家添加的状态\r\n\r\n#### 新增\r\n- 无",
+        "prerelease": false,
+        "asset": {
+          "id": 503631950,
+          "name": "ZaiGanMa.LiveStatus.-v1.0.2.mcdr",
+          "size": 8904,
+          "download_count": 20,
+          "created_at": "2026-08-06T07:32:13Z",
+          "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.0.2/ZaiGanMa.LiveStatus.-v1.0.2.mcdr",
+          "hash_md5": "3017206c252161e12ac8a24f54d72d23",
+          "hash_sha256": "754a6a293d5aba86246e753ab46ca86963165fce59f6977727052959d1371698"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zaiganma_livestatus",
+          "name": "ZaiGanMa (LiveStatus)",
+          "version": "1.0.2",
+          "link": "https://github.com/man8in/zaiganma-livestatus",
+          "authors": [
+            "man8in"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+            "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+            "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "1.0.1",
+        "created_at": "2026-08-04T18:13:47Z",
+        "description": "### ZaiGanMa (LiveStatus) v1.0.1\r\n\r\n#### 完善功能\r\n- 完善管理员设置面板 (`!!zgm config panel`)\r\n- 完善状态总开关 (`!!zgm config show_status true/false`)，关闭时清空所有玩家状态\r\n- 完善 `!!zgm config max_length <数字>` 调整状态字数限制\r\n- 完善 `!!zgm clib` 颜色库指令\r\n- 完善 `!!zgm lib reset` 重置状态库\r\n\r\n#### 优化\r\n- 设置面板支持点击填入指令\r\n- 管理员操作全服广播通知\r\n- 完善帮助菜单\r\n\r\n#### 修复\r\n- 修复 `show_status` 关闭后仍可设置状态的问题\r\n- 修复自定义处理器正则匹配问题\r\n- 修复 Team 操作消息过滤",
+        "prerelease": false,
+        "asset": {
+          "id": 501662652,
+          "name": "ZaiGanMa.LiveStatus.-v1.0.1.mcdr",
+          "size": 9335,
+          "download_count": 13,
+          "created_at": "2026-08-04T18:16:46Z",
+          "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.0.1/ZaiGanMa.LiveStatus.-v1.0.1.mcdr",
+          "hash_md5": "e2e2aaa4d1216e798f25a1dd2322e699",
+          "hash_sha256": "0d1dea1b5007f6fa31a2665011702bbe9d8b815d76d20ce920a7296ef2af2fd7"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zaiganma_livestatus",
+          "name": "ZaiGanMa (LiveStatus)",
+          "version": "1.0.1",
+          "link": "https://github.com/man8in/zaiganma-livestatus",
+          "authors": [
+            "man8in"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中",
+            "zh-tw": "允許玩家設定自己的狀態標籤，並顯示在聊天框和 TAB 列表中",
+            "en_us": "Allows players to set their own status tags and display them in the chat box and TAB list"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/man8in/zaiganma-livestatus/releases/tag/1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "1.0.0",
+        "created_at": "2026-07-31T10:05:52Z",
+        "description": "### ZaiGanMa (LiveStatus) v1.0.0\r\n\r\n允许玩家设置自己的状态标签，并显示在聊天框和 TAB 列表中。\r\n\r\n#### 功能特性\r\n- ✅ 聊天框显示状态前缀\r\n- ✅ TAB 列表显示状态\r\n- ✅ 手动设置状态 (`!!zgm set`)\r\n- ✅ 清除状态 (`!!zgm clear`)\r\n- ✅ 自定义颜色 (`!!zgm color`)\r\n- ✅ 状态库系统 (`!!zgm lib`)\r\n- ✅ 随机推荐 (`!!zgm suggest`)\r\n\r\n#### 安装\r\n将 `.mcdr` 文件放入 `plugins` 文件夹，重启 MCDR。\r\n\r\n#### 依赖\r\n- MCDR >= 2.13.0\r\n- Minecraft Data API (可选)",
+        "prerelease": false,
+        "asset": {
+          "id": 500995883,
+          "name": "ZaiGanMa.LiveStatus.-v1.0.0.mcdr",
+          "size": 7912,
+          "download_count": 14,
+          "created_at": "2026-08-04T06:41:52Z",
+          "browser_download_url": "https://github.com/man8in/zaiganma-livestatus/releases/download/1.0.0/ZaiGanMa.LiveStatus.-v1.0.0.mcdr",
+          "hash_md5": "5cda0cd1c8f67461db57ee815b1f0cba",
+          "hash_sha256": "30b7292dd8dfc908e163e52c706ef0d17323f444e070cfb7e9e3314a990e74da"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "zaiganma_livestatus",
+          "name": "ZaiGanMa (LiveStatus)",
+          "version": "1.0.0",
+          "link": "https://github.com/man8in/zaiganma-livestatus",
+          "authors": [
+            "man8in"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "zh_cn": "在 TAB 列表和聊天框中实时显示玩家当前行为状态",
+            "en_us": "Display the current behavior status of players in the TAB list and chat box in real time"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/man8in/zaiganma-livestatus",
+    "name": "zaiganma-livestatus",
+    "full_name": "man8in/zaiganma-livestatus",
+    "html_url": "https://github.com/man8in/zaiganma-livestatus",
+    "description": "ZaiGanMa (LiveStatus) — A MCDR plugin that displays real-time player status in the TAB list. Auto-detects · Zero setup · At a glance",
+    "archived": false,
+    "stargazers_count": 2,
+    "watchers_count": 2,
+    "forks_count": 0,
+    "readme": "<div align=\"center\">\n\n# ZaiGanMa (LiveStatus) for MCDReforged\n\n[简体中文](https://github.com/man8in/zaiganma-livestatus/tree/main//README.zh-CN.md)  |  [繁體中文](https://github.com/man8in/zaiganma-livestatus/tree/main//README.zh-TW.md)\n\n[Report an Issue](https://github.com/man8in/zaiganma-livestatus/issues)  |  [Share an Idea](https://github.com/man8in/zaiganma-livestatus/discussions)\n\n</div>\n\n> [!NOTE]\n> **ZaiGanMa (LiveStatus)** is a lightweight MCDR plugin that allows players to set their own status tags and display them in the chat box and TAB list. Based on Minecraft's native Team mechanism.\n\n## 📋 Table of Contents\n\n- [Features](#-features)\n- [Installation](#installation)\n- [Dependencies](#dependencies)\n- [Usage](#usage)\n- [HTTP API](#-http-api)\n- [Configuration](#configuration)\n- [Supported Colors](#supported-colors)\n- [License](#license)\n\n## ✨ Features\n\n- ✅ Set/clear manual status (`!!zgm set / clear`)\n- ✅ Set status color (`!!zgm color`)\n- ✅ **Preset status** - visible offline, auto-apply on join (`!!zgm preset / pending / cancel_pending`)\n- ✅ Query any player's status (**supports offline players**) (`!!zgm <player>`)\n- ✅ **Status history** with privacy control (`!!zgm history`)\n- ✅ Status library management (`!!zgm lib`)\n- ✅ Random status suggestion (`!!zgm suggest`)\n- ✅ **HTTP API** for external program integration\n- ✅ Auto-detect bots (`bot_` prefix)\n- ✅ Admin config panel (`!!zgm config`)\n\n## Installation\n\nRun the following command in the MCDR console:\n\n```\n!!MCDR plugin install zaiganma_livestatus\n```\n\nAlternatively, download the `.mcdr` file from the [Releases page](https://github.com/man8in/zaiganma-livestatus/releases) and place it in your `plugins` folder.\n\n## Dependencies\n\n| Dependency         | Version  | Required   |\n| ------------------ | -------- | ---------- |\n| MCDR               | >= 2.0.0 | ✅ Yes      |\n| minecraft_data_api | >= 1.6.0 | ✅ Yes      |\n| uuid_api           | >= 1.0.0 | ❌ Optional |\n\n> [!TIP]\n> `uuid_api` is optional. If installed, it improves offline-player UUID resolution; the plugin degrades gracefully without it.\n\n## Usage\n\n| Command                              | Description                                         |\n| ------------------------------------ | --------------------------------------------------- |\n| `!!zgm`                              | View your own status                                |\n| `!!zgm <player>`                     | View another player's status (**supports offline**) |\n| `!!zgm set <text>`                   | Set your status                                     |\n| `!!zgm clear`                        | Clear your status                                   |\n| `!!zgm color <color>`                | Set status color                                    |\n| `!!zgm clib`                         | View available colors                               |\n| `!!zgm preset <text>`                | Set preset status (auto-apply on next join)         |\n| `!!zgm pending`                      | Check your preset status                            |\n| `!!zgm cancel_pending`               | Cancel your preset status                           |\n| `!!zgm history [player]`             | View status history (self if empty)                 |\n| `!!zgm history privacy <true/false>` | Set history privacy                                 |\n| `!!zgm lib`                          | View status library (click to use)                  |\n| `!!zgm lib add <text>`               | Add status to library                               |\n| `!!zgm lib remove <text>`            | Remove status from library                          |\n| `!!zgm lib reload`                   | Reload status library from file                     |\n| `!!zgm lib reset`                    | Reset status library to default (admin only)        |\n| `!!zgm suggest`                      | Get a random status suggestion                      |\n| `!!zgm config`                       | View configuration panel (admin only)               |\n\n> [!TIP]\n> Click on any status in `!!zgm lib`, `!!zgm clib`, `!!zgm suggest`, or `!!zgm config` to automatically fill the command into your chat bar, then press Enter to confirm.\n\n## 🔌 HTTP API\n\nZaiGanMa includes a built-in HTTP API server that allows external programs (such as QQ bots, web panels, mobile apps, etc.) to read and write player status via HTTP requests.\n\nThe API server starts automatically with the plugin — no extra setup required. When the plugin loads successfully, the MCDR log will show:\n\n```\n[ZaiGanMa] API 服务器已启动 http://0.0.0.0:8123\n```\n\n| Item          | Value                                |\n| ------------- | ------------------------------------ |\n| Base URL      | `http://<your-server-IP>:8123`       |\n| GET endpoint  | `/api/status/get?uuid=<player-UUID>` |\n| POST endpoint | `/api/status/set`                    |\n\n> The listen address and port are controlled by `api_host` / `api_port` in the [Configuration](#configuration) section.\n\n### 1️⃣ GET /api/status/get?uuid=<player-UUID>\n\nQuery the current status of a specified player.\n\nRequest example:\n\n```bash\ncurl \"http://127.0.0.1:8123/api/status/get?uuid=069a79f4-44e9-4726-a5be-fca90e38aaf5\"\n```\n\nSuccess response:\n\n```json\n{\n  \"success\": true,\n  \"data\": {\n    \"name\": \"man8in\",\n    \"status\": \"Mining\",\n    \"color\": \"gold\",\n    \"has_pending\": false,\n    \"updated_at\": 1723705800\n  }\n}\n```\n\n| Field       | Type    | Description                            |\n| ----------- | ------- | -------------------------------------- |\n| name        | string  | Player name                            |\n| status      | string  | Current status text                    |\n| color       | string  | Status color name                      |\n| has_pending | boolean | Whether a pending preset status exists |\n| updated_at  | integer | Status update timestamp                |\n\nFailure response:\n\n```json\n{\n  \"success\": false,\n  \"error\": \"Player not found\"\n}\n```\n\n### 2️⃣ POST /api/status/set\n\nSet a player's status.\n\nRequest format:\n\n```\nPOST http://<your-server-IP>:8123/api/status/set\nContent-Type: application/json\n```\n\nRequest parameters:\n\n| Parameter | Type    | Required | Default | Description                                    |\n| --------- | ------- | -------- | ------- | ---------------------------------------------- |\n| uuid      | string  | ✅ Yes    | -       | Player UUID                                    |\n| name      | string  | ✅ Yes    | -       | Player name                                    |\n| status    | string  | ✅ Yes    | -       | Status text                                    |\n| color     | string  | ❌ No     | white   | Color name                                     |\n| pending   | boolean | ❌ No     | true    | true = preset status, false = immediate effect |\n\nRequest example (preset status):\n\n```bash\ncurl -X POST http://127.0.0.1:8123/api/status/set \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"uuid\":\"069a79f4-44e9-4726-a5be-fca90e38aaf5\",\"name\":\"man8in\",\"status\":\"Going to eat\",\"color\":\"yellow\",\"pending\":true}'\n```\n\nSuccess response:\n\n```json\n{\n  \"success\": true,\n  \"message\": \"Status set successfully\",\n  \"pending\": true\n}\n```\n\nRequest example (immediate effect):\n\n```bash\ncurl -X POST http://127.0.0.1:8123/api/status/set \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"uuid\":\"069a79f4-44e9-4726-a5be-fca90e38aaf5\",\"name\":\"man8in\",\"status\":\"Mining\",\"color\":\"gold\",\"pending\":false}'\n```\n\nFailure response:\n\n```json\n{\n  \"success\": false,\n  \"error\": \"Missing uuid\"\n}\n```\n\n### 🔒 Security Recommendations\n\n> [!WARNING]\n> The API has **no authentication by default**. If you expose it to the public network, configure security measures based on your actual needs.\n\n**1. Restrict listen address**\n\nIf you only need local access (e.g., a QQ bot running on the same machine as MCDR), change `api_host` to `127.0.0.1` — only programs on the local machine can then access the API.\n\n**2. Change the default port**\n\nAvoid using the default port to reduce the risk of being scanned (e.g., `38123`).\n\n**3. Firewall restrictions**\n\nUse a firewall (e.g., iptables, ufw) to restrict access to specific IPs:\n\n```bash\n# Only allow 192.168.1.100 to access port 8123\nufw allow from 192.168.1.100 to any port 8123\n```\n\n**4. Add token authentication (advanced)**\n\nFor more advanced security control, add Token authentication in the API handler yourself. Add the following at the beginning of the `StatusAPIHandler` class:\n\n```python\nAPI_TOKEN = \"your_secret_token_here\"\n\ndef do_GET(self):\n    token = self.headers.get('Authorization', '').replace('Bearer ', '')\n    if token != self.API_TOKEN:\n        self._send_json(401, {'error': 'Unauthorized'})\n        return\n    # ... original code\n```\n\n### 💻 Integration Examples\n\n**Python (QQ bot):**\n\n```python\nimport requests\n\nAPI_BASE = \"http://127.0.0.1:8123\"\n\ndef get_player_status(uuid):\n    resp = requests.get(f\"{API_BASE}/api/status/get\", params={\"uuid\": uuid})\n    return resp.json()\n\ndef set_player_status(uuid, name, status, color=\"white\", pending=True):\n    resp = requests.post(f\"{API_BASE}/api/status/set\", json={\n        \"uuid\": uuid,\n        \"name\": name,\n        \"status\": status,\n        \"color\": color,\n        \"pending\": pending\n    })\n    return resp.json()\n```\n\n**JavaScript (Node.js):**\n\n```javascript\nconst axios = require('axios');\n\nconst API_BASE = 'http://127.0.0.1:8123';\n\nasync function getPlayerStatus(uuid) {\n    const resp = await axios.get(`${API_BASE}/api/status/get`, { params: { uuid } });\n    return resp.data;\n}\n\nasync function setPlayerStatus(uuid, name, status, color = 'white', pending = true) {\n    const resp = await axios.post(`${API_BASE}/api/status/set`, {\n        uuid,\n        name,\n        status,\n        color,\n        pending\n    });\n    return resp.data;\n}\n```\n\n### ❓ FAQ\n\n**Q1: API request returns 404?**\n\nIncorrect URL path or the API server is not running. Check that the MCDR log shows `[ZaiGanMa] API 服务器已启动 http://...` and that the request URL path is correct (case-sensitive).\n\n**Q2: Returns `{\"success\": false, \"error\": \"Player not found\"}`?**\n\nNo player record for that UUID in the database. The player needs to have set a status at least once to have a record.\n\n**Q3: How to get a player's UUID?**\n\n- Use `!!zgm` in-game or query history (may be displayed depending on server configuration)\n- Use the uuid_api plugin:\n\n```python\nuuid_api = server.get_plugin_instance('uuid_api')\nuuid = uuid_api.get_uuid('man8in')\n```\n\n- Or query the database directly:\n\n```bash\nsqlite3 config/zaiganma_livestatus/zaigamma.db \"SELECT uuid, name FROM player_status;\"\n```\n\n**Q4: API didn't change after modifying config?**\n\nReload the plugin:\n\n```\n!!MCDR reload ZaiGanMa\n```\n\n**Q5: Can the API be accessed cross-origin?**\n\nYes. The API adds `Access-Control-Allow-Origin: *` to the response headers, supporting cross-origin requests.\n\n## Configuration\n\nThe plugin generates config.json on first run:\n\n| Key                      | Type    | Default | Description                                                             |\n| ------------------------ | ------- | ------- | ----------------------------------------------------------------------- |\n| show_status              | boolean | true    | Master switch for status display                                        |\n| default_status           | string  | 在线      | Default status text                                                     |\n| max_length               | integer | 8       | Max status text length                                                  |\n| allow_color              | boolean | true    | Allow custom colors                                                     |\n| manual_status_timeout    | integer | 180     | Manual status timeout (minutes, 0 = forever)                            |\n| api_host                 | string  | 0.0.0.0 | HTTP API bind address                                                   |\n| api_port                 | integer | 8123    | HTTP API port                                                           |\n| library_entry_max_length | integer | 8       | Max status library entry length                                         |\n| op_permission_level      | integer | 3       | Permission level for admin commands (config panel, library reset, etc.) |\n\n## Supported Colors\n\nblack, dark_blue, dark_green, dark_aqua, dark_red, dark_purple, gold, gray, dark_gray, blue, green, aqua, red, light_purple, yellow, white\n\nAlso supports hex colors like `#FF6B6B`.\n\n## License\n\nMIT\n\n## Author\n\nman8in — [GitHub](https://github.com/man8in)\n",
+    "readme_url": "https://raw.githubusercontent.com/man8in/zaiganma-livestatus/main/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

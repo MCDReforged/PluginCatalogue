@@ -1,0 +1,524 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "minecraft_web_manager",
+    "name": "Minecraft Web Manager",
+    "version": "1.2.6",
+    "link": null,
+    "authors": [
+      "ForestTrees"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.15.0"
+    },
+    "requirements": [
+      "fastapi>=0.115,<1.0",
+      "uvicorn[standard]>=0.30,<1.0",
+      "python-multipart>=0.0.9,<1.0",
+      "psutil>=6.0,<8.0",
+      "ruamel-yaml>=0.17,<0.19"
+    ],
+    "description": {
+      "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management.",
+      "zh_cn": "为 MCDReforged 管理的 Minecraft 服务器提供安全的网页仪表盘与实时控制台，支持玩家、插件、世界与 Mod 管理。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "minecraft_web_manager",
+    "authors": [
+      "ForestTrees"
+    ],
+    "repository": "https://github.com/ForestTrees/MinecraftWebManager",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# Minecraft Web Manager\n\n**English** | [中文](https://github.com/ForestTrees/MinecraftWebManager/tree/main/README.md)\n\nAn [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugin that provides a login-protected web management panel for Minecraft servers: live console, player management, online plugin and mod management, online editing for `server.properties` and MCDR's `config.yml`, mod configuration editing, and resource usage charts.\n\nThe panel is hosted by the plugin itself. No separate web server, CDN, or frontend build tool is required.\n\n- **Version**: 1.2.6\n- **Dependencies**: MCDReforged `>=2.15.0`, Python 3.10+\n- **Python packages**: `fastapi`, `uvicorn[standard]`, `python-multipart`, `psutil`, `ruamel-yaml`\n\n---\n\n## Features\n\n### Live console\n\n- Streams the latest 1,000 lines of server log output in real time\n- Supports Minecraft commands and MCDR commands (starting with `!!`)\n- Switches between **console** (writes to the server's standard input) and **RCON** (returns the server's reply text)\n- The input field supports `↑` / `↓` command history browsing and command suggestions\n- One-click server start / stop / restart\n\n![Live console](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/实时控制台.png)\n\n### Player management\n\n- **Player list**: aggregates every player who has joined the server, showing online state, IP, session duration, last seen time, dimension, and position; click a player name to copy its UUID\n- **Bot list**: detected Carpet fake players (bots) are shown in a collapsible list and can be manually marked or unmarked inline; bot names can also be clicked to copy their UUIDs\n- **Per-player actions**: grant / revoke OP, kick, ban, ban IP, add to / remove from the whitelist\n- **Whitelist**: toggle the whitelist, reload it, and add or remove members\n- **Operators**: view and add or remove OPs\n- **Bans**: ban or pardon players and IPs, with an optional reason\n\n![Player management](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/玩家管理.png)\n\n### Plugin and mod management\n\n**Plugins**\n\n- **Plugin list**: shows all MCDR plugins installed on the server; supports checking for updates, disabling, deleting, enabling, and reloading plugins\n- **Plugin configuration**: edit plugin configuration files online; binary files and files larger than 1 MiB are read-only\n- Related buttons are disabled while a plugin operation is running to prevent duplicate actions. A rejected update check (for example, because another install task is already running) is not incorrectly reported as “all plugins are up to date”\n\n![Plugin management](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/插件管理.png)\n\n**Mods**\n\n- **Mod files**: shows all mods on the server and supports uploading, disabling, deleting, and configuring each mod. Upload, disable, and delete operations require a **server restart** to take effect\n- **Configuration files**: edit mod configuration files online; binary files and files larger than 1 MiB are read-only\n\n![Mod management](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/mod管理.png)\n\n### Server configuration\n\nThe top of the server configuration page switches between the **Server configuration** and **MCDR configuration** sub-tabs. Both sub-tabs share the same heading, toolbar, and right-aligned action area, while filter fields adapt to the available width.\n\n- **Server configuration**: view and edit `server.properties` online; changes take effect after the server is restarted\n- **MCDR configuration**: view and edit MCDR's `config.yml` online; saving automatically runs `!!MCDR reload config` so changes take effect immediately\n\n![Server configuration](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/服务器配置.png)\n\n### Server status\n\n- Overview of TPS, MSPT, swap, disk, and system load\n- Line charts for CPU usage, memory usage, and live network speed, with ranges of 10m / 30m / 1h / 6h / 12h / 1d / 3d / 7d\n- Separate curves for the whole host and the Minecraft process; 1-second samples are retained for the latest hour, and 1-minute averages for the latest seven days\n\n![Server status](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/服务器状态.png)\n\n### Other\n\n- Light, dark, and follow-system themes, remembered automatically\n- The interface language follows the browser automatically (Simplified / Traditional Chinese → Chinese, anything else → English); it can also be switched and remembered manually from the top-right corner / sidebar\n- Responsive layout suitable for mobile browsers\n\n---\n\n## Installation\n\n### 1. One-command installation\n\n```\n!!MCDR plugin install minecraft_web_manager\n```\n\n### 2. Plugin management\n\nSee the [official MCDReforged documentation](https://docs.mcdreforged.com/en/latest/command/mcdr.html#plugin-management).\n\n### 3. Get the initial password\n\nOn first load, the plugin generates a one-time password and prints it to the MCDR log at `WARNING` level:\n\n```\n[Minecraft Web Manager] Minecraft Web Manager bootstrap password: xxxxxxxxxxxxxxxxxxxxxxxx\n```\n\n**Save this password immediately** — it appears in plain text only once. Then open the following address in a browser:\n\n```\nhttp://127.0.0.1:8088\n```\n\nThe default username is `admin`; the password is the string shown above.\n\n### 4. Forgot the password?\n\nSet both `password.salt` and `password.hash` in the configuration file to empty strings:\n\n```json\n\"password\": { \"salt\": \"\", \"hash\": \"\" }\n```\n\nSave the file and run `!!MCDR reload plugin minecraft_web_manager`. A new one-time password will be printed to the MCDR log.\n\n---\n\n## How to update\n\n### Method 1: MCDR command\n\n```\n!!MCDR plugin install -U minecraft_web_manager\n```\n\n### Method 2: Panel update prompt\n\nClick the prompt and confirm. The latest plugin version and its related dependencies will be downloaded automatically, and the plugin will reload automatically.\n\n![Update prompt](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/更新提示.png)\n\n## Configuration\n\nThe configuration file is located at `config/minecraft_web_manager/config.json` in MCDR's working directory. **Reload the plugin after changing it for the changes to take effect.**\n\n| Key                               | Default                 | Description                                                                                                                                                               |\n| --------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `host`                            | `127.0.0.1`             | Panel listen address. Local-only by default; set it to `0.0.0.0` to access the panel from other machines                                                                  |\n| `port`                            | `8088`                  | Panel listen port                                                                                                                                                         |\n| `username`                        | `admin`                 | Login username                                                                                                                                                            |\n| `password.salt` / `password.hash` | generated automatically | PBKDF2 salt and password hash; the password itself is never stored                                                                                                        |\n| `token_secret`                    | generated automatically | Signing key for login tokens; clearing it immediately invalidates all logged-in sessions                                                                                  |\n| `token_ttl_seconds`               | `2592000` (30 days)     | Login session lifetime in seconds; active sessions are automatically renewed before expiry                                                                                |\n| `panel_title`                     | `MC Web Manager`        | Panel brand title shown in the sidebar and browser tab; the login page title follows it                                                                                   |\n| `bot_names`                       | `[]`                    | Player names manually marked as bots (lowercase); manual fallback for automatic detection                                                                                 |\n| `not_bot_names`                   | `[]`                    | Reverse list (lowercase): forces a player to be treated as real even if the name rule or offline UUID matches; the inline “unmark” action writes here                     |\n| `bot_name_patterns`               | `[\"(?i)^bot[_-]\"]`      | Regex list for bot names; by default applies only to players **not present in usercache**, avoiding false positives for real players with similar names                   |\n| `bot_name_patterns_apply_to_all`  | `false`                 | Set to `true` to apply name rules to every player (for servers where fake players are also written to usercache); add real players with matching names to `not_bot_names` |\n\n---\n\n## About RCON\n\nMost features do not require RCON, but the following do:\n\n- TPS / MSPT readings (through `tick query`)\n- Coordinates and dimension in the player list\n- Command reply text when the console is switched to the RCON channel\n- Recovering the online-player list after a plugin reload\n\nRCON must be configured on **both sides**, with matching port and password:\n\n- Minecraft side: `enable-rcon`, `rcon.port`, and `rcon.password` in `server/server.properties`\n- MCDR side: the `rcon` section in MCDR's `config.yml`\n\nThe three Minecraft-side settings can be edited directly from the **Server configuration** sub-tab on the panel's **Server configuration** page; the server must be restarted afterwards. The MCDR-side settings can be edited from the **MCDR configuration** sub-tab on the same page; saving automatically runs `!!MCDR reload config`.\n\n---\n\n## Security recommendations\n\nThe panel has full control over the server (executing arbitrary commands, banning players, changing configuration, managing / deleting plugins and mods, and editing configuration files), so expose it carefully:\n\n- It **listens on `127.0.0.1` by default**. When remote access is needed, keeping this setting and using an SSH tunnel is recommended\n- If it must be exposed to the public internet, put it behind a reverse proxy such as Nginx or Caddy and enable HTTPS. The plugin **does not provide TLS**; with plain HTTP, passwords and tokens are exposed in transit\n- The login endpoint has simple failure throttling (at most 10 attempts per source within 60 seconds), and the panel's API documentation is disabled by default. Session cookies use `HttpOnly` and `SameSite=Strict`, so page scripts cannot read the token\n- A reverse proxy must forward WebSocket connections, otherwise the live console cannot connect:\n\n  ```nginx\n  location /ws/ {\n      proxy_pass http://127.0.0.1:8088;\n      proxy_http_version 1.1;\n      proxy_set_header Upgrade $http_upgrade;\n      proxy_set_header Connection \"upgrade\";\n  }\n  ```\n\n- Sensitive settings such as `rcon.password` are shown as blank in the panel and are never sent to the browser; submitting an empty value leaves the original value unchanged\n- The MCDR configuration editor displays fields individually and never echoes the RCON password; submitting an empty value leaves the original value unchanged\n\n---\n\n## Known limitations\n\n- **Resource usage history is kept in memory**, so it is cleared when MCDR restarts or the plugin reloads and then starts accumulating again\n- **World seed, name, and difficulty are read from save files**, which are updated only when the server saves; values may lag behind the actual state by several minutes\n- **Player IPs and UUIDs are obtained by parsing server output**. Unusual server log formats may prevent capture; players recovered after a plugin reload have no join time or IP\n- **The mod list only identifies Fabric mods** by reading `fabric.mod.json`; Forge / NeoForge mods are listed by filename only. Upload, disable, and delete operations manage `.jar` files without distinguishing loaders\n- **MCDR configuration is edited as visual fields** and rewritten by ruamel.yaml on save; the set of configuration fields is detected from the MCDR version, and unknown fields added by newer versions are shown with generic inputs\n- **Plugin update checks and updates require network access to the MCDR plugin catalogue**, and only packed plugins (`.mcdr` / `.pyz`) can be updated. Detailed check and update output appears in the live console. The panel checks itself each time it opens; when an update is available, it can be confirmed from the sidebar footer to run `!!MCDR plugin install -U minecraft_web_manager` and reload automatically. The panel itself can also be reloaded from the panel, briefly going offline and recovering automatically\n- **Bot detection**: classic Carpet bots are identified precisely by offline UUID. TIS/AMS/RMS-style extensions may use Mojang-resolved or random v4 UUIDs for bots, so detection can only rely on name rules and usercache signals. Name rules apply only to players without a usercache record by default; use `not_bot_names` or the inline “unmark” action to correct a false positive\n- **Ping is unavailable on vanilla servers** and is not displayed in the list\n- The panel currently supports Simplified Chinese and English\n\n---\n\n## Feedback\n\nIssues and suggestions are welcome via [Issues](https://github.com/ForestTrees/MinecraftWebManager/issues).\n",
+      "zh_cn": "# Minecraft Web Manager\n\n[English](https://github.com/ForestTrees/MinecraftWebManager/tree/main/README_en.md) | **中文**\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件，为 Minecraft 服务器提供带登录鉴权的网页管理面板：实时控制台、玩家管理、插件与 Mod 在线管理、`server.properties` 与 MCDR `config.yml` 在线编辑、Mod 配置文件编辑、资源占用图表。\n\n面板由插件自身托管，无需另外部署 Web 服务器，也不依赖任何 CDN 或前端构建工具。\n\n- **版本**：1.2.6\n- **依赖**：MCDReforged `>=2.15.0`、Python 3.10+\n- **Python 库**：`fastapi`、`uvicorn[standard]`、`python-multipart`、`psutil`、`ruamel-yaml`\n\n---\n\n## 功能\n\n### 实时控制台\n\n- 实时推送最近1000行服务器日志输出历史\n- 支持发送 Minecraft 命令与 MCDR 命令（`!!` 开头）\n- 命令通道可切换 **console**（写入服务端标准输入）或 **RCON**（能拿到服务器的回复文本）\n- 输入框支持 `↑` / `↓` 翻查历史命令，并支持指令提示\n- 一键 启动 / 停止 / 重启 服务器\n\n![实时控制台](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/实时控制台.png)\n\n### 玩家管理\n\n- **玩家列表**：汇总所有进过本服的玩家，显示在线状态、IP、在线时长、最后在线时间、所在维度与坐标；点击玩家昵称可复制该玩家的 UUID\n- **假人列表**：识别出的 Carpet 假人（bot），可折叠、可行内手动标记/取消标记；点击假人昵称同样可以复制 UUID\n- **对单个玩家直接执行：**设为 / 取消 OP、踢出、封禁、封禁 IP、加入 / 移出白名单\n- **白名单**：开关白名单、重载名单、增删成员\n- **管理员**：查看与增删 OP\n- **封禁**：封禁 / 解封玩家与 IP，可填写理由\n\n![玩家管理-玩家列表](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/玩家管理.png)\n\n### 插件与 Mod 管理\n\n**插件**\n\n- **插件列表**：展示服务器内全部MCDR插件；支持一键检查更新、禁用、删除、启用、重载插件\n- **配置插件**：可在线编辑插件的配置文件；二进制文件与超过 1 MiB 的文件只读\n- 插件操作进行中会禁用相关按钮，防止重复触发；检查更新被拒绝（如已有其它安装任务在运行）时不会误报「全部是最新」\n\n![插件管理](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/插件管理.png)\n\n**Mod**\n\n- **模组文件**：展示服务器内全部mod；支持上传、禁用、删除、配置各个mod。上传、禁用、删除都需**重启服务端**才会真正生效\n- **配置文件**：可在线编辑各mod的配置文件；二进制文件与超过 1 MiB 的大文件只读不可编辑\n\n![Mod管理](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/mod管理.png)\n\n### 服务器配置\n\n服务器配置页顶部通过「服务器配置 / MCDR 配置」两个子页签切换。两个子页共用统一的标题、工具栏和右侧操作区，筛选项会根据可用宽度自适应。\n\n- **服务器配置**：在线查看与修改 `server.properties`，修改后需重启服务器后生效\n- **MCDR 配置**：在线查看与编辑 MCDR 的 `config.yml` 配置文件，保存后自动执行 `!!MCDR reload config` 立即生效\n\n![服务器配置](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/服务器配置.png)\n\n### 服务器状态\n\n- TPS、MSPT、Swap、磁盘、系统负载概览\n- CPU 占用、内存占用、网络实时速度三张折线图，时间范围可选 10m / 30m / 1h / 6h / 12h / 1d / 3d / 7d\n- 区分「整机」与「Minecraft 进程」两条曲线，1 秒精度采样保留最近 1 小时，1 分钟均值保留最近 7 天\n\n![服务器状态](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/服务器状态.png)\n\n### 其它\n\n- 浅色 / 暗黑 / 跟随系统三种配色，自动记忆\n- 界面语言自动跟随浏览器（简体 / 繁体中文 → 中文，其余 → 英文），也可在页面右上角 / 侧边栏手动切换并记忆\n- 响应式布局，手机浏览器可用\n\n---\n\n\n\n## 如何安装\n\n### 1. 一键安装指令\n\n```\n!!MCDR plugin install minecraft_web_manager\n```\n\n### 2. 插件管理\n\n请参考mcdreforged官方文档：https://docs.mcdreforged.com/zh-cn/latest/command/mcdr.html#plugin-management\n\n\n### 3. 取得初始密码\n\n首次加载时插件会生成一次性密码并打印到 MCDR 日志（`WARNING` 级别）：\n\n```\n[Minecraft Web Manager] Minecraft Web Manager bootstrap password: xxxxxxxxxxxxxxxxxxxxxxxx\n```\n\n**请立刻保存这串密码**，它只会明文出现这一次。随后用浏览器访问：\n\n```\nhttp://127.0.0.1:8088\n```\n\n默认用户名 `admin`，密码即上面那串。\n\n### 4. 忘记密码怎么办\n\n把配置文件里的 `password.salt` 和 `password.hash` 都改成空字符串 `\"\"`：\n\n```json\n\"password\": { \"salt\": \"\", \"hash\": \"\" }\n```\n\n保存后执行 `!!MCDR reload plugin minecraft_web_manager`，新的一次性密码会重新打印在 MCDR 日志里。\n\n---\n\n\n\n## 如何更新\n\n### 方式一：MCDR更新指令\n\n```\n!!MCDR plugin install -U minecraft_web_manager\n```\n\n### 方式二：面板自身的更新提示\n\n点击并确认后，将自动下载最新版本的插件与相关依赖，并自动重载插件\n\n![更新提示](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/更新提示.png)\n\n\n\n## 配置\n\n配置文件位于 MCDR 工作目录下的 `config/minecraft_web_manager/config.json`，**修改后需要重载插件才会生效**。\n\n| 键                                 | 默认值                | 说明                                                                       |\n| --------------------------------- | ------------------ | ------------------------------------------------------------------------ |\n| `host`                            | `127.0.0.1`        | 面板监听地址。默认仅本机可访问，改成 `0.0.0.0` 才能从其它机器打开                                   |\n| `port`                            | `8088`             | 面板监听端口                                                                   |\n| `username`                        | `admin`            | 登录用户名                                                                    |\n| `password.salt` / `password.hash` | 自动生成               | 密码的 PBKDF2 盐值与哈希，密码本身不会存盘                                                |\n| `token_secret`                    | 自动生成               | 登录令牌的签名密钥，清空它会让所有已登录会话立即失效                                               |\n| `token_ttl_seconds`               | `2592000`（30 天）    | 登录会话有效期（秒）；活跃使用时到期前会自动续期                                                 |\n| `panel_title`                     | `MC Web Manager`   | 面板品牌标题，显示在侧边栏与浏览器标签页（登录页标题同步）                                            |\n| `bot_names`                       | `[]`               | 手动标记为假人的玩家名列表（小写）；自动识别之外的手动兜底                                            |\n| `not_bot_names`                   | `[]`               | 反向名单（小写）：即使匹配名称规则或离线 UUID 也强制视为真人；行内「取消标记」会自动写入                          |\n| `bot_name_patterns`               | `[\"(?i)^bot[_-]\"]` | 假人名称正则列表；默认只对**不在 usercache 中**的玩家生效，避免误伤同名真玩家                           |\n| `bot_name_patterns_apply_to_all`  | `false`            | 设为 `true` 时名称规则对所有玩家生效（适用于假人也写入 usercache 的服务端）；同名真玩家请加入 `not_bot_names` |\n\n---\n\n\n\n## 关于 RCON\n\n插件的大部分功能不需要 RCON，但以下内容依赖它：\n\n- TPS / MSPT 读数（通过 `tick query`）\n- 玩家列表里的坐标与维度\n- 控制台切换到 RCON 通道后才能看到命令的回复文本\n- 插件重载后恢复在线玩家列表\n\n启用方式是 **两处都要配**，且端口与密码必须一致：\n\n- Minecraft 端：`server/server.properties` 里的 `enable-rcon`、`rcon.port`、`rcon.password`\n- MCDR 端：MCDR 的 `config.yml` 里的 `rcon` 段\n\n其中 Minecraft 端的三项可以直接在面板「服务器配置」页的「服务器配置」子页签里改（改完需重启服务器）；MCDR 端可以在「服务器配置」页的「MCDR 配置」子页签里改，保存后会自动执行 `!!MCDR reload config` 生效。\n\n---\n\n\n\n## 安全建议\n\n面板拥有服务器的完整控制权（执行任意命令、封禁玩家、改配置、管理/删除插件与 mod、改写配置文件），请谨慎暴露：\n\n- **默认只监听 `127.0.0.1`**，从外网访问建议保留这一设置，通过 SSH 隧道或内网穿透连接\n- 若确实要开放到公网，请把它放在 Nginx / Caddy 等反向代理之后并启用 HTTPS。插件自身**不提供 TLS**，明文 HTTP 会让密码和令牌在链路上裸奔\n- 登录接口内置简单的失败限流（同一来源 60 秒内最多尝试 10 次），并且面板的 API 文档默认关闭；会话 cookie 使用 `HttpOnly` 与 `SameSite=Strict`，页面脚本无法读取令牌\n- 反向代理需要额外转发 WebSocket，否则实时控制台无法连接：\n\n  ```nginx\n  location /ws/ {\n      proxy_pass http://127.0.0.1:8088;\n      proxy_http_version 1.1;\n      proxy_set_header Upgrade $http_upgrade;\n      proxy_set_header Connection \"upgrade\";\n  }\n  ```\n\n- `rcon.password` 等敏感配置项在面板里只显示为空，不会下发到浏览器；留空提交表示保持原值不变\n- MCDR 配置编辑器按字段展示，RCON 密码不会回显；留空提交表示保持原值不变\n\n---\n\n\n\n## 已知限制\n\n- **资源占用历史存在内存中**，MCDR 重启或插件重载后会清零，重新从头累积\n- **世界种子、名称、难度读自存档文件**，只在服务器存盘时更新，可能比实际状态滞后几分钟\n- **玩家的 IP 与 UUID 靠解析服务器输出获得**，如果服务端日志格式特殊可能抓不到；插件重载后恢复的在线玩家没有加入时间与 IP\n- **Mod 列表只识别 Fabric**（读取 `fabric.mod.json`），Forge / NeoForge mod 只会列出文件名；上传、禁用、删除按 `.jar` 文件管理，不区分加载器\n- **MCDR 配置以可视化字段编辑**，写入时由 ruamel.yaml 重新生成文件；配置项集合随 MCDR 版本自动识别，新版本新增的未知字段会用通用输入框展示\n- **插件检查更新 / 更新依赖 MCDR 插件仓库网络访问**，且只有打包插件（`.mcdr` / `.pyz`）可更新；检查与更新的详细输出显示在实时控制台。面板自身每次打开时检查更新，有新版本时可从侧边栏底部确认更新，执行 `!!MCDR plugin install -U minecraft_web_manager` 后自动重载；面板自身也可以在面板内重载，重载后短暂中断并自动恢复\n- **假人识别**：经典 Carpet 假人按离线 UUID 精确识别；TIS/AMS/RMS 等扩展的假人可能是 Mojang 查询 UUID 或随机 UUID（v4），只能靠名称规则 + usercache 信号识别。名称规则默认只对无 usercache 记录的玩家生效，误判时可用 `not_bot_names` 或行内「取消标记」强制修正\n- **Ping 值在原版服务端下无法获取**，列表中不展示\n- 面板界面目前支持简体中文与英文\n\n---\n\n\n\n## 反馈\n\n欢迎通过 [Issues](https://github.com/ForestTrees/MinecraftWebManager/issues) 提交问题与建议。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/README_en.md",
+      "zh_cn": "https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "minecraft_web_manager",
+    "latest_version": "1.2.6",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.6",
+        "name": "v1.2.6 (Recommended)",
+        "tag_name": "v1.2.6",
+        "created_at": "2026-09-04T08:28:50Z",
+        "description": "## Fixes\r\n\r\n- Fixed plugin update results appearing only in the MCDR console instead of returning to the originating web request.\r\n- Fixed the automatic panel update check failing to display the update notification in the sidebar footer.",
+        "prerelease": false,
+        "asset": {
+          "id": 544035040,
+          "name": "MinecraftWebManager-v1.2.6.mcdr",
+          "size": 107452,
+          "download_count": 4,
+          "created_at": "2026-09-04T08:33:55Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.6/MinecraftWebManager-v1.2.6.mcdr",
+          "hash_md5": "4f6d415881eacf716b9caf7bbcd15f66",
+          "hash_sha256": "9bec18b3b64e7c84d16f71a3b32d4f374da32040c8fa0aae7c6a99dee791de3a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.6",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management.",
+            "zh_cn": "为 MCDReforged 管理的 Minecraft 服务器提供安全的网页仪表盘与实时控制台，支持玩家、插件、世界与 Mod 管理。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.5",
+        "name": "v1.2.5",
+        "tag_name": "v1.2.5",
+        "created_at": "2026-09-03T02:13:30Z",
+        "description": "## Fixes\r\n\r\n- Fixed the panel update notification not appearing when MCDR returned ANSI-colored plugin update output.  \r\n\r\n## Changes\r\n\r\n- Update MCDR metadata and add a Chinese description. (#1 )",
+        "prerelease": false,
+        "asset": {
+          "id": 542112624,
+          "name": "MinecraftWebManager-v1.2.5.mcdr",
+          "size": 106815,
+          "download_count": 4,
+          "created_at": "2026-09-03T03:04:38Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.5/MinecraftWebManager-v1.2.5.mcdr",
+          "hash_md5": "672be8cd6bd6016369cd1673aed6b8ff",
+          "hash_sha256": "18a0db6e7011d33882f32e28c257e4e0397d38f09f6cad033c299704c86b703b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.5",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management.",
+            "zh_cn": "为 MCDReforged 管理的 Minecraft 服务器提供安全的网页仪表盘与实时控制台，支持玩家、插件、世界与 Mod 管理。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.4",
+        "name": "v1.2.4",
+        "tag_name": "v1.2.4",
+        "created_at": "2026-09-01T08:09:37Z",
+        "description": "## New\r\n\r\n- **Copy player UUIDs**: Click a player name in the roster to copy its UUID to the clipboard.\r\n\r\n## Fixes\r\n\r\n- Improved server command suggestions after startup and plugin reloads.\r\n- Improved command help capture on large modded servers.\r\n- Fixed plugin update checks incorrectly reporting rejected, incomplete, or timed-out operations as successful.\r\n\r\n## Changes\r\n\r\n- Removed the UUID columns from the player and bot rosters; use the player name to copy UUIDs instead.\r\n- Unified the Player Management and Server Configuration layouts with the Plugin and Mod Management page.\r\n- Improved responsive toolbar and filter sizing on the Server Configuration page.",
+        "prerelease": false,
+        "asset": {
+          "id": 539241221,
+          "name": "MinecraftWebManager-v1.2.4.mcdr",
+          "size": 106525,
+          "download_count": 4,
+          "created_at": "2026-09-01T08:28:18Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.4/MinecraftWebManager-v1.2.4.mcdr",
+          "hash_md5": "88eb155d1d869326674a5b4a3bf7d77b",
+          "hash_sha256": "7e8c4b4673f378ad1af06e32e0523aa1d884d1ac02bcc2754c2f465877ad537b"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.4",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.3",
+        "name": "v1.2.3",
+        "tag_name": "v1.2.3",
+        "created_at": "2026-08-26T03:13:11Z",
+        "description": "## 优化\r\n\r\n- 优化在线控制台命令提示功能，支持按当前单词前缀过滤候选，并支持 ↑、↓、Enter、Esc 操作。\r\n- 修复未注册的 MCDR 指令无法正常转发到 Minecraft 服务端的问题。\r\n- 修复网页控制台部分 ANSI 与 Minecraft 颜色代码无法正确显示的问题。\r\n- 插件加载时自动获取的 help 内容仍用于建立补全索引，但不再刷屏显示在网页实时控制台中。",
+        "prerelease": false,
+        "asset": {
+          "id": 530187994,
+          "name": "MinecraftWebManager-v1.2.3.mcdr",
+          "size": 104422,
+          "download_count": 16,
+          "created_at": "2026-08-26T03:16:56Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.3/MinecraftWebManager-v1.2.3.mcdr",
+          "hash_md5": "43d6fb87ab4e2d010cd7f5c79b2a7f9f",
+          "hash_sha256": "f9d40c3ea2ccad7b528df3a2cd6144351f68d4600e4be5f260705e5ce9a541b4"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.3",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.2",
+        "name": "v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2026-08-24T09:42:11Z",
+        "description": "## 新增\r\n\r\n- **面板自身更新**：每次打开面板时自动检查 `minecraft_web_manager` 是否有新版本；检测到更新后，在侧边栏底部显示更新提示，确认后通过 MCDR 安装并自动重载面板，WebSocket 会自动恢复连接。\r\n\r\n## 优化\r\n\r\n- 修复 MCDR 插件依赖检查对 `ruamel-yaml` 的误报问题。\r\n- 修复服务端「重启」按钮鼠标悬浮时错误显示绿色的问题，保持 warn 色系。",
+        "prerelease": false,
+        "asset": {
+          "id": 527410063,
+          "name": "MinecraftWebManager-v1.2.2.mcdr",
+          "size": 96928,
+          "download_count": 3,
+          "created_at": "2026-08-24T09:53:47Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.2/MinecraftWebManager-v1.2.2.mcdr",
+          "hash_md5": "e218b6a8ff14aeba70cbf1414d679a42",
+          "hash_sha256": "735177d020da1a2bce066f234f260da02fd4b67d86e11a45c16b756dd7c830ad"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.2",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.1",
+        "name": "v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2026-08-20T01:40:34Z",
+        "description": "## 优化\r\n\r\n- 正确解析插件与 Mod 的多语言描述，支持 MCDR/Fabric 多语言 description（如 zh_cn / en_us），按面板语言展示对应文本\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 521586947,
+          "name": "MinecraftWebManager-v1.2.1.mcdr",
+          "size": 95960,
+          "download_count": 12,
+          "created_at": "2026-08-20T01:41:38Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.1/MinecraftWebManager-v1.2.1.mcdr",
+          "hash_md5": "0ba559e2fa55cca37ad6bf863c3de160",
+          "hash_sha256": "be9b76e6645b0fde89d4b5de20bfe5d4335e095079fea9d649bfde9c8e655510"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.1",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.2.0",
+        "name": "v1.2.0",
+        "tag_name": "v1.2.0",
+        "created_at": "2026-08-18T06:42:40Z",
+        "description": "## 新增\r\n\r\n- 服务器配置页新增「MCDR 配置」子页签，可直接可视化编辑 MCDR 的 `config.yml`\r\n- 配置项自动适配当前 MCDR 版本，兼容不同 MCDR 版本之间的字段差异\r\n- 保存 MCDR 配置后自动执行 `!!MCDR reload config`，修改立即生效\r\n- 服务器配置页显示当前编辑文件 `server.properties`，明确修改对象\r\n\r\n## 优化\r\n\r\n- 修复 MCDR 插件依赖检查对 ruamel-yaml 的误报问题\r\n\r\n## 其他\r\n\r\n- 移除服务器配置页中的“已加载插件 / 已加载 Mod”侧栏，插件与 Mod 管理统一收敛到「插件与 Mod」页\r\n- 导航标签 World 更名为「服务器配置」（英文 Server Settings）\r\n- 版本号提升至 1.2.0，中英文 README 同步更新\r\n\r\n",
+        "prerelease": false,
+        "asset": {
+          "id": 519062999,
+          "name": "MinecraftWebManager-v1.2.0.mcdr",
+          "size": 95455,
+          "download_count": 9,
+          "created_at": "2026-08-18T06:49:19Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.2.0/MinecraftWebManager-v1.2.0.mcdr",
+          "hash_md5": "9f2696baa3fa48efc334cc868b965fa7",
+          "hash_sha256": "bf71d767276764deb16430e658c237b66840aa4c008b8970e4c790b4a8bd5963"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.2.0",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0",
+            "ruamel-yaml>=0.17,<0.19"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2026-08-15T16:15:32Z",
+        "description": "## 新增\r\n\r\n- **插件与 Mod 管理页**：插件三态列表（已加载 / 已禁用 / 未加载），支持检查更新、一键更新、禁用 / 启用 / 删除；未加载插件（如启动时加载失败）可一键「加载」恢复\r\n- **Mod 管理**：上传、禁用 / 启用、删除，列表展示名称、版本与大小（Fabric mod 读取 `fabric.mod.json` 元数据）\r\n- **配置文件在线编辑**：插件与 Mod 配置文件可在模态框内浏览与编辑，保存时保留原编码（UTF-8 / Latin-1）、BOM 与行尾风格；二进制文件与超过 1 MiB 的文件只读\r\n- **面板自身支持重载**：可在面板内重新加载插件自身，短暂中断（约 10 秒）后自动恢复，页面 WebSocket 自动重连\r\n- **操作防重复**：插件 / Mod 操作进行中禁用相关按钮，防止重复触发\r\n- **Mod 配置快速定位**：点击 Mod 的「配置」会按该 Mod 的 id / 名称自动预填过滤框，直接定位到它自己的配置文件\r\n- world 侧栏「已加载 Mod」标注禁用状态；进入 World 视图立即刷新插件列表\r\n\r\n\r\n## 更改\r\n\r\n- 「禁用 / 删除」从行内按钮收进「⋯」菜单，降低误触风险\r\n- 插件更新等待超时从 60 秒延长至 120 秒\r\n- 面板自身插件操作限制调整：禁止更新 / 禁用 / 删除，允许重载（此前一律禁止）\r\n- 新增运行依赖 python-multipart",
+        "prerelease": false,
+        "asset": {
+          "id": 515857953,
+          "name": "MinecraftWebManager-v1.1.0.mcdr",
+          "size": 88466,
+          "download_count": 12,
+          "created_at": "2026-08-15T16:25:25Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.1.0/MinecraftWebManager-v1.1.0.mcdr",
+          "hash_md5": "0984f7e74087a1ea5bc10c75bb53b3ff",
+          "hash_sha256": "68cf5f22284f040ee281b9bc97a3c94eb96c30a0f6997a2a350dc7ca68891a66"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.1.0",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "python-multipart>=0.0.9,<1.0",
+            "psutil>=6.0,<8.0"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2026-08-10T11:48:10Z",
+        "description": "## 新增\r\n\r\n- **待生效配置追踪**：修改并保存 `server.properties` 后，尚未重启的配置项会标记为「待重启生效」，并显示原值 / 新值；插件重载或直接编辑配置文件后依然可追踪，服务器重启后自动清除。敏感项（如 RCON 密码）只提示\"已修改\"，不会显示值\r\n- **可配置面板标题**：新增 `panel_title` 配置项（默认 `MC Web Manager`），侧边栏、浏览器标签页与登录页标题都会随配置显示（修改后需重载插件）\r\n- **站点图标**：使用插件 logo 作为 favicon，并兼容 `/favicon.ico` 请求\r\n\r\n## 修复与优化\r\n\r\n- 待生效状态文件带签名校验，损坏或被篡改时自动重建基线，不影响面板使用\r\n- 白名单开关等即时生效的操作不再被误标记为\"待重启生效\"",
+        "prerelease": false,
+        "asset": {
+          "id": 508715126,
+          "name": "MinecraftWebManager-v1.0.1.mcdr",
+          "size": 69989,
+          "download_count": 19,
+          "created_at": "2026-08-10T12:14:26Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.0.1/MinecraftWebManager-v1.0.1.mcdr",
+          "hash_md5": "f9b250dc78689281e382dc83884e324c",
+          "hash_sha256": "922fec915d550a5a19cf0b651135101addd4169d29526fa01eafeb766cd7fa9e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.0.1",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "psutil>=6.0,<8.0"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2026-08-10T01:53:38Z",
+        "description": "## 新功能\r\n\r\n- **假人（Carpet bot）识别与管理**：按离线 UUID、名称规则自动识别假人（兼容 TIS/AMS 等扩展生成 v4 UUID 的假人），独立「假人管理」表格折叠展示，支持行内标记 / 取消标记，可配置 `bot_names`、`not_bot_names`、`bot_name_patterns`\r\n- **登录会话保持**：HttpOnly + SameSite=Strict 会话 cookie，默认 30 天滚动续期（`token_ttl_seconds` 可配置），不再每次打开浏览器都重新登录\r\n- **中英文双语界面**：自动跟随浏览器语言（简体 / 繁体中文 → 中文，其余 → 英文），也可手动切换并记忆\r\n- **World 页面重构**：`server.properties` 改为响应式卡片网格，插件 / Mod 列表常驻右侧栏，支持配置总数与已修改计数\r\n\r\n## 主要修复\r\n\r\n- 修复 `server.properties` 的 Java 转义处理，避免 motd 颜色码（`\\u00A7`）被改写破坏\r\n- 修复玩家列表跨线程竞态；大服务器下 RCON 坐标查询超时自动降级，不再整页报错\r\n- 世界信息按存档 mtime 缓存、tick 查询 5 秒缓存，降低轮询开销\r\n- 禁止从网页重载插件自身（改由 MCDR 控制台操作）\r\n- 登录接口限流、关闭公开 API 文档等安全加固\r\n\r\n## 其他\r\n\r\n- 控制台渲染性能优化、静态资源缓存版本管理、中英文 README 同步更新",
+        "prerelease": false,
+        "asset": {
+          "id": 508144530,
+          "name": "MinecraftWebManager-v1.0.0.mcdr",
+          "size": 64998,
+          "download_count": 10,
+          "created_at": "2026-08-10T01:58:26Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v1.0.0/MinecraftWebManager-v1.0.0.mcdr",
+          "hash_md5": "fff84589894c3d54da9739ff39eaa718",
+          "hash_sha256": "ea74c738522a5c76650168534a872b7d0f688c98cd430d1b6d31ccb2d2beeb8e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "1.0.0",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "psutil>=6.0,<8.0"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/ForestTrees/MinecraftWebManager/releases/tag/v0.1.1",
+        "name": "Minecraft Web Manager v0.1.1",
+        "tag_name": "v0.1.1",
+        "created_at": "2026-08-03T06:26:51Z",
+        "description": "## v0.1.1\r\n\r\n为 Minecraft 服务器提供带登录鉴权的网页管理面板：实时控制台、玩家管理、`server.properties` 在线编辑与资源占用图表。\r\n面板由插件自身托管，无需另外部署 Web 服务器，也不依赖任何 CDN 或前端构建工具。",
+        "prerelease": false,
+        "asset": {
+          "id": 499716446,
+          "name": "MinecraftWebManager-v0.1.1.mcdr",
+          "size": 56908,
+          "download_count": 19,
+          "created_at": "2026-08-03T06:36:30Z",
+          "browser_download_url": "https://github.com/ForestTrees/MinecraftWebManager/releases/download/v0.1.1/MinecraftWebManager-v0.1.1.mcdr",
+          "hash_md5": "9e4d1b683a5dae6755b33779795e1e27",
+          "hash_sha256": "82d9a33e19c062ab909474b454e996c042487fb6bb41f5d3d30c23ffbcf7844f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "minecraft_web_manager",
+          "name": "Minecraft Web Manager",
+          "version": "0.1.1",
+          "link": null,
+          "authors": [
+            "ForestTrees"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [
+            "fastapi>=0.115,<1.0",
+            "uvicorn[standard]>=0.30,<1.0",
+            "psutil>=6.0,<8.0"
+          ],
+          "description": {
+            "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/ForestTrees/MinecraftWebManager",
+    "name": "MinecraftWebManager",
+    "full_name": "ForestTrees/MinecraftWebManager",
+    "html_url": "https://github.com/ForestTrees/MinecraftWebManager",
+    "description": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server.",
+    "archived": false,
+    "stargazers_count": 1,
+    "watchers_count": 1,
+    "forks_count": 1,
+    "readme": "# Minecraft Web Manager\n\n[English](https://github.com/ForestTrees/MinecraftWebManager/tree/main/README_en.md) | **中文**\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件，为 Minecraft 服务器提供带登录鉴权的网页管理面板：实时控制台、玩家管理、插件与 Mod 在线管理、`server.properties` 与 MCDR `config.yml` 在线编辑、Mod 配置文件编辑、资源占用图表。\n\n面板由插件自身托管，无需另外部署 Web 服务器，也不依赖任何 CDN 或前端构建工具。\n\n- **版本**：1.2.6\n- **依赖**：MCDReforged `>=2.15.0`、Python 3.10+\n- **Python 库**：`fastapi`、`uvicorn[standard]`、`python-multipart`、`psutil`、`ruamel-yaml`\n\n---\n\n## 功能\n\n### 实时控制台\n\n- 实时推送最近1000行服务器日志输出历史\n- 支持发送 Minecraft 命令与 MCDR 命令（`!!` 开头）\n- 命令通道可切换 **console**（写入服务端标准输入）或 **RCON**（能拿到服务器的回复文本）\n- 输入框支持 `↑` / `↓` 翻查历史命令，并支持指令提示\n- 一键 启动 / 停止 / 重启 服务器\n\n![实时控制台](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/实时控制台.png)\n\n### 玩家管理\n\n- **玩家列表**：汇总所有进过本服的玩家，显示在线状态、IP、在线时长、最后在线时间、所在维度与坐标；点击玩家昵称可复制该玩家的 UUID\n- **假人列表**：识别出的 Carpet 假人（bot），可折叠、可行内手动标记/取消标记；点击假人昵称同样可以复制 UUID\n- **对单个玩家直接执行：**设为 / 取消 OP、踢出、封禁、封禁 IP、加入 / 移出白名单\n- **白名单**：开关白名单、重载名单、增删成员\n- **管理员**：查看与增删 OP\n- **封禁**：封禁 / 解封玩家与 IP，可填写理由\n\n![玩家管理-玩家列表](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/玩家管理.png)\n\n### 插件与 Mod 管理\n\n**插件**\n\n- **插件列表**：展示服务器内全部MCDR插件；支持一键检查更新、禁用、删除、启用、重载插件\n- **配置插件**：可在线编辑插件的配置文件；二进制文件与超过 1 MiB 的文件只读\n- 插件操作进行中会禁用相关按钮，防止重复触发；检查更新被拒绝（如已有其它安装任务在运行）时不会误报「全部是最新」\n\n![插件管理](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/插件管理.png)\n\n**Mod**\n\n- **模组文件**：展示服务器内全部mod；支持上传、禁用、删除、配置各个mod。上传、禁用、删除都需**重启服务端**才会真正生效\n- **配置文件**：可在线编辑各mod的配置文件；二进制文件与超过 1 MiB 的大文件只读不可编辑\n\n![Mod管理](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/mod管理.png)\n\n### 服务器配置\n\n服务器配置页顶部通过「服务器配置 / MCDR 配置」两个子页签切换。两个子页共用统一的标题、工具栏和右侧操作区，筛选项会根据可用宽度自适应。\n\n- **服务器配置**：在线查看与修改 `server.properties`，修改后需重启服务器后生效\n- **MCDR 配置**：在线查看与编辑 MCDR 的 `config.yml` 配置文件，保存后自动执行 `!!MCDR reload config` 立即生效\n\n![服务器配置](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/服务器配置.png)\n\n### 服务器状态\n\n- TPS、MSPT、Swap、磁盘、系统负载概览\n- CPU 占用、内存占用、网络实时速度三张折线图，时间范围可选 10m / 30m / 1h / 6h / 12h / 1d / 3d / 7d\n- 区分「整机」与「Minecraft 进程」两条曲线，1 秒精度采样保留最近 1 小时，1 分钟均值保留最近 7 天\n\n![服务器状态](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/服务器状态.png)\n\n### 其它\n\n- 浅色 / 暗黑 / 跟随系统三种配色，自动记忆\n- 界面语言自动跟随浏览器（简体 / 繁体中文 → 中文，其余 → 英文），也可在页面右上角 / 侧边栏手动切换并记忆\n- 响应式布局，手机浏览器可用\n\n---\n\n\n\n## 如何安装\n\n### 1. 一键安装指令\n\n```\n!!MCDR plugin install minecraft_web_manager\n```\n\n### 2. 插件管理\n\n请参考mcdreforged官方文档：https://docs.mcdreforged.com/zh-cn/latest/command/mcdr.html#plugin-management\n\n\n### 3. 取得初始密码\n\n首次加载时插件会生成一次性密码并打印到 MCDR 日志（`WARNING` 级别）：\n\n```\n[Minecraft Web Manager] Minecraft Web Manager bootstrap password: xxxxxxxxxxxxxxxxxxxxxxxx\n```\n\n**请立刻保存这串密码**，它只会明文出现这一次。随后用浏览器访问：\n\n```\nhttp://127.0.0.1:8088\n```\n\n默认用户名 `admin`，密码即上面那串。\n\n### 4. 忘记密码怎么办\n\n把配置文件里的 `password.salt` 和 `password.hash` 都改成空字符串 `\"\"`：\n\n```json\n\"password\": { \"salt\": \"\", \"hash\": \"\" }\n```\n\n保存后执行 `!!MCDR reload plugin minecraft_web_manager`，新的一次性密码会重新打印在 MCDR 日志里。\n\n---\n\n\n\n## 如何更新\n\n### 方式一：MCDR更新指令\n\n```\n!!MCDR plugin install -U minecraft_web_manager\n```\n\n### 方式二：面板自身的更新提示\n\n点击并确认后，将自动下载最新版本的插件与相关依赖，并自动重载插件\n\n![更新提示](https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/docs/img/更新提示.png)\n\n\n\n## 配置\n\n配置文件位于 MCDR 工作目录下的 `config/minecraft_web_manager/config.json`，**修改后需要重载插件才会生效**。\n\n| 键                                 | 默认值                | 说明                                                                       |\n| --------------------------------- | ------------------ | ------------------------------------------------------------------------ |\n| `host`                            | `127.0.0.1`        | 面板监听地址。默认仅本机可访问，改成 `0.0.0.0` 才能从其它机器打开                                   |\n| `port`                            | `8088`             | 面板监听端口                                                                   |\n| `username`                        | `admin`            | 登录用户名                                                                    |\n| `password.salt` / `password.hash` | 自动生成               | 密码的 PBKDF2 盐值与哈希，密码本身不会存盘                                                |\n| `token_secret`                    | 自动生成               | 登录令牌的签名密钥，清空它会让所有已登录会话立即失效                                               |\n| `token_ttl_seconds`               | `2592000`（30 天）    | 登录会话有效期（秒）；活跃使用时到期前会自动续期                                                 |\n| `panel_title`                     | `MC Web Manager`   | 面板品牌标题，显示在侧边栏与浏览器标签页（登录页标题同步）                                            |\n| `bot_names`                       | `[]`               | 手动标记为假人的玩家名列表（小写）；自动识别之外的手动兜底                                            |\n| `not_bot_names`                   | `[]`               | 反向名单（小写）：即使匹配名称规则或离线 UUID 也强制视为真人；行内「取消标记」会自动写入                          |\n| `bot_name_patterns`               | `[\"(?i)^bot[_-]\"]` | 假人名称正则列表；默认只对**不在 usercache 中**的玩家生效，避免误伤同名真玩家                           |\n| `bot_name_patterns_apply_to_all`  | `false`            | 设为 `true` 时名称规则对所有玩家生效（适用于假人也写入 usercache 的服务端）；同名真玩家请加入 `not_bot_names` |\n\n---\n\n\n\n## 关于 RCON\n\n插件的大部分功能不需要 RCON，但以下内容依赖它：\n\n- TPS / MSPT 读数（通过 `tick query`）\n- 玩家列表里的坐标与维度\n- 控制台切换到 RCON 通道后才能看到命令的回复文本\n- 插件重载后恢复在线玩家列表\n\n启用方式是 **两处都要配**，且端口与密码必须一致：\n\n- Minecraft 端：`server/server.properties` 里的 `enable-rcon`、`rcon.port`、`rcon.password`\n- MCDR 端：MCDR 的 `config.yml` 里的 `rcon` 段\n\n其中 Minecraft 端的三项可以直接在面板「服务器配置」页的「服务器配置」子页签里改（改完需重启服务器）；MCDR 端可以在「服务器配置」页的「MCDR 配置」子页签里改，保存后会自动执行 `!!MCDR reload config` 生效。\n\n---\n\n\n\n## 安全建议\n\n面板拥有服务器的完整控制权（执行任意命令、封禁玩家、改配置、管理/删除插件与 mod、改写配置文件），请谨慎暴露：\n\n- **默认只监听 `127.0.0.1`**，从外网访问建议保留这一设置，通过 SSH 隧道或内网穿透连接\n- 若确实要开放到公网，请把它放在 Nginx / Caddy 等反向代理之后并启用 HTTPS。插件自身**不提供 TLS**，明文 HTTP 会让密码和令牌在链路上裸奔\n- 登录接口内置简单的失败限流（同一来源 60 秒内最多尝试 10 次），并且面板的 API 文档默认关闭；会话 cookie 使用 `HttpOnly` 与 `SameSite=Strict`，页面脚本无法读取令牌\n- 反向代理需要额外转发 WebSocket，否则实时控制台无法连接：\n\n  ```nginx\n  location /ws/ {\n      proxy_pass http://127.0.0.1:8088;\n      proxy_http_version 1.1;\n      proxy_set_header Upgrade $http_upgrade;\n      proxy_set_header Connection \"upgrade\";\n  }\n  ```\n\n- `rcon.password` 等敏感配置项在面板里只显示为空，不会下发到浏览器；留空提交表示保持原值不变\n- MCDR 配置编辑器按字段展示，RCON 密码不会回显；留空提交表示保持原值不变\n\n---\n\n\n\n## 已知限制\n\n- **资源占用历史存在内存中**，MCDR 重启或插件重载后会清零，重新从头累积\n- **世界种子、名称、难度读自存档文件**，只在服务器存盘时更新，可能比实际状态滞后几分钟\n- **玩家的 IP 与 UUID 靠解析服务器输出获得**，如果服务端日志格式特殊可能抓不到；插件重载后恢复的在线玩家没有加入时间与 IP\n- **Mod 列表只识别 Fabric**（读取 `fabric.mod.json`），Forge / NeoForge mod 只会列出文件名；上传、禁用、删除按 `.jar` 文件管理，不区分加载器\n- **MCDR 配置以可视化字段编辑**，写入时由 ruamel.yaml 重新生成文件；配置项集合随 MCDR 版本自动识别，新版本新增的未知字段会用通用输入框展示\n- **插件检查更新 / 更新依赖 MCDR 插件仓库网络访问**，且只有打包插件（`.mcdr` / `.pyz`）可更新；检查与更新的详细输出显示在实时控制台。面板自身每次打开时检查更新，有新版本时可从侧边栏底部确认更新，执行 `!!MCDR plugin install -U minecraft_web_manager` 后自动重载；面板自身也可以在面板内重载，重载后短暂中断并自动恢复\n- **假人识别**：经典 Carpet 假人按离线 UUID 精确识别；TIS/AMS/RMS 等扩展的假人可能是 Mojang 查询 UUID 或随机 UUID（v4），只能靠名称规则 + usercache 信号识别。名称规则默认只对无 usercache 记录的玩家生效，误判时可用 `not_bot_names` 或行内「取消标记」强制修正\n- **Ping 值在原版服务端下无法获取**，列表中不展示\n- 面板界面目前支持简体中文与英文\n\n---\n\n\n\n## 反馈\n\n欢迎通过 [Issues](https://github.com/ForestTrees/MinecraftWebManager/issues) 提交问题与建议。\n",
+    "readme_url": "https://raw.githubusercontent.com/ForestTrees/MinecraftWebManager/main/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

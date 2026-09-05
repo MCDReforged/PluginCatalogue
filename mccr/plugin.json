@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "mccr",
+  "authors": [
+    "DancingSnow",
+    "ZhuRuoLing"
+  ],
+  "repository": "https://github.com/DancingSnow0517/MCDRCommandCompleterReforged",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "<div align=\"center\">\n\n# MCDRCommandCompletion Reforged\n_✨ Another wonderful implementation of client-side MCDR command completion ✨_\n\n</div>\n\n[Readme zh_CN](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/tree/master//README.md)\n\n> [!WARNING]  \n> Requires [FabricMod-MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) to work\n\n## Usage\n- Download the latest release of this plugin from [Release](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases) and install it.\n- Ensure that the server you join has this mod and the corresponding plugin installed.\n- Use `!` in the chat bar to trigger completion.\n\n## Configuration\nConfiguration file can be found at `config/mccr/config.json`\n\n* ### http_port\n  #### `http_port` represents the port used by the HTTP server, this value will be automatically configured to the `server mod` by the command\n  - Type: `int`\n  - Any integer between `1-65535`\n  - Default value: `8080`\n\n## License\nThis project follows the GNU LGPL V3 license\n",
+    "zh_cn": "<div align=\"center\">\n\n# MCDRCommandCompletion Reforged\n_✨ 另一种奇妙实现的客户端MCDR命令补全 ✨_\n\n</div>\n\n[Readme en_US](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/tree/master//README_en.md)\n\n> [!WARNING]  \n> 需要搭配 [FabricMod-MCDRCommandCompletionReforged-Mod](https://github.com/ZhuRuoLing/MCDRCommandCompletionReforged-Mod) 使用\n\n## 使用\n- 从 [Release](https://github.com/DancingSnow0517/MCDRCommandCompleterReforged/releases) 处下载本插件的最新发布版并安装。\n- 确保阁下加入的服务器安装了本模组以及本模组配套插件\n- 在聊天栏中使用`!`触发补全。\n\n## 配置\n配置文件从 `config/mccr/config.json` 找到\n\n* ### http_port\n  #### `http_port` 代表着 http 服务器所使用的端口, 该值会自动使用命令自动配置到 `服务端mod` 上\n  - 类型: `int`\n  - 任意 `1-65535` 的整数\n  - 默认值: `8080`\n\n## 许可\n本项目遵循 GNU LGPL V3 许可\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/DancingSnow0517/MCDRCommandCompleterReforged/master/README_en.md",
+    "zh_cn": "https://raw.githubusercontent.com/DancingSnow0517/MCDRCommandCompleterReforged/master/README.md"
+  }
+}

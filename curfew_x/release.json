@@ -1,0 +1,116 @@
+{
+  "schema_version": 8,
+  "id": "curfew_x",
+  "latest_version": "0.1.2",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Rivertao1/CurfewX/releases/tag/v0.1.2",
+      "name": "CurfewX v0.1.2",
+      "tag_name": "v0.1.2",
+      "created_at": "2026-08-15T01:05:48Z",
+      "description": "## 更新内容\n\n- 游戏内宵禁广播改用 MCDR 结构化彩色文本\n- 默认配色：绿色前缀、黄色倒计时正文、红色时间数字\n- 新增可配置的消息颜色，并自动迁移旧版配置\n- 新增短命令 `!!cfx`，完整命令 `!!curfew` 继续兼容\n- 同步更新中英文文档与帮助信息\n\n## 环境\n\n- MCDReforged 2.15.7\n- Python 3.9 及以上\n- 兼容 `forge_handler`",
+      "prerelease": false,
+      "asset": {
+        "id": 515135705,
+        "name": "CurfewX-v0.1.2.mcdr",
+        "size": 17388,
+        "download_count": 14,
+        "created_at": "2026-08-15T01:06:30Z",
+        "browser_download_url": "https://github.com/Rivertao1/CurfewX/releases/download/v0.1.2/CurfewX-v0.1.2.mcdr",
+        "hash_md5": "990afcb666d844d3584ca41f7efd6b8a",
+        "hash_sha256": "768c063ce6f239c1eada302c82e01b9ee8a7b9e46658020520b01e54c0a9f968"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "curfew_x",
+        "name": "CurfewX",
+        "version": "0.1.2",
+        "link": "https://github.com/Rivertao1/CurfewX",
+        "authors": [
+          "River_tao"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7 <3.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Keep a Minecraft server offline during configurable curfew hours",
+          "zh_cn": "在指定宵禁时段自动关闭 Minecraft 服务端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Rivertao1/CurfewX/releases/tag/v0.1.1",
+      "name": "CurfewX v0.1.1",
+      "tag_name": "v0.1.1",
+      "created_at": "2026-08-12T04:37:12Z",
+      "description": "## 更新内容\n\n- 新增 `!!curfew help` 插件命令帮助\n- 在 MCDR `!!help` 中注册中英双语 CurfewX 帮助入口\n- 更新中英文 README 命令说明\n\n## 兼容性\n\n- MCDReforged 2.15.7\n- Python 3.9 及以上（使用 Python 3.11.15 测试）\n- 已在 Forge 1.20.1 服务端测试",
+      "prerelease": false,
+      "asset": {
+        "id": 511076798,
+        "name": "CurfewX-v0.1.1.mcdr",
+        "size": 16019,
+        "download_count": 14,
+        "created_at": "2026-08-12T04:43:19Z",
+        "browser_download_url": "https://github.com/Rivertao1/CurfewX/releases/download/v0.1.1/CurfewX-v0.1.1.mcdr",
+        "hash_md5": "a540ffd645d5b7a34471fd903807e9b2",
+        "hash_sha256": "d6bb036046407b48d4688fbfff3b9dc8bff54cab4a27c30ef2d08bde9fe190fc"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "curfew_x",
+        "name": "CurfewX",
+        "version": "0.1.1",
+        "link": "https://github.com/Rivertao1/CurfewX",
+        "authors": [
+          "River_tao"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7 <3.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Keep a Minecraft server offline during configurable curfew hours",
+          "zh_cn": "在指定宵禁时段自动关闭 Minecraft 服务端"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Rivertao1/CurfewX/releases/tag/v0.1.0",
+      "name": "CurfewX v0.1.0",
+      "tag_name": "v0.1.0",
+      "created_at": "2026-08-11T06:48:02Z",
+      "description": "  ## CurfewX v0.1.0\r\n\r\n  首个公开版本。\r\n\r\n  ### 功能\r\n\r\n  - 按每周时间表自动关闭和启动 Minecraft 服务端\r\n  - 默认每日 00:00–08:00 宵禁\r\n  - 支持多个时段及跨零点配置\r\n  - 宵禁前聊天栏提醒和最后十秒倒计时\r\n  - 支持临时解除宵禁\r\n  - 支持启用、禁用和热重载配置\r\n  - 软关服超时报警及最终强制终止\r\n  - 所有管理命令要求 MCDR admin 权限\r\n  - 状态持久化，安全处理插件及 MCDR 重载\r\n\r\n  ### 环境\r\n\r\n  - MCDReforged 2.15.7\r\n  - Python 3.11.15\r\n  - 已在 Forge 1.20.1 服务端测试",
+      "prerelease": false,
+      "asset": {
+        "id": 509786478,
+        "name": "CurfewX-v0.1.0.mcdr",
+        "size": 15709,
+        "download_count": 6,
+        "created_at": "2026-08-11T06:51:25Z",
+        "browser_download_url": "https://github.com/Rivertao1/CurfewX/releases/download/v0.1.0/CurfewX-v0.1.0.mcdr",
+        "hash_md5": "8be06dbee0e3e7653c1b6d3e6df148e1",
+        "hash_sha256": "18b66340cd4f026cd9c9694a5688b050622f271b9bf69b218a78241b7f9843b6"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "curfew_x",
+        "name": "CurfewX",
+        "version": "0.1.0",
+        "link": "https://github.com/Rivertao1/CurfewX",
+        "authors": [
+          "River_tao"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7 <3.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Keep a Minecraft server offline during configurable curfew hours",
+          "zh_cn": "在指定宵禁时段自动关闭 Minecraft 服务端"
+        }
+      }
+    }
+  ]
+}

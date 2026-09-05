@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/IPLocation-MCDR",
+  "name": "IPLocation-MCDR",
+  "full_name": "Mooling0602/IPLocation-MCDR",
+  "html_url": "https://github.com/Mooling0602/IPLocation-MCDR",
+  "description": "A MCDR plugin, to show the IP location when a player joined the game.",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# IPLocation-MCDR\n本插件适合中国大陆地区用户使用。\n\n启用了此插件后，在玩家上线时，会使用淘宝IP地址库查询并显示其IP归属地。\n\n后续可能会更新与之相关的更多功能。\n\n## 用法\n开箱即用。\n\n## 依赖项\n- 必需依赖：Pypi包request（多数情况下你的Python环境中已经安装好了）\n- 必需依赖：MCDR插件[Player IP Logger](https://mcdreforged.com/zh-CN/plugin/player_ip_logger)（用于获取玩家的IP地址）\n- 可选依赖：MCDR插件[MatrixSync](https://mcdreforged.com/zh-CN/plugin/matrix_sync)（可实现IP归属地广播到Matrix房间内）\n\n## 效果\n> 控制台效果：\n> ![屏幕截图_20240930_224343](https://github.com/user-attachments/assets/2e36d77c-2237-48e9-a0bf-b5695574d375)\n> 游戏内效果：\n> ![Screenshot_20240930-225430_Minecraft](https://github.com/user-attachments/assets/42bad1a3-623f-4da2-9a36-6e6a0f32861d)\n\n\n\n## 注意\n若无法查询出IP归属地，可以尝试增加配置（config/iploc/config.json）中的retry数，默认查询3次应该足以查询出结果了。\n\n目前没有找到可用的获取淘宝IP地址库的访问密钥（accessKey）的方法，因此暂不提供配置，使用通用方案，如果你有可用性更好的访问密钥可以修改源代码并使用。\n\n## 局限性\n使用的接口：淘宝IP地址库、百度，精准度和可用性难以保证。\n\n提示语句暂不能自定义，计划于后续进行支持。\n\n## 其他\n目前尚无相关的同类MCDR插件，而Spigot插件EssentialsX GeoIP配置比较繁琐且有时提供的信息不完整，因此开发此插件。\n\n如果您有更好的方案，可以自行开发并进行完善，当有更好用的项目出现后，本项目可能会考虑存档并停止更新。\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/IPLocation-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
