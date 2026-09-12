@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "command_aliases",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/command_aliases",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# Command Aliases\n\n> Alias commands by config\n\n## Usage\n\nYou need to add all commands you would like to alias in the config file, where keys are the alias and values are the original commands.\n\n```json\n{\n  \"alias\": {\n    \"!!mcdr\": \"!!MCDR\"\n  }\n}\n```\n\nNow you can use `!!mcdr` as an alias for `!!MCDR`.\n\n> [!NOTE]\n> There will be no completion for alias commands. If you want to use completion, you need to use original commands. It does not make sense if you need to use alias in an environment where you have completion.\n",
+    "zh_cn": "# Command Aliases\n\n> 根据配置文件为命令添加别名\n\n## 使用\n\n您需要在配置文件中添加所有您想要别名的命令，其中键是别名，值是原始命令。\n\n```json\n{\n  \"alias\": {\n    \"!!mcdr\": \"!!MCDR\"\n  }\n}\n```\n\n现在您可以使用 `!!mcdr` 作为 `!!MCDR` 的别名。\n\n> [!NOTE]\n> 命令别名不会有自动补全。如果您需要使用自动补全，您需要使用原始命令。在有自动补全的环境中使用别名是没有意义的。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/command_aliases/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/command_aliases/readme_cn.md"
+  }
+}

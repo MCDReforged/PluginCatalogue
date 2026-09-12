@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "chat_with_ai",
+  "authors": [
+    "gubai"
+  ],
+  "repository": "https://github.com/gubaiovo/MCDR_chat_with_ai",
+  "branch": "main",
+  "related_path": "chat_with_ai",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# chat_with_ai\n\nAfter DeepSeek resumed normal service, I attempted to develop an MCDR plugin to connect DeepSeek with Minecraft servers.\n\nUtilizing the openai library, this plugin theoretically supports all OpenAI-compatible models.\n\nArticle: https://blog.gubaiovo.com/posts/ec277bd3.html\n\n## Usage\n\nDrop into the plugins folder, then execute !!MCDR plugin reload chat_with_ai\n\nCommands\n\n`!!dsp help`: View help\n\n`!!dsp history`: View chat history\n\n`!!dsp clear`: Clear chat history\n\n`!!dsp system`: View AI preset\n\n`!!dsp system <system>`: Set AI preset\n\n`!!dsp prefix`: View AI name\n\n`!!dsp prefix <prefix>`: Set AI name\n\n`!!dsp init system`: Initialize role preset\n\n`!!dsp init prefix`: Initialize role preset\n\n`!!dsp init all`: Initialize all and clear chat history\n\n`!!dsp msg <message>`: Chat with AI\n\n## Acknowledgments\n\nTo my 2022 self:\n\n> The world generation algorithm swallowed my seventeenth year.\n> \n> That unsent letter still hovers at the edge of the End Gateway,\n> \n> adrift like unfinished redstone circuits.\n> \n> When the first AI villager spoke unscripted dialogue,\n> \n> I suddenly heard my 2022 self\n> \n> hammering rail rhythms deep in the mine shafts.\n> \n> Those abandoned coordinate parameters\n> \n> are recompiling spring beneath the bedrock layer.\n",
+    "zh_cn": "# chat_with_ai\nDeepSeek 恢复正常后，便尝试编写一个MCDR插件，使MC服务器能够接入DeepSeek。\n\n使用了openai库，理论上支持openai的模型均可使用此插件对接\n\n文章地址：https://blog.gubaiovo.com/posts/ec277bd3.html\n\n## 使用方法\n\n扔进plugins文件夹，然后`!!MCDR plugin reload chat_with_ai`\n\n\n\n## Command\n\n`!!dsp help`: 查看帮助\n\n`!!dsp history`: 查看历史消息\n\n`!!dsp clear`: 清空历史消息\n\n`!!dsp system`: 查看ai预设\n\n`!!dsp system <system>`: 设置ai预设\n\n`!!dsp prefix`: 查看ai名称\n\n`!!dsp prefix <prefix>`: 设置ai名称\n\n`!!dsp init system`: 初始化角色预设\n\n`!!dsp init prefix`: 初始化角色预设\n\n`!!dsp init all`: 全部初始化且清空历史记录\n\n`!!dsp msg <message>`: 与AI对话\n\n\n\n## 鸣谢\n\n感谢22年的自己\n\n> 世界生成算法吞下了我的十七岁。\n> \n> 那封没寄出的信还在末地折跃门边缘，\n> \n> 漂浮如未完成的红石电路。\n> \n> 当第一个AI村民说出预设外的对白，\n> \n> 我忽然听见2022年的自己，\n> \n> 在矿洞深处敲打铁轨的节奏。\n> \n> 那些被放弃的坐标参数，\n> \n> 正在基岩层下重新编译春天。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/gubaiovo/MCDR_chat_with_ai/main/chat_with_ai/doc/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/gubaiovo/MCDR_chat_with_ai/main/chat_with_ai/doc/README_CN.md"
+  }
+}

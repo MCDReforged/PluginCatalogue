@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "xevents",
+  "authors": [
+    "Jel1ySpot"
+  ],
+  "repository": "https://github.com/Jel1ySpot/MCDReforgedPlugins",
+  "branch": "main",
+  "related_path": "src/xEvents",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "# xEvents\n\n> 提供了更多的事件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 事件\n\n### 玩家死亡\n\n| 事件 ID | 回調參數 |\n|-|-|\n| `xevents.player_death` | `server: PluginServerInterface`, `info: Info` |\n\n### 獲得成就\n\n| 事件 ID | 回調參數 |\n|-|-|\n| `xevents.get_advancement` | `player: str`, `advancement: str` |\n\n\n## TODO\n\n- [x] MCDR `0.x` 版本事件復活\n- [ ] （？）想到再寫\n",
+    "zh_cn": "# xEvents\n\n> 提供了更多的事件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 事件\n\n### 玩家死亡\n\n| 事件 ID | 回調參數 |\n|-|-|\n| `xevents.player_death` | `server: PluginServerInterface`, `info: Info` |\n\n### 獲得成就\n\n| 事件 ID | 回調參數 |\n|-|-|\n| `xevents.get_advancement` | `player: str`, `advancement: str` |\n\n\n## TODO\n\n- [x] MCDR `0.x` 版本事件復活\n- [ ] （？）想到再寫\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Jel1ySpot/MCDReforgedPlugins/main/src/xEvents/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/Jel1ySpot/MCDReforgedPlugins/main/src/xEvents/README.md"
+  }
+}

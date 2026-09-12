@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "bot_tittle",
+    "name": "BotTittle",
+    "version": "1.0.1",
+    "link": "https://github.com/addre98/MCDR-BotTittle",
+    "authors": [
+      "addre"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Automatically assign a custom title prefix to carpet bot players"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "bot_tittle",
+    "authors": [
+      "addre98"
+    ],
+    "repository": "https://github.com/addre98/MCDR-BotTittle",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# BotTittle\n\nAutomatically assign a configurable title prefix to carpet mod fake players using the vanilla `/team` command.\n\nDetection based on login message regex matching.\n",
+      "zh_cn": "# BotTittle\n\n通过原版 `/team` 机制，自动为地毯端假人玩家添加可配置的称号前缀。\n\n基于登录消息正则匹配识别假人玩家。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/addre98/MCDR-BotTittle/master/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/addre98/MCDR-BotTittle/master/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "bot_tittle",
+    "latest_version": "1.0.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/addre98/MCDR-BotTittle/releases/tag/v1.0.1",
+        "name": "BotTittle v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2026-06-18T14:35:39Z",
+        "description": "Add fallback_detect option for short-name bots. Use rcon to check team existence.",
+        "prerelease": false,
+        "asset": {
+          "id": 451292315,
+          "name": "BotTittle-v1.0.1.mcdr",
+          "size": 1125,
+          "download_count": 6,
+          "created_at": "2026-06-18T14:36:17Z",
+          "browser_download_url": "https://github.com/addre98/MCDR-BotTittle/releases/download/v1.0.1/BotTittle-v1.0.1.mcdr",
+          "hash_md5": "20c3fee7feab93682a2abe4beab651ec",
+          "hash_sha256": "90547b347b2ec3a2e3c5af68bd2bf5da4672d94d2365eded73d7e211b1c9aa5f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_tittle",
+          "name": "BotTittle",
+          "version": "1.0.1",
+          "link": "https://github.com/addre98/MCDR-BotTittle",
+          "authors": [
+            "addre"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Automatically assign a custom title prefix to carpet bot players"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/addre98/MCDR-BotTittle/releases/tag/v1.0.0",
+        "name": "BotTittle v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2026-06-18T13:24:55Z",
+        "description": "Initial release.",
+        "prerelease": false,
+        "asset": {
+          "id": 451237686,
+          "name": "BotTittle-v1.0.0.mcdr",
+          "size": 989,
+          "download_count": 5,
+          "created_at": "2026-06-18T13:25:15Z",
+          "browser_download_url": "https://github.com/addre98/MCDR-BotTittle/releases/download/v1.0.0/BotTittle-v1.0.0.mcdr",
+          "hash_md5": "0ddc16dac2c8941535eb9f667220db70",
+          "hash_sha256": "aeb3089b725f2ac40c481a5f55fee468b8d58b38b1d1b4ab215a3e9b3b219b17"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "bot_tittle",
+          "name": "BotTittle",
+          "version": "1.0.0",
+          "link": "https://github.com/addre98/MCDR-BotTittle",
+          "authors": [
+            "addre"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Automatically assign a custom title prefix to carpet bot players"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/addre98/MCDR-BotTittle",
+    "name": "MCDR-BotTittle",
+    "full_name": "addre98/MCDR-BotTittle",
+    "html_url": "https://github.com/addre98/MCDR-BotTittle",
+    "description": "Automatically assign a custom title prefix to carpet bot players",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# BotTittle\n\n通过原版 `/team` 机制，自动为地毯端假人玩家添加自定义称号前缀。\n\n## 依赖\n\n- MCDReforged >= 2.0.0\n- `/team` 命令（原版支持）\n\n## 工作原理\n\n监听玩家加入事件，通过正则表达式匹配假人登录消息，自动将其加入队伍应用队伍前缀。\n\n## 配置\n\n首次加载后会在 `config/bot_tittle/config.json` 生成配置文件：\n\n```json\n{\n    \"title_prefix\": \"§f[§aBot§f]\",\n    \"fallback_detect\": false\n}\n```\n\n- `title_prefix`：称号前缀字符串，使用格式化代码 `§`\n- `fallback_detect`：启用原始日志匹配（默认 `false`），覆盖 `on_player_joined` 无法匹配的异常短名称假人\n\n## 许可\n\nGPL-3.0\n",
+    "readme_url": "https://raw.githubusercontent.com/addre98/MCDR-BotTittle/master/README.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

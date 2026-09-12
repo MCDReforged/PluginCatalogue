@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Passion-Never-Dissipate/World_Eater_Manage",
+  "name": "World_Eater_Manage",
+  "full_name": "Passion-Never-Dissipate/World_Eater_Manage",
+  "html_url": "https://github.com/Passion-Never-Dissipate/World_Eater_Manage",
+  "description": "一个为原版服务器设计的世吞假人管理插件",
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 0,
+  "readme": "# World_Eater_Manage\n一个为原版服务器设计的世吞假人管理插件\n\n> [!WARNING]\n> \n> 如果您正在使用1.21.5及以上的minecraft版本，请将MCDR版本升级至2.14.7或更高版本，以确保插件的Rtext能正常工作\n\n> [!TIP]\n> \n> 本插件的假人组驻留功能与Gugle Carpet Addition模组的假人驻留冲突.\n> \n> 要使用本插件的假人组驻留功能,请关闭GCA的FakePlayerResident(假人驻留)规则!\n> \n> 尽可能的使用最新版本，以避免潜藏的问题，升级版本后请重新生成配置文件\n> \n> 发现问题请提交issue，如果您想为本项目做出贡献，欢迎提交pr\n\n在v1.4.0版本，插件新增了对ruamel.yaml库的依赖，但由于MCDR在安装时会安装该库，因此无需额外安装\n\n需要 `v2.7.0` 以上的 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged)\n## 用前需知\n使用本插件前，请确保您的服务端为fabric，并且安装了carpet mod\n\n本插件的作用为通过指令框选一定范围的区块，自动生成假人来强加载这些区块，以保证这些区块内的红石机械能正常工作\n\n插件使用组来管理假人，每次使用指令来生成一定数量的假人时，这些生成的假人会被归类到一个组里\n\n你可以将某组假人添加到重启列表里，在世吞损坏，服务器因此回档时，这组假人会自动生成，避免了繁琐的重复放置假人过程\n\n在生成假人时，如果你没有指定组名，插件使用配置文件里的默认组名来指定组名\n\n创建假人组时，插件会先确定组名，然后会根据组名确定假人的id，最后生成假人，因此，组名不能包含中文字符\n\n例如：配置文件里默认的假人组名为we，在生成假人组时，我没有指定假人组名，此时创建假人组使用默认组名来创建，例如we1。组名不能重复，如果we1已经存在，则使用we2作为组名，以此类推\n\n如果我在配置文件里将默认的假人组名改为chino,在不指定组名的情况下，组名的创建和上例相同，以chino1，chino2，chino3的顺序创建。\n\n如果在创建假人组时，指定了组名，只要该组名在假人组里不存在，假人组就会创建\n\n插件在创建假人时，会根据区块范围确定需要的假人数量与其坐标，如果需要两个假人，且该组假人组名为we1，生成的两个假人id如下\n\nwe1_1,we1_2 格式为 组名_假人编号\n\n如果你使用一些手段更改了假人的生成id，比如给其加上了前缀:bot_或者后缀_bot,\n\n上述例子生成的假人id会变更为: bot_we1_1_bot, bot_we1_2_bot\n\n此时如果我们对两个假人对应的组we1进行清理操作，会发现执行完毕后这两个假人并未被清除\n\n这是因为插件创建的假人id(we1_1,we1_2)与实际生成的假人id(bot_we1_1_bot, bot_we1_2_bot)不符\n\n为了避免这种情况，你可以在配置文件里手动设置生成前缀与后缀,配置文件说明见下。\n## 命令格式说明\n\n!!we 查看帮助信息\n\n!!we spawn <x1> <z1> <x2> <z2> <维度:0主世界,-1地狱,1末地> <服务器视距> <组名> 以坐标所在区块围成的空置域生成假人组\n\n!!we rspawn <区块半径> <服务器视距> <组名> 以玩家所在区块为中心,框选(2r+1)*(2r+1)大小的区块生成假人组\n\n!!we kill <组名> 删除该组假人并使其退出游戏\n\n!!we clear 删除所有假人组\n\n!!we restart <组名> 使该组假人在服务器重启后自动生成\n\n!!we list 查看正在运行的假人组\n\n!!we reload 重载本插件\n\n## 配置文件说明\n配置文件为 `config/world_eater.json`。它会在第一次运行时自动生成\n\n当你修改了配置文件后，记得输入!!we reload来重载配置文件\n\n### bot_prefix\n默认值: \"\"\n\n生成假人的前缀\n\n### bot_suffix\n默认值: \"\"\n\n生成假人的后缀\n\n### y_position\n默认值: 128\n\n假人生成的y坐标\n\n### gamemode\n默认值: spectator\n\n假人生成时的游戏模式\n\n### group_name\n默认值: we\n\n默认的假人组名\n\n### max_chunk_length\n默认值: 51\n\n框选区块的最大区块边长,默认为51，即最大框选区块大小为51x51区块\n\n该值的设立是为了意外情况下，选择了非常大的一片区块，生成了大量假人\n\n### dimension_list\n默认值:\n```\n    {\n        \"0\": \"minecraft:overworld\",\n        \"-1\": \"minecraft:the_nether\",\n        \"1\": \"minecraft:the_end\"\n    }\n```\n\n一个字典，代表服务器的维度数字键与维度名称的映射.\n\n如果你的服务器有其他维度，通过修改映射可以使插件在其他维度使用\n\n### minimum_permission_level\n默认值：\n```\n    {\n        \"spawn\": 1,\n        \"rspawn\": 1,\n        \"kill\": 1,\n        \"restart\": 1,\n        \"reload\": 2,\n        \"clear\": 1,\n        \"list\": 0\n    }\n```\n\n一个字典，代表使用不同类型指令需要权限等级。数值含义见[此处](https://mcdreforged.readthedocs.io/zh_CN/latest/permission.html)\n\n把所有数值设置成 `0` 以让所有人均可操作\n\n\n\n\n\n\n\n",
+  "readme_url": "https://raw.githubusercontent.com/Passion-Never-Dissipate/World_Eater_Manage/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

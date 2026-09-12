@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "shell_executor",
+  "authors": [
+    "Mooling0602"
+  ],
+  "repository": "https://github.com/Mooling0602/ShellExecutor-MCDR",
+  "branch": "main",
+  "related_path": "src",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "- English\n- [中文（简体）](https://github.com/Mooling0602/ShellExecutor-MCDR/tree/main/src/../README_zh_CN.md)\n\n# ShellExecutor-MCDR\nQuickly execute shell commands in MCDR console or in the game.\n> Require MCDR permission level reach 4 to use.\n\n## Usage\nUse `!!shell <command>` to execute a command in default shell environment.\n> Commands include spaces should be quoted by `\"`, like this: `!!shell \"ls server/mods/\"`\n\nDefault alias for `!!shell` is `$`, install [Command Aliases](https://mcdreforged.com/plugin/command_aliases) to activate this feature.\n\n## NOTE\n- Support Linux shell at present, the plugin may not work properly on other operating systems.\n> Test on Windows is welcome, feel free to submit an issue if you find any problem.\n\n- Do not execute TUI binaries in ShellExecutor, it may break rendering the MCDR console and even freezes it. I've no idea to solve this problem at present, if you have any solution, please submit an issue or a pull request, thanks.\n",
+    "zh_cn": "- 中文（简体）\n- [English](https://github.com/Mooling0602/ShellExecutor-MCDR/tree/main/src/../README.md)\n\n# ShellExecutor-MCDR\n在 MCDR 控制台或游戏中快速执行 shell 命令。\n> 需要 MCDR 权限等级达到 4 才能使用。\n\n## 用法\n使用 `!!shell <command>` 在默认 shell 环境中执行命令。\n> 包含空格的命令应该用 `\"` 引起来，例如：`!!shell \"ls server/mods/\"`\n\n`!!shell` 的默认别名是 `$`，安装 [Command Aliases](https://mcdreforged.com/plugin/command_aliases) 来激活此功能（命令别名）。\n\n## 注意\n- 目前支持 Linux shell，插件可能在其他操作系统上无法正常工作。\n> 欢迎在 Windows 上测试，如果发现任何问题，请随时提交 issue。\n\n- 不要在 ShellExecutor 中执行 TUI 二进制文件，这可能会打断 MCDR 控制台的渲染，甚至导致冻结。我没有解决这个问题的办法，如果你有任何解决方案，请提交 issue 或 pull request，谢谢。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Mooling0602/ShellExecutor-MCDR/main/src/../README.md",
+    "zh_cn": "https://raw.githubusercontent.com/Mooling0602/ShellExecutor-MCDR/main/src/../README_zh_CN.md"
+  }
+}
