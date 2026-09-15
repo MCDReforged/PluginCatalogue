@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Crystal0404/RestartServer",
+  "name": "RestartServer",
+  "full_name": "Crystal0404/RestartServer",
+  "html_url": "https://github.com/Crystal0404/RestartServer",
+  "description": "Mcdreforged plugin",
+  "archived": true,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 0,
+  "readme": "## 这是什么\n这是一个mcdreforged插件,可以让你在一个服务器中启动另一个服务器,避免因为一些\n原因导致的服务器崩溃无法重启\n## 如何使用\n将本插件放入mcdreforged插件文件夹中，生成配置文件后对配置文件修改并重载就\n可以使用了\n## 配置文件\n```json\n{\n    \"permission\": 2,\n    \"ServerFileAddress\": {},\n    \"python\": \"python\"\n}\n```\n这是默认生成的配置文件\n\npermission是权限等级\n\nServerFileAddress是所要重启的服务器名称以及它的绝对位置\n\npython是你的解释器绝对位置,如果你的mcdreforged没有改动解释器位置，一般不需要更改\n\n下面是一个正确编写配置文件的示例\n\n```json\n{\n    \"permission\": 2,\n    \"ServerFileAddress\": {\n      \"survival\": \"D:\\\\Python\\\\mcdr\",\n      \"creative\": \"D:\\\\Python\\\\mcdr1\"\n    },\n    \"python\": \"D:\\\\Python\\\\mcdr\\\\venv\\\\Scripts\\\\python.exe\"\n}\n```\n注意分割符数量\n\n剩下的帮助可以使用指令!!restartserver查看\n",
+  "readme_url": "https://raw.githubusercontent.com/Crystal0404/RestartServer/main/README.md",
+  "license": {
+    "key": "cc-by-4.0",
+    "name": "Creative Commons Attribution 4.0 International",
+    "spdx_id": "CC-BY-4.0",
+    "url": "https://api.github.com/licenses/cc-by-4.0"
+  }
+}

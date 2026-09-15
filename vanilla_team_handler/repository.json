@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/VanillaTeamHandler-MCDR",
+  "name": "VanillaTeamHandler-MCDR",
+  "full_name": "Mooling0602/VanillaTeamHandler-MCDR",
+  "html_url": "https://github.com/Mooling0602/VanillaTeamHandler-MCDR",
+  "description": "A handler for MCDReforged to parse chat messages from team members. Only support vanilla servers with `/team` command.",
+  "archived": false,
+  "stargazers_count": 1,
+  "watchers_count": 1,
+  "forks_count": 0,
+  "readme": "# VanillaTeamHandler-MCDR\n\nChoose language: English | [简体中文](https://github.com/Mooling0602/VanillaTeamHandler-MCDR/tree/main/README_zh.md)\n\nA handler for MCDReforged to parse chat messages from team members. Only support vanilla servers with `/team` command.\n> Vanilla Fabric server is also supported, but floodgate players with \".\" not at present.\n<!-- markdownlint-disable MD028 -->\n> [!WARNING]\n> Don't use this plugin with other handler type ones, or conflicts will happen.\n\n## Usage\n\n### Command `/team`\n\nBased on [Command `/team`](https://minecraft.wiki/w/Commands/team).\n\nBoth prefix and suffix options of a team will change the chat format of a player who is in it, but only prefix supported at present. So you have to read the following guides to make this handler works fine.\n\n> Future versions will attempt to support more customizable configuration options.\n\nThe prefix must consist of English letters, digits, or underscores, enclosed in square brackets; the content within brackets must not contain brackets or other special characters that affect recognition.\n> Note: Chinese and other non-English language characters may also be usable, but have not been thoroughly verified.\n\nFor example, use `default` as a team's name, `[Default]` as a team's prefix, and `Steve` as a player's name.\n\n1. Create a team.\n   > `/team add <team>`\n\n   e.g.`/team add default`\n\n2. Set the prefix, because it will affect the player's name in messages about the player.\n   > `/team modify <team> prefix <prefix>`\n\n   e.g.`/team modify default prefix \"[Default]\"`\n\n3. Add the player to the team.\n   > `/team join <team> [<members>]`\n\n   **Player side**: e.g.`/team join default`\n\n   **Server side**: e.g.`/team join default Steve`\n   > Note: if you want to add all players to the team, you can use `/team join default @a`\n\nThen this handler will work as expected.\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/VanillaTeamHandler-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
