@@ -217,15 +217,16 @@ def _write_plugin(plugin: Plugin, file: IO[str]):
 		table = Table(Text('python_package'), Text('requirements.requirement'))
 		pip_reqs = []
 		for line in plugin.meta_info.requirements:
-			matched = re.match(r'^[^<>=~^]+', line)
+			matched = re.match(r'^([a-zA-Z0-9][a-zA-Z0-9._-]*)(?:\[[a-zA-Z0-9._,-]+\])?', line)
 			if matched is None:
 				log.warning('Unknown requirement line "{}" in plugin {}'.format(line, plugin))
 				continue
 			pip_reqs.append(line)
 			package = matched.group()
+			package_name = matched.group(1)
 			req = value_utils.remove_prefix(line, package)
 			table.add_row(
-				Link(package, 'https://pypi.org/project/{}'.format(package)),
+				Link(package, 'https://pypi.org/project/{}'.format(package_name)),
 				markdown_utils.format_markdown(req)
 			)
 		table.write(file)
