@@ -40,12 +40,18 @@ class _PluginDataSet(enum.Flag):
 		return True
 
 
+class _PluginInfoJsonAuthor(Serializable):
+	name: str = ''
+	link: Optional[str] = None
+	homepage: Optional[str] = None
+
+
 class _PluginInfoJson(Serializable):
 	"""
 	Content of plugin_info.json
 	"""
 	id: str
-	authors: List[Union[str, Author]] = []
+	authors: List[Union[str, _PluginInfoJsonAuthor]] = []
 	repository: str
 	branch: str
 	related_path: str = '.'
@@ -79,8 +85,10 @@ class _PluginInfoInternal:
 			if isinstance(item, str):
 				author = Author()
 				author.name = item
+			elif isinstance(item, _PluginInfoJsonAuthor):
+				author = Author(name=item.name, link=item.link or item.homepage)
 			else:
-				author = item
+				raise TypeError(type(item))
 			self.authors.append(author)
 
 		# label

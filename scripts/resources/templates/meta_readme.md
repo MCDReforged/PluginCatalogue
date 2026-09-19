@@ -187,8 +187,8 @@ For `MetaInfo` object in `ReleaseInfo` object, the information is fetched from t
     "mcdreforged": ">=2.2.0"
   },
   
-  // A list of string, plugin's python requirements
-  // i.g. lines in the requirements.txt files
+  // A list of string, plugin's Python requirements
+  // i.e. lines from the requirements file selected by mcdreforged.plugin.json
   "requirements": [
     "mcdreforged>=2.2.0"
   ],
@@ -271,7 +271,7 @@ Information of a GitHub release
   // An AssetInfo object storing the valid asset of the release,
   // A valid asset is an asset that contains a packed plugin file, which
   // 1. Has its file name ending with ".mcdr" or ".pyz"
-  // 2. Is a valid zip file, contains "mcdreforged.plugin.json" and optional "requirements.txt" json at the zip root
+  // 2. Is a valid zip file, contains "mcdreforged.plugin.json" and the requirements file selected by its metadata, if any
   // If there are multiple packed plugin file assets, the first one is used, and the latter ones will be ignored
   "asset": {/* AssetInfo */},
   

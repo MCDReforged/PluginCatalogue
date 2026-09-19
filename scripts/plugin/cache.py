@@ -5,6 +5,8 @@ from io import BytesIO
 from pathlib import Path
 from typing import TYPE_CHECKING, Set
 
+from mcdreforged.plugin.meta.metadata import Metadata, RequirementsFileSpec
+
 from common import constants, log
 from common.exceptions import AssetDownloadError
 from common.report import reporter
@@ -82,14 +84,22 @@ class PluginRequestCacheManager:
 
 			file_buf = rsp.content
 			with zipfile.ZipFile(BytesIO(file_buf), 'r') as f:
-				meta_buf = f.read('mcdreforged.plugin.json')
-				try:
-					req_buf = f.read('requirements.txt')
-				except KeyError:
+				meta_json = json.loads(f.read('mcdreforged.plugin.json'))
+				metadata = Metadata.create(meta_json)
+				requirements_file = metadata.requirements_file
+				if requirements_file.mode is RequirementsFileSpec.Mode.DISABLED:
 					req_buf = b''
+				elif requirements_file.mode is RequirementsFileSpec.Mode.AUTO:
+					try:
+						req_buf = f.read(requirements_file.path)
+					except KeyError:
+						req_buf = b''
+				else:
+					assert requirements_file.path is not None
+					req_buf = f.read(requirements_file.path)
 
 			data = AssetData(
-				meta=MetaInfo.of(json.loads(meta_buf), req_buf.decode('utf8')),
+				meta=MetaInfo.of(meta_json, req_buf.decode('utf8')),
 				size=len(file_buf),
 				hash_md5=hashlib.md5(file_buf).hexdigest(),
 				hash_sha256=hashlib.sha256(file_buf).hexdigest(),

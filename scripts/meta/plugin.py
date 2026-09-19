@@ -1,6 +1,6 @@
 from typing import List, Dict, Optional, TYPE_CHECKING
 
-from mcdreforged.plugin.meta.metadata import Metadata
+from mcdreforged.plugin.meta.metadata import Metadata, RequirementsFileSpec
 
 from common import constants
 from common.translation import BundledText, Text, DEFAULT_LANGUAGE
@@ -51,13 +51,13 @@ class MetaInfo(Serializable):
 
 	@classmethod
 	def of(cls, metadata_json: dict, requirements_str: str) -> 'MetaInfo':
-		metadata = Metadata(metadata_json)
+		metadata = Metadata.create(metadata_json)
 		meta_info = MetaInfo(
 			id=metadata.id,
 			name=metadata.name,
 			version=str(metadata.version),
-			link=metadata.link,
-			authors=metadata.author or [],
+			link=metadata.links.homepage if metadata.links is not None else None,
+			authors=[author.name for author in metadata.authors or []],
 			dependencies={str(k): str(v) for k, v in metadata.dependencies.items()},
 			requirements=[
 				line
@@ -80,7 +80,15 @@ class MetaInfo(Serializable):
 	@classmethod
 	async def fetch_from_repos(cls, plugin: 'Plugin', *, tag: Optional[str] = None) -> 'MetaInfo':
 		metadata_json = await plugin.get_repos_json('mcdreforged.plugin.json', tag=tag)
-		requirements_str = await plugin.get_repos_text('requirements.txt', default='', tag=tag)
+		metadata = Metadata.create(metadata_json)
+		requirements_file = metadata.requirements_file
+		if requirements_file.mode is RequirementsFileSpec.Mode.DISABLED:
+			requirements_str = ''
+		elif requirements_file.mode is RequirementsFileSpec.Mode.AUTO:
+			requirements_str = await plugin.get_repos_text(requirements_file.path, default='', tag=tag)
+		else:
+			assert requirements_file.path is not None
+			requirements_str = await plugin.get_repos_text(requirements_file.path, tag=tag)
 		meta_info = cls.of(metadata_json, requirements_str)
 
 		if meta_info.id != plugin.id:
