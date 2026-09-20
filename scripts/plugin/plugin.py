@@ -81,7 +81,7 @@ class _PluginInfoInternal:
 
 		self.authors = []
 		for item in info.authors:
-			assert isinstance(item, (str, Author)), 'author item should be str or Author, found {}'.format(type(item))
+			assert isinstance(item, (str, _PluginInfoJsonAuthor)), 'author item should be str or Author, found {}'.format(type(item))
 			if isinstance(item, str):
 				author = Author()
 				author.name = item
