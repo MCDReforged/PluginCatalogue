@@ -23,10 +23,12 @@ class PluginList(List[Plugin]):
 		if self.__inited:
 			return
 		self.clear()
+		found_cnt, loaded_cnt = 0, 0
 		for folder in os.listdir(constants.PLUGINS_FOLDER):
 			if (constants.PLUGINS_FOLDER / folder).is_dir():
 				if target_ids is None or folder in target_ids:
 					log.info('Found plugin {}'.format(folder))
+					found_cnt += 1
 					try:
 						plugin = Plugin(folder)
 					except Exception as e:
@@ -34,6 +36,7 @@ class PluginList(List[Plugin]):
 						reporter.record_plugin_failure(folder, 'Initialize plugin in folder {} failed'.format(folder), e)
 						continue
 					else:
+						loaded_cnt += 1
 						if plugin.is_disabled():
 							log.info('Plugin {} is disabled due to "{}"'.format(plugin, plugin.get_disable_reason()))
 							reporter.record_plugin_disabled(plugin.id, plugin.get_disable_reason())
@@ -43,6 +46,8 @@ class PluginList(List[Plugin]):
 					log.debug('Skipping plugin {}'.format(folder))
 
 		log.info('Found {} plugins in total'.format(len(self)))
+		if found_cnt > 0 and loaded_cnt == 0:
+			raise AssertionError('Found {} plugins in total but all failed to load'.format(found_cnt))
 		self.sort(key=lambda plg: plg.id.lower())
 		self.__inited = True
 
