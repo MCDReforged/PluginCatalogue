@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Fallen-Breath/SnapshotFollower",
+  "name": "SnapshotFollower",
+  "full_name": "Fallen-Breath/SnapshotFollower",
+  "html_url": "https://github.com/Fallen-Breath/SnapshotFollower",
+  "description": "Keep your Minecraft server up-to-date with the latest snapshot",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 1,
+  "readme": "# Snapshot Follower\n\n**English** | [中文](https://github.com/Fallen-Breath/SnapshotFollower/tree/master/README_cn.md)\n\nKeep your Minecraft server up-to-date with the latest snapshot\n\nThe plugin periodically queries about the latest Minecraft snapshot from [mojang API](https://launchermeta.mojang.com/mc/game/version_manifest.json).\nWhen a new snapshot is spotted, it will download the snapshot `server.jar`, stop the running server, replace the `server.jar`\nand finally start the server with the latest Minecraft snapshot\n\n> [!NOTE] \n> When the plugin is loaded or the server starts, the plugin will try to detect the current Minecraft version of the server \n> by reading the `version.json` inside the jar file, so it knows if the currently running Minecraft version matches the latest snapshot.\n> \n> If the detection fails, the plugin will simply assume that the current Minecraft version is the latest snapshot\n\nOptionally, an HTTP POST webhook can be triggered when the update finishes\n\n## Configuration\n\nConfig file path: `config/snapshot_follower/config.json`\n\n```json5\n{\n    \"enabled\": true,  // Switch of the plugin, default true\n\n    \"check_interval\": 60.0,  // Interval between each check\n    \"server_jar_path\": \"server/server.jar\",  // Path of the server jar file. It needs to be writeable for the update-ability\n    \"keep_downloaded_jar\": true,  // If it should keep the downloaded server.jar file after updating. Downloaded jars will be at `config/snapshot_follower/jars`\n    \"version_blacklist\": [],  // A version blacklist. Versions inside will be ignored. Useful for skipping those unwanted snapshots\n\n    \"http_proxy\": \"http://127.0.0.1:1081\",  // Optional, a http proxy url to be used for HTTP requesting\n    \"https_proxy\": \"http://127.0.0.1:1081\",  // Optional, a http proxy url to be used for HTTP requesting\n    \"request_timeout\": 10.0,  // HTTP request timeout, in seconds\n\n    \"webhook\": {\n        \"enabled\": true,  // Switch of the webwook feature. An HTTP POST request will be sent when the update finishes\n        \"use_http_proxy\": false,  // If the webhook HTTP request should use the http proxy defined above\n        \"url\": \"http://127.0.0.1:8080/my/callback\",  // Webhook url\n        \"headers\": {  // Webhook HTTP headers. Can be empty\n            \"Authorization\": \"Bearer foobar\"\n        },\n        \"body\": \"Server has been updated to {{version}}\"  // Webhook body. The placeholder {{version}} will be replaced with the updated version (e.g. 24w39a)\n    }\n}\n```\n\n## TODO\n\n- [ ] Broadcast, wait and delay-if-requested before update\n- [ ] Backup (using other plugins) before update\n",
+  "readme_url": "https://raw.githubusercontent.com/Fallen-Breath/SnapshotFollower/master/README.md",
+  "license": {
+    "key": "lgpl-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "spdx_id": "LGPL-3.0",
+    "url": "https://api.github.com/licenses/lgpl-3.0"
+  }
+}

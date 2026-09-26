@@ -1,0 +1,113 @@
+{
+  "schema_version": 8,
+  "id": "mcdr_guard",
+  "latest_version": "1.2.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/yuzai114514/mcdr-guard/releases/tag/v1.2.1",
+      "name": "MCDR Guard v1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2026-09-26T12:50:57Z",
+      "description": "修复后台恢复后手动启动导致的重复实例问题。\n\n- 同目录增加 MCDR 实例锁，插件重载期间也保持有效。\n- 世界锁被占用时暂停自动恢复，避免反复启动失败。\n- 守护连接状态核对当前 MCDR，不再把其他实例的守护误报为已连接。\n\n从 1.2.0 升级：在游戏内执行 `!!guard stop`，等旧 MCDR 和后台守护退出；用新版 `.mcdr` 替换旧插件，手动启动一次 MCDR，再输入 `!!guard setup`。输入 `!!guard` 确认版本为 1.2.1。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 590659865,
+        "name": "MCDRGuard-v1.2.1.mcdr",
+        "size": 11153,
+        "download_count": 5,
+        "created_at": "2026-09-26T12:53:05Z",
+        "browser_download_url": "https://github.com/yuzai114514/mcdr-guard/releases/download/v1.2.1/MCDRGuard-v1.2.1.mcdr",
+        "hash_md5": "cfab1ef28c1e6a2df9bc7c83428a75c2",
+        "hash_sha256": "921e4b205a15a3688d72be208bbbd43737bd8dd8cbb420658cf24e5ec9d97a09"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr_guard",
+        "name": "MCDR Guard",
+        "version": "1.2.1",
+        "link": "https://github.com/yuzai114514/mcdr-guard",
+        "authors": [
+          "yuzai114514"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "服务端自动恢复，支持游戏内一键部署 MCDR 后台守护。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/yuzai114514/mcdr-guard/releases/tag/v1.2.0",
+      "name": "MCDR Guard v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2026-09-26T08:30:05Z",
+      "description": "游戏内一键部署后台守护。\n\n- 输入 `!!guard setup` 自动部署并接管当前 MCDR，无需终端操作。\n- 输入 `!!guard` 直接显示版本和恢复状态。\n- 保留服务端自动启动、PrimeBackup 任务等待和计划停服功能。\n\n下载 `.mcdr` 文件替换旧版，执行 `!!MCDR plugin reloadall`，然后输入 `!!guard setup`。自动恢复后的 MCDR 在后台运行，日志位于 `.mcdr_guard/console.log`。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 590267451,
+        "name": "MCDRGuard-v1.2.0.mcdr",
+        "size": 10053,
+        "download_count": 4,
+        "created_at": "2026-09-26T08:32:09Z",
+        "browser_download_url": "https://github.com/yuzai114514/mcdr-guard/releases/download/v1.2.0/MCDRGuard-v1.2.0.mcdr",
+        "hash_md5": "4a7b497574bea89cf4720a5e32790e0a",
+        "hash_sha256": "ff5fcaec790c99b0a39da2071456c73b02c9721ddfe6327bc34eba96885a721b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr_guard",
+        "name": "MCDR Guard",
+        "version": "1.2.0",
+        "link": "https://github.com/yuzai114514/mcdr-guard",
+        "authors": [
+          "yuzai114514"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "服务端自动恢复，支持游戏内一键部署 MCDR 后台守护。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/yuzai114514/mcdr-guard/releases/tag/v1.1.0",
+      "name": "MCDR Guard v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2026-09-26T08:06:56Z",
+      "description": "服务端停止后自动启动，也支持在服务端已经关闭时加载插件。\n\n- 约 30 秒后尝试启动，PrimeBackup 有任务时等待任务结束。\n- 使用 `!!guard off` 暂停恢复，`!!guard stop` 停服。\n- 可选启动器用于恢复整个 MCDR 进程退出。\n\n下载 `.mcdr` 文件放入 `plugins`。从单文件版升级时，请先移除旧的 `mcdr_guard.py`，不要同时保留两个版本。启动器单独下载并放在 MCDR 根目录。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 590231207,
+        "name": "MCDRGuard-v1.1.0.mcdr",
+        "size": 4859,
+        "download_count": 5,
+        "created_at": "2026-09-26T08:08:43Z",
+        "browser_download_url": "https://github.com/yuzai114514/mcdr-guard/releases/download/v1.1.0/MCDRGuard-v1.1.0.mcdr",
+        "hash_md5": "3f19a89c4c40a1d62c4a9adfc936e019",
+        "hash_sha256": "3dc67cd8463cc509557786e935678c66c76a97948a68617a802c25ba9bd0982a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr_guard",
+        "name": "MCDR Guard",
+        "version": "1.1.0",
+        "link": "https://github.com/yuzai114514/mcdr-guard",
+        "authors": [
+          "yuzai114514"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.7"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "服务端停止后自动启动，可搭配启动器恢复 MCDR 进程。"
+        }
+      }
+    }
+  ]
+}

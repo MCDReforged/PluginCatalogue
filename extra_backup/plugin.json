@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "extra_backup",
+  "authors": [
+    "AVJANO"
+  ],
+  "repository": "https://github.com/AVJANO/ExtraBackup",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "zh_cn": "# ExtraBackup\n\n> **ExtraBackup------为你的存档找一个（好几个）温馨的家**\\\n> 基于 MCDR\n> 实现的分布式备份插件，可将备份自动上传至本地硬盘、NAS、甚至百度网盘（未来），用于防止服务器硬盘突然暴毙\n> :P\n\n> 注意：需要搭配PrimeBackup插件使用，没有Fallen的前置工作，这个插件不可能实现\n\n当前版本仅实现了**本地硬盘备份**的功能；FTP 等模式仍在开发中。\n\n------------------------------------------------------------------------\n\n## 📦 功能简介\n\n- 自动上传并导出 PrimeBackup 的备份文件\n- 分布式存储（支持多个备份路径）\n- 自动跳过重复文件\n- 支持下载、删除、清理、语言切换\n- 支持按时间间隔的定时任务（上传 & 清理）\n\n------------------------------------------------------------------------\n\n## 🧭 指令教程\n\n### `!!exb upload <id> [tag]`\n\n上传备份文件夹（通常是 `pb_files/export`）中的指定文件\n- `id` 支持 `latest`、`~3` 等 PrimeBackup 特殊 ID\n- `tag` 为备份文件的自定义标签（可不写）\n\n------------------------------------------------------------------------\n\n### `!!exb uploadall`\n\n上传备份文件夹中的 **所有备份文件**，自动跳过重复文件。\n\n------------------------------------------------------------------------\n\n### `!!exb download <file_name> [from]`\n\n从指定备份路径下载文件到本地\n- `file_name`: 备份文件名\n- `from`: 备份路径名称（可留空，留空则从任意可用路径随机下载）\n\n------------------------------------------------------------------------\n\n### `!!exb list [location]`\n\n列出指定备份路径下的所有文件\n- `location` 留空 → 列出本地备份文件\n\n------------------------------------------------------------------------\n\n### `!!exb prune [id]`\n\n清理过时文件\n- 指定 `id` → 清理该备份（无视是否过时）\n- 留空 → 清理所有过时文件\n- 过时时间由配置文件设定\n\n------------------------------------------------------------------------\n\n### `!!exb delete <file_name> <location>`\n\n删除指定备份路径下的指定备份。\n\n------------------------------------------------------------------------\n\n### `!!exb lang <language>`\n\n切换语言。\\\n支持：\n\n- `zh_cn`（中文）\n- `en_us`（英文）\n\n------------------------------------------------------------------------\n\n## ⚙️ 配置教程\n\n### 主配置 `config.json`\n\n``` jsonc\n{\n    \"enable\": \"false\",            // 是否启用该插件\n    \"language\": \"zh_cn\",          // 默认语言\n    \"max_thread\": \"-1\",           // 上传/下载最大线程数，-1 为无限制\n\n    \"schedule_backup\": {\n        \"enable\": \"false\",        // 是否启用定时上传备份\n        \"interval\": \"30m\"         // 上传时间间隔\n    },\n\n    \"schedule_prune\": {\n        \"enable\": \"false\",        // 是否启用定时清理\n        \"interval\": \"1d\",         // 定时清理时间间隔\n        \"max_lifetime\": \"3d\",     // 文件最大生命时间\n\n        \"prune_downloads\": \"true\", // 是否清理 exb_downloads 文件夹\n        \"prune_exports\": \"true\"   // 是否清理 pb 导出文件夹\n    }\n}\n```\n\n------------------------------------------------------------------------\n\n## 📁 备份路径配置 `backup_path.json`\n\n``` jsonc\n{\n    \"Name1\": {                          // 备份路径名称（支持中文）\n        \"enable\": \"false\",              // 是否启用这个备份路径\n        \"mode\": \"ftp\",                  // 备份模式：\"local\" = 本地路径；\"ftp\" = FTP 远程模式\n        \"address\": \"ftp://example.com/folder\", // local: 写本地路径；ftp: 写服务器地址\n        \"username\": \"username\",         // FTP 用户名；local 模式留空（保留双引号）\n        \"password\": \"123456\"            // FTP 密码；local 模式留空（保留双引号）\n    },\n\n    \"Name2\": {\n        \"enable\": \"true\",\n        \"mode\": \"local\",\n        \"address\": \"/folder/example\",   // 本地地址\n        \"username\": \"\",                 // local 留空（但双引号必须保留）\n        \"password\": \"\"                  // local 留空\n    }\n}\n                                        // 可自行扩展更多备份路径\n```\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/AVJANO/ExtraBackup/main/README_zh_cn.md"
+  }
+}

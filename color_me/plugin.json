@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "color_me",
+  "authors": [
+    "Apricityx_"
+  ],
+  "repository": "https://github.com/Apricityx/ColorMe",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "[[中文]](https://github.com/Apricityx/ColorMe/tree/master/introduction/./introduction-zh_cn.md) | [English]\n\n### ColorMe\n\nA simple plugin that lets players choose their own name color:\n\n```\n!!color <color>\n```\n\nIt works by making players join one of 16 vanilla scoreboard teams, one per chat color.\nBoth Minecraft 1.12.x and 1.13+ are supported.\n\nAfter enabling the plugin, initialize the teams once:\n\n```\n!!color install\n```\n\nWhen you no longer need the plugin, remove the teams:\n\n```\n!!color uninstall\n```\n\nOther commands: `!!color list` lists the colors. `install` and `uninstall` require\nMCDReforged permission level 2 (helper) or higher.\n\nNote: a player can only be in one team, so this plugin may conflict with other systems\nthat use vanilla teams for prefix/suffix/permissions.\n",
+    "zh_cn": "[中文] | [[英文]](https://github.com/Apricityx/ColorMe/tree/master/introduction/./introduction.md)\n\n### ColorMe\n\n一个让玩家自行选择名字颜色的简单插件：\n\n```\n!!color <color>\n```\n\n原理是让玩家加入 16 个原版计分板队伍（每种聊天颜色一个队伍），\n同时支持 Minecraft 1.12.x 和 1.13+。\n\n启用插件后，先初始化一次队伍：\n\n```\n!!color install\n```\n\n不再需要此插件时，删除队伍：\n\n```\n!!color uninstall\n```\n\n其他命令：`!!color list` 列出所有颜色；`install` 和 `uninstall` 需要\nMCDReforged 权限等级 2（helper）或更高。\n\n注意：一名玩家同一时间只能属于一个队伍，因此本插件可能与其他使用原版队伍\n实现前后缀/权限的系统冲突。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/introduction/introduction.md",
+    "zh_cn": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/introduction/introduction-zh_cn.md"
+  }
+}

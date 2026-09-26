@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "simple_op",
+  "authors": [
+    "Fallen_Breath"
+  ],
+  "repository": "https://github.com/TISUnion/SimpleOP",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# SimpleOP\n\n`!!op` give you op\n\n`!!restart` restart the server\n\nMostly used in creative servers\n\nConfig file: `config/simple_op/config.json`\n\n```json5\n{\n    \"enabled\": true,     // The global switch of the plugin\n    \"restart_delay\": 5,  // `!!restart` restart countdown duration in second\n    \"permissions\": {     // command minimum required permissions\n        \"op\": 1,\n        \"restart\": 1\n    }\n}\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/TISUnion/SimpleOP/master/readme.md"
+  }
+}

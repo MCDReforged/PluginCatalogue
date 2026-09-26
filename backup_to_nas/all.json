@@ -1,0 +1,268 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "backup_to_nas",
+    "name": "Backup To Nas",
+    "version": "0.1.4",
+    "link": null,
+    "authors": [
+      "renzaifei"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.10.0"
+    },
+    "requirements": [
+      "mcdreforged>=2.10.0",
+      "paramiko>=3.4.0"
+    ],
+    "description": {
+      "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol.",
+      "zh_cn": "将存档打包为 ZIP，并通过 SFTP 传输到远程 NAS。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "backup_to_nas",
+    "authors": [
+      "renzaifei"
+    ],
+    "repository": "https://github.com/SDK-Minecraft-Server/BackupToNas",
+    "branch": "release",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# Backup To Nas\n\n[简体中文](https://github.com/SDK-Minecraft-Server/BackupToNas/tree/release/README_CN.md)\n\nBackup To Nas is an MCDReforged plugin for backing up Minecraft worlds to a remote NAS. It creates ZIP archives and transfers them over SFTP.\n\n## Features\n\n- Back up one or more configured worlds and upload the archive.\n- Run backups on a schedule.\n- Manually upload existing `.zip` files from the temporary directory.\n- Query upload progress.\n- Configure MCDR permission levels and SFTP connection settings.\n\n## Installation\n\nThe plugin requires MCDR 2.10.0 or newer and Paramiko:\n\n```bash\npip install -r requirements.txt\n```\n\nIf MCDR was installed with pipx, inject Paramiko into that environment:\n\n```bash\npipx inject mcdreforged paramiko\n```\n\nThe first load creates `config/backup_to_nas/config.json`.\n\n## Configuration\n\n```json\n{\n    \"permissions\": {\n        \"help\": 0,\n        \"make\": 3,\n        \"interval\": 3,\n        \"status\": 0,\n        \"upload\": 3\n    },\n    \"interval\": \"\",\n    \"temp\": \"./backup_to_nas\",\n    \"turn_off_auto_save\": true,\n    \"server_path\": \"./server\",\n    \"world_names\": [\"world\"],\n    \"ignore_session_lock\": true,\n    \"sftp\": {\n        \"host\": \"192.168.1.100\",\n        \"port\": 22,\n        \"username\": \"root\",\n        \"password_file\": \"/etc/mcdr/backup_to_nas/sftp_password\",\n        \"private_key_file\": \"\",\n        \"remote_dir\": \"/minecraft-backups\",\n        \"timeout\": 30,\n        \"auto_add_host_key\": false\n    }\n}\n```\n\n`server_path`, `temp`, and `world_names` select the local world locations. Relative paths use MCDR's working directory; absolute paths are recommended for production.\n\nChoose exactly one SFTP authentication method:\n\n- `password_file` points to a file containing the password. Trailing newlines are ignored.\n- `private_key_file` points to an SSH private key.\n\nThe two fields cannot both be configured. Credentials are read from files instead of being stored in JSON. `auto_add_host_key` defaults to `false`, so the NAS host key must be added to `known_hosts` manually. Set it to `true` only when you explicitly accept automatically trusting unknown hosts.\n\nAn empty `interval` disables automatic backups. Use values such as `1s`, `30s`, `1h`, or `1d`; reload the plugin after editing the configuration.\n\n## Commands\n\nThe default command prefix is `!!btn`:\n\n| Command                     | Description                                                        |\n| --------------------------- | ------------------------------------------------------------------ |\n| `!!btn`                     | Show help                                                          |\n| `!!btn make`                | Create and upload a backup immediately                             |\n| `!!btn interval <interval>` | Set the automatic backup interval, for example `!!btn interval 6h` |\n| `!!btn interval off`        | Disable automatic backups                                          |\n| `!!btn status`              | Show current or last SFTP upload status                            |\n| `!!btn upload`              | Upload `.zip` files from the top level of the temporary directory  |\n\nBackups and manual uploads cannot run at the same time. Failed ZIP files remain in the temporary directory and can be retried with `!!btn upload`.\n\n## Permissions\n\nEach value is the minimum MCDR permission level required by that command:\n\n| Level | Role     |\n| ----: | -------- |\n|     0 | Everyone |\n|     1 | User     |\n|     2 | Helper   |\n|     3 | Admin    |\n|     4 | Owner    |\n\nThe fields `permissions.help`, `permissions.make`, `permissions.interval`, `permissions.status`, and `permissions.upload` control each command. The root `help` permission also gates subcommands.\n\n\n## License\n\nThis project is licensed under LGPL-3.0. See [LICENSE](https://github.com/SDK-Minecraft-Server/BackupToNas/tree/release/LICENSE).\n\nThe backup portion is inspired by [PermanentBackup](https://github.com/TISUnion/PermanentBackup).\n",
+      "zh_cn": "# Backup To Nas\n\n[English](https://github.com/SDK-Minecraft-Server/BackupToNas/tree/release/README.md)\n\nBackup To Nas 是一个 MCDR 插件，用于将 Minecraft 世界备份到远程 NAS。插件会生成 ZIP 压缩包，并通过 SFTP 传输到目标目录。\n\n## 功能\n\n- 按配置备份一个或多个世界并上传压缩包。\n- 按固定间隔自动备份。\n- 手动上传临时目录中已有的 `.zip` 文件。\n- 查询 SFTP 上传进度。\n- 配置 MCDR 权限等级和 SFTP 连接参数。\n\n## 安装\n\n插件要求 MCDR 2.10.0 或更高版本，并依赖 Paramiko：\n\n```bash\npip install -r requirements.txt\n```\n\n如果 MCDR 通过 pipx 安装，请将 Paramiko 注入 MCDR 环境：\n\n```bash\npipx inject mcdreforged paramiko\n```\n\n插件首次加载时会生成：\n\n```text\nconfig/backup_to_nas/config.json\n```\n\n## 配置\n\n```json\n{\n    \"permissions\": {\n        \"help\": 0,\n        \"make\": 3,\n        \"interval\": 3,\n        \"status\": 0,\n        \"upload\": 3\n    },\n    \"interval\": \"\",\n    \"temp\": \"./backup_to_nas\",\n    \"turn_off_auto_save\": true,\n    \"server_path\": \"./server\",\n    \"world_names\": [\"world\"],\n    \"ignore_session_lock\": true,\n    \"sftp\": {\n        \"host\": \"192.168.1.100\",\n        \"port\": 22,\n        \"username\": \"root\",\n        \"password_file\": \"/etc/mcdr/backup_to_nas/sftp_password\",\n        \"private_key_file\": \"\",\n        \"remote_dir\": \"/minecraft-backups\",\n        \"timeout\": 30,\n        \"auto_add_host_key\": false\n    }\n}\n```\n\n`server_path`、`temp` 和 `world_names` 用于确定本地世界目录。相对路径相对于 MCDR 工作目录，生产环境建议使用绝对路径。`world_names` 可以填写多个世界目录。\n\nSFTP 认证方式二选一：\n\n- `password_file` 指向只包含密码的文件，文件末尾的换行会被忽略。\n- `private_key_file` 指向 SSH 私钥文件。\n\n两项不能同时配置。凭据从文件读取，不会直接保存在 JSON 配置中。`auto_add_host_key` 默认是 `false`，需要先将 NAS 主机密钥加入运行 MCDR 用户的 `known_hosts`。只有在明确接受自动信任未知主机的风险时才设置为 `true`。\n\n`interval` 为空表示关闭自动备份，也可以使用 `1s`、`30s`、`1h` 或 `1d` 等格式。修改配置后重载插件即可生效。\n\n## 命令\n\n默认命令前缀是 `!!btn`：\n\n| 命令                          | 作用                              |\n| --------------------------- | ------------------------------- |\n| `!!btn`                     | 显示帮助信息                          |\n| `!!btn make`                | 立即创建并上传一次备份                     |\n| `!!btn interval <interval>` | 设置自动备份间隔，例如 `!!btn interval 6h` |\n| `!!btn interval off`        | 禁用自动备份                          |\n| `!!btn status`              | 查询当前或最近一次 SFTP 上传状态             |\n| `!!btn upload`              | 上传临时目录顶层已有的 `.zip` 文件           |\n\n备份和手动上传不能同时执行。上传失败的 ZIP 文件会保留在临时目录中，可以使用 `!!btn upload` 重试。\n\n## 权限\n\n权限值表示执行命令所需的最低 MCDR 权限等级：\n\n|  等级 | 身份   |\n| --: | ---- |\n|   0 | 所有人  |\n|   1 | 普通用户 |\n|   2 | 协助者  |\n|   3 | 管理员  |\n|   4 | 所有者  |\n\n`permissions.help`、`permissions.make`、`permissions.interval`、`permissions.status` 和 `permissions.upload` 分别控制对应命令。根命令的 `help` 权限也会限制子命令访问。\n\n\n## 许可证\n\n本项目使用 LGPL-3.0，详见 [LICENSE](https://github.com/SDK-Minecraft-Server/BackupToNas/tree/release/LICENSE)。\n\n备份部分参考了 [PermanentBackup](https://github.com/TISUnion/PermanentBackup)。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/SDK-Minecraft-Server/BackupToNas/release/README.md",
+      "zh_cn": "https://raw.githubusercontent.com/SDK-Minecraft-Server/BackupToNas/release/README_CN.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "backup_to_nas",
+    "latest_version": "0.1.4",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/tag/0.1.4",
+        "name": "0.1.4",
+        "tag_name": "0.1.4",
+        "created_at": "2026-09-22T10:29:20Z",
+        "description": "忘记把lang文件加到工作流里了，现在加上。\r\n为help键中添加了版本说明，并更改了打包的格式",
+        "prerelease": false,
+        "asset": {
+          "id": 581156610,
+          "name": "BackupToNas-0.1.4.mcdr",
+          "size": 11548,
+          "download_count": 5,
+          "created_at": "2026-09-22T10:30:24Z",
+          "browser_download_url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/download/0.1.4/BackupToNas-0.1.4.mcdr",
+          "hash_md5": "c13cd11241d2299f70b8f14fce18173a",
+          "hash_sha256": "aa47b8c2583577ea984c408d181054aaf89f7af895e25ce17418e0168230b013"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "backup_to_nas",
+          "name": "Backup To Nas",
+          "version": "0.1.4",
+          "link": null,
+          "authors": [
+            "renzaifei"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.10.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.10.0",
+            "paramiko>=3.4.0"
+          ],
+          "description": {
+            "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol.",
+            "zh_cn": "将存档打包为 ZIP，并通过 SFTP 传输到远程 NAS。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/tag/0.1.3",
+        "name": "0.1.3",
+        "tag_name": "0.1.3",
+        "created_at": "2026-09-22T02:21:57Z",
+        "description": "修复了语言文件的问题",
+        "prerelease": false,
+        "asset": {
+          "id": 580358547,
+          "name": "BackupToNas.mcdr",
+          "size": 8613,
+          "download_count": 5,
+          "created_at": "2026-09-22T02:23:05Z",
+          "browser_download_url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/download/0.1.3/BackupToNas.mcdr",
+          "hash_md5": "f226fdba2f9b5a58d47dcd0284f34fe5",
+          "hash_sha256": "21c33c6fdb897eb3c300de591a162c8f1288c124e2af8821e462357cd822b1ff"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "backup_to_nas",
+          "name": "Backup To Nas",
+          "version": "0.1.3",
+          "link": null,
+          "authors": [
+            "renzaifei"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.10.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.10.0",
+            "paramiko>=3.4.0"
+          ],
+          "description": {
+            "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol.",
+            "zh_cn": "将存档打包为 ZIP，并通过 SFTP 传输到远程 NAS。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/tag/0.1.2",
+        "name": "0.1.2",
+        "tag_name": "0.1.2",
+        "created_at": "2026-09-22T02:12:41Z",
+        "description": "添加了翻译文件，支持了英语",
+        "prerelease": false,
+        "asset": {
+          "id": 580344079,
+          "name": "BackupToNas.mcdr",
+          "size": 11529,
+          "download_count": 4,
+          "created_at": "2026-09-22T02:13:57Z",
+          "browser_download_url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/download/0.1.2/BackupToNas.mcdr",
+          "hash_md5": "d8286c862b75ee117e1f7814a2b2b5c3",
+          "hash_sha256": "9bcbe7b6759d9438ecbbdc18f35c000a106975740491ca5c5450c813ae6c3c8e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "backup_to_nas",
+          "name": "Backup To Nas",
+          "version": "0.1.2",
+          "link": null,
+          "authors": [
+            "renzaifei"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.10.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.10.0",
+            "paramiko>=3.4.0"
+          ],
+          "description": {
+            "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol.",
+            "zh_cn": "将存档打包为 ZIP，并通过 SFTP 传输到远程 NAS。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/tag/0.1.1",
+        "name": "0.1.1",
+        "tag_name": "0.1.1",
+        "created_at": "2026-09-22T01:20:27Z",
+        "description": "往元数据添加了仓库地址",
+        "prerelease": false,
+        "asset": {
+          "id": 580256159,
+          "name": "BackupToNas.mcdr",
+          "size": 8835,
+          "download_count": 4,
+          "created_at": "2026-09-22T01:21:32Z",
+          "browser_download_url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/download/0.1.1/BackupToNas.mcdr",
+          "hash_md5": "182788f991608c1b2fb392f653e0e643",
+          "hash_sha256": "50546c3b33412c6e71038a06c5e4e31de702ff4f9b81d5a7b249b36a96c45385"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "backup_to_nas",
+          "name": "Backup To Nas",
+          "version": "0.1.1",
+          "link": null,
+          "authors": [
+            "renzaifei"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.10.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.10.0",
+            "paramiko>=3.4.0"
+          ],
+          "description": {
+            "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol."
+          }
+        }
+      },
+      {
+        "url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/tag/0.1.0",
+        "name": "0.1.0",
+        "tag_name": "0.1.0",
+        "created_at": "2026-09-22T01:09:51Z",
+        "description": "",
+        "prerelease": false,
+        "asset": {
+          "id": 580236749,
+          "name": "BackupToNas.mcdr",
+          "size": 8798,
+          "download_count": 4,
+          "created_at": "2026-09-22T01:10:48Z",
+          "browser_download_url": "https://github.com/SDK-Minecraft-Server/BackupToNas/releases/download/0.1.0/BackupToNas.mcdr",
+          "hash_md5": "ac0eb076243a7eaefb9ea0c185e78e01",
+          "hash_sha256": "786b259dffbfc29115a2da3f4851c9f0a88196468233f96a83e73787f88eab41"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "backup_to_nas",
+          "name": "Backup To Nas",
+          "version": "0.1.0",
+          "link": null,
+          "authors": [
+            "renzaifei"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.10.0"
+          },
+          "requirements": [
+            "mcdreforged>=2.10.0",
+            "paramiko>=3.4.0"
+          ],
+          "description": {
+            "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol."
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/SDK-Minecraft-Server/BackupToNas",
+    "name": "BackupToNas",
+    "full_name": "SDK-Minecraft-Server/BackupToNas",
+    "html_url": "https://github.com/SDK-Minecraft-Server/BackupToNas",
+    "description": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# Backup To Nas\n\n[简体中文](https://github.com/SDK-Minecraft-Server/BackupToNas/tree/release/README_CN.md)\n\nBackup To Nas is an MCDReforged plugin for backing up Minecraft worlds to a remote NAS. It creates ZIP archives and transfers them over SFTP.\n\n## Features\n\n- Back up one or more configured worlds and upload the archive.\n- Run backups on a schedule.\n- Manually upload existing `.zip` files from the temporary directory.\n- Query upload progress.\n- Configure MCDR permission levels and SFTP connection settings.\n\n## Installation\n\nThe plugin requires MCDR 2.10.0 or newer and Paramiko:\n\n```bash\npip install -r requirements.txt\n```\n\nIf MCDR was installed with pipx, inject Paramiko into that environment:\n\n```bash\npipx inject mcdreforged paramiko\n```\n\nThe first load creates `config/backup_to_nas/config.json`.\n\n## Configuration\n\n```json\n{\n    \"permissions\": {\n        \"help\": 0,\n        \"make\": 3,\n        \"interval\": 3,\n        \"status\": 0,\n        \"upload\": 3\n    },\n    \"interval\": \"\",\n    \"temp\": \"./backup_to_nas\",\n    \"turn_off_auto_save\": true,\n    \"server_path\": \"./server\",\n    \"world_names\": [\"world\"],\n    \"ignore_session_lock\": true,\n    \"sftp\": {\n        \"host\": \"192.168.1.100\",\n        \"port\": 22,\n        \"username\": \"root\",\n        \"password_file\": \"/etc/mcdr/backup_to_nas/sftp_password\",\n        \"private_key_file\": \"\",\n        \"remote_dir\": \"/minecraft-backups\",\n        \"timeout\": 30,\n        \"auto_add_host_key\": false\n    }\n}\n```\n\n`server_path`, `temp`, and `world_names` select the local world locations. Relative paths use MCDR's working directory; absolute paths are recommended for production.\n\nChoose exactly one SFTP authentication method:\n\n- `password_file` points to a file containing the password. Trailing newlines are ignored.\n- `private_key_file` points to an SSH private key.\n\nThe two fields cannot both be configured. Credentials are read from files instead of being stored in JSON. `auto_add_host_key` defaults to `false`, so the NAS host key must be added to `known_hosts` manually. Set it to `true` only when you explicitly accept automatically trusting unknown hosts.\n\nAn empty `interval` disables automatic backups. Use values such as `1s`, `30s`, `1h`, or `1d`; reload the plugin after editing the configuration.\n\n## Commands\n\nThe default command prefix is `!!btn`:\n\n| Command                     | Description                                                        |\n| --------------------------- | ------------------------------------------------------------------ |\n| `!!btn`                     | Show help                                                          |\n| `!!btn make`                | Create and upload a backup immediately                             |\n| `!!btn interval <interval>` | Set the automatic backup interval, for example `!!btn interval 6h` |\n| `!!btn interval off`        | Disable automatic backups                                          |\n| `!!btn status`              | Show current or last SFTP upload status                            |\n| `!!btn upload`              | Upload `.zip` files from the top level of the temporary directory  |\n\nBackups and manual uploads cannot run at the same time. Failed ZIP files remain in the temporary directory and can be retried with `!!btn upload`.\n\n## Permissions\n\nEach value is the minimum MCDR permission level required by that command:\n\n| Level | Role     |\n| ----: | -------- |\n|     0 | Everyone |\n|     1 | User     |\n|     2 | Helper   |\n|     3 | Admin    |\n|     4 | Owner    |\n\nThe fields `permissions.help`, `permissions.make`, `permissions.interval`, `permissions.status`, and `permissions.upload` control each command. The root `help` permission also gates subcommands.\n\n\n## License\n\nThis project is licensed under LGPL-3.0. See [LICENSE](https://github.com/SDK-Minecraft-Server/BackupToNas/tree/release/LICENSE).\n\nThe backup portion is inspired by [PermanentBackup](https://github.com/TISUnion/PermanentBackup).\n",
+    "readme_url": "https://raw.githubusercontent.com/SDK-Minecraft-Server/BackupToNas/release/README.md",
+    "license": {
+      "key": "lgpl-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "spdx_id": "LGPL-3.0",
+      "url": "https://api.github.com/licenses/lgpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}

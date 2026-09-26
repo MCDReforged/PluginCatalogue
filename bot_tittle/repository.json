@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/addre98/MCDR-BotTittle",
+  "name": "MCDR-BotTittle",
+  "full_name": "addre98/MCDR-BotTittle",
+  "html_url": "https://github.com/addre98/MCDR-BotTittle",
+  "description": "Automatically assign a custom title prefix to carpet bot players",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# BotTittle\n\n通过原版 `/team` 机制，自动为地毯端假人玩家添加自定义称号前缀。\n\n## 依赖\n\n- MCDReforged >= 2.0.0\n- `/team` 命令（原版支持）\n\n## 工作原理\n\n监听玩家加入事件，通过正则表达式匹配假人登录消息，自动将其加入队伍应用队伍前缀。\n\n## 配置\n\n首次加载后会在 `config/bot_tittle/config.json` 生成配置文件：\n\n```json\n{\n    \"title_prefix\": \"§f[§aBot§f]\",\n    \"fallback_detect\": false\n}\n```\n\n- `title_prefix`：称号前缀字符串，使用格式化代码 `§`\n- `fallback_detect`：启用原始日志匹配（默认 `false`），覆盖 `on_player_joined` 无法匹配的异常短名称假人\n\n## 许可\n\nGPL-3.0\n",
+  "readme_url": "https://raw.githubusercontent.com/addre98/MCDR-BotTittle/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

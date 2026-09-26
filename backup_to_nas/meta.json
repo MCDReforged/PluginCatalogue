@@ -1,0 +1,21 @@
+{
+  "schema_version": 4,
+  "id": "backup_to_nas",
+  "name": "Backup To Nas",
+  "version": "0.1.4",
+  "link": null,
+  "authors": [
+    "renzaifei"
+  ],
+  "dependencies": {
+    "mcdreforged": ">=2.10.0"
+  },
+  "requirements": [
+    "mcdreforged>=2.10.0",
+    "paramiko>=3.4.0"
+  ],
+  "description": {
+    "en_us": "Package the save backup as a ZIP archive and transfer it to the remote NAS using the SFTP protocol.",
+    "zh_cn": "将存档打包为 ZIP，并通过 SFTP 传输到远程 NAS。"
+  }
+}

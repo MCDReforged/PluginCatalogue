@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "color_me",
+    "name": "ColorMe",
+    "version": "1.1.0",
+    "link": "https://github.com/Apricityx/ColorMe",
+    "authors": [
+      "Apricityx_"
+    ],
+    "dependencies": {},
+    "requirements": [
+      "mcdreforged~=2.15.7"
+    ],
+    "description": {
+      "en_us": "Players can change their name color by themselves!",
+      "zh_cn": "让玩家自行更改名字颜色！"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "color_me",
+    "authors": [
+      "Apricityx_"
+    ],
+    "repository": "https://github.com/Apricityx/ColorMe",
+    "branch": "master",
+    "related_path": ".",
+    "labels": [
+      "tool"
+    ],
+    "introduction": {
+      "en_us": "[[中文]](https://github.com/Apricityx/ColorMe/tree/master/introduction/./introduction-zh_cn.md) | [English]\n\n### ColorMe\n\nA simple plugin that lets players choose their own name color:\n\n```\n!!color <color>\n```\n\nIt works by making players join one of 16 vanilla scoreboard teams, one per chat color.\nBoth Minecraft 1.12.x and 1.13+ are supported.\n\nAfter enabling the plugin, initialize the teams once:\n\n```\n!!color install\n```\n\nWhen you no longer need the plugin, remove the teams:\n\n```\n!!color uninstall\n```\n\nOther commands: `!!color list` lists the colors. `install` and `uninstall` require\nMCDReforged permission level 2 (helper) or higher.\n\nNote: a player can only be in one team, so this plugin may conflict with other systems\nthat use vanilla teams for prefix/suffix/permissions.\n",
+      "zh_cn": "[中文] | [[英文]](https://github.com/Apricityx/ColorMe/tree/master/introduction/./introduction.md)\n\n### ColorMe\n\n一个让玩家自行选择名字颜色的简单插件：\n\n```\n!!color <color>\n```\n\n原理是让玩家加入 16 个原版计分板队伍（每种聊天颜色一个队伍），\n同时支持 Minecraft 1.12.x 和 1.13+。\n\n启用插件后，先初始化一次队伍：\n\n```\n!!color install\n```\n\n不再需要此插件时，删除队伍：\n\n```\n!!color uninstall\n```\n\n其他命令：`!!color list` 列出所有颜色；`install` 和 `uninstall` 需要\nMCDReforged 权限等级 2（helper）或更高。\n\n注意：一名玩家同一时间只能属于一个队伍，因此本插件可能与其他使用原版队伍\n实现前后缀/权限的系统冲突。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/introduction/introduction.md",
+      "zh_cn": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/introduction/introduction-zh_cn.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "color_me",
+    "latest_version": "1.1.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/Apricityx/ColorMe/releases/tag/v1.1.0",
+        "name": "v1.1.0",
+        "tag_name": "v1.1.0",
+        "created_at": "2026-09-13T04:53:12Z",
+        "description": "## What's Changed\n* feat: improve ColorMe by @Linvin-1233 in https://github.com/Apricityx/ColorMe/pull/3\n\n## New Contributors\n* @Linvin-1233 made their first contribution in https://github.com/Apricityx/ColorMe/pull/3\n\n**Full Changelog**: https://github.com/Apricityx/ColorMe/compare/1.0.2...v1.1.0",
+        "prerelease": false,
+        "asset": {
+          "id": 560585675,
+          "name": "ColorMe-v1.1.0.mcdr",
+          "size": 15789,
+          "download_count": 8,
+          "created_at": "2026-09-13T04:53:35Z",
+          "browser_download_url": "https://github.com/Apricityx/ColorMe/releases/download/v1.1.0/ColorMe-v1.1.0.mcdr",
+          "hash_md5": "3c58ffb67bc94ff733723df7196e5a60",
+          "hash_sha256": "1afb687cb644f0a4b8a76c6c466a2b764f6ec6331a321baece806a6126c56dc3"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "color_me",
+          "name": "ColorMe",
+          "version": "1.1.0",
+          "link": "https://github.com/Apricityx/ColorMe",
+          "authors": [
+            "Apricityx_"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.15.7"
+          ],
+          "description": {
+            "en_us": "Players can change their name color by themselves!",
+            "zh_cn": "让玩家自行更改名字颜色！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Apricityx/ColorMe/releases/tag/1.1.0",
+        "name": "ColorMe v1.1.0",
+        "tag_name": "1.1.0",
+        "created_at": "2026-09-13T04:53:12Z",
+        "description": "- Add automated CI/CD pipeline\r\n- Add MCDReforged end-to-end tests\r\n- Use vanilla /team commands for player colors\r\n- Add Chinese and English i18n\r\n- Improve documentation\r\n- Fix release workflow trigger\r\n\r\nThanks to @Linvin-1233 !",
+        "prerelease": false,
+        "asset": {
+          "id": 560587971,
+          "name": "ColorMe-v1.1.0.mcdr",
+          "size": 15789,
+          "download_count": 13,
+          "created_at": "2026-09-13T04:54:52Z",
+          "browser_download_url": "https://github.com/Apricityx/ColorMe/releases/download/1.1.0/ColorMe-v1.1.0.mcdr",
+          "hash_md5": "256fc5d17da2e2cce4d00e44b1397506",
+          "hash_sha256": "509a3ddeb079ed0fb6cf8be373a496a1f23013e73f569721713f968bf9abb161"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "color_me",
+          "name": "ColorMe",
+          "version": "1.1.0",
+          "link": "https://github.com/Apricityx/ColorMe",
+          "authors": [
+            "Apricityx_"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.15.7"
+          ],
+          "description": {
+            "en_us": "Players can change their name color by themselves!",
+            "zh_cn": "让玩家自行更改名字颜色！"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/Apricityx/ColorMe/releases/tag/1.0.2",
+        "name": "ColorMe v1.0.2",
+        "tag_name": "1.0.2",
+        "created_at": "2025-10-28T14:04:46Z",
+        "description": "修了一个因多打了一个空格导致的BUG。",
+        "prerelease": false,
+        "asset": {
+          "id": 309727353,
+          "name": "ColorMe-v1.0.2.mcdr",
+          "size": 18259,
+          "download_count": 93,
+          "created_at": "2025-10-28T15:14:00Z",
+          "browser_download_url": "https://github.com/Apricityx/ColorMe/releases/download/1.0.2/ColorMe-v1.0.2.mcdr",
+          "hash_md5": "440559898522316890bbba116ef385b1",
+          "hash_sha256": "a1f1eb2034463a50bdb10340c121acbee0ecece90b4afa3e6d8703c047f0ad47"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "color_me",
+          "name": "ColorMe",
+          "version": "1.0.2",
+          "link": "https://github.com/Apricityx/ColorMe",
+          "authors": [
+            "Apricityx_"
+          ],
+          "dependencies": {},
+          "requirements": [
+            "mcdreforged~=2.14.7"
+          ],
+          "description": {
+            "en_us": "Players can change their name color by themselves!",
+            "zh_cn": "让玩家自行更改名字颜色！"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/Apricityx/ColorMe",
+    "name": "ColorMe",
+    "full_name": "Apricityx/ColorMe",
+    "html_url": "https://github.com/Apricityx/ColorMe",
+    "description": "让名字五彩斑斓！",
+    "archived": false,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "forks_count": 0,
+    "readme": "[[中文]](https://github.com/Apricityx/ColorMe/tree/master/./readme-zh_cn.md) | [English]\n\n# ColorMe\n\nA small [MCDReforged](https://github.com/MCDReforged/MCDReforged) plugin that lets players\nchoose their own name color. It is a thin wrapper around Minecraft's vanilla scoreboard\nteam system: ColorMe creates 16 teams, one for each chat color, and players change color\nby joining a team.\n\n## Features\n\n- Players change their own name color with `!!color <color>`\n- All 16 vanilla Minecraft chat colors\n- Works on Minecraft **1.12.x** (`/scoreboard teams`) and **1.13+** (`/team`)\n- The Minecraft server manages all team state; ColorMe implements no custom rendering\n  and no second state store\n- English and Chinese plugin messages, following each command source's MCDReforged\n  language preference\n- ColorMe only creates, modifies and removes its own `__`-prefixed teams\n\n## Requirements\n\n- MCDReforged 2.x\n- Python 3.10+\n- Minecraft Java Edition 1.12.x or 1.13+ (the command syntax is selected automatically\n  from the version reported by the server)\n\n## Installation\n\n1. Put `ColorMe-vX.Y.Z.mcdr` into MCDReforged's `plugins/` folder.\n2. Restart or reload MCDReforged.\n3. Create the teams once:\n\n```\n!!color install\n```\n\n## Commands\n\n| Command             | Available to        | Permission       | Description                                   |\n| ------------------- | ------------------- | ---------------- | --------------------------------------------- |\n| `!!color <color>`   | players             | everyone         | join the team of the given color              |\n| `!!color list`      | players and console | everyone         | list the available colors                     |\n| `!!color install`   | players and console | helper (level 2) | create the ColorMe teams and set their colors |\n| `!!color uninstall` | players and console | helper (level 2) | remove the ColorMe teams                      |\n\nAvailable colors:\n\n```\nred, blue, green, yellow, light_purple, aqua, white, black, gray, gold,\ndark_red, dark_blue, dark_green, dark_aqua, dark_purple, dark_gray\n```\n\n## How it works\n\n1. `!!color install` creates the teams `__red`, `__blue`, ... and sets each team color\n   with the vanilla team color option.\n2. `!!color red` makes the executing player join the `__red` team.\n3. The vanilla server synchronizes team membership to clients, and the client renders\n   the player name with the team color. No client-side modification is involved.\n\nOn Minecraft 1.12.x the plugin uses `/scoreboard teams add|remove|join|option`; on\n1.13+ it uses `/team add|remove|join|modify`.\n\n## Languages\n\nPlugin messages are provided in English (`en_us`) and Chinese (`zh_cn`). The language of\neach reply is selected from the MCDReforged preference of the command source, so console\noutput follows the MCDR language and each player sees their own preferred language.\nOther languages fall back to English; `zh_*` languages fall back to Chinese.\nThe public color-change broadcast uses the language of the player who changed their color.\n\n## Notes and limitations\n\n- A player can only be in one team at a time (vanilla behavior). If your server uses\n  teams for other purposes (prefixes, suffixes, permissions, ...), joining a ColorMe\n  team will remove the player from their previous team. Make sure this does not break\n  your setup.\n- ColorMe never touches teams that do not use its `__` prefix. To avoid conflicts,\n  do not create your own teams named `__<color>`.\n- `!!color install` is safe to run repeatedly. If the teams already exist, the vanilla\n  server may log \"already exists\" messages, but the colors are still applied.\n- `!!color uninstall` only removes ColorMe's teams and is safe to run repeatedly.\n- Colored names require the client to support team colors; protocol translation layers\n  such as ViaVersion/ViaFabric do not change the team data itself.\n\n## Development\n\nSee [CONTRIBUTING.md](https://github.com/Apricityx/ColorMe/tree/master/./CONTRIBUTING.md) for the development setup, the test suites and\nthe release process. A Chinese version is available at\n[CONTRIBUTING-zh_cn.md](https://github.com/Apricityx/ColorMe/tree/master/./CONTRIBUTING-zh_cn.md).\n\n## License\n\nColorMe is licensed under the GNU General Public License v3.0, see [LICENSE](https://github.com/Apricityx/ColorMe/tree/master/./LICENSE).\n",
+    "readme_url": "https://raw.githubusercontent.com/Apricityx/ColorMe/master/readme.md",
+    "license": {
+      "key": "gpl-3.0",
+      "name": "GNU General Public License v3.0",
+      "spdx_id": "GPL-3.0",
+      "url": "https://api.github.com/licenses/gpl-3.0"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": [
+      {
+        "message": "Bad plugin id in tag '1.0.0' asset 'Colorful_ID-v1.0.1.mcdr', found 'colorful_id'",
+        "error_type": null,
+        "error_message": null
+      }
+    ]
+  }
+}
