@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/R1ckyH/multi_whitelist",
+  "name": "multi_whitelist",
+  "full_name": "R1ckyH/multi_whitelist",
+  "html_url": "https://github.com/R1ckyH/multi_whitelist",
+  "description": "A plugin for MCDReforged which can control whitelist in multi servers",
+  "archived": false,
+  "stargazers_count": 4,
+  "watchers_count": 4,
+  "forks_count": 0,
+  "readme": "# multi_whitelist\n-----\n[中文](https://github.com/R1ckyH/multi_whitelist/blob/master/README_cn.md)\n\nA plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) which can control whitelist in multi servers\n\nIt works with whitelist function in normal minecraft server\n\nTo use this plugin, you have to open rcon function of your server.\n\nType `!!whitelist` or `!!wlist` to see the help page\n\nYou have to fill configure file `MCDR/config/multi_whitelist.json`\n\n# permission\n\n`user` or above permission can use help command and check for whitelist list\n\n`helper` or above permission can use all the command\n\n# config\n-----\n| name             | type   | example       | function                                                                                      |\n| ---------------- | ------ | ------------- | --------------------------------------------------------------------------------------------- |\n| \"folder_name\"    | `str`  | `\"creative\"`  | The flooder name of mcdr server                                                               |\n| \"rcon_ip\"        | `str`  | `\"127.0.0.1\"` | The rcon ip of server                                                                         |\n| \"rcon_port\"      | `int`  | `\"12345\"`     | The rcon port of server                                                                       |\n| \"rcon_password\"  | `str`  | `\"password\"`  | The rcon password of server                                                                   |\n| \"same_directory\" | `bool` | `\"true\"`      | The server exist in same directory or not (Please use `lower case letter for true and false`) |\n",
+  "readme_url": "https://raw.githubusercontent.com/R1ckyH/multi_whitelist/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

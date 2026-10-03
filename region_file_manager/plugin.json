@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "region_file_manager",
+  "authors": [
+    "judamar"
+  ],
+  "repository": "https://github.com/judamar/RegionFileManager",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "### Introduction to the Region File Manager (RFM) Plugin\n\nThe **Region File Manager (RFM)** is a plugin for [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) that allows you to efficiently manage region files on a Minecraft server.\n\n#### Description\n\nThe **RFM** plugin simplifies region management in your Minecraft world, enabling you to:\n\n- Save regions to new folders.\n- Restore previously saved regions.\n- Delete specific region files from the world.\n- List all saved regions.\n- Remove regions from the list.\n- Abort ongoing restoration operations.\n\n#### Commands\n\nThe RFM plugin adds the following commands to the server:\n\n- `!!rfm save <x> <z> <dim> <name>`: Save a region to a new folder.\n- `!!rfm restore <name>`: Restore the specified region.\n- `!!rfm remove <x> <z> <dim>`: Remove the specified region file from the world.\n- `!!rfm list`: Show a list of saved regions.\n- `!!rfm del <name>`: Delete a region from the list.\n- `!!rfm abort`: Abort a currently running restoration operation.\n\nFor more details and configuration, refer to the [README](README.md).\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/region_file_manager/introduction.md",
+    "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/region_file_manager/introduction-zh_cn.md"
+  }
+}

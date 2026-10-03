@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+  "name": "RegionFileUpdaterMulti-MCDR",
+  "full_name": "Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+  "html_url": "https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR",
+  "description": "A MCDR plugin to help you update region files in game",
+  "archived": false,
+  "stargazers_count": 7,
+  "watchers_count": 7,
+  "forks_count": 0,
+  "readme": "**English** | [中文(Chinese)](https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/tree/master/README_zh.md)\n\n# Region File Updater Multi\n\nA plugin to update region files from multiple upstreams (including [PrimeBackup](https://github.com/PrimeBackup/) databases)\n\nIt's a rebuilt version of [RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater/). Experience may almost be the same.\n\n> [!WARNING]\n> **RegionFileUpdaterMulti** will modify your world save of current server\n> \n> Please keep in mind, update operation will **OVERWRITE** your current region files, and this operation can't be undone\n> \n> Never forget to check your region list, and back your world save up before updating!!!\n\n\n## Features\n\n- [PrimeBackup](https://github.com/PrimeBackup/) databases are supported to update from\n- Multiple upstream could be configured to switch in game\n- More safe update operation, deleted files will be restored if problem occurs\n- Group the regions up, and update these regions in group\n- Individual permission system for group, which could protect regions in groups\n\n## Requirements\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) `>=2.12.0`\n\nAny version of [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\nPython module requirements goes [requirements.txt](https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/tree/master/requirements.txt), installing them with `pip install -r requirements.txt`\n\n## Documents\n\n[Quick start](https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/tree/master/docs/quick_start.md)\n\n[Configuration](https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/tree/master/docs/config.md)\n\n[Command usage](https://github.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/tree/master/docs/command.md)\n\n## Thanks\n\n[RegionFileUpdater](https://github.com/TISUnion/RegionFileUpdater) and [PrimeBackup](https://github.com/TISUnion/PrimeBackup) by [\\hard-working fox Miss Fallen/](https://github.com/Fallen-Breath)\n\n(xD\n",
+  "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/RegionFileUpdaterMulti-MCDR/master/README.md",
+  "license": {
+    "key": "lgpl-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "spdx_id": "LGPL-3.0",
+    "url": "https://api.github.com/licenses/lgpl-3.0"
+  }
+}

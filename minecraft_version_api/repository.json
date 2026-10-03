@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Ivan-1F/MinecraftVersionAPI",
+  "name": "MinecraftVersionAPI",
+  "full_name": "Ivan-1F/MinecraftVersionAPI",
+  "html_url": "https://github.com/Ivan-1F/MinecraftVersionAPI",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "Minecraft Version API\n-----\n\n**English** | [中文](https://github.com/Ivan-1F/MinecraftVersionAPI/tree/master/./README_cn.md)\n\nA MCDReforged api plugin to get the Minecraft server version\n\nIncludes a simple version normalizer to normalize Minecraft versions to semver styled versions (inspired by Fabric Loader)\n\nThe normalized version can be parsed by the `Version` class of MCDR\n\n**Warning**: This plugin is only tested on vanilla servers with common versions. If you find any capability issue with other server core, please [open an issue](https://github.com/Ivan-1F/MinecraftVersionAPI/issues/new)\n\n## How it works\n\nThis plugin will parse the following stdout from the server:\n\n```\n[Server thread/INFO]: Starting minecraft server version 1.15.2\n```\n\nand the plugin can get the version\n\n## Usage\n\nImport MinecraftVersionAPI first:\n\n```python\nimport minecraft_version_api\n```\n\nYou can declare the dependency of this plugin in the plugin metadata:\n\n```json\n{\n    \"dependencies\": {\n        \"minecraft_version_api\": \"*\",\n    }\n}\n```\n\n### API\n\n```python\ndef get_minecraft_version() -> Optional[Tuple[str, str]]\n```\n\nGet the Minecraft server version\n\nReturns a tuple contains the raw version name and the normalized version, or None if the plugin failed to fetch the version\n\nExample: `('22w13a', '1.19-snapshot.22.13.a')`\n",
+  "readme_url": "https://raw.githubusercontent.com/Ivan-1F/MinecraftVersionAPI/master/README.md",
+  "license": {
+    "key": "cc0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "spdx_id": "CC0-1.0",
+    "url": "https://api.github.com/licenses/cc0-1.0"
+  }
+}

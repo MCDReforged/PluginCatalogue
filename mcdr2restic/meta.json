@@ -1,0 +1,21 @@
+{
+  "schema_version": 4,
+  "id": "mcdr2restic",
+  "name": "MCDR2Restic",
+  "version": "0.5.0",
+  "link": "https://github.com/pfdr2333/MCDR2restic",
+  "authors": [
+    "pfdr2333"
+  ],
+  "dependencies": {
+    "mcdreforged": ">=2.12.0"
+  },
+  "requirements": [
+    "PyYAML>=6.0",
+    "websocket-client>=1.8.0"
+  ],
+  "description": {
+    "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+    "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+  }
+}

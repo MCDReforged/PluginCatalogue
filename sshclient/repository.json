@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/SSHClient-MCDR",
+  "name": "SSHClient-MCDR",
+  "full_name": "Mooling0602/SSHClient-MCDR",
+  "html_url": "https://github.com/Mooling0602/SSHClient-MCDR",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# SSHClient-MCDR\nMCDR的一个SSH客户端实现，仅供娱乐。\n\n> [!CAUTION]\n> This plugin is just for fun, and it's unsafe for your Minecraft and ssh server, do not use it in production environment!\n> \n> 请注意，本插件设计时未考虑任何安全问题，请不要在生产环境中使用！\n\nNot support English yet, translate yourself.\n\n## 用法\n使用`!!ssh connect <地址> <用户名> <密码> <端口（可选）>`连接到ssh会话\n\n连接成功后，即可使用`!!ssh \"<可带空格的命令>\"`执行命令并获取执行结果\n\n不用了可使用`!!ssh disconnect`退出ssh会话\n\n查看详细帮助可使用`!!ssh help`\n\n## 当前局限\n- ssh连接是全局共享的，所有人都能访问\n- 未成功建立连接的ssh会话，也需要断开后才能再次建立连接\n- 暂不支持使用密钥文件登录，只能使用密码\n- 玩家在游戏内尝试连接，将会公屏暴露主机连接信息和用户名密码\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/SSHClient-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

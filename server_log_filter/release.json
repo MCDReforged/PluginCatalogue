@@ -1,0 +1,116 @@
+{
+  "schema_version": 8,
+  "id": "server_log_filter",
+  "latest_version": "1.0.2",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/Pau1am/MCDR-ServerLogFilter/releases/tag/v1.0.2",
+      "name": "v1.0.2 — 修正最低 MCDR 版本要求为 2.15.0",
+      "tag_name": "v1.0.2",
+      "created_at": "2026-10-02T08:41:52Z",
+      "description": "## 修复：最低 MCDR 版本声明由 `>=2.13.0` 修正为 `>=2.15.0`\n\n`mcdreforged.api.types.InfoActionFlag` 是 **MCDR 2.15.0** 才引入的 API，而 1.0.1 的元数据却声明为 `>=2.13.0`。\n后果：在 MCDR 2.13.0 ~ 2.14.x 上加载本插件会直接抛出\n\n```\nImportError: cannot import name 'InfoActionFlag' from 'mcdreforged.api.types'\n```\n\n并被标记为加载失败。\n\n> **如果你用的是 MCDR 2.15.0 或更高版本，1.0.1 与 1.0.2 在功能上完全等价，无需升级。**\n> 这一版是给旧版 MCDR 用户（尤其是通过官方插件目录安装的人）修的。\n\n### 改动\n\n- `mcdreforged.plugin.json`：依赖 `>=2.13.0` → `>=2.15.0`\n- `__init__.py`：`InfoActionFlag` 改为容错导入；在旧版 MCDR 上打印明确提示并停用，而不是抛出裸异常\n- `README.md` / `README_en.md`：更新徽章与「环境要求」段，补充兼容性对照表\n- 新增 `CHANGELOG.md`\n\n### 为什么不去兼容 2.13 / 2.14\n\n本插件的核心设计依赖 `InfoActionFlag.hidden()`——只摘掉控制台回显、保留事件分发，\n这样即使规则写得过宽也不会破坏 MCDR 自身的启动/停止检测。\n而 2.14.x 及更早的 `InfoFilter` 只有「返回 `False` 即丢弃整条」的语义，\n**无法**在保留事件分发的同时只摘回显，因此不存在等价的兼容写法。\n\n从 1.0.2 起，装在旧版 MCDR 上不会再静默出错，MCDR 会直接提示：\n\n```\n依赖项 mcdreforged@2.13.0 不满足版本约束 >=2.15.0\n```\n\n### 兼容性实测\n\n| 维度 | 结果 |\n| --- | --- |\n| MCDR 2.13.0 / 2.14.1 | 1.0.1 加载失败；1.0.2 由 MCDR 原生依赖检查明确拦截并说明原因 |\n| MCDR 2.15.0 / 2.15.7 / 2.16.0 | 加载与过滤均正常 |\n| Minecraft 1.16.5 / 1.19.4 / 1.20.1 / 1.20.6 / 1.21.8 / 1.21.11 / 26.1 / 26.2 / 26.3 | 用真实服务端实测全部通过，服务端原生日志完整保留 |\n\n过滤发生在 MCDR 侧，**与 Minecraft 版本无关**。唯一与版本相关的是默认规则的命中对象：\n`standing on air - force-sending blocks below` 仅由 **MC 26.3** 产生，\n装在更早版本上插件照常工作，只是默认规则不会命中任何内容（可按需自行配置 `patterns`）。\n\n### 安装\n\n下载下方的 `ServerLogFilter-v1.0.2.mcdr`，放进 MCDR 实例的 `plugins/` 目录即可；\n运行中的实例可用 `!!MCDR reload plugin server_log_filter` 热重载。\n\n**SHA256**：`fee9c118740e2d5ba03498d8493ba6208c6b06c0b2ee299a65adfed3fcf47177`\n",
+      "prerelease": false,
+      "asset": {
+        "id": 605187410,
+        "name": "ServerLogFilter-v1.0.2.mcdr",
+        "size": 7160,
+        "download_count": 3,
+        "created_at": "2026-10-02T08:42:25Z",
+        "browser_download_url": "https://github.com/Pau1am/MCDR-ServerLogFilter/releases/download/v1.0.2/ServerLogFilter-v1.0.2.mcdr",
+        "hash_md5": "c7cf740bdbed6861b7b3f00c45742c3a",
+        "hash_sha256": "fee9c118740e2d5ba03498d8493ba6208c6b06c0b2ee299a65adfed3fcf47177"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "server_log_filter",
+        "name": "Server Log Filter",
+        "version": "1.0.2",
+        "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.15.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+          "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Pau1am/MCDR-ServerLogFilter/releases/tag/v1.0.1",
+      "name": "v1.0.1",
+      "tag_name": "v1.0.1",
+      "created_at": "2026-10-01T12:54:00Z",
+      "description": "与 v1.0.0 相比**没有任何功能变更**，插件代码逐字未动。\n\n本版只完善了插件元数据，以便在 MCDReforged 官方插件仓库中展示更完整的信息：\n\n- `authors`：改为结构化条目，附带 GitHub 主页链接\n- `links.homepage`：补充仓库主页链接\n- `license`：补充 MIT 许可证标识\n\n若你已经在用 v1.0.0，**无需更新**。\n\n## 兼容性\n\n新的元数据结构已在 **MCDReforged 2.15.7** 上实测可正常加载（本插件最低要求 2.13），\n并在 MCDReforged 2.16 的元数据解析器下确认 `authors` / `links` / `license` 均可正确读取。\n\n## 安装\n\n下载下方的 `ServerLogFilter-v1.0.1.mcdr`，放进 MCDR 的 `plugins/` 目录即可。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 603266314,
+        "name": "ServerLogFilter-v1.0.1.mcdr",
+        "size": 4846,
+        "download_count": 5,
+        "created_at": "2026-10-01T12:54:16Z",
+        "browser_download_url": "https://github.com/Pau1am/MCDR-ServerLogFilter/releases/download/v1.0.1/ServerLogFilter-v1.0.1.mcdr",
+        "hash_md5": "2cefacad3871ea6b702db4093acb85ea",
+        "hash_sha256": "a7a374c500f238cf4c57013ba05306fbe27cb1f4e599474f02536b9ed67de04f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "server_log_filter",
+        "name": "Server Log Filter",
+        "version": "1.0.1",
+        "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+          "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/Pau1am/MCDR-ServerLogFilter/releases/tag/v1.0.0",
+      "name": "v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2026-10-01T12:38:37Z",
+      "description": "首个版本。\n\n## 功能\n\n按可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，**同时完整保留服务端自己的日志文件**。\n\n默认内置一条规则，用于屏蔽 MC 26.3「幽灵方块」修复机制的误报刷屏（Mojira MC-311474 / MC-311727）：\n\n```\nPlayer <名字> standing on air - force-sending blocks below\n```\n\n## 关键设计\n\n- 使用 `InfoActionFlag.hidden()` 而非 `discarded()`：这些行**仍会正常派发给 MCDR 的插件事件和状态检测**，所以即使规则写得过宽，也不会破坏 MCDR 自身的「服务端启动 / 停止 / 玩家进出」检测。\n- `server/logs/latest.log` 由服务端进程独立写入，**原始记录一条不少**。\n\n## 命令\n\n| 命令 | 权限 | 说明 |\n|---|---|---|\n| `!!logfilter` | user | 查看规则数与命中次数 |\n| `!!logfilter test <文本>` | user | 测试某行是否会被隐去 |\n| `!!logfilter reload` | admin | 重读配置并立即生效 |\n\n## 安装\n\n下载下方的 `ServerLogFilter-v1.0.0.mcdr`，放进 MCDR 的 `plugins/` 目录即可。需要 MCDReforged >= 2.13。\n\n## 已验证\n\n- 单元测试：11 类关键行（启动完成 / 玩家进出 / `Stopping the server` / `moved too quickly` / `moved wrongly` / 聊天签名问题等）逐一确认**不受影响**；边界输入、多规则计数、非法正则容错\n- 端到端：真实 MCDR 2.15.7 + 假服务端跑完整生命周期，目标行隐去 0 残留、其余日志逐行保留、**全程零报错**\n\n详见 README。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 603236931,
+        "name": "ServerLogFilter-v1.0.0.mcdr",
+        "size": 4876,
+        "download_count": 6,
+        "created_at": "2026-10-01T12:39:20Z",
+        "browser_download_url": "https://github.com/Pau1am/MCDR-ServerLogFilter/releases/download/v1.0.0/ServerLogFilter-v1.0.0.mcdr",
+        "hash_md5": "971ddefdc75e628b8c915905d721ba15",
+        "hash_sha256": "c4c5c6796f839ff06faf569a318516270f03e30d784466cd87e3a12722556191"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "server_log_filter",
+        "name": "Server Log Filter",
+        "version": "1.0.0",
+        "link": null,
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+          "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+        }
+      }
+    }
+  ]
+}
