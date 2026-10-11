@@ -1,0 +1,24 @@
+{
+  "schema_version": 4,
+  "id": "minecraft_web_manager",
+  "name": "Minecraft Web Manager",
+  "version": "1.2.6",
+  "link": null,
+  "authors": [
+    "ForestTrees"
+  ],
+  "dependencies": {
+    "mcdreforged": ">=2.15.0"
+  },
+  "requirements": [
+    "fastapi>=0.115,<1.0",
+    "uvicorn[standard]>=0.30,<1.0",
+    "python-multipart>=0.0.9,<1.0",
+    "psutil>=6.0,<8.0",
+    "ruamel-yaml>=0.17,<0.19"
+  ],
+  "description": {
+    "en_us": "A secure web dashboard and live console for an MCDReforged-managed Minecraft server, with player, plugin, world and mod management.",
+    "zh_cn": "为 MCDReforged 管理的 Minecraft 服务器提供安全的网页仪表盘与实时控制台，支持玩家、插件、世界与 Mod 管理。"
+  }
+}

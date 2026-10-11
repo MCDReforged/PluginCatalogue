@@ -1,0 +1,474 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "server_log_filter",
+    "name": "Server Log Filter",
+    "version": "1.4.1",
+    "link": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter",
+    "authors": [
+      "Pau1am"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.15.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+      "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "server_log_filter",
+    "authors": [
+      "Pau1am"
+    ],
+    "repository": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter",
+    "branch": "main",
+    "related_path": ".",
+    "labels": [
+      "management"
+    ],
+    "introduction": {
+      "en_us": "# MCDR-ServerLogFilter\n\n**Language / 语言:** **English** | [简体中文](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/README.md)\n\n> An MCDReforged plugin that hides noisy server console lines from the MCDR console, while leaving the server's own log file completely untouched.\n\n[![MCDR](https://img.shields.io/badge/MCDReforged-%3E%3D2.15-blue)](https://mcdreforged.com/)\n[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/LICENSE)\n[![Python](https://img.shields.io/badge/python-%3E%3D3.9-blue)](https://www.python.org/)\n\n|           |                                                                               |\n| --------- | ----------------------------------------------------------------------------- |\n| Plugin ID | `server_log_filter`                                                           |\n| Commands  | `!!logfilter` / `!!lf`                                                        |\n| Requires  | MCDR **2.15.0+** (tested on 2.15.0 / 2.15.7 / 2.16.0; MC-version independent) |\n| License   | MIT                                                                           |\n\n> Building or modifying the plugin, or looking for the packaging and test docs? See [docs/DEVELOPMENT.md](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/docs/DEVELOPMENT.md).\n\n## Contents\n\n- [Features](#features)\n- [Installation](#installation)\n- [Commands](#commands)\n- [Configuration](#configuration)\n- [Notes](#notes)\n- [License](#license)\n\n## Features\n\n- Filters server output with regex rules; a matching line is hidden from the **MCDR console only**, and the server's own `server/logs/latest.log` keeps every line\n- Hiding the console echo is not discarding the line: the event is still dispatched, so other plugins and MCDR's own start / stop / join-leave detection are unaffected\n- The default rule targets the Minecraft 26.3 \"standing on air\" spam (an upstream false positive; Mojira [MC-311474](https://bugs.mojang.com/browse/MC-311474) / [MC-311727](https://bugs.mojang.com/browse/MC-311727))\n- Rules can be added or changed at any time; `!!logfilter test <text>` verifies one before you rely on it\n- A rule that matches nothing for several sessions is reported once; rules with catastrophic backtracking are refused at load (skipped with a warning, the others keep working)\n- A broken config file is backed up as `config.json.old` and rebuilt; new options are filled in after plugin upgrades, never overwriting your values\n- English and Simplified Chinese; every command needs administrator permission\n\n## Installation\n\n1. Download `ServerLogFilter-vX.Y.Z.mcdr` from [Releases](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/../../releases), or build it yourself (see [docs/DEVELOPMENT.md](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/docs/DEVELOPMENT.md));\n2. Drop it into the MCDR `plugins/` folder;\n3. If MCDR is running, use `!!MCDR reload plugin server_log_filter`; if not, just start it;\n4. The first load generates `config/server_log_filter/config.json`; the defaults work out of the box.\n\nRunning several backends? Put one copy in each; configurations are independent.\n\n## Commands\n\n`!!logfilter` and `!!lf` are completely interchangeable. **Every command needs MCDR administrator permission** (this is not the same as being op in the game: MCDR only reads its own `permission.yml`, and unlisted players default to `user`). Grant it in the MCDR console with `!!MCDR permission set <name> admin`.\n\n| Command                              | Effect                                                                                                                                                   |\n| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |\n| `!!logfilter` (= `!!logfilter help`) | Help page (each line is clickable in in-game chat)                                                                                                       |\n| `!!logfilter list`                   | Status: active language and where it comes from, per-rule hits and idle streaks, number of skipped rules                                                 |\n| `!!logfilter test <text>`            | Whether a line would be hidden, and which rule matches; pasting the whole console line works too (the `[time] [thread/level]:` prefix is stripped first) |\n| `!!logfilter reload`                 | Re-read the config and apply it immediately, no restart needed; statistics for rules removed from the config are cleared as well                         |\n| `!!logfilter reset`                  | Clear the idle-session counters and start observing again                                                                                                |\n\n## Configuration\n\n`config/server_log_filter/config.json` is generated on first load:\n\n```json\n{\n    \"language\": \"auto\",\n    \"patterns\": [\n        \"standing on air - force-sending blocks below\"\n    ],\n    \"log_matched_lines\": false,\n    \"report_on_server_stop\": true,\n    \"warn_about_stale_rules\": true,\n    \"stale_rule_threshold\": 3,\n    \"validate_patterns\": true,\n    \"pattern_probe_timeout_ms\": 25,\n    \"announce_config_upgrade\": true,\n    \"announce_broken_config\": true\n}\n```\n\n<details><summary>Show options</summary>\n\n| Key                        | Type       | Default   | Description                                                                                                                                                        |\n| -------------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |\n| `language`                 | `string`   | `\"auto\"`  | Message language. `auto` follows MCDR; `zh_cn` / `en_us` pin it (case and `-` / `_` are free; `zh_tw` resolves to `zh_cn`, anything missing falls back to `en_us`) |\n| `patterns`                 | `string[]` | see above | Regex rules, matched against the **body** of each line (MCDR has already stripped the `[time] [thread/level]:` prefix). A match hides the line                     |\n| `log_matched_lines`        | `bool`     | `false`   | Debug aid: write every hidden line to the MCDR log at INFO level                                                                                                   |\n| `report_on_server_stop`    | `bool`     | `true`    | Log a summary of how many lines were hidden this run, on server stop                                                                                               |\n| `warn_about_stale_rules`   | `bool`     | `true`    | Warn once when a rule has matched nothing for several sessions (only sessions that finished starting count)                                                        |\n| `stale_rule_threshold`     | `int`      | `3`       | How many consecutive idle sessions before warning; `0` disables this reminder                                                                                      |\n| `validate_patterns`        | `bool`     | `true`    | At load, probe each rule and refuse ones with catastrophic backtracking (skipped with a warning)                                                                   |\n| `pattern_probe_timeout_ms` | `int`      | `25`      | Time budget for that check, in milliseconds; rarely needs changing                                                                                                 |\n| `announce_config_upgrade`  | `bool`     | `true`    | Say which options were filled in after an upgrade                                                                                                                  |\n| `announce_broken_config`   | `bool`     | `true`    | Say why a broken config was backed up and reset, and where the backup went                                                                                         |\n\n</details>\n\n**Matching uses `re.search` (substring match), not full match.** Writing `standing on air` matches the whole line, no `.*` needed. The flip side: `.` matches any character, so use `\\.` for a literal dot.\n\n**Adding rules:** append the log body to `patterns` (leave the other keys as they are), verify with `!!logfilter test <text>`, then run `!!logfilter reload`:\n\n```json\n{\n    \"patterns\": [\n        \"standing on air - force-sending blocks below\",\n        \"Ignoring chat session from .* due to missing Services public key\"\n    ]\n}\n```\n\nA few notes:\n\n- A rule that fails to compile is skipped with a warning in the log; the others keep working. To switch filtering off for a while, empty `patterns` and run `!!logfilter reload`.\n- Idle statistics live in `state.json`, separate from your `config.json`; the plugin never edits your config file. Remove a rule from the config and its statistics are cleared on `reload`.\n- A broken config is renamed to `config.json.old` before the defaults are rebuilt (one backup slot only). A file that is not UTF-8 (for example saved as ANSI) counts as broken too.\n- The three notice switches (`warn_about_stale_rules`, `announce_config_upgrade`, `announce_broken_config`) only control the message: backing up, filling in and counting always keep running.\n- Adding a language: copy `en_us.json` to `<code>.json` and translate the values; see `server_log_filter/lang/README.md`. No code changes needed.\n\n## Notes\n\n- Filtering happens entirely on the MCDR side, so it is independent of the MC version. The default rule only means something on MC 26.3; on other versions the plugin works as usual and the default rule simply never matches.\n- Avoid overly broad rules (`.`, `.*`, `^`): the console can start looking like the server is not running. A warning is printed at load, and `!!logfilter list` flags them.\n- For the complete raw log, always read `server/logs/latest.log`.\n\n## License\n\n[MIT](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/LICENSE)\n",
+      "zh_cn": "# MCDR-ServerLogFilter\n\n**语言 / Language:** **简体中文** | [English](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/README_en.md)\n\n> 一个 MCDReforged 插件：把服务端反复刷屏的日志行**只从 MCDR 控制台隐去**；服务端自己的日志文件一条不少。\n\n[![MCDR](https://img.shields.io/badge/MCDReforged-%3E%3D2.15-blue)](https://mcdreforged.com/)\n[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/LICENSE)\n[![Python](https://img.shields.io/badge/python-%3E%3D3.9-blue)](https://www.python.org/)\n\n|         |                                                         |\n| ------- | ------------------------------------------------------- |\n| 插件 ID   | `server_log_filter`                                     |\n| 命令      | `!!logfilter` / `!!lf`                                  |\n| 需要      | MCDR **2.15.0+**（实测 2.15.0 / 2.15.7 / 2.16.0；与 MC 版本无关） |\n| License | MIT                                                     |\n\n> 想改代码，或了解打包、测试与版本兼容性？见 [docs/DEVELOPMENT.md](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/docs/DEVELOPMENT.md)。\n\n## 目录\n\n- [功能](#功能)\n- [安装](#安装)\n- [命令](#命令)\n- [配置](#配置)\n- [注意](#注意)\n- [License](#license)\n\n## 功能\n\n- 按正则规则过滤服务端输出，命中的行**只从 MCDR 控制台隐去**；服务端自己写的 `server/logs/latest.log` 一条不少\n- 隐去的是控制台回显、不是丢弃：日志事件照常分发，不影响其它插件与 MCDR 的「开服完成 / 关服 / 玩家进出」判断\n- 默认规则针对 Minecraft 26.3 的「standing on air」刷屏日志（官方误报，Mojira [MC-311474](https://bugs.mojang.com/browse/MC-311474) / [MC-311727](https://bugs.mojang.com/browse/MC-311727)）\n- 规则随时可增删改；`!!logfilter test <文本>` 先验证再启用，不必等它真的触发\n- 规则连续多个开服周期零命中时提醒一次；载入时拦截有灾难性回溯风险的规则（跳过并警告，其余规则不受影响）\n- 配置写坏会先备份成 `config.json.old` 再重建；插件升级后新增选项自动补齐，你已有的取值不受影响\n- 中英双语；命令全部需要管理员权限\n\n## 安装\n\n1. 从 [Releases](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/../../releases) 下载 `ServerLogFilter-vX.Y.Z.mcdr`，或自行打包（见 [docs/DEVELOPMENT.md](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/docs/DEVELOPMENT.md)）；\n2. 放进 MCDR 的 `plugins/` 目录；\n3. MCDR 运行中执行 `!!MCDR reload plugin server_log_filter`，未运行则直接开服；\n4. 首次启动自动生成 `config/server_log_filter/config.json`，默认配置开箱可用。\n\n多个子服各放一份，配置互相独立。\n\n## 命令\n\n`!!logfilter` 与 `!!lf` 完全等价。**所有命令都需要 MCDR 管理员权限**（与游戏内 OP 无关：MCDR 只认自己的 `permission.yml`，未登记的玩家默认是 `user`）。给自己权限：在 MCDR 控制台执行 `!!MCDR permission set <你的 ID> admin`。\n\n| 命令                                  | 作用                                                    |\n| ----------------------------------- | ----------------------------------------------------- |\n| `!!logfilter`（= `!!logfilter help`） | 帮助页（游戏内聊天里每行可点击）                                      |\n| `!!logfilter list`                  | 状态：当前语言与来源、每条规则的命中次数与连续零命中次数、被跳过的规则数                  |\n| `!!logfilter test <文本>`             | 测试一行日志是否会被隐去、命中的是哪条规则；整行粘贴也行（会先剥掉 `[时间] [线程/级别]:` 前缀） |\n| `!!logfilter reload`                | 重读配置立即生效，不必重启；已从配置中删除的规则的统计同时清除                       |\n| `!!logfilter reset`                 | 清空「连续零命中」计数，重新开始观察                                    |\n\n## 配置\n\n配置文件是 `config/server_log_filter/config.json`，首次加载自动生成：\n\n```json\n{\n    \"language\": \"auto\",\n    \"patterns\": [\n        \"standing on air - force-sending blocks below\"\n    ],\n    \"log_matched_lines\": false,\n    \"report_on_server_stop\": true,\n    \"warn_about_stale_rules\": true,\n    \"stale_rule_threshold\": 3,\n    \"validate_patterns\": true,\n    \"pattern_probe_timeout_ms\": 25,\n    \"announce_config_upgrade\": true,\n    \"announce_broken_config\": true\n}\n```\n\n<details><summary>展开选项与说明</summary>\n\n| 字段                         | 类型         | 默认       | 说明                                                                                                |\n| -------------------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------- |\n| `language`                 | `string`   | `\"auto\"` | 消息语言。`auto` 跟随 MCDR；也可写 `zh_cn` / `en_us`（大小写与 `-` / `_` 随意；`zh_tw` 回落到 `zh_cn`，缺失的档位回落到 `en_us`） |\n| `patterns`                 | `string[]` | 见上       | 正则规则。对每行日志的**正文**（MCDR 已剥掉 `[时间] [线程/级别]:` 前缀）做匹配，命中即隐去                                           |\n| `log_matched_lines`        | `bool`     | `false`  | 调试用：把被隐去的行以 INFO 级别写进 MCDR 日志，方便确认规则生效                                                            |\n| `report_on_server_stop`    | `bool`     | `true`   | 关服时在 MCDR 日志里汇总本次共隐去多少行                                                                           |\n| `warn_about_stale_rules`   | `bool`     | `true`   | 某条规则连续多个开服周期零命中时提醒一次（只在成功开服的周期上计数）                                                                |\n| `stale_rule_threshold`     | `int`      | `3`      | 连续多少个开服周期零命中才提醒；`0` = 关闭这项提醒                                                                      |\n| `validate_patterns`        | `bool`     | `true`   | 载入时用短探测串检查灾难性回溯，把这类规则拦下并跳过                                                                        |\n| `pattern_probe_timeout_ms` | `int`      | `25`     | 上面那项检查的耗时上限（毫秒），一般不用改                                                                             |\n| `announce_config_upgrade`  | `bool`     | `true`   | 升级后配置被自动补齐时，在控制台说明新增了哪些选项                                                                         |\n| `announce_broken_config`   | `bool`     | `true`   | 配置写坏被备份并重置时，在控制台说明原因与备份路径                                                                         |\n\n</details>\n\n**匹配方式是 `re.search`（包含匹配），不是全匹配。** 写 `standing on air` 就能命中整行，不必加 `.*`；反过来 `.` 匹配任意字符，要匹配字面点号请写 `\\.`。\n\n**加规则**：把日志正文追加进 `patterns`（其余字段保持原值），先 `!!logfilter test <文本>` 验证，再 `!!logfilter reload`：\n\n```json\n{\n    \"patterns\": [\n        \"standing on air - force-sending blocks below\",\n        \"Ignoring chat session from .* due to missing Services public key\"\n    ]\n}\n```\n\n几条说明：\n\n- 规则编译失败只会跳过该条并在日志里警告，其余规则照常工作；想临时关掉过滤，把 `patterns` 清空再 `!!logfilter reload`。\n- 零命中统计存在 `state.json`（与 `config.json` 分开，插件不会改你写的配置）；从配置里删掉规则，它的统计在 `reload` 时一并清除。\n- 写坏配置时，原文件先被改名成 `config.json.old` 再重建默认配置（备份只有这一个位置）；文件不是 UTF-8 编码（比如被存成 ANSI）也算写坏。\n- `warn_about_stale_rules` / `announce_config_upgrade` / `announce_broken_config` 三个播报开关**只管说不说**：备份、补齐、统计这些动作照旧执行。\n- 想加一门语言：复制 `en_us.json` 改成 `<语言代码>.json`、只翻译取值，见 `server_log_filter/lang/README.md`（不需要改代码）。\n\n## 注意\n\n- 过滤在 MCDR 这一侧完成（对服务端输出逐行匹配），**与 MC 版本无关**；默认规则只对 MC 26.3 的日志有意义，装在其它版本上插件照常工作，只是默认规则不会命中。\n- 规则别写得太宽（如 `.`、`.*`、`^`），否则控制台会看起来像「服务端没在运行」；加载时有警告，`!!logfilter list` 里也会标出。\n- 查完整原始日志，永远看 `server/logs/latest.log`。\n\n## License\n\n[MIT](https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/tree/main/LICENSE)\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/LifeSci-Craft/MCDR-ServerLogFilter/main/README_en.md",
+      "zh_cn": "https://raw.githubusercontent.com/LifeSci-Craft/MCDR-ServerLogFilter/main/README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "server_log_filter",
+    "latest_version": "1.4.1",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.4.1",
+        "name": "v1.4.1",
+        "tag_name": "v1.4.1",
+        "created_at": "2026-10-07T04:26:55Z",
+        "description": "## 这个版本做了什么\n\n修掉一个会**伪造「零命中提醒」**的 bug，加上两道规则守卫，并把打包变成可复现。\n\n## 修复\n\n- **`!!logfilter reload` 不再抹掉本轮已命中的次数。** 以前重载会把「本次已隐去」清零：一条明明在命中的规则被记成「本轮零命中」，几轮之后弹出假的到期提醒。现在同名规则的计数接着数，只有从配置里删掉的规则才丢计数；重载回执会说明「本轮已命中的 N 次继续保留」。\n- 修掉文档里几处过期说法（测试一览表还在描述「`reload` 后计数归零」）。\n\n## 新增\n\n- **规则「匹配一切」时加载警告**：`.`、`.*`、`^`、`a?`、`\\w*`、`.+` 会隐去**所有**服务端输出，控制台看起来像服务端挂了。加载时用一组差异极大的探测串判断，只警告、不丢弃（MCDR 日志 + `!!logfilter list` 状态页红字）。\n- **重复规则去重**：同一条写两遍时只保留第一条并播报。第二条永远不可能命中，还会攒出假的零命中计数。\n\n## 变更\n\n- `!!logfilter test` 列出**所有**命中的规则，不再只报第一条。\n- 状态页新增 `匹配一切:` 与 `重复:` 两行，与 `已跳过:` 并列。\n- 版本号 1.4.0 → 1.4.1。\n\n## 工程改进\n\n- **新增 GitHub Actions CI**：单元测试（Python 3.10 / 3.13）、变异检查、真实 MCDR 端到端三个作业。\n- **打包可复现**：同样的源码永远打出同样的字节，所以下面那个 SHA256 可以自己验证（`python pack.py && sha256sum`）。\n- 清掉 3 处无用常量；测试夹具的版本号改为直接读 `mcdreforged.plugin.json`。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 测试 | **291 passed**（单元 254 + 真实 MCDR 端到端 37） |\n| 变异 | **51/51 全部被抓住** |\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 **PASS**；2.13.0 / 2.14.1 按设计被拒 |\n| CI | 四个 check 全绿（含 Python 3.10 与真实 MCDR 端到端） |\n| 可复现 | 分支与合并提交两次打包，字节完全相同 |\n\n## 升级说明\n\n**无需改动任何配置。** 两处留意：\n\n1. 配置里有重复规则或「匹配一切」的规则时，加载会在控制台看到提示，行为与之前一致。\n2. 本次修复只影响统计与提醒的准确性：此前可能因假提醒误删过其实正常的规则，可以参考这份说明加回来。\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.4.1.mcdr` | 21,302 B | `08231bdfb44560e701f1693e803640c2991f8a0609c3c3856d581161e6f8e544` |\n\n包内 7 个文件：`mcdreforged.plugin.json`、`server_log_filter/{__init__.py,i18n.py}`、\n`server_log_filter/lang/{en_us,zh_cn}.json`、`CHANGELOG.md`、`LICENSE`\n（三个 README 都不打包）。\n",
+        "prerelease": false,
+        "asset": {
+          "id": 617561916,
+          "name": "ServerLogFilter-v1.4.1.mcdr",
+          "size": 21302,
+          "download_count": 7,
+          "created_at": "2026-10-07T04:27:30Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.4.1/ServerLogFilter-v1.4.1.mcdr",
+          "hash_md5": "cd293168d484f619c35df45b190d6fca",
+          "hash_sha256": "08231bdfb44560e701f1693e803640c2991f8a0609c3c3856d581161e6f8e544"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.4.1",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.4.0",
+        "name": "v1.4.0",
+        "tag_name": "v1.4.0",
+        "created_at": "2026-10-04T13:08:12Z",
+        "description": "## 这个版本做了什么\n\n命令面有了简写与帮助页、全部限管理员；两个界面重做成同一套外观；包体积减少 37%。\n\n## 新增\n\n- **`!!lf` 简写**：与 `!!logfilter` 完全等价，两种拼法都登记进 MCDR 的 `!!help`（同一个命令节点的两条字面量，不是两棵复制出来的命令树）。\n- **帮助页**：直接输入 `!!logfilter`（或 `!!lf`）就是命令列表；`!!logfilter help` 是同一屏。\n- **帮助行可点击（游戏内聊天）**：点一下等于敲了那行命令；`test` 是例外，只把 `!!lf test ` 填进输入框。控制台里那几行本身就是可复制的命令文本。\n\n## 变更\n\n- **全部子命令改为仅管理员可用**：状态页会印出规则、`test` 会验证日志内容。被拒绝时会一并说明原因与提权命令（`!!MCDR permission set <你的ID> admin`）。\n- **状态页与帮助页统一成一套外观**：同一个顶栏、同样的配色（命令 aqua、说明 white、分隔符 gray、权限提醒 yellow）、规则行同样的分隔符并对齐；界面里不再出现深灰字。\n- **规则编号不再有多余空格**：9 条以内印 `[1]`，10 条以上才补成 `[ 1]` / `[12]`。\n- 帮助页不再重复状态页的运行时提示。\n\n## 工程改进\n\n- **包体积 31,454 B → 19,764 B**：打包时剥掉注释与 docstring（仓库里完整保留），用 `tokenize` 找注释（字符串里的 `#` 不会被误切），清空而不删行，行号与仓库一致，从已安装插件报出的 traceback 仍指向仓库源码的同一行。\n\n## 升级说明\n\n**无需改动任何配置。** 两处留意：\n\n1. 裸敲 `!!logfilter` 现在给帮助；看状态请敲 `!!logfilter list`（或 `!!lf list`）。\n2. 普通玩家不再能使用这些命令，会看到「权限不足」及其原因。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 测试 | 221 → **263**（单测 188 → 226，真机端到端 33 → 37） |\n| 变异 | 33 → **46（46/46 全部被抓住）** |\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 **PASS**；2.13.0 / 2.14.1 按设计被拒 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.4.0.mcdr` | 19,764 B | `6f8b361ac5fe0e9fa98de393b10477ebb8d33071c048b71d49e767b81c900997` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609868852,
+          "name": "ServerLogFilter-v1.4.0.mcdr",
+          "size": 19764,
+          "download_count": 8,
+          "created_at": "2026-10-04T13:08:49Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.4.0/ServerLogFilter-v1.4.0.mcdr",
+          "hash_md5": "c1d2c01707143620cfb4eebc8ad31c26",
+          "hash_sha256": "6f8b361ac5fe0e9fa98de393b10477ebb8d33071c048b71d49e767b81c900997"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.4.0",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.3.0",
+        "name": "v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2026-10-04T09:49:24Z",
+        "description": "## 这个版本做了什么\n\n修掉六个「一处写错就满盘皆输」的地方，状态页多告诉你三件事。\n\n## 修复\n\n六处是同一个错误出现在不同位置：代码承诺「单条出错不影响其他」，但 `except` 只接住最常见的异常类型。其中三处会让插件直接加载不了：\n\n- **配置文件不是 UTF-8（如记事本存成 ANSI/GBK）**：插件不加载。现在按字节读取、显式解码，走上已有的备份 + 重建流程，原文件逐字节保留为 `config.json.old`。\n- **规则里的量化符溢出（`a{999999999999}`）或上千层嵌套括号**：插件不加载。现在与被跳过的其他规则一样处理并上报。\n- **`pattern_probe_timeout_ms` 设成 0**：所有规则被拒且都报「有回溯风险」。现在下限夹到 1 ms。\n- **译文里写 `{a.b}`**：消息路径抛异常。语言文件的承诺是「坏模板原样输出、绝不抛异常」。\n- **`!!logfilter test` + 锚定规则**：对正确的规则报「不命中」。现在测试前先剥掉 `[时间] [线程/级别]:` 前缀，与过滤器实际匹配的正文一致，并在回复里说明。\n\n## 新增\n\n`!!logfilter` 状态页新增三行：\n\n- **当前语言及来源**：`语言：zh_cn（跟随 MCDR）` / `（配置指定）`。\n- **被跳过的规则数**（正则写错或触发回溯保护），只在大于 0 时显示。\n- **每条规则上次命中的是第几个开服周期**。\n\n## 变更\n\n- 版本号 1.2.2 → 1.3.0；语言文件新增 6 条消息（中英同步）。\n- 顺手修掉一个小 bug：重载时「配置被打坏的原因」用旧语言生成，与整段播报的语言可能不一致。\n\n## 升级说明\n\n**无需改动任何配置。** 六处修复都只在「配置、规则或取值写错」时才会显现，正常使用下的行为与 1.2.2 一致。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 测试 | 208 → **221**（单测 178 → 188，真机端到端 30 → 33） |\n| 变异 | 28 → **33（33/33 全部被抓住）** |\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 **PASS**；2.13.0 / 2.14.1 按设计被拒 |\n| 性能 | 逐行开销与 v1.2.2 一致（差异在复跑噪声内） |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.3.0.mcdr` | 27,526 B | `794e357dcc00437765ee03bf67de1fc324aaf05033dd1054be1249815f83b55c` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609561141,
+          "name": "ServerLogFilter-v1.3.0.mcdr",
+          "size": 27526,
+          "download_count": 4,
+          "created_at": "2026-10-04T09:49:57Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.3.0/ServerLogFilter-v1.3.0.mcdr",
+          "hash_md5": "c0a83d32e3b74ee862c691741c1c0c85",
+          "hash_sha256": "794e357dcc00437765ee03bf67de1fc324aaf05033dd1054be1249815f83b55c"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.3.0",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.2.2",
+        "name": "v1.2.2",
+        "tag_name": "v1.2.2",
+        "created_at": "2026-10-04T08:53:13Z",
+        "description": "## 这个版本做了什么\n\n插件有英文界面了，并新增配置项 `language`。所有面向用户的文案都放进语言文件。\n\n## 新增\n\n- **`language` 配置项**：`auto`（默认，跟随 MCDR 的 `config.yml`）、`zh_cn`、`en_us`。写死的值压过 MCDR 的设置；大小写与 `-`/`_` 都随意（`zh-CN`、`EN_us`、`en` 都能认）；没有对应语言文件时回落到 `en_us` 并提醒一次；MCDR 设成 `zh_tw` 而暂无繁体文件时用 `zh_cn`；配置写坏时这个值从文件原文里读，照样生效；改完 `!!logfilter reload` 立即生效。\n- **加语言不需要改代码**：复制 `en_us.json` 改成 `<语言代码>.json`、只翻译取值、跑 `pytest tests -k language` 即可；`server_log_filter/lang/README.md` 是写给译者的说明。\n\n## 变更\n\n- 版本号 1.2.1 → 1.2.2。\n- 所有面向用户的文案改为查语言文件（中文提示与 1.2.1 逐字一致）；`language` 排在配置文件第一位。\n- 代码注释精简一轮（说明性长段落移入 `docs/DEVELOPMENT.md`），`__init__.py` 1110 → 990 行、`i18n.py` 252 → 238 行，一行可执行代码都没动。\n\n## 升级说明\n\n- 老配置自动补齐，`language` 默认 `auto`，**无需手动改动任何配置**。\n- ⚠️ **默认跟随 MCDR**：如果你的 MCDR 从来没改过语言（出厂默认 `en_us`），升级后插件提示会变成英文；想看中文把 `language` 设成 `zh_cn` 即可。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 测试 | 175 → **208**（单测 149 → 178，真机端到端 26 → 30） |\n| 变异 | 20 → **28（28/28 全部被抓住）** |\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 **PASS**；2.13.0 / 2.14.1 按设计被拒 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.2.2.mcdr` | 25,739 B | `0f08b54491f901bc6890b9eab78a7fc07d749e28da8372a0c548d984b72be519` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609480830,
+          "name": "ServerLogFilter-v1.2.2.mcdr",
+          "size": 25739,
+          "download_count": 5,
+          "created_at": "2026-10-04T08:54:14Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.2.2/ServerLogFilter-v1.2.2.mcdr",
+          "hash_md5": "cfa1efe7562e6d9450f1f3e9d1cc42a2",
+          "hash_sha256": "0f08b54491f901bc6890b9eab78a7fc07d749e28da8372a0c548d984b72be519"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.2.2",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.2.1",
+        "name": "v1.2.1",
+        "tag_name": "v1.2.1",
+        "created_at": "2026-10-04T07:33:27Z",
+        "description": "## 这个版本做了什么\n\n三条提示各自有了开关（默认全开），从配置里删掉的规则统计会在重载时立刻清除。\n\n## 新增\n\n- **三个提示开关**：`announce_config_upgrade`（配置被自动补齐时列出新增选项）、`announce_broken_config`（配置写坏被备份重置时说明原因与备份路径）、`warn_about_stale_rules`（规则连续多个开服周期零命中）。\n- 开关只管「说不说」，不管「做不做」：补齐配置、备份坏文件、记录统计照常进行。写坏配置时开关只能从文件原文里读（那一刻配置已经解析失败），因此写在语法错误之后也照样有效；「连备份都失败」属于数据丢失警告，不受开关影响。\n\n## 修复\n\n- **从配置里删掉的规则，其统计在重载时立刻清除**（此前要等一次完整的开服 / 关服周期），并说明清掉了哪些。两条重载路径都覆盖。\n- 两条边界特意保留：只看配置原文、不看编译结果（被跳过的规则不算删除）；配置因写坏被自动重置时不清理。没有实际清理时不写盘。\n\n## 变更\n\n- 版本号 1.2.0 → 1.2.1；随包的 `CHANGELOG.md` 改为只保留最新版本的条目。\n\n## 升级说明\n\n老配置自动补齐，新增的两个开关默认开启，**无需手动改动任何配置**。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 测试 | 156 → **175** |\n| 变异 | 18 → **20（20/20 全部被抓住）** |\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 **PASS**；2.13.0 / 2.14.1 按设计被拒 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.2.1.mcdr` | 18,302 B | `86a4f6a228b1427d9b43726b88cfda37a2d2768444640fecf92dce02c0d7db6e` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609367806,
+          "name": "ServerLogFilter-v1.2.1.mcdr",
+          "size": 18302,
+          "download_count": 3,
+          "created_at": "2026-10-04T07:33:51Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.2.1/ServerLogFilter-v1.2.1.mcdr",
+          "hash_md5": "dcc8345555e656f6fd2c03f069fdc1be",
+          "hash_sha256": "86a4f6a228b1427d9b43726b88cfda37a2d2768444640fecf92dce02c0d7db6e"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.2.1",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.2.0",
+        "name": "v1.2.0 — 配置更新提示、坏配置保全、提醒去重",
+        "tag_name": "v1.2.0",
+        "created_at": "2026-10-04T06:40:43Z",
+        "description": "## 这个版本做了什么\n\n围绕配置文件的三处改进：配置更新会说明、写坏会先备份、零命中提醒不再重复。\n\n## 新增\n\n- **配置新增选项时会说明改了哪些**：列出本次新增的选项及各一行说明（MCDR 本就会补齐并写回，此前是静默的；你已有的取值不受影响）。\n- **配置写坏时会先备份再重建**：解析失败的文件先备份为 `config.json.old`，再生成默认配置；报错给出解析器的行列号，改好后 `!!logfilter reload` 立即生效。空文件、顶层不是 JSON 对象同样处理；连备份都失败时插件照常加载并明确告知。\n\n## 变更\n\n- **零命中提醒不再逐条重复**：只列规则；只有当某条规则比阈值更久没命中时，才在它后面补一句次数。\n- 主 README 改为面向开服的人；打包 / 测试 / 版本矩阵等开发内容移入 `docs/DEVELOPMENT.md`。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 **PASS**，逐项一致，零异常 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.2.0.mcdr` | 19,672 B | `1430736ee7c26496d50a07dd6cb30b6724bb25d33689cc5eb4a72f9e1acb39be` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609301158,
+          "name": "ServerLogFilter-v1.2.0.mcdr",
+          "size": 19672,
+          "download_count": 5,
+          "created_at": "2026-10-04T06:42:18Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.2.0/ServerLogFilter-v1.2.0.mcdr",
+          "hash_md5": "79e569fd5cc87bab326fb65ca5efdcea",
+          "hash_sha256": "1430736ee7c26496d50a07dd6cb30b6724bb25d33689cc5eb4a72f9e1acb39be"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.2.0",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.1.1",
+        "name": "v1.1.1 — 发布包减重（去掉打包的 README）",
+        "tag_name": "v1.1.1",
+        "created_at": "2026-10-04T05:27:26Z",
+        "description": "## 这个版本做了什么\n\n发布包不再包含两个 README：28,467 → 15,137 字节（−47%）。插件行为与 v1.1.0 完全一致。\n\n## 变更\n\n- `README.md` / `README_en.md` 从发布包中移除（占包压缩体积的 49.6%，MCDR 从不读取它们）。包内固定 4 个文件：`mcdreforged.plugin.json`、`server_log_filter/__init__.py`、`CHANGELOG.md`、`LICENSE`。\n- 新增测试把产物内容钉死为这 4 个文件，以后任何白名单改动都必须显式修改该测试。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 测试 | **113 项全绿** |\n| 变异 | **7/7 全部被抓住** |\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 全部 PASS，12 项检查逐项一致 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.1.1.mcdr` | 15,137 B | `dbce68da9ab3871152ca94eaf0b4b5dfa61999cd7473e2c1d2b62961cf83db0d` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609198983,
+          "name": "ServerLogFilter-v1.1.1.mcdr",
+          "size": 15137,
+          "download_count": 6,
+          "created_at": "2026-10-04T05:29:16Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.1.1/ServerLogFilter-v1.1.1.mcdr",
+          "hash_md5": "f843bad35f043653b0ff4210848e569d",
+          "hash_sha256": "dbce68da9ab3871152ca94eaf0b4b5dfa61999cd7473e2c1d2b62961cf83db0d"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.1.1",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.1.0",
+        "name": "v1.1.0 — 零命中规则提醒 + 灾难性回溯防护",
+        "tag_name": "v1.1.0",
+        "created_at": "2026-10-04T05:08:31Z",
+        "description": "## 这个版本做了什么\n\n新增零命中规则提醒与灾难性回溯防护。目标是让过滤配置保持干净，同时不把插件变重。\n\n## 新增\n\n- **零命中规则提醒**：某条规则连续若干个开服周期未命中时，在下一次开服完成（服务端打印 `Done`）后提醒一次。新配置 `warn_about_stale_rules`（默认开）、`stale_rule_threshold`（默认 3，设 0 关闭）；统计写在 `state.json`，与 `config.json` 分开；新命令 `!!logfilter reset` 清空计数；状态页标出每条规则的连续零命中次数。\n- 两个保护：只统计「真正完成过启动」的周期（连续启动失败不会把规则刷成零命中）；热重载会接续统计。\n- **灾难性回溯防护**：嵌套量词的正则匹配失败时回溯是指数级（实测单行最长 3 秒），足以冻结 MCDR 主线程。载入时用短探测串试跑每条规则，超预算的规则被跳过并给出明确报错。新配置 `validate_patterns`（默认开）、`pattern_probe_timeout_ms`（默认 25，标定后余量约 9000 倍，不会误伤正常规则）。\n\n## 说明\n\n这个功能的价值是配置卫生，不是性能：实测删掉一条规则省下的时间远低于测量噪声（对照：MCDR 自己解析同一行要 2.13 µs，本插件占其中约 9%）。数字可用 `benchmarks/bench_filter.py` 复现。\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| 矩阵 | 2.15.0 / 2.15.7 / 2.16.0 全部通过，12 项检查逐项一致（提醒时机、内容、计数推进、状态文件写入、命令树注册），零运行时异常 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.1.0.mcdr` | 28,467 B | `47caab8924d41d181a4dc2a056565fec471517812466bcaef9b6f203092c1c2a` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 609176603,
+          "name": "ServerLogFilter-v1.1.0.mcdr",
+          "size": 28467,
+          "download_count": 4,
+          "created_at": "2026-10-04T05:12:28Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.1.0/ServerLogFilter-v1.1.0.mcdr",
+          "hash_md5": "2e8991f7680afadb57cb92ca2f40bf0e",
+          "hash_sha256": "47caab8924d41d181a4dc2a056565fec471517812466bcaef9b6f203092c1c2a"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.1.0",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.0.2",
+        "name": "v1.0.2 — 修正最低 MCDR 版本要求为 2.15.0",
+        "tag_name": "v1.0.2",
+        "created_at": "2026-10-02T08:41:52Z",
+        "description": "## 这个版本做了什么\n\n修正最低 MCDR 版本声明：`>=2.13.0` → `>=2.15.0`。这是给旧版 MCDR 用户修的一版。\n\n## 修复\n\n- **在 MCDR 2.13.0 ~ 2.14.x 上加载本插件会抛 `ImportError: cannot import name 'InfoActionFlag'`**。`InfoActionFlag` 是 MCDR 2.15.0 才引入的 API，而 1.0.1 的元数据声明为 `>=2.13.0`。\n- `InfoActionFlag` 改为容错导入：在旧版 MCDR 上打印明确提示并停用，而不是抛出裸异常；从本版起，低版本 MCDR 的依赖检查会直接拦截并说明原因。\n\n## 说明\n\n不在 2.13 / 2.14 上做兼容的原因：核心设计依赖 `InfoActionFlag.hidden()` 的语义（只摘掉控制台回显、保留事件分发）；而 2.14.x 及更早的 `InfoFilter` 只有「返回 False 即丢弃整条」的语义，不存在等价写法。\n\n**如果你用的是 MCDR 2.15.0 或更高版本，1.0.1 与 1.0.2 功能完全等价，无需升级。**\n\n## 验证\n\n| 项 | 结果 |\n|---|---|\n| MCDR 2.13.0 / 2.14.1 | 由 MCDR 原生依赖检查明确拦截并说明原因 |\n| MCDR 2.15.0 / 2.15.7 / 2.16.0 | 加载与过滤均正常 |\n| Minecraft | 1.16.5 / 1.19.4 / 1.20.1 / 1.20.6 / 1.21.8 / 1.21.11 / 26.1 / 26.2 / 26.3 真实服务端实测全部通过 |\n\n## 产物\n\n| 文件 | 大小 | SHA256 |\n|---|---|---|\n| `ServerLogFilter-v1.0.2.mcdr` | 7,160 B | `fee9c118740e2d5ba03498d8493ba6208c6b06c0b2ee299a65adfed3fcf47177` |\n",
+        "prerelease": false,
+        "asset": {
+          "id": 605187410,
+          "name": "ServerLogFilter-v1.0.2.mcdr",
+          "size": 7160,
+          "download_count": 8,
+          "created_at": "2026-10-02T08:42:25Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.0.2/ServerLogFilter-v1.0.2.mcdr",
+          "hash_md5": "c7cf740bdbed6861b7b3f00c45742c3a",
+          "hash_sha256": "fee9c118740e2d5ba03498d8493ba6208c6b06c0b2ee299a65adfed3fcf47177"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.0.2",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.15.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.0.1",
+        "name": "v1.0.1",
+        "tag_name": "v1.0.1",
+        "created_at": "2026-10-01T12:54:00Z",
+        "description": "与 v1.0.0 相比没有任何功能变更，插件代码逐字未动。本版只完善了插件元数据，以便在 MCDReforged 官方插件仓库中展示更完整的信息：\n\n- `authors`：改为结构化条目，附带 GitHub 主页链接；\n- `links.homepage`：补充仓库主页链接；\n- `license`：补充 MIT 许可证标识。\n\n**若你已经在用 v1.0.0，无需更新。**\n\n## 验证\n\n新的元数据结构已在 MCDReforged **2.15.7** 上实测正常加载，并在 **2.16** 的元数据解析器下确认 `authors` / `links` / `license` 均可正确读取。\n",
+        "prerelease": false,
+        "asset": {
+          "id": 603266314,
+          "name": "ServerLogFilter-v1.0.1.mcdr",
+          "size": 4846,
+          "download_count": 8,
+          "created_at": "2026-10-01T12:54:16Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.0.1/ServerLogFilter-v1.0.1.mcdr",
+          "hash_md5": "2cefacad3871ea6b702db4093acb85ea",
+          "hash_sha256": "a7a374c500f238cf4c57013ba05306fbe27cb1f4e599474f02536b9ed67de04f"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.0.1",
+          "link": "https://github.com/Pau1am/MCDR-ServerLogFilter",
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      },
+      {
+        "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/tag/v1.0.0",
+        "name": "v1.0.0",
+        "tag_name": "v1.0.0",
+        "created_at": "2026-10-01T12:38:37Z",
+        "description": "首个版本。\n\n## 功能\n\n按可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，**同时完整保留服务端自己的日志文件**。\n\n默认内置一条规则，用于屏蔽 MC 26.3「幽灵方块」修复机制的误报刷屏：`Player <名字> standing on air - force-sending blocks below`。\n\n## 关键设计\n\n- 使用 `InfoActionFlag.hidden()` 而非 `discarded()`：这些行**仍会正常派发给 MCDR 的插件事件和状态检测**，所以即使规则写得过宽，也不会破坏 MCDR 自身的启动 / 停止 / 玩家进出检测。\n- `server/logs/latest.log` 由服务端进程独立写入，**原始记录一条不少**。\n\n## 命令\n\n| 命令 | 权限 | 说明 |\n|---|---|---|\n| `!!logfilter` | user | 查看规则数与命中次数 |\n| `!!logfilter test <文本>` | user | 测试某行是否会被隐去 |\n| `!!logfilter reload` | admin | 重读配置并立即生效 |\n\n## 验证\n\n- 单元测试覆盖 11 类关键行（启动完成 / 玩家进出 / `Stopping the server` / `moved too quickly` / `moved wrongly` / 聊天签名问题等）逐一确认不受影响；边界输入、多规则计数、非法正则容错。\n- 端到端：真实 MCDR 2.15.7 + 假服务端跑完整生命周期，目标行隐去 0 残留、其余日志逐行保留、全程零报错。\n",
+        "prerelease": false,
+        "asset": {
+          "id": 603236931,
+          "name": "ServerLogFilter-v1.0.0.mcdr",
+          "size": 4876,
+          "download_count": 9,
+          "created_at": "2026-10-01T12:39:20Z",
+          "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter/releases/download/v1.0.0/ServerLogFilter-v1.0.0.mcdr",
+          "hash_md5": "971ddefdc75e628b8c915905d721ba15",
+          "hash_sha256": "c4c5c6796f839ff06faf569a318516270f03e30d784466cd87e3a12722556191"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "server_log_filter",
+          "name": "Server Log Filter",
+          "version": "1.0.0",
+          "link": null,
+          "authors": [
+            "Pau1am"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.13.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Hide noisy server console lines from the MCDR console with configurable regex rules, without touching the server's own log file.",
+            "zh_cn": "用可配置的正则规则，把服务端的刷屏日志从 MCDR 控制台隐去，同时不影响服务端自身的日志文件。"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter",
+    "name": "MCDR-ServerLogFilter",
+    "full_name": "LifeSci-Craft/MCDR-ServerLogFilter",
+    "html_url": "https://github.com/LifeSci-Craft/MCDR-ServerLogFilter",
+    "description": "An MCDReforged plugin that hides noisy server console lines from the MCDR console with configurable regex rules, while leaving the server's own log file untouched.",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# MCDR-ServerLogFilter\n\n**语言 / Language:** **简体中文** | [English](https://github.com/Pau1am/MCDR-ServerLogFilter/tree/main/README_en.md)\n\n> 一个 MCDReforged 插件：把服务端反复刷屏的日志行**只从 MCDR 控制台隐去**；服务端自己的日志文件一条不少。\n\n[![MCDR](https://img.shields.io/badge/MCDReforged-%3E%3D2.15-blue)](https://mcdreforged.com/)\n[![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/Pau1am/MCDR-ServerLogFilter/tree/main/LICENSE)\n[![Python](https://img.shields.io/badge/python-%3E%3D3.9-blue)](https://www.python.org/)\n\n|         |                                                         |\n| ------- | ------------------------------------------------------- |\n| 插件 ID   | `server_log_filter`                                     |\n| 命令      | `!!logfilter` / `!!lf`                                  |\n| 需要      | MCDR **2.15.0+**（实测 2.15.0 / 2.15.7 / 2.16.0；与 MC 版本无关） |\n| License | MIT                                                     |\n\n> 想改代码，或了解打包、测试与版本兼容性？见 [docs/DEVELOPMENT.md](https://github.com/Pau1am/MCDR-ServerLogFilter/tree/main/docs/DEVELOPMENT.md)。\n\n## 目录\n\n- [功能](#功能)\n- [安装](#安装)\n- [命令](#命令)\n- [配置](#配置)\n- [注意](#注意)\n- [License](#license)\n\n## 功能\n\n- 按正则规则过滤服务端输出，命中的行**只从 MCDR 控制台隐去**；服务端自己写的 `server/logs/latest.log` 一条不少\n- 隐去的是控制台回显、不是丢弃：日志事件照常分发，不影响其它插件与 MCDR 的「开服完成 / 关服 / 玩家进出」判断\n- 默认规则针对 Minecraft 26.3 的「standing on air」刷屏日志（官方误报，Mojira [MC-311474](https://bugs.mojang.com/browse/MC-311474) / [MC-311727](https://bugs.mojang.com/browse/MC-311727)）\n- 规则随时可增删改；`!!logfilter test <文本>` 先验证再启用，不必等它真的触发\n- 规则连续多个开服周期零命中时提醒一次；载入时拦截有灾难性回溯风险的规则（跳过并警告，其余规则不受影响）\n- 配置写坏会先备份成 `config.json.old` 再重建；插件升级后新增选项自动补齐，你已有的取值不受影响\n- 中英双语；命令全部需要管理员权限\n\n## 安装\n\n1. 从 [Releases](https://github.com/Pau1am/MCDR-ServerLogFilter/tree/main/../../releases) 下载 `ServerLogFilter-vX.Y.Z.mcdr`，或自行打包（见 [docs/DEVELOPMENT.md](https://github.com/Pau1am/MCDR-ServerLogFilter/tree/main/docs/DEVELOPMENT.md)）；\n2. 放进 MCDR 的 `plugins/` 目录；\n3. MCDR 运行中执行 `!!MCDR reload plugin server_log_filter`，未运行则直接开服；\n4. 首次启动自动生成 `config/server_log_filter/config.json`，默认配置开箱可用。\n\n多个子服各放一份，配置互相独立。\n\n## 命令\n\n`!!logfilter` 与 `!!lf` 完全等价。**所有命令都需要 MCDR 管理员权限**（与游戏内 OP 无关：MCDR 只认自己的 `permission.yml`，未登记的玩家默认是 `user`）。给自己权限：在 MCDR 控制台执行 `!!MCDR permission set <你的 ID> admin`。\n\n| 命令                                  | 作用                                                    |\n| ----------------------------------- | ----------------------------------------------------- |\n| `!!logfilter`（= `!!logfilter help`） | 帮助页（游戏内聊天里每行可点击）                                      |\n| `!!logfilter list`                  | 状态：当前语言与来源、每条规则的命中次数与连续零命中次数、被跳过的规则数                  |\n| `!!logfilter test <文本>`             | 测试一行日志是否会被隐去、命中的是哪条规则；整行粘贴也行（会先剥掉 `[时间] [线程/级别]:` 前缀） |\n| `!!logfilter reload`                | 重读配置立即生效，不必重启；已从配置中删除的规则的统计同时清除                       |\n| `!!logfilter reset`                 | 清空「连续零命中」计数，重新开始观察                                    |\n\n## 配置\n\n配置文件是 `config/server_log_filter/config.json`，首次加载自动生成：\n\n```json\n{\n    \"language\": \"auto\",\n    \"patterns\": [\n        \"standing on air - force-sending blocks below\"\n    ],\n    \"log_matched_lines\": false,\n    \"report_on_server_stop\": true,\n    \"warn_about_stale_rules\": true,\n    \"stale_rule_threshold\": 3,\n    \"validate_patterns\": true,\n    \"pattern_probe_timeout_ms\": 25,\n    \"announce_config_upgrade\": true,\n    \"announce_broken_config\": true\n}\n```\n\n<details><summary>展开选项与说明</summary>\n\n| 字段                         | 类型         | 默认       | 说明                                                                                                |\n| -------------------------- | ---------- | -------- | ------------------------------------------------------------------------------------------------- |\n| `language`                 | `string`   | `\"auto\"` | 消息语言。`auto` 跟随 MCDR；也可写 `zh_cn` / `en_us`（大小写与 `-` / `_` 随意；`zh_tw` 回落到 `zh_cn`，缺失的档位回落到 `en_us`） |\n| `patterns`                 | `string[]` | 见上       | 正则规则。对每行日志的**正文**（MCDR 已剥掉 `[时间] [线程/级别]:` 前缀）做匹配，命中即隐去                                           |\n| `log_matched_lines`        | `bool`     | `false`  | 调试用：把被隐去的行以 INFO 级别写进 MCDR 日志，方便确认规则生效                                                            |\n| `report_on_server_stop`    | `bool`     | `true`   | 关服时在 MCDR 日志里汇总本次共隐去多少行                                                                           |\n| `warn_about_stale_rules`   | `bool`     | `true`   | 某条规则连续多个开服周期零命中时提醒一次（只在成功开服的周期上计数）                                                                |\n| `stale_rule_threshold`     | `int`      | `3`      | 连续多少个开服周期零命中才提醒；`0` = 关闭这项提醒                                                                      |\n| `validate_patterns`        | `bool`     | `true`   | 载入时用短探测串检查灾难性回溯，把这类规则拦下并跳过                                                                        |\n| `pattern_probe_timeout_ms` | `int`      | `25`     | 上面那项检查的耗时上限（毫秒），一般不用改                                                                             |\n| `announce_config_upgrade`  | `bool`     | `true`   | 升级后配置被自动补齐时，在控制台说明新增了哪些选项                                                                         |\n| `announce_broken_config`   | `bool`     | `true`   | 配置写坏被备份并重置时，在控制台说明原因与备份路径                                                                         |\n\n</details>\n\n**匹配方式是 `re.search`（包含匹配），不是全匹配。** 写 `standing on air` 就能命中整行，不必加 `.*`；反过来 `.` 匹配任意字符，要匹配字面点号请写 `\\.`。\n\n**加规则**：把日志正文追加进 `patterns`（其余字段保持原值），先 `!!logfilter test <文本>` 验证，再 `!!logfilter reload`：\n\n```json\n{\n    \"patterns\": [\n        \"standing on air - force-sending blocks below\",\n        \"Ignoring chat session from .* due to missing Services public key\"\n    ]\n}\n```\n\n几条说明：\n\n- 规则编译失败只会跳过该条并在日志里警告，其余规则照常工作；想临时关掉过滤，把 `patterns` 清空再 `!!logfilter reload`。\n- 零命中统计存在 `state.json`（与 `config.json` 分开，插件不会改你写的配置）；从配置里删掉规则，它的统计在 `reload` 时一并清除。\n- 写坏配置时，原文件先被改名成 `config.json.old` 再重建默认配置（备份只有这一个位置）；文件不是 UTF-8 编码（比如被存成 ANSI）也算写坏。\n- `warn_about_stale_rules` / `announce_config_upgrade` / `announce_broken_config` 三个播报开关**只管说不说**：备份、补齐、统计这些动作照旧执行。\n- 想加一门语言：复制 `en_us.json` 改成 `<语言代码>.json`、只翻译取值，见 `server_log_filter/lang/README.md`（不需要改代码）。\n\n## 注意\n\n- 过滤在 MCDR 这一侧完成（对服务端输出逐行匹配），**与 MC 版本无关**；默认规则只对 MC 26.3 的日志有意义，装在其它版本上插件照常工作，只是默认规则不会命中。\n- 规则别写得太宽（如 `.`、`.*`、`^`），否则控制台会看起来像「服务端没在运行」；加载时有警告，`!!logfilter list` 里也会标出。\n- 查完整原始日志，永远看 `server/logs/latest.log`。\n\n## License\n\n[MIT](https://github.com/Pau1am/MCDR-ServerLogFilter/tree/main/LICENSE)\n",
+    "readme_url": "https://raw.githubusercontent.com/Pau1am/MCDR-ServerLogFilter/main/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": [
+      {
+        "message": "Repository has been renamed from 'Pau1am/MCDR-ServerLogFilter' to 'LifeSci-Craft/MCDR-ServerLogFilter'",
+        "error_type": null,
+        "error_message": null
+      }
+    ]
+  }
+}

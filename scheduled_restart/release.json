@@ -1,0 +1,80 @@
+{
+  "schema_version": 8,
+  "id": "scheduled_restart",
+  "latest_version": "1.2.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/fangzi2006/MCDR-Scheduled-Restart/releases/tag/v1.2.1",
+      "name": "v1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2026-10-03T11:23:47Z",
+      "description": "## 安装\r\n\r\n下载下面的 `scheduled_restart-v1.2.1.mcdr`，放进 MCDR 的 `plugins/` 目录，\r\n重启 MCDR 或执行 `!!MCDR plugin load scheduled_restart`。\r\n\r\n首次加载会自动生成配置 `config/scheduled_restart/config.json`；\r\n默认的 3 个示例计划都是关闭的，可用 `!!srestart add <名字> <cron>` 新建，或改配置文件后 `!!srestart reload`。\r\n\r\n要求：MCDReforged >= 2.12.0，Python >= 3.8，无需任何第三方 Python 库。\r\n\r\n## 注意事项\r\n* 该插件完全由ai生成，可能存在未知问题\r\n* 请在控制台中使用命令，玩家无法在游戏中使用命令",
+      "prerelease": false,
+      "asset": {
+        "id": 607695343,
+        "name": "scheduled_restart-v1.2.1.mcdr",
+        "size": 37280,
+        "download_count": 7,
+        "created_at": "2026-10-03T11:26:56Z",
+        "browser_download_url": "https://github.com/fangzi2006/MCDR-Scheduled-Restart/releases/download/v1.2.1/scheduled_restart-v1.2.1.mcdr",
+        "hash_md5": "74dcb56f31f56835bd90fed53ccb0a8f",
+        "hash_sha256": "e4357c160e22fa6b184a0688f9d26b3046eb8ee1038ffd16eaec91999dfd1281"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "scheduled_restart",
+        "name": "Scheduled Restart",
+        "version": "1.2.1",
+        "link": "https://github.com/fangzi2006/mcdr-scheduled-restart",
+        "authors": [
+          "fangzi2006"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Cron-style scheduled server restarts with configurable multi-stage notifications (chat / title)",
+          "zh_cn": "按 Linux cron 表达式定时重启服务器，支持多条自定义提醒（聊天框 / 大标题）"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/fangzi2006/MCDR-Scheduled-Restart/releases/tag/v1.1.1",
+      "name": "release-v1.1.1",
+      "tag_name": "v1.1.1",
+      "created_at": "2026-09-30T10:54:54Z",
+      "description": "## 安装\r\n\r\n下载下面的 `scheduled_restart-v1.1.1.mcdr`，放进 MCDR 的 `plugins/` 目录，\r\n重启 MCDR 或执行 `!!MCDR plugin load scheduled_restart`。\r\n\r\n首次加载会自动生成配置 `config/scheduled_restart/config.json`；\r\n默认的 3 个示例计划都是关闭的，可用 `!!srestart add <名字> <cron>` 新建，或改配置文件后 `!!srestart reload`。\r\n\r\n要求：MCDReforged >= 2.12.0，Python >= 3.8，无需任何第三方 Python 库。\r\n\r\n## 注意事项\r\n* 该插件完全由ai生成，可能存在未知问题\r\n* 请在控制台中使用命令，玩家无法在游戏中使用命令\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 600848298,
+        "name": "scheduled_restart-v1.1.1.mcdr",
+        "size": 36136,
+        "download_count": 4,
+        "created_at": "2026-09-30T12:15:10Z",
+        "browser_download_url": "https://github.com/fangzi2006/MCDR-Scheduled-Restart/releases/download/v1.1.1/scheduled_restart-v1.1.1.mcdr",
+        "hash_md5": "65fd887eff15a3ef4422b5d11d9560aa",
+        "hash_sha256": "d7f9cfcf4bf408d5d63cb6b1134234758f893bccf60f8b9937ffb29f55201d06"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "scheduled_restart",
+        "name": "Scheduled Restart",
+        "version": "1.1.1",
+        "link": "https://github.com/fangzi2006/mcdr-scheduled-restart",
+        "authors": [
+          "fangzi2006"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Cron-style scheduled server restarts with configurable multi-stage notifications (chat / title)",
+          "zh_cn": "按 Linux cron 表达式定时重启服务器，支持多条自定义提醒（聊天框 / 大标题）"
+        }
+      }
+    }
+  ]
+}

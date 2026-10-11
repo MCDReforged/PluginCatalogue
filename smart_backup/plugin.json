@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "smart_backup",
+  "authors": [
+    "zyxkad"
+  ],
+  "repository": "https://github.com/kmcsr/smart_backup_mcdr",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "\n- English\n- [中文](https://github.com/kmcsr/smart_backup_mcdr/tree/master/README_zh.MD)\n\n# Smart Backup\n\n### Feature\n\n- Support *Full Backup* / *Incremental Backup* / *Differential Backup*\n- Support **timed backup**\n- Support **auto clean** outdated backups\n\n### Notes\n\n- The backup created with `!!smb make(full)` is **not going to** *auto clean*\n- **Don't** change/remove files in `./smt_backup`, if you really need, please remove the **whole folder**\n- If you remove `./smt_backup` when *the plugin is running*, that probably will cause some *unknown error*\n",
+    "zh_cn": "\n- [English](https://github.com/kmcsr/smart_backup_mcdr/tree/master/README.MD)\n- 中文\n\n# Smart Backup\n\n### 特性\n\n- 一个集 *全盘备份* / *增量备份* / *差异备份* 为一体的插件\n- 支持**定时备份**\n- 支持备份清理功能\n\n### 注意\n\n- 使用`!!smb make(full)`创建的备份**不会**被*自动清理*\n- **不要**手动清理/修改`./smt_backup`内部文件, 如果需要, 请将**整个文件夹**都删除\n- *插件运行时*若删除`./smt_backup`可能会导致一些*未知错误*\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/kmcsr/smart_backup_mcdr/master/README.MD",
+    "zh_cn": "https://raw.githubusercontent.com/kmcsr/smart_backup_mcdr/master/README_zh.MD"
+  }
+}

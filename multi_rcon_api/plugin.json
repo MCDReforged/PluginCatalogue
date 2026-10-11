@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "multi_rcon_api",
+  "authors": [
+    "YehowahLiu"
+  ],
+  "repository": "https://github.com/FAS-Server/MultiRconAPI",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "tool",
+    "api"
+  ],
+  "introduction": {
+    "en_us": "# Multi Rcon API\n\n![MCDReforged](https://img.shields.io/badge/dynamic/json?label=MCDReforged&query=dependencies.mcdreforged&url=https%3A%2F%2Fraw.githubusercontent.com%2FFAS-Server%2FMultiRconAPI%2Fmaster%2Fmcdreforged.plugin.json&style=plastic) ![license](https://img.shields.io/github/license/FAS-Server/MultiRconAPI?style=plastic) ![build status](https://img.shields.io/github/workflow/status/FAS-Server/MultiRconAPI/CI%20for%20MCDR%20Plugin?label=build&style=plastic) ![Release](https://img.shields.io/github/v/release/FAS-Server/MultiRconAPI?style=plastic) ![total download](https://img.shields.io/github/downloads/FAS-Server/MultiRconAPI/total?label=total%20download&style=plastic)\n\n[English](https://github.com/FAS-Server/MultiRconAPI/tree/main/README_EN.md) | 简体中文\n\n一个使用rcon来做到对群组服进行简单操作的api\n\n## 配置\n\n1. 配置文件\n\n`broadcast `: 是否将特定事件通过rcon进行广播, 其中 `startup`为服务器启动事件,  `stop` 为服务器关闭事件\n\n`self_server`: 存储此子服务器名称, 用于在通过rcon广播事件时作为标识\n\n`data_file`: 数据文件存放的地址\n\n示例配置文件如下:\n\n```json\n{\n    \"broadcast\": {\n        \"startup\": true,\n        \"stop\": false\n    },\n    \"self_server\": \"Survival\",\n    \"data_file\": \"config/MultiRconAPI_ServerList.json\"\n}\n```\n\n2. 数据文件\n\n`servers` : 存储群组服务器中所有的rcon信息, 键为服务器名, 建议与跨服中的名称保持一致；值为rcon的 地址/端口/ 密码 等信息\n\n`groups`: 存储自定义服务器分组信息\n\n示例数据文件如下:\n\n```json\n{\n    \"servers\": {\n        \"Survival\": {\n            \"address\": \"localhost\",\n            \"port\": \"25565\",\n            \"password\": \"default_password_please_change\"\n        },\n        \"Creative\": {\n            \"address\": \"localhost\",\n            \"port\": \"25566\",\n            \"password\": \"default_password_please_change\"\n        },\n        \"Mirror\": {\n            \"address\": \"localhost\",\n            \"port\": \"25567\",\n            \"password\": \"default_password_please_change\"\n        }\n    },\n    \"groups\": {\n        \"g_creative\": [\"Creative\", \"Mirror\"]\n    }\n}\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/FAS-Server/MultiRconAPI/main/README.md"
+  }
+}

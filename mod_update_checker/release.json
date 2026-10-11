@@ -1,0 +1,368 @@
+{
+  "schema_version": 8,
+  "id": "mod_update_checker",
+  "latest_version": "1.6.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.6.0",
+      "name": "Mod Update Checker v1.6.0",
+      "tag_name": "v1.6.0",
+      "created_at": "2026-10-10T13:47:05Z",
+      "description": "这一版把 `.old` 备份纳入管理：列表里看得见、可筛选、可删除，但默认一个字节都不删；另有一轮\n全代码审查和多处界面修正。\n\n### 新增\n\n- **`.old` 备份成为一类状态**（`old_backup`，图标 `⏪`）：出现在 `!!modupdate list`（`!!modupdate list old_backup` 可单独筛出）、`!!modupdate info`（文件名、大小、留了多久）与 `!!modupdate status`（几个、共多大、几个超期）。它不参与「共检查 N 个 jar」，也不会被拿去问 Modrinth。\n- **删除旧备份**：`!!modupdate delete <文件名 / 编号>` 删一个、`!!modupdate delete all` 删全部（不看天数）、`!!modupdate cleanup` 只删已过期的（默认满 30 天）。三条都先列计划、再由 `!!modupdate confirm` 确认；第一次敲 `cleanup` 通常什么都不会删，它会报出现状与两条路（点名删除，或调小 `cleanup.max_age_days`）。\n- **删除总开关 `cleanup.allow_delete`（默认关闭）**：关着时 `delete` / `cleanup` 和它们的 `confirm` 一律被拒，插件不删除 `mods/` 里的任何文件；详情页的 `[删除此备份]` 按钮与状态屏都会说明这一点。\n- **到期提醒 `cleanup.enabled`（默认关闭，排在总开关之后）**：发现有过期备份时提醒一次并摆好计划，直接 `!!modupdate confirm` 即可；不会顶掉正在等待确认的其它操作。\n\n### 变更\n\n- **删除的安全规则**：`delete` / `cleanup` / 确认 / 提醒四处走同一个开关；只认插件自己生成的备份名（`<文件名>.jar.old`、`.jar.old.2` 这类），删除时重新核对，要删的集合变了整条计划作废，指向真 Mod 的编号会被拒绝。\n- **列表配色按「一块是什么」定**：编号永远黄、名称永远白、`[版本]` 绿、`[详细信息]` aqua；状态色 **绿 = 已是最新、蓝 = 有更新与待安装、红 = 有问题、其余灰**（图标、浮窗第一行、汇总分节标题与通知都用同一张表）。\n- **状态收进 `[状态: 图标]` 一格**：`✔` 已是最新、`↑` 有新版可下载、`↓` 已下载待安装、`❌` 无适配构建、`✘` 出错、`☆` 本地比上游新、`?` 认不出上游、`○` 不是 Mod、`⏪` 旧版备份、`—` 配置里忽略；含义在浮窗第一行（状态名 + 状态色）。图标只取原版字体自带的符号。\n- **版本收进绿色 `[版本]`**：悬停展开（有更新时是红 `>>>` 绿）；控制台与日志照旧印版本数字。\n- **列表行四格对齐**：`[编号] 名称 [版本] [状态] [详细信息]`；名称超宽截成 `...`（全名在悬停里）；补齐按截图实测的字宽模型（`i j l t f I 1` 记 3/4 个字母、`.` `[` `]` 记 1/2、汉字记 2¼；控制台等宽仍按字符数）。完全对齐受字体限制做不到，README 已写明。\n- **每一屏加了与标题栏同宽的收尾线**；翻页行改成标题栏样式（到头一侧变灰、点不动）。\n- **悬停与点击**：帮助页只留短句、说明文字可点、细节进浮窗；`[详细信息]` 的浮窗说明它执行 `!!modupdate info <Mod 名>`；计划里的 `confirm` 是亮红色按钮（点击只填入输入框，不直接执行）。\n- **文案修正**：状态不再一行说两遍；行上的版本注解与状态标签统一（`（已下载，未安装）` 归状态）；括号不再套括号；列表末尾悬空的冒号拆开；`本地版本更新` 改名 `本地比上游新`；英文状态名收成标签长度；游戏内中文括号统一为半角（71 条）。\n\n### 修复\n\n- **备份的年龄以前算错**：改名成 `.old` 会保留原时间戳，升级后会把所有旧备份当成「早已过期」；现在安装时把时间戳刷成它成为备份的那一刻。\n- **删掉的文件不再留在列表里**：删除成功后条目会从报告与 `last_report.json` 一并摘掉。\n- **控制台的列表行重新显示版本号**：此前把行形态统一成聊天形态，控制台也印了 `[版本]` 标签，而终端里没有悬停。\n- **浮窗不再整段溢出**：客户端只在空格处断行，中文没有空格，现在全部手工断行（每行 ≤ 32 显示列）；`list` 的状态清单改成一行一个。\n- **缓存文件内容异常不再导致插件启动失败**（`resolve-cache.json` 被写成 `[]` 之类）：`!!muc status` 的那行日志现在先检查文件形状。\n\n### 内部整理\n\n- 一次全代码审查：插件自身的 JSON 统一走原子写；两处重复的下载计数合并为一个函数；备份列表少一次系统调用；删掉一处无用解包；语言文件 304 条逐键核对无孤儿。未改动的都记了理由（`README-dev.md`）。\n- 渲染路径量过之后，把每行重算的格宽改为按语言缓存（195 µs → 0.8 µs / 10 行）；扫描不并行是量过的决定。\n\n### 验证\n\n- 测试 **725 项**全部通过（v1.5.0 是 652 项）；**27 处注入验证**全部被抓到（撤掉一条守卫，对应测试确实失败）。\n- 真实 MCDR **2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0** 五版本各跑一遍完整流程，**逐项一致**（54 项 required_keys + 2 项附加检查；v1.5.0 是 43 项）。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 628087350,
+        "name": "ModUpdateChecker-v1.6.0.mcdr",
+        "size": 96320,
+        "download_count": 8,
+        "created_at": "2026-10-10T13:47:36Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.6.0/ModUpdateChecker-v1.6.0.mcdr",
+        "hash_md5": "b8ba22dcc0359793fbaacb5f518551d2",
+        "hash_sha256": "3e38cdea34277d31000fc14e1f5ca39994c8d2bdab62dd1fd5317d3593550c35"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.6.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.5.0",
+      "name": "Mod Update Checker v1.5.0",
+      "tag_name": "v1.5.0",
+      "created_at": "2026-10-08T13:41:35Z",
+      "description": "命令更好敲、列表不再丢东西、提醒按颜色分好类。\n\n### 新增\n\n- **名字可以只打一半**：`!!modupdate download sod` 能对上 `Sodium`。唯一匹配时直接使用；匹配到多个时列出候选，候选每一条都能点击填入完整命令。MCDR 控制台里可以用 Tab 补全（`!!muc download `、`!!muc list `、`!!muc install `、`!!muc info ` 都支持）。\n- 两条守住不猜的规则：精确匹配永远不会被放宽成前缀匹配；前缀匹配和精确匹配走同一套归一化（大小写、空格、连字符都不计较）。\n- **`!!modupdate list` 翻页**：超过一页时不再截断，任何一行都不会丢。游戏内给 `[上一页]` / `[下一页]` 按钮，控制台给可直接敲的命令；页码可以手打（`!!modupdate list 3`、`!!modupdate list awaiting_install 2`）；页码越界时落在最后一页并如实显示；翻页时筛选保留；每一页内部仍是要处理的优先。\n- **只可能在客户端用的依赖不再算「缺依赖」**：每个找不到的依赖会拿去问 Modrinth，标记为「不支持服务端」的不计入服务端缺依赖（`optional` 和没填的照旧提醒）。被排除的那个会在这个 Mod 的详情里留一句说明。\n\n### 变更\n\n- **`!!modupdate` / `!!muc` 不带子命令时改为显示帮助页**：原来的「上次检查汇总」搬到 `!!modupdate summary`。帮助页的用法行也写明「不带子命令就是本页」。\n- **提醒按角色上色**：管理员上线提醒、关服安装汇报、下载完成通知不再整片黄：标题白、要动手的行黄、已经做完的灰、提示灰。颜色在句子构造处决定，不是事后按文本猜。\n\n### 内部整理\n\n- 列表编号与翻页解耦为 `index_page` 与 `render_index` 两个函数，聊天与控制台共用同一套分页算术。\n- 矩阵工具的 tellraw 解析器兼容 MCDR 2.13.0 的序列化形状（裸 list 与对象包 list 都支持），并读取每段文字的颜色。\n- `_INDEX_FIXED_LINES` 从 6 调到 7（界面多了一行翻页行）。\n\n### 验证\n\n- 测试 **648 项**（v1.4.0 是 627 项）全部通过。\n- 七处新行为都做了注入验证（撤掉之后对应测试确实失败）：前缀匹配、翻页只给第一页、越界页码夹到最后一页、客户端专属依赖不排除、裸命令指回汇总、提醒颜色塌回一种、角色表不动而每一行都给同一个角色。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程，**43 项检查逐项一致**（v1.4.0 是 41 项）。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621949435,
+        "name": "ModUpdateChecker-v1.5.0.mcdr",
+        "size": 76004,
+        "download_count": 6,
+        "created_at": "2026-10-08T13:41:52Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.5.0/ModUpdateChecker-v1.5.0.mcdr",
+        "hash_md5": "b410931e4c97c4b47a0a9b167dc9801f",
+        "hash_sha256": "433caac1ba456ff893231be4cbdaf10da916a31ea04e9d146d61aa700c1b5c6b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.5.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.4.0",
+      "name": "Mod Update Checker v1.4.0",
+      "tag_name": "v1.4.0",
+      "created_at": "2026-10-08T13:30:31Z",
+      "description": "一次处理一批：`!!muc download all` / `!!muc install all`；自动下载完成时会专门说一声。\n\n### 新增\n\n- **`download all` / `install all`**：一条命令、一次确认，处理所有「有更新待下载」或「已下载待安装」的 Mod，与单个形式走同一套两步流程。几条规则：`all` 是保留字，永远指「全部」；没有可下载文件的更新会被数出来，不会被悄悄丢掉；批量确认核对的是「哪些 Mod」而不只是数量，两条命令之间集合变了整条作废；`install all` 底层依旧逐条授权；下载失败的那些会被点名。\n- **下载完成会专门通知**：一次检查里真的抓到了新文件时，控制台多一行「下载完成：N 个新版本已就绪（X MB）」并给出下一步，游戏内权限足够的管理员会在同一时刻收到同样的话；没真下到东西就不发。这一条不受 `report.in_game` 控制（那项管的是「有更新了」的广播）。\n\n### 内部整理\n\n- 修一条测试的顺序依赖：`entry_env` fixture 自己钉住语言，不再依赖前面某个测试设过中文。\n- 新增测试：源码行末必须统一 LF（`.gitattributes` 只在提交时归一，「读文件再写回」的脚本会制造 CRLF）。\n- 用于注入验证的两个脚本改用 `newline=\"\\n\"` 写回。\n\n### 验证\n\n- 测试 **627 项**（v1.3.0 是 616 项）全部通过。\n- 五处新行为都做了注入验证（撤掉之后对应测试确实失败）：保留字失效、批量集合不再比对、完成通知不接、游戏内那一半去掉、批量安装只装第一个。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程，**40 项检查逐项一致**（v1.3.0 是 38 项）。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621922748,
+        "name": "ModUpdateChecker-v1.4.0.mcdr",
+        "size": 72638,
+        "download_count": 6,
+        "created_at": "2026-10-08T13:30:49Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.4.0/ModUpdateChecker-v1.4.0.mcdr",
+        "hash_md5": "a79ddac74e0ff5fee4a25bee7124b9a4",
+        "hash_sha256": "23552214c39985940da3908bd9b077b16345568c3c94c7a86cca559065b5585a"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.4.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.3.0",
+      "name": "Mod Update Checker v1.3.0",
+      "tag_name": "v1.3.0",
+      "created_at": "2026-10-08T13:27:39Z",
+      "description": "游戏内的界面统一成一套，编号不再有多余的空格，`info` 里不再出现两个下载入口。\n\n### 变更\n\n- **所有游戏内界面统一**：每个界面都以同一段标题栏开头，下面一行服务端上下文，然后是内容。颜色固定五个含义：金色标题栏、aqua 可操作项、白色内容、黄色需要处理的行、灰色其余。此前「按文字猜颜色」的函数删掉了（它把同一件事涂成两种颜色，还会因为一个名叫 `a->b` 的 Mod 而改色）。\n- **`!!muc info` 里下载只出现一次**：去掉直接指向 CDN 文件地址的链接（它绕过了插件下载时的哈希校验），只留按钮，位置不变；文件地址仍在 `last_report.json` 里，供自动化脚本使用。\n- **游戏内不再出现裸 URL**：汇总改给 `[详细信息]` 按钮（与 `list` 一致）并显示编号。控制台日志保持原样：那里的 URL 是唯一能到达项目页的方式。\n\n### 修复\n\n- **编号不再补空格**：`[1]` 就是 `[1]`，`[9]` 和 `[10]` 差一个字符。\n- **汇总里的行序与编号对齐**：小节内部与 `list` 用同一个顺序，不再出现 `[2]` 排在 `[1]` 前面。\n- **链接列按显示宽度对齐**：中文界面上汉字占两个字符宽，按 `len()` 补空格会把链接列推得参差不齐。\n- **已是最新的 Mod 不再画假箭头**：`版本: 0.160.6+26.3 -> 0.160.6+26.3` 看起来像发生了一次没发生的变更。\n\n### 内部整理\n\n- 删掉两个全库无人调用的渲染函数（`render_detail`、`render_index_body`）与 `_coloured_line`。\n- 测试里的 `_FakeServer.load_config_simple` 改为真的读写文件。\n\n### 验证\n\n- 测试 **616 项**（v1.2.1 是 607 项）全部通过。新增断言三条：所有界面必须以同一段标题栏开头、游戏内汇总不得出现 URL 且必须带按钮、链接列必须按显示宽度对齐。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程，逐项一致。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621915449,
+        "name": "ModUpdateChecker-v1.3.0.mcdr",
+        "size": 70639,
+        "download_count": 6,
+        "created_at": "2026-10-08T13:27:57Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.3.0/ModUpdateChecker-v1.3.0.mcdr",
+        "hash_md5": "67955ef0a6e4a30d09d5a16b30568749",
+        "hash_sha256": "19bc15a01914b1bbb87f166482e7e8035032a64f906bd3fc64f864973722d6f9"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.3.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.2.1",
+      "name": "Mod Update Checker v1.2.1",
+      "tag_name": "v1.2.1",
+      "created_at": "2026-10-08T13:22:07Z",
+      "description": "补丁版，没有破坏性变更。配置文件被创建、被补全，现在都有一行控制台记录。\n\n### 新增\n\n- **配置文件的三种状态各有一行日志**：文件不存在 → `配置文件不存在，已按默认值创建：<路径>（共 N 个选项）`；文件缺选项 → `配置文件缺少 N 个选项，已按默认值补上：…（<路径>）`；该补没补上 → 降级为警告，同样带上路径与选项名。\n- **`!!modupdate status` 增加一行「配置文件」**：显示插件实际读写的完整路径。\n\n### 验证\n\n- 测试 **607 项**全部通过。\n- 真实 MCDR 矩阵新增两项端到端断言：`config_healed`（配置文件真的被补全）与 `config_reported`（控制台真的报了补了什么），五版本逐项一致，共 **38 项检查**。\n- 测试里的 `_FakeServer.load_config_simple` 升级为像 MCDR 一样真的读写文件。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621902018,
+        "name": "ModUpdateChecker-v1.2.1.mcdr",
+        "size": 68674,
+        "download_count": 6,
+        "created_at": "2026-10-08T13:22:32Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.2.1/ModUpdateChecker-v1.2.1.mcdr",
+        "hash_md5": "b8502c7b8ee5a4d390cf3a2b737c95d0",
+        "hash_sha256": "d888916cdf828dc83ca9d5cce10539cdefc60790268321fcff1e62bd0e78389d"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.2.1",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.2.0",
+      "name": "Mod Update Checker v1.2.0",
+      "tag_name": "v1.2.0",
+      "created_at": "2026-10-08T09:25:43Z",
+      "description": "四处用户报上来的问题：三处是真 bug，一处是新功能。\n\n### 修复\n\n- **下载一个 Mod 之后，整个列表的编号不再全变**：`update_available` 与 `awaiting_install` 现在共用同一个名次（名次内部按名字排序），下载不改变名字，编号因此不动。副作用：「有更新待下载」与「已下载待安装」现在混在一起按名字排（此前前者全在前），两批都仍在列表最前。\n- **编号列的补零**：7 个 Mod 的清单不再显示 `[ 1]`；宽度按这一页实际会打印的最大编号算，一位数就是 `[1]`，有两位数时才对齐成 `[ 1]` / `[10]`。\n\n### 新增\n\n- **下载 / 安装 / 详情可以直接填 Mod 名字**：编号、Mod 名（大小写、空格、连字符都不计较）、mod id、jar 文件名（带不带 `.jar` 都行）四种写法都认。先精确匹配再宽松匹配；名字同时匹配到多个 Mod 时会被拒绝并提示改用编号；「编号超出范围」「名字不唯一」「找不到」分开报。\n- 配置文件完整性新增三条测试：`Config` 的字段与写出的 JSON 必须是同一个集合；每个选项都必须在 README 或开发者文档里出现过；一份缺了选项的配置文件会被补齐并重写，且管理员自己改过的值不受影响。\n\n### 验证\n\n- 测试套件 **601 项**（v1.1.1 是 590 项）全部通过。\n- 四处修复各做了一次注入验证（把修复撤掉，对应的测试确实会失败）。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程；矩阵顺带抓到了本轮排序改动引起的一处写死前提并修正。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621351921,
+        "name": "ModUpdateChecker-v1.2.0.mcdr",
+        "size": 69229,
+        "download_count": 6,
+        "created_at": "2026-10-08T09:26:05Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.2.0/ModUpdateChecker-v1.2.0.mcdr",
+        "hash_md5": "57d05e80ab10b323fbd47c56e74b6b22",
+        "hash_sha256": "1a6c4f73d102d7d13953603478473e9370764f12cfc3a3a62b2bd0aa1ced7e10"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.2.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.1.1",
+      "name": "Mod Update Checker v1.1.1",
+      "tag_name": "v1.1.1",
+      "created_at": "2026-10-08T07:43:17Z",
+      "description": "一次「把白干的活去掉」的清理。用起来没有任何变化：配置项、命令、报告格式、状态判定都与 v1.1.0 一致。\n\n### 变更\n\n- **每次扫描不再计算没人读的 SHA-512**：识别靠 SHA-1，本地那份 SHA-512 没有任何代码读过。实测 240 MiB（120 个 jar，页缓存热）的扫描耗时从 0.54~0.62 秒降到 0.30~0.40 秒，约省下一半时间。\n- **`!!modupdate status` 不再把整个 Mods 目录读一遍**：该命令只用文件名，现在走「只要元数据、不读字节」的扫描档；在几百 MB 的整合包上不再有约一秒的卡顿。\n- **两个批量查询合成一个往返**：识别一个 Mod 的最后两次请求（取最新适配构建、取项目标题与链接）此前串行，现在并发。\n\n### 内部整理\n\n- 两处失败的收集方式从「在 worker 里往报告上追加」改成「把结果和异常当值取回来」，消除一段隐藏的写入顺序竞争。\n- 版本号三处（`plugin.json` / CHANGELOG / README 样例）由测试核对，并钉住「CHANGELOG 只保留一个版本段」这条规矩。\n- `status` 的说明补上「本地映射表」一行（README 命令表此前漏了）。\n\n### 验证\n\n- 测试套件 **590 项**（v1.1.0 是 582 项）全部通过。\n- 两条新增的行为断言都做了注入验证（撤掉修复之后它们确实会失败）。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621125780,
+        "name": "ModUpdateChecker-v1.1.1.mcdr",
+        "size": 68089,
+        "download_count": 7,
+        "created_at": "2026-10-08T07:43:40Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.1.1/ModUpdateChecker-v1.1.1.mcdr",
+        "hash_md5": "d363e377c6daf28a80323830d3523e0a",
+        "hash_sha256": "ff18aeaa03423120eb18e31dd948476db7e3edc5a433a5f907e163e951b4758f"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.1.1",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.1.0",
+      "name": "Mod Update Checker v1.1.0",
+      "tag_name": "v1.1.0",
+      "created_at": "2026-10-08T07:08:32Z",
+      "description": "两项新功能、两条新提醒，以及若干「文档说的和代码做的不一致」的清理。配置项和命令向后兼容，新东西默认按最不打扰的方式工作。\n\n### 新增\n\n- **自己编译的 Mod 现在能查**（`sources.manual_map`）：在 `config/mod_update_checker/project-map.json` 里写 `by_sha1` / `by_mod_id` 两张表，把自编译、重新打包、改过签名的 jar 指到 Modrinth 项目上。文件只读不写；作为管理员的明确声明，它排在自动名称匹配之前；被它认出来的条目在报告里标为 `manual`。填错时会明说「引用找不到」，而不是悄悄退回按名字猜；`!!modupdate status` 显示清单读到几条。\n- **报告会告诉你哪些更新是「刚出现的」**：「有更新」一节末尾多一行「其中 N 项是上次检查之后新出现的」。配套修复了 `last_report.json` 只写不读的问题：`report.reuse_report_minutes` 的复用窗口现在跨重启有效，判断也从「够不够新」扩成「还算不算数」（Mods 目录、加载器、写死的 `server.mc_version` 必须与现状一致，否则旧结论作废）。\n- **缺少依赖提醒**：某个 Mod 声明的必装依赖在 `mods/` 里找不到（只认必装，平台自身已剔除，`provides` 会被认作满足）。\n- **「Modrinth 标记为不支持服务端」提醒**：用 Modrinth 自己的 `server_side` 字段判断（零额外请求，数据本来就在同一次批量查询里）；只有明确写了 `unsupported` 才报。两条提醒都宁可多报。\n\n### 内部整理\n\n- 名称匹配与映射表共用的判断抽成一个方法；报告序列化改为带 `format` 标记的往返回合；「单个文件名不是路径」的校验抽成共用函数。\n- 修正三处「文档比代码乐观」的说法（解析缓存的真实行为、扫描是否阻塞开服、一处早已废弃的旧配置名），删除一个从未被使用的字段。\n\n### 验证\n\n- 测试套件 **582 项**（v1.0.1 是 504 项）全部通过。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 621047478,
+        "name": "ModUpdateChecker-v1.1.0.mcdr",
+        "size": 69210,
+        "download_count": 5,
+        "created_at": "2026-10-08T07:08:59Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.1.0/ModUpdateChecker-v1.1.0.mcdr",
+        "hash_md5": "835efe29b698a6f3bcd03e04a22d662b",
+        "hash_sha256": "8ee48ea559bfe4c0985614ca120c71880803fcc9a51e94ec2b67bbe2ce736f98"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.1.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.0.1",
+      "name": "Mod Update Checker v1.0.1",
+      "tag_name": "v1.0.1",
+      "created_at": "2026-10-08T06:14:56Z",
+      "description": "内部改进与工具链修正。使用方式完全没有变化：配置项、命令、报告格式、状态判定都与 v1.0.0 一致。\n\n### 变更\n\n- **按名字查找改为并行**：自编译的 jar 走名字搜索阶段，实测 40 个这样的 Mod：**4.22 秒 → 1.12 秒（约 3.8 倍）**，发出的请求数完全不变（同一批工作，只是重叠了）。\n\n### 内部整理\n\n- 引入 ruff 静态检查（规则固定在 `ruff.toml`，`target-version` 取 3.8 以匹配 MCDR 2.13.0 的要求）；首次运行的 25 处问题全部处理，包括包内 5 个未使用的 import 与两处丢失异常原因的 `raise`。\n- 发布工具修三处缺陷：资产上传地址的域名、含 `/` 分支名的 URL 编码、推送被拒时的提示措辞。\n- 修正文档里若干已过期的数字与说法。\n\n### 验证\n\n- 测试套件 **504 项**全部通过。\n- 真实 MCDR 2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0 五版本各跑一遍完整流程，下载与关服安装两种模式逐项一致。\n- 产物可复现、换行归一、包内无注释与 docstring、包内代码可编译。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 620926807,
+        "name": "ModUpdateChecker-v1.0.1.mcdr",
+        "size": 61487,
+        "download_count": 7,
+        "created_at": "2026-10-08T06:15:16Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.0.1/ModUpdateChecker-v1.0.1.mcdr",
+        "hash_md5": "81b3e3270d74638830e11013a57ca6e3",
+        "hash_sha256": "d5891ef08ee488dbeed76dea1434405d4e2cbf6a9bc85de1e1dcfc1576eba7ce"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.0.1",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/tag/v1.0.0",
+      "name": "Mod Update Checker v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2026-10-07T16:40:14Z",
+      "description": "首个版本：扫描服务端 `mods/` 目录里的每个 jar，与 **Modrinth** 比对，报告哪些 Mod 有更新的构建、哪些没有适配当前加载器或游戏版本的构建、哪些查不到来源。不需要任何 API key 或额外依赖。\n\n**默认只读**：写 `mods/` 的能力要先开启 `download.install_on_stop`，或者逐个 `!!muc install` 点名，且只在关服后执行。\n\n### 功能\n\n- **识别方式**：按 SHA-1 批量识别（一两次请求识别整个 mods 目录）；自编译、重新打包过的 jar 按名字兜底并在报告里标注 `matched_by: name`；顺带诊断重复 mod id、仅客户端 Mod 装在服务端、声明的 MC 版本范围与当前服务端不符。\n- **九个状态**：`update_available` / `awaiting_install` / `no_compatible_build` / `local_ahead` / `up_to_date` / `unresolved` / `not_a_mod` / `error` / `ignored`。「无适配构建」分两种并分别说明：项目没发布过该加载器的构建，还是发布过但没有面向当前游戏版本。报告分「有更新但尚未下载」与「已下载待安装」两组，一个 Mod 只属于其中一组。\n- **配置按功能分组**：顶层只留 `enabled` / `language` / `command_permission_level`，其余分入 `server` / `check` / `report` / `sources` / `download` / `network` 六章。旧版本平铺的选项名不再被读取，插件会为此打一行警告并列出每个旧名字对应的新路径。\n- **列表一行一个 Mod**：详情点开才看（`!!modupdate info` 或点 `[详细信息]`）。每行最多一个链接且对齐成一列；只在「下一步是打开网页」时给链接；待处理优先，截断会写明还剩多少；编号取自完整列表，同一编号始终指同一个 Mod。全部聊天输出受一页预算约束（18 行）。\n- **关服后自动安装**（`download.install_on_stop`，默认关闭）：只在关服后动手；只处理插件自己下载过的文件；旧 jar 只改名（`.old` / `.old.2`）绝不覆盖；安装前校验哈希、失败回滚；`mods/` 里那个 jar 已不在就跳过。明细在下次启动时列出，第一位上线的管理员也会收到；文件名开头的中括号备注会跟到新文件名上。\n- **手动下载与安装**：`download <编号>` / `install <编号>` 都先列出将要发生什么，再等 `!!modupdate confirm`（120 秒内有效，重载配置或再跑过一次检查同样作废）。`install` 要求文件已经下载好；只有发起人本人能确认；授权逐条生效，不会影响别的文件。详情页底部有可点的 `[下载此版本]` / `[安排安装]`。\n- **自动检查与提醒**：开服后自动检查一次并写入控制台日志（延迟 60 秒避开 Mod 加载）；管理员上线时把结果单独发给他（24 小时内的结果直接复用，且不重复广播）；可选游戏内广播（默认关）。\n- **可选下载**（`download.enabled`，默认关闭）：只写能校验哈希的文件，校验不过的丢弃且不留残留；同名不同内容绝不覆盖；下载过的版本被取代时自动删旧；下载失败按 `download.retries` 重试（404/401/403 与写盘失败不重试）；下载失败不影响检查结果。\n- **排除不想检查的 Mod**：`check.ignored_mods` 接受 mod id、jar 文件名或去掉 `.jar` 的名字；被排除的 Mod 完全不产生网络查询，但仍以 `ignored` 状态出现在报告里。\n\n### 命令\n\n`!!modupdate` 与 `!!muc` 两个别名，默认需要 MCDR 权限等级 3：`check` / `list [状态]` / `info <编号>` / `download <编号>` / `install <编号>` / `confirm` / `status` / `reload` / `help`。帮助页有标题栏与统一配色，并显示你实际输入的那个别名。\n\n### 修复（开发期间的独立代码审查）\n\n- 事件监听器被注册两次（MCDR 会合并显式注册与按名发现），导致每个事件触发两次、每次开服起两个检查线程。\n- `!!MCDR reload plugin` 路径不派发 `on_unload`，每次重载遗留一个调度线程；`!!modupdate reload` 因停止事件没清导致定时检查被静默关闭。\n- 批量查询失败被当成「没有适配构建」（把瞬时故障变成一个看起来很确定的错误结论）；上游失败仍写入否定缓存（把网络故障提升成 24 小时盲区）；`GET /projects?ids=` 未容忍 404（一个坏 id 让整批丢掉标题与链接）。\n- `covers(\">= 1.21.4\", \"1.21.5\")` 因运算符旁空格返回 False（版本范围退化成等值判断）；`int()` 拒绝超长数字串（畸形版本号会让整次检查抛异常）。\n- `logger.info(RText)` 的颜色被静默丢弃：控制台改走纯文本，回复走 RText。\n- 文档与死代码清理：更正过期的注释与说法、删除无人调用的函数与字段、语言目录自检补上 `install` 家族键、「还有 N 个未显示」只在真的截断时输出。\n\n### 其他\n\n- 消息里的插件名统一为声明名，并加测试要求「任何 `[方括号]` 开头的文案，方括号里必须是元数据里的那个名字」。\n- 开发期间实现过、随后整条移除 CurseForge 支持（它的所有端点都要求 API key，且下载不保证直链），现在只查 Modrinth，不需要任何凭据。\n- README 分成两份：`README.md` 面向使用者，`README-dev.md` 面向开发者，互相链接；两份都不进产物。\n\n### 验证\n\n- 自动化测试覆盖版本比对与范围匹配、元数据解析、下载的各类失败模式（含「被篡改必拒绝」）、MCDR 生命周期约束、配置分组不变式、语言目录一致性、手动下载/安装的确认流程、文档与代码的一致性，以及真实 MCDR 端到端。\n- 跨 **5 个 MCDR 版本**（2.13.0 / 2.14.1 / 2.15.0 / 2.15.7 / 2.16.0）各起一次真实 MCDR 跑完整流程，逐项检查一致。\n- 产物可复现：同一份源码打两次，SHA-256 完全一致。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 619234633,
+        "name": "ModUpdateChecker-v1.0.0.mcdr",
+        "size": 72641,
+        "download_count": 6,
+        "created_at": "2026-10-07T16:41:29Z",
+        "browser_download_url": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/releases/download/v1.0.0/ModUpdateChecker-v1.0.0.mcdr",
+        "hash_md5": "3a37d8ef6a6d299283a52b79af1af1c8",
+        "hash_sha256": "20cd274864f4182a008e7bfdf2422758a175088088a344381fff3000c021fccb"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mod_update_checker",
+        "name": "Mod Update Checker",
+        "version": "1.0.0",
+        "link": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+        "authors": [
+          "Pau1am"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.13.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Compare every jar in the server's mods folder against Modrinth, and tell the admin which ones have a newer build. Fabric has no native way to notice an outdated mod; this does. Exclude the mods you never want checked.",
+          "zh_cn": "把服务端 mods 目录里的每个 jar 与 Modrinth 上的版本逐一比对，告诉管理员哪些 Mod 有新版本。Fabric 服务端本身没有任何办法发现 Mod 过期，这个插件补上这一环。自己写或不想更新的 Mod 可以排除。"
+        }
+      }
+    }
+  ]
+}

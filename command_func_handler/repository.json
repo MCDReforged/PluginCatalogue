@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/CommandFuncHandler-MCDR",
+  "name": "CommandFuncHandler-MCDR",
+  "full_name": "Mooling0602/CommandFuncHandler-MCDR",
+  "html_url": "https://github.com/Mooling0602/CommandFuncHandler-MCDR",
+  "description": "A handler for Minecraft commands and functions.",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "- 中文（简体）\n- [English](https://github.com/Mooling0602/CommandFuncHandler-MCDR/tree/main/README_en_US.md)\n\n# CommandFuncHandler-MCDR\n修改自 [MCDR-Commandblock-Handler](https://github.com/Dainsleif233/MCDR-Commandblock-Handler)，并优化了代码结构，增强插件功能；使用相同的 GPLv3 许可证。\n\nCommandFuncHandler 是为 Minecraft 命令和函数设计的处理器，使函数和命令方块能使用 MCDR 命令。\n\nCommandFuncHandler 和其他同类型插件都不受 MCDReforged 官方支持，也与其项目维护者没有关联，遇到问题请在 [Issues](https://github.com/Mooling0602/CommandFuncHandler-MCDR/issues) 中反馈。\n\n## 用法\n在 MCDR 工作目录下的 `config.yml` 中配置好服务端处理器，详见 [handler](https://docs.mcdreforged.com/zh-cn/latest/configuration.html#handler)。\n> 目前暂时只支持 MCDR 内建的服务端处理器，第三方处理器支持需要 HandlerManager 插件（开发中）。\n\n如果未使用其他服务端处理器类型的插件，此插件应能够开箱即用，若遇到问题可以尝试检查配置文件。\n> 配置文件一般位于`config/command_func_handler/config.yml`。\n\n插件理论上可以通过 [HandlerManager](https://github.com/Mooling0602/HandlerManager-MCDR) 插件（仍开发中）的\"HandlerMixin 规范\"兼容其他第三方服务端处理器插件，但需要插件进行适配，且不保证能够都正常工作。\n\n如果你发现插件未能按预期工作，可以使用 `!!command_func_handler debug` 命令开启调试模式，查看插件的日志输出以诊断问题。\n\n## 权限\n可在 MCDR 工作目录下的 `permission.yml` 中设置函数 `!function` 和命令方块 `!commandblock` 的权限，详见 [权限](https://docs.mcdreforged.com/zh-cn/latest/permission.html#permission)。\n\n下面是一个示例配置，允许函数和命令方块使用 MCDR 命令的管理员级别权限：\n\n```yml\nadmin:\n- '!commandblock'\n- '!function'\n```\n\n## 许可证\n本项目使用 GPLv3 许可证，详情请参阅 [LICENSE](https://github.com/Mooling0602/CommandFuncHandler-MCDR/tree/main/LICENSE) 文件。\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/CommandFuncHandler-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

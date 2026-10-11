@@ -1,0 +1,116 @@
+{
+  "schema_version": 8,
+  "id": "secure_shell",
+  "latest_version": "2.1.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/ZhangZuoqian/secure_shell/releases/tag/v2.1.0",
+      "name": "v2.1.0 — pluggable engine extension / 引擎拆分为可选扩展包",
+      "tag_name": "v2.1.0",
+      "created_at": "2026-10-05T00:48:25Z",
+      "description": "## EN\n- The shell engine ships as a separate optional pack: not bundled, not downloaded, not loaded by the main plugin.\n- `!!secure_shell` management commands (install / check / enable / disable / uninstall) are **console-only** — in-game players are always rejected.\n- Download via Python stdlib only (`urllib`); integrity enforced by the SHA-256 pinned in the plugin source.\n- Optional second-factor password (PBKDF2 in config, never hardcoded). Engine stays disabled until `enable_ext`.\n- Docs: per-OS command examples, requirements section.\n\n## 中文\n- shell 执行引擎拆分为独立可选扩展包：主插件默认不带、不下载、不加载。\n- `!!secure_shell` 管理命令（安装/查看/启用/停用/卸载）**仅限控制台**，游戏内玩家一律拒绝。\n- 下载仅用 Python 标准库（`urllib`），完整性由源码内置 SHA-256 锚定。\n- 可选二次密码（PBKDF2 存配置，零硬编码）。安装后保持停用，需 `enable_ext` 显式开启。\n- 文档：命令示例按系统分区，新增前置说明。\n\n## Assets\n- `secure_shell-v2.1.0.mcdr`：主插件\n- `shell_ext-1.0.0.zip`：执行引擎扩展包（`install_ext` 会自动拉取）",
+      "prerelease": false,
+      "asset": {
+        "id": 611632260,
+        "name": "secure_shell-v2.1.0.mcdr",
+        "size": 17538,
+        "download_count": 3,
+        "created_at": "2026-10-05T05:44:09Z",
+        "browser_download_url": "https://github.com/ZhangZuoqian/secure_shell/releases/download/v2.1.0/secure_shell-v2.1.0.mcdr",
+        "hash_md5": "fc29e92116d0b261eaab810dbcb29db3",
+        "hash_sha256": "44f4c208c43210a191c1851a3a60d129fe2e01eb21dcfc803b65f71fcb76d473"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "secure_shell",
+        "name": "Secure Shell",
+        "version": "2.1.0",
+        "link": "https://github.com/ZhangZuoqian/secure_shell",
+        "authors": [
+          "ZhangZuoqian"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "跨平台Shell执行器（执行引擎为可选扩展包），带安全白名单与日志审计",
+          "en_us": "Cross-platform shell executor with pluggable engine extension, allowlist and audit log"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/ZhangZuoqian/secure_shell/releases/tag/v2.0.3",
+      "name": "v2.0.3 — bilingual replies / 回复语双语化",
+      "tag_name": "v2.0.3",
+      "created_at": "2026-10-04T05:25:38Z",
+      "description": "回复语改为中英双语（中文在前 + 英文括注）。Replies are now bilingual — Chinese first with an English gloss.",
+      "prerelease": false,
+      "asset": {
+        "id": 613863226,
+        "name": "secure_shell-v2.0.3.mcdr",
+        "size": 13364,
+        "download_count": 3,
+        "created_at": "2026-10-05T23:19:34Z",
+        "browser_download_url": "https://github.com/ZhangZuoqian/secure_shell/releases/download/v2.0.3/secure_shell-v2.0.3.mcdr",
+        "hash_md5": "de81820b8a172c9f6027edd7c8abe6c8",
+        "hash_sha256": "1c9bd2a6b31101b9d7318187ef3c7789489588feabf70827569eaa05c7baf3bd"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "secure_shell",
+        "name": "Secure Shell",
+        "version": "2.0.3",
+        "link": "https://github.com/ZhangZuoqian/secure_shell",
+        "authors": [
+          "ZhangZuoqian"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "跨平台 Shell 执行器，带安全白名单与日志审计",
+          "en_us": "Cross-platform shell executor with allowlist and audit log"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/ZhangZuoqian/secure_shell/releases/tag/v2.0.2",
+      "name": "v2.0.2 — console-only by default / 默认仅控制台",
+      "tag_name": "v2.0.2",
+      "created_at": "2026-10-04T04:51:19Z",
+      "description": "## Changes / 变更\n\n**EN**\n- In-game execution is now **disabled by default**. Only the MCDR console can run commands.\n- To enable in-game execution, set `allow_player_execution: true` in the config — players still need MCDR permission level `required_permission` (default `4`). Both gates must pass.\n- `!!shellstatus` now shows the in-game execution switch state.\n- README reworked: English and 简体中文 split into README.md / README_CN.md; security notes updated.\n\n**中文**\n- 游戏内执行**默认禁用**，仅 MCDR 控制台可执行。\n- 如需开放游戏内执行，把配置里的 `allow_player_execution` 改为 `true`——玩家仍需 MCDR 权限等级 `required_permission`（默认 4），两道门槛缺一不可。\n- `!!shellstatus` 新增游戏内执行开关状态显示。\n- README 拆分为英文版与中文版，安全说明已更新。\n\n## Install / 安装\n\nDownload `secure_shell-v2.0.2.mcdr` and drop it into `plugins/`, then `!!MCDR reload plugin`.\n下载 `secure_shell-v2.0.2.mcdr` 放进 `plugins/`，然后 `!!MCDR reload plugin`。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 613863149,
+        "name": "secure_shell-v2.0.2.mcdr",
+        "size": 11944,
+        "download_count": 3,
+        "created_at": "2026-10-05T23:19:32Z",
+        "browser_download_url": "https://github.com/ZhangZuoqian/secure_shell/releases/download/v2.0.2/secure_shell-v2.0.2.mcdr",
+        "hash_md5": "4008f24e607a730f23b72151d23718d6",
+        "hash_sha256": "8f844d75dc6fd89fd2122a096f97d408f126777374c182ed72d7b33677275d69"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "secure_shell",
+        "name": "Secure Shell",
+        "version": "2.0.2",
+        "link": "https://github.com/ZhangZuoqian/secure_shell",
+        "authors": [
+          "ZhangZuoqian"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [],
+        "description": {
+          "zh_cn": "跨平台 Shell 执行器，带安全白名单与日志审计",
+          "en_us": "Cross-platform shell executor with allowlist and audit log"
+        }
+      }
+    }
+  ]
+}
