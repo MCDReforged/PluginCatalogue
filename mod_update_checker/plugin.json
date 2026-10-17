@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "mod_update_checker",
+  "authors": [
+    "Pau1am"
+  ],
+  "repository": "https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "tool",
+    "management"
+  ],
+  "introduction": {
+    "en_us": "Scans every jar in the server's `mods/` folder and checks it against Modrinth by file hash: which mods have newer versions, which have no build for the current loader / game version, and which cannot be identified. Read-only by default — downloading, install-on-stop and old-backup cleanup are opt-in.\n\nFull documentation (Chinese): [README.md](https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker/blob/main/README.md)\n",
+    "zh_cn": "扫一遍服务端 `mods/` 里的每个 jar，按文件哈希在 Modrinth 上比对版本：哪些 Mod 有更新、哪些没有适配当前加载器 / 游戏版本的构建、哪些查不到来源。默认只读——下载、关服后安装与旧版备份清理都需要显式开启。\n\n完整文档：[README.md](https://github.com/LifeSci-Craft/MCDR-ModUpdateChecker#readme)\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/mod_update_checker/introduction.md",
+    "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/mod_update_checker/introduction-zh_cn.md"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/skuzow/offline-whitelist",
+  "name": "offline-whitelist",
+  "full_name": "skuzow/offline-whitelist",
+  "html_url": "https://github.com/skuzow/offline-whitelist",
+  "description": "📃 MCDReforged offline whitelist helper plugin",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# 📃 Offline Whitelist\n\n[![license](https://img.shields.io/github/license/skuzow/offline-whitelist.svg)](https://github.com/skuzow/offline-whitelist/blob/master/LICENSE)\n[![package](https://github.com/skuzow/offline-whitelist/actions/workflows/package.yml/badge.svg?branch=master)](https://github.com/skuzow/offline-whitelist/actions/workflows/package.yml)\n[![python versions](https://img.shields.io/badge/python->=%203.6%20-blue)](https://www.python.org/downloads)\n\nSimple [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) offline whitelist helper plugin.\n\nMore plugins in [MCDReforgedPluginsCatalogue](https://github.com/MCDReforged/PluginCatalogue/blob/catalogue/readme.md).\n\n## 🗿 Commands\n\n- `!!offw` Display help message\n- `!!offw add <username>` Add player to whitelist\n- `!!offw remove <username>` Remove player from whitelist\n- `!!offw list` Show players inside whitelist\n- `!!offw reload` Reload plugin itself\n\n## 💾 Config\n\nLocation: `config/offline_whitelist.json`\n\n```json\n{\n    \"whitelist_path\": \"./server/whitelist.json\",\n    \"minimum_permission_level\": 2 // helper\n}\n```\n\n## 🗂️ Required Python libraries\n\n- [mcdreforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.0.0\n\nTo install them execute:\n\n```bash\n  pip install -r requirements.txt\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/skuzow/offline-whitelist/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
