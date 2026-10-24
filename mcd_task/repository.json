@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/TISUnion/Task",
+  "name": "Task",
+  "full_name": "TISUnion/Task",
+  "html_url": "https://github.com/TISUnion/Task",
+  "description": "a plugin to show tasks of project in progress",
+  "archived": false,
+  "stargazers_count": 11,
+  "watchers_count": 11,
+  "forks_count": 3,
+  "readme": "**English** | [中文](https://github.com/TISUnion/Task/tree/master/./README_cn.md)\n\n# Task\n\nA plugin shows tasks of project in progress\n\nRequires [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) >= 2.1.3\n\n[stext](https://github.com/TISUnion/stext) is no longer required. [MCDeamon](https://github.com/kafuuchino-desu/MCDaemon) and [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 1.x and earlier is no longer supported\n\n### Usage\n\n`!!task help` Show help message\n\n`!!task overview` Show task overview (also the default behavior of `!!task`)\n\n`!!task list` Show task list\n\n`!!task detail <task>` Show task detail\n\n`!!task list-all <task>` Show all tasks and sub-tasks\n\n`!!task add <task> [<description>]` Add a task\n\n`!!task remove`/`rm`/`delete`/`del <task>` Remove a task\n\n`!!task rename <old task> <new task>` Rename a task\n\n`!!task change <task> <new description>` Edit a task description\n\n`!!task done <task>` Mark task as done\n\n`!!task undone <task>` Mark task as undone\n\n`!!task deadline <task> <period: day>`/`clear` Set or clear deadline for the task\n\n`!!task player <task>` Show player task list\n\n`!!task res[ponsible] <task> <player>` Set responsibles for this task\n\n`!!task unres[ponsible] <task> <player>`/`-all` Remove responsibles from this task\n\nPS: All the `<task>` above can be replaced by `<task>.<sub-task>` to access sub-task\n\ne.g. `!!task add Witch_Hut.Floor AFK black glass placement`\n",
+  "readme_url": "https://raw.githubusercontent.com/TISUnion/Task/master/README.md",
+  "license": null
+}
