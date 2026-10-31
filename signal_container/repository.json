@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR",
+  "name": "SignalContainer-MCDR",
+  "full_name": "Lazy-Bing-Server/SignalContainer-MCDR",
+  "html_url": "https://github.com/Lazy-Bing-Server/SignalContainer-MCDR",
+  "description": "Acquire the specified singal container item",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "Signal Container\n-----\n\n**English** | [中文(Chinese)](https://github.com/Lazy-Bing-Server/SignalContainer-MCDR/tree/master/README_zh.md)\n\nA MCDR plugin helps you get container with required signal level\n\n\n# Basic Command\n\n`!!sig` Get help message\n\n`!!sig get <signal>` Get container that output specified redstone signal level\n\n`!!sig give <player> <signal> [-U]` Give someone the required container, add `-U` to use your own preference to generate the container property instead of the target player's\n\n# Customize preferences\n\nSome config items can be modified in game, and have global and personal values\n\n`!!sig cfg list` List all config items\n\n`!!sig cfg info <key>` Get config item info\n\n`!!sig cfg set <key> <value>` Set config item value for yourself\n\n`!!sig cfg set-global <key> <value>` Set config item globally\n\nAvailable in-game config items:\n\n`container_item`: Container item ID, default to barrel (`minecraft:barrel`), this only specify the id, the `max_slots` should be checked if your container has different slots count\n\n`max_slots`: Slots count that the container specified has\n\n`allow_overstack_under_15`: If this enabled, container can be filled with overstacked unstackable item in any situation\n\n`unstackable_fillings`: Set the unstackable item that will be used to fill the container\n\n`stackable_fillings`: Set the stackable item that will be used to fill the container\n\n# Plugin config\n\nPlugin config locates in `config/signal_container/config.json`\n\nPlugin config items:\n\n`permission`: If a player has lower permission level than the value in this map, the player can't execute the corresponding command\n\n`prefix`: Command prefix, default to `!!sig`, that means all the `!!sig` in the commands mentioned above can be replaced with this config value\n",
+  "readme_url": "https://raw.githubusercontent.com/Lazy-Bing-Server/SignalContainer-MCDR/master/README.md",
+  "license": {
+    "key": "lgpl-3.0",
+    "name": "GNU Lesser General Public License v3.0",
+    "spdx_id": "LGPL-3.0",
+    "url": "https://api.github.com/licenses/lgpl-3.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "mirror_sync_reforged",
+  "authors": [
+    "Ivan1F"
+  ],
+  "repository": "https://github.com/Ivan-1F/MirrorSyncReforged",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "MirrorSyncReforged\n-----\n\n**English** | [中文](https://github.com/Ivan-1F/MirrorSyncReforged/tree/master/./README_cn.md)\n\nA plugin to sync survival server world to the mirror server\n\nReforged from [MirrorSync](https://github.com/Ivan-1F/MCDReforged-Plugins/tree/master/MirrorSync)\n\nRemember to put it in the mirror server\n\n## Configure\n\nConfigure file: `config/mirror_sync_reforged/config.json`\n\n### `permission_level`\n\nDefault value: `4`\n\nThe minimum permission level to use the command\n\n### `survival_server_path`\n\nDefault value: `../survival/server`\n\nThe path to the survival server (source)\n\n### `mirror_server_path`\n\nDefault value: `./server`\n\nThe path to the mirror server (destination)\n\n### `world_names`\n\nDefault value: `['world']`\n\nWorld list to sync\n\nFor Vanilla servers: `[\"world\"]`\n\nFor Spigot servers: `['world', 'world_nether', 'world_the_end']`\n\n### `count_down`\n\nDefault value: `10`\n\nThe countdown after executing `!!mirror confirm`\n\n### `backup`\n\nDefault value: `false`\n\nIf enabled, [QuickBackupM](https://github.com/TISUnion/QuickBackupM) is required\n\nA backup of the mirror server will be created by [QuickBackupM](https://github.com/TISUnion/QuickBackupM) before syncing the world\n\n### `ignore_session_lock`\n\nIf enabled, `session.lock` file will be ignored when copying the world\n\n### Example\n\nFile structure:\n\n```\nroot/\n    survival_mcdr/\n        plugins/\n        server/\n            world/\n            minecraft_server.jar\n        ...\n    mirror_mcdr/\n        config/\n            mirror_sync_reforged/\n                config.json\n        plugins/\n            mirror_sync_reforged.mcdr\n        server/\n            world/\n            minecraft_server.jar\n        ...\n    ...\n```\n\nthen `survival_server_path` should be `../survival_mcdr/server` and `mirror_server_path` should be `./server`\n\n## Commands\n\n`!!mirror`: Display help message\n\n`!!mirror sync`: Sync worlds\n\n`!!mirror confirm`: Use after execute back to confirm sync execution\n\n`!!mirror abort`: Abort syncing at anytime\n\n`!!mirror reload`: Reload config file\n\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Ivan-1F/MirrorSyncReforged/master/README.md"
+  }
+}

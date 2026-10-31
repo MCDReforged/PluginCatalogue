@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "schema_version": 4,
+    "id": "leave_reason",
+    "name": "LeaveReason",
+    "version": "1.3.0",
+    "link": "https://github.com/wellcy666/leave_reason",
+    "authors": [
+      "chuan_yi_awa"
+    ],
+    "dependencies": {
+      "mcdreforged": ">=2.0.0"
+    },
+    "requirements": [],
+    "description": {
+      "en_us": "Detect abnormal player disconnections (kick, timeout, ban, not whitelisted) and broadcast the reason to chat",
+      "zh_cn": "检测玩家异常退出（被踢、连接超时、被封禁、不在白名单）并在公屏广播原因"
+    }
+  },
+  "plugin": {
+    "schema_version": 1,
+    "id": "leave_reason",
+    "authors": [
+      "chuan_yi_awa"
+    ],
+    "repository": "https://github.com/wellcy666/leave_reason",
+    "branch": "main",
+    "related_path": "src",
+    "labels": [
+      "information"
+    ],
+    "introduction": {
+      "en_us": "# LeaveReason\n\nDetects abnormal player disconnections (kick, timeout, ban, not whitelisted) and broadcasts the reason to chat.\n\n> Same plugin used by the AZ Tech Server, review group `1101978932`.\n\nParses server logs and fills in the \"why\" when a player leaves. The \"who left\" part itself is shown by the server or a chat forwarding plugin.\n\n## Detectable reasons\n\n| Reason             | Public chat example                                                     |\n| ------------------ | ----------------------------------------------------------------------- |\n| Kicked             | `xxx left the game, reason: kicked from server (You have been removed)` |\n| Connection timeout | `xxx left the game, reason: connection timed out`                       |\n| Banned             | `xxx left the game, reason: banned`                                     |\n| Not whitelisted    | `xxx left the game, reason: not whitelisted`                            |\n| Uncategorized      | `xxx left the game, reason: Attempting to attack an invalid entity`     |\n\nAll texts are configurable.\n\n## How it works\n\n- Kicked / timeout happen in-game, log is `<player> lost connection: <reason>`, player name is available directly.\n- Banned is blocked by vanilla `banlist.json` at login, log is `Disconnecting <address>: You are banned ...`.\n- Whitelist is blocked by vanilla `whitelist.json` at login, log is `Disconnecting <address>: You are not white-listed ...`.\n\n> When banned / whitelist blocks at login, the log usually has no player name, so `message_no_name` is used instead. The backend log just doesn't record it — not a bug.\n\n## Installation\n\nDrop `leave_reason.mcdr` into MCDR's `plugins/` directory, then `!!MCDR plugin load leave_reason.mcdr` (or restart).\n\n## Commands\n\n| Command                | Description      | Permission |\n| ---------------------- | ---------------- | ---------- |\n| `!!lr`                 | Help             | 4          |\n| `!!lr on` / `!!lr off` | Toggle broadcast | 4          |\n| `!!lr reload`          | Reload config    | 4          |\n| `!!lr status`          | Show status      | 4          |\n\nPermission level 4 = owner / console. Prefix `!!lr` is the `PREFIX` constant in the code.\n\n## Configuration\n\n`config/leave_reason/config.json` is generated on first load, apply changes with `!!lr reload`. Common fields:\n\n| Field                         | Purpose                                                                 |\n| ----------------------------- | ----------------------------------------------------------------------- |\n| `enabled`                     | Master switch                                                           |\n| `message` / `message_no_name` | Message format, `{player}`=name, `{reason}`=reason                      |\n| `reason_text`                 | Text for the four categories (`kick` / `timeout` / `ban` / `whitelist`) |\n| `append_kick_detail`          | Append the raw kick reason                                              |\n| `show_unknown`                | Also broadcast unmatched reasons                                        |\n| `dedup_seconds`               | Dedup window per player + reason                                        |\n| `keywords`                    | Classification keywords                                                 |\n\nMinimal config:\n\n```json\n{\n    \"config_version\": 2,\n    \"enabled\": true,\n    \"message\": \"§7[§c!§7] §e{player} §7left the game, reason: §f{reason}\",\n    \"message_no_name\": \"§7[§c!§7] §eA player §7was refused to join, reason: §f{reason}\",\n    \"reason_text\": {\n        \"kick\": \"Kicked from server\",\n        \"timeout\": \"Connection timed out\",\n        \"ban\": \"Banned\",\n        \"whitelist\": \"Not whitelisted\"\n    }\n}\n```\n\nUpgrading from 1.2.x: old configs without `config_version` get backed up as `config.json.bak`.\n\n## Tuning\n\n1. Set `debug` to `true` and `!!lr reload`, test with a non-whitelisted player and a banned player, check the `[leave_reason][debug]` output.\n2. If the whitelist block isn't vanilla `not white-listed` but a plugin kicking players, add keywords from that custom text to `keywords.whitelist`.\n3. Normal disconnects (`Disconnected`) are ignored in `keywords.ignore` by default; remove it to detect them.\n\n## Feedback\n\nQQ: `2683654412`.\n",
+      "zh_cn": "# LeaveReason（退出原因）\n\n检测玩家异常退出（被踢、超时、封禁、白名单），把原因广播到公屏。\n\n> AZ 生电服同款插件，审核群 `1101978932`。\n\n解析服务端日志，玩家退出时补上「为什么退出」。玩家「退出」这个动作本身由服务端或公屏转发插件显示，本插件只负责补原因。\n\n## 能检测的原因\n\n| 原因    | 公屏输出示例                                               |\n| ----- | ---------------------------------------------------- |\n| 被踢    | `xxx 退出游戏，原因：被踢出服务器（你已被移除）`                          |\n| 连接超时  | `xxx 退出游戏，原因：连接超时`                                   |\n| 被封禁   | `xxx 退出游戏，原因：被封禁`                                    |\n| 不在白名单 | `xxx 退出游戏，原因：不在白名单内`                                 |\n| 未归类   | `xxx 退出游戏，原因：Attempting to attack an invalid entity` |\n\n文案都能改（见配置一节）。\n\n## 工作原理\n\n- 被踢 / 超时发生在游戏内，日志是 `<玩家> lost connection: <原因>`，能直接拿到玩家名。\n- 封禁由原版 `banlist.json` 在登录阶段拦截，日志是 `Disconnecting <地址>: You are banned ...`。\n- 白名单由原版 `whitelist.json` 在登录阶段拦截，日志是 `Disconnecting <地址>: You are not white-listed ...`。\n\n> 封禁 / 白名单在登录阶段被拦下时，日志里通常没有玩家名，这时会改用 `message_no_name` 模板播报。这是后端日志本身不记名字，不是 bug。\n\n## 安装\n\n把 `leave_reason.mcdr` 丢进 MCDR 的 `plugins/` 目录，然后 `!!MCDR plugin load leave_reason.mcdr`（或重启）。\n\n## 命令\n\n| 命令                     | 说明   | 权限  |\n| ---------------------- | ---- | --- |\n| `!!lr`                 | 帮助   | 4   |\n| `!!lr on` / `!!lr off` | 开关广播 | 4   |\n| `!!lr reload`          | 重载配置 | 4   |\n| `!!lr status`          | 查看状态 | 4   |\n\n权限等级 4 = 拥有者 / 控制台。前缀 `!!lr` 在代码里的 `PREFIX` 常量定义。\n\n## 配置\n\n首次加载自动生成 `config/leave_reason/config.json`，改完 `!!lr reload` 生效。常用项：\n\n| 字段                            | 作用                                                |\n| ----------------------------- | ------------------------------------------------- |\n| `enabled`                     | 总开关                                               |\n| `message` / `message_no_name` | 消息格式，`{player}`=玩家名，`{reason}`=原因                 |\n| `reason_text`                 | 四类原因的文案（`kick` / `timeout` / `ban` / `whitelist`） |\n| `append_kick_detail`          | 被踢时是否附上原始理由                                       |\n| `show_unknown`                | 没匹配到的原因是否也播报                                      |\n| `dedup_seconds`               | 同一玩家同一原因去重秒数                                      |\n| `keywords`                    | 归类关键词                                             |\n\n最小配置：\n\n```json\n{\n    \"config_version\": 2,\n    \"enabled\": true,\n    \"message\": \"§7[§c!§7] §e{player} §7退出游戏，原因：§f{reason}\",\n    \"message_no_name\": \"§7[§c!§7] §e有玩家 §7被拒绝加入，原因：§f{reason}\",\n    \"reason_text\": {\n        \"kick\": \"被踢出服务器\",\n        \"timeout\": \"连接超时\",\n        \"ban\": \"被封禁\",\n        \"whitelist\": \"不在白名单内\"\n    }\n}\n```\n\n从 1.2.x 升级：旧配置没有 `config_version`，会自动备份成 `config.json.bak` 再生成新格式。\n\n## 调参\n\n1. 先把 `debug` 设为 `true` 并 `!!lr reload`，用非白名单玩家和被封禁玩家各试一次，看控制台 `[leave_reason][debug]` 归类对不对。\n2. 白名单拦截如果不是原版 `not white-listed` 而是插件自己踢人，把那段自定义文案的关键词加进 `keywords.whitelist`。\n3. 正常断开（`Disconnected`）默认在 `keywords.ignore` 里被忽略，不刷屏，要检测就删掉它。\n\n## 反馈\n\nQQ：`2683654412`。\n"
+    },
+    "introduction_urls": {
+      "en_us": "https://raw.githubusercontent.com/wellcy666/leave_reason/main/src/README_en.md",
+      "zh_cn": "https://raw.githubusercontent.com/wellcy666/leave_reason/main/src/../README.md"
+    }
+  },
+  "release": {
+    "schema_version": 8,
+    "id": "leave_reason",
+    "latest_version": "1.3.0",
+    "latest_version_index": 0,
+    "releases": [
+      {
+        "url": "https://github.com/wellcy666/leave_reason/releases/tag/v1.3.0",
+        "name": "v1.3.0",
+        "tag_name": "v1.3.0",
+        "created_at": "2026-10-22T12:41:01Z",
+        "description": "LeaveReason 退出原因插件 v1.3.0\n\n检测玩家异常退出（被踢/超时/封禁/白名单）并在公屏广播原因。\n\n问题反馈 QQ：2683654412\nAZ 生电服审核群：1101978932",
+        "prerelease": false,
+        "asset": {
+          "id": 665955576,
+          "name": "leave_reason.mcdr",
+          "size": 8829,
+          "download_count": 22,
+          "created_at": "2026-10-22T13:25:03Z",
+          "browser_download_url": "https://github.com/wellcy666/leave_reason/releases/download/v1.3.0/leave_reason.mcdr",
+          "hash_md5": "849cd61367bced621353beaaebe2eb66",
+          "hash_sha256": "142b73d260959b5a40d1fb19742ba1b4c9e28a41c8d5d9196909a5f136a9a7a2"
+        },
+        "meta": {
+          "schema_version": 4,
+          "id": "leave_reason",
+          "name": "LeaveReason",
+          "version": "1.3.0",
+          "link": "https://github.com/wellcy666/leave_reason",
+          "authors": [
+            "chuan_yi_awa"
+          ],
+          "dependencies": {
+            "mcdreforged": ">=2.0.0"
+          },
+          "requirements": [],
+          "description": {
+            "en_us": "Detect abnormal player disconnections (kick, timeout, ban, not whitelisted) and broadcast the reason to chat",
+            "zh_cn": "检测玩家异常退出（被踢、连接超时、被封禁、不在白名单）并在公屏广播原因"
+          }
+        }
+      }
+    ]
+  },
+  "repository": {
+    "url": "https://github.com/wellcy666/leave_reason",
+    "name": "leave_reason",
+    "full_name": "wellcy666/leave_reason",
+    "html_url": "https://github.com/wellcy666/leave_reason",
+    "description": "MCDReforged 插件：检测玩家异常退出（被踢/超时/封禁/白名单）并在公屏广播原因",
+    "archived": false,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "forks_count": 0,
+    "readme": "# LeaveReason（退出原因）\n\n检测玩家异常退出（被踢、超时、封禁、白名单），把原因广播到公屏。\n\n> AZ 生电服同款插件，审核群 `1101978932`。\n\n解析服务端日志，玩家退出时补上「为什么退出」。玩家「退出」这个动作本身由服务端或公屏转发插件显示，本插件只负责补原因。\n\n## 能检测的原因\n\n| 原因    | 公屏输出示例                                               |\n| ----- | ---------------------------------------------------- |\n| 被踢    | `xxx 退出游戏，原因：被踢出服务器（你已被移除）`                          |\n| 连接超时  | `xxx 退出游戏，原因：连接超时`                                   |\n| 被封禁   | `xxx 退出游戏，原因：被封禁`                                    |\n| 不在白名单 | `xxx 退出游戏，原因：不在白名单内`                                 |\n| 未归类   | `xxx 退出游戏，原因：Attempting to attack an invalid entity` |\n\n文案都能改（见配置一节）。\n\n## 工作原理\n\n- 被踢 / 超时发生在游戏内，日志是 `<玩家> lost connection: <原因>`，能直接拿到玩家名。\n- 封禁由原版 `banlist.json` 在登录阶段拦截，日志是 `Disconnecting <地址>: You are banned ...`。\n- 白名单由原版 `whitelist.json` 在登录阶段拦截，日志是 `Disconnecting <地址>: You are not white-listed ...`。\n\n> 封禁 / 白名单在登录阶段被拦下时，日志里通常没有玩家名，这时会改用 `message_no_name` 模板播报。这是后端日志本身不记名字，不是 bug。\n\n## 安装\n\n把 `leave_reason.mcdr` 丢进 MCDR 的 `plugins/` 目录，然后 `!!MCDR plugin load leave_reason.mcdr`（或重启）。\n\n## 命令\n\n| 命令                     | 说明   | 权限  |\n| ---------------------- | ---- | --- |\n| `!!lr`                 | 帮助   | 4   |\n| `!!lr on` / `!!lr off` | 开关广播 | 4   |\n| `!!lr reload`          | 重载配置 | 4   |\n| `!!lr status`          | 查看状态 | 4   |\n\n权限等级 4 = 拥有者 / 控制台。前缀 `!!lr` 在代码里的 `PREFIX` 常量定义。\n\n## 配置\n\n首次加载自动生成 `config/leave_reason/config.json`，改完 `!!lr reload` 生效。常用项：\n\n| 字段                            | 作用                                                |\n| ----------------------------- | ------------------------------------------------- |\n| `enabled`                     | 总开关                                               |\n| `message` / `message_no_name` | 消息格式，`{player}`=玩家名，`{reason}`=原因                 |\n| `reason_text`                 | 四类原因的文案（`kick` / `timeout` / `ban` / `whitelist`） |\n| `append_kick_detail`          | 被踢时是否附上原始理由                                       |\n| `show_unknown`                | 没匹配到的原因是否也播报                                      |\n| `dedup_seconds`               | 同一玩家同一原因去重秒数                                      |\n| `keywords`                    | 归类关键词                                             |\n\n最小配置：\n\n```json\n{\n    \"config_version\": 2,\n    \"enabled\": true,\n    \"message\": \"§7[§c!§7] §e{player} §7退出游戏，原因：§f{reason}\",\n    \"message_no_name\": \"§7[§c!§7] §e有玩家 §7被拒绝加入，原因：§f{reason}\",\n    \"reason_text\": {\n        \"kick\": \"被踢出服务器\",\n        \"timeout\": \"连接超时\",\n        \"ban\": \"被封禁\",\n        \"whitelist\": \"不在白名单内\"\n    }\n}\n```\n\n从 1.2.x 升级：旧配置没有 `config_version`，会自动备份成 `config.json.bak` 再生成新格式。\n\n## 调参\n\n1. 先把 `debug` 设为 `true` 并 `!!lr reload`，用非白名单玩家和被封禁玩家各试一次，看控制台 `[leave_reason][debug]` 归类对不对。\n2. 白名单拦截如果不是原版 `not white-listed` 而是插件自己踢人，把那段自定义文案的关键词加进 `keywords.whitelist`。\n3. 正常断开（`Disconnected`）默认在 `keywords.ignore` 里被忽略，不刷屏，要检测就删掉它。\n\n## 反馈\n\nQQ：`2683654412`。\n",
+    "readme_url": "https://raw.githubusercontent.com/wellcy666/leave_reason/main/src/README.md",
+    "license": {
+      "key": "mit",
+      "name": "MIT License",
+      "spdx_id": "MIT",
+      "url": "https://api.github.com/licenses/mit"
+    }
+  },
+  "update_report": {
+    "failures": [],
+    "warnings": []
+  }
+}
