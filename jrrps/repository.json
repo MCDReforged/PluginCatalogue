@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/SkyDynamic/jrrps",
+  "name": "jrrps",
+  "full_name": "SkyDynamic/jrrps",
+  "html_url": "https://github.com/SkyDynamic/jrrps",
+  "description": "A Test today's luck Plg in MCDReforged",
+  "archived": true,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "![](https://img.shields.io/badge/Python-%3E%3D3.7-blue) ![](https://img.shields.io/badge/MCDReforged-%3E%3D2.0-green)\n# Jrrp MCDReforged Plugin Readme\n### 使用方法\n`<!!jrrp>`测试今天的运势  \n`<!!jrrp help>`显示帮助文档  \n`<!!jrrp reload>` 重载插件配置文件  \n`<!!jrrp enable>` 开启插件  \n`<!!jrrp disable>` 关闭插件\n\n**注：一天不能多次测试，插件会进行阻止，每天4点就会重置**\n### 配置文件和数据储存文件位置\n\n`<jrrp_data.json>`储存在`</config/jrrp/jrrp_data.json>`中\n\n`<jrrp_setting.json>`储存在`</config/jrrp/jrrp_setting>`中\n\n### 配置修改方法\n打开位于`</config/jrrp/>`中的`<jrrp_setting.json>`文件  \n可修改项：  \n`<enable>` 开启插件 默认值：`True`  \n`<tips>` 未测提示 默认值：`True`  \n`<luck_bad>` 当运势小于21时发送给玩家的文本  \n`<luck_low>`  当运势小于51时发送给玩家的文本  \n`<luck_fine>` 当运势小于81时发送给玩家的文本  \n`<luck_verygood>` 当运势小于99时发送给玩家的文本  \n`<luck_99>` 当运势等于99时发送给玩家的文本  \n`<luck_best>` 当运势等于100时发送给玩家的文本  \n**注：配置文件需要重载插件才会生效**\n\n# 对抗滑稽从我做起\n",
+  "readme_url": "https://raw.githubusercontent.com/SkyDynamic/jrrps/master/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
