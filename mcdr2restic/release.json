@@ -1,0 +1,422 @@
+{
+  "schema_version": 8,
+  "id": "mcdr2restic",
+  "latest_version": "0.11.0",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.11.0",
+      "name": "v0.11.0",
+      "tag_name": "v0.11.0",
+      "created_at": "2026-11-07T15:05:05Z",
+      "description": "## 新增\n\n- 备份玩家人数门控（`schedule.backup_player_gate_*`，默认关闭）：定时备份到点时在线人数达到 `backup_player_gate_max_online` 即推迟，每 60 秒重查，人数降回阈值内自动开始；备份运行中人数持续超过阈值达 `backup_player_gate_overlimit_seconds`（默认 600 秒）则中断备份并立即恢复世界自动保存。手动 `!!m2r backup` 与强制调度不受门控\n- 远程备份库（sftp / rest / s3 / rclone 等）上传慢，`save-off` 会一直保持到备份结束，高峰期容易把服务器内存挤爆——此类服务器强烈建议开启门控\n- 从旧版本升级时配置自动迁移：远程备份库默认开启门控，本地库保持关闭\n\n## 安装\n\n下载下方 `MCDR2Restic_v0.11.0.mcdr` 放入 MCDR 的 `plugins/` 目录，执行 `!!MCDR reload all`。\n或\n在MCDR中执行!!MCDR plugin install mcdr2restic自动安装\n",
+      "prerelease": false,
+      "asset": {
+        "id": 721029515,
+        "name": "MCDR2Restic_v0.11.0.mcdr",
+        "size": 234869,
+        "download_count": 6,
+        "created_at": "2026-11-07T15:07:28Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.11.0/MCDR2Restic_v0.11.0.mcdr",
+        "hash_md5": "b695c35b68b4a61617e3cfaca84a32d9",
+        "hash_sha256": "cb2ba87aa68c78b82d2641bedf99cba6201f83036c373daa30b9720ae52b08ba"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.11.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "PyYAML>=6.0",
+          "websocket-client>=1.8.0"
+        ],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.10.0",
+      "name": "v0.10.0",
+      "tag_name": "v0.10.0",
+      "created_at": "2026-11-07T04:01:15Z",
+      "description": "## 修复\n\n- 修复新装配置首次启动即被误判需要迁移的问题；CRLF / LF 换行符差异不再导致配置文件被改写\n- 修复 OneBot WebSocket 未连接时通知被误报为已发送：`!!m2r notify-test` 与常规通知现在会如实回报客户端未就绪\n- 修复通知测试消息前缀与正文粘连，渲染成 `[MCDR2Restic]MCDR2Restic …`\n- 修复插件停用后状态页调度行仍显示倒计时\n- 备份、维护、恢复回滚等预期业务失败不再向日志刷完整 traceback，只记录清晰的错误消息；非预期异常仍保留完整堆栈\n\n## 变更\n\n- 配置系统内部重构：默认值、配置模板、老配置迁移全部收敛为同一份 schema 定义；升级时缺键补写从此覆盖全部配置键，行为不变，配置文件内容无漂移\n- 文档：README 命令表补全 `!!m2r cancel` / `!!m2r notify-test` 并说明 `!!restic` 根别名\n\n## 安装\n\n下载下方 `MCDR2Restic_v0.10.0.mcdr` 放入 MCDR 的 `plugins/` 目录，执行 `!!MCDR reload all`。\n或\n在MCDR中执行!!MCDR plugin install mcdr2restic自动安装\n",
+      "prerelease": false,
+      "asset": {
+        "id": 719546144,
+        "name": "MCDR2Restic_v0.10.0.mcdr",
+        "size": 221264,
+        "download_count": 4,
+        "created_at": "2026-11-07T04:03:05Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.10.0/MCDR2Restic_v0.10.0.mcdr",
+        "hash_md5": "a0e9f4b901319b1d458296c959cbffec",
+        "hash_sha256": "2afc8e31cf114ab6161b73dcf3cb93fd487046c8e52b48bdd1f16814f0c4cdde"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.10.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "PyYAML>=6.0",
+          "websocket-client>=1.8.0"
+        ],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.9.0",
+      "name": "v0.9.0",
+      "tag_name": "v0.9.0",
+      "created_at": "2026-11-06T23:44:38Z",
+      "description": "## 新增\r\n\r\n- `!!m2r cancel` 命令：取消正在运行的备份或恢复任务，不改变定时备份开关；停服恢复阶段被取消时自动回滚保护快照并重启服务端\r\n- 备份前本地仓库磁盘空间预检：剩余空间低于阈值时拒绝本次备份，按备份失败处理（记录状态、发送通知）；远端仓库不做检查。开关 `restic.disk_check_enabled` 默认开启，阈值 `restic.disk_check_min_free_percent` 默认 10%，设为 0 表示不设阈值\r\n- `!!m2r notify-test` 命令：向所有已配置通知渠道发送测试消息，并在游戏内逐渠道回报结果\r\n\r\n## 修复\r\n\r\n- 修复 v0.7.0 / v0.8.0 的严重缺陷：restic 进程启动参数不匹配，所有 restic 子命令（备份、维护、快照刷新等）启动即失败，插件完全不可用\r\n- 修复恢复任务展示中出现无意义的 \"-> /\"\r\n\r\n## 变更\r\n\r\n- 开发与 CI：新增 mypy 类型检查门禁；发版与文档部署并入 CI 工作流，CI 失败时禁止发版与文档部署\r\n- 文档：示例命令统一改用 `!!m2r` 别名；修正手动安装文件名与仓库路径表述，补充权限锁死逃生通道 FAQ\r\n\r\n## 安装\r\n\r\n下载下方 `MCDR2Restic_v0.9.0.mcdr` 放入 MCDR 的 `plugins/` 目录，执行 `!!MCDR reload all`。\r\n或\r\n在MCDR中执行!!MCDR plugin install mcdr2restic自动安装\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 718976607,
+        "name": "MCDR2Restic_v0.9.0.mcdr",
+        "size": 214847,
+        "download_count": 5,
+        "created_at": "2026-11-06T23:47:04Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.9.0/MCDR2Restic_v0.9.0.mcdr",
+        "hash_md5": "a6aa1d31799ab866e24157e69997c79c",
+        "hash_sha256": "495d2b06f0790376fc4359bf7d80eed5e8d7bbfe735eb432ab2a9d3415d19d81"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.9.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "PyYAML>=6.0",
+          "websocket-client>=1.8.0"
+        ],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.6.0",
+      "name": "v0.6.0",
+      "tag_name": "v0.6.0",
+      "created_at": "2026-11-04T21:36:20Z",
+      "description": "## 新增\r\n\r\n- 恢复任务支持恢复到指定目录：`!!restic restore <快照> to <目录> [file|folder <路径>]`，可用于不停服导出存档、异地核对\r\n- 队列中所有任务都带 `to` 时，`restore apply` 不再停止服务器：不创建保护快照，直接执行恢复\r\n- 恢复任务列表显示目标目录；恢复任务数据库新增 `target_directory` 字段，旧数据库自动迁移，无需手动处理\r\n\r\n## 变更\r\n\r\n- 精简优化多条插件提示文案（中/英/繁）\r\n- 开发与 CI：文档站迁移至 Material for MkDocs 并自动部署；新增语言资源同步校验；打包测试改为动态读取插件版本\r\n\r\n## 安装\r\n\r\n下载下方 `MCDR2Restic_v0.6.0.mcdr` 放入 MCDR 的 `plugins/` 目录，执行 `!!MCDR reload all`。\r\n或\r\n在MCDR中执行!!MCDR plugin install mcdr2restic自动安装",
+      "prerelease": false,
+      "asset": {
+        "id": 711025724,
+        "name": "MCDR2Restic_v0.6.0.mcdr",
+        "size": 175586,
+        "download_count": 5,
+        "created_at": "2026-11-04T21:37:13Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.6.0/MCDR2Restic_v0.6.0.mcdr",
+        "hash_md5": "b84960163c6a6494e87e7fa4d6628bf9",
+        "hash_sha256": "0a2fe5fa766793ee3f08247960d00856acfb7771af4a34d4cc7f8c6ca3a53a47"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.6.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "PyYAML>=6.0",
+          "websocket-client>=1.8.0"
+        ],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.5.0",
+      "name": "v0.5.0",
+      "tag_name": "v0.5.0",
+      "created_at": "2026-08-08T20:10:32Z",
+      "description": "将Restic库维护的执行时机与备份周期解耦，现在可以分别指定库维护和备份的执行时间\r\n包装了Restic的库初始化和解锁命令，现在可以在MCDR中执行这些操作了\r\n优化了i18n实现，现在可以更方便地为配置文件模板进行翻译",
+      "prerelease": false,
+      "asset": {
+        "id": 506725173,
+        "name": "MCDR2Restic_v0.5.0.mcdr",
+        "size": 154971,
+        "download_count": 31,
+        "created_at": "2026-08-08T20:12:04Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.5.0/MCDR2Restic_v0.5.0.mcdr",
+        "hash_md5": "44e3582e8d91c52487039ff8990ec801",
+        "hash_sha256": "00d3abd46f92a23aa70b2bb020c9837b5254c7cb8c7e1ef716a0809d4a963ebc"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.5.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "PyYAML>=6.0",
+          "websocket-client>=1.8.0"
+        ],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.4.0",
+      "name": "v0.4.0",
+      "tag_name": "v0.4.0",
+      "created_at": "2026-07-09T03:05:21Z",
+      "description": "规范了i18n，添加了lang文件夹\r\n添加对中断备份产生的失效锁的恢复机制，支持在运行 restic 命令时自动解锁并重试",
+      "prerelease": false,
+      "asset": {
+        "id": 470994878,
+        "name": "MCDR2Restic_v0.4.0.mcdr",
+        "size": 258890,
+        "download_count": 10,
+        "created_at": "2026-07-09T04:25:11Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.4.0/MCDR2Restic_v0.4.0.mcdr",
+        "hash_md5": "48c33710ae74b63e6715d310b49b0802",
+        "hash_sha256": "9c80ccfd609dc82737898315828844073df814cb310f742d9975d193db9a8b71"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.4.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "PyYAML>=6.0",
+          "websocket-client>=1.8.0"
+        ],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.3.0",
+      "name": "v0.3.0",
+      "tag_name": "v0.3.0",
+      "created_at": "2026-07-08T09:23:24Z",
+      "description": "添加了简易的恢复快照操作\r\n添加了安全的恢复流程\r\n去掉运行超时限制\r\n引入了SQLite",
+      "prerelease": false,
+      "asset": {
+        "id": 470117721,
+        "name": "MCDR2restic_v0.3.0.mcdr",
+        "size": 174444,
+        "download_count": 7,
+        "created_at": "2026-07-08T09:33:34Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.3.0/MCDR2restic_v0.3.0.mcdr",
+        "hash_md5": "9fa63e1d8a49f20f140ac849ef7d83b2",
+        "hash_sha256": "df1de431f7a89937a3a1fc37fc57361205d50b6e0090db064b43dfb4a17fa86b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.3.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.2.0",
+      "name": "v0.2.0",
+      "tag_name": "v0.2.0",
+      "created_at": "2026-07-08T04:52:35Z",
+      "description": "添加配置安全检查以防止本地仓库位于备份源目录内\r\n实现版本更新检查功能\r\n较为成熟的版本",
+      "prerelease": false,
+      "asset": {
+        "id": 469909257,
+        "name": "MCDR2Restic_v0.2.0.mcdr",
+        "size": 158277,
+        "download_count": 8,
+        "created_at": "2026-07-08T04:58:57Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.2.0/MCDR2Restic_v0.2.0.mcdr",
+        "hash_md5": "30e5d1b573288ac00907469e86b6861f",
+        "hash_sha256": "7686bff8abbabb6dd0f3b865aeb50b2857eadc248c3b318aef709bee8a626555"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.2.0",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.1.9",
+      "name": "v0.1.9",
+      "tag_name": "v0.1.9",
+      "created_at": "2026-07-08T03:56:06Z",
+      "description": "1.修复了默认配置下windows环境启动时世界锁文件没被正确跳过导致报错\r\n2.添加世界文件结构探测，现在生成默认配置时会探测是world还是world/world_nether/world_the_end\r\n3.修复下载restic二进制没被正确识别的问题",
+      "prerelease": false,
+      "asset": {
+        "id": 469874217,
+        "name": "MCDR2restic_v0.1.9.mcdr",
+        "size": 153772,
+        "download_count": 8,
+        "created_at": "2026-07-08T04:03:03Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.1.9/MCDR2restic_v0.1.9.mcdr",
+        "hash_md5": "58368ee7101138f5be7140d251434333",
+        "hash_sha256": "683fddbdf32c3b4286d6186cedcfd1034a7f13600daf2cbd12f85c71b28a6b71"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.1.9",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Schedule deduplicated incremental restic backups with multi-channel notifications.",
+          "zh_cn": "调用 restic 进行去重增量备份与多通道异步通知。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.1.8",
+      "name": "v0.1.8",
+      "tag_name": "v0.1.8",
+      "created_at": "2026-07-08T02:10:06Z",
+      "description": "对详情文件的小更改,修复了一些文件错误",
+      "prerelease": false,
+      "asset": {
+        "id": 469793352,
+        "name": "MCDR2restic_v0.1.8.mcdr",
+        "size": 152621,
+        "download_count": 9,
+        "created_at": "2026-07-08T02:17:27Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.1.8/MCDR2restic_v0.1.8.mcdr",
+        "hash_md5": "87df2fccc8a3bd334c6cc5d45ffb106e",
+        "hash_sha256": "f31cd549183bc667f9260238de0786d268b38325b9d918c55fdf6a2fcd5e394c"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.1.8",
+        "link": "https://github.com/pfdr2333/MCDR2restic",
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Schedule periodic restic backups",
+          "zh_cn": "定时调用 restic 备份。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/pfdr2333/MCDR2restic/releases/tag/v0.1.7",
+      "name": "v0.1.7",
+      "tag_name": "v0.1.7",
+      "created_at": "2026-07-08T01:32:24Z",
+      "description": "首次发布",
+      "prerelease": false,
+      "asset": {
+        "id": 469782987,
+        "name": "MCDR2restic_v0.1.7.mcdr",
+        "size": 139922,
+        "download_count": 9,
+        "created_at": "2026-07-08T02:03:44Z",
+        "browser_download_url": "https://github.com/pfdr2333/MCDR2restic/releases/download/v0.1.7/MCDR2restic_v0.1.7.mcdr",
+        "hash_md5": "10a750f6cfdcd0428d0bf568e17d1251",
+        "hash_sha256": "bf6aa4400f6663b16df1fbdbf05294e68fa38d153af15a9c420c274a4e066111"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mcdr2restic",
+        "name": "MCDR2Restic",
+        "version": "0.1.7",
+        "link": null,
+        "authors": [
+          "pfdr2333"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [],
+        "description": {
+          "en_us": "Schedule periodic restic backups",
+          "zh_cn": "定时调用 restic 备份。"
+        }
+      }
+    }
+  ]
+}

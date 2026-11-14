@@ -1,0 +1,205 @@
+{
+  "schema_version": 8,
+  "id": "llm_translator",
+  "latest_version": "1.6.1",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/HeTao-yz/llm-translator/releases/tag/v1.6.1",
+      "name": "LLM_Translator_v1.6.1",
+      "tag_name": "v1.6.1",
+      "created_at": "2026-11-11T15:48:27Z",
+      "description": " ### 新增\r\n\r\n - 视线翻译：光标指向木牌或讲台上的书，输入不带参数的 !!tr 即可翻译。插件沿视线方向检测目标，需要开启 RCON；最大检测距\r\n   离由 look_translate_max_distance 控制，默认 6 格。\r\n\r\n ### 改进\r\n\r\n - 木牌翻译按面输出：---- front ---- / ---- back ----，只输出有内容的一面，顺序固定为正面、背面；不再出现多余的 ||。\r\n - 木牌文字从 JSON 文本组件中提取，多行按换行保留；空行（{\"text\":\"\"}）不再被误判为有内容。\r\n - 内置提示词大幅精简，明确中英双向翻译方向；“短句也必须翻译”写入规则，并保留核心生电术语。\r\n - 语言占位符展开为可读名称，例如 Chinese (Simplified) (zh_cn)，不再只传裸语言代码。\r\n - 游戏内操作提示统一为英文；!!help 帮助条目为中英双语。\r\n\r\n ### 修复\r\n\r\n - 中文输入仍输出中文：旧版内置提示词只包含 zh_cn/en_us 且没有方向说明；新版本首次加载时会自动识别并替换 config.json 中\r\n   的旧内置提示词，自定义提示词不受影响。\r\n - 模型复读原文时，自动追加明确指令重试一次。\r\n - API 请求失败时返回明确提示并记录日志，不再把异常对象当作译文。\r\n - 兼容仅正面或仅背面有内容的木牌，另一面为空时不输出任何标题。\r\n\r\n ### 升级说明\r\n\r\n - 直接替换旧 .mcdr 后重载或重启 MCDR；已有 config.json 会保留，缺失字段自动补默认值。\r\n - 旧版内置提示词自动迁移；其他配置项与自定义 system_prompt 均不受影响。\r\n\r\n ### 依赖\r\n\r\n - MCDReforged >= 2.0.0\r\n - MinecraftDataAPI >= 1.4.0\r\n - MCDR 所在 Python 环境：openai、nbtlib\r\n\r\n ────────────────────────────────────────────────────────────────────────────────\r\n\r\n ### English summary\r\n\r\n New: !!tr without arguments translates the sign or lectern book you are looking at (RCON required; range via\r\n look_translate_max_distance, default 6 blocks).\r\n\r\n Improved: Sign output is per side (---- front ---- / ---- back ----), only non-empty sides, front first — no stray ||.\r\n Sign text is extracted from JSON components, so blank lines are detected correctly. The built-in prompt is much\r\n shorter, states the translation direction explicitly, and expands language codes to readable names. Runtime notices\r\n are English; !!help entries are bilingual.\r\n\r\n Fixed: Chinese input no longer stays Chinese — legacy built-in prompts stored in config.json are migrated\r\n automatically on first load (custom prompts untouched). One retry is made when the model echoes the source text. API\r\n failures now return a clear message and are logged. Marked v1.6.1, with no config migration action required.",
+      "prerelease": false,
+      "asset": {
+        "id": 736062194,
+        "name": "LLM_Translator_v1.6.1.mcdr",
+        "size": 9193,
+        "download_count": 5,
+        "created_at": "2026-11-11T16:02:09Z",
+        "browser_download_url": "https://github.com/HeTao-yz/llm-translator/releases/download/v1.6.1/LLM_Translator_v1.6.1.mcdr",
+        "hash_md5": "85bae71989ea67ec1553ca4741ec3e3a",
+        "hash_sha256": "5bd9844ab869f62d04631b8c8e9b40b1853a960342f46a56fd6bdca381117a74"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "llm_translator",
+        "name": "LLM_Translator",
+        "version": "1.6.1",
+        "link": "https://github.com/HeTao-yz/llm-translator",
+        "authors": [
+          "HeTao_yz"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "minecraft_data_api": ">=1.4.0"
+        },
+        "requirements": [
+          "mcdreforged >= 2.0.0",
+          "openai",
+          "nbtlib"
+        ],
+        "description": {
+          "en_us": "在游戏内使用大语言模型进行翻译。支持翻译玩家对话，游戏内木牌文字，讲台上的书籍内容。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/HeTao-yz/llm-translator/releases/tag/v1.5.0",
+      "name": "llm-translator-v1.5.0",
+      "tag_name": "v1.5.0",
+      "created_at": "2026-03-01T06:02:49Z",
+      "description": "更新\r\n支持打开关闭系统提示词。支持自定义系统提示词。",
+      "prerelease": false,
+      "asset": {
+        "id": 364505084,
+        "name": "LLM_Translator_v1.5.0.mcdr",
+        "size": 10450,
+        "download_count": 99,
+        "created_at": "2026-03-01T06:04:53Z",
+        "browser_download_url": "https://github.com/HeTao-yz/llm-translator/releases/download/v1.5.0/LLM_Translator_v1.5.0.mcdr",
+        "hash_md5": "944142bffad23a0cda45f1ca90aaec56",
+        "hash_sha256": "8f00d43284559f85a20e8cd708bde5c13e81897f4c3164e0f3177421daf94a5b"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "llm_translator",
+        "name": "LLM_Translator",
+        "version": "1.5.0",
+        "link": "https://github.com/HeTao-yz/llm-translator",
+        "authors": [
+          "HeTao_yz"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "minecraft_data_api": ">=1.4.0"
+        },
+        "requirements": [
+          "mcdreforged >= 2.0.0",
+          "openai",
+          "nbtlib"
+        ],
+        "description": {
+          "en_us": "在游戏内使用大语言模型进行翻译。支持翻译玩家对话，游戏内木牌文字，讲台上的书籍内容。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/HeTao-yz/llm-translator/releases/tag/v1.4.0",
+      "name": "llm-translator-v1.4.0",
+      "tag_name": "v1.4.0",
+      "created_at": "2025-12-09T10:13:22Z",
+      "description": "更新内容：\r\n- 增加了维度处理，不仅在主世界，还能翻译在地狱，末地的木牌和书的信息内容\r\n- 坐标部分，参数使用 ~ 即可代指为玩家当前位置",
+      "prerelease": false,
+      "asset": {
+        "id": 326434764,
+        "name": "LLM_Translator_v1.4.0.mcdr",
+        "size": 9730,
+        "download_count": 98,
+        "created_at": "2025-12-09T15:29:28Z",
+        "browser_download_url": "https://github.com/HeTao-yz/llm-translator/releases/download/v1.4.0/LLM_Translator_v1.4.0.mcdr",
+        "hash_md5": "de140c1fbeb86eb82e9122d46f862f1b",
+        "hash_sha256": "b4de10d122571a3e8bd42399889bb0aa7669d00f9343729803c45f6ad340bf92"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "llm_translator",
+        "name": "LLM_Translator",
+        "version": "1.4.0",
+        "link": "https://github.com/HeTao-yz/llm-translator",
+        "authors": [
+          "HeTao_yz"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0",
+          "minecraft_data_api": ">=1.4.0"
+        },
+        "requirements": [
+          "mcdreforged >= 2.0.0",
+          "openai",
+          "nbtlib"
+        ],
+        "description": {
+          "en_us": "在游戏内使用大语言模型进行翻译。支持翻译玩家对话，游戏内木牌文字，讲台上的书籍内容。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/HeTao-yz/llm-translator/releases/tag/v1.3.1",
+      "name": "llm-translator-v1.3.1",
+      "tag_name": "v1.3.1",
+      "created_at": "2025-11-27T03:38:40Z",
+      "description": "### 主要更新内容\r\n\r\n- 玩家聊天的翻译信息支持多服同步广播\r\n- 支持翻译游戏内木牌文字\r\n- 支持翻译游戏内放在讲台上的书籍内容\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 321375152,
+        "name": "LLM_Translator_v1.3.1.mcdr",
+        "size": 7259,
+        "download_count": 94,
+        "created_at": "2025-11-27T05:42:59Z",
+        "browser_download_url": "https://github.com/HeTao-yz/llm-translator/releases/download/v1.3.1/LLM_Translator_v1.3.1.mcdr",
+        "hash_md5": "55de02e5a2c9e038b74184865ebd365c",
+        "hash_sha256": "54005b8f3e05c3ef8f271aaf29ed80df2ade9aae0de999c46d0d5723ce16aa88"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "llm_translator",
+        "name": "LLM_Translator",
+        "version": "1.3.1",
+        "link": "https://github.com/HeTao-yz/llm-translator",
+        "authors": [
+          "HeTao_yz"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged >= 2.0.0",
+          "openai",
+          "nbtlib"
+        ],
+        "description": {
+          "en_us": "在游戏内使用大语言模型进行翻译。支持翻译玩家对话，游戏内木牌文字，讲台上的书籍内容。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/HeTao-yz/llm-translator/releases/tag/v1.0.0",
+      "name": "llm-translator-v1.0.0",
+      "tag_name": "v1.0.0",
+      "created_at": "2025-11-24T09:52:33Z",
+      "description": "First Version \r\n\r\n- 修复 mcdreforged.plugin.json 中 author 字段配置错误",
+      "prerelease": false,
+      "asset": {
+        "id": 320272676,
+        "name": "llm-translator-v1.0.0.mcdr",
+        "size": 5761,
+        "download_count": 89,
+        "created_at": "2025-11-24T15:00:48Z",
+        "browser_download_url": "https://github.com/HeTao-yz/llm-translator/releases/download/v1.0.0/llm-translator-v1.0.0.mcdr",
+        "hash_md5": "1cb3ada28ac473ce7cebd593f9c7d1a4",
+        "hash_sha256": "fceb4eecf3cd4821f2453d43529ddacf325b6c36e1a77d527e49541eaa884f66"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "llm_translator",
+        "name": "llm_translator",
+        "version": "1.0.0",
+        "link": "https://github.com/HeTao-yz/llm-translator",
+        "authors": [
+          "HeTao_yz"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.0.0"
+        },
+        "requirements": [
+          "mcdreforged >= 2.0.0",
+          "openai"
+        ],
+        "description": {
+          "en_us": "在游戏内使用大语言模型进行对不同语种玩家间的对话翻译"
+        }
+      }
+    }
+  ]
+}

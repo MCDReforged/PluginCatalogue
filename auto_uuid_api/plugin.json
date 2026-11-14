@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "auto_uuid_api",
+  "authors": [
+    "Mooling0602"
+  ],
+  "repository": "https://github.com/Mooling0602/Auto-UUID-API-MCDR",
+  "branch": "main",
+  "related_path": "src",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "> Translation for this page is still in progress...\n\n# Auto-UUID-API-MCDR\n使用本地数据或联网API自动检索玩家的档案信息。\n\n这是一个供下游使用的API插件，尽管如此，仍提供了一些内置的命令以方便普通用户用于查询信息。\n\n> 此项目当前仍处于开发阶段，目前本地检索功能已开发完毕。\n\n## 注意\n在同一服务器使用多个身份验证服务时，请自行解决玩家重名问题。\n\n## 改进\n- 通过“白名单（whitelist.json） > 用户缓存（usercache.json） > 联网API（微软&Mojang或第三方皮肤站提供的接口）”来逐级地获取玩家的档案信息，确保结果的准确度和可靠性。\n> 数据源的使用顺序可在插件配置中修改，也可以使用插件命令进行快速切换；你可以指定特定的玩家名仅使用特定的数据源，具体请查看文档。\n- 自动缓存使用联网API得到的结果。\n- 自动识别服务端目录位置。\n> 请确保在MCDR的配置中正确填写了`working_directory`项，尽管插件仍会尝试通过服务端的PID来定位服务端目录位置（但这是最终的后备解决方案）。\n- 通过[MeowtiWhitelist](https://mcdreforged.com/zh-CN/plugin/meowtiwhitelist)支持外置登录（第三方皮肤站）的服务器。\n> 这是一个可选功能，若没有安装该插件，则不会启用。\n\n## 当前缺陷\n目前没有考虑纯离线情况，插件不能保证在这种条件下能够正确工作。\n> 理论来说，本地查询方案应已足够精准，但如果检索不出结果，则插件将始终返回None。\n",
+    "zh_cn": "# Auto-UUID-API-MCDR\n使用本地数据或联网API自动检索玩家的档案信息。\n\n这是一个供下游使用的API插件，尽管如此，仍提供了一些内置的命令以方便普通用户用于查询信息。\n\n> 此项目当前仍处于开发阶段，目前本地检索功能已开发完毕。\n\n## 注意\n在同一服务器使用多个身份验证服务时，请自行解决玩家重名问题。\n\n## 改进\n- 通过“白名单（whitelist.json） > 用户缓存（usercache.json） > 联网API（微软&Mojang或第三方皮肤站提供的接口）”来逐级地获取玩家的档案信息，确保结果的准确度和可靠性。\n> 数据源的使用顺序可在插件配置中修改，也可以使用插件命令进行快速切换；你可以指定特定的玩家名仅使用特定的数据源，具体请查看文档。\n- 自动缓存使用联网API得到的结果。\n- 自动识别服务端目录位置。\n> 请确保在MCDR的配置中正确填写了`working_directory`项，尽管插件仍会尝试通过服务端的PID来定位服务端目录位置（但这是最终的后备解决方案）。\n- 通过[MeowtiWhitelist](https://mcdreforged.com/zh-CN/plugin/meowtiwhitelist)支持外置登录（第三方皮肤站）的服务器。\n> 这是一个可选功能，若没有安装该插件，则不会启用。\n\n## 当前缺陷\n目前没有考虑纯离线情况，插件不能保证在这种条件下能够正确工作。\n> 理论来说，本地查询方案应已足够精准，但如果检索不出结果，则插件将始终返回None。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Mooling0602/Auto-UUID-API-MCDR/main/src/../README_en.md",
+    "zh_cn": "https://raw.githubusercontent.com/Mooling0602/Auto-UUID-API-MCDR/main/src/../README.md"
+  }
+}

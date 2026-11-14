@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "id": "bkchat_manager",
+  "authors": [
+    "Mooling0602"
+  ],
+  "repository": "https://github.com/Mooling0602/BukkitChatManager-MCDR",
+  "branch": "main",
+  "related_path": "src",
+  "labels": [
+    "information",
+    "management"
+  ],
+  "introduction": {
+    "zh_cn": "# BukkitChatManager-MCDR\n\n在 MCDR 接管服务端内的游戏聊天。\n\n> 目前支持 BukkitAPI，但你也可以接入到其他服务端中。\n> \n> 由于历史遗留原因，插件名称将继续保留“bukkit”字样。\n\n## 依赖\n- BukkitAPI 插件：[PlayerLog](https://github.com/Mooling0602/PlayerLog-Bukkit)\n\n> 此 MCDR 插件会自动管理安装，你可能需要重启服务器以完成重载。\n\n## 用法\n\n从 Release 中安装此MCDR插件，如果出现问题，请确认依赖是否已经正常加载，有报错请反馈到 Issues！\n\n## 配置\n\n配置文件位于 `config/bkchat_manager/config.json`，你可以在里面修改聊天消息的格式等。\n\n其中，`%player%` 表示玩家名；`%message%` 表示聊天消息内容或玩家执行的指令内容；`%src_prefix%` 表示指令源。\n\n## 注意事项\n\n和类似的 BukkitAPI 插件冲突，请不要使用这些同类型的插件。\n\n> 其他服务端同理，不再赘述。\n\n另外，如果有和依赖中作用相同的替代品插件，此 MCDR 插件可无缝迁移到其他类型的服务端上；Mohist等支持 BukkitAPI 的混合端也可以使用。\n\n> 自 v0.4.0 版本起，需要修改配置文件才能使用未经验证的服务端插件。\n\n插件自 v0.4.0 版本起不再需要定制的服务端处理器，你可以根据需要来自行配置。\n\n经过测试的服务端：Mohist、Paper、Leaves、Folia、Luminol（已停止维护）\n\n> 极低版本的服务端尚未测试，理论上支持 1.13 及以上的所有 Bukkit 服务端。\n"
+  },
+  "introduction_urls": {
+    "zh_cn": "https://raw.githubusercontent.com/Mooling0602/BukkitChatManager-MCDR/main/src/../README.md"
+  }
+}

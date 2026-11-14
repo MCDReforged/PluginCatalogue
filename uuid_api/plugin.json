@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "uuid_api",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/uuid_api",
+  "labels": [
+    "api",
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# UUID API\n\n> Player UUID API\n\n## Required Python Modules\n\n- requests\n\n## Usage\n\n```python\nget_uuid(name: str) -> UUID | None\n```\n\nReturns `None` if the player is not found.\n\nExample:\n\n```python\nuuid_api = server.get_plugin_instance('uuid_api')\nuuid = uuid_api.get_uuid('Steve')\nserver.logger.warning(uuid)\n```\n\n## Configuration\n\n### use_usercache\n\nDefault: `true`\n\nWhether to use data from the `usercache.json` file as a cache to retrieve player UUIDs.\n\n### override_online_mode\n\nDefault: `false`\n\nWhether to override the `online-mode` setting in `server.properties`.\n\nIf set to `true`, the plugin will ignore the `online-mode` setting in `server.properties` and instead use the value specified in `override_online_mode_value`.\n\nIf you're using a proxy server such as BungeeCord or Velocity with online-mode enabled, or if the actual UUIDs do not match the server's `online-mode` setting, enabling this option ensures the plugin correctly handles online mode.\n\n### override_online_mode_value\n\nDefault: `true`\n\nWhen `override_online_mode` is set to `true`, this value determines whether the plugin treats the server as running in online mode.\n\n## Acknowledgements\n\nSome code are adapted from <https://github.com/gubaiovo/MCDR_uuid_api_remake>\n",
+    "zh_cn": "# UUID API\n\n> 玩家 UUID API\n\n## 依赖的 Python 模块\n\n- requests\n\n## 使用方法\n\n```python\nget_uuid(name: str) -> UUID | None\n```\n\n未查到时返回 `None`。\n\n示例：\n\n```python\nuuid_api = server.get_plugin_instance('uuid_api')\nuuid = uuid_api.get_uuid('Steve')\nserver.logger.warning(uuid)\n```\n\n## 配置\n\n### use_usercache\n\n默认值: `true`\n\n是否使用 `usercache.json` 文件中的数据做为缓存来获取玩家 UUID。\n\n### override_online_mode\n\n默认值: `false`\n\n是否覆盖 `server.properties` 中的 `online-mode` 设置。\n\n如果设置为 `true`，则插件将忽略 `server.properties` 中的在线模式设置，并使用插件配置中的 `override_online_mode_value`。\n\n如果使用了 BungeeCord 或 Velocity 等代理服务器，并开启了正版验证, 或实际的 UUID 与 `server.properties` 中的 `online-mode` 并不匹配，设置该值确保插件正确处理在线模式。\n\n### override_online_mode_value\n\n默认值: `true`\n\n如果 `override_online_mode` 设置为 `true`，则此值将决定插件是否认为服务器处于在线模式。\n\n## 鸣谢\n\n部分代码改编自 <https://github.com/gubaiovo/MCDR_uuid_api_remake>\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/README.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/uuid_api/README_zh.md"
+  }
+}

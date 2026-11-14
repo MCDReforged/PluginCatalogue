@@ -1,0 +1,198 @@
+{
+  "schema_version": 8,
+  "id": "mirror_up",
+  "latest_version": "0.6.4",
+  "latest_version_index": 0,
+  "releases": [
+    {
+      "url": "https://github.com/MiYui34/MirrorUP/releases/tag/v0.6.4",
+      "name": "v0.6.4",
+      "tag_name": "v0.6.4",
+      "created_at": "2026-11-14T03:56:52Z",
+      "description": "## 修复\n\n- **跨机同步速度**：此前每个文件都新建一条 TCP 连接，下载完还要再发一次 `/v1/stat` 复核，几万个小文件时光是握手就要几个小时。现在每个线程复用一条 keep-alive 连接，连接被对端关掉时自动换新重试。\n- `sync.concurrency` 默认从 4 提到 8（跨机高延迟链路可以调到 16）。\n- 新增 `source.agent.verify_copy`（默认 `true`）：设为 `false` 时不再对每个文件发复核请求，省掉一半往返；代价是文件在传输途中被改写时可能要到下一轮才发现。\n\n## Fix\n\n- **Cross-machine throughput**: every file used to open a new TCP connection, plus a second `/v1/stat` request to verify the download — tens of thousands of small files spent hours in handshakes. Each worker thread now reuses one keep-alive connection and reconnects transparently when the peer closes it.\n- `sync.concurrency` defaults to 8 (raise to 16 on high-latency links).\n- New `source.agent.verify_copy` (default `true`): set it to `false` to skip the per-file verification round trip.\n",
+      "prerelease": false,
+      "asset": {
+        "id": 746213328,
+        "name": "MirrorUP-v0.6.4.mcdr",
+        "size": 92227,
+        "download_count": 1,
+        "created_at": "2026-11-14T03:56:56Z",
+        "browser_download_url": "https://github.com/MiYui34/MirrorUP/releases/download/v0.6.4/MirrorUP-v0.6.4.mcdr",
+        "hash_md5": "5249ba1f565265732ebf7848597bbb9f",
+        "hash_sha256": "dce49b79312a97179005893a7ba99ca5dc88cc92895d8898993915af551dcaf2"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_up",
+        "name": "MirrorUP",
+        "version": "0.6.4",
+        "link": "https://github.com/MiYui34/MirrorUP",
+        "authors": [
+          "MiYui34"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "xxhash"
+        ],
+        "description": {
+          "en_us": "Incremental mirror sync: only changed files and changed region chunks are transferred.",
+          "zh_cn": "镜像服增量同步：只传变更的文件与变更的 region chunk。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/MiYui34/MirrorUP/releases/tag/v0.6.3",
+      "name": "v0.6.3",
+      "tag_name": "v0.6.3",
+      "created_at": "2026-11-10T13:10:00Z",
+      "description": "## 修复\n\n- 以 `role: \"exporter\"` 加载插件时，agent 绑定端口会走 `HTTPServer.server_bind()`，其中 `socket.getfqdn()` 的反向 DNS 查询在 macOS 上可能阻塞十几秒，触发 MCDR 的 `TaskExecutor 线程已经 10 秒没有响应` 警告。现在改为直接绑定，不再做反向解析。\n\n## Fix\n\n- Binding the exporter port no longer performs a reverse DNS lookup (`socket.getfqdn()`), which could block for seconds on macOS and trigger MCDR's watchdog warning (`TaskExecutor has not responded for 10 seconds`).\n",
+      "prerelease": false,
+      "asset": {
+        "id": 731480349,
+        "name": "MirrorUP-v0.6.3.mcdr",
+        "size": 91396,
+        "download_count": 6,
+        "created_at": "2026-11-10T13:10:15Z",
+        "browser_download_url": "https://github.com/MiYui34/MirrorUP/releases/download/v0.6.3/MirrorUP-v0.6.3.mcdr",
+        "hash_md5": "38ca46eec9a4797ec654e728d4358e80",
+        "hash_sha256": "0bb0e354acf78dbc03a692a93fb1bcf02a7583c554714c8d0c471d33c5b02b1e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_up",
+        "name": "MirrorUP",
+        "version": "0.6.3",
+        "link": "https://github.com/MiYui34/MirrorUP",
+        "authors": [
+          "MiYui34"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "xxhash"
+        ],
+        "description": {
+          "en_us": "Incremental mirror sync: only changed files and changed region chunks are transferred.",
+          "zh_cn": "镜像服增量同步：只传变更的文件与变更的 region chunk。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/MiYui34/MirrorUP/releases/tag/v0.6.2",
+      "name": "v0.6.2",
+      "tag_name": "v0.6.2",
+      "created_at": "2026-11-10T12:53:25Z",
+      "description": "﻿修复 !!MCDR plugin install mirror_up 仍然报 Invalid chat component: Illegal character in path 的问题。\n\n0.6.1 只改了 mcdreforged.plugin.json 的 \requirements 字段，但插件库生成依赖列表时读的是仓库里的 \requirements.txt，所以安装提示里仍然是 xxhash>=3.0。0.6.2 把 \requirements.txt 也改成不带版本约束的 xxhash。\n\n功能与 0.6.1 相同。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 731431172,
+        "name": "MirrorUP-v0.6.2.mcdr",
+        "size": 91175,
+        "download_count": 5,
+        "created_at": "2026-11-10T12:53:45Z",
+        "browser_download_url": "https://github.com/MiYui34/MirrorUP/releases/download/v0.6.2/MirrorUP-v0.6.2.mcdr",
+        "hash_md5": "b83934eb14e495fea3ef0bff606c4b76",
+        "hash_sha256": "b23fe740840e31a72602791bcbc66d702289e0fe340f29b0893f90b7a5b67c88"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_up",
+        "name": "MirrorUP",
+        "version": "0.6.2",
+        "link": "https://github.com/MiYui34/MirrorUP",
+        "authors": [
+          "MiYui34"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "xxhash"
+        ],
+        "description": {
+          "en_us": "Incremental mirror sync: only changed files and changed region chunks are transferred.",
+          "zh_cn": "镜像服增量同步：只传变更的文件与变更的 region chunk。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/MiYui34/MirrorUP/releases/tag/v0.6.1",
+      "name": "v0.6.1",
+      "tag_name": "v0.6.1",
+      "created_at": "2026-11-10T11:44:18Z",
+      "description": "﻿修复 !!MCDR plugin install mirror_up 报 Invalid chat component: Illegal character in path 的问题。\n\n原因：MCDR 会用 requirements 的原始字符串拼 PyPI 链接，xxhash>=3.0 里的 > 在 URL 中非法，服务端解析聊天组件时拒绝。现在依赖声明改为 xxhash（不带版本约束），安装提示恢复正常。\n\n功能与 0.6.0 相同。\r\n",
+      "prerelease": false,
+      "asset": {
+        "id": 731237904,
+        "name": "MirrorUP-v0.6.1.mcdr",
+        "size": 91180,
+        "download_count": 6,
+        "created_at": "2026-11-10T11:44:39Z",
+        "browser_download_url": "https://github.com/MiYui34/MirrorUP/releases/download/v0.6.1/MirrorUP-v0.6.1.mcdr",
+        "hash_md5": "0f773a349ee85c82bc288fa291735f3a",
+        "hash_sha256": "bd0c66cc7e748ba252407f7188f59bb7ab7c260231bd44fc894af79ba8b5ff99"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_up",
+        "name": "MirrorUP",
+        "version": "0.6.1",
+        "link": "https://github.com/MiYui34/MirrorUP",
+        "authors": [
+          "MiYui34"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "xxhash>=3.0"
+        ],
+        "description": {
+          "en_us": "Incremental mirror sync: only changed files and changed region chunks are transferred.",
+          "zh_cn": "镜像服增量同步：只传变更的文件与变更的 region chunk。"
+        }
+      }
+    },
+    {
+      "url": "https://github.com/MiYui34/MirrorUP/releases/tag/v0.6.0",
+      "name": "v0.6.0",
+      "tag_name": "v0.6.0",
+      "created_at": "2026-11-09T07:20:47Z",
+      "description": "## MirrorUP v0.6.0\n\n新增「就地同步」：在哪个服务器执行 `!!mu sync`，就同步哪个服务器（`mirror_control.adapter: \"self\"`）。\n\n### 新增\n\n- **`self` 停服适配器**：停掉插件所在 MCDR 管理的服务端，写完后自动拉起；没有变更时完全不碰服务器。\n- **`.mcc` 外置 chunk 增量**：外置容器的 region 只搬迁占位记录，内容按普通文件增量同步；不再被引用的 `.mcc` 自动清理。\n- **跨机 `agent` 传输**：主服以只读 HTTP 提供数据（Bearer token，可选 TLS 证书固定），镜像侧不必挂载主服目录。\n- **`rcon` / `external` 自动停服**：停不下来就拒绝写入。\n- **多镜像目标**：一份源、多个镜像目录，每个目标可以有独立的停服方式。\n- **`!!mu verify` / `!!mu history`**：核对源/镜像/索引三方一致（`--deep` 比哈希），查看每轮结果。\n- **定时同步**：间隔 60 秒 ~ 7 天。\n\n### 安装\n\n1. 把 `MirrorUP-v0.6.0.mcdr` 放进 MCDR 的 `plugins/` 目录。\n2. `pip install xxhash`（MCDR 只校验依赖，不会自动安装）。\n3. 重启 MCDR，首次加载生成 `config/mirror_up/config.json`。\n\n需要 MCDR ≥ 2.12.0、Python ≥ 3.9。\n",
+      "prerelease": false,
+      "asset": {
+        "id": 726597430,
+        "name": "MirrorUP-v0.6.0.mcdr",
+        "size": 91184,
+        "download_count": 8,
+        "created_at": "2026-11-09T07:21:01Z",
+        "browser_download_url": "https://github.com/MiYui34/MirrorUP/releases/download/v0.6.0/MirrorUP-v0.6.0.mcdr",
+        "hash_md5": "0724d1af8866c1617247586805d88f53",
+        "hash_sha256": "cd11918caa53ef7bed98a6223c9ef4b80d3004af85093650d0d6f28f1411d37e"
+      },
+      "meta": {
+        "schema_version": 4,
+        "id": "mirror_up",
+        "name": "MirrorUP",
+        "version": "0.6.0",
+        "link": "https://github.com/MiYui34/MirrorUP",
+        "authors": [
+          "MiYui34"
+        ],
+        "dependencies": {
+          "mcdreforged": ">=2.12.0"
+        },
+        "requirements": [
+          "xxhash>=3.0"
+        ],
+        "description": {
+          "en_us": "Incremental mirror sync: only changed files and changed region chunks are transferred.",
+          "zh_cn": "镜像服增量同步：只传变更的文件与变更的 region chunk。"
+        }
+      }
+    }
+  ]
+}

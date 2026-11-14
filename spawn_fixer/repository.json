@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Mooling0602/SpawnFixer-MCDR",
+  "name": "SpawnFixer-MCDR",
+  "full_name": "Mooling0602/SpawnFixer-MCDR",
+  "html_url": "https://github.com/Mooling0602/SpawnFixer-MCDR",
+  "description": "A plugin working with MCDR that automatically fixes the global spawn point for each of the players.",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "- English\n- [简体中文](https://github.com/Mooling0602/SpawnFixer-MCDR/tree/main/README_zh_cn.md)\n\n# SpawnFixer-MCDR\nSpawnFixer is a plugin working with MCDR that automatically fixes the global spawn point for each of the players.\n\n## Principle\n### v0.1.0\n\nPlugin will use the `/data` command to get a player's respawn point, and fix pos y to correct value. This works for both new and old players.\n\nStill in developing...\n\n### v0.0.1\n\nThe principle of this plugin is to use the `/spawnpoint` command to set the spawn point for each player, when they firstly joined the server.\n\n**Player first join detection**\n\nPlugin will read filenames of files in `</path/to/server>/<world_name>/playerdata`, and get existing players' UUID list from them.\n\nAfter server startup, if a player is joining, and there is no UUID matched with his/her name before, plugin will execute the `/spawnpoint <UUID> <x> <y> <z>` to set the spawn point for him/her. And plugin will also refresh the UUID list when command execution is finished.\n\n## Installation\nExecute `!!MCDR plg install spawn_fixer [--confirm]` in MCDR console.\n> Will available once this plugin is submitted successfully to MCDR PluginCatalogue.\n\nOr download the `SpawnFixer-v*.mcdr` file from [Releases](https://github.com/MCDReforged/SpawnFixer-MCDR/releases) and put it into `</path/to/mcdr>/plugins` directory.\n\n### Dependency\n**PyPI packages need**:\n> Following plugins are not used at present, will be required in the future versions.\n- `requirements.txt`\n```txt\nmcdreforged\njavaproperties\n```\n\n**MCDR plugins need**:\n> Following plugins are not used at present, will be required in the future versions.\n- MoreCommandNodes | [GitHub](https://github.com/AnzhiZhang/MCDReforgedPlugins/tree/master/src/more_command_nodes) | [PluginCatalogue](https://mcdreforged.com/en/plugin/more_command_nodes)\n> Optional, for pos arguments check like `<x> <y> <z>`.\n\n- AysncRconClient | [GitHub](https://github.com/Mooling0602/AsyncRconClient) | [PluginCatalogue](https://mcdreforged.com/en/plugin/async_rcon)\n> Optional, another rcon support.\n\n- Minecraft Data API | [GitHub](https://github.com/Fallen-Breath/MinecraftDataAPI) | [PluginCatalogue](https://mcdreforged.com/en/plugin/minecraft_data_api)\n> Optional, get player's data by `/data` easily, and no rcon need.\n\n## Usage\nConfiguration file is in `<path/to/mcdr>/config/spawn_fixer/config.yml`.\n```yaml\nserver_path:\n  - path: server\n  - use_mcdr_config: true\n  - world_name: world\nspawnpoint:\n  - x: 0\n  - y: 64\n  - z: 0\nforce_dimension: false\ntarget_dimension: minecraft\\:overworld\n```\n\n### Debug\n> Will implemented in later versions.\n> After configured, make sure you have installed necessary dependencies, and I recommend you to install other optional dependencies also.\n\nThen, start MCDR server, and after server startup, execute `!!spawn_fixer debug` in MCDR console.\n\nIf anything goes well, you will see every check is passed, otherwise, try to fix by following the tips.\n\n## NOTE\nGamerule `spawnRadius` is not longer supported if you use this plugin.\n\n## Credits\n- Licensed under GPLv3.\n",
+  "readme_url": "https://raw.githubusercontent.com/Mooling0602/SpawnFixer-MCDR/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}
