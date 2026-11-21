@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "gamemode",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/gamemode",
+  "labels": [
+    "tool"
+  ],
+  "introduction": {
+    "en_us": "# Gamemode\n\n> 高级版灵魂出窍（切旁观，切回生存传送回原位置）\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` 切换旁观/生存\n\n`!!spec <player>` 切换他人模式\n\n`!!tp <player>` 传送至指定玩家\n\n`!!tp <dimension>` 传送至指定维度（主世界与下界自动换算坐标）\n\n`!!tp [dimension] <x> <y> <z>` 传送至（指定维度的）指定坐标\n\n`!!back` 返回上个地点\n\n若启用了 `short_commands`，可使用配置的短命令（如: `!s`）替代 `!!spec`\n\n## 配置\n\n默认配置如下:\n\n```json\n{\n    \"version\": 2,\n    \"data_path\": null,\n    \"short_commands\": [\n        \"!s\"\n    ],\n    \"permissions\": {\n        \"spec\": 1,\n        \"spec_other\": 2,\n        \"tp\": 1,\n        \"back\": 1\n    },\n    \"range_limit\": {\n        \"check_interval\": 0,\n        \"x\": 50,\n        \"y\": 50,\n        \"z\": 50\n    }\n}\n```\n\n### version\n\n配置文件版本，请不要更改\n\n### data_path\n\n默认值: `null`\n\n用于设置存储正处于旁观模式的玩家的信息（如: 他们生存切旁观时的位置）等数据的文件的位置，默认（`null`）存储于插件配置文件夹中。\n\n如果你同时安装了其他备份插件（如 Prime Backup），则建议将此项设置为存档内的文件，防止回档后玩家的 \"旁观\" 没有回档，例如 `server/world/mcdr-plugin-config/gamemode/data.json`。\n\n### permissions\n\n各种操作所需的最低权限\n\n#### spec\n\n默认值: `1`\n\n使用 `!!spec` 与 `short_command` (若启用) 的最低权限\n\n#### spec_other\n\n默认值: `2`\n\n使用 `!!spec <player>` 的最低权限\n\n#### tp\n\n默认值: `1`\n\n使用 `!!tp <player>`、`!!tp <dimension>`、`!!tp [dimension] <x> <y> <z>` 的最低权限\n\n#### back\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n\n### short_commands\n\n默认值: `[\"!s\"]`\n\n短命令列表，`!!spec` 的别名，运行此命令的权限要求与 `!!spec` 相同。\n\n### range_limit\n\n活动范围限制（切旁观时限制活动范围在一个长方体内），超过限制范围将自动传回到最近的边界，仅对无 tp 权限的玩家生效。\n\n#### check_interval\n\n默认值: `0`\n\n检查间隔（秒），`0` 表示禁用活动范围限制，推荐不大于 `5`\n\n#### x\n\n默认值: `50`\n\nx 方向活动半径，`0` 代表不限制此方向上的活动范围\n\n#### y\n\n默认值: `50`\n\ny 方向活动半径，`0` 代表不限制此方向上的活动范围\n\n#### z\n\n默认值: `50`\n\nz 方向活动半径，`0` 代表不限制此方向上的活动范围\n",
+    "zh_cn": "# Gamemode\n\n> 高级版灵魂出窍（切旁观，切回生存传送回原位置）\n\n感谢 [方块君](https://github.com/Squaregentleman) 的 [gamemode](https://github.com/Squaregentleman/MCDR-plugins) 插件\n\n## 前置插件\n\n- [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)\n\n## 使用\n\n`!!spec` 切换旁观/生存\n\n`!!spec <player>` 切换他人模式\n\n`!!tp <player>` 传送至指定玩家\n\n`!!tp <dimension>` 传送至指定维度（主世界与下界自动换算坐标）\n\n`!!tp [dimension] <x> <y> <z>` 传送至（指定维度的）指定坐标\n\n`!!back` 返回上个地点\n\n若启用了 `short_commands`，可使用配置的短命令（如: `!s`）替代 `!!spec`\n\n## 配置\n\n默认配置如下:\n\n```json\n{\n    \"version\": 2,\n    \"data_path\": null,\n    \"short_commands\": [\n        \"!s\"\n    ],\n    \"permissions\": {\n        \"spec\": 1,\n        \"spec_other\": 2,\n        \"tp\": 1,\n        \"back\": 1\n    },\n    \"range_limit\": {\n        \"check_interval\": 0,\n        \"x\": 50,\n        \"y\": 50,\n        \"z\": 50\n    }\n}\n```\n\n### version\n\n配置文件版本，请不要更改\n\n### data_path\n\n默认值: `null`\n\n用于设置存储正处于旁观模式的玩家的信息（如: 他们生存切旁观时的位置）等数据的文件的位置，默认（`null`）存储于插件配置文件夹中。\n\n如果你同时安装了其他备份插件（如 Prime Backup），则建议将此项设置为存档内的文件，防止回档后玩家的 \"旁观\" 没有回档，例如 `server/world/mcdr-plugin-config/gamemode/data.json`。\n\n### permissions\n\n各种操作所需的最低权限\n\n#### spec\n\n默认值: `1`\n\n使用 `!!spec` 与 `short_command` (若启用) 的最低权限\n\n#### spec_other\n\n默认值: `2`\n\n使用 `!!spec <player>` 的最低权限\n\n#### tp\n\n默认值: `1`\n\n使用 `!!tp <player>`、`!!tp <dimension>`、`!!tp [dimension] <x> <y> <z>` 的最低权限\n\n#### back\n\n默认值: `1`\n\n使用 `!!back` 的最低权限\n\n### short_commands\n\n默认值: `[\"!s\"]`\n\n短命令列表，`!!spec` 的别名，运行此命令的权限要求与 `!!spec` 相同。\n\n### range_limit\n\n活动范围限制（切旁观时限制活动范围在一个长方体内），超过限制范围将自动传回到最近的边界，仅对无 tp 权限的玩家生效。\n\n#### check_interval\n\n默认值: `0`\n\n检查间隔（秒），`0` 表示禁用活动范围限制，推荐不大于 `5`\n\n#### x\n\n默认值: `50`\n\nx 方向活动半径，`0` 代表不限制此方向上的活动范围\n\n#### y\n\n默认值: `50`\n\ny 方向活动半径，`0` 代表不限制此方向上的活动范围\n\n#### z\n\n默认值: `50`\n\nz 方向活动半径，`0` 代表不限制此方向上的活动范围\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/gamemode/readme.md"
+  }
+}

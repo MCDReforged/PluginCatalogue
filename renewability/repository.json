@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/Fidelxyz/MCDR-Renewability",
+  "name": "MCDR-Renewability",
+  "full_name": "Fidelxyz/MCDR-Renewability",
+  "html_url": "https://github.com/Fidelxyz/MCDR-Renewability",
+  "description": "A MCDR plugin that allows players to clone non-renewable items.",
+  "archived": false,
+  "stargazers_count": 2,
+  "watchers_count": 2,
+  "forks_count": 1,
+  "readme": "# MCDR-Renewability\nA [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) plugin that allows players to clone non-renewable items.\n\n一个允许玩家复制不可再生物品的 [MCDR](https://github.com/Fallen-Breath/MCDReforged) 插件。\n\n[![License](https://img.shields.io/github/license/Fidelxyz/MCDR-Renewability.svg)](https://github.com/Fidelxyz/MCDR-Renewability/blob/master/LICENSE)\n[![Release](https://img.shields.io/github/v/release/Fidelxyz/MCDR-Renewability.svg)](https://github.com/Fidelxyz/MCDR-Renewability/releases)\n\n## 安装\n\n依赖 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 1.x 和 [MinecraftDataAPI](https://github.com/MCDReforged/MinecraftDataAPI)。\n\n## 用法\n\n`!!clone` 复制手中物品\n\n`!!clone help` 查看帮助\n\n`!!clone query` 查询今日剩余复制次数\n\n`!!clone list` 查看可复制的物品列表\n\n## 配置\n\n第一次运行时会在 MCDR 目录中的 `config/renewability/` 目录新建 `config.json` 配置文件。\n\n### `'max_daily_items_cloned'`\n\n每人每日允许复制物品的最大数量。\n\n类型：`Integer`\n\n默认值：`1`\n\n### `'allowed_items_list'`\n\n允许复制的物品 ID。\n\n类型：`list`\n\n默认值：\n\n```json\n[\n\t\"minecraft:elytra\",\n\t\"minecraft:enchanted_golden_apple\",\n\t\"minecraft:sponge\"\n]\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/Fidelxyz/MCDR-Renewability/main/README.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

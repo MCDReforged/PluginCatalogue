@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "mcdreforged_plugin_manager",
+  "authors": [
+    "Ivan1F"
+  ],
+  "repository": "https://github.com/Ivan-1F/MCDReforgedPluginManager",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "MCDReforgedPluginManager\n-----\n\n> [!TIP]\n> Deprecated, use [MCDR's built-in plugin installer](https://docs.mcdreforged.com/en/latest/command/mcdr.html#plugin-catalogue-access) instead\n\n**English** | [中文](https://github.com/Ivan-1F/MCDReforgedPluginManager/tree/master/./README_cn.md)\n\n> Manage your mcdreforged plugins with ease\n\nMCDReforgedPluginManager (short for `mpm`) is a MCDReforged plugin manager based on [PluginCatalogue](https://github.com/MCDReforged/PluginCatalogue)\n\nMCDReforgedPluginManager fetch plugin metadata from [PluginCatalogue](https://github.com/MCDReforged/PluginCatalogue) and update automatically at regular intervals\n\n![overview](https://raw.githubusercontent.com/Ivan-1F/MCDReforgedPluginManager/master/./screenshots/en_us.gif)\n\n## Features\n\n- Dependency checking\n- Update checking\n- Plugin installation & uninstallation\n- Plugin upgrading\n- Plugin searching\n\n## Requirements\n\n[MCDReforged](https://github.com/Fallen-Breath/MCDReforged) requirement: `>=2.0.0`\n\nPython package requirements: See [requirements.txt](https://github.com/Ivan-1F/MCDReforgedPluginManager/blob/master/requirements.txt)\n\n## Configuration\n\nThe configuration file is `config/mcdreforged_plugin_manager/config.yml`\n\nThe commented default config file will be generated when mpm is loaded for the first time:\n\n```yaml\n# Configure file for MCDReforgedPluginManager\n\n\n# The minimum permission level to use MPM commands\n# 使用 MCDReforgedPluginManager 指令的最低权限\npermission: 4\n\n# The source of plugin catalogue to fetch data, should be the url to download the whole meta branch\n# 插件仓库数据源，应是下载整个 meta 分支的链接\nsource: https://github.com/MCDReforged/PluginCatalogue/archive/refs/heads/meta.zip\n\n# The timeout for network requests\n# 网络请求的超时时间\ntimeout: 5\n\n# The time interval between each cache (unit: minute)\n# 定时更新插件索引的时间间隔（单位：分钟）\ncache_interval: 2\n\n# If set to true, the plugin will check plugin updates after each scheduled cache\n# 若设为 true，插件将在每次定时更新插件索引后自动检查更新\ncheck_update: true\n\n# The path to install the plugin, should be one of the value of 'plugin_directories' of the MCDR config\n# 安装插件的位置，应是 MCDR 配置中的 'plugin_directories' 中的一个\ninstall_path: plugins\n\n# Proxy addresses, both http and https is optional\n# 代理地址，http 与 https 都是可选的\nproxy:\n  http:\n  https:\n```\n\nFollow the comments and modify the config, use `!!MCDR plg reload mcdreforged_plugin_manager` to reload the config\n\n## Commands\n\n- `!!mpm`: Display MPM help message\n- `!!mpm list [labels]`: List all the plugins.\n  - If labels is specified, only plugins with specified labels will be displayed\n  - `labels` can be a single label or multiple labels split by `,`. Accepted labels: `information`, `tool`, `management`, `api`\n- `!!mpm search <query>`: Search plugins based on the keyword\n- `!!mpm info <plugin_id>`: Show detailed information of a plugin\n- `!!mpm install <plugin_ids>`: Install plugins, as well plugin dependencies and required python packages\n- `!!mpm uninstall <plugin_ids>`: Uninstall plugins\n- `!!mpm upgrade <plugin_ids>`: Upgrade plugins to the latest version\n- `!!mpm confirm`: Confirm the operation\n- `!!mpm checkupdate`: Manually check update for all installed plugins\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/Ivan-1F/MCDReforgedPluginManager/master/README.md"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/PRcT-Server/MCDRPlugins",
+  "name": "MCDRPlugins",
+  "full_name": "PRcT-Server/MCDRPlugins",
+  "html_url": "https://github.com/PRcT-Server/MCDRPlugins",
+  "description": "Some Plugins for MCDReforged",
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "# PlayerManager\n> 方便，快捷地管理你的地毯端假人!\n\nPS：本插件适用于MCDR 2x\n#### 插件依赖：\n* [SQLAlchemy](https://pypi.org/project/SQLAlchemy/) 数据库模块\n* [hjson](https://pypi.org/project/hjson/) 比 Python标准库更快的 Json解析\n* [nbt](https://pypi.org/project/NBT/) 读取 Minecraft原版 Tag\n\n#### 插件配置\n\n```\n{\n    \"prefix\": \"!!pm\",             # 调用 PlayerManager所使用的命令\n    \"server_path\": \"./server\",    # 服务器路径和 MCDR运行路径的相对路径，一般不变\n    \"world_folder\": \"world\",      # 服务器存档文件夹名称，一般不变\n    \"query_limit\": 10,            # 每次查询最多显示的 BOT数量\n    \"auto_bot_replase\": false     # Debug选项，不用管\n}\n```\n\n### 插件使用\n\n```!!pm - 查看插件使用帮助```\n\n```!!pm list *<页码> ``` - 查看服务器的假人列表\n\n```!!pm list tag *<页码> ``` - 查看备注假人列表\n\n```!!pm list online *<页码> ``` - 查看在线假人列表\n\n```!!pm search <关键词> *<page>``` - 通过假人名和假人备注查找假人\n\n```!!pm <假人名> set <备注> ``` - 为假人设置备注\n\n```!!pm <假人名> auto``` - 设置假人在每次服务器重启以后自动重新生成，再次使用为取消设置\n\n```!!pm <假人名>``` - 查看假人的设置信息\n\n",
+  "readme_url": "https://raw.githubusercontent.com/PRcT-Server/MCDRPlugins/master/PlayerManager/README.md",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit"
+  }
+}

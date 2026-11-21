@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "mirror_control",
+  "authors": [
+    "Chara_SS"
+  ],
+  "repository": "https://github.com/humonia-sys/Mirror-Control",
+  "branch": "master",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "## Mirror Control\n\n## [中文版本](https://github.com/humonia-sys/Mirror-Control/tree/master/./readme_zh-cn.md)\n\n#### Usage\n\n- `!!mirror` Displays help message and portable management\n- `!!mirror start <server_name>` Start the mirror server (including sync operation)\n- `!!mirror restart <server_name>` Restart the mirror server (including sync operation)\n- `!!mirror stop <server_name>` Stop the mirror server\n- `!!mirror sync <server_name>` Sync the mirror server\n\n`server_name` should be similar to *default* in the configuration file\n\n#### Configuration file structure\n\nPlease modify the configuration file before using this plugin *but after you first start\n\n\\* means items you need to modify\n\n```\n\nconfig.json\n\t|- permission (int 1->4)\n\t|\t\t|- start\n\t|\t\t|- sync\n\t|\t\t|- stop\n\t|\t\t|- restart\n\t|\n    |- this_server (str dir)\n    |    \t|- work_directory *\n    |\n    |- server\n    \t\t|- default * (Change to whatever you want, just don't leave it as 'default'. It's ugly.) |       |\n    \t\t|\t\t|- name * (Any server nickname you want)\n    \t\t|\t\t|- location * (An absolute address)\n    \t\t|\t\t|- target_server_location * (Its server directory location)\n    \t\t-\t\t|- command * (Start command. Can simply be filled in with 'start.bat' or 'sh start.sh')   |\n    \t\t-\t\t|- rcon\n    \t\t|\t\t\t|- enable * (boolean true)\n    \t\t|\t\t\t|- port * \n    \t\t|\t\t\t|- passwd *\n    \t\t|\n    \t\t|- ...\n```\n",
+    "zh_cn": "Mirror Control\n-----\n[English version](https://github.com/humonia-sys/Mirror-Control/tree/master/./README.md)\n---\n\n#### 用法\n\n* `!!mirror` 显示帮助消息以及便携管理\n* `!!mirror start <server_name>` 开启镜像服(包括同步操作)\n* `!!mirror restart <server_name>` 重启镜像服(包括同步操作)\n* `!!mirror stop <server_name>` 停止镜像服\n* `!!mirror sync <server_name>` 同步镜像服\n\n`server_name` 应当是类似于在配置文件中的 *default*\n\n#### 配置文件结构\n\n请在您使用本插件前先修改配置文件 *但是得在你第一次启动后\n\n\\* 意味着你需要修改的项目\n\n```\nconfig.json\n\t|- permission (int 1->4)\n\t|\t\t|- start\n\t|\t\t|- sync\n\t|\t\t|- stop\n\t|\t\t|- restart\n\t|\n    |- this_server (str dir)\n    |    \t|- work_directory *\n    |\n    |- server\n    \t\t|- default * (想改成啥改成啥,就是别留个'default'.太丑了)\n    \t\t|\t\t|- name * (任何你想要的服务器昵称)\n    \t\t|\t\t|- location * (一个绝对地址)\n    \t\t|\t\t|- target_server_location * (他的server文件夹地址)\n    \t\t|\t\t|- command * (启动命令.可以简单地填入'start.bat'或者'sh start.sh')\n    \t\t|\t\t|- rcon\n    \t\t|\t\t\t|- enable * (boolean true)\n    \t\t|\t\t\t|- port * \n    \t\t|\t\t\t|- passwd *\n    \t\t|\n    \t\t|- ...\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/humonia-sys/Mirror-Control/master/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/humonia-sys/Mirror-Control/master/readme_zh-cn.md"
+  }
+}
