@@ -1,0 +1,14 @@
+{
+  "url": "https://github.com/kmcsr/delayexe_mcdr",
+  "name": "delayexe_mcdr",
+  "full_name": "kmcsr/delayexe_mcdr",
+  "html_url": "https://github.com/kmcsr/delayexe_mcdr",
+  "description": "A plugin for MCDReforged",
+  "archived": false,
+  "stargazers_count": 3,
+  "watchers_count": 3,
+  "forks_count": 0,
+  "readme": "\n- English\n- [中文](https://github.com/kmcsr/delayexe_mcdr/tree/master/README_zh.MD)\n\n# Delay ExE\n\n- A plugin for delay execute command until all player have left\n- You can use it as a API\n\n### Example for API\n\n```python\n\nimport delayexe\n\ndef a_method():\n\tdelayexe.add_delay_task('say There are no player online') # run minecraft command\n\tdelayexe.add_delay_task('kill @a') # Must nothing to kill\n\tdelayexe.add_delay_task(lambda: print('There are no player online')) # run python method\n\n\t# ...\n\n\tdelayexe.clear_delay_task() # clear all delay tasks, the top of three commands will never run, if any player is online\n\n# ...\n\na_method()\n\n# ...\n\n```\n\n",
+  "readme_url": "https://raw.githubusercontent.com/kmcsr/delayexe_mcdr/master/README.MD",
+  "license": null
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "online_player_api",
+  "authors": [
+    "Andy Zhang"
+  ],
+  "repository": "https://github.com/AnzhiZhang/MCDReforgedPlugins",
+  "branch": "master",
+  "related_path": "src/online_player_api",
+  "labels": [
+    "api"
+  ],
+  "introduction": {
+    "en_us": "# OnlinePlayerAPI\n\n> 在线玩家 API\n\n## API\n\n### is_online(player: str, case_sensitive: bool = True)\n\n如果玩家在线, 返回 `True`。\n\n如果玩家不在线, 返回 `False`。\n\n`case_sensitive` 是否忽略大小写。\n\n### check_online(player: str, case_sensitive: bool = True)\n\n与 `is_online(player)` 相同。\n\n### get_player_list()\n\n返回所有在线玩家的列表。\n\n### normalize_player_name(player: str)\n\n返回给定玩家名称的正确大小写形式。\n\n如果玩家不在线，则引发 ValueError。\n",
+    "zh_cn": "# OnlinePlayerAPI\n\n> 在线玩家 API\n\n## API\n\n### is_online(player: str, case_sensitive: bool = True)\n\n如果玩家在线, 返回 `True`。\n\n如果玩家不在线, 返回 `False`。\n\n`case_sensitive` 是否忽略大小写。\n\n### check_online(player: str, case_sensitive: bool = True)\n\n与 `is_online(player)` 相同。\n\n### get_player_list()\n\n返回所有在线玩家的列表。\n\n### normalize_player_name(player: str)\n\n返回给定玩家名称的正确大小写形式。\n\n如果玩家不在线，则引发 ValueError。\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/online_player_api/readme.md",
+    "zh_cn": "https://raw.githubusercontent.com/AnzhiZhang/MCDReforgedPlugins/master/src/online_player_api/readme.md"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://github.com/humonia-sys/Mirror-Control",
+  "name": "Mirror-Control",
+  "full_name": "humonia-sys/Mirror-Control",
+  "html_url": "https://github.com/humonia-sys/Mirror-Control",
+  "description": null,
+  "archived": false,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "forks_count": 0,
+  "readme": "## Mirror Control\n\n## [中文版本](https://github.com/charassss/Mirror-Control/tree/master/./readme_zh-cn.md)\n\n#### Usage\n\n- `!!mirror` Displays help message and portable management\n- `!!mirror start <server_name>` Start the mirror server (including sync operation)\n- `!!mirror restart <server_name>` Restart the mirror server (including sync operation)\n- `!!mirror stop <server_name>` Stop the mirror server\n- `!!mirror sync <server_name>` Sync the mirror server\n\n`server_name` should be similar to *default* in the configuration file\n\n#### Configuration file structure\n\nPlease modify the configuration file before using this plugin *but after you first start\n\n\\* means items you need to modify\n\n```\n\nconfig.json\n\t|- permission (int 1->4)\n\t|\t\t|- start\n\t|\t\t|- sync\n\t|\t\t|- stop\n\t|\t\t|- restart\n\t|\n    |- this_server (str dir)\n    |    \t|- work_directory *\n    |\n    |- server\n    \t\t|- default * (Change to whatever you want, just don't leave it as 'default'. It's ugly.) |       |\n    \t\t|\t\t|- name * (Any server nickname you want)\n    \t\t|\t\t|- location * (An absolute address)\n    \t\t|\t\t|- target_server_location * (Its server directory location)\n    \t\t-\t\t|- command * (Start command. Can simply be filled in with 'start.bat' or 'sh start.sh')   |\n    \t\t-\t\t|- rcon\n    \t\t|\t\t\t|- enable * (boolean true)\n    \t\t|\t\t\t|- port * \n    \t\t|\t\t\t|- passwd *\n    \t\t|\n    \t\t|- ...\n```\n",
+  "readme_url": "https://raw.githubusercontent.com/charassss/Mirror-Control/master/readme.md",
+  "license": {
+    "key": "gpl-3.0",
+    "name": "GNU General Public License v3.0",
+    "spdx_id": "GPL-3.0",
+    "url": "https://api.github.com/licenses/gpl-3.0"
+  }
+}

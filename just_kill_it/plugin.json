@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "id": "just_kill_it",
+  "authors": [
+    "alex3236"
+  ],
+  "repository": "https://github.com/alex3236/just_kill_it",
+  "branch": "main",
+  "related_path": ".",
+  "labels": [
+    "management"
+  ],
+  "introduction": {
+    "en_us": "### Just Kill It\n-----\n\nForces the server to stop when it fails to stop gracefully after a long period of time.\n\n## Configuration\n\nConfiguration file: `config/just_kill_it/config.json`\n\n```json5\n{\n    \"stopping_pattern\": \"Stopping the server\", // Regex (fullmatch) to determine if the server is stopping\n    \"save_timeout\": 120, // Timeout before the server is forcibly stopped if saving has not completed\n    \"saved_pattern\": \".*All dimensions are saved\", // Regex (fullmatch) to determine if the server has finished saving\n    \"exit_timeout\": 10 // Timeout after saving has completed before the server is forcibly stopped\n}\n```\n",
+    "zh_cn": "Just Kill It\n-----\n\n一个 [MCDReforged](https://github.com/Fallen-Breath/MCDReforged) 插件\n\n在服务端长时间无法停止时，强制结束服务端\n\n## 配置\n\n配置文件：`config/just_kill_it/config.json`\n\n```json5\n{\n    \"stopping_pattern\": \"Stopping the server\", // 正则表达式（完全匹配）用于判断服务端是否停止\n    \"save_timeout\": 120, // 存档完毕前等待时间，超时结束服务端\n    \"saved_pattern\": \".*All dimensions are saved\", // 正则表达式（完全匹配）用于判断服务端是否存档完毕\n    \"exit_timeout\": 10 // 存档完毕后等待时间，超时结束服务端\n}\n```\n"
+  },
+  "introduction_urls": {
+    "en_us": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/just_kill_it/introduction.md",
+    "zh_cn": "https://raw.githubusercontent.com/MCDReforged/PluginCatalogue/master/plugins/just_kill_it/introduction-zh_cn.md"
+  }
+}
